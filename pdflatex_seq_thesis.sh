@@ -1,7 +1,11 @@
 #!/bin/bash
+cd ~/Documents/PhD-Thesis/
+for file in $(grep --include="*.tex" --include="*.pgf" --exclude="homedirs.tex" -rlHm1 $HOME) ; do
+    echo '  '$file
+    sed -i "s|$HOME|\\\homedir|g" $file
+done
 nbcompilmax=5
 file=LT-These-main
-cd ~/Documents/PhD-Thesis/
 pdflatex -draftmode $file
 sleep 0.25
 if [ -e $file.bcf ]; then biber $file ; fi &
