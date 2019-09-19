@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $lt_PhD_thesis_dir/../
+cd $lt_PhD_thesis_dir/
 
-pdflatex_complete_sequence tex/LT-These-main
+pdflatex_complete_sequence $lt_PhD_thesis_dir/tex/LT-These-main
 check_LaTeX_logs

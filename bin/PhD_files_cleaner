@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $lt_PhD_thesis_dir/..
+cd $lt_PhD_thesis_dir
 
 echo 'Removing *~ and #*# files ...'
 rm_tilde_files
@@ -10,11 +10,11 @@ pgfs_make_absolute_paths
 echo ''
 echo ''
 echo 'Cleaning TeX files...'
-for file in $(cd $lt_PhD_thesis_dir/.. && grep --include="*.tex" --include="*.pgf" -rlHm1 $HOME) ; do
-    if [[ $file == *homedirs.tex* ]]
+for file in $(cd $lt_PhD_thesis_dir && grep --include="*.tex" --include="*.pgf" -rlHm1 $lt_PhD_thesis_dir) ; do
+    if [[ $file == *PhDthesisdirs.tex* ]]
     then
         break
     fi
     echo '  '$file
-    sed -i "s|$HOME|\\\homedir|g" $lt_PhD_thesis_dir/../$file
+    sed -i "s|$lt_PhD_thesis_dir|\\\PhDthesisdir|g" $lt_PhD_thesis_dir/$file
 done

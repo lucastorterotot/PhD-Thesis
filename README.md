@@ -18,7 +18,7 @@ cd PhD-Thesis/
 git remote add lucas git@github.com:lucastorterotot/PhD-Thesis.git
 ```
 
-5. To make LaTeX `\input{}` working on any computer, define the `\homedir` command:
+5. Run the provided installation script:
 ```
-echo "\IfFileExists{"$(pwd)"/"$(ls README.md)"}{\def\homedir{"$HOME"}}{}" >> homedirs.tex
+./install
 ```

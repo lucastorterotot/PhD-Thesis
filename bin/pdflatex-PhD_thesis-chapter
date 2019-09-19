@@ -2,7 +2,7 @@
 
 pdffilename=$(basename ~+)
 
-pdflatex_complete_sequence /home/torterotot/Documents/PhD-Thesis/tex/LT-These-part_generator
+pdflatex_complete_sequence $lt_PhD_thesis_dir/tex/LT-These-part_generator
 
 mv LT-These-part_generator.pdf $pdffilename.pdf &
 mv LT-These-part_generator.log $pdffilename.log &

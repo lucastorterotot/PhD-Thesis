@@ -6,12 +6,15 @@ echo "Installing $name..."
 
 instal_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+touch $instal_dir/tex/PhDthesisdirs.tex
+
 bin_dir=$instal_dir/bin/
 if [[ $PATH = *$bin_dir* ]] || [[ $(grep -l "$name" ~/.bashrc) = ~/.bashrc ]]
 then
     echo 'It seems like you already have installed this!'
     echo 'Not changing anything.'
 else
+    echo "\IfFileExists{"$instal_dir"/README.md}{\def\PhDthesisdir{"$instal_dir"}}{}" >> $instal_dir/tex/PhDthesisdirs.tex
     if [[ $instal_dir = $HOME* ]]
     then
         instal_dir=~${instal_dir#$HOME}
