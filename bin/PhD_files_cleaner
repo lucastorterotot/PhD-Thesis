@@ -1,0 +1,25 @@
+#!/bin/bash
+
+cd $lt_PhD_thesis_dir/..
+
+echo 'Removing *~ and #*# files ...'
+rm_tilde_files
+echo ''
+echo ''
+pgfs_make_absolute_paths
+echo ''
+echo ''
+echo 'Cleaning TeX files...'
+for file in $(cd $lt_PhD_thesis_dir/.. && grep --include="*.tex" --include="*.pgf" -rlHm1 $HOME) ; do
+    if [[ $file == *homedirs.tex* ]]
+    then
+        break
+    fi
+    echo '  '$file
+    sed -i "s|$HOME|\\\homedir|g" $lt_PhD_thesis_dir/../$file
+done
+echo ''
+echo ''
+wait
+echo 'Exporting Dropbox files to IPNL ...'
+rsync -auh --delete --progress --stats ~/Dropbox/{PhD,*ipnl.sh,Enseignement,resources,Computing,LaTeX,Python} torterotot@lyoserv.in2p3.fr:/winhome/cms/torterotot/Dropbox/

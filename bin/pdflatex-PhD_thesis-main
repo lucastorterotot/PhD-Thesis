@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd $lt_PhD_thesis_dir/../
+
+pdflatex_complete_sequence tex/LT-These-main
+check_LaTeX_logs
