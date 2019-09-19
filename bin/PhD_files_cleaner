@@ -18,8 +18,3 @@ for file in $(cd $lt_PhD_thesis_dir/.. && grep --include="*.tex" --include="*.pg
     echo '  '$file
     sed -i "s|$HOME|\\\homedir|g" $lt_PhD_thesis_dir/../$file
 done
-echo ''
-echo ''
-wait
-echo 'Exporting Dropbox files to IPNL ...'
-rsync -auh --delete --progress --stats ~/Dropbox/{PhD,*ipnl.sh,Enseignement,resources,Computing,LaTeX,Python} torterotot@lyoserv.in2p3.fr:/winhome/cms/torterotot/Dropbox/
