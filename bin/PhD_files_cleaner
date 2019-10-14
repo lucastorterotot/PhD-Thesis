@@ -11,10 +11,9 @@ echo ''
 echo ''
 echo 'Cleaning TeX files...'
 for file in $(cd $lt_PhD_thesis_dir && grep --include="*.tex" --include="*.pgf" -rlHm1 $lt_PhD_thesis_dir) ; do
-    if [[ $file == *PhDthesisdirs.tex* ]]
+    if [[ ! $file == *PhDthesisdirs.tex* ]]
     then
-        break
-    fi
     echo '  '$file
     sed -i "s|$lt_PhD_thesis_dir|\\\PhDthesisdir|g" $lt_PhD_thesis_dir/$file
+    fi
 done
