@@ -1,0 +1,37 @@
+\begin{frame}
+\frametitle{Simpler concept: the ABCD method}
+\begin{center}
+\begin{tikzpicture}
+\def\hdAB{1}
+\draw (-\hdAB,\hdAB) coordinate (A);
+\draw (\hdAB,\hdAB) coordinate (B);
+\draw (-\hdAB,-\hdAB) coordinate (C);
+\draw (\hdAB,-\hdAB) coordinate (D);
+
+\draw [thick] (0,2*\hdAB)--(0,-2*\hdAB);
+\draw [thick] (2*\hdAB,0)--(-2*\hdAB,0);
+
+\foreach \coord in {A,B,C,D}{\draw(\coord)node{\LARGE\coord};}
+
+\draw (-\hdAB,2*\hdAB) node [above] {Opposite\vphantom{ÀQ}} node [below] {Signs};
+\draw (\hdAB,2*\hdAB) node [above] {Same\vphantom{ÀQ}} node [below] {Signs};
+
+\draw (-2*\hdAB,\hdAB) node [above left] {Isolated} node [below left] {Regions};
+\draw (-2*\hdAB,-\hdAB) node [above left] {Anti-iso} node [below left] {Regions};
+\end{tikzpicture}
+\end{center}
+\begin{minipage}{.5\textwidth}
+\begin{block}{Hypothesis}
+\begin{itemize}
+\item $\displaystyle\frac{N_\text{A}}{N_\text{C}}=\frac{N_\text{B}}{N_\text{D}}$
+\item Shapes are isolation-independents.
+\end{itemize}
+\end{block}
+\end{minipage}
+\begin{minipage}[c]{.49\textwidth}\Large
+\begin{equation*}
+\Rightarrow
+\boxed{\text{histo}_\text{A} = \frac{N_\text{B}}{N_\text{D}} \text{histo}_\text{C}}
+\end{equation*}
+\end{minipage}
+\end{frame}
