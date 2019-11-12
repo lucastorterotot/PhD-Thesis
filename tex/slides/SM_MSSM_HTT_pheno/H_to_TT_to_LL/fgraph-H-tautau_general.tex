@@ -1,0 +1,22 @@
+\begin{fmffile}{H-tautau_general}\fmfstraight
+\begin{fmfchar*}(60,30)
+  \fmfleft{h}
+  \fmfright{nu1,nub1,tau1,tau2,nub2,nu2}
+  \fmf{dashes, label=$\Hs,, \Hn,, \Ha$, l.side=left, tension=5}{h,v}
+  \fmf{plain, label=$\tau_2$, l.side=left, tension=4}{t1d,v}
+  \fmf{plain, label=$\tau_1$, l.side=left, tension=4}{v,t2d}
+  \fmf{plain, tension=3}{nu1,t1d}
+  \fmf{boson, label=$W$, l.side=left, tension=2}{t1d,W1d}
+  \fmf{plain}{tau1,W1d,nub1}
+  \fmf{plain, tension=3}{t2d,nu2}
+  \fmf{boson, label=$W$, tension=2}{t2d,W2d}
+  \fmf{plain}{tau2,W2d,nub2}
+  \fmflabel{$\nutau$}{nu1}
+  \fmflabel{$\nutau$}{nu2}
+  \fmflabel{$(a)$}{nub2}
+  \fmflabel{$(b)$}{tau2}
+  \fmflabel{$(c)$}{tau1}
+  \fmflabel{$(d)$}{nub1}
+  \fmfdot{v,t1d,t2d,W1d,W2d}
+\end{fmfchar*}
+\end{fmffile}
