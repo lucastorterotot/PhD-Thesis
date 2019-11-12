@@ -4,8 +4,9 @@
 \begin{tikzpicture}
 \draw (0,0) node (h) {\Higgs, \HiggsA};
 \foreach \coord/\ptc/\width/\dash/\angle in {
-\input{/home/torterotot/Documents/PhD-Thesis/tex/slides/SM_MSSM_HTT_pheno/why_HTT/diagramme_fermions_bosons_base.tex}
-}{
+u/{up-type fermions}///150,
+d/{down-type fermions}///30,
+b/{vector bosons}///-90}{
 \draw [-latex, CERNblue, thick] (h)--+(\angle:2) coordinate (\coord) ;
 \draw (h)+(\angle:2.5) node {\ptc} ;
 }
@@ -20,8 +21,9 @@
 \begin{tikzpicture}
 \draw (0,0) node (h) {\Higgs, \HiggsA};
 \foreach \coord/\ptc/\width/\dash/\angle in {
-\input{/home/torterotot/Documents/PhD-Thesis/tex/slides/SM_MSSM_HTT_pheno/why_HTT/diagramme_fermions_bosons_base.tex}
-}{
+u/{up-type fermions}///150,
+d/{down-type fermions}///30,
+b/{vector bosons}///-90}{
 \draw [-latex, CERNblue, thick] (h)--+(\angle:2) coordinate (\coord) ;
 \draw (h)+(\angle:2.5) node {\ptc} ;
 }
@@ -37,8 +39,9 @@
 \begin{tikzpicture}
 \draw (0,0) node (h) {\Higgs, \HiggsA};
 \foreach \coord/\ptc/\width/\dash/\angle in {
-\input{/home/torterotot/Documents/PhD-Thesis/tex/slides/SM_MSSM_HTT_pheno/why_HTT/diagramme_fermions_bosons_base.tex}
-}{
+u/{up-type fermions}///150,
+d/{down-type fermions}///30,
+b/{vector bosons}///-90}{
 \draw [-latex, CERNblue, thick] (h)--+(\angle:2) coordinate (\coord) ;
 \draw (h)+(\angle:2.5) node {\ptc} ;
 }
@@ -55,8 +58,12 @@
 \begin{tikzpicture}
 \draw (0,0) node (h) {\Higgs, \HiggsA};
 \foreach \coord/\ptc/\width/\dash/\angle in {
-\input{/home/torterotot/Documents/PhD-Thesis/tex/slides/SM_MSSM_HTT_pheno/why_HTT/diagramme_fermions_down_base.tex}
-}{
+ele/$\antielectron\electron$/very thin//120,
+mu/$\antimuon\muon$///60,
+tau/$\antitau\leptau$/very thick//0,
+d/$\quarkd\antiquarkd$/ultra thin//-60,
+s/$\quarks\antiquarks$///-120,
+b/$\quarkb\antiquarkb$/ultra thick//-180}{
 \draw [-latex, CERNblue, thick] (h)--+(\angle:2) coordinate (\coord) ;
 \draw (h)+(\angle:2.5) node {\ptc} ;
 \draw (h)+(\angle:2.5) node {\vphantom{\LARGE ÀQ}} ;
@@ -72,8 +79,12 @@
 \begin{tikzpicture}
 \draw (0,0) node (h) {\Higgs, \HiggsA};
 \foreach \coord/\ptc/\width/\dash/\angle in {
-\input{/home/torterotot/Documents/PhD-Thesis/tex/slides/SM_MSSM_HTT_pheno/why_HTT/diagramme_fermions_down_base.tex}
-}{
+ele/$\antielectron\electron$/very thin//120,
+mu/$\antimuon\muon$///60,
+tau/$\antitau\leptau$/very thick//0,
+d/$\quarkd\antiquarkd$/ultra thin//-60,
+s/$\quarks\antiquarks$///-120,
+b/$\quarkb\antiquarkb$/ultra thick//-180}{
 \draw [-latex, CERNblue, \width] (h)--+(\angle:2) coordinate (\coord) ;
 \draw (h)+(\angle:2.5) node {\ptc} ;
 \draw (h)+(\angle:2.5) node {\vphantom{\LARGE ÀQ}} ;
@@ -89,8 +100,12 @@
 \begin{tikzpicture}
 \draw (0,0) node (h) {\Higgs, \HiggsA};
 \foreach \coord/\ptc/\width/\dash/\angle in {
-\input{/home/torterotot/Documents/PhD-Thesis/tex/slides/SM_MSSM_HTT_pheno/why_HTT/diagramme_fermions_down_base.tex}
-}{
+ele/$\antielectron\electron$/very thin//120,
+mu/$\antimuon\muon$///60,
+tau/$\antitau\leptau$/very thick//0,
+d/$\quarkd\antiquarkd$/ultra thin//-60,
+s/$\quarks\antiquarks$///-120,
+b/$\quarkb\antiquarkb$/ultra thick//-180}{
 \draw [-latex, CERNblue, \width, \dash] (h)--+(\angle:2) coordinate (\coord) ;
 \draw (h)+(\angle:2.5) node {\ptc} ;
 \draw (h)+(\angle:2.5) node {\vphantom{\LARGE ÀQ}} ;
@@ -107,8 +122,12 @@
 \begin{tikzpicture}
 \draw (0,0) node (h) {\Higgs, \HiggsA};
 \foreach \coord/\ptc/\width/\dash/\angle in {
-\input{/home/torterotot/Documents/PhD-Thesis/tex/slides/SM_MSSM_HTT_pheno/why_HTT/diagramme_fermions_down_base.tex}
-}{
+ele/$\antielectron\electron$/very thin//120,
+mu/$\antimuon\muon$///60,
+tau/$\antitau\leptau$/very thick//0,
+d/$\quarkd\antiquarkd$/ultra thin//-60,
+s/$\quarks\antiquarks$///-120,
+b/$\quarkb\antiquarkb$/ultra thick//-180}{
 \draw [-latex, CERNblue, \width, \dash] (h)--+(\angle:2) coordinate (\coord) ;
 \draw (h)+(\angle:2.5) node {\ptc} ;
 \draw (h)+(\angle:2.5) node {\vphantom{\LARGE ÀQ}} ;
