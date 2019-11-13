@@ -1,0 +1,48 @@
+\begin{frame}
+\frametitle{The FF method}
+\beamercite{CMS-NOTE-2018-257}
+
+For \tauh,
+\begin{itemize}
+\item iso = Tight MVA-iso
+\item anti-iso = (VLoose \& not Tight) MVA-iso
+\end{itemize}
+
+\manip AR very pure in events with fake taus.
+\manip Impurities from actual \tauh\ decays are very low\\(less than few \%, can be up to \SI{20}{\%} close to Z boson mass peak)
+\end{frame}
+
+\begin{frame}
+\frametitle{The FF method: ABCD but more accurate}
+\beamercite{CMS-NOTE-2018-257}
+\manip One DR for each process giving fakes:\\$\Wboson+\text{jets}$, QCD multijets, $\quarkt\antiquarkt+\text{jets}$.
+\begin{equation*}
+\text{histo}_\text{SR} = \mathrm{FF} \times \text{histo}_\text{AR}
+\rightsquigarrow
+\text{histo}_\text{SR} =\sum_i f_i \cdot \mathrm{FF}_i \times \text{histo}_\text{AR}
+\end{equation*}
+
+\manip Do it for each range of kinematic variables:\\
+\qquad $\pT$, $\eta$, number of hadrons, jet multiplicity, $m_{\tau\tau}$\todo{?}.
+\begin{equation*}
+\boxed{n_{j\to\tauh} = n_\text{AR}\sum_i f_i \cdot \mathrm{FF}_i}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\frametitle{The FF method: ABCD but more accurate}
+\beamercite{CMS-NOTE-2018-257}
+\begin{center}
+\includegraphics[width=\graphw,height=\graphh,keepaspectratio]{\PhDthesisdir/tex/slides/HTT_analysis/bg_estimations/FF_method/subparts/FF_ppe-Fig1a-AN-2018-257.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{The FF method: fine $\mathit{FF}$}
+\beamercite{CMS-NOTE-2018-257}
+
+\begin{equation*}
+\mathrm{FF}_i = \frac{n_\text{iso} - n_\text{iso}^\text{rest}}{n_\text{anti-iso} - n_\text{anti-iso}^\text{rest}}
+\end{equation*}
+$n_x^\text{rest}$ is the impurity of backgrounds other than from the process-of-interest in the DR, MC-driven.
+\end{frame}
