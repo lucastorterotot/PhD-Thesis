@@ -1,0 +1,29 @@
+\begin{frame}
+\frametitle{Jet Energy Resolution}
+\manip Remember \Rbal\ definition,
+\begin{equation*}
+\Rbal = \frac{{\pT}^\text{1\up{st}jet}_\text{reco}}{\pT^\photon_\text{reco}}
+\end{equation*}
+
+\pause
+
+Then
+\begin{equation*}
+\Rbal
+=
+\underbrace{\frac{{\pT}^\text{1\up{st}jet}_\text{reco}}{{\pT}^\text{1\up{st}jet}_\text{ptcl}}}_{\sigma_\text{jet}=\text{JER}}
+\times
+\underbrace{\frac{{\pT}^\text{1\up{st}jet}_\text{ptcl}}{\pT^\photon_\text{ptcl}}
+\vphantom{\frac{{\pT}^\text{1\up{st}jet}_\text{reco}}{{\pT}^\text{1\up{st}jet}_\text{ptcl}}}}_{\text{PLI}}
+\times
+\underbrace{\frac{\pT^\photon_\text{ptcl}}{\pT^\photon_\text{reco}}
+\vphantom{\frac{{\pT}^\text{1\up{st}jet}_\text{reco}}{{\pT}^\text{1\up{st}jet}_\text{ptcl}}}}_{\sigma_\photon\equiv1}
+\end{equation*}
+\manip PLI: Particle Level Imbalance (pile-up, radiations, neutrinos...), $\to0$ when $\alpha\to0$.
+
+\pause
+\begin{equation*}
+\boxed{\text{JER} = \sigma_\text{jet} =  \sqrt{\sigma_\Rbal^2 - \sigma_\text{PLI}^2}}
+\end{equation*}
+\end{frame}
+
