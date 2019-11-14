@@ -22,11 +22,45 @@ For \tauh,
 \text{histo}_\text{SR} =\sum_i f_i \cdot \mathrm{FF}_i \times \text{histo}_\text{AR}
 \end{equation*}
 
+\pause
 \manip Do it for each range of kinematic variables:\\
-\qquad $\pT$, $\eta$, number of hadrons, jet multiplicity, $m_{\tau\tau}$\todo{?}.
+\qquad $\pT$, $\eta$, number of hadrons, jet multiplicity...
+%TODO , $m_{\tau\tau}$\todo{?}.
 \begin{equation*}
 \boxed{n_{j\to\tauh} = n_\text{AR}\sum_i f_i \cdot \mathrm{FF}_i}
 \end{equation*}
+
+\pause
+\manip $f_i$ and $\mathrm{FF}_i$ are then functions of the kinematic variables.
+\end{frame}
+
+\begin{frame}
+\frametitle{Determination regions definitions}
+\beamercite{CMS-NOTE-2018-257}
+
+\begin{block}{QCD multijets}
+Same as SR, except:
+\begin{itemize}
+\item same signs for $L$ and $L'$ electric charges (opposite signs in the SR).
+\end{itemize}
+\end{block}
+
+\pause\vfill
+
+\begin{block}{$\Wboson+\text{jets}$}
+Same as SR, except:
+\begin{itemize}
+\item transverse mass $m_T^{(\ell)}>\SI{70}{GeV}$ ($m_T^{(\ell)}<\SI{50}{GeV}$ in the SR);
+\item no \quarkb-jet (allowed in the SR).
+\end{itemize}
+\end{block}
+
+\pause\vfill
+
+\begin{block}{$\quarkt\antiquarkt+\text{jets}$}
+Estimation from simulated samples.
+\end{block}
+
 \end{frame}
 
 \begin{frame}
@@ -44,5 +78,5 @@ For \tauh,
 \begin{equation*}
 \mathrm{FF}_i = \frac{n_\text{iso} - n_\text{iso}^\text{rest}}{n_\text{anti-iso} - n_\text{anti-iso}^\text{rest}}
 \end{equation*}
-$n_x^\text{rest}$ is the impurity of backgrounds other than from the process-of-interest in the DR, MC-driven.
+{\small $n_x^\text{rest}$ = impurity of backgrounds other than from the process-of-interest in the DR, MC-driven.}
 \end{frame}
