@@ -15,7 +15,11 @@
 \draw [thick] (2*\hdAB,0)--(-2*\hdAB,0);
 
 \foreach \coord in {A,B,C,D}{\draw(\coord)node{\LARGE\coord};}
-\foreach \coord in {SR,AR}{\draw(\coord)node{\large\coord};}
+
+\draw (SR) node {Signal};
+\draw (SR) node [below] {Region};
+\draw (AR) node {Application};
+\draw (AR) node [below] {Region};
 
 \draw (\hdAB,2*\hdAB) node [above] {Determination} node [below] {Region};
 
