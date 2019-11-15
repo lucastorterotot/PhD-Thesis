@@ -3,49 +3,34 @@
 \begin{center}
 \begin{tikzpicture}
 \draw (0,0) node (h) {\Higgs, \HiggsA};
-\foreach \coord/\ptc/\width/\dash/\angle in {
-u/{up-type fermions}///150,
+\foreach \coord/\ptc/\txtcolor/\dash/\angle in {
+u/{up-type fermions}/ltcolorgray2/dashed/150,
 d/{down-type fermions}///30,
-b/{vector bosons}///-90}{
+b/{vector bosons}/ltcolorgray2/dashed/-90}{
 \draw [-latex, CERNblue, thick] (h)--+(\angle:2) coordinate (\coord) ;
 \draw (h)+(\angle:2.5) node {\ptc} ;
 }
 \end{tikzpicture}
 \end{center}
+
+
 \beamercite{CMS-PAS-HIG-17-020}
 \end{frame}
 
-\begin{frame}\addtocounter{framenumber}{-1}
-\frametitle{$\Higgs\to\tau\tau$?}
-\begin{center}
-\begin{tikzpicture}
-\draw (0,0) node (h) {\Higgs, \HiggsA};
-\foreach \coord/\ptc/\width/\dash/\angle in {
-u/{up-type fermions}///150,
-d/{down-type fermions}///30,
-b/{vector bosons}///-90}{
-\draw [-latex, CERNblue, thick] (h)--+(\angle:2) coordinate (\coord) ;
-\draw (h)+(\angle:2.5) node {\ptc} ;
-}
-\foreach \angle in {150,-90}{\draw [\ltcolorred] (\angle:1.25) node {\Large\bfseries \KO}; }
-\end{tikzpicture}
-\end{center}
-\beamercite{CMS-PAS-HIG-17-020}
-\end{frame}
+%At leading-order (LO), the coupling of the \Higgs\ and the \HiggsA\ to down-type fermions is enhanced by $\tan\beta$ with respect to the expectation for an SM Higgs boson of the same mass, while the coupling to vector bosons and up-type fermions is suppressed.
 
 \begin{frame}\addtocounter{framenumber}{-1}
-\frametitle{$\Higgs\to\tau\tau$?}
+\frametitle{$\Higgs\to\tau\tau$? -- enhanced and suppressed couplings}
 \begin{center}
 \begin{tikzpicture}
 \draw (0,0) node (h) {\Higgs, \HiggsA};
-\foreach \coord/\ptc/\width/\dash/\angle in {
-u/{up-type fermions}///150,
+\foreach \coord/\ptc/\txtcolor/\dash/\angle in {
+u/{up-type fermions}/ltcolorgray2/dashed/150,
 d/{down-type fermions}///30,
-b/{vector bosons}///-90}{
-\draw [-latex, CERNblue, thick] (h)--+(\angle:2) coordinate (\coord) ;
-\draw (h)+(\angle:2.5) node {\ptc} ;
+b/{vector bosons}/ltcolorgray2/dashed/-90}{
+\draw [-latex, CERNblue, thick, \dash] (h)--+(\angle:2) coordinate (\coord) ;
+\draw [\txtcolor] (h)+(\angle:2.5) node {\ptc} ;
 }
-\foreach \angle in {150,-90}{\draw [\ltcolorred] (\angle:1.25) node {\Large\bfseries \KO}; }
 \draw (30:1) node [right] {$\times\tan\beta=\frac{\Average{\Hu^0}}{\Average{\Hd^0}}$};
 \end{tikzpicture}
 \end{center}
@@ -57,13 +42,13 @@ b/{vector bosons}///-90}{
 \begin{center}
 \begin{tikzpicture}
 \draw (0,0) node (h) {\Higgs, \HiggsA};
-\foreach \coord/\ptc/\width/\dash/\angle in {
-ele/$\antielectron\electron$/very thin//120,
-mu/$\antimuon\muon$///60,
-tau/$\antitau\leptau$/very thick//0,
-d/$\quarkd\antiquarkd$/ultra thin//-60,
-s/$\quarks\antiquarks$///-120,
-b/$\quarkb\antiquarkb$/ultra thick//-180}{
+\foreach \coord/\ptc/\txtcolor/\width/\dash/\angle in {
+ele/$\antielectron\electron$/ltcolorgray2/very thin//120,
+mu/$\antimuon\muon$/ltcolorgray2///60,
+tau/$\antitau\leptau$//very thick//0,
+d/$\quarkd\antiquarkd$/ltcolorgray2/ultra thin//-60,
+s/$\quarks\antiquarks$/ltcolorgray2///-120,
+b/$\quarkb\antiquarkb$//ultra thick//-180}{
 \draw [-latex, CERNblue, thick] (h)--+(\angle:2) coordinate (\coord) ;
 \draw (h)+(\angle:2.5) node {\ptc} ;
 \draw (h)+(\angle:2.5) node {\vphantom{\LARGE ÀQ}} ;
@@ -74,19 +59,19 @@ b/$\quarkb\antiquarkb$/ultra thick//-180}{
 \end{frame}
 
 \begin{frame}\addtocounter{framenumber}{-1}
-\frametitle{$\Higgs\to\tau\tau$?}
+\frametitle{$\Higgs\to\tau\tau$? -- Higgs couplings and particules masses}
 \begin{center}
 \begin{tikzpicture}
 \draw (0,0) node (h) {\Higgs, \HiggsA};
-\foreach \coord/\ptc/\width/\dash/\angle in {
-ele/$\antielectron\electron$/very thin//120,
-mu/$\antimuon\muon$///60,
-tau/$\antitau\leptau$/very thick//0,
-d/$\quarkd\antiquarkd$/ultra thin//-60,
-s/$\quarks\antiquarks$///-120,
-b/$\quarkb\antiquarkb$/ultra thick//-180}{
+\foreach \coord/\ptc/\txtcolor/\width/\dash/\angle in {
+ele/$\antielectron\electron$/ltcolorgray2/very thin//120,
+mu/$\antimuon\muon$/ltcolorgray2///60,
+tau/$\antitau\leptau$//very thick//0,
+d/$\quarkd\antiquarkd$/ltcolorgray2/ultra thin//-60,
+s/$\quarks\antiquarks$/ltcolorgray2///-120,
+b/$\quarkb\antiquarkb$//ultra thick//-180}{
 \draw [-latex, CERNblue, \width] (h)--+(\angle:2) coordinate (\coord) ;
-\draw (h)+(\angle:2.5) node {\ptc} ;
+\draw [\txtcolor] (h)+(\angle:2.5) node {\ptc} ;
 \draw (h)+(\angle:2.5) node {\vphantom{\LARGE ÀQ}} ;
 }
 \end{tikzpicture}
@@ -95,44 +80,21 @@ b/$\quarkb\antiquarkb$/ultra thick//-180}{
 \end{frame}
 
 \begin{frame}\addtocounter{framenumber}{-1}
-\frametitle{$\Higgs\to\tau\tau$?}
+\frametitle{$\Higgs\to\tau\tau$? -- avoid hadronic background}
 \begin{center}
 \begin{tikzpicture}
 \draw (0,0) node (h) {\Higgs, \HiggsA};
-\foreach \coord/\ptc/\width/\dash/\angle in {
-ele/$\antielectron\electron$/very thin//120,
-mu/$\antimuon\muon$///60,
-tau/$\antitau\leptau$/very thick//0,
-d/$\quarkd\antiquarkd$/ultra thin//-60,
-s/$\quarks\antiquarks$///-120,
-b/$\quarkb\antiquarkb$/ultra thick//-180}{
+\foreach \coord/\ptc/\txtcolor/\width/\dash/\angle in {
+ele/$\antielectron\electron$/ltcolorgray2/very thin//120,
+mu/$\antimuon\muon$/ltcolorgray2///60,
+tau/$\antitau\leptau$//very thick//0,
+d/$\quarkd\antiquarkd$/ltcolorgray2/ultra thin//-60,
+s/$\quarks\antiquarks$/ltcolorgray2///-120,
+b/$\quarkb\antiquarkb$/ltcolorgray2/ultra thick//-180}{
 \draw [-latex, CERNblue, \width, \dash] (h)--+(\angle:2) coordinate (\coord) ;
-\draw (h)+(\angle:2.5) node {\ptc} ;
+\draw [\txtcolor] (h)+(\angle:2.5) node {\ptc} ;
 \draw (h)+(\angle:2.5) node {\vphantom{\LARGE ÀQ}} ;
 }
-\foreach \angle in {120,60,-60,-120}{\draw [\ltcolorred] (\angle:2.5) node {\Large\bfseries \KO}; }
-\end{tikzpicture}
-\end{center}
-\beamercite{CMS-PAS-HIG-17-020}
-\end{frame}
-
-\begin{frame}\addtocounter{framenumber}{-1}
-\frametitle{$\Higgs\to\tau\tau$?}
-\begin{center}
-\begin{tikzpicture}
-\draw (0,0) node (h) {\Higgs, \HiggsA};
-\foreach \coord/\ptc/\width/\dash/\angle in {
-ele/$\antielectron\electron$/very thin//120,
-mu/$\antimuon\muon$///60,
-tau/$\antitau\leptau$/very thick//0,
-d/$\quarkd\antiquarkd$/ultra thin//-60,
-s/$\quarks\antiquarks$///-120,
-b/$\quarkb\antiquarkb$/ultra thick//-180}{
-\draw [-latex, CERNblue, \width, \dash] (h)--+(\angle:2) coordinate (\coord) ;
-\draw (h)+(\angle:2.5) node {\ptc} ;
-\draw (h)+(\angle:2.5) node {\vphantom{\LARGE ÀQ}} ;
-}
-\foreach \angle in {120,60,-60,-120,180}{\draw [\ltcolorred] (\angle:2.5) node {\Large\bfseries \KO}; }
 \draw [\ltcolorgreen] (10:2.5) node {\LARGE\bfseries \OK};
 \end{tikzpicture}
 \end{center}
