@@ -1,0 +1,15 @@
+\begin{fmffile}{gg_hHAbb}\fmfstraight
+\begin{fmfchar*}(50,25)
+  \fmfleft{g1,g2}
+  \fmfright{b1,h,b2}
+  \fmf{gluon, label=$g$, l.side=left, l.d=2mm}{g1,g1b1}
+  \fmf{gluon, label=$g$, l.d=3mm}{g2,g2b2}
+  \fmf{fermion, label=$b$, l.side=left}{g1b1,b1}
+  \fmf{fermion, label=$\bar{b}$, l.side=left}{b2,g2b2}
+  \fmffreeze
+  \fmf{fermion}{g2b2,bh,g1b1}
+  \fmffreeze
+  \fmf{dashes, label=$\Hs,, \Hn,, \Ha$, l.side=left}{bh,h}
+  \fmfdot{g1b1,g2b2,bh}
+\end{fmfchar*}
+\end{fmffile}
