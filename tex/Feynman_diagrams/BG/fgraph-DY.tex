@@ -1,0 +1,27 @@
+\begin{fmffile}{DY}\fmfstraight
+\begin{fmfchar*}(50,25)
+  \fmfleft{pi1,pi2}
+  \fmfright{po1,l1,l2,po2}
+  \fmf{fermion, label=$p$, l.side=left, tension=3}{pi1,v1}
+  \fmf{fermion, label=$p$, l.side=right, tension=3}{pi2,v2}
+  \fmf{phantom}{v1,po1}
+  \fmf{phantom}{v2,po2}
+  \fmffreeze
+  \fmf{fermion}{v1,v3,v2}
+  \fmf{boson, label=$Z/\gamma^*$, l.side=left, tension =3}{v3,v4}
+  \fmf{fermion}{l1,v4,l2}
+  \fmfdot{v3,v4}
+  \fmfblob{.1w}{v1,v2}
+  \fmflabel{$\bar{f}$}{l1}
+  \fmflabel{$f$}{l2}
+  \fmffreeze
+  \fmfi{plain}{vpath (__pi1,__v1) shifted (thick*(0,2))}
+  \fmfi{plain}{vpath (__pi1,__v1) shifted (thick*(0,-2))}
+  \fmfi{plain}{vpath (__pi2,__v2) shifted (thick*(0,2))}
+  \fmfi{plain}{vpath (__pi2,__v2) shifted (thick*(0,-2))}
+  \fmfi{fermion}{vpath (__v1,__po1) shifted (thick*(0,1.5))}
+  \fmfi{fermion}{vpath (__v1,__po1) shifted (thick*(0,-1.5))}
+  \fmfi{fermion}{vpath (__v2,__po2) shifted (thick*(0,1.5))}
+  \fmfi{fermion}{vpath (__v2,__po2) shifted (thick*(0,-1.5))}
+\end{fmfchar*}
+\end{fmffile}
