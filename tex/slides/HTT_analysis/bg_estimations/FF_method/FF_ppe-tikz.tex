@@ -14,9 +14,9 @@
 
 \draw [ultra thick, -latex] (0.5*\RegionW, \RegionH-\RegionW/5) --+ (0,2*\RegionW/5);
 
-\draw (1.5*\RegionW, \RegionH) node [above] (FFW) {$\mathrm{FF}_\Wboson$};
-\draw (2.5*\RegionW, \RegionH) node [above] (FFM) {$\mathrm{FF}_M$};
-\draw (3.5*\RegionW, \RegionH) node [above] (FFT) {$\mathrm{FF}_\quarkt$};
+\draw (1.5*\RegionW, \RegionH) node [above] (FFW) {\Large $\mathrm{FF}_\Wboson$};
+\draw (2.5*\RegionW, \RegionH) node [above] (FFM) {\Large $\mathrm{FF}_M$};
+\draw (3.5*\RegionW, \RegionH) node [above] (FFT) {\Large $\mathrm{FF}_\quarkt$};
 
 \draw [ultra thick] (1*\RegionW,1.5*\RegionH)  to [out=0,in=90, out looseness = 2, in looseness = 1] (FFW);
 \draw [ultra thick] (2*\RegionW,1.5*\RegionH)  to [out=0,in=90, out looseness = 2, in looseness = 1] (FFM);
@@ -26,33 +26,33 @@
 \draw [thick, -latex] (-\RegionW/5,0) -- (4*\RegionW,0) --+ (\RegionW/5,0);
 \draw [thick, -latex] (0,-\RegionW/5) -- (0,2*\RegionH) --+ (0,\RegionW/5);
 
-\draw (-0.6*\RegionW, 1.5*\RegionH) node [above] {\tiny \tauh\ isolation};
-\draw (-0.6*\RegionW, 1.5*\RegionH) node [below] {\tiny region};
+\draw (-0.6*\RegionW, 1.5*\RegionH) node [above] {\tauh\ isolation};
+\draw (-0.6*\RegionW, 1.5*\RegionH) node [below] {region};
 
-\draw (-0.6*\RegionW, .5*\RegionH) node [above] {\tiny \tauh\ inverted};
-\draw (-0.6*\RegionW, .5*\RegionH) node [below] {\tiny isolation region};
+\draw (-0.6*\RegionW, .5*\RegionH) node [above] {\tauh\ inverted};
+\draw (-0.6*\RegionW, .5*\RegionH) node [below] {isolation region};
 
-\draw (.5*\RegionW, .53*\RegionH) node {\tiny process};
-\draw (.5*\RegionW, .47*\RegionH) node {\tiny fractions};
-\draw (\RegionW, .5*\RegionH) node [left] {\scriptsize $\mathrm{f}_i$};
-\draw (.5*\RegionW, 0) node [above] {\tiny \# events $n_\text{AR}$};
+\draw (.5*\RegionW, .45*\RegionH) node {\small process};
+\draw (.5*\RegionW, .35*\RegionH) node {\small fractions};
+\draw (\RegionW, .4*\RegionH) node [left] {$\mathrm{f}_i$};
+\draw (.5*\RegionW, 0) node [above] {\small \# events $n_\text{AR}$};
 
 
-\draw (.5*\RegionW, 1.5*\RegionH) node [below] {\tiny $n_\text{AR}\sum_i f_i \cdot \mathrm{FF}_i$};
+\draw (.5*\RegionW, 1.5*\RegionH) node {\small $n_\text{AR}\sum_i f_i \cdot \mathrm{FF}_i$\ };
 
-\draw (.5*\RegionW, 2*\RegionH) node [below] {\tiny \textbf{Signal Region}};
-\draw (.5*\RegionW, .79*\RegionH) node {\tiny \textbf{A}pplication};
-\draw (.5*\RegionW, .70*\RegionH) node {\tiny \textbf{R}egion};
+\draw (.5*\RegionW, 2*\RegionH) node [below] {\small \textbf{Signal Region}};
+\draw (.5*\RegionW, .77*\RegionH) node {\small \textbf{A}pplication};
+\draw (.5*\RegionW, .65*\RegionH) node {\small \textbf{R}egion};
 
 % $\Wboson+\text{jets}$, QCD multijets, $\quarkt\antiquarkt+\text{jets}$
 
-\draw (1.5*\RegionW, 0) node [below] {\tiny $\Wboson+\text{jets}$} ;
-\draw (2.5*\RegionW, 0) node [below] {\tiny QCD multijets} ;
-\draw (3.5*\RegionW, 0) node [below] {\tiny $\quarkt\antiquarkt+\text{jets}$} ;
+\draw (1.5*\RegionW, 0) node [below] {\small $\Wboson+\text{jets}$} ;
+\draw (2.5*\RegionW, 0) node [below] {\small QCD multijets} ;
+\draw (3.5*\RegionW, 0) node [below] {\small $\quarkt\antiquarkt+\text{jets}$} ;
 
 \foreach \value in {1.5, 2.5, 3.5}{
-\draw (\value*\RegionW, -.5) node {\tiny \textbf{D}etermination};
-\draw (\value*\RegionW, -.75) node {\tiny \textbf{R}egion};
+\draw (\value*\RegionW, -.52) node {\small \textbf{D}etermination};
+\draw (\value*\RegionW, -.85) node {\small \textbf{R}egion};
 }
 
 \end{tikzpicture}
