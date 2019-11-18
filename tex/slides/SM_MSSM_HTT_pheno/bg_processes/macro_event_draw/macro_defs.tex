@@ -1,0 +1,35 @@
+
+\def\printele#1{
+\draw [thick, ltcolorred] (0,0) arc (#1-90:#1-90+25:3) coordinate (eledeposit);
+}
+\def\printmu#1{
+\draw [thick, ltcolorblue] (0,0) arc (#1-90:#1-90+33:6) arc (#1-90+33:#1-90:-12);
+}
+
+\def\printantiele#1{
+\draw [thick, ltcolorred] (0,0) arc (#1-90:#1-90+25:-3) coordinate (eledeposit);
+%\draw [ltcolorred4, ultra thick] (eledeposit)--+(#1+25:\ECALrout);
+}
+\def\printantimu#1{
+\draw [thick, ltcolorblue] (0,0) arc (#1-90:#1-90+33:-6) arc (#1-90+33:#1-90:12);
+}
+
+\def\printtauh#1{
+\draw [thick, ltcolorgreen] (0,0) arc (#1-90:#1-90+11:10) ;
+\draw [thick, ltcolorgreen] (0,0) arc (#1-90:#1-90+5:20) ;
+\draw [thick, ltcolorgreen] (0,0) arc (#1-90:#1-90-11:-10) ;
+}
+\def\printantitauh#1{
+\draw [thick, ltcolorgreen] (0,0) arc (#1-90:#1-90+11:-10) ;
+\draw [thick, ltcolorgreen] (0,0) arc (#1-90:#1-90+5:-20) ;
+\draw [thick, ltcolorgreen] (0,0) arc (#1-90:#1-90-11:10) ;
+}
+
+\def\printjet#1{
+\draw [thick, ltcolororange] (0,0) arc (#1-90+10:#1-90+11+10:10) ;
+\draw [thick, ltcolororange] (0,0) arc (#1-90+5:#1-90+6+5:20) ;
+\draw [thick, ltcolororange] (0,0) arc (#1-90:#1-90-11:-10) ;
+\draw [thick, ltcolororange] (0,0) arc (#1-90:#1-90+3:40) ;
+\draw [thick, ltcolororange] (0,0) arc (#1-90+5:#1-90+4+5:30) ;
+\draw [thick, ltcolororange] (0,0) arc (#1-90:#1-90-6:-20) ;
+}
