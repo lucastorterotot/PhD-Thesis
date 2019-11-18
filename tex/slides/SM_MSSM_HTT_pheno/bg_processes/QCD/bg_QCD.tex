@@ -1,4 +1,34 @@
 \begin{frame}
 \frametitle{Backgrounds: QCD}
 
+\begin{minipage}[c]{.45\textwidth}
+\begin{block}{QCD}
+\begin{center}
+\begin{tikzpicture}
+\input{\PhDthesisdir/tex/slides/SM_MSSM_HTT_pheno/bg_processes/macro_event_draw/macro_defs.tex}
+\clip (-.4\textwidth,-.4\textwidth) rectangle (.4\textwidth,.4\textwidth);
+\fill (0,0) circle (2pt);
+\printjet{-10}
+\printmu{-10}
+%\printantitauh{150}
+\printjet{150}
+\end{tikzpicture}
+\end{center}
+\end{block}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.45\textwidth}
+\begin{block}{$\Higgs$ production with \quarkb-jets}
+\begin{center}
+\begin{tikzpicture}
+\input{\PhDthesisdir/tex/slides/SM_MSSM_HTT_pheno/bg_processes/macro_event_draw/macro_defs.tex}
+\clip (-.4\textwidth,-.4\textwidth) rectangle (.4\textwidth,.4\textwidth);
+\fill (0,0) circle (2pt);
+\printmu{-10}
+\printantitauh{150}
+\end{tikzpicture}
+\end{center}
+\end{block}
+\end{minipage}
+
 \end{frame}

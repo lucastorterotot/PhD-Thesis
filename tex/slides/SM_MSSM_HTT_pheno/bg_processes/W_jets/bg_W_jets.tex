@@ -1,6 +1,36 @@
 \begin{frame}
 \frametitle{Backgrounds: $\Wboson+\text{jets}$}
+
+%\begin{block}{$\Wboson+\text{jets}$}
+%\Wboson\ fakes prompt letpon and a jet fakes a \tauh.
+%\end{block}
+
+\begin{minipage}[c]{.45\textwidth}
 \begin{block}{$\Wboson+\text{jets}$}
-\Wboson\ fakes prompt letpon and a jet fakes a \tauh.
+\begin{center}
+\begin{tikzpicture}
+\input{\PhDthesisdir/tex/slides/SM_MSSM_HTT_pheno/bg_processes/macro_event_draw/macro_defs.tex}
+\clip (-.4\textwidth,-.4\textwidth) rectangle (.4\textwidth,.4\textwidth);
+\fill (0,0) circle (2pt);
+\printmu{-10}
+\printjet{150}
+\end{tikzpicture}
+\end{center}
 \end{block}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.45\textwidth}
+\begin{block}{$\Higgs\to\tau\tau\to\mu\tauh$}
+\begin{center}
+\begin{tikzpicture}
+\input{\PhDthesisdir/tex/slides/SM_MSSM_HTT_pheno/bg_processes/macro_event_draw/macro_defs.tex}
+\clip (-.4\textwidth,-.4\textwidth) rectangle (.4\textwidth,.4\textwidth);
+\fill (0,0) circle (2pt);
+\printmu{-10}
+\printantitauh{150}
+\end{tikzpicture}
+\end{center}
+\end{block}
+\end{minipage}
+
 \end{frame}
