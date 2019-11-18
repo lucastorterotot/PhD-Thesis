@@ -26,11 +26,11 @@
 \draw [thick, -latex] (-\RegionW/5,0) -- (4*\RegionW,0) --+ (\RegionW/5,0);
 \draw [thick, -latex] (0,-\RegionW/5) -- (0,2*\RegionH) --+ (0,\RegionW/5);
 
-\draw (-0.6*\RegionW, 1.5*\RegionH) node [above] {\tauh\ isolation};
-\draw (-0.6*\RegionW, 1.5*\RegionH) node [below] {region};
+\draw (-0.3*\RegionW, 1.5*\RegionH) node [above, rotate=90] {\small \tauh\ isolation};
+\draw (-0.3*\RegionW, 1.5*\RegionH) node [below, rotate=90] {\small region};
 
-\draw (-0.6*\RegionW, .5*\RegionH) node [above] {\tauh\ inverted};
-\draw (-0.6*\RegionW, .5*\RegionH) node [below] {isolation region};
+\draw (-0.3*\RegionW, .5*\RegionH) node [above, rotate=90] {\small \tauh\ inverted};
+\draw (-0.3*\RegionW, .5*\RegionH) node [below, rotate=90] {\small isolation region};
 
 \draw (.5*\RegionW, .45*\RegionH) node {\small process};
 \draw (.5*\RegionW, .35*\RegionH) node {\small fractions};
@@ -38,7 +38,8 @@
 \draw (.5*\RegionW, 0) node [above] {\small \# events $n_\text{AR}$};
 
 
-\draw (.5*\RegionW, 1.5*\RegionH) node {\small $n_\text{AR}\sum_i f_i \cdot \mathrm{FF}_i$\ };
+\draw (.5*\RegionW, 1.65*\RegionH) node {\small $n_\text{AR}\cdot\sum_i f_i \cdot \mathrm{FF}_i$\ };
+\draw (.5*\RegionW, 1.5*\RegionH) node {\small $=n_{j\to\tauh}$};
 
 \draw (.5*\RegionW, 2*\RegionH) node [below] {\small \textbf{Signal Region}};
 \draw (.5*\RegionW, .77*\RegionH) node {\small \textbf{A}pplication};
