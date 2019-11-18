@@ -1,0 +1,36 @@
+\begin{frame}
+\frametitle{Discriminant variable: \mttot}
+
+\vfill 
+
+\begin{minipage}[c]{.6\textwidth}
+\manip For two objects 1 and 2,
+\begin{equation*}
+m_{\mathrm{T}}(1,2) = \sqrt{2p_T^{(1)} p_T^{(2)} (1-\cos\Delta\phi_{12})}
+\end{equation*}
+\end{minipage}
+\begin{minipage}[c]{.35\textwidth}
+\begin{center}
+\begin{tikzpicture}
+\def\aangle{30}
+\def\bangle{150}
+\def\aRadius{1.75}
+\def\bRadius{1.25}
+\def\cRadius{.5}
+\draw [-latex, ltcolorred] (0,0) --+ (\aangle:\aRadius) node [above] {$\pT^{(1)}$};
+\draw [-latex, ltcolorblue] (0,0) --+ (\bangle:\bRadius) node [above] {$\pT^{(2)}$};
+\draw (\aangle:\cRadius) arc (\aangle:{(\aangle+\bangle)/2}:\cRadius) node [above] {$\Delta\phi_{12}$}  arc ({(\aangle+\bangle)/2}:\bangle:\cRadius);
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\vfill \pause
+
+\manip For $L_1$, $L_2$ and \MET\ system,
+\begin{equation*}
+\mttot = \sqrt{m_{\mathrm{T}}^2(L_1,\MET) + m_{\mathrm{T}}^2(L_2,\MET) + m_{\mathrm{T}}^2(L_1,L_2)}
+\end{equation*}
+
+\vfill 
+
+\end{frame}
