@@ -2,40 +2,7 @@
 \frametitle{Particles isolation -- qualitatively}
 \begin{center}
 \begin{tikzpicture}
-\def\trackerrin{.100}
-\def\trackerrout{1.185}
-\def\trackercolor{ltcolorgray1}
-
-\def\ECALrin{1.290}
-\def\ECALrout{1.811}
-\def\ECALcolor{ltcolorgreen1}
-
-\def\HCALrin{1.812}
-\def\HCALrout{2.854}
-\def\HCALcolor{ltcoloryellow3}
-
-\def\Solenrin{2.950}
-\def\Solenrout{3.800}
-\def\Solencolor{ltcolorgray2}
-
-\def\ironryrina{3.850}
-\def\ironryrouta{4.000}
-\def\muonrina{4.020}
-\def\muonrouta{4.400}
-\def\ironryrinb{4.420}
-\def\ironryroutb{4.880}
-\def\muonrinb{4.905}
-\def\muonroutb{5.285}
-\def\ironryrinc{5.300}
-\def\ironryroutc{5.960}
-\def\muonrinc{5.975}
-\def\muonroutc{6.355}
-\def\ironryrind{6.375}
-\def\ironryroutd{6.980}
-\def\muonrind{7.000}
-\def\muonroutd{7.380}
-\def\muoncolor{ltcoloryellow1}
-\def\ironrycolor{ltcolorred2}
+\input{/home/torterotot/Documents/PhD-Thesis/tex/slides/SM_MSSM_HTT_pheno/bg_processes/macro_event_draw/macro_defs.tex}
 
 \clip (-\graphw/2,-\graphh/2) rectangle (\graphw/2,\graphh/2);
 
@@ -59,25 +26,27 @@
 \fill (PV) [color = white] circle (\rin);
 }
 
-\foreach \phiangle/\maxradius/\linecolor/\linethick in {
-150/\HCALrin/ltcolorgreen/thin,
-120/\HCALrin/ltcolorred/very thick,
-122/\HCALrin/ltcolorred/thin,
-117/\HCALrin/ltcolorred/thin,
-0/\HCALrin/ltcolorblue/very thick,
-5/\ECALrin/ltcolorblue/thin,
-10/\HCALrin/ltcolorblue/thin,
--7/\ECALrin/ltcolorblue/thin,
--13/\HCALrin/ltcolorblue/thin,
-8/\ECALrin/ltcolorblue/thin,
--2/\HCALrin/ltcolorblue/thin,
-3/\ECALrin/ltcolorblue/thin}{
-\draw [\linecolor, \linethick] (PV) --+ (\phiangle:\trackerrout);
-\def\newmaxradius{\maxradius+.25}
-\ifthenelse{\equal{\maxradius}{\ECALrin}}{\def\newmaxradius{\ECALrout}}{}
-\ifthenelse{\equal{\maxradius}{\HCALrin}}{\def\newmaxradius{\HCALrout}}{}
-\draw [\linecolor4, ultra thick] (PV)+(\phiangle:\maxradius)--+(\phiangle:\newmaxradius);
-}
+
+\printMuChSigA{10}{1}
+\printMuChSigB{10}{1}
+\printMuChSigC{10}{1}
+\printMuChSigD{10}{1}
+\printmu{10}
+
+
+\printMuChSigA{-60}{1}
+\printMuChSigB{-60}{1}
+\printMuChSigC{-60}{1}
+\printMuChSigD{-60}{1}
+\printjetdeposit{-60}
+\printjet{-60}
+\printmu{-60}
+
+\printtauhdeposit{150}
+\printtauh{150}
+
+\printjetdeposit{-150}
+\printjetfake{-150}
 
 \end{tikzpicture}
 \end{center}
