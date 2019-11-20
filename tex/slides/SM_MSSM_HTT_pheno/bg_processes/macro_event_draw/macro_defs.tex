@@ -53,19 +53,19 @@
 }
 
 \def\printtauh#1{
-\draw [thick, ltcolorgreen] (0,0) arc (#1-90:#1-90+11:10) ;
-\draw [thick, ltcolorgreen] (0,0) arc (#1-90:#1-90+6:20) ;
-\draw [thick, ltcolorgreen] (0,0) arc (#1-90:#1-90-11:-10) ;
-\draw [ltcolorgreen] (#1-12:1.5) node {\tauh};
+\draw [thick, ltcolorgreen4] (0,0) arc (#1-90:#1-90+11:10) ;
+\draw [thick, ltcolorgreen4] (0,0) arc (#1-90:#1-90+6:20) ;
+\draw [thick, ltcolorgreen4] (0,0) arc (#1-90:#1-90-11:-10) ;
+\draw [ltcolorgreen4] (#1-12:1.5) node {\tauh};
 }
 \def\printantitauh#1{
-\draw [thick, ltcolorgreen] (0,0) arc (#1-90:#1-90-11:-10) ;
-\draw [thick, ltcolorgreen] (0,0) arc (#1-90:#1-90-6:-20) ;
-\draw [thick, ltcolorgreen] (0,0) arc (#1-90:#1-90+11:10) ;
-\draw [ltcolorgreen] (#1-12:1.5) node {\tauh};
+\draw [thick, ltcolorgreen4] (0,0) arc (#1-90:#1-90-11:-10) ;
+\draw [thick, ltcolorgreen4] (0,0) arc (#1-90:#1-90-6:-20) ;
+\draw [thick, ltcolorgreen4] (0,0) arc (#1-90:#1-90+11:10) ;
+\draw [ltcolorgreen4] (#1-12:1.5) node {\tauh};
 }
 
-\def\printjet#1{
+\def\printjetnolabel#1{
 \draw [thick, ltcolororange] (0,0) arc (#1-90+10:#1-90+22+10:5) ;
 \draw [thick, ltcolororange] (0,0) arc (#1-90+5:#1-90+12+5:10) ;
 \draw [thick, ltcolororange] (0,0) arc (#1-90:#1-90-22:-5) ;
@@ -73,6 +73,10 @@
 \draw [thick, ltcolororange] (0,0) arc (#1-90+5:#1-90+8+5:10) ;
 \draw [thick, ltcolororange] (0,0) arc (#1-90:#1-90-11:-10) ;
 \draw [thick, ltcolororange] (0,0) arc (#1-90:#1-90+11:10) ;
+}
+
+\def\printjet#1{
+\printjetnolabel{#1}
 \draw [ltcolororange] (#1-25:.5) node {jet};
 }
 

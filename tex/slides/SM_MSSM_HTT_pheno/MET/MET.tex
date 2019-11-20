@@ -1,21 +1,39 @@
 \begin{frame}
 \frametitle{Neutrinos and missing transverse energy (MET)}
 
-\manip Neutrinos do not interact with the detector.
+\begin{center}
+\begin{tikzpicture}
+\input{\PhDthesisdir/tex/slides/SM_MSSM_HTT_pheno/bg_processes/macro_event_draw/macro_defs.tex}
 
-\manip Really no sign of them?
+\clip (-\graphw/2,-\graphh/2) rectangle (\graphw/2,\graphh/2);
 
-\pause
+\printjetnolabel{60}
+\printjetnolabel{40}
 
-\manip In \proton\proton\ collisions, %the total momentum in the transverse plane is nul:
-\begin{equation*}
-\sum_\text{all ptcs} \vpT_\text{ptc} = \vec{0}
-\end{equation*}
+%\draw [thick, -latex, ltcolorred] (0,0)--+(-130:\HCALrout) node [below] {\vMET};
 
-\pause\bigskip
-%\manip Whithout considering hardware issues, the momentum of all neutrinos is then
-\begin{equation*}
-\vpT^\text{all \neutrino} = - \!\!\!\! \sum_\text{seen ptcs} \vpT_\text{ptc} = \vMET
-\end{equation*}
+\fill (0,0) circle (2pt);
+\end{tikzpicture}
+\end{center}
+
+\end{frame}
+
+\begin{frame}\addtocounter{framenumber}{-1}
+\frametitle{Neutrinos and missing transverse energy (MET)}
+
+\begin{center}
+\begin{tikzpicture}
+\input{\PhDthesisdir/tex/slides/SM_MSSM_HTT_pheno/bg_processes/macro_event_draw/macro_defs.tex}
+
+\clip (-\graphw/2,-\graphh/2) rectangle (\graphw/2,\graphh/2);
+
+\printjetnolabel{60}
+\printjetnolabel{40}
+
+\draw [thick, -latex, ltcolorred] (0,0)--+(-130:\HCALrout) node [below] {\vMET};
+
+\fill (0,0) circle (2pt);
+\end{tikzpicture}
+\end{center}
 
 \end{frame}
