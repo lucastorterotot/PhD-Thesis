@@ -1,108 +1,34 @@
 \begin{frame}
-\frametitle{$\tau$ decay modes}%\beamercite{Khachatryan:2015dfa}
-\begin{center}
-\begin{tabular}{lc}
-\toprule
-Decay mode & BR (\%)\\
-\midrule
-$\tau^-\to \ele^-\bar{\nu}_\ele\nutau$ & \num{17.8} \\
-$\tau^-\to \mu^-\bar{\nu}_\mu\nutau$ & \num{17.4} \\
-\midrule
-$\tau^-\to \hadron^- \nutau$ & \num{11.5} \\
-$\tau^-\to \hadron^- \pi^0 \nutau$ & \num{26.0} \\
-$\tau^-\to \hadron^- \pi^0\pi^0 \nutau$ & \num{10.8} \\
-$\tau^-\to \hadron^- \hadron^+\hadron^- \nutau$ & \num{9.8} \\
-$\tau^-\to \hadron^- \hadron^+\hadron^-\pi^0\nutau$ & \num{4.8} \\
-Others hadronic modes & \num{1.8} \\
-Hadronic modes & $\overline{\text{\num{64.8}}}$ \\
-\bottomrule
-\end{tabular}
-%\bigskip
-%\manip Hadrons-plus-strips algorithm to identify hadronic decays.
-\end{center}
-\end{frame}
+\frametitle{$\tau$ decay modes}
+~\hfill
+\input{\PhDthesisdir/tex/Feynman_diagrams/tau_decays/fgraph-tau_to_mu.tex}\pause
+\hfill
+\input{\PhDthesisdir/tex/Feynman_diagrams/tau_decays/fgraph-tau_to_ele.tex}\pause
+\hfill~
 
-\begin{frame}
-\frametitle{$\Higgs\to\tau\tau\to L_1L_2$}
-\begin{center}
-\input{\PhDthesisdir/tex/Feynman_diagrams/fgraph-H-tautau_general.tex}
-\end{center}
+\vspace{5\baselineskip}
+
+~\hfill
+\input{\PhDthesisdir/tex/Feynman_diagrams/tau_decays/fgraph-tau_to_tauh-1prong.tex}
+\hfill
+\input{\PhDthesisdir/tex/Feynman_diagrams/tau_decays/fgraph-tau_to_tauh-3prongs.tex}
+\hfill~
 \end{frame}
 
 \begin{frame}
 \frametitle{$\Higgs\to\tau\tau\to L_1L_2$}
 
-~\hfill
-$W\to\ele+\nuele\Rightarrow\ele$
-\hfill
-$W\to\mu+\numu\Rightarrow\mu$
-\hfill
-$W\to \text{hadrons}\Rightarrow\tauh$
-\hfill
-~
+\begin{tabularx}{\linewidth}{YYY}
+$\tau\to\ele+\nuele\Rightarrow\ele$ & $\tau\to\mu+\numu\Rightarrow\mu$ & $\tau\to\text{hadrons}+\nutau\Rightarrow\tauh$\\
+\SI{17.8}{\%} & \SI{17.4}{\%} & \SI{64.8}{\%}
+\end{tabularx}
 
-~\hfill
-\SI{17.8}{\%}~~
-\hfill
-\SI{17.4}{\%}
-\hfill
-~~\SI{64.8}{\%}
-\hfill
-~
+\pause
+\vspace{\baselineskip}
 
 \begin{center}
-\begin{tabular}{rlccc}
-\toprule
-\multicolumn{2}{c}{Channel ($L_1L_2$)} & $L_1$ & $L_2$ & BR\\
-\midrule
-\color{white}{$\blacktriangleright$} & \tauh\tauh & $q,\bar{q}\to\text{hadrons}$ & $q,\bar{q}\to\text{hadrons}$ & \SI{42}{\%} \\
-\color{white}{$\blacktriangleright$} & \mu\tauh & $\mu,\numu$ & $q,\bar{q}\to\text{hadrons}$ & \SI{23}{\%} \\
-\color{white}{$\blacktriangleright$} & \ele\tauh & $\ele,\nuele$ & $q,\bar{q}\to\text{hadrons}$ & \SI{23}{\%} \\
-\color{white}{$\blacktriangleright$} & \mu\mu & $\mu,\numu$ & $\mu,\numu$ & \SI{3}{\%} \\
-\color{white}{$\blacktriangleright$} & \ele\ele & $\ele,\nuele$ & $\ele,\nuele$ & \SI{3}{\%} \\
-\color{white}{$\blacktriangleright$} & \ele\mu & $\ele,\nuele$ & $\mu,\numu$ & \SI{6}{\%} \\
-\bottomrule
-\end{tabular}
+\input{\PhDthesisdir/tex/Feynman_diagrams/fgraph-H-tautau_mutau.tex}
+\qquad\pause
+\input{\PhDthesisdir/tex/slides/SM_MSSM_HTT_pheno/H_to_TT_to_LL/HTT_channels_pie_chart-pyplot.pgf}
 \end{center}
-\manip $\ell \equiv \set{\ele,\mu}$, $L\equiv\set{\ele, \mu, \tauh}$.
-%\manip Focus on the \mu\tauh\ channel.
-\end{frame}
-
-\begin{frame}\addtocounter{framenumber}{-1}
-\frametitle{$\Higgs\to\tau\tau\to L_1L_2$}
-
-~\hfill
-$W\to\ele+\nuele\Rightarrow\ele$
-\hfill
-$W\to\mu+\numu\Rightarrow\mu$
-\hfill
-$W\to \text{hadrons}\Rightarrow\tauh$
-\hfill
-~
-
-~\hfill
-\SI{17.8}{\%}~~
-\hfill
-\SI{17.4}{\%}
-\hfill
-~~\SI{64.8}{\%}
-\hfill
-~
-
-\begin{center}
-\begin{tabular}{rlccc}
-\toprule
-\multicolumn{2}{c}{Channel ($L_1L_2$)} & $L_1$ & $L_2$ & BR\\
-\midrule
-\color{white}{$\blacktriangleright$} & \tauh\tauh & $q,\bar{q}\to\text{hadrons}$ & $q,\bar{q}\to\text{hadrons}$ & \SI{42}{\%} \\
-\color{CERNblue}{$\blacktriangleright$} & \mu\tauh & $\mu,\numu$ & $q,\bar{q}\to\text{hadrons}$ & \SI{23}{\%} \\
-\color{CERNblue}{$\blacktriangleright$} & \ele\tauh & $\ele,\nuele$ & $q,\bar{q}\to\text{hadrons}$ & \SI{23}{\%} \\
-\color{white}{$\blacktriangleright$} & \mu\mu & $\mu,\numu$ & $\mu,\numu$ & \SI{3}{\%} \\
-\color{white}{$\blacktriangleright$} & \ele\ele & $\ele,\nuele$ & $\ele,\nuele$ & \SI{3}{\%} \\
-\color{white}{$\blacktriangleright$} & \ele\mu & $\ele,\nuele$ & $\mu,\numu$ & \SI{6}{\%} \\
-\bottomrule
-\end{tabular}
-\end{center}
-\manip $\ell \equiv \set{\ele,\mu}$, $L\equiv\set{\ele, \mu, \tauh}$.
-%\manip Focus on the \mu\tauh\ channel.
 \end{frame}
