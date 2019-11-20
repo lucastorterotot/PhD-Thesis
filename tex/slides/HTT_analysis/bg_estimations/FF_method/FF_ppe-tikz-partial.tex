@@ -1,0 +1,59 @@
+\begin{tikzpicture}
+\def\RegionW{2}
+\def\RegionH{2.2}
+
+\fill [ltcolorgray2] (0,0) rectangle + (\RegionW,\RegionH);
+%\fill [ltcolorred2] (\RegionW,0) rectangle + (\RegionW,\RegionH);
+%\fill [ltcolorblue2] (2*\RegionW,0) rectangle + (\RegionW,\RegionH);
+%\fill [ltcolorgreen2] (3*\RegionW,0) rectangle + (\RegionW,\RegionH);
+
+\fill [ltcolorgray1] (0,\RegionH) rectangle + (\RegionW,\RegionH);
+%\fill [ltcolorred1] (\RegionW,\RegionH) rectangle + (\RegionW,\RegionH);
+%\fill [ltcolorblue1] (2*\RegionW,\RegionH) rectangle + (\RegionW,\RegionH);
+%\fill [ltcolorgreen1] (3*\RegionW,\RegionH) rectangle + (\RegionW,\RegionH);
+
+\draw [ultra thick, -latex] (0.5*\RegionW, \RegionH-\RegionW/5) --+ (0,2*\RegionW/5);
+
+%\draw (1.5*\RegionW, \RegionH) node [above] (FFW) {\Large $\mathrm{FF}_\Wboson$};
+%\draw (2.5*\RegionW, \RegionH) node [above] (FFM) {\Large $\mathrm{FF}_M$};
+%\draw (3.5*\RegionW, \RegionH) node [above] (FFT) {\Large $\mathrm{FF}_\quarkt$};
+
+%\draw [ultra thick] (1*\RegionW,1.5*\RegionH)  to [out=0,in=90, out looseness = 2, in looseness = 1] (FFW);
+%\draw [ultra thick] (2*\RegionW,1.5*\RegionH)  to [out=0,in=90, out looseness = 2, in looseness = 1] (FFM);
+%
+%\draw [ultra thick, latex-] (.9*\RegionW,1.5*\RegionH) -- (3*\RegionW,1.5*\RegionH)  to [out=0,in=90, out looseness = 2, in looseness = 1] (FFT);
+
+\draw [thick, -latex] (-\RegionW/5,0) -- (4*\RegionW,0) --+ (\RegionW/5,0);
+\draw [thick, -latex] (0,-\RegionW/5) -- (0,2*\RegionH) --+ (0,\RegionW/5);
+
+\draw (-0.3*\RegionW, 1.5*\RegionH) node [above, rotate=90] {\small \tauh\ isolation};
+\draw (-0.3*\RegionW, 1.5*\RegionH) node [below, rotate=90] {\small region};
+
+\draw (-0.3*\RegionW, .5*\RegionH) node [above, rotate=90] {\small \tauh\ inverted};
+\draw (-0.3*\RegionW, .5*\RegionH) node [below, rotate=90] {\small isolation region};
+
+%\draw (.5*\RegionW, .45*\RegionH) node {\small process};
+%\draw (.5*\RegionW, .35*\RegionH) node {\small fractions};
+%\draw (\RegionW, .4*\RegionH) node [left] {$\mathrm{f}_i$};
+\draw (.5*\RegionW, 0) node [above] {\small \# events $n_\text{AR}$};
+
+
+%\draw (.5*\RegionW, 1.65*\RegionH) node {\small $n_\text{AR}\cdot\sum_i f_i \cdot \mathrm{FF}_i$\ };
+%\draw (.5*\RegionW, 1.5*\RegionH) node {\small $=n_{j\to\tauh}$};
+
+\draw (.5*\RegionW, 2*\RegionH) node [below] {\small \textbf{Signal Region}};
+\draw (.5*\RegionW, .77*\RegionH) node {\small \textbf{A}pplication};
+\draw (.5*\RegionW, .65*\RegionH) node {\small \textbf{R}egion};
+
+% $\Wboson+\text{jets}$, QCD multijets, $\quarkt\antiquarkt+\text{jets}$
+
+%\draw (1.5*\RegionW, 0) node [below] {\small $\Wboson+\text{jets}$} ;
+%\draw (2.5*\RegionW, 0) node [below] {\small QCD multijets} ;
+%\draw (3.5*\RegionW, 0) node [below] {\small $\quarkt\antiquarkt+\text{jets}$} ;
+
+%\foreach \value in {1.5, 2.5, 3.5}{
+%\draw (\value*\RegionW, -.52) node {\small \textbf{D}etermination};
+%\draw (\value*\RegionW, -.85) node {\small \textbf{R}egion};
+%}
+
+\end{tikzpicture}
