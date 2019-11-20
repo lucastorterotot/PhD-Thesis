@@ -1,12 +1,14 @@
 \begin{frame}
 \frametitle{Discriminant variable: \mttot}
 
+\manip \MET\ due to neutrinos $\Rightarrow$ no invariant mass!
+
 \vfill 
 
 \begin{minipage}[c]{.6\textwidth}
-\manip For two objects 1 and 2,
+\manip For a lepton and \MET,
 \begin{equation*}
-m_{\mathrm{T}}(1,2) = \sqrt{2p_T^{(1)} p_T^{(2)} (1-\cos\Delta\phi_{12})}
+m_{\mathrm{T}}(\ell,\MET) = \sqrt{2p_T^{(\ell)} \MET (1-\cos\Delta\phi)}
 \end{equation*}
 \end{minipage}
 \begin{minipage}[c]{.35\textwidth}
@@ -17,9 +19,9 @@ m_{\mathrm{T}}(1,2) = \sqrt{2p_T^{(1)} p_T^{(2)} (1-\cos\Delta\phi_{12})}
 \def\aRadius{1.75}
 \def\bRadius{1.25}
 \def\cRadius{.5}
-\draw [-latex, ltcolorred] (0,0) --+ (\aangle:\aRadius) node [above] {$\pT^{(1)}$};
-\draw [-latex, ltcolorblue] (0,0) --+ (\bangle:\bRadius) node [above] {$\pT^{(2)}$};
-\draw (\aangle:\cRadius) arc (\aangle:{(\aangle+\bangle)/2}:\cRadius) node [above] {$\Delta\phi_{12}$}  arc ({(\aangle+\bangle)/2}:\bangle:\cRadius);
+\draw [-latex, ltcolorred] (0,0) --+ (\aangle:\aRadius) node [above] {$\vpT^{(\ell)}$};
+\draw [-latex, ltcolorblue] (0,0) --+ (\bangle:\bRadius) node [above] {$\vMET$};
+\draw (\aangle:\cRadius) arc (\aangle:{(\aangle+\bangle)/2}:\cRadius) node [above] {$\Delta\phi$}  arc ({(\aangle+\bangle)/2}:\bangle:\cRadius);
 \end{tikzpicture}
 \end{center}
 \end{minipage}
