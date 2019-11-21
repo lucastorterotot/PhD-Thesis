@@ -1,22 +1,22 @@
 \begin{fmffile}{H-tautau_mutau}\fmfstraight
-\begin{fmfchar*}(50,40)
+\begin{fmfchar*}(50,30)
   \fmfleft{h}
-  \fmfright{nu1,nub1,tau1,tau2,nub2,nu2}
+  \fmfright{nu1,upq,doq,muout,antinumu,nu2}
   \fmf{dashes, label=$\Hs,, \Hn,, \Ha$, l.side=left, tension=5}{h,v}
   \fmf{fermion, label=$\antitau$, l.side=left, tension=4}{t1d,v}
   \fmf{fermion, label=$\leptau$, l.side=left, tension=4}{v,t2d}
   \fmf{fermion, tension=3}{nu1,t1d}
   \fmf{boson, label=$\Wbosonplus$, l.side=left, tension=2}{t1d,W1d}
-  \fmf{fermion}{tau1,W1d,nub1}
+  \fmf{fermion}{doq,W1d,upq}
   \fmf{fermion, tension=3}{t2d,nu2}
   \fmf{boson, label=$\Wbosonminus$, tension=2}{t2d,W2d}
-  \fmf{fermion}{tau2,W2d,nub2}
+  \fmf{fermion}{antinumu,W2d,muout}
   \fmflabel{$\antinutau$}{nu1}
   \fmflabel{$\nutau$}{nu2}
-  \fmflabel{$\antinumu$}{nub2}
-  \fmflabel{$\muon$}{tau2}
-  \fmflabel{$\antiquark$}{tau1}
-  \fmflabel{$\quark$}{nub1}
+  \fmflabel{$\muon$}{muout}
+  \fmflabel{$\antinumu$}{antinumu}
+  \fmflabel{$\antiquarkd$}{doq}
+  \fmflabel{$\quarku$}{upq}
   \fmfdot{v,t1d,t2d,W1d,W2d}
 \end{fmfchar*}
 \end{fmffile}
