@@ -14,14 +14,18 @@
 
 \draw [ultra thick, -latex] (0.5*\RegionW, \RegionH-\RegionW/5) --+ (0,2*\RegionW/5);
 
-\draw (1.5*\RegionW, \RegionH) node [above] (FFW) {\Large $\mathrm{FF}_\Wboson$};
-\draw (2.5*\RegionW, \RegionH) node [above] (FFM) {\Large $\mathrm{FF}_M$};
-\draw (3.5*\RegionW, \RegionH) node [above] (FFT) {\Large $\mathrm{FF}_\quarkt$};
+%\draw (1.5*\RegionW, \RegionH) node [above] (FFW) {\Large $\mathrm{FF}_\Wboson$};
+%\draw (2.5*\RegionW, \RegionH) node [above] (FFM) {\Large $\mathrm{FF}_M$};
+%\draw (3.5*\RegionW, \RegionH) node [above] (FFT) {\Large $\mathrm{FF}_\quarkt$};
 
-\draw [ultra thick] (1*\RegionW,1.5*\RegionH)  to [out=0,in=90, out looseness = 2, in looseness = 1] (FFW);
-\draw [ultra thick] (2*\RegionW,1.5*\RegionH)  to [out=0,in=90, out looseness = 2, in looseness = 1] (FFM);
+\foreach \value/\DeterminationRegion/\nodecoord in {1.5/\Wboson/FFW, 2.5/M/FFM, 3.5/\quarkt/FFT}{
+\draw (\value*\RegionW, \RegionH) node (\nodecoord) {$\mathrm{FF}_{\DeterminationRegion}=\frac{n_\text{iso}^{\DeterminationRegion}}{n_\text{anti-iso}^{\DeterminationRegion}}$};
+}
 
-\draw [ultra thick, latex-] (.9*\RegionW,1.5*\RegionH) -- (3*\RegionW,1.5*\RegionH)  to [out=0,in=90, out looseness = 2, in looseness = 1] (FFT);
+\draw [ultra thick] (1*\RegionW,1.5*\RegionH)  to [out=0,in=90, out looseness = 1.5, in looseness = 1] (5*\RegionW/4,8*\RegionH/7);
+\draw [ultra thick] (2*\RegionW,1.5*\RegionH)  to [out=0,in=90, out looseness = 1.5, in looseness = 1] (9*\RegionW/4,8*\RegionH/7);
+
+\draw [ultra thick, latex-] (.9*\RegionW,1.5*\RegionH) -- (3*\RegionW,1.5*\RegionH)  to [out=0,in=90, out looseness = 1.5, in looseness = 1] (13*\RegionW/4,8*\RegionH/7);
 
 \draw [thick, -latex] (-\RegionW/5,0) -- (4*\RegionW,0) --+ (\RegionW/5,0);
 \draw [thick, -latex] (0,-\RegionW/5) -- (0,2*\RegionH) --+ (0,\RegionW/5);
