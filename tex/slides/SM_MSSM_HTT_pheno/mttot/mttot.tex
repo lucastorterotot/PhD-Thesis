@@ -1,14 +1,61 @@
 \begin{frame}
-\frametitle{Discriminant variable: \mttot}
+\frametitle{Discriminant variable?}
 
-\manip \MET\ due to neutrinos $\Rightarrow$ no invariant mass!
+\vfill
+
+\begin{minipage}[c]{.3\textwidth}
+\manip \MET\ due to neutrinos.
+\manip No invariant mass!
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.45\textwidth}
+\begin{center}
+\input{\PhDthesisdir/tex/Feynman_diagrams/fgraph-H-tautau_mutau.tex}
+\end{center}
+\end{minipage}
+\hfill~
+
+\vfill\pause
+
+\begin{minipage}[c]{.55\textwidth}
+\manip For muon and \MET,
+\begin{equation*}
+m_{\mathrm{T}}(\mu,\MET) = \sqrt{2p_T^{(\mu)} \MET (1-\cos\Delta\phi)}
+\end{equation*}
+\begin{center}
+\begin{tikzpicture}
+\def\aangle{30}
+\def\bangle{150}
+\def\aRadius{1.75}
+\def\bRadius{1.25}
+\def\cRadius{.5}
+\draw [-latex, ltcolorred] (0,0) --+ (\aangle:\aRadius) node [above] {$\vpT^{(\mu)}$};
+\draw [-latex, ltcolorblue] (0,0) --+ (\bangle:\bRadius) node [above] {$\vMET$};
+\draw (\aangle:\cRadius) arc (\aangle:{(\aangle+\bangle)/2}:\cRadius) node [above] {$\Delta\phi$}  arc ({(\aangle+\bangle)/2}:\bangle:\cRadius);
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+\qquad
+\begin{minipage}[c]{.35\textwidth}
+\begin{center}
+\input{\PhDthesisdir/tex/Feynman_diagrams/fgraph-qq_W_mu_nu.tex}
+\end{center}
+\end{minipage}
+\hfill
 
 \vfill 
 
-\begin{minipage}[c]{.6\textwidth}
-\manip For a lepton and \MET,
+\end{frame}
+
+\begin{frame}
+\frametitle{Discriminant variable: \mttot}
+\manip For $L_1$, $L_2$ and \MET\ system,
 \begin{equation*}
-m_{\mathrm{T}}(\ell,\MET) = \sqrt{2p_T^{(\ell)} \MET (1-\cos\Delta\phi)}
+\boxed{\mttot = \sqrt{m_{\mathrm{T}}^2(L_1,\MET) + m_{\mathrm{T}}^2(L_2,\MET) + m_{\mathrm{T}}^2(L_1,L_2)}}
+\end{equation*}
+\begin{minipage}[c]{.6\textwidth}
+\begin{equation*}
+m_{\mathrm{T}}(1,2) = \sqrt{2p_T^{(1)} p_T^{(2)} (1-\cos\Delta\phi)}
 \end{equation*}
 \end{minipage}
 \begin{minipage}[c]{.35\textwidth}
@@ -19,20 +66,10 @@ m_{\mathrm{T}}(\ell,\MET) = \sqrt{2p_T^{(\ell)} \MET (1-\cos\Delta\phi)}
 \def\aRadius{1.75}
 \def\bRadius{1.25}
 \def\cRadius{.5}
-\draw [-latex, ltcolorred] (0,0) --+ (\aangle:\aRadius) node [above] {$\vpT^{(\ell)}$};
-\draw [-latex, ltcolorblue] (0,0) --+ (\bangle:\bRadius) node [above] {$\vMET$};
+\draw [-latex, ltcolorred] (0,0) --+ (\aangle:\aRadius) node [above] {$\vpT^{(1)}$};
+\draw [-latex, ltcolorblue] (0,0) --+ (\bangle:\bRadius) node [above] {$\vpT^{(2)}$};
 \draw (\aangle:\cRadius) arc (\aangle:{(\aangle+\bangle)/2}:\cRadius) node [above] {$\Delta\phi$}  arc ({(\aangle+\bangle)/2}:\bangle:\cRadius);
 \end{tikzpicture}
 \end{center}
 \end{minipage}
-
-\vfill \pause
-
-\manip For $L_1$, $L_2$ and \MET\ system,
-\begin{equation*}
-\mttot = \sqrt{m_{\mathrm{T}}^2(L_1,\MET) + m_{\mathrm{T}}^2(L_2,\MET) + m_{\mathrm{T}}^2(L_1,L_2)}
-\end{equation*}
-
-\vfill 
-
 \end{frame}
