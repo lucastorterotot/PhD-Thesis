@@ -10,9 +10,15 @@
 
 \manip For the reconstructed objects, the balancing response is then defined as
 \begin{equation*}
-\vpT^\photon_\text{reco} + \underbrace{\Rbal \vpT^\text{jet}_\text{reco}}_{\vpT^\text{jet}_\text{ptcl}} = \vec{0}
+\vpT^\photon_\text{reco} + \underbrace{\Rbal \vpT^\text{jet}_\text{ptcl}}_{\vpT^\text{jet}_\text{reco}} = \vec{0}
 \Rightarrow
 \boxed{\Rbal = \frac{{\pT}^\text{jet}_\text{reco}}{\pT^\photon}}
+\end{equation*}
+\begin{equation*}
+\text{because }
+\pT^\photon_\text{ptcl}\simeq\pT^\photon_\text{reco}
+=\pT^\photon
+\mend
 \end{equation*}
 \end{frame}
 
@@ -44,7 +50,7 @@
 
 \manip For the reconstructed objects, the MPF response is then defined as
 \begin{equation*}
-\vpT^\photon_\text{reco} + \underbrace{\RMPF \vpT^\text{recoil}_\text{reco}}_{\vpT^\text{recoil}_\text{ptcl}} = -\vMET
+\vpT^\photon_\text{reco} + \underbrace{\RMPF \vpT^\text{recoil}_\text{ptcl}}_{\vpT^\text{recoil}_\text{reco}} = -\vMET
 \Rightarrow
 \boxed{\RMPF = 1 + \frac{\vpT^\photon\cdot\vMET}{\abs{\vpT^\photon}^2}}
 \end{equation*}
