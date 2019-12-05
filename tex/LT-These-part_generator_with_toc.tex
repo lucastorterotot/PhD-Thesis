@@ -1,0 +1,15 @@
+%% use to compile only one chapter
+\documentclass[11pt,a4paper,twoside]{book}
+
+\input{../../tex/PhDthesisdirs.tex}
+\RequirePackage[log-declarations=false]{xparse}
+\usepackage[none,nabla,noseccolor,ppl,nosorting,minitoc]{ltstyle}
+\input{\PhDthesisdir/tex/thesis_commands_definitions.tex}
+\addbibresource{\PhDthesisdir/bib/Bibliographie_PhD_Torterotot.bib}
+
+\begin{document}
+\def\thechapter{}
+\input{fichier.tex}
+\printchapterbibliography
+\tableofcontents
+\end{document}

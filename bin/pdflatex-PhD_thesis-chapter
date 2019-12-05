@@ -1,8 +1,11 @@
 #!/bin/bash
 
 pdffilename=$(basename ~+)
-
-pdflatex_complete_sequence $lt_PhD_thesis_dir/tex/LT-These-part_generator
+pdflatex_complete_sequence -nc $lt_PhD_thesis_dir/tex/LT-These-part_generator_with_toc
+rename "s|generator_with_toc|generator|g" LT-These-part_generator*
+pdflatex -draftmode -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-part_generator
+pdflatex -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-part_generator
+rm_tex_aux_files
 
 mv LT-These-part_generator.pdf $pdffilename.pdf &
 mv LT-These-part_generator.log $pdffilename.log &
