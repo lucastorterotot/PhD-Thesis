@@ -1,0 +1,24 @@
+\begin{fmffile}{Higgs_VBF_u}\fmfstraight
+\begin{fmfchar*}(42,25)
+  \fmfleft{qa,qb}
+  \fmfright{qc,h,qd}
+  \fmf{fermion}{v1,qc}
+  \fmf{fermion}{v2,qd}
+  \fmf{phantom,tension=2}{qa,v1}
+  \fmf{phantom,tension=2}{qb,v2}
+  \fmffreeze
+  \fmf{plain}{vv2,v2}
+  \fmf{plain}{vv1,v1}
+  \fmf{fermion}{qa,vv2}
+  \fmf{fermion}{qb,vv1}
+  \fmf{boson, label=$\Wbosonpm,, \Zboson$, l.side=right, tension=3}{v1,v3}
+  \fmf{boson, label=$\Wbosonpm,, \Zboson$, l.side=left, tension=3}{v2,v3}
+  \fmf{dashes}{v3,h}
+  \fmfdot{v1,v2,v3}
+  \fmflabel{\quark}{qa}
+  \fmflabel{\quark}{qb}
+  \fmflabel{\quark}{qc}
+  \fmflabel{\quark}{qd}
+  \fmflabel{\higgs}{h}
+\end{fmfchar*}
+\end{fmffile}

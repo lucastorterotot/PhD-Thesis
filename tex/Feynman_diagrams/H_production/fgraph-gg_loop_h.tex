@@ -1,0 +1,25 @@
+\begin{fmffile}{gg_loop_h}\fmfstraight
+\begin{fmfchar*}(42,25)
+  \fmfleft{g1,fi,g2}
+  \fmfright{fo1,h,fo2}
+  \fmf{gluon}{g1,g1loop}
+  \fmf{gluon}{g2,g2loop}
+  \fmf{phantom, tension=.6}{g1loop,fo1}
+  \fmf{phantom, tension=.6}{g2loop,fo2}
+  \fmffreeze
+  \fmf{fermion}{g1loop,hloop,g2loop,g1loop}
+  \fmf{fermion}{g2loop,g1loop}
+  \fmf{dashes, tension=1.75}{hloop,h}
+  \fmfdot{g1loop,hloop,g2loop}
+  \fmffreeze
+  \fmf{phantom}{g1loop,fakev1}
+  \fmf{phantom}{g2loop,fakev1}
+  \fmffreeze
+  \fmf{phantom,tension=1.5}{hloop,fakev2}
+  \fmf{phantom, label=$t,,\bar{t}$, l.side=left}{fakev1,fakev2}
+  \fmf{phantom, label=$b,,\bar{b}$, l.side=right}{fakev1,fakev2}
+  \fmflabel{\gluon}{g1}
+  \fmflabel{\gluon}{g2}
+  \fmflabel{\higgs}{h}
+\end{fmfchar*}
+\end{fmffile}

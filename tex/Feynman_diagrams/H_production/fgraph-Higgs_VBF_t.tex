@@ -1,0 +1,20 @@
+\begin{fmffile}{Higgs_VBF_t}\fmfstraight
+\begin{fmfchar*}(42,25)
+  \fmfleft{qa,qb}
+  \fmfright{qc,h,qd}
+  \fmf{fermion}{qa,v1,qc}
+  \fmf{fermion}{qb,v2,qd}
+  \fmf{phantom}{qa,v1}
+  \fmf{phantom}{qb,v2}
+  \fmffreeze
+  \fmf{boson, label=$\Wbosonpm,, \Zboson$, l.side=right, tension=3}{v1,v3}
+  \fmf{boson, label=$\Wbosonpm,, \Zboson$, l.side=left, tension=3}{v2,v3}
+  \fmf{dashes}{v3,h}
+  \fmfdot{v1,v2,v3}
+  \fmflabel{\quark}{qa}
+  \fmflabel{\quark}{qb}
+  \fmflabel{\quark}{qc}
+  \fmflabel{\quark}{qd}
+  \fmflabel{\higgs}{h}
+\end{fmfchar*}
+\end{fmffile}
