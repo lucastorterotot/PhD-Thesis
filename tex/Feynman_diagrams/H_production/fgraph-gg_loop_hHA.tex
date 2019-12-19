@@ -2,8 +2,8 @@
 \begin{fmfchar*}(42,25)
   \fmfleft{g1,fi,g2}
   \fmfright{fo1,h,fo2}
-  \fmf{gluon, label=$g$, l.side=left, l.d=2mm}{g1,g1loop}
-  \fmf{gluon, label=$g$, l.d=3mm}{g2,g2loop}
+  \fmf{gluon}{g1,g1loop}
+  \fmf{gluon}{g2,g2loop}
   \fmf{phantom, tension=.6}{g1loop,fo1}
   \fmf{phantom, tension=.6}{g2loop,fo2}
   \fmffreeze
@@ -15,8 +15,10 @@
   \fmf{phantom}{g1loop,fakev1}
   \fmf{phantom}{g2loop,fakev1}
   \fmffreeze
-  \fmf{phantom,tension=1.5}{hloop,fakev2}
-  \fmf{phantom, label=$t,,\bar{t}$, l.side=left}{fakev1,fakev2}
-  \fmf{phantom, label=$b,,\bar{b}$, l.side=right}{fakev1,fakev2}
+%  \fmf{phantom,tension=1.5}{hloop,fakev2}
+%  \fmf{phantom, label=$t,,\bar{t}$, l.side=left}{fakev1,fakev2}
+%  \fmf{phantom, label=$b,,\bar{b}$, l.side=right}{fakev1,fakev2}
+  \fmflabel{\gluon}{g1}
+  \fmflabel{\gluon}{g2}
 \end{fmfchar*}
 \end{fmffile}
