@@ -4,3 +4,6 @@ cd $lt_PhD_thesis_dir/
 
 pdflatex_complete_sequence $lt_PhD_thesis_dir/tex/LT-These-main
 check_LaTeX_logs
+mv LT-These-main.log LT-These-main.llog
+rm *.log
+mv LT-These-main.llog LT-These-main.log
