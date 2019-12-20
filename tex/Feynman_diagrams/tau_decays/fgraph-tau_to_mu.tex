@@ -1,16 +1,20 @@
 \begin{fmffile}{tau_to_mu}%\fmfstraight
 \begin{fmfchar*}(30,20)
   \fmfleft{taui}
-  \fmfright{l1,l2,nuout}
+  \fmfright{l1,l2,l3,f1,f2,f3,nuout}
   \fmf{fermion, tension=2}{taui,v1}
   \fmf{fermion}{v1,nuout}
   \fmf{phantom}{v1,l1}
   \fmffreeze
   \fmflabel{$\nutau$}{nuout}
   \fmf{boson, label=$\Wbosonminus$, l.side=right, tension=2}{v1,v2}
-  \fmf{fermion}{l2,v2,l1}
-  \fmflabel{$\muon$}{l1}
-  \fmflabel{$\antinumu$}{l2}
+  \fmf{phantom}{v2,td1,l1}
+  \fmf{phantom}{v2,td2,l2}
+  \fmf{phantom}{v2,td3,l3}
+  \fmffreeze
+  \fmf{fermion}{l1,v2,l3}
+  \fmflabel{\antinumu}{l1}
+  \fmflabel{\muon}{l3}
   \fmflabel{\leptau}{taui}
   \fmfdot{v1,v2}
 \end{fmfchar*}
