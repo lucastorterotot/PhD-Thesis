@@ -19,7 +19,6 @@
 \publisher{}
 
 \begin{document}
-\hypersetup{linkcolor=ltcolorblue4}
 \pagestyle{empty}
 \input{\PhDthesisdir/contents/titlepage/titlepage.tex}
 \cleardoublepage
@@ -38,12 +37,11 @@
 \input{\PhDthesisdir/contents/resume/resume_EN.tex}
 \cleardoublepage
 \frontmatter
-\hypersetup{linkcolor=black}
+{\hypersetup{linkcolor=black}
 \tableofcontents
 \listoffigures
-\listoftables
+\listoftables}
 \mainmatter
-\hypersetup{linkcolor=ltcolorblue4}
 \input{\PhDthesisdir/contents/introduction/introduction.tex}
 \input{\PhDthesisdir/contents/chapters_list.tex}
 \input{\PhDthesisdir/contents/conclusion/conclusion.tex}
