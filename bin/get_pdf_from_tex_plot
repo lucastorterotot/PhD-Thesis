@@ -1,0 +1,18 @@
+#!/bin/bash
+
+input_file=$1
+
+cd $(dirname $1)
+file=$(basename $1)
+
+cp $lt_PhD_thesis_dir/tex/get_pdf_from_tex_plotter.tex .
+text_replacement XXX $file get_pdf_from_tex_plotter.tex
+pdflatex_complete_sequence get_pdf_from_tex_plotter.tex
+mv get_pdf_from_tex_plotter.pdf ${file%.*}-converted_to.pdf
+
+cp $lt_PhD_thesis_dir/tex/get_pdf_from_tex_plotter_beamer.tex .
+text_replacement XXX $file get_pdf_from_tex_plotter_beamer.tex
+pdflatex_complete_sequence get_pdf_from_tex_plotter_beamer.tex
+mv get_pdf_from_tex_plotter_beamer.pdf ${file%.*}-beamer_converted_to.pdf
+
+rm get_pdf_from_tex_plotter*
