@@ -1,0 +1,28 @@
+#!/bin/bash
+
+redo_bib=0
+for arg in "$@"; do
+    case "$arg" in
+        --bib)
+            redo_bib=1
+            shift
+            ;;
+    esac
+done
+
+pdffilename=$(basename ~+)
+
+if [ -e LT-These-part_generator_with_toc.bcf ] && [[ $redo_bib == 0 ]]
+then
+   echo 'Not reprocessing bib.'
+else
+    pdflatex -draftmode -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-part_generator_with_toc
+    biber LT-These-part_generator_with_toc
+fi
+
+mpost_all
+pdflatex -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-part_generator_with_toc
+
+mv LT-These-part_generator_with_toc.pdf $pdffilename.pdf
+
+check_LaTeX_logs
