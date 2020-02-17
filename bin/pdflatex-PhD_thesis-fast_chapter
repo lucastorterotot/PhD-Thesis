@@ -1,10 +1,15 @@
 #!/bin/bash
 
 redo_bib=0
+redo_fmf=0
 for arg in "$@"; do
     case "$arg" in
         --bib)
             redo_bib=1
+            shift
+            ;;
+        --fmf)
+            redo_fmf=1
             shift
             ;;
     esac
@@ -20,7 +25,13 @@ else
     biber LT-These-part_generator_with_toc
 fi
 
-mpost_all
+if [[ $redo_fmf == 0 ]]
+then
+   echo 'Not reprocessing fmf.'
+else
+    mpost_all
+fi
+
 pdflatex -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-part_generator_with_toc
 
 mv LT-These-part_generator_with_toc.log $pdffilename.log
