@@ -1,1 +1,130 @@
 \subsection{Interaction électromagnétique}\label{chapter-MS-MSSM-section-formalisme-subsec-QED}
+Le lagrangien libre d'un fermion, \ie\ le lagrangien décrivant le comportement d'un fermion seul, s'exprime
+\begin{equation}
+\Lcal_{\text{fermion libre}} = \im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi
+\label{eq-lagrangien_fermion_libre_partial}
+\end{equation}
+où $\im$ est l'unité imaginaire ($\im^2=-1$), $\psi$ le \emph{spineur de Dirac} correspondant au champ fermionique, $\bar{\psi}=\psi^\dagger\gamma^0$ son \todo{?} avec $\psi^\dagger$ \todo{?}, $\gamma^\mu$ les matrices de Dirac, définies dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A} et $m$ la masse de la particule considérée.
+\par Le lagrangien $\Lcal_{\text{fermion libre}}$ est invariant sous une transformation globale du groupe $U(1)_{em}$\footnote{Dans la notation $U(1)_{em}$, \og $em$ \fg{} signifie électromagnétique. Ce groupe n'apparaît pas dans l'équation~\eqref{eq-symmetries_lagrangien_SM} car nous ne traitons ici que de l'électromagnétisme. Le groupe $U(1)_\gamma$ est traité dans la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW}.}, \ie\ lorsque l'on applique la transformation suivante au spineur $\psi$
+\begin{equation}
+\psi \to \eexp{\im eQ\alpha}\psi
+\msep
+\bar{\psi} \to \bar{\psi}\eexp{-\im eQ\alpha}
+\end{equation}
+où $\alpha\in\mathbb{R}$, $e$ est la charge électrique et $Q$ l'opérateur de charge électrique.
+En effet, sous une telle transformation,
+\begin{equation}
+\bar{\psi}\psi \to \bar{\psi}\eexp{-\im eQ\alpha}\eexp{\im eQ\alpha}\psi = \bar{\psi}\psi
+\end{equation}
+et
+\begin{equation}
+\bar{\psi} \gamma^\mu\partial_\mu \psi
+\to
+\bar{\psi}\eexp{-\im eQ\alpha}
+\gamma^\mu\partial_\mu
+\left(\eexp{\im eQ\alpha}\psi\right)
+=
+\bar{\psi}\eexp{-\im eQ\alpha}
+\eexp{\im eQ\alpha}
+\gamma^\mu\partial_\mu
+\left(\psi\vphantom{\psi\eexp{\im eQ\alpha}}\right)
++
+\bar{\psi}\eexp{-\im eQ\alpha}
+\gamma^\mu
+\cancel{\partial_\mu \left(\eexp{\im eQ\alpha}\vphantom{\psi\eexp{\im eQ\alpha}}\right)}\psi
+= \bar{\psi} \gamma^\mu\partial_\mu \psi
+\end{equation}
+car $\alpha$ ne dépend pas de l'espace-temps pour une transformation globale.
+\par En revanche, pour une transformation locale, %\ie\ lorsque $\alpha$ dépend de la position dans l'espace-temps, %d'une part la physique ne doit pas être modifiée et d'autre part
+\begin{equation}
+\im\bar{\psi} \gamma^\mu\partial_\mu \psi
+\to
+\im\bar{\psi} \gamma^\mu\partial_\mu \psi
++
+\im\eexp{-\im eQ\alpha}
+\bar{\psi}
+\gamma^\mu
+\partial_\mu
+\left(\eexp{\im eQ\alpha}\vphantom{\psi\eexp{\im eQ\alpha}}\right)
+\psi
+=
+\im\bar{\psi} \gamma^\mu\partial_\mu \psi
+-
+\bar{\psi}
+\gamma^\mu
+eQ\partial_\mu
+\alpha
+\psi
+\label{eq-QED_jauge_brisee}
+\end{equation}
+ce qui fait apparaître un terme supplémentaire, $\bar{\psi}\gamma^\mu eQ\partial_\mu\alpha\psi$, provenant de la transformation du terme $\im \bar{\psi} \gamma^\mu\partial_\mu \psi$ de $\Lcal_{\text{fermion libre}}$ qui brise ainsi l'invariance de jauge du lagrangien.
+Afin de rendre le lagrangien invariant sous les transformations locales du groupe $U(1)_{em}$, il est possible de remplacer la dérivée usuelle $\partial_\mu$ par la \emph{dérivée covariante} $D_\mu$, telle que
+\begin{equation}
+\partial_\mu \to D_\mu = \partial_\mu + \im eQ A_\mu
+\end{equation}
+où l'on introduit un \emph{champ de jauge} $A_\mu$, dont la transformation de jauge permet de supprimer le terme supplémentaire qui brise l'invariance de jauge du lagrangien. En effet, le champ $A_\mu$ se transforme tel que
+\begin{equation}
+A_\mu \to A_\mu - \partial_\mu\alpha
+\mend
+\end{equation}
+Ainsi, en réécrivant le lagrangien du fermion de l'équation~\eqref{eq-lagrangien_fermion_libre_partial} avec la dérivée covariante,
+\begin{equation}
+\Lcal_{\text{fermion libre}}' = \im \bar{\psi} \gamma^\mu D_\mu \psi - m \bar{\psi}\psi
+= \im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi - \bar{\psi}\gamma^\mu eQA_\mu \psi
+= \Lcal_{\text{fermion libre}} - \bar{\psi}\gamma^\mu eQA_\mu \psi
+\mend[,]
+\end{equation}
+le dernier terme se transforme en
+\begin{equation}
+-\bar{\psi}\gamma^\mu eQA_\mu \psi
+\to
+-\bar{\psi}\eexp{-\im eQ\alpha}
+\gamma^\mu
+eQ\left(A_\mu - \partial_\mu\alpha\right)
+\eexp{\im eQ\alpha}\psi
+=
+-\bar{\psi} \gamma^\mu eQA_\mu \psi
++
+\bar{\psi} \gamma^\mu eQ \partial_\mu\alpha \psi
+\end{equation}
+et le dernier terme obtenu compense exactement le terme brisant l'invariance de jauge dans l'équation~\eqref{eq-QED_jauge_brisee}.
+\par Le nouveau terme introduit par l'utilisation de la dérivée covariante, $- \bar{\psi}\gamma^\mu eQA_\mu \psi$, correspond à l'interaction entre un fermion et le champ de jauge $A_\mu$, dont l'intensité est directement proportionnelle à la charge électrique du fermion
+Toutefois, le champ $A_\mu$ ne représente pas encore le photon en l'état, il faut permettre au photon de se propager librement. Pour cela, il faut introduire un terme cinétique qui soit invariant de jauge dans le lagrangien, ce qui peut se faire avec
+\begin{equation}
+\Lcal_{\text{photon libre}} = \frac{1}{4} F_{\mu\nu}F^{\mu\nu}
+\end{equation}
+avec $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$.
+Un terme de masse pour le champ $A_\mu$ devrait s'écrire sous la forme $\frac{1}{2}m^2A^\mu A_\mu$, ce qui n'est pas invariant de jauge. Par conséquent, le champ $A_\mu$ est de masse nulle.
+\par Le lagrangien complet pour l'interaction électromagnétique\footnote{Aussi nommé QED pour \emph{Quantum Electro-Dynamics}.} s'exprime alors
+\begin{equation}
+\Lcal_{QED} =
+\underbrace{\im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi \vphantom{\im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi - \bar{\psi}\gamma^\mu eQA_\mu \psi + \frac{1}{4} F_{\mu\nu}F^{\mu\nu}}}_{\Lcal_{\text{fermion libre}}}
+\underbrace{- \bar{\psi}\gamma^\mu eQA_\mu \psi \vphantom{\im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi - \bar{\psi}\gamma^\mu eQA_\mu \psi + \frac{1}{4} F_{\mu\nu}F^{\mu\nu}}}_{\text{interaction}}
+\underbrace{+ \frac{1}{4} F_{\mu\nu}F^{\mu\nu} \vphantom{\im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi - \bar{\psi}\gamma^\mu eQA_\mu \psi + \frac{1}{4} F_{\mu\nu}F^{\mu\nu}}}_{\Lcal_{\text{photon libre}}}
+\mend
+\end{equation}
+Le terme d'interaction dans ce lagrangien permet de \og connecter \fg{} les fermions aux photons dans les diagrammes de Feynman.
+La \og connexion \fg{} ainsi obtenue est nommée \emph{vertex}.
+La structure du terme d'interaction, $\bar{\psi}\gamma^\mu eQA_\mu \psi$, impose ainsi la présence au vertex d'un photon ($A_\mu$), d'un fermion entrant ou d'un anti-fermion sortant ($\bar{\psi}$) et d'un fermion sortant ou d'un anti-fermion entrant ($\psi$). Nous obtenons alors les diagrammes de la figure~\ref{fig-fgraph-ff_Gamma}.
+\begin{figure}[h]
+\centering
+\vspace{\baselineskip}
+\subcaptionbox{Un fermion \fermion\ et un anti-fermion \antifermion\ s'annihilent en un photon \photon.\label{subfig-fgraph-ff_Gamma1}}[.225\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/QED/fgraph-ff_Gamma1.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{Un photon donne une paire de fermion et anti-fermion.\label{subfig-fgraph-ff_Gamma2}}[.225\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/QED/fgraph-ff_Gamma2.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{Un fermion interagit avec un photon.\label{subfig-fgraph-ff_Gamma3}}[.225\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/QED/fgraph-ff_Gamma3.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{Un anti-fermion interagit avec un photon.\label{subfig-fgraph-ff_Gamma4}}[.225\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/QED/fgraph-ff_Gamma4.tex}\vspace{\baselineskip}}
+
+\caption{Diagrammes de Feynman possibles à partir du terme $\bar{\psi}\gamma^\mu eQA_\mu \psi$ du lagrangien $\Lcal_{QED}$.}
+\label{fig-fgraph-ff_Gamma}
+\end{figure}
+
+\todo{Noether et qté conservée?}
+
+\par Maintenir l'invariance de jauge locale à l'aide de la dérivée covariante fait émerger l'interaction électromagnétique dans le cas de l'invariance de jauge sous $U(1)_{em}$.  Dans les sections suivantes, un raisonnement similaire est appliqué afin d'obtenir les interactions électrofaible et forte.
