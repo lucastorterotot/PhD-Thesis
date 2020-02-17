@@ -1,0 +1,53 @@
+\chapter{Notions mathématiques}\label{annexe-maths}
+
+\paragraph{Matrices de Pauli}
+
+\begin{align*}
+\sigma_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix}
+\msep
+\sigma_2 = \begin{pmatrix}0&-\im\\\im&0\end{pmatrix}
+\msep
+\sigma_3 = \begin{pmatrix}1&0\\0&-1\end{pmatrix}
+\mend
+\end{align*}
+
+\paragraph{Matrices de Dirac ou matrices gamma}
+
+\begin{align*}
+\gamma^{0} &= \begin{pmatrix}\Id_{2\times2} & 0_{2\times2}\\0_{2\times2} & -\Id_{2\times2}\end{pmatrix} = \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&-1&0\\0&0&0&-1\end{pmatrix}
+\msep&
+\gamma^{1} &= \begin{pmatrix}0_{2\times2} & \sigma_1\\-\sigma_1 & 0_{2\times2}\end{pmatrix} = \begin{pmatrix}0&0&0&1\\0&0&1&0\\0&-1&0&0\\-1&0&0&0\end{pmatrix} \mend[,]
+\\
+\gamma^{2} &= \begin{pmatrix}0_{2\times2} & \sigma_2\\-\sigma_2 & 0_{2\times2}\end{pmatrix} = \begin{pmatrix}0&0&0&-i\\0&0&i&0\\0&i&0&0\\-i&0&0&0\end{pmatrix}
+\msep&
+\gamma^{3} &= \begin{pmatrix}0_{2\times2} & \sigma_3\\-\sigma_3 & 0_{2\times2}\end{pmatrix} = \begin{pmatrix}0&0&1&0\\0&0&0&-1\\-1&0&0&0\\0&1&0&0\end{pmatrix} \mend
+\end{align*}
+
+\paragraph{Projecteur chiral}
+
+\begin{equation*}
+\gamma^5 = \im\gamma^0\gamma^1\gamma^2\gamma^3 = \begin{pmatrix}0&0&1&0\\0&0&0&1\\1&0&0&0\\0&1&0&0\end{pmatrix}\mend
+\end{equation*}
+
+\paragraph{Matrices de Gell-Mann}
+
+\begin{align*}
+\lambda_1 &= \begin{pmatrix}0&1&0\\1&0&0\\0&0&0\end{pmatrix}
+\msep&
+\lambda_2 &= \begin{pmatrix}0&-\im&0\\\im&0&0\\0&0&0\end{pmatrix}
+\msep&
+\lambda_3 &= \begin{pmatrix}1&0&0\\0&-1&0\\0&0&0\end{pmatrix}
+\mend[,]
+\\
+\lambda_4 &= \begin{pmatrix}0&0&1\\0&0&0\\1&0&0\end{pmatrix}
+\msep&
+\lambda_5 &= \begin{pmatrix}0&0&-\im\\0&0&0\\\im&0&0\end{pmatrix}
+\msep&
+\lambda_6 &= \begin{pmatrix}0&0&0\\0&0&1\\0&1&0\end{pmatrix}
+\mend[,]
+\\
+\lambda_7 &= \begin{pmatrix}0&0&0\\0&0&-\im\\0&\im&0\end{pmatrix}
+\msep&
+\lambda_8 &= \frac{1}{\sqrt{3}}\begin{pmatrix}1&0&0\\0&1&0\\0&0&-2\end{pmatrix}
+\mend
+\end{align*}
