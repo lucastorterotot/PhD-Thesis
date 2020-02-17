@@ -1,0 +1,409 @@
+\documentclass{article}
+
+\usepackage[fiche]{ltstyle}
+\usepackage[M2ENS]{ltmesclasses}
+
+%\usepackage[random]{ltqueststyle}
+
+%\setlength{\parindent}{0pt} %si on ne veut pas d'indentation (forcer)
+
+%\enonceON
+%\enonceOFF
+%\corrigeON
+%\corrigeONblue
+%\corrigeOFF
+
+\matiere{Champs quantiques en interaction} %Physique, Chimie, Physique-Chimie, Mathématiques ... possède une version courte optionnelle
+\enseignementtype{} % Fiche  Mémo  Résumé de cours  CQFR ...
+\enseignementnum{}
+
+\title{}
+\author[L. \textsc{Torterotot}]{Lucas \textsc{Torterotot}}
+\date{}
+\subtitle{}
+\imgcover{}
+\editionsettings{}
+\publisher{}
+
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+
+
+\section{Formules pour les calculs}
+
+\paragraph{Formule de Feynman} $\displaystyle \frac{1}{AB} = \int_0^1 \dd{x} \frac{1}{(Ax + B(1-x))^2}$
+
+\paragraph{Formule LSZ -- Bosons} (formule de réduction de Lehmann Symanzik Zimmermann), dans l'hypothèse (très forte!) où les champs sont libres en $\pm\infty$,
+\begin{align*}
+\braket{f|S|i} &=
+\underbrace{\vphantom{\prod_f}\prod_i \left( -\int\dd[4]{x_i}\eexp{-ip_ix_i}(\square_{x_i}+m^2) \right)}_\text{particules de l'état initial}
+\underbrace{\prod_f \left( -\int\dd[4]{y_f}\eexp{-ip_fy_f}(\square_{y_f}+m^2) \right)}_\text{particules de l'état final}
+\underbrace{\vphantom{\prod_f}\Braket{0|T\phi(x_1)\dots\phi(x_I)\phi(y_1)\dots\phi(y_F)|0}}_{\boxed{G(x_1,\dots,x_I,y_1,\dots,y_F)}}
+\\
+&=
+i^{I+F} \prod_{n\in i,f} (p_n + m^2) \tilde{G}(-p_{f1},\dots,-p_{fF},p_{i1},\dots,p_{iI})
+\mend
+\end{align*}
+plus les contributions non connexes.
+
+\paragraph{Formule LSZ -- Fermions} 
+\begin{multline*}
+\braket{f|S|i} = \braket{0|
+d_\text{out}^{\lambda'}(k')b_\text{out}^{\lambda}(k)
+b_\text{out}^{\dagger\sigma}(p)d_\text{out}^{\dagger\sigma'}(p')|0}
+=
+i^\text{nb. ferm.}
+i^\text{nb. a.ferm.}
+\int \dd[4]{x}\dd[4]{x'}\dd[4]{y}\dd[4]{y'}
+\eexp{-ipx}\eexp{-ip'x'}\eexp{iky}\eexp{ik'y'}
+\\
+\underbrace{\vphantom{\slashed{\partial}_{y'}}\bar{U}_\lambda(k)(i\slashed{\partial}_y-m)}_\text{fermion final}
+\underbrace{\vphantom{\slashed{\partial}_{y'}}\bar{V}_{\sigma'}(p')(i\slashed{\partial}_{x'}-m)}_\text{antifermion initial}
+\braket{0|T\bar{\psi}_{\alpha'}(y'){\psi}_{\alpha}(y)\bar{\psi}_{\beta}(x)\bar{\psi}_{\beta'}(x')|0}
+\underbrace{\vphantom{\slashed{\partial}_{y'}}(i\overleftarrow{\slashed{\partial}}_x-m){U}_\sigma(p)}_\text{fermion initial}
+\underbrace{\vphantom{\slashed{\partial}_{y'}}(i\overleftarrow{\slashed{\partial}}_{y'}-m){V}_{\lambda'}(k')}_\text{antifermion final}
+\end{multline*}
+plus les contributions non connexes.
+
+\paragraph{Formule de Gell-Mann Low} $\displaystyle
+G(x_1,\dots,x_n) = \frac{\Braket{0|T\phi_\text{in}(x_1)\dots\phi_\text{in}(x_n)\exp(i\int\dd[4]{x}\mathcal{L}_\text{int}(x))|0}}{\Braket{0|T \exp(i\int\dd[4]{x}\mathcal{L}_\text{int}(x))|0}} $
+
+\paragraph{Théorème de Wick, \emph{pairing}} Pour le $T\text{-}\Pi$ à $2n$ points, $\frac{2n!}{2^n\,n!}$ termes à trouver.
+
+\paragraph{Calculs d'amplitudes} $U^\dagger = \bar{U}\gamma^0$.
+
+\section{Règles de Feynman}
+
+\paragraph{Règles de Feynman en espace de configuration}
+\begin{itemize}
+\item Vertex (th. $\frac{g}{3!}\phi^3$) : $\frac{ig}{3!}\int\dd[4]{y_i}$.
+\item Propagateur : $D_F(\text{start}-\text{end})$.
+\end{itemize}
+
+\paragraph{Règles de Feynman en espace des impulsions}(exemples p.~13, p.~21-22)
+\begin{itemize}
+\item Vertex (th. $\frac{g}{3!}\phi^3$) : $\frac{ig}{3!} (2\pi)^4\delta^{(4)}(\Sigma k_i)$.
+\item Vertex (QED) : $-ie\gamma^\mu_{\alpha\beta}$.
+\item Propagateur boson : $\frac{i}{k_j^2-m^2+i\epsilon}$.
+\item fermion $\alpha$ in : $U_\sigma(p)_\alpha$.
+\item anti-fermion $\alpha$ in : $\bar{V}_\sigma(p)_\alpha$.
+\item fermion $\alpha$ out : $\bar{U}_\sigma(p)_\alpha$.
+\item anti-fermion $\alpha$ out : $V_\sigma(p)_\alpha$.
+\item photon in : $\varepsilon_\mu(p)$
+\item photon out : $\varepsilon^*_\mu(p)$
+\item fermion interne $\alpha\rightarrow\beta$ : $\frac{i(\slashed{p}+m)_{\alpha\beta}}{p^2-m^2+i\epsilon}=\frac{i}{(\slashed{p}-m+i\epsilon)_{\beta\alpha}}$
+\item photon interne $-\frac{i}{p^2+i\epsilon}\left( \eta_{\mu_\nu} + (\xi-1)\frac{p_\mu p_\nu}{p^2} \right)$
+\end{itemize}
+
+\section{Expressions des champs libres, relations de commutations et lagrangiens associés}
+
+\subsection{Spin 0}
+\paragraph{Lagrangien, équation de Klein-Gordon}$\displaystyle
+\mathcal{L} = \partial_\mu\hat{\phi}\partial^\mu\hat{\phi}^\dagger - m^2 \hat{\phi}\hat{\phi}^\dagger
+\msep
+\left(\square + m^2\right)\phi=0
+$
+\paragraph{Champ scalaire}$\displaystyle
+\hat{\phi}(x) = \int \dd{\tilde{k}}\left( \hat{a}(\vec{k})\eexp{-ikx}+\hat{b}^\dagger(\vec{k})\eexp{ikx} \right)
+\msep
+\underbrace{\dd{\tilde{k}} = \frac{\dd[3]{k}}{(2\pi)^3}\frac{1}{2\omega_k}}_\text{invariant de Lorentz}
+\msep
+kx = k_\mu x^\mu
+\msep
+\omega_k = k_0 = \sqrt{\vec{k}^2+m^2}
+$
+
+\paragraph{Moment conjugué et relations de commutation}
+\begin{align*}
+\hat{\pi} = \pdv{\mathcal{L}}{\partial_0\phi}=\partial_0\phi^*
+\msep
+\left[ \hat{\phi}(x), \hat{\pi}(y) \right] = i\hbar\delta^{(4)}(x-y)
+\Leftrightarrow
+\left[ \hat{a}(\vec{k}), \hat{a}^\dagger(\vec{k}') \right] =
+\left[ \hat{b}(\vec{k}), \hat{b}^\dagger(\vec{k}') \right] =
+(2\pi)^3\,2\omega_k\,\delta^{(3)}(\vec{k}-\vec{k}')
+\end{align*}
+\begin{align*}
+\hat{a}^\dagger(\vec{k})\ket{0} = \ket{k;}
+\msep
+\hat{b}^\dagger(\vec{k})\ket{0} = \ket{;k}
+\msep
+\hat{a}^\dagger(\vec{k}_1)\hat{b}^\dagger(\vec{k}_2)\hat{a}^\dagger(\vec{k}_3)\ket{0} = \ket{k_1k_3;k_2}= \ket{k_3k_1;k_2}
+\msep
+\braket{k_1|k_2} = (2\pi)^3\,\underbrace{2\omega_k\,\delta^{(3)}(\vec{k}_1-\vec{k}_2)}_\text{invariant de Lorentz}
+\end{align*}
+
+\paragraph{Propagateurs, commutateurs}
+\begin{align*}
+D(x-y) = \int\dd{\tilde{k}}\eexp{-ik(x-y)} = \braket{0|\phi(x)\phi^\dagger(y)|0} = \braket{0|\phi^\dagger(x)\phi(y)|0}
+=
+\left\lbrace
+\begin{aligned}
+& \frac{m}{4\pi^2\abs{x}} \int_0^\infty \frac{u\dd{u}}{\sqrt{1+u^2}}\sin(\abs{x}mu)\msep x_\mu x^\mu < 0\\
+& \sim \exp(im\abs{x})\msep x_\mu x^\mu > 0
+\end{aligned}
+\right.
+\end{align*}
+Invariant de Lorentz : $D(x) = D(\Lambda x)$.
+\begin{align*}
+\left[ \phi(x), \phi^\dagger(y) \right] = D(x-y) - D(y-x) = -i \Delta(x-y) \qquad =0 \text{ si } (x-y)^2<0.
+\end{align*}
+\begin{align*}
+D_F(x-y) = \braket{0|T\phi(x)\phi^\dagger(y)|0} = i \int \frac{\dd[4]{k}}{(2\pi)^4}\frac{\eexp{-ik(x-y)}}{k^2-m^2+i\epsilon}
+= \Theta(x^0-y^0)D(x-y) + \Theta(y^0-x^0)D(y-x)
+\end{align*}
+
+\subsection{Spin 1/2}
+%\subsection{Spin \up{1}/\down{2}}
+\paragraph{Lagrangien, équation de Dirac}$\displaystyle
+\mathcal{L} = \bar{\psi}\left(i\slashed{\partial}-m\right)\psi
+\msep
+\left(i\slashed{\partial}-m\right)\psi=0$
+\paragraph{Champ spinoriel}$\displaystyle
+\hat{\psi}_\alpha(x) = \int\dd{\tilde{k}} 2m \sum_{\lambda=1}^2 \left( \hat{b}_\lambda(\vec{k})U_\alpha^{(\lambda)}(k)\eexp{-ikx} + \hat{d}^\dagger_\lambda(\vec{k})V_\alpha^{(\lambda)}(k)\eexp{ikx} \right)
+\mend[,]$
+\begin{gather*}
+(\slashed{p}-m)U^{(\lambda)}(p)=0
+\msep
+(\slashed{p}+m)V^{(\lambda)}(p)=0
+\msep
+\sum_\lambda U^\lambda(p)\bar{U}^\lambda(p)=\frac{\slashed{p}+m}{2m}
+\end{gather*}
+\paragraph{Moment conjugué et relations d'anti-commutation}$\displaystyle
+\left\lbrace \hat{b}_\lambda(\vec{k}), \hat{b}^\dagger_\sigma(\vec{k}') \right\rbrace =
+\left\lbrace \hat{d}_\lambda(\vec{k}), \hat{d}^\dagger_\sigma(\vec{k}') \right\rbrace =
+(2\pi)^3 \frac{k_0}{m} \delta^{(3)}(\vec{k}-\vec{k}') \delta_{\lambda\sigma}$
+\paragraph{Propagateurs}
+\begin{align*}
+S(x-y) = \braket{0|T\psi(x)\bar{\psi}(y)|0} = (i\slashed{\partial}+m)D_F(x-y)
+\msep
+T\psi(x)\bar{\psi}(y) = \Theta(x^0-y^0)\psi(x)\bar{\psi}(y) {-} \Theta(y^0-x^0)\bar{\psi}(y)\psi(x)
+\end{align*}
+\begin{align*}
+S(x-y) = \int\frac{\dd[4]{k}}{(2\pi)^4}\eexp{-ik(x-y)} \frac{i(\slashed{k}+m)}{k^2-m^2+i\epsilon}
+ = \int\frac{\dd[4]{k}}{(2\pi)^4}\eexp{-ik(x-y)} \frac{i}{\slashed{k}-m+i\epsilon}
+\end{align*}
+
+\subsection{Spin 1}
+\paragraph{Lagrangien, équations \og de Maxwell \fg} en jauge de Lorentz,
+\begin{align*}
+\mathcal{L}= -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} - \frac{1}{2\xi}\left(\partial_\mu A^\mu\right)^2
+\msep
+F_{\mu\nu} = \partial_\mu A_\nu-\partial_\nu A_\mu
+\msep
+\partial_\mu F^{\mu\nu} = 0
+\end{align*}
+\paragraph{Champ vectoriel} et solution de Gupta et Bleuler
+\begin{align*}
+A_\mu(x) = \int\dd{\tilde{k}} \sum_{\lambda=0}^3 \left( \varepsilon_\mu^{(\lambda)}(k) a_\lambda(k) \eexp{-ikx}
++  \bar{\varepsilon}_\mu^{(\lambda)}(k) a^\dagger_\lambda(k) \eexp{ikx} \right)
+= A^{(+)}_\mu(x) + {A^{(+)}_\mu}^\dagger(x)
+\msep
+A^{(+)}_\mu(x) = \int\dd{\tilde{k}} \sum_{\lambda=0}^3 \varepsilon_\mu^{(\lambda)}(k) a_\lambda(k) \eexp{-ikx}
+\end{align*}
+\paragraph{Moment conjugué et relations de commutation}
+\begin{align*}
+\pi^\mu = \pdv{\mathcal{L}}{\partial^0A_\mu} = -F^{0\mu}-\eta^{\mu0}\partial^\nu A_\nu
+\msep
+\left[ A_\mu(x),\pi_\nu(y)\right] = i \eta_{\mu\nu}\delta^{(4)}(x-y)
+\Leftrightarrow
+\left[a_{(\lambda)}(\vec{k}),a^\dagger_{(\lambda')}(\vec{k}')\right] = -2k_0(2\pi)^3\delta^{(3)}(\vec{k}-\vec{k}')\eta_{\lambda\lambda'}
+\end{align*}
+\paragraph{Propagateurs}$\displaystyle
+D_{\mu\nu}(x-y) = -i\int\frac{\dd[4]{k}}{(2\pi)^4}\eexp{-ik(x-y)}\frac{1}{k^2+i\epsilon}\left(\eta_{\mu\nu}+(\xi-1)\frac{k_\mu k_\nu}{k^2}\right)
+$
+
+\section{Matrices de Dirac ou matrices gamma}
+\begin{align*}
+\gamma^{0} = \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&-1&0\\0&0&0&-1\end{pmatrix} \msep
+\gamma^{1} = \begin{pmatrix}0&0&0&1\\0&0&1&0\\0&-1&0&0\\-1&0&0&0\end{pmatrix} \msep
+\gamma^{2} = \begin{pmatrix}0&0&0&-i\\0&0&i&0\\0&i&0&0\\-i&0&0&0\end{pmatrix} \msep
+\gamma^{3} = \begin{pmatrix}0&0&1&0\\0&0&0&-1\\-1&0&0&0\\0&1&0&0\end{pmatrix} \mend
+\end{align*}
+\begin{align*}
+\slashed{p} = \gamma^\mu p_\mu
+\msep
+\{\gamma ^{\mu },\gamma ^{\nu }\}=\gamma ^{\mu }\gamma ^{\nu }+\gamma ^{\nu }\gamma ^{\mu }=2\eta ^{\mu \nu }I_{4}
+\msep
+\gamma^{5} = i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3} = \begin{pmatrix}0&0&1&0\\0&0&0&1\\1&0&0&0\\0&1&0&0\end{pmatrix}
+\end{align*}
+\paragraph{Identités} ${\displaystyle \displaystyle \gamma ^{\mu }\gamma _{\mu }=4I_{4}}
+\msep
+{\displaystyle \displaystyle \gamma ^{\mu }\gamma ^{\nu }\gamma _{\mu }=-2\gamma ^{\nu }}
+\msep
+{\displaystyle \displaystyle \gamma ^{\mu }\gamma ^{\nu }\gamma ^{\rho }\gamma _{\mu }=4\eta ^{\nu \rho }I_{4}}
+\msep
+{\displaystyle \displaystyle \gamma ^{\mu }\gamma ^{\nu }\gamma ^{\rho }\gamma ^{\sigma }\gamma _{\mu }=-2\gamma ^{\sigma }\gamma ^{\rho }\gamma ^{\nu }}$,
+\begin{gather*}
+{\displaystyle \displaystyle \gamma ^{\mu }\gamma ^{\nu }\gamma ^{\rho }=\eta ^{\mu \nu }\gamma ^{\rho }+\eta ^{\nu \rho }\gamma ^{\mu }-\eta ^{\mu \rho }\gamma ^{\nu }-i\epsilon ^{\sigma \mu \nu \rho }\gamma _{\sigma }\gamma ^{5}}
+\msep
+(\gamma ^{\mu })^\dagger = \gamma^0\gamma^\mu\gamma^0
+\end{gather*}
+\paragraph{Traces} trace of any product of an odd number of $\gamma^\mu$ is zero. Be carefull with $\gamma^5$.
+\begin{gather*}
+\tr(\gamma ^{\mu })=0
+\msep
+\operatorname {tr} (\gamma ^{\mu }\gamma ^{\nu })=4\eta ^{\mu \nu }
+\msep
+\operatorname {tr} (\gamma ^{\mu }\gamma ^{\nu }\gamma ^{\rho }\gamma ^{\sigma })=4(\eta ^{\mu \nu }\eta ^{\rho \sigma }-\eta ^{\mu \rho }\eta ^{\nu \sigma }+\eta ^{\mu \sigma }\eta ^{\nu \rho })
+\msep
+\operatorname {tr} (\gamma ^{5})=\operatorname {tr} (\gamma ^{\mu }\gamma ^{\nu }\gamma ^{5})=0
+\mend[,]\\
+{\displaystyle \operatorname {tr} (\gamma ^{\mu }\gamma ^{\nu }\gamma ^{\rho }\gamma ^{\sigma }\gamma ^{5})=-4i\epsilon ^{\mu \nu \rho \sigma }}
+\msep
+\operatorname {tr} (\gamma ^{\mu 1}\dots \gamma ^{\mu n})=\operatorname {tr} (\gamma ^{\mu n}\dots \gamma ^{\mu 1})
+\mend
+\end{gather*}
+
+\section{QED}
+L'utilisation des dérivées covariantes fait apparaître les termes d'interaction. La dérivée covariante $D_\mu$ se transforme comme $A_\mu$, ce qui laisse invariant le lagrangien par symétrie de jauge \emph{locale}.
+\begin{gather*}
+\mathcal{L}_\text{int} = -eA^\mu\bar{\psi}\gamma_\mu\psi
+\msep
+D_\mu\psi = \partial_\mu\psi + ieA_\mu\psi
+\Rightarrow
+\mathcal{L} = \psi(i\slashed{D}-m)\psi = \psi(i\slashed{\partial}-m)\psi -eA^\mu\bar{\psi}\gamma_\mu\psi
+\end{gather*}
+
+\section{Méthodes fonctionnelles -- lien avec les intégrales de chemin}
+\paragraph{Bosons}
+\begin{gather*}
+\left.
+\begin{aligned}
+\braket{0|T\phi(x_1)\dots\phi(x_n)|0} = \frac{\int\mathcal{D}\phi\, \phi(x_1)\dots\phi(x_n) \eexp{i\int\dd[4]{x}\mathcal{L}(x)}}{\int\mathcal{D}[\phi]\exp{i\int\dd[4]{x}\mathcal{L}_\text{tot}(x)}}\\
+\mathcal{Z}[J]
+= \frac{Z[J]}{Z[0]}
+= \frac{\int\mathcal{D}[\phi]\exp{i\int\dd[4]{x}(\mathcal{L}_\text{tot}(x)+J(x)\phi(x))}}{\int\mathcal{D}[\phi]\exp{i\int\dd[4]{x}\mathcal{L}_\text{tot}(x)}}
+\end{aligned}
+\right\rbrace
+\braket{0|T\phi(\tau_1)\dots\phi(\tau_n)|0}
+=
+\frac{(-i)^n}{Z[0]} \eval{\frac{\delta^n}{\delta J(x_1)\dots\delta J(x_n)} Z[J]}_{J=0}
+\mend[,]\\
+Z[J]
+= \eexp{i\int \dd[4]{x} \mathcal{L}_\text{int}\left(\frac{\delta}{\delta J}\right)}Z_0[J]
+\msep
+Z_0[J]
+= \int\mathcal{D}[\phi]\exp \biggl( i\int\dd[4]{x} \bigl( \underbrace{\mathcal{L}_0(x)}_\text{libre}+J(x)\phi(x) \bigr) \biggr)
+= \eexp{-\frac{1}{2}\int\dd[4]{x}\dd[4]{y}J(x)D_F(x-y)J(y)}
+\mend
+\end{gather*}
+$Z[J]$ reproduit les règles de Feynman:
+pour $\mathcal{L}_\text{int} = \lambda \phi^3$,
+\begin{gather*}
+Z[J] \simeq \left( 1 -\lambda \left( \fdv{J} \right)^3 + \frac{1}{2} \lambda^2 \left( \fdv{J} \right)^6 + \dots \right)
+\left( \sum_{n\geq0} \frac{1}{n!} (\tfrac{-1}{2}JDJ)^n \right)
+\msep
+\lambda \equiv \text{vertex}
+\msep
+D \equiv \text{ligne}
+\mend\\
+Z[J] \simeq 
+1 - \underbrace{\frac{1}{2} JDJ\vphantom{\frac{1}{2^2}}}_\text{propag. simple} + \dots
+- \lambda \bigg( \underbrace{ \frac{4!}{2\times2^2}D^2J}_\text{no contrib.} + \underbrace{\dots \vphantom{\frac{1}{2^2}}}_\text{contrib?} \bigg)
++ \frac{\lambda^2}{2} \bigg(-\underbrace{\frac{6!}{3!\times2^3}D^3}_\text{2 vertex, trois lignes} + \dots \bigg)
++\dots
+\end{gather*}
+et avec thm de Wick pour les paires.
+
+\paragraph{Fermions et variables de Gra\ss mann} $\mathcal{L}_0 = \bar{\psi}(i\slashed{\partial}-m)\psi$.
+\begin{gather*}
+\left.
+\begin{aligned}
+\braket{0|T\psi(x)\bar{\psi}(y)|0} = \frac{\int\mathcal{D}[\psi]\mathcal{D}[\bar{\psi}]\psi(x)\bar{\psi}(y)\exp{i\int\dd[4]{x}\mathcal{L}_\text{tot}(x)}}{\int\mathcal{D}[\psi]\mathcal{D}[\bar{\psi}]\exp{i\int\dd[4]{x}\mathcal{L}_\text{tot}(x)}}\\
+\mathcal{Z}[\eta,\bar{\eta}]
+= \frac{Z[\eta,\bar{\eta}]}{Z[0,0]}
+= \frac{\int\mathcal{D}[\psi]\mathcal{D}[\bar{\psi}]\exp{i\int\dd[4]{x}(\mathcal{L}_\text{tot}(x)+ \bar{\eta}\psi+\bar{\psi}\eta )}}{\int\mathcal{D}[\psi]\mathcal{D}[\bar{\psi}]\exp{i\int\dd[4]{x}\mathcal{L}_\text{tot}(x)}}
+\end{aligned}
+\right\rbrace
+\braket{0|T\psi(x)\bar{\psi}(y)|0}
+=
+\frac{-i}{Z[0,0]} \eval{ \fdv{\eta(y)}\fdv{\bar{\eta}(x)} Z[\eta,\bar{\eta}]}_{\eta=\bar{\eta}=0}
+\mend[,]\\
+Z[\eta,\bar{\eta}]
+= \braket{0|T\eexp{i\int\dd[4]{x}\left( \bar{\psi}(x)\eta(x) + \bar{\eta}(x)\psi(x) \right)}|0}
+= \eexp{i\int\dd[4]{x}\left(\mathcal{L} + \bar{\psi}(x)\eta(x) + \bar{\eta}(x)\psi(x) \right)}
+= \eexp{-\int \dd[4]{x} \mathcal{L}_\text{int}\left(\frac{\delta}{\delta \eta},\frac{\delta}{\delta \bar{\eta}}\right)}Z_0[\eta,\bar{\eta}]
+\mend[,]\\
+Z_0[\eta,\bar{\eta}]
+= \int\mathcal{D}[\bar{\psi}]\mathcal{D}[\psi]\exp \biggl( i\int\dd[4]{x} \bigl( \underbrace{\mathcal{L}_0(x)}_\text{libre}+\bar{\psi}(x)\eta(x) + \bar{\eta}(x)\psi(x) \bigr) \biggr)
+= \eexp{- \int\dd[4]{x}\dd[4]{y} \bar{\eta}(x)S(x-y)\eta(y) }
+\mend
+\end{gather*}
+Attention, avec les variables de Gra\ss mann,
+$ \int \dd{\bar{\xi}}\dd{\xi} \eexp{-\bar{\xi}A\xi} = \det A $ (cas bosonique : $\int \dd{J} \eexp{-JAJ} = \pi^{n/2}(\det A)^{-1/2}$).
+
+\section{Renormalisation p.~26-32}
+On se place en dimension $D=4-\epsilon$ et on obtient
+\begin{align*}
+\psi = \psi_0 = \sqrt{Z_2}\psi_R\msep& Z_2 = 1+ \Delta_2 = 1- \frac{e^2}{8\pi^2\epsilon}+\dots\\
+m = m_0 = Z_m m_R \msep& Z_m = 1+\Delta_m = 1-\frac{3e^2}{8\pi^2\epsilon}+\dots\\
+A^\mu = A^\mu_0 = \sqrt{Z_3} A^\mu_R\msep& Z_3 = 1+\Delta_3 = 1- \frac{e^2}{6\pi^2\epsilon}+\dots\\
+e = e_0 = \frac{Z_1}{Z_2\sqrt{Z_3}} e_R \msep& Z_1 = 1-\frac{e^2}{8\pi^2\epsilon}+\dots=Z_2
+\end{align*}
+\begin{align*}
+\tilde{G} &= \frac{i}{\slashed{p}\left(1+\frac{e^2}{8\pi^2\epsilon}\right) - m\left(1+\frac{e^2}{2\pi^2\epsilon}\right)} +\Order{e^4}
+= \left(1-\frac{e^2}{8\pi^2\epsilon}\right) \frac{i}{\slashed{p} - m\left(1+\frac{3e^2}{8\pi^2\epsilon}\right)}+\Order{e^4}\\
+\tilde{G}_R &
+= \frac{i}{\slashed{p} - m_R-\Sigma_R(\slashed{p})}+\Order{e^4}
+\msep
+\Sigma_R(\slashed{p}) = \Sigma_2(\slashed{p}) - \Delta_2\slashed{p} - (\Delta_2+\Delta_m)m_R \equiv\text{partie à l'ordre $\epsilon^0$ dans $\Sigma_2(\slashed{p})$.}
+\end{align*}
+
+\paragraph{Degré superficiel de divergence} $d = DL-2P_i-E_i$, $D$ la dimension (4?), $L$ le nombre de boucles, $P_i$ les nombre de lignes internes de photons, $E_i$ le nombre de ligne interne d'électrons.
+
+\paragraph{Action effective} $Z[J] = \exp(iW[J])$. $iW[J]$ est la fonctionnelle génératrice des fonctions de corrélations connexes.
+Soit $A(x) = \fdv{W}{J(x)}$. Alors,  $\Gamma[A] = W - \int\dd[4]{x}JA$ est la fonctionnelle génératrice des diagrammes à une particule irréductible (1PI). $\Gamma$ contient les blocs élémentaires de la théorie. Voir illustrations p.~31.
+
+\paragraph{Identités de Ward} voir p.~31-32.
+
+\newpage
+
+\smallpart{Champs quantiques libres, champ de Klein-Gordon, bosons}
+
+
+\paragraph{Hamiltonien, impulsion, charge, nombre de particules}
+\begin{gather*}
+\hat{H} = \int \dd{\tilde{k}} \hbar\omega(\vec{k})\left(\hat{a}^\dagger\hat{a}+\hat{b}^\dagger\hat{b}\right)
+= \frac{1}{2}\int \frac{\dd[3]{k}}{(2\pi)^3} \left(\hat{a}^\dagger\hat{a}+\hat{b}^\dagger\hat{b}\right) \mend[,]\\
+\hat{\vec{P}} = \int \dd{\tilde{k}} \vec{k} \left(\hat{a}^\dagger\hat{a}+\hat{b}^\dagger\hat{b}\right) \msep
+\hat{Q} = \int \dd{\tilde{k}} \left(\hat{a}^\dagger\hat{a}-\hat{b}^\dagger\hat{b}\right)  \msep
+\hat{N} = \int \dd{\tilde{k}} \left(\hat{a}^\dagger\hat{a}+\hat{b}^\dagger\hat{b}\right) \mend
+\end{gather*}
+
+
+
+\paragraph{Fonctionnelle génératrice}
+\begin{align*}
+Z[j,\bar{j}] = \Braket{0|T\exp[i\int\dd[4]{x}\left( j(x)\phi^\dagger(x)+\bar{j}(x)\phi(x) \right)]|0}
+\underset{\text{th. libre}}{=} \exp[-\int\dd[4]x\dd[4]y\bar{j}(x)D_F(x-y)j(y)]
+\end{align*}
+\begin{align*}
+G^{(2)}(x,y) = \eval{\left(-i\fdv{\bar{j}(x)}\right)\left(-i\fdv{j(y)}\right)  Z[j,\bar{j}]}_{j=\bar{j}=0}
+\end{align*}
+
+\smallpart{Interactions}
+\paragraph{Matrice S} $S\ket{p_1p_2}_\text{out} = \ket{p_1p_2}_\text{in}$ : changement de base.
+\begin{align*}
+P_{fi} = \abs{_\text{out}\braket{k_1\dots k_J|p_1p_2}_\text{in}}^2 = \abs{_\text{out}\braket{k_1\dots k_J|S|p_1p_2}_\text{out}}^2
+ = \abs{S_{fi}}^2
+\end{align*}
+
+\paragraph{Section efficace}
+\begin{align*}
+\dd{\sigma} = \frac{\text{Volume}}{\text{Temps}}\frac{1}{\abs{\vec{v}_1}} \dd{P}
+= \frac{V}{T}\frac{1}{\abs{\vec{v}_1}} \frac{\abs{\braket{f|S|i}}^2}{\braket{f|f}\braket{i|i}}\dd{\Pi}
+= \frac{V}{T}\frac{1}{\abs{\vec{v}_1}} \frac{\abs{\braket{f|S|i}}^2}{\braket{f|f}\braket{i|i}} \left[ \prod_{j=1}^J \frac{V}{(2\pi)^3} \dd[3]{p_j} \right]
+\end{align*}
+Or, $S = 1 + i\tau$, soit $\braket{f|S|i} = \cancel{\braket{F|i}} + i\braket{f|\tau|i}$
+\begin{gather*}
+\abs{\braket{f|S|i}}^2 = \abs{\braket{f|\tau|i}}^2 = (2\pi)^4 VT \abs{\mathscr{M}}^2 \delta^{(4)}(p_1+p_2-\sum_j k_j)\\
+\dd{\sigma} = \frac{1}{4\omega_1\omega_2\abs{\vec{v}_1}} \abs{\mathscr{M}}^2 \dd{\pi_\text{LIPS}}\\
+\dd{\pi_\text{LIPS}} = (2\pi)^4 \delta(p_1+p_2-\sum_jk_j)\prod_j \frac{1}{2\omega_{p_j}}\frac{\dd[3]{p_j}}{(2\pi)^3}\quad\text{espace des phases invariant de Lorentz.}
+\end{gather*}
+
+%\smallpart{Champ spinoriel, fermions}
+
+
+\end{document}
