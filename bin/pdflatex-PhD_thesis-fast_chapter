@@ -23,6 +23,7 @@ fi
 mpost_all
 pdflatex -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-part_generator_with_toc
 
+mv LT-These-part_generator_with_toc.log $pdffilename.log
 mv LT-These-part_generator_with_toc.pdf $pdffilename.pdf
 
 check_LaTeX_logs
