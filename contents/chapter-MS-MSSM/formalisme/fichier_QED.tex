@@ -1,10 +1,13 @@
 \subsection{Interaction électromagnétique}\label{chapter-MS-MSSM-section-formalisme-subsec-QED}
 Le lagrangien libre d'un fermion, \ie\ le lagrangien décrivant le comportement d'un fermion seul, s'exprime
 \begin{equation}
-\Lcal_{\text{fermion libre}} = \im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi
+\Lcal_{\text{fermion libre}}
+= \bar{\psi} \left( \im\slashed{\partial} - m \right) \psi
+= \bar{\psi} \left( \im \gamma^\mu\partial_\mu - m \right) \psi
+= \im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi
 \label{eq-lagrangien_fermion_libre_partial}
 \end{equation}
-où $\im$ est l'unité imaginaire ($\im^2=-1$), $\psi$ le \emph{spineur de Dirac} correspondant au champ fermionique, $\bar{\psi}=\psi^\dagger\gamma^0$ son adjoint de Dirac, $\psi^\dagger$ étant l'adjoint de $\psi$, $\gamma^\mu$ les matrices de Dirac, définies dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A}, $\partial_\mu$ la dérivée partielle par rapport à la coordonnée $\mu$ dans l'espace-temps de Minkowski et $m$ la masse de la particule considérée.
+où la notation \og slash \fg{} pour un objet $k$ signifie $\slashed{k} = \gamma^\mu k_\mu$, $\im$ est l'unité imaginaire ($\im^2=-1$), $\psi$ le \emph{spineur de Dirac} correspondant au champ fermionique, $\bar{\psi}=\psi^\dagger\gamma^0$ son adjoint de Dirac, $\psi^\dagger$ étant l'adjoint de $\psi$, $\gamma^\mu$ les matrices de Dirac, définies dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A}, $\partial_\mu$ la dérivée partielle par rapport à la coordonnée $\mu$ dans l'espace-temps de Minkowski et $m$ la masse de la particule considérée.
 Le terme $\gamma^\mu \partial_\mu$, par convention de sommation d'Einstein exposée dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A}, correspond à une somme sur les différentes valeur de $\mu$.
 \par Le lagrangien $\Lcal_{\text{fermion libre}}$ est invariant sous une transformation globale du groupe $U(1)_{em}$\footnote{Dans la notation $U(1)_{em}$, \og $em$ \fg{} signifie électromagnétique. Ce groupe n'apparaît pas dans l'équation~\eqref{eq-symmetries_lagrangien_SM} car nous ne traitons ici que de l'électromagnétisme. Le groupe $U(1)_\gamma$ est traité dans la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW}.}, \ie\ lorsque l'on applique la transformation suivante au spineur $\psi$
 \begin{equation}
@@ -92,16 +95,20 @@ et le dernier terme obtenu compense exactement le terme brisant l'invariance de 
 \par Le nouveau terme introduit par l'utilisation de la dérivée covariante, $- \bar{\psi}\gamma^\mu eQA_\mu \psi$, correspond à l'interaction entre un fermion et le champ de jauge $A_\mu$, dont l'intensité est directement proportionnelle à la charge électrique du fermion
 Toutefois, le champ $A_\mu$ ne représente pas encore le photon en l'état, il faut permettre au photon de se propager librement. Pour cela, il faut introduire un terme cinétique qui soit invariant de jauge dans le lagrangien, ce qui peut se faire avec
 \begin{equation}
-\Lcal_{\text{photon libre}} = \frac{1}{4} F_{\mu\nu}F^{\mu\nu}
+\Lcal_{\text{photon libre}} = - \frac{1}{4} F_{\mu\nu}F^{\mu\nu}
 \end{equation}
 avec $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$.
 Un terme de masse pour le champ $A_\mu$ devrait s'écrire sous la forme $\frac{1}{2}m^2A^\mu A_\mu$, ce qui n'est pas invariant de jauge. Par conséquent, le champ $A_\mu$ est de masse nulle.
 \par Le lagrangien complet pour l'interaction électromagnétique\footnote{Aussi nommé QED pour \emph{Quantum Electro-Dynamics}.} s'exprime alors
 \begin{equation}
-\Lcal_{QED} =
-\underbrace{\im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi \vphantom{\im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi - \bar{\psi}\gamma^\mu eQA_\mu \psi + \frac{1}{4} F_{\mu\nu}F^{\mu\nu}}}_{\Lcal_{\text{fermion libre}}}
-\underbrace{- \bar{\psi}\gamma^\mu eQA_\mu \psi \vphantom{\im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi - \bar{\psi}\gamma^\mu eQA_\mu \psi + \frac{1}{4} F_{\mu\nu}F^{\mu\nu}}}_{\text{interaction}}
-\underbrace{+ \frac{1}{4} F_{\mu\nu}F^{\mu\nu} \vphantom{\im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi - \bar{\psi}\gamma^\mu eQA_\mu \psi + \frac{1}{4} F_{\mu\nu}F^{\mu\nu}}}_{\Lcal_{\text{photon libre}}}
+\Lcal_{QED}
+=
+\underbrace{\bar{\psi} \left( \im\slashed{D} - m \right) \psi \vphantom{\frac{1}{4}}}_{\text{fermions}}
+\underbrace{- \frac{1}{4} F_{\mu\nu}F^{\mu\nu} \vphantom{\frac{1}{4}}}_{\text{photons}}
+=
+\underbrace{\bar{\psi} \left( \im\slashed{\partial} - m \right) \psi \vphantom{\frac{1}{4}}}_{\Lcal_{\text{fermion libre}}}
+\underbrace{- \bar{\psi}\gamma^\mu eQA_\mu \psi \vphantom{\frac{1}{4}}}_{\text{interaction}}
+\underbrace{- \frac{1}{4} F_{\mu\nu}F^{\mu\nu} \vphantom{\frac{1}{4}}}_{\Lcal_{\text{photon libre}}}
 \mend
 \end{equation}
 Le terme d'interaction dans ce lagrangien permet de \og connecter \fg{} les fermions aux photons dans les diagrammes de Feynman, dont le principe est décrit dans l'annexe~\ifref{annexe-fmf}{\ref{annexe-fmf}}{B}.
