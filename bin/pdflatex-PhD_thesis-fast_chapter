@@ -17,12 +17,19 @@ done
 
 pdffilename=$(basename ~+)
 
-if [ -e LT-These-part_generator_with_toc.bcf ] && [[ $redo_bib == 0 ]]
+if [[ $pdffilename == *appendix* ]] || [[ $pdffilename == *annexe* ]]
+then
+    generator=appendix
+else
+    generator=chapter
+fi
+
+if [ -e LT-These-${generator}_generator_with_toc.bcf ] && [[ $redo_bib == 0 ]]
 then
    echo 'Not reprocessing bib.'
 else
-    pdflatex -draftmode -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-part_generator_with_toc
-    biber LT-These-part_generator_with_toc
+    pdflatex -draftmode -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-${generator}_generator_with_toc
+    biber LT-These-${generator}_generator_with_toc
 fi
 
 if [[ $redo_fmf == 0 ]]
@@ -32,9 +39,9 @@ else
     mpost_all
 fi
 
-pdflatex -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-part_generator_with_toc
+pdflatex -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-${generator}_generator_with_toc
 
-mv LT-These-part_generator_with_toc.log $pdffilename.log
-mv LT-These-part_generator_with_toc.pdf $pdffilename.pdf
+mv LT-These-${generator}_generator_with_toc.log $pdffilename.log
+mv LT-These-${generator}_generator_with_toc.pdf $pdffilename.pdf
 
 check_LaTeX_logs

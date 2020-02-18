@@ -1,0 +1,22 @@
+%% use to compile only one chapter
+\documentclass[11pt,a4paper,twoside]{book}
+
+\input{../../tex/PhDthesisdirs.tex}
+\RequirePackage[log-declarations=false]{xparse}
+\usepackage[none,nabla,seccolor,ppl,nosorting,minitoc]{ltstyle}
+\input{\PhDthesisdir/tex/thesis_commands_definitions.tex}
+\addbibresource{\PhDthesisdir/bib/Bibliographie_PhD_Torterotot.bib}
+
+\makeatletter
+\renewcommand\theequation{\@arabic\c@equation}
+\renewcommand \thefigure{\@arabic\c@figure}
+\renewcommand \thetable{\@arabic\c@table}
+\makeatother
+
+\begin{document}
+\def\thechapter{}
+\def\minitoc{}
+\def\chaptername{\appendixname}
+\input{fichier.tex}
+\printchapterbibliography
+\end{document}
