@@ -1,53 +1,67 @@
 \chapter{Notions mathématiques}\label{annexe-maths}
 
+\paragraph{Convention de sommation d'Einstein}
+Il s'agit d'un raccourci de notation allégeant les équations. Ainsi, pour un espace de Minkowski de métrique $\eta$,
+\begin{equation}
+a_\mu b^\mu
+=a^\mu b_\mu
+= a^\mu \eta_{\mu\nu} b^\nu
+= a_\mu \eta^{\mu\nu} b_\nu
+= a^0 b^0 - \sum_{i=1}^3 a^i b^i
+\end{equation}
+car la métrique de Minkowski est ici
+\begin{equation}
+\eta = \begin{pmatrix} \dmat[0]{1,-1,-1,-1} \end{pmatrix} \mend
+\end{equation}
+
 \paragraph{Matrices de Pauli}
 
-\begin{align*}
-\sigma_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix}
+\begin{equation}
+\sigma_1 = \begin{pmatrix} \pmat{1} \end{pmatrix}
 \msep
-\sigma_2 = \begin{pmatrix}0&-\im\\\im&0\end{pmatrix}
+\sigma_2 = \begin{pmatrix} \pmat{2} \end{pmatrix}
 \msep
-\sigma_3 = \begin{pmatrix}1&0\\0&-1\end{pmatrix}
+\sigma_3 = \begin{pmatrix} \pmat{3} \end{pmatrix}
 \mend
-\end{align*}
+\end{equation}
 
 \paragraph{Matrices de Dirac ou matrices gamma}
 
-\begin{align*}
+\begin{align}
 \gamma^{0} &= \begin{pmatrix}\Id_{2\times2} & 0_{2\times2}\\0_{2\times2} & -\Id_{2\times2}\end{pmatrix} = \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&-1&0\\0&0&0&-1\end{pmatrix}
 \msep&
 \gamma^{1} &= \begin{pmatrix}0_{2\times2} & \sigma_1\\-\sigma_1 & 0_{2\times2}\end{pmatrix} = \begin{pmatrix}0&0&0&1\\0&0&1&0\\0&-1&0&0\\-1&0&0&0\end{pmatrix} \mend[,]
-\\
+\nonumber\\
 \gamma^{2} &= \begin{pmatrix}0_{2\times2} & \sigma_2\\-\sigma_2 & 0_{2\times2}\end{pmatrix} = \begin{pmatrix}0&0&0&-i\\0&0&i&0\\0&i&0&0\\-i&0&0&0\end{pmatrix}
 \msep&
 \gamma^{3} &= \begin{pmatrix}0_{2\times2} & \sigma_3\\-\sigma_3 & 0_{2\times2}\end{pmatrix} = \begin{pmatrix}0&0&1&0\\0&0&0&-1\\-1&0&0&0\\0&1&0&0\end{pmatrix} \mend
-\end{align*}
+\end{align}
 
 \paragraph{Projecteur chiral}
 
-\begin{equation*}
+\begin{equation}
 \gamma^5 = \im\gamma^0\gamma^1\gamma^2\gamma^3 = \begin{pmatrix}0&0&1&0\\0&0&0&1\\1&0&0&0\\0&1&0&0\end{pmatrix}\mend
-\end{equation*}
+\end{equation}
 
 \paragraph{Matrices de Gell-Mann}
 
-\begin{align*}
+\begin{align}
 \lambda_1 &= \begin{pmatrix}0&1&0\\1&0&0\\0&0&0\end{pmatrix}
 \msep&
 \lambda_2 &= \begin{pmatrix}0&-\im&0\\\im&0&0\\0&0&0\end{pmatrix}
 \msep&
 \lambda_3 &= \begin{pmatrix}1&0&0\\0&-1&0\\0&0&0\end{pmatrix}
 \mend[,]
-\\
+\nonumber\\
 \lambda_4 &= \begin{pmatrix}0&0&1\\0&0&0\\1&0&0\end{pmatrix}
 \msep&
 \lambda_5 &= \begin{pmatrix}0&0&-\im\\0&0&0\\\im&0&0\end{pmatrix}
 \msep&
 \lambda_6 &= \begin{pmatrix}0&0&0\\0&0&1\\0&1&0\end{pmatrix}
 \mend[,]
-\\
+\nonumber\\
 \lambda_7 &= \begin{pmatrix}0&0&0\\0&0&-\im\\0&\im&0\end{pmatrix}
 \msep&
 \lambda_8 &= \frac{1}{\sqrt{3}}\begin{pmatrix}1&0&0\\0&1&0\\0&0&-2\end{pmatrix}
 \mend
-\end{align*}
+\end{align}
