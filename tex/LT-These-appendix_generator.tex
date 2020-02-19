@@ -1,4 +1,4 @@
-%% use to compile only one chapter
+%% use to compile only one appendix
 \documentclass[11pt,a4paper,twoside]{book}
 
 \input{../../tex/PhDthesisdirs.tex}
@@ -6,12 +6,6 @@
 \usepackage[none,nabla,seccolor,ppl,nosorting,minitoc]{ltstyle}
 \input{\PhDthesisdir/tex/thesis_commands_definitions.tex}
 \addbibresource{\PhDthesisdir/bib/Bibliographie_PhD_Torterotot.bib}
-
-\makeatletter
-\renewcommand\theequation{\@arabic\c@equation}
-\renewcommand \thefigure{\@arabic\c@figure}
-\renewcommand \thetable{\@arabic\c@table}
-\makeatother
 
 \begin{document}
 \def\thechapter{X}
