@@ -13,8 +13,7 @@ pdflatex_complete_sequence -nc $lt_PhD_thesis_dir/tex/LT-These-${generator}_gene
 
 rename "s|generator_with_toc|generator|g" LT-These-${generator}_generator*
 
-pdflatex -draftmode -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-${generator}_generator
-pdflatex -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-${generator}_generator
+pdflatex_complete_sequence -nc $lt_PhD_thesis_dir/tex/LT-These-${generator}_generator
 
 rm_tex_aux_files
 rm_feynmp_aux_files
@@ -27,3 +26,5 @@ mv LT-These-${generator}_generator.pdf $pdffilename.pdf &
 mv LT-These-${generator}_generator.log $pdffilename.log &
 mv LT-These-${generator}_generator.blg $pdffilename.blg &
 wait
+
+check_LaTeX_logs
