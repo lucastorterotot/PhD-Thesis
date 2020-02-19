@@ -1,4 +1,9 @@
 \section{Formalisme théorique et interactions}\label{chapter-MS-MSSM-section-formalisme}
+Il ne suffit pas de lister les particules fondamentales pour obtenir un modèle, il faut également décrire leur comportement, \ie\ leur évolution à travers le temps et l'espace.
+Pour cela, le modèle standard se base sur la théorie quantique des champs. Une particule n'est pas un \og objet ponctuel \fg{} comme en mécanique classique, mais une excitation d'un champ quantique relativiste. Il s'agit alors de décrire l'évolution de ces excitations.
+\par Les lois de la mécanique classique ne sauraient remplir ce rôle.
+Le comportement des particules fondamentales est obtenu par l'application des équations d'Euler-Lagrange au lagrangien du modèle standard.
+Afin de comprendre pourquoi ce formalisme mathématique permet effectivement d'obtenir l'évolution des champs quantiques relativistes décrivant les particules, la section suivante consiste en une brève introduction du lagrangien dans le cas de la mécanique classique, suivie d'une généralisation au cas du modèle standard.
 \begin{wrapfigure}{R}{7cm}
 \centering
 \begin{tikzpicture}
@@ -17,16 +22,15 @@
 \label{fig-ptc_classique_ptA_to_pt_B}
 \end{wrapfigure}
 \subsection{Lagrangien et équation d'Euler-Lagrange}\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien}
-%\paragraph{Introduction au lagrangien en mécanique Newtonienne}
-Nous souhaitons ici trouver un moyen de décrire le comportement des particules, \ie\ leur évolution à travers le temps et l'espace.
-Considérons, dans un premier temps, une particule de masse $m$, soumise à une force $F$, se déplaçant dans le temps le long d'une dimension $x$, d'un point $A$ à $t=0$ à un point $B$ à $t=\tau$, comme illustré sur la figure~\ref{fig-ptc_classique_ptA_to_pt_B}.
+\subsubsection{Lagrangien en mécanique Newtonienne}\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien-subsubsec-lagrangien_meca_classique}
+Considérons une particule de masse $m$, soumise à une force $F$, se déplaçant dans le temps le long d'une dimension $x$, d'un point $A$ à $t=0$ à un point $B$ à $t=\tau$, comme illustré sur la figure~\ref{fig-ptc_classique_ptA_to_pt_B}.
 \par 
 Comme cela est enseigné dès les premiers cours de physique, la trajectoire de cette particule peut être déterminée à l'aide du principe fondamental de la dynamique, ou seconde loi de Newton, qui s'exprime simplement dans ce cas sous la forme
 \begin{equation}
 m\dv[2]{x}{t} = F
 \mend
 \end{equation}
-Nous obtenons alors la position de la particule à tout instant.
+Nous obtenons la position de la particule à tout instant.
 \begin{wrapfigure}{R}{7cm}
 \centering
 \begin{tikzpicture}
@@ -61,14 +65,13 @@ Il en va ainsi de même pour les moyennes temporelles de ces grandeurs,
 \begin{equation}
 E = \average{E} = \average{T} + \average{V} = \cste
 \end{equation}
-avec
+avec, en notant $\dot{x}=\dv{x}{t}$,
 \begin{equation}
 \average{T} = \frac{1}{\tau}\int_0^\tau T(\dot{x}(t)) \dd{t}
 \msep
 \average{V} = \frac{1}{\tau}\int_0^\tau V(x(t)) \dd{t}
-\mend[,]
+\mend
 \end{equation}
-où $\dot{x}=\dv{x}{t}$.
 \par
 Nous pouvons alors nous demander de quelle manière ces grandeurs sont modifiées lorsque la trajectoire suivie par la particule varie par rapport à la trajectoire déterminée par la mécanique Newtonienne. La variation de la valeur moyenne de l'énergie potentielle s'exprime
 \begin{equation}
@@ -96,9 +99,9 @@ car pour une particule de masse $m$, en mécanique newtonienne, $T = \frac{1}{2}
 Le long de la trajectoire classique, le principe fondamental de la dynamique est vérifié. Alors, les variations autour de la trajectoire classique sont reliées par
 \begin{equation}
 m\dv[2]{x}{t} = F
-\Rightarrow
+\Leftrightarrow
 \fdv{\average{T}}{x(t')} = \fdv{\average{V}}{x(t')}
-\Rightarrow
+\Leftrightarrow
 \fdv{x(t')}(\average{T}-\average{V}) = 0 \label{eq-fdv_x_T-V_is_0}
 \mend
 \end{equation}
@@ -107,6 +110,7 @@ Ainsi, la différence entre l'énergie cinétique et l'énergie potentielle du s
 L = T-V
 \mend
 \end{equation}
+\subsubsection{Équation d'Euler-Lagrange}\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien-subsubsec-euler-lagrange}
 L'intégrale au cours du temps du lagrangien est appelée action et est définie comme
 \begin{equation}
 S = \int_0^\tau\dd{t}L
@@ -117,7 +121,6 @@ S = \int_0^\tau\dd{t}L
 %\exp(iS/\hbar)\mend
 %\end{equation}
 %Pour la plupart des trajectoires, ce facteur de phase donne des contributions qui s'annulent.
-%\paragraph{Équation d'Euler-Lagrange}
 Compte-tenu de l'équation~\eqref{eq-fdv_x_T-V_is_0}, l'action vérifie
 \begin{equation}
 \fdv{S}{x(t')}=0
@@ -137,9 +140,8 @@ ce qui implique
 \end{equation}
 Cette équation est l'équation d'Euler-Lagrange et permet d'obtenir toutes les équations du mouvement du système, \ie\ de décrire son évolution au cours du temps.
 
-\subsection{Lagrangien, champs et symétries}\label{chapter-MS-MSSM-section-formalisme-subsec-lagrangien_champs_symetries}
-Le modèle standard décrit le comportement des particules fondamentales à l'aide de la théorie quantique des champs. Une particule est ainsi une excitation d'un champ quantique relativiste $\phi$ et il s'agit alors de décrire l'évolution de ces excitations.
-\par Généralisons le raisonnement précédent à un espace à une dimension temporelle et trois dimensions spatiales.
+\subsubsection{Lagrangien, champs et symétries}\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien-subsubsec-lagrangien_champs_symetries}
+Généralisons le raisonnement précédent à un espace à une dimension temporelle et trois dimensions spatiales.
 À partir du lagrangien, il est possible de définir la densité lagrangienne \Lcal\ telle que
 \begin{equation}
 L = \int\dd[3]{x}\Lcal
