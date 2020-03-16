@@ -1,3 +1,9 @@
+% homedir
+\ifdefined\homedir \else {%
+\IfFileExists{/home/lucas/Documents/PhD-Thesis/README.md}{\def\homedir{/home/lucas}}{}%
+\IfFileExists{/home/torterotot/Documents/PhD-Thesis/README.md}{\def\homedir{/home/torterotot}}{}%
+} \fi
+
 % General
 \def\Hs{\higgs}
 \def\Hn{\Higgs}
