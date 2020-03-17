@@ -11,7 +11,7 @@ Dans les termes de couplage du lagrangien, un facteur $\gamma^\mu$ correspond à
 Or, il est possible de projeter un spineur $\psi$ afin d'obtenir sa composante de chiralité gauche $\psi_L$ à l'aide du projecteur chiral $\gamma^5$,
 \begin{equation}
 \psi_L = \frac{1}{2}(1-\gamma^5)\psi
-\mend
+\mend[,]
 \end{equation}
 Pour les antiparticules décrites par $\bar{\psi}=\psi^\dagger \gamma^0$,
 \begin{equation}
@@ -40,25 +40,142 @@ $0$ & - & $\quarku_{i,R}$, $\quarkd_{i,R}$ & - & $\ell_{i,R}$\\
 \caption{Représentation des fermions selon leur chiralité et leur isospin. L'indice $i\in\set{1,2,3}$ correspond à la génération des particules. Ainsi, les symboles $\quarku_i$, $\quarkd_i$, $\ell_i$ et $\neutrino_i$ correspondent, respectivement, aux quarks d'isospin faible haut (\quarku, \quarkc, \quarkt), d'isospin faible bas (\quarkd, \quarks, \quarkb), aux leptons chargés (\ele, \mu, \tau) et aux neutrinos (\nuele, \numu, \nutau).}
 \label{tab-chapter-MS-MSSM-section-formalisme-subsec-EW-rzpt_femrions_chiralite_isospin}
 \end{table}
-\par Une différence notable entre $SU(2)$ et $U(1)$ est que $SU(2)$ est un groupe \emph{non abélien}. Cela signifie deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que l'on applique $a$ puis $b$ ou $b$ puis $a$.
-
+\par Une différence notable entre $SU(2)$ et $U(1)$ est que $SU(2)$ est un groupe \emph{non abélien}. Cela signifie deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que l'on applique $a$ puis $b$ ou $b$ puis $a$. Nous verrons plus loin ce que cette propriété implique.
+\par Procédons comme pour l'électromagnétisme et observons ce que l'invariance de jauge implique pour le lagrangien. Sous une transformation de $SU(2)_L$, les spineurs se transforment selon
 \begin{equation}
-\psi \to \psi\eexp{\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}
+\psi \to \eexp{\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}\psi
+\msep
+\bar{\psi} \to \bar{\psi}\eexp{-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}
+\label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-spineur}
 \end{equation}
-
+où $\bm{\alpha}\in\mathbb{R}^3$ et $\bm{\tau}$ un vecteur dont les composantes $\tau_i$ sont les générateurs de $SU(2)_L$.
+Notons que l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-spineur} et l'analogue directe de l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-QED-tr_jauge-spineur}.
+Les termes du lagrangien du fermion libre, introduit dans l'équation~\eqref{eq-lagrangien_fermion_libre_partial}, se transforment alors comme
 \begin{equation}
-\bm{W}_\mu \to \bm{W}_\mu + \frac{1}{g}\partial_\mu\bm{\alpha} - (\bm{\alpha}\wedge\bm{W}_\mu)
+-m\bar{\psi}\psi
+\to
+-m\bar{\psi}\eexp{-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}\eexp{\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}\psi
+=-m\bar{\psi}\psi
 \end{equation}
+et
+\begin{equation}
+\im\bar{\psi} \gamma^\mu\partial_\mu \psi
+\to
+\im \bar{\psi}\eexp{-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}\gamma^\mu\partial_\mu \left(\eexp{\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}\psi\right)
+=
+\im \bar{\psi}\gamma^\mu\partial_\mu \psi
+-
+\bar{\psi}\frac{1}{2}\bm{\tau}\cdot\gamma^\mu\partial_\mu\bm{\alpha}(x) \psi
+\end{equation}
+ce qui fait apparaître, sur le même principe qu'avec l'interaction électromagnétique, un terme supplémentaire brisant l'invariance de jauge du lagrangien. Définissons une nouvelle dérivée covariante afin de rétablir l'invariance de jauge,
+\begin{equation}
+D_\mu  = \partial_\mu  - \frac{\im}{2} g_W \bm{\tau}\cdot\bm{W}_\mu(x)
+\mend[,]
+\end{equation}
+où l'on introduit $g_W$ la constante de couplage d'isospin faible, ainsi que trois champs de jauge vectoriels $W^i_\mu(x)$, $i\in\set{1,2,3}$ se transformant tels que
+\begin{equation}
+\bm{W}_\mu \to \bm{W}_\mu + \frac{1}{g_W}\partial_\mu\bm{\alpha} - (\bm{\alpha}\wedge\bm{W}_\mu)
+\mend
+\end{equation}
+Dans ce cas, le lagrangien du fermion libre se réécrit sous la forme
+\begin{align}
+\Lcal_{\text{fermion libre}}'
+&
+= \im \bar{\psi} \gamma^\mu D_\mu \psi - m \bar{\psi}\psi
+= \im \bar{\psi} \gamma^\mu \partial_\mu \psi + \bar{\psi} \gamma^\mu \frac{1}{2} g_W \bm{\tau}\cdot\bm{W}_\mu \psi - m \bar{\psi}\psi
+\nonumber
+\\&
+=
+\Lcal_{\text{fermion libre}}
++
+\bar{\psi} \gamma^\mu \frac{1}{2} g_W \bm{\tau}\cdot\bm{W}_\mu \psi
+\mend
+\end{align}
+\par Afin de simplifier les calculs qui suivent, nous ne considérerons que des transformations infinitésimales. En effet, $SU(2)_L$ est un groupe non abélien et des termes supplémentaires apparaissent. Nous considérons alors les transformations infinitésimales
+\begin{equation}
+\psi \to \left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi
+\msep
+\bar{\psi} \to \bar{\psi}\left(1-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)
+\mend
+\end{equation}
+Ainsi, le terme supplémentaire du lagrangien se transforme tel que
+\begin{align}
+\bar{\psi} \gamma^\mu \frac{1}{2} g_W \bm{\tau}\cdot\bm{W}_\mu \psi
+\to
+{}&{}
+\bar{\psi}\left(1-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)
+\gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot
+\left( \bm{W}_\mu + \frac{1}{g_W}\partial_\mu\bm{\alpha} - (\bm{\alpha}\wedge\bm{W}_\mu) \right)
+\left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi
+\nonumber\\&
+=
+\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
+-
+\bar{\psi} \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
++
+\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \psi
+\nonumber\\&\hphantom{=}
++
+\bar{\psi} \gamma^\mu \frac{1}{2} \bm{\tau}\cdot \partial_\mu\bm{\alpha} \psi
+-
+\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot (\bm{\alpha}\wedge\bm{W}_\mu) \psi
++\Order{\alpha^2}
+\mend
+\end{align}
+%\begin{align}
+%\bar{\psi} \gamma^\mu \frac{1}{2} g_W \bm{\tau}\cdot\bm{W}_\mu \psi
+%\to
+%{}&{}
+%\bar{\psi}\left(1-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)
+%\gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot
+%\left( \bm{W}_\mu + \frac{1}{g_W}\partial_\mu\bm{\alpha} - (\bm{\alpha}\wedge\bm{W}_\mu) \right)
+%\left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi
+%\nonumber\\&
+%=
+%\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
+%-
+%\bar{\psi} \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
+%+
+%\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \psi
+%\nonumber\\&\hphantom{=}
+%+
+%\bar{\psi} \gamma^\mu \frac{1}{2} \bm{\tau}\cdot \partial_\mu\bm{\alpha} \psi
+%-
+%\bar{\psi} \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \gamma^\mu \frac{1}{2} \bm{\tau}\cdot \partial_\mu\bm{\alpha} \psi
+%\nonumber\\&\hphantom{=}
+%+
+%\bar{\psi} \gamma^\mu \frac{1}{2} \bm{\tau}\cdot \partial_\mu\bm{\alpha} \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \psi
+%-
+%\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot (\bm{\alpha}\wedge\bm{W}_\mu) \psi
+%\nonumber\\&\hphantom{=}
+%+
+%\bar{\psi} \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot (\bm{\alpha}\wedge\bm{W}_\mu) \psi
+%-
+%\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot (\bm{\alpha}\wedge\bm{W}_\mu) \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \psi
+%\nonumber\\&\hphantom{=}
+%+\Order{\alpha^2}
+%\mend
+%\end{align}
+Or,
+\begin{equation}
+(\bm{\tau}\cdot\bm{a})(\bm{\tau}\cdot\bm{b})
+=
+(\bm{a}\cdot\bm{b}) + \im \bm{\tau} \cdot (\bm{a}\wedge\bm{b})
+\Leftrightarrow
+\im \bm{\tau} \cdot (\bm{a}\wedge\bm{b})
+=
+(\bm{\tau}\cdot\bm{a})(\bm{\tau}\cdot\bm{b}) - (\bm{a}\cdot\bm{b})
+\mend
+\end{equation}
+Ainsi,
+
 
 \begin{equation}
 \Lcal = \bar{\psi}(\im \slashed{D} - m) \psi - \frac{1}{4} \bm{G}_{\mu\nu} \cdot \bm{G}^{\mu\nu}
 \end{equation}
 
 \begin{equation}
-D_\mu \psi = \partial_\mu\psi - \frac{\im}{2} g \bm{\tau}\cdot\bm{W}_\mu(x)\psi
-\end{equation}
-\begin{equation}
-\bm{G}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu + g(\bm{W}_\mu \wedge \bm{W}_\nu)
+\bm{G}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu + g_W(\bm{W}_\mu \wedge \bm{W}_\nu)
 \end{equation}
 
 \subsubsection{Symétrie $U(1)_Y$ et unification électrofaible}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-U1}
