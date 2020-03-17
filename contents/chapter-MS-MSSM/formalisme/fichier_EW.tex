@@ -59,16 +59,16 @@ $0$ & - & $\quarku_{i,R}$, $\quarkd_{i,R}$ & - & $\ell_{i,R}$\\
 \end{table}
 \subsubsection{Symétrie $SU(2)$ et interactions entre bosons}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-SU2_general}
 Afin d'alléger les notations, nous traitons ici du cas plus général d'un groupe de symétrie $SU(2)$. Pour étendre les résultats à $SU(2)_L$, il suffit de se souvenir que les couplages ont uniquement lieu entre fermions de chiralité gauche et anti-fermions de chiralité droite.
-Procédons comme pour l'électromagnétisme et observons ce que l'invariance de jauge implique pour le lagrangien. Sous une transformation de $Su(2)$, les spineurs se transforment selon
+Procédons comme pour l'électromagnétisme et observons ce que l'invariance de jauge implique pour le lagrangien. Sous une transformation de $SU(2)$, les spineurs se transforment selon
 \begin{equation}
 \psi \to \eexp{\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}\psi
 \msep
 \bar{\psi} \to \bar{\psi}\eexp{-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}
 \label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-spineur}
 \end{equation}
-où $\bm{\alpha}\in\mathbb{R}^3$ et $\bm{\tau}$ un vecteur dont les composantes $\tau_i$ sont les générateurs de $Su(2)$\footnote{Les générateurs de $Su(2)$ sont des matrices $2\times2$ s'identifiant aux matrices de Pauli $\sigma_i$ définies dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A}. Toutefois, ces générateurs agissent dans le cas de $SU(2)_L$ sur les doublets d'isospin alors que les matrices de Pauli agissent sur le spin d'un fermion. Afin d'éviter les confusions, nous utiliserons donc la notation $\tau$.}.
+où $\bm{\alpha}\in\mathbb{R}^3$ et $\bm{\tau}$ un vecteur dont les composantes $\tau_i$ sont les générateurs de $SU(2)$\footnote{Les générateurs de $SU(2)$ sont des matrices $2\times2$ s'identifiant aux matrices de Pauli $\sigma_i$ définies dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A}. Toutefois, ces générateurs agissent dans le cas de $SU(2)_L$ sur les doublets d'isospin alors que les matrices de Pauli agissent sur le spin d'un fermion. Afin d'éviter les confusions, nous utiliserons donc la notation $\tau$.}.
 Notons que l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-spineur} et l'analogue directe de l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-QED-tr_jauge-spineur}.
-\par Afin de simplifier les calculs qui suivent, nous ne considérerons que des transformations infinitésimales. En effet, $Su(2)$ est un groupe \emph{non abélien}. Cela signifie deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que l'on applique $a$ puis $b$ ou $b$ puis $a$, \ie\ $ab-ba\neq0$. Ainsi, des termes supplémentaires apparaissent, ou plutôt ne se simplifient pas entre eux. Nous considérons donc les transformations précédentes sous leurs formes infinitésimales, \ie\ au premier ordre en $\bm{\alpha}$,
+\par Afin de simplifier les calculs qui suivent, nous ne considérerons que des transformations infinitésimales. En effet, $SU(2)$ est un groupe \emph{non abélien}. Cela signifie deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que l'on applique $a$ puis $b$ ou $b$ puis $a$, \ie\ $ab-ba\neq0$. Ainsi, des termes supplémentaires apparaissent, ou plutôt ne se simplifient pas entre eux. Nous considérons donc les transformations précédentes sous leurs formes infinitésimales, \ie\ au premier ordre en $\bm{\alpha}$,
 \begin{equation}
 \psi \to \left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi
 \msep
@@ -183,7 +183,7 @@ $\bm{G}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu$. Or, les in
 \bm{G}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu + g_W(\bm{W}_\mu \wedge \bm{W}_\nu)
 \mend
 \end{equation}
-Le lagrangien pour $Su(2)$ s'écrit alors
+Le lagrangien pour $SU(2)$ s'écrit alors
 \begin{equation}
 \Lcal_{SU(2)} = \bar{\psi}(\im \slashed{D} - m) \psi - \frac{1}{4} \bm{G}_{\mu\nu} \cdot \bm{G}^{\mu\nu}
 \end{equation}
