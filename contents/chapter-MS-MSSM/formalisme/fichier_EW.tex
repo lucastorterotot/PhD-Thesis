@@ -2,14 +2,41 @@
 Le modèle standard décrit les interactions électromagnétiques et faible comme deux facettes d'une seule et même interaction qui les unifie, l'interaction électrofaible, notée \og EW \fg{} pour \emph{electroweak}.
 \todo{brisure symétrie et Higgs avec réf}
 \par Nous avons vu précédemment que l'interaction électromagnétique repose sur l'invariance de jauge sous les transformations locale du groupe $U(1)_{em}$.
-Dans le cas de l'interaction électrofaible, ce groupe de symétrie est $SU(2)_L \times U(1)_Y$, où $L$ signifie \og left \fg{} car l'interaction faible ne couple que les fermions de chiralité\footnote{\todo{cf...}} gauche et les anti-fermions de chiralité droite et où $Y$ est l'\emph{hypercharge}.
-\par L'interaction électrofaible introduit en effet plusieurs nouveaux nombres quantiques. Le premier est l'\emph{isospin faible}, $I$. Les fermions de chiralité gauche sont rassemblés en doublet d'isospin faible $I=\frac{1}{2}$, les fermions de chiralité droite en singlets d'isospin faible $I=0$. Ces derniers sont ainsi invariants sous les transformations de $SU(2)_L$.
-Le second est l'\emph{hypercharge} $Y$, reliée à $Q$ la charge électrique et à $I_3$ la projection de l'isospin faible par la relation de Gell-Mann--Nishijima,
+Dans le cas de l'interaction électrofaible, ce groupe de symétrie est $SU(2)_L \times U(1)_Y$. Ces deux groupes sont introduits dans les sections qui suivent.
+
+\subsubsection{Symétrie $SU(2)_L$ et interactions entre bosons}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-SU2}
+Dans la notation $SU(2)_L$, $L$ signifie \og left \fg{} car l'interaction faible ne couple que les fermions de chiralité gauche et les anti-fermions de chiralité droite.
+Une des propriétés les plus importantes de l'interaction faible est de violer la symétrie de parité ($P$), ainsi que la symétrie $CP$ où $C$ correspond à la charge électrique.
+Dans les termes de couplage du lagrangien, un facteur $\gamma^\mu$ correspond à un couplage vectoriel, comme pour l'électromagnétisme. Un facteur $\gamma^\mu \gamma^5$ correspond quant à lui à un couplage vectoriel \emph{axial}. Un facteur $\gamma^\mu (1-\gamma^5)$ somme ainsi un vecteur à un vecteur axial, ce qui implique une violation de la symétrie de parité.
+Or, il est possible de projeter un spineur $\psi$ afin d'obtenir sa composante de chiralité gauche $\psi_L$ à l'aide du projecteur chiral $\gamma^5$,
+\begin{equation}
+\psi_L = \frac{1}{2}(1-\gamma^5)\psi
+\mend
+\end{equation}
+Pour les antiparticules décrites par $\bar{\psi}=\psi^\dagger \gamma^0$,
+\begin{equation}
+\overline{\psi_L}
+= (\psi_L)^\dagger \gamma^0
+= \left(\frac{1}{2}(1-\gamma^5)\psi\right)^\dagger\gamma^0
+= \psi^\dagger \frac{1}{2} (1-\gamma^5) \gamma^0
+= \psi^\dagger \gamma^0 \frac{1}{2} (1+\gamma^5)
+= \bar{\psi}_R
+\mend[,]
+\end{equation}
+d'où le couplage entre fermions de chiralité gauche et anti-fermions de chiralité droite.
+\par L'introduction de la symétrie $SU(2)_L$ amène un nouveau nombre quantique, l'\emph{isospin faible}, noté $I$. Il se comporte mathématiquement comme le spin des particules, d'où son nom \emph{iso}spin.
+Les fermions de chiralité gauche sont rassemblés en doublet d'isospin faible $I=\frac{1}{2}$, les fermions de chiralité droite en singlets d'isospin faible $I=0$. Ces derniers sont ainsi invariants sous les transformations de $SU(2)_L$.
+
+
+\par Une différence notable entre $SU(2)$ et $U(1)$ est que $SU(2)$ est un groupe \emph{non abélien}. Cela signifie deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que l'on applique $a$ puis $b$ ou $b$ puis $a$.
+
+\subsubsection{Symétrie $U(1)_Y$ et unification électrofaible}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-U1}
+Dans la notation $U(1)_Y$, $Y$ est l'\emph{hypercharge}, reliée à $Q$ la charge électrique et à $I_3$ la projection de l'isospin faible par la relation de Gell-Mann--Nishijima,
 \begin{equation}
 Y = 2(Q-I_3)
 \mend
 \end{equation}
-\par Une différence notable entre $SU(2)$ et $U(1)$ est que $SU(2)$ est un groupe \emph{non abélien}. Cela signifie deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que l'on applique $a$ puis $b$ ou $b$ puis $a$.
+
 
 \begin{table}[h]
 \centering
