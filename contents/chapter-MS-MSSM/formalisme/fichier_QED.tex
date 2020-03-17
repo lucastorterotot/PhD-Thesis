@@ -11,31 +11,31 @@ où la notation \og slash \fg{} pour un objet $k$ signifie $\slashed{k} = \gamma
 Le terme $\gamma^\mu \partial_\mu$, par convention de sommation d'Einstein exposée dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A}, correspond à une somme sur les différentes valeur de $\mu$.
 \par Le lagrangien $\Lcal_{\text{fermion libre}}$ est invariant sous une transformation globale du groupe $U(1)_{em}$\footnote{Dans la notation $U(1)_{em}$, \og $em$ \fg{} signifie électromagnétique. Ce groupe n'apparaît pas dans l'équation~\eqref{eq-symmetries_lagrangien_SM} car nous ne traitons ici que de l'électromagnétisme. Le groupe $U(1)_\gamma$ est traité dans la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW}.}, \ie\ lorsque l'on applique la transformation suivante au spineur $\psi$
 \begin{equation}
-\psi \to \eexp{\im eQ\alpha}\psi
+\psi \to \eexp{\im Q\alpha}\psi
 \msep
-\bar{\psi} \to \bar{\psi}\eexp{-\im eQ\alpha}
+\bar{\psi} \to \bar{\psi}\eexp{-\im Q\alpha}
 \end{equation}
-où $\alpha\in\mathbb{R}$, $e$ est la charge électrique et $Q$ l'opérateur de charge électrique.
+où $\alpha\in\mathbb{R}$ et $Q$ est l'opérateur de charge électrique\footnote{Lorsque cet opérateur est appliqué à un champ quantique décrivant un fermion, il permet d'obtenir la valeur de la charge électrique du fermion.}.
 En effet, sous une telle transformation,
 \begin{equation}
-\bar{\psi}\psi \to \bar{\psi}\eexp{-\im eQ\alpha}\eexp{\im eQ\alpha}\psi = \bar{\psi}\psi
+\bar{\psi}\psi \to \bar{\psi}\eexp{-\im Q\alpha}\eexp{\im Q\alpha}\psi = \bar{\psi}\psi
 \end{equation}
 et
 \begin{equation}
 \bar{\psi} \gamma^\mu\partial_\mu \psi
 \to
-\bar{\psi}\eexp{-\im eQ\alpha}
+\bar{\psi}\eexp{-\im Q\alpha}
 \gamma^\mu\partial_\mu
-\left(\eexp{\im eQ\alpha}\psi\right)
+\left(\eexp{\im Q\alpha}\psi\right)
 =
-\bar{\psi}\eexp{-\im eQ\alpha}
-\eexp{\im eQ\alpha}
+\bar{\psi}\eexp{-\im Q\alpha}
+\eexp{\im Q\alpha}
 \gamma^\mu\partial_\mu
-\left(\psi\vphantom{\psi\eexp{\im eQ\alpha}}\right)
+\left(\psi\vphantom{\psi\eexp{\im Q\alpha}}\right)
 +
-\bar{\psi}\eexp{-\im eQ\alpha}
+\bar{\psi}\eexp{-\im Q\alpha}
 \gamma^\mu
-\cancel{\partial_\mu \left(\eexp{\im eQ\alpha}\vphantom{\psi\eexp{\im eQ\alpha}}\right)}\psi
+\cancel{\partial_\mu \left(\eexp{\im Q\alpha}\vphantom{\psi\eexp{\im Q\alpha}}\right)}\psi
 = \bar{\psi} \gamma^\mu\partial_\mu \psi
 \end{equation}
 car $\alpha$ ne dépend pas de l'espace-temps pour une transformation globale.
@@ -45,30 +45,30 @@ car $\alpha$ ne dépend pas de l'espace-temps pour une transformation globale.
 \to
 \im\bar{\psi} \gamma^\mu\partial_\mu \psi
 +
-\im\eexp{-\im eQ\alpha}
+\im\eexp{-\im Q\alpha}
 \bar{\psi}
 \gamma^\mu
 \partial_\mu
-\left(\eexp{\im eQ\alpha}\vphantom{\psi\eexp{\im eQ\alpha}}\right)
+\left(\eexp{\im Q\alpha}\vphantom{\psi\eexp{\im Q\alpha}}\right)
 \psi
 =
 \im\bar{\psi} \gamma^\mu\partial_\mu \psi
 -
 \bar{\psi}
 \gamma^\mu
-eQ\partial_\mu
+Q\partial_\mu
 \alpha
 \psi
 \label{eq-QED_jauge_brisee}
 \end{equation}
-ce qui fait apparaître un terme supplémentaire, $\bar{\psi}\gamma^\mu eQ\partial_\mu\alpha\psi$, provenant de la transformation du terme $\im \bar{\psi} \gamma^\mu\partial_\mu \psi$ de $\Lcal_{\text{fermion libre}}$ qui brise ainsi l'invariance de jauge du lagrangien.
+ce qui fait apparaître un terme supplémentaire, $\bar{\psi}\gamma^\mu Q\partial_\mu\alpha\psi$, provenant de la transformation du terme $\im \bar{\psi} \gamma^\mu\partial_\mu \psi$ de $\Lcal_{\text{fermion libre}}$ qui brise ainsi l'invariance de jauge du lagrangien.
 Afin de rendre le lagrangien invariant sous les transformations locales du groupe $U(1)_{em}$, il est possible de remplacer la dérivée usuelle $\partial_\mu$ par la \emph{dérivée covariante} $D_\mu$, telle que
 \begin{equation}
 \partial_\mu \to D_\mu = \partial_\mu + \im eQ A_\mu
 \end{equation}
-où l'on introduit un \emph{champ de jauge} $A_\mu$, dont la transformation de jauge permet de supprimer le terme supplémentaire qui brise l'invariance de jauge du lagrangien. En effet, le champ $A_\mu$ se transforme tel que
+où $e$ est la charge électrique élémentaire et $A_\mu$ un \emph{champ de jauge} nouvellement introduit, dont la transformation de jauge permet de supprimer le terme supplémentaire qui brise l'invariance de jauge du lagrangien. En effet, le champ $A_\mu$ se transforme tel que
 \begin{equation}
-A_\mu \to A_\mu - \partial_\mu\alpha
+A_\mu \to A_\mu - \frac{1}{e} \partial_\mu\alpha
 \mend
 \end{equation}
 Ainsi, en réécrivant le lagrangien du fermion de l'équation~\eqref{eq-lagrangien_fermion_libre_partial} avec la dérivée covariante,
@@ -82,17 +82,17 @@ le dernier terme se transforme en
 \begin{equation}
 -\bar{\psi}\gamma^\mu eQA_\mu \psi
 \to
--\bar{\psi}\eexp{-\im eQ\alpha}
+-\bar{\psi}\eexp{-\im \alpha}
 \gamma^\mu
-eQ\left(A_\mu - \partial_\mu\alpha\right)
-\eexp{\im eQ\alpha}\psi
+eQ\left(A_\mu - \frac{1}{e}\partial_\mu\alpha\right)
+\eexp{\im \alpha}\psi
 =
 -\bar{\psi} \gamma^\mu eQA_\mu \psi
 +
-\bar{\psi} \gamma^\mu eQ \partial_\mu\alpha \psi
+\bar{\psi} \gamma^\mu  Q\partial_\mu\alpha \psi
 \end{equation}
 et le dernier terme obtenu compense exactement le terme brisant l'invariance de jauge dans l'équation~\eqref{eq-QED_jauge_brisee}.
-\par Le nouveau terme introduit par l'utilisation de la dérivée covariante, $- \bar{\psi}\gamma^\mu eQA_\mu \psi$, correspond à l'interaction entre un fermion et le champ de jauge $A_\mu$, dont l'intensité est directement proportionnelle à la charge électrique du fermion
+\par Le nouveau terme introduit par l'utilisation de la dérivée covariante, $- \bar{\psi}\gamma^\mu eQA_\mu \psi$, correspond à l'interaction entre un fermion et le champ de jauge $A_\mu$, dont l'intensité est directement proportionnelle à la charge électrique du fermion.
 Toutefois, le champ $A_\mu$ ne représente pas encore le photon en l'état, il faut permettre au photon de se propager librement. Pour cela, il faut introduire un terme cinétique qui soit invariant de jauge dans le lagrangien, ce qui peut se faire avec
 \begin{equation}
 \Lcal_{\text{photon libre}} = - \frac{1}{4} F_{\mu\nu}F^{\mu\nu}
