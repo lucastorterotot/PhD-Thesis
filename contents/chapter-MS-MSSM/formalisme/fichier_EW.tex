@@ -1,10 +1,25 @@
 \subsection{Interaction électrofaible}\label{chapter-MS-MSSM-section-formalisme-subsec-EW}
 Le modèle standard décrit les interactions électromagnétiques et faible comme deux facettes d'une seule et même interaction qui les unifie, l'interaction électrofaible, notée \og EW \fg{} pour \emph{electroweak}.
-\todo{brisure symétrie et Higgs avec réf}
-\par Nous avons vu précédemment que l'interaction électromagnétique repose sur l'invariance de jauge sous les transformations locale du groupe $U(1)_{em}$.
-Dans le cas de l'interaction électrofaible, ce groupe de symétrie est $SU(2)_L \times U(1)_Y$. Ces deux groupes sont introduits dans les sections qui suivent.
+Une des raisons pour unifier ces deux forces provient du calcul de la section efficace de production de paire $\Wbosonplus\Wbosonminus$. Pour obtenir cette section efficace sans avoir de divergence, ce qui ne saurait représenter la réalité physique, il est nécessaire de considérer les diagrammes des figures~\ref{subfig-fgraph-ff_WW1}, \ref{subfig-fgraph-ff_WW2} et~\ref{subfig-fgraph-ff_WW3}. L'analogie entre les diagrammes~\ref{subfig-fgraph-ff_WW1} et~\ref{subfig-fgraph-ff_WW3} pousse ainsi à unifier les deux forces.
+\begin{figure}[h]
+\centering
+\vspace{\baselineskip}
+\subcaptionbox{\label{subfig-fgraph-ff_WW1}}[.225\textwidth]
+{\input{/home/torterotot/Documents/PhD-Thesis/tex/Feynman_diagrams/EW/fgraph-ee_gamma_WW.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{\label{subfig-fgraph-ff_WW2}}[.225\textwidth]
+{\input{/home/torterotot/Documents/PhD-Thesis/tex/Feynman_diagrams/EW/fgraph-ee_nu_WW.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{\label{subfig-fgraph-ff_WW3}}[.225\textwidth]
+{\input{/home/torterotot/Documents/PhD-Thesis/tex/Feynman_diagrams/EW/fgraph-ee_Z_WW.tex}\vspace{\baselineskip}}
 
-\subsubsection{Symétrie $SU(2)_L$ et interactions entre bosons}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-SU2}
+\caption{Diagrammes de Feynman de production de paire $\Wbosonplus\Wbosonminus$ à l'arbre.}
+\label{fig-fgraph-ff_WW}
+\end{figure}
+\par Nous avons vu précédemment que l'interaction électromagnétique repose sur l'invariance de jauge sous les transformations locale du groupe $U(1)_{em}$.
+Dans le cas de l'interaction électrofaible, ce groupe de symétrie est $SU(2)_L \times U(1)_Y$. Dans un premier temps, nous ne traiterons que le cas de $SU(2)_L$ et nous verrons toute la richesse supplémentaire de ce groupe par rapport à $U(1)$. Ensuite, nous traiterons de $SU(2)_L \times U(1)_Y$.
+
+\subsubsection{Symétrie $SU(2)_L$ et chiralité}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-SU2_L}
 Dans la notation $SU(2)_L$, $L$ signifie \og left \fg{} car l'interaction faible ne couple que les fermions de chiralité gauche et les anti-fermions de chiralité droite.
 Une des propriétés les plus importantes de l'interaction faible est de violer la symétrie de parité ($P$), ainsi que la symétrie $CP$ où $C$ correspond à la charge électrique.
 Dans les termes de couplage du lagrangien, un facteur $\gamma^\mu$ correspond à un couplage vectoriel, comme pour l'électromagnétisme. Un facteur $\gamma^\mu \gamma^5$ correspond quant à lui à un couplage vectoriel \emph{axial}. Un facteur $\gamma^\mu (1-\gamma^5)$ somme ainsi un vecteur à un vecteur axial, ce qui implique une violation de la symétrie de parité.
@@ -12,6 +27,7 @@ Or, il est possible de projeter un spineur $\psi$ afin d'obtenir sa composante d
 \begin{equation}
 \psi_L = \frac{1}{2}(1-\gamma^5)\psi
 \mend[,]
+\label{eq-projo_L}
 \end{equation}
 Pour les antiparticules décrites par $\bar{\psi}=\psi^\dagger \gamma^0$,
 \begin{equation}
@@ -22,6 +38,7 @@ Pour les antiparticules décrites par $\bar{\psi}=\psi^\dagger \gamma^0$,
 = \psi^\dagger \gamma^0 \frac{1}{2} (1+\gamma^5)
 = \bar{\psi}_R
 \mend[,]
+\label{eq-projo_R}
 \end{equation}
 d'où le couplage entre fermions de chiralité gauche et anti-fermions de chiralité droite.
 \par L'introduction de la symétrie $SU(2)_L$ amène un nouveau nombre quantique, l'\emph{isospin faible}, noté $I$. Il se comporte mathématiquement comme le spin des particules, d'où son nom \emph{iso}spin.
@@ -40,32 +57,41 @@ $0$ & - & $\quarku_{i,R}$, $\quarkd_{i,R}$ & - & $\ell_{i,R}$\\
 \caption{Représentation des fermions selon leur chiralité et leur isospin. L'indice $i\in\set{1,2,3}$ correspond à la génération des particules. Ainsi, les symboles $\quarku_i$, $\quarkd_i$, $\ell_i$ et $\neutrino_i$ correspondent, respectivement, aux quarks d'isospin faible haut (\quarku, \quarkc, \quarkt), d'isospin faible bas (\quarkd, \quarks, \quarkb), aux leptons chargés (\ele, \mu, \tau) et aux neutrinos (\nuele, \numu, \nutau).}
 \label{tab-chapter-MS-MSSM-section-formalisme-subsec-EW-rzpt_femrions_chiralite_isospin}
 \end{table}
-\par Une différence notable entre $SU(2)$ et $U(1)$ est que $SU(2)$ est un groupe \emph{non abélien}. Cela signifie deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que l'on applique $a$ puis $b$ ou $b$ puis $a$. Nous verrons plus loin ce que cette propriété implique.
-\par Procédons comme pour l'électromagnétisme et observons ce que l'invariance de jauge implique pour le lagrangien. Sous une transformation de $SU(2)_L$, les spineurs se transforment selon
+\subsubsection{Symétrie $SU(2)$ et interactions entre bosons}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-SU2_general}
+Afin d'alléger les notations, nous traitons ici du cas plus général d'un groupe de symétrie $SU(2)$. Pour étendre les résultats à $SU(2)_L$, il suffit de se souvenir que les couplages ont uniquement lieu entre fermions de chiralité gauche et anti-fermions de chiralité droite.
+Procédons comme pour l'électromagnétisme et observons ce que l'invariance de jauge implique pour le lagrangien. Sous une transformation de $Su(2)$, les spineurs se transforment selon
 \begin{equation}
 \psi \to \eexp{\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}\psi
 \msep
 \bar{\psi} \to \bar{\psi}\eexp{-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}
 \label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-spineur}
 \end{equation}
-où $\bm{\alpha}\in\mathbb{R}^3$ et $\bm{\tau}$ un vecteur dont les composantes $\tau_i$ sont les générateurs de $SU(2)_L$.
+où $\bm{\alpha}\in\mathbb{R}^3$ et $\bm{\tau}$ un vecteur dont les composantes $\tau_i$ sont les générateurs de $Su(2)$\footnote{Les générateurs de $Su(2)$ sont des matrices $2\times2$ s'identifiant aux matrices de Pauli $\sigma_i$ définies dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A}. Toutefois, ces générateurs agissent dans le cas de $SU(2)_L$ sur les doublets d'isospin alors que les matrices de Pauli agissent sur le spin d'un fermion. Afin d'éviter les confusions, nous utiliserons donc la notation $\tau$.}.
 Notons que l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-spineur} et l'analogue directe de l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-QED-tr_jauge-spineur}.
+\par Afin de simplifier les calculs qui suivent, nous ne considérerons que des transformations infinitésimales. En effet, $Su(2)$ est un groupe \emph{non abélien}. Cela signifie deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que l'on applique $a$ puis $b$ ou $b$ puis $a$, \ie\ $ab-ba\neq0$. Ainsi, des termes supplémentaires apparaissent, ou plutôt ne se simplifient pas entre eux. Nous considérons donc les transformations précédentes sous leurs formes infinitésimales, \ie\ au premier ordre en $\bm{\alpha}$,
+\begin{equation}
+\psi \to \left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi
+\msep
+\bar{\psi} \to \bar{\psi}\left(1-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)
+\mend
+\end{equation}
 Les termes du lagrangien du fermion libre, introduit dans l'équation~\eqref{eq-lagrangien_fermion_libre_partial}, se transforment alors comme
 \begin{equation}
 -m\bar{\psi}\psi
 \to
--m\bar{\psi}\eexp{-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}\eexp{\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}\psi
-=-m\bar{\psi}\psi
+-m\bar{\psi}\left(1-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi
+=-m\bar{\psi}\psi+\Order{\alpha^2}
 \end{equation}
 et
 \begin{equation}
 \im\bar{\psi} \gamma^\mu\partial_\mu \psi
 \to
-\im \bar{\psi}\eexp{-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}\gamma^\mu\partial_\mu \left(\eexp{\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}\psi\right)
+\im \bar{\psi}\left(1-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\gamma^\mu\partial_\mu \left(\left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi\right)
 =
 \im \bar{\psi}\gamma^\mu\partial_\mu \psi
 -
-\bar{\psi}\frac{1}{2}\bm{\tau}\cdot\gamma^\mu\partial_\mu\bm{\alpha}(x) \psi
+\bar{\psi}\frac{1}{2}\bm{\tau}\cdot\gamma^\mu\partial_\mu\bm{\alpha}(x) \psi+\Order{\alpha^2}
+\label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-terme_cinetique}
 \end{equation}
 ce qui fait apparaître, sur le même principe qu'avec l'interaction électromagnétique, un terme supplémentaire brisant l'invariance de jauge du lagrangien. Définissons une nouvelle dérivée covariante afin de rétablir l'invariance de jauge,
 \begin{equation}
@@ -91,13 +117,6 @@ Dans ce cas, le lagrangien du fermion libre se réécrit sous la forme
 \bar{\psi} \gamma^\mu \frac{1}{2} g_W \bm{\tau}\cdot\bm{W}_\mu \psi
 \mend
 \end{align}
-\par Afin de simplifier les calculs qui suivent, nous ne considérerons que des transformations infinitésimales. En effet, $SU(2)_L$ est un groupe non abélien et des termes supplémentaires apparaissent. Nous considérons alors les transformations infinitésimales
-\begin{equation}
-\psi \to \left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi
-\msep
-\bar{\psi} \to \bar{\psi}\left(1-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)
-\mend
-\end{equation}
 Ainsi, le terme supplémentaire du lagrangien se transforme tel que
 \begin{align}
 \bar{\psi} \gamma^\mu \frac{1}{2} g_W \bm{\tau}\cdot\bm{W}_\mu \psi
@@ -121,72 +140,62 @@ Ainsi, le terme supplémentaire du lagrangien se transforme tel que
 \bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot (\bm{\alpha}\wedge\bm{W}_\mu) \psi
 +\Order{\alpha^2}
 \mend
+\label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-terme_suppl}
 \end{align}
-%\begin{align}
-%\bar{\psi} \gamma^\mu \frac{1}{2} g_W \bm{\tau}\cdot\bm{W}_\mu \psi
-%\to
-%{}&{}
-%\bar{\psi}\left(1-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)
-%\gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot
-%\left( \bm{W}_\mu + \frac{1}{g_W}\partial_\mu\bm{\alpha} - (\bm{\alpha}\wedge\bm{W}_\mu) \right)
-%\left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi
-%\nonumber\\&
-%=
-%\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
-%-
-%\bar{\psi} \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
-%+
-%\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \psi
-%\nonumber\\&\hphantom{=}
-%+
-%\bar{\psi} \gamma^\mu \frac{1}{2} \bm{\tau}\cdot \partial_\mu\bm{\alpha} \psi
-%-
-%\bar{\psi} \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \gamma^\mu \frac{1}{2} \bm{\tau}\cdot \partial_\mu\bm{\alpha} \psi
-%\nonumber\\&\hphantom{=}
-%+
-%\bar{\psi} \gamma^\mu \frac{1}{2} \bm{\tau}\cdot \partial_\mu\bm{\alpha} \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \psi
-%-
-%\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot (\bm{\alpha}\wedge\bm{W}_\mu) \psi
-%\nonumber\\&\hphantom{=}
-%+
-%\bar{\psi} \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot (\bm{\alpha}\wedge\bm{W}_\mu) \psi
-%-
-%\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot (\bm{\alpha}\wedge\bm{W}_\mu) \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \psi
-%\nonumber\\&\hphantom{=}
-%+\Order{\alpha^2}
-%\mend
-%\end{align}
 Or,
 \begin{equation}
 (\bm{\tau}\cdot\bm{a})(\bm{\tau}\cdot\bm{b})
 =
 (\bm{a}\cdot\bm{b}) + \im \bm{\tau} \cdot (\bm{a}\wedge\bm{b})
 \Leftrightarrow
-\im \bm{\tau} \cdot (\bm{a}\wedge\bm{b})
+\bm{\tau} \cdot (\bm{a}\wedge\bm{b})
 =
-(\bm{\tau}\cdot\bm{a})(\bm{\tau}\cdot\bm{b}) - (\bm{a}\cdot\bm{b})
+\im [(\bm{a}\cdot\bm{b}) - (\bm{\tau}\cdot\bm{a})(\bm{\tau}\cdot\bm{b})]
 \mend
 \end{equation}
 Ainsi,
-
-
+\begin{align}
+\bm{\tau}\cdot (\bm{\alpha}\wedge\bm{W}_\mu)
+&
+= \frac{1}{2}  \left[ \bm{\tau}\cdot (\bm{\alpha}\wedge\bm{W}_\mu) - \bm{\tau}\cdot (\bm{W}_\mu\wedge\bm{\alpha}) \right]
+\nonumber\\
+&
+= \frac{\im}{2}  \left[ [(\bm{\alpha}\cdot\bm{W}_\mu) - (\bm{\tau}\cdot\bm{\alpha})(\bm{\tau}\cdot\bm{W}_\mu)] - [(\bm{W}_\mu\cdot\bm{\alpha}) - (\bm{\tau}\cdot\bm{W}_\mu)(\bm{\tau}\cdot\bm{\alpha})] \right]
+\nonumber\\
+&
+= \frac{\im}{2}  \left[  (\bm{\tau}\cdot\bm{W}_\mu)(\bm{\tau}\cdot\bm{\alpha}) - (\bm{\tau}\cdot\bm{\alpha})(\bm{\tau}\cdot\bm{W}_\mu) \right]
+\label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-simplification_trick}
+\end{align}
+et nous obtenons alors, en combinant les équations~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-terme_suppl} et~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-simplification_trick},
 \begin{equation}
-\Lcal = \bar{\psi}(\im \slashed{D} - m) \psi - \frac{1}{4} \bm{G}_{\mu\nu} \cdot \bm{G}^{\mu\nu}
+\bar{\psi} \gamma^\mu \frac{1}{2} g_W \bm{\tau}\cdot\bm{W}_\mu \psi
+\to
+\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
++
+\bar{\psi} \gamma^\mu \frac{1}{2} \bm{\tau}\cdot \partial_\mu\bm{\alpha} \psi
++\Order{\alpha^2}
+\mend[,]
 \end{equation}
-
+où le dernier terme obtenu compense exactement le terme brisant l'invariance de jauge dans l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-terme_cinetique}.
+\par À ce stade, l'analogie avec l'électromagnétisme nous pousse à introduire $\bm{G}_{\mu\nu}$ l'analogue à $F_{\mu\nu}$ tel que
+$\bm{G}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu$. Or, les invariances de jauge imposées mène à utiliser une définition légèrement différente,
 \begin{equation}
 \bm{G}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu + g_W(\bm{W}_\mu \wedge \bm{W}_\nu)
-\end{equation}
-
-\subsubsection{Symétrie $U(1)_Y$ et unification électrofaible}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-U1}
-Dans la notation $U(1)_Y$, $Y$ est l'\emph{hypercharge}, reliée à $Q$ la charge électrique et à $I_3$ la projection de l'isospin faible par la relation de Gell-Mann--Nishijima,
-\begin{equation}
-Y = 2(Q-I_3)
 \mend
 \end{equation}
+Le lagrangien pour $Su(2)$ s'écrit alors
+\begin{equation}
+\Lcal_{SU(2)} = \bar{\psi}(\im \slashed{D} - m) \psi - \frac{1}{4} \bm{G}_{\mu\nu} \cdot \bm{G}^{\mu\nu}
+\end{equation}
+\begin{wrapfigure}{R}{6.25cm}
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/tex/Feynman_diagrams/EW/fgraph-WWW.tex}
+\caption{Diagramme de Feynman correspondant à l'interaction entre trois bosons.}
+\label{fig-fgraph-WWW}
+\end{wrapfigure}
+\par Une nouvelle différence notable et importante vis-à-vis de $\Lcal_{QCD}$ est la non linéarité de $\bm{G}_{\mu\nu}$ par rapport à $\bm{W}$. Cette composante non linéaire ouvre la porte aux interactions directes entre les champs $W^i_\mu$, \ie\ entre les bosons, ce qui était impossible avec QED. De nouveaux types de vertex, comme celui de la figure~\ref{fig-fgraph-WWW}, sont donc possibles dans une théorie de jauge avec une symétrie locale $SU(2)$.
 
-
-\begin{table}[h]
+\begin{wraptable}{R}{6.25cm}
 \centering
 \begin{tabular}{cccc}
 \toprule
@@ -199,4 +208,69 @@ $I_3$ & $\frac{1}{2}$ & $-\frac{1}{2}$ & $0$ \\
 $Q$ & $0$ & $-1$ & $-1$\\
 \bottomrule
 \end{tabular}
-\end{table}
+\caption{Valeurs des hypercharges, isospins et charges électriques pour les leptons.}
+\label{tab-Y_I_I3_Q-leptons}
+\end{wraptable}
+\subsubsection{Symétrie $SU(2)_L \times U(1)_Y$ et unification électrofaible}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-U1}
+Dans la notation $U(1)_Y$, $Y$ est l'\emph{hypercharge}, reliée à $Q$ la charge électrique et à $I_3$ la projection de l'isospin faible par la relation de Gell-Mann--Nishijima,
+\begin{equation}
+Q = I_3 + \frac{Y}{2}
+\mend[,]
+\end{equation}
+dont les résultats pour les différents leptons sont présentés dans la table~\ref{tab-Y_I_I3_Q-leptons}.
+\par Mettons ici à profit les raisonnements réalisés précédemment. En effet, nous avons traité dans la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-QED} de $U(1)_{em}$. Il est possible d'obtenir directement les mêmes résultats pour $U(1)_Y$ en procédant à l'analogie $U(1)_{em}\leftrightarrow U(1)_Y$, avec
+\begin{equation}
+A_\mu \leftrightarrow B_\mu
+\msep
+F_{\mu\nu} \leftrightarrow F^{(B)}_{\mu\nu}
+\msep
+e \leftrightarrow g'
+\msep
+Q \leftrightarrow \frac{1}{2}Y
+\mend
+\end{equation}
+De plus, en sachant que $SU(2)_L$ couple les fermions de chiralité gauche et anti-fermions de chiralité droite, les résultats pour $SU(2)$ sont directement utilisables en ajoutant les projections décrites par les équations~\eqref{eq-projo_L} et~\eqref{eq-projo_R}.
+\par Nous arrivons donc à la définition de la dérivée covariante pour $SU(2)_L \times U(1)_Y$,
+\begin{equation}
+D_\mu = \partial_\mu - \im g_WI \bm{\tau}\cdot\bm{W}_\mu - \frac{\im}{2}g'YB_\mu
+\end{equation}
+pouvant agir sur un doublet d'isospin faible, noté $L$, ou un singlet d'isospin faible, noté $R$, selon
+\begin{align}
+D_\mu L &= \left[ \partial_\mu - \frac{\im}{2}g_W \bm{\tau}\cdot\bm{W}_\mu + \frac{\im}{2}g'B_\mu \right] L
+\mend[,]
+\\
+D_\mu R &= \left[ \partial_\mu + \im g'B_\mu \right] R
+\mend[,]
+\end{align}
+compte-tenu des différentes valeurs de $Y$ et $I$ données dans la table~\ref{tab-Y_I_I3_Q-leptons}.
+\par Nous pouvons alors écrire un lagrangien invariant sous $SU(2)_L\times U(1)_Y$,
+\begin{equation}
+\Lcal_{SU(2)_L\times U(1)_Y}
+=
+\im \bar{\psi} \slashed{D} \psi - \frac{1}{4} \bm{G}_{\mu\nu} \cdot \bm{G}^{\mu\nu} - \frac{1}{4} F^{(B)}_{\mu\nu} \cdot F^{(B)\mu\nu}
+\mend[,]
+\label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-LSU2LU1Y}
+\end{equation}
+et nous pourrions imaginer que le champ $B_\mu$ correspond au photon, et les champs $W^i_\mu$ aux bosons \Wbosonpm\ et \Zboson. Comme nous allons le voir, ces quatre bosons sont en fait des combinaisons de ces quatre champs.
+De plus, il n'y a aucun terme de masse dans le lagrangien de l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-LSU2LU1Y}. En effet, un terme de masse pour les fermions serait de la forme
+\begin{equation}
+-m\bar{\psi}\psi
+=
+-m (\bar{\psi}_R+\bar{\psi}_L)(\psi_R+\psi_L)
+=
+-m (
+\bar{\psi}_R \psi_R
++\bar{\psi}_R \psi_L
++\bar{\psi}_L \psi_R
++\bar{\psi}_L \psi_L
+)
+=
+-m (\bar{\psi}_R \psi_L + \bar{\psi}_L \psi_R)
+\mend
+\end{equation}
+Or, ce terme n'est pas invariant sous $SU(2)_L\times U(1)_Y$.
+Pour les champs $W^i_\mu$ et $B_\mu$, des termes de masse violeraient également la symétrie de jauge.
+Dès lors, il semble difficile pour un tel lagrangien de décrire les forces électromagnétiques et faible.
+\par En réalité, ce lagrangien décrit l'interaction \emph{électrofaible}.
+Les interactions électromagnétique et faible résultent d'un mécanisme de brisure spontanée de symétrie, qui se trouve dans ce cas être le mécanisme de Higgs.
+Dans la section suivante, nous allons voir comment l'introduction du champ de Higgs amène cette brisure de symétrie et comment nous retrouvons des fermions massifs, le photon et les bosons \Wbosonpm\ et \Zboson.
