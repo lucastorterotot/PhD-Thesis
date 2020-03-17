@@ -25,10 +25,41 @@ Pour les antiparticules décrites par $\bar{\psi}=\psi^\dagger \gamma^0$,
 \end{equation}
 d'où le couplage entre fermions de chiralité gauche et anti-fermions de chiralité droite.
 \par L'introduction de la symétrie $SU(2)_L$ amène un nouveau nombre quantique, l'\emph{isospin faible}, noté $I$. Il se comporte mathématiquement comme le spin des particules, d'où son nom \emph{iso}spin.
-Les fermions de chiralité gauche sont rassemblés en doublet d'isospin faible $I=\frac{1}{2}$, les fermions de chiralité droite en singlets d'isospin faible $I=0$. Ces derniers sont ainsi invariants sous les transformations de $SU(2)_L$.
-
-
+Les fermions de chiralité gauche sont rassemblés en doublet d'isospin faible $I=\frac{1}{2}$, les fermions de chiralité droite en singlets d'isospin faible $I=0$. Ces derniers sont ainsi invariants sous les transformations de $SU(2)_L$, ce qui se traduit physiquement par une insensibilité à l'interaction faible.
+\par Mis à part les neutrinos qui n'existent, dans le cadre actuel du modèle standard, qu'avec une chiralité gauche\footnote{Il n'y a à ce jour aucune raison pour les neutrinos de chiralité droite de ne pas exister. Cependant, ils n'interagissent pas avec la matière dans le cadre du modèle standard. Ainsi, il est possible de les retirer du modèle tout en conservant une description du comportement des particules cohérente.}, les fermions peuvent être de chiralité droite ou gauche. Nous obtenons donc les représentations de la table~\ref{tab-chapter-MS-MSSM-section-formalisme-subsec-EW-rzpt_femrions_chiralite_isospin}.
+\begin{table}[h]
+\centering
+\begin{tabular}{ccccc}
+\toprule
+$I$ & Quarks gauches & Quarks droits & Leptons gauches & Leptons droits\\
+\midrule
+$\frac{1}{2}$ & $\displaystyle \begin{pmatrix} \quarku_i \\ \quarkd_i \end{pmatrix}_L$ & - & $\displaystyle \begin{pmatrix} \neutrino_i \\ \ell_i \end{pmatrix}_L$ & - \\
+$0$ & - & $\quarku_{i,R}$, $\quarkd_{i,R}$ & - & $\ell_{i,R}$\\
+\bottomrule
+\end{tabular}
+\caption{Représentation des fermions selon leur chiralité et leur isospin. L'indice $i\in\set{1,2,3}$ correspond à la génération des particules. Ainsi, les symboles $\quarku_i$, $\quarkd_i$, $\ell_i$ et $\neutrino_i$ correspondent, respectivement, aux quarks d'isospin faible haut (\quarku, \quarkc, \quarkt), d'isospin faible bas (\quarkd, \quarks, \quarkb), aux leptons chargés (\ele, \mu, \tau) et aux neutrinos (\nuele, \numu, \nutau).}
+\label{tab-chapter-MS-MSSM-section-formalisme-subsec-EW-rzpt_femrions_chiralite_isospin}
+\end{table}
 \par Une différence notable entre $SU(2)$ et $U(1)$ est que $SU(2)$ est un groupe \emph{non abélien}. Cela signifie deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que l'on applique $a$ puis $b$ ou $b$ puis $a$.
+
+\begin{equation}
+\psi \to \psi\eexp{\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}
+\end{equation}
+
+\begin{equation}
+\bm{W}_\mu \to \bm{W}_\mu + \frac{1}{g}\partial_\mu\bm{\alpha} - (\bm{\alpha}\wedge\bm{W}_\mu)
+\end{equation}
+
+\begin{equation}
+\Lcal = \bar{\psi}(\im \slashed{D} - m) \psi - \frac{1}{4} \bm{G}_{\mu\nu} \cdot \bm{G}^{\mu\nu}
+\end{equation}
+
+\begin{equation}
+D_\mu \psi = \partial_\mu\psi - \frac{\im}{2} g \bm{\tau}\cdot\bm{W}_\mu(x)\psi
+\end{equation}
+\begin{equation}
+\bm{G}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu + g(\bm{W}_\mu \wedge \bm{W}_\nu)
+\end{equation}
 
 \subsubsection{Symétrie $U(1)_Y$ et unification électrofaible}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-U1}
 Dans la notation $U(1)_Y$, $Y$ est l'\emph{hypercharge}, reliée à $Q$ la charge électrique et à $I_3$ la projection de l'isospin faible par la relation de Gell-Mann--Nishijima,
