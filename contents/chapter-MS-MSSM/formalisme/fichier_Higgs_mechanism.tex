@@ -1,1 +1,46 @@
 \subsection{Mécanisme de Higgs}\label{chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism}
+Afin de briser la symétrie électrofaible, introduisons un champ complexe, scalaire, massif, le \emph{champ de Higgs}, noté $\phi$. Il s'agit d'un champ à quatre composantes, qu'il est possible d'écrire sous la forme d'un doublet d'isospin faible,
+\begin{equation}
+\phi
+=
+\begin{pmatrix}
+\phi^+ \\ \phi^0
+\end{pmatrix}
+=
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+\phi_3 + \im \phi_4 \\ \phi_1 + \im \phi_2
+\end{pmatrix}
+\mend
+\end{equation}
+\par Le champ de Higgs a pour hypercharge $Y=+1$ et pour isospin $I=\frac{1}{2}$. Ainsi, il se transforme selon, respectivement sous $U(1)_Y$ et $SU(2)_L$.,
+\begin{equation}
+\begin{pmatrix}
+\phi^+ \\ \phi^0
+\end{pmatrix}
+\to
+\begin{pmatrix}
+\eexp{\im\frac{\beta}{2}} & 0 \\ 0 & \eexp{\im\frac{\beta}{2}}
+\end{pmatrix}
+\begin{pmatrix}
+\phi^+ \\ \phi^0
+\end{pmatrix}
+\msep
+\begin{pmatrix}
+\phi^+ \\ \phi^0
+\end{pmatrix}
+\to
+\eexp{\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}}
+\begin{pmatrix}
+\phi^+ \\ \phi^0
+\end{pmatrix}
+\end{equation}
+\par La dérivée covariante définie par l'équation~\eqref{eq-definition_Dmu_EW} agit donc sur le champ de Higgs selon
+\begin{equation}
+D_\mu \phi = \left[ \partial_\mu - \frac{\im}{2}g_W \bm{\tau}\cdot\bm{W}_\mu - \frac{\im}{2}g'B_\mu \right] \phi
+\mend[,]
+\end{equation}
+et ce champ de Higgs apporte les termes $\Lcal_\phi$ au lagrangien du modèle standard
+\begin{equation}
+\Lcal_\phi = (D^\mu\phi)^\dagger(D_\mu\phi) + \frac{m^2_{\higgs}}{2}\phi^\dagger\phi-\frac{\lambda}{4}(\phi^\dagger\phi)^2
+\end{equation}
