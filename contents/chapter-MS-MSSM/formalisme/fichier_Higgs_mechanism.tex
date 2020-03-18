@@ -1,5 +1,6 @@
-\subsection{Mécanisme de Higgs}\label{chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism}
-Afin de briser la symétrie électrofaible, introduisons un champ complexe, scalaire, massif, le \emph{champ de Higgs}, noté $\phi$. Il s'agit d'un champ à quatre composantes, qu'il est possible d'écrire sous la forme d'un doublet d'isospin faible,
+\subsection{Mécanisme de Higgs et brisure spontanée de symétrie}\label{chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism}
+\subsubsection{Champ de Higgs et brisure de symétrie}\label{chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-subsubsec-potentiel}
+Introduisons un champ complexe, scalaire, massif, le \emph{champ de Higgs}, noté $\phi$. Il s'agit d'un champ à quatre composantes, qu'il est possible d'écrire sous la forme d'un doublet d'isospin faible,
 \begin{equation}
 \phi
 =
@@ -48,5 +49,126 @@ avec
 \begin{equation}
 V(\phi)
 = \mu^2\phi^\dagger\phi + \lambda (\phi^\dagger\phi)^2
+\msep \lambda > 0
 \mend
 \end{equation}
+\par Observons le comportement de ce champ autour du minimum du potentiel $V$, \ie\ autour de sa position d'équilibre que nous noterons $v$, avec $v^2=\phi_1^2+\phi_2^2+\phi_3^2+\phi_4^2$.
+Commençons par la position de $v$. Les conditions pour s'y trouver sont
+\begin{equation}
+\left\lbrace
+\begin{aligned}
+\eval{\pdv{V}{\phi}}_v=0
+\\
+\eval{\pdv[2]{V}{\phi}}_v\geq0
+\end{aligned}
+\right.
+\Rightarrow
+\left\lbrace
+\begin{aligned}
+(\mu^2 + \lambda v^2)v^2 = 0
+\\
+2\mu^2 + 4\lambda v^3 \geq0
+\end{aligned}
+\right.
+\Rightarrow
+\left\lbrace
+\begin{aligned}
+\mu^2 \geq 0 &\Rightarrow v = 0
+\\
+\mu^2 < 0 &\Rightarrow v^2 = \frac{-\mu^2}{\lambda}
+\end{aligned}
+\right.
+\mend
+\end{equation}
+Ainsi, dans le cas où $\mu^2<0$, le potentiel possède une infinité de minimums, situés sur un cercle de rayon $\abs{v}$, comme cela est visible sur la figure~\ref{fig-rpztation_3d_V_Higgs}. La forme de ce potentiel n'est pas sans rappeler celle d'un chapeau mexicain.
+\begin{figure}[h]
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/contents/chapter-MS-MSSM/formalisme/fig-pyplot.pgf}
+\caption{Forme du potentiel $V$ selon le signe de $\mu^2$.}
+\label{fig-rpztation_3d_V_Higgs}
+\end{figure}
+\par \todo{the vev of the field is therefore the minimulm of this potential,}
+\begin{equation}
+\average{\phi}_0 = \frac{v}{\sqrt{2}} \neq 0
+\end{equation}
+ce qui implique le phénomène de brisure spontanée de symétrie.
+%\par Le lagrangien $\Lcal=\Lcal_{EW}+\Lcal_{\higgs}$ étant invariant de jauge, il est possible d'appliquer une transformation de jauge afin de simplifier l'expression de $\phi$, que nous pouvons alors écrire sous la forme
+%\begin{equation}
+%\phi(x) = \frac{1}{\sqrt{2}} \eexp{\frac{\im}{2}\bm{\tau}\cdot\bm{\theta}(x)/f}\begin{pmatrix}
+%0 \\ \rho(x)
+%\end{pmatrix}
+%\end{equation}
+%où $\bm{\theta}(x)$ et $\rho(x)$ sont quatre champs réels et $f$ une constante de normalisation.
+%Sous cette forme, $\bm{\theta}(x)$ contient trois des quatre degrés de liberté du doublet de Higgs $\phi$ et $\rho(x)$ le quatrième.
+\par Le minimum de potentiel pour $V$ étant dégénéré, \ie\ qu'il y a une infinité de points au minimum, il est possible de briser la symétrie avec n'importe lequel de ces points. Alors, les observables physiques s'obtiennent en réalisant un développement limité autour du point choisi.
+Le choix le plus simple est nommé \og jauge unitaire \fg.
+Dans ce cas, %$\bm{\theta}(x)=0$ et l'on peut écrire
+\begin{equation}
+\phi(x)
+=
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\ v + \higgs(x)
+\end{pmatrix}
+\end{equation}
+où $\higgs$ correspond à un nouveau champ de Higgs, cette fois-ci physiquement réel.%, est ainsi défini comme une translation par rapport au minimum, $h(x) = \rho(x)-v$.
+\subsubsection{Masses des bosons}\label{chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-subsubsec-bosons}
+Injectons à présent cette expression de $\phi$ dans $\Lcal_{\higgs}$. Le terme cinétique devient
+\begin{align}
+(D^\mu\phi)^\dagger(D_\mu\phi)
+&
+=
+\frac{1}{2}\partial_\mu \higgs \partial^\mu \higgs
+\nonumber\\&
++
+\frac{(v+\higgs)^2}{8} g_W^2 \left(W_\mu^1 + \im W_\mu^2\right) \left( W^{\mu1}-\im W^{\mu2}\right)
+\nonumber\\&
++
+\frac{(v+\higgs)^2}{8} \left(g_W W_\mu^3 - g' B_\mu \right) \left( g_W W^{\mu3}-g' B^\mu \vphantom{W^{\mu1}}\right)
++ \Order{\higgs^2}
+\mend
+\end{align}
+Il est possible de développer cette expression et d'identifier les termes quadratiques qui correspondent à des termes de masse pour les bosons physiques, tout en obtenant les combinaisons des champs leurs correspondant,
+\begin{align}
+&
+\text{bosons \Wbosonpm:}
+&&
+W_\mu^\pm = \frac{1}{\sqrt{2}} \left( W_\mu^1 \mp \im W_\mu^2 \right)
+\msep&&
+m_{\Wboson} = \frac{1}{2} v g_W
+\mend[,]
+\\
+&
+\text{photon \photon:}
+&&
+A_\mu = \frac{g_W W_\mu^3 + g' B_\mu}{\sqrt{g_W^2 + {g'}^2}}
+\msep&&
+m_A = 0
+\mend[,]
+\\
+&
+\text{boson \Zboson:}
+&&
+Z_\mu = \frac{g_W W_\mu^3 - g' B_\mu}{\sqrt{g_W^2 + {g'}^2}}
+\msep&&
+m_{\Zboson} = \frac{1}{2} v \sqrt{g_W^2 + {g'}^2}
+\mend[,]
+\\
+&
+\text{boson de Higgs \higgs:}
+&&
+\higgs
+\msep&&
+m_{\higgs} = \sqrt{-2\mu^2}
+\mend
+\end{align}
+\par Les masses des bosons ainsi prédites sont expérimentalement confirmées\todo{ref}.
+Cependant, la masse du boson de Higgs dépendant de $\mu$, paramètre libre de ce modèle, seule une détermination expérimentale permet de l'obtenir. En 2012, les collaborations ATLAS et CMS ont observé un boson, confirmé comme étant ce boson de Higgs\todo{ref}. Sa masse est déterminée à $\num{125.18}\pm\num{0.16}\usp\SI{}{\GeV}$ \todo{ref}.
+\subsubsection{Masses des fermions}\label{chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-subsubsec-fermions}
+Yukawa
+
+pour leptons
+
+leptons chargés OK, neutrinos osef
+
+quarks et doublet conjugué
