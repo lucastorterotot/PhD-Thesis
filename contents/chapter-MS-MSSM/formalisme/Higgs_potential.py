@@ -25,8 +25,16 @@ Z = - mu**2 * R**2 + Lambda * R**4
 Z2 =  .5*mu**2 * R**2 + Lambda * R**4
 
 # Define graphs
-fig.addgraph('graph1', position=121, show_cmap_legend=False, projection='3d', x_ticks=False, y_ticks=False, z_ticks=False)
-fig.addgraph('graph2', position=122, show_cmap_legend=False, projection='3d', x_ticks=False, y_ticks=False, z_ticks=False)
+fig.addgraph('graph1',
+             position=121, show_cmap_legend=False, projection='3d',
+             x_ticks=False, y_ticks=False, z_ticks=False,
+             x_label="$\\Re(\\phi)", y_label="$\\Im(\\phi)",
+             title="$\\mu\\geq0$")
+fig.addgraph('graph2',
+             position=122, show_cmap_legend=False, projection='3d',
+             x_ticks=False, y_ticks=False, z_ticks=False,
+             x_label="$\\Re(\\phi)", y_label="$\\Im(\\phi)",
+             title="$\\mu<0$")
 
 # Insert objects in graphs
 cmap = 'coolwarm'
@@ -34,4 +42,4 @@ fig.graphs['graph2'].graph.plot_surface(X, Y, Z, cmap=cmap)
 fig.graphs['graph1'].graph.plot_surface(X, Y, Z2, cmap=cmap)
 
 # Save figure
-fig.save(format='pdf')
+fig.save()
