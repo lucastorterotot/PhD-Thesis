@@ -17,8 +17,7 @@ Une des raisons pour unifier ces deux forces provient du calcul de la section ef
 \label{fig-fgraph-ff_WW}
 \end{figure}
 \par Nous avons vu précédemment que l'interaction électromagnétique repose sur l'invariance de jauge sous les transformations locale du groupe $U(1)_{em}$.
-Dans le cas de l'interaction électrofaible, ce groupe de symétrie est $SU(2)_L \times U(1)_Y$. Dans un premier temps, nous ne traiterons que le cas de $SU(2)_L$ et nous verrons toute la richesse supplémentaire de ce groupe par rapport à $U(1)$. Ensuite, nous traiterons de $SU(2)_L \times U(1)_Y$.
-
+Dans le cas de l'interaction électrofaible, ce groupe de symétrie est $SU(2)_L \times U(1)_Y$. Dans un premier temps, nous ne traiterons que le cas de $SU(2)_L$ avec les leptons et nous verrons toute la richesse supplémentaire de ce groupe par rapport à $U(1)$. Ensuite, nous traiterons de $SU(2)_L \times U(1)_Y$, toujours avec les leptons. Nous verrons ensuite comment traiter les quarks, et nous obtiendrons alors une description de l'interaction électrofaible.
 \subsubsection{Symétrie $SU(2)_L$ et chiralité}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-SU2_L}
 Dans la notation $SU(2)_L$, $L$ signifie \og left \fg{} car l'interaction faible ne couple que les fermions de chiralité gauche et les anti-fermions de chiralité droite.
 Une des propriétés les plus importantes de l'interaction faible est de violer la symétrie de parité ($P$), ainsi que la symétrie $CP$ où $C$ correspond à la charge électrique.
@@ -178,7 +177,7 @@ et nous obtenons alors, en combinant les équations~\eqref{eq-chapter-MS-MSSM-se
 \end{equation}
 où le dernier terme obtenu compense exactement le terme brisant l'invariance de jauge dans l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-terme_cinetique}.
 \par À ce stade, l'analogie avec l'électromagnétisme nous pousse à introduire $\bm{G}_{\mu\nu}$ l'analogue à $F_{\mu\nu}$ tel que
-$\bm{G}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu$. Or, les invariances de jauge imposées mène à utiliser une définition légèrement différente,
+$\bm{G}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu$. Or, les invariances de jauge imposées mènent à utiliser une définition légèrement différente,
 \begin{equation}
 \bm{G}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu + g_W(\bm{W}_\mu \wedge \bm{W}_\nu)
 \mend
@@ -244,16 +243,46 @@ D_\mu R &= \left[ \partial_\mu + \im g'B_\mu \right] R
 \mend[,]
 \end{align}
 compte-tenu des différentes valeurs de $Y$ et $I$ données dans la table~\ref{tab-Y_I_I3_Q-leptons}.
-\par Nous pouvons alors écrire un lagrangien invariant sous $SU(2)_L\times U(1)_Y$,
+\par Nous pouvons alors écrire le lagrangien pour l'interaction électrofaible, invariant sous $SU(2)_L\times U(1)_Y$,
 \begin{equation}
-\Lcal_{SU(2)_L\times U(1)_Y}
+\Lcal_{EW}
 =
 \im \bar{\psi} \slashed{D} \psi - \frac{1}{4} \bm{G}_{\mu\nu} \cdot \bm{G}^{\mu\nu} - \frac{1}{4} F^{(B)}_{\mu\nu} \cdot F^{(B)\mu\nu}
 \mend[,]
 \label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-LSU2LU1Y}
 \end{equation}
-et nous pourrions imaginer que le champ $B_\mu$ correspond au photon, et les champs $W^i_\mu$ aux bosons \Wbosonpm\ et \Zboson. Comme nous allons le voir, ces quatre bosons sont en fait des combinaisons de ces quatre champs.
-De plus, il n'y a aucun terme de masse dans le lagrangien de l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-LSU2LU1Y}. En effet, un terme de masse pour les fermions serait de la forme
+et nous pourrions imaginer que le champ $B_\mu$ correspond au photon, et les champs $W^i_\mu$ aux bosons \Wbosonpm\ et \Zboson. Comme nous allons le voir plus loin, ces quatre bosons sont en fait des combinaisons de ces quatre champs.
+\subsubsection{Interaction électrofaible pour les quarks}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-quarks}
+Le lagrangien électrofaible ainsi construit pour les leptons pourrait facilement être réutilisé dans le cas des quarks, $\psi$ étant un champ décrivant un fermion. Cependant, le lagrangien de l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-LSU2LU1Y} ne couple entre eux que des fermions de même génération. Or, il a été observé expérimentalement que l'interaction faible peut également coupler des quarks de générations différentes.
+\par Un mécanisme rendant possible de tels couplages a été introduit par Cabibbo, Kobayashi et Maskawa~\todo{citation 5 from Hugues}. Le principe est de faire, pour les quarks, la distinction entre les états propres de masse, \ie\ ceux que l'on observe, et les états propres de l'interaction faible. Ces deux ensembles d'états propres diffèrent ainsi pour les quarks d'isospin faible bas et sont reliés entre eux par la matrice \emph{CKM} $\mathcal{M}_{CKM}$, matrice $3\times3$, unitaire complexe,
+\begin{equation}
+\begin{pmatrix}
+\quarkd' \\ \quarks' \\ \quarkb'
+\end{pmatrix}
+=
+\begin{pmatrix}
+V_{\quarku\quarkd} & V_{\quarku\quarks} & V_{\quarku\quarkb} \\
+V_{\quarkc\quarkd} & V_{\quarkc\quarks} & V_{\quarkc\quarkb} \\
+V_{\quarkt\quarkd} & V_{\quarkt\quarks} & V_{\quarkt\quarkb}
+\end{pmatrix}
+\begin{pmatrix}
+\quarkd \\ \quarks \\ \quarkb
+\end{pmatrix}
+\mend[,]
+\end{equation}
+où $\quarkd'$, $\quarks'$ et $\quarkb'$ sont les états propres de l'interaction faible et $\quarkd$, $\quarks$ et $\quarkb$ ceux de masse. L'élément de matrice $V_{ij}$ ou son conjugué $V_{ij}^*$ est ainsi un facteur appliqué au vertex pour le calcul de la section efficace des processus impliquant des quarks et l'interaction faible. Ces coefficients ne sont pas prédits par le modèle standard et sont donc mesurés expérimentalement. Les valeurs de leurs modules sont les suivantes~\cite{PDG_booklet_2018}
+\begin{equation}
+\abs{\mathcal{M}_{CKM}} = 
+\begin{pmatrix}
+\num{0.97420}\pm\num{0.00021} & \num{0.2243}\pm\num{0.0005} & \num{0.00394}\pm\num{0.00036} \\
+\num{0.218}\pm\num{0.004} & \num{0.997}\pm\num{0.017} & \num{0.0422}\pm\num{0.0008} \\
+\num{0.0081}\pm\num{0.0005} & \num{0.0394}\pm\num{0.0023} & \num{1.019}\pm\num{0.025} 
+\end{pmatrix}
+\mend
+\end{equation}
+Remarquons la structure très prononcée de cette matrice, presque diagonale. Le couplage entre les quarks de générations différentes est faible, ce qui se traduit expérimentalement par des durées de vie de certains hadrons contenant des quarks de deuxième et troisième génération suffisamment longs pour qu'ils se propagent sur quelques millimètres, voire quelques mètres.
+\par Nous avons donc à présent construit un modèle décrivant l'interaction électrofaible pour tous les fermions.
+Cependant, il n'y a aucun terme de masse dans le lagrangien de l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-LSU2LU1Y}. En effet, un terme de masse pour les fermions serait de la forme
 \begin{equation}
 -m\bar{\psi}\psi
 =
