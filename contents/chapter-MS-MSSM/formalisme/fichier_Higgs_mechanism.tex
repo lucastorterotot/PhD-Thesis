@@ -159,10 +159,51 @@ Pour le boson de Higgs lui-même, le terme de masse provient de $V(\phi)$ et don
 \par Les masses des bosons \Wbosonpm, \photon\ et \Zboson\ ainsi prédites sont expérimentalement confirmées\todo{ref}.
 Cependant, la masse du boson de Higgs dépendant de $\mu$, paramètre libre de ce modèle, seule une détermination expérimentale permet de l'obtenir. En 2012, les collaborations ATLAS et CMS ont observé un boson, confirmé comme étant ce boson de Higgs\todo{ref}. Sa masse est déterminée à $\num{125.18}\pm\num{0.16}\usp\SI{}{\GeV}$ \todo{ref}.
 \subsubsection{Masses des fermions}\label{chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-subsubsec-fermions}
-Yukawa
-
-pour leptons
-
-leptons chargés OK, neutrinos osef
-
-quarks et doublet conjugué
+Le champ de Higgs peut également interagir avec les fermions. Une telle interaction, entre un champ scalaire et un champ de Dirac, est une interaction de Yukawa et permet d'introduire des termes de masse invariants de jauge pour ces fermions.
+\par Avant la brisure de symétrie, les termes de Yukawa pour un champ $\psi$ dont la composante d'isospin bas correspond à une particule de masse $m$ s'exprime
+\begin{equation}
+\Lcal_\text{Yukawa}
+= - \frac{m\sqrt{2}}{v} \bar{\psi} \phi \psi
+= - \frac{m\sqrt{2}}{v} \left( \bar{\psi}_L \phi \psi_R + \bar{\psi}_R \phi^\dagger \psi_L \right)
+\mend[,]
+\end{equation}
+donnant après la brisure spontanée de symétrie précédemment décrite les termes de masse pour les fermions d'isospin faible bas,
+\begin{equation}
+\Lcal_\text{Yukawa} = - m \bar{\psi}\psi + \frac{m}{v} \bar{\psi} h \psi
+\mend
+\end{equation}
+En effet, la brisure de symétrie dans le cas de la jauge unitaire~\eqref{eq-phi_after_SSB} laisse la composante d'isospin faible haut du champ de Higgs nulle.
+Ce formalisme permet donc d'obtenir les termes de masse pour les leptons chargés. Les neutrinos étant considérés dans le lagrangien du modèle standard comme des particules de masses nulles, l'ensemble des leptons est donc traité à ce stade.
+\par Dans le cas des quarks en revanche, il nous faut obtenir des termes de masse pour les quarks d'isospin faible haut. Pour cela, il est possible d'introduire le conjugué de charge du champ de Higgs,
+\begin{equation}
+\phi^C = \im \sigma_2 \phi^* = \begin{pmatrix}
+\phi^* \\ - \phi^-
+\end{pmatrix}
+\end{equation}
+dont l'expression devient après brisure de symétrie dans le cas de la jauge unitaire
+\begin{equation}
+\phi^C =
+\frac{-1}{\sqrt{2}}
+\begin{pmatrix}
+v+h(x)\\0
+\end{pmatrix}
+\mend
+\end{equation}
+Cette fois, la composante d'isospin faible haut du champ de Higgs n'est pas nulle et permet d'obtenir des termes de masse pour les quarks d'isospin faible haut.
+\par Ainsi, les termes de Yukawa pour les fermions s'expriment
+\begin{equation}
+\Lcal_\text{Yukawa}
+=
+y \bar{\psi} \phi \psi + \text{h.c.}
+=
+\sum_{i=1}^3 y_i^\ell \bar{\ell}_i \phi \ell_i
++ \sum_{i=1}^3 y_i^\quarkd \bar{\quarkd}_i \phi \quarkd_i
++ \sum_{i=1}^3 y_i^\quarku \bar{\quarku}_i \phi^C \quarku_i
+\msep
+y_i^x = -\frac{\sqrt{2}}{v}m_i^x
+\end{equation}
+où
+$i$ correspond à la génération des fermions,
+$\ell_i$, $\quarkd_i$ et $\quarku_i$ aux champs listés dans la table~\ref{tab-chapter-MS-MSSM-section-formalisme-subsec-EW-rzpt_femrions_chiralite_isospin}
+et
+$m_i^x$ à la masse du fermion de type $x$ et de génération $i$.
