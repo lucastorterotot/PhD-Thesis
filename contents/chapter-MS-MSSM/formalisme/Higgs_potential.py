@@ -12,7 +12,7 @@ fig = lt.ltFigure(name='fig', width_frac=1, height_width_ratio=.5, tight_layout=
 mH = 125.18
 vev = 246.22
 mu = mH * .5**.5
-Lambda = mu**2/(2*vev**2)
+Lambda = mu/vev
     
 maxrange = vev*1.225
 
@@ -21,8 +21,8 @@ p = np.linspace(0, 2*np.pi, 50)
 R, P = np.meshgrid(r, p)
 
 X, Y = R*np.cos(P), R*np.sin(P)
-Z = - mu**2 * R**2 + Lambda * R**4
-Z2 =  .5*mu**2 * R**2 + Lambda * R**4
+Z = - mu**2 * R**2 + .5*Lambda**2 * R**4
+Z2 =  .5*mu**2 * R**2 + .5*Lambda**2 * R**4
 
 # Define graphs
 fig.addgraph('graph1',
