@@ -38,7 +38,7 @@ Introduisons un champ complexe, scalaire, massif, le \emph{champ de Higgs}, not�
 \end{equation}
 \par La dérivée covariante définie par l'équation~\eqref{eq-definition_Dmu_EW} agit donc sur le champ de Higgs selon
 \begin{equation}
-D_\mu \phi = \left[ \partial_\mu - \frac{\im}{2}g_W \bm{\tau}\cdot\bm{W}_\mu - \frac{\im}{2}g'B_\mu \right] \phi
+D_\mu \phi = \left[ \partial_\mu - \frac{\im}{2}g_I \bm{\tau}\cdot\bm{W}_\mu - \frac{\im}{2}g_YB_\mu \right] \phi
 \mend[,]
 \end{equation}
 et ce champ de Higgs apporte les termes $\Lcal_{\higgs}$ au lagrangien du modèle standard, où
@@ -122,10 +122,10 @@ Injectons à présent cette expression de $\phi$ dans $\Lcal_{\higgs}$. Le terme
 \frac{1}{2}\partial_\mu \higgs \partial^\mu \higgs
 \nonumber\\&
 +
-\frac{(v+\higgs)^2}{8} g_W^2 \left(W_\mu^1 + \im W_\mu^2\right) \left( W^{\mu1}-\im W^{\mu2}\right)
+\frac{(v+\higgs)^2}{8} g_I^2 \left(W_\mu^1 + \im W_\mu^2\right) \left( W^{\mu1}-\im W^{\mu2}\right)
 \nonumber\\&
 +
-\frac{(v+\higgs)^2}{8} \left(g_W W_\mu^3 - g' B_\mu \right) \left( g_W W^{\mu3}-g' B^\mu \vphantom{W^{\mu1}}\right)
+\frac{(v+\higgs)^2}{8} \left(g_I W_\mu^3 - g_Y B_\mu \right) \left( g_I W^{\mu3}-g_Y B^\mu \vphantom{W^{\mu1}}\right)
 + \Order{\higgs^2}
 \mend
 \end{align}
@@ -136,13 +136,13 @@ Il est possible de développer cette expression et d'identifier les termes quadr
 &&
 W_\mu^\pm = \frac{1}{\sqrt{2}} \left( W_\mu^1 \mp \im W_\mu^2 \right)
 \msep&&
-m_{\Wboson} = \frac{1}{2} v g_W
+m_{\Wboson} = \frac{1}{2} v g_I
 \mend[,]
 \\
 &
 \text{photon \photon:}
 &&
-A_\mu = \frac{g_W W_\mu^3 + g' B_\mu}{\sqrt{g_W^2 + {g'}^2}}
+A_\mu = \frac{g_I W_\mu^3 + g_Y B_\mu}{\sqrt{g_I^2 + g_Y^2}}
 \msep&&
 m_A = 0
 \mend[,]
@@ -150,9 +150,9 @@ m_A = 0
 &
 \text{boson \Zboson:}
 &&
-Z_\mu = \frac{g_W W_\mu^3 - g' B_\mu}{\sqrt{g_W^2 + {g'}^2}}
+Z_\mu = \frac{g_I W_\mu^3 - g_Y B_\mu}{\sqrt{g_I^2 + g_Y^2}}
 \msep&&
-m_{\Zboson} = \frac{1}{2} v \sqrt{g_W^2 + {g'}^2}
+m_{\Zboson} = \frac{1}{2} v \sqrt{g_I^2 + g_Y^2}
 \mend
 \end{align}
 Pour le boson de Higgs lui-même, le terme de masse provient de $V(\phi)$ et donne $m_{\higgs} = \sqrt{-2\mu^2}$.

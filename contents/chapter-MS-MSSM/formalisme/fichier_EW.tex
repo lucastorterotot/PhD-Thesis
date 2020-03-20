@@ -94,12 +94,12 @@ et
 \end{equation}
 ce qui fait apparaître, sur le même principe qu'avec l'interaction électromagnétique, un terme supplémentaire brisant l'invariance de jauge du lagrangien. Définissons une nouvelle dérivée covariante afin de rétablir l'invariance de jauge,
 \begin{equation}
-D_\mu  = \partial_\mu  - \frac{\im}{2} g_W \bm{\tau}\cdot\bm{W}_\mu(x)
+D_\mu  = \partial_\mu  - \frac{\im}{2} g_I \bm{\tau}\cdot\bm{W}_\mu(x)
 \mend[,]
 \end{equation}
-où l'on introduit $g_W$ la constante de couplage d'isospin faible, ainsi que trois champs de jauge vectoriels $W^i_\mu(x)$, $i\in\set{1,2,3}$ se transformant tels que
+où l'on introduit $g_I$ la constante de couplage d'isospin faible, ainsi que trois champs de jauge vectoriels $W^i_\mu(x)$, $i\in\set{1,2,3}$ se transformant tels que
 \begin{equation}
-\bm{W}_\mu \to \bm{W}_\mu + \frac{1}{g_W}\partial_\mu\bm{\alpha} - (\bm{\alpha}\wedge\bm{W}_\mu)
+\bm{W}_\mu \to \bm{W}_\mu + \frac{1}{g_I}\partial_\mu\bm{\alpha} - (\bm{\alpha}\wedge\bm{W}_\mu)
 \mend
 \end{equation}
 Dans ce cas, le lagrangien du fermion libre se réécrit sous la forme
@@ -107,36 +107,36 @@ Dans ce cas, le lagrangien du fermion libre se réécrit sous la forme
 \Lcal_{\text{fermion libre}}'
 &
 = \im \bar{\psi} \gamma^\mu D_\mu \psi - m \bar{\psi}\psi
-= \im \bar{\psi} \gamma^\mu \partial_\mu \psi + \bar{\psi} \gamma^\mu \frac{1}{2} g_W \bm{\tau}\cdot\bm{W}_\mu \psi - m \bar{\psi}\psi
+= \im \bar{\psi} \gamma^\mu \partial_\mu \psi + \bar{\psi} \gamma^\mu \frac{1}{2} g_I \bm{\tau}\cdot\bm{W}_\mu \psi - m \bar{\psi}\psi
 \nonumber
 \\&
 =
 \Lcal_{\text{fermion libre}}
 +
-\bar{\psi} \gamma^\mu \frac{1}{2} g_W \bm{\tau}\cdot\bm{W}_\mu \psi
+\bar{\psi} \gamma^\mu \frac{1}{2} g_I \bm{\tau}\cdot\bm{W}_\mu \psi
 \mend
 \end{align}
 Ainsi, le terme supplémentaire du lagrangien se transforme tel que
 \begin{align}
-\bar{\psi} \gamma^\mu \frac{1}{2} g_W \bm{\tau}\cdot\bm{W}_\mu \psi
+\bar{\psi} \gamma^\mu \frac{1}{2} g_I \bm{\tau}\cdot\bm{W}_\mu \psi
 \to
 {}&{}
 \bar{\psi}\left(1-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)
-\gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot
-\left( \bm{W}_\mu + \frac{1}{g_W}\partial_\mu\bm{\alpha} - (\bm{\alpha}\wedge\bm{W}_\mu) \right)
+\gamma^\mu \frac{g_I}{2} \bm{\tau}\cdot
+\left( \bm{W}_\mu + \frac{1}{g_I}\partial_\mu\bm{\alpha} - (\bm{\alpha}\wedge\bm{W}_\mu) \right)
 \left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi
 \nonumber\\&
 =
-\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
+\bar{\psi} \gamma^\mu \frac{g_I}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
 -
-\bar{\psi} \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
+\bar{\psi} \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \gamma^\mu \frac{g_I}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
 +
-\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \psi
+\bar{\psi} \gamma^\mu \frac{g_I}{2} \bm{\tau}\cdot\bm{W}_\mu \frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x) \psi
 \nonumber\\&\hphantom{=}
 +
 \bar{\psi} \gamma^\mu \frac{1}{2} \bm{\tau}\cdot \partial_\mu\bm{\alpha} \psi
 -
-\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot (\bm{\alpha}\wedge\bm{W}_\mu) \psi
+\bar{\psi} \gamma^\mu \frac{g_I}{2} \bm{\tau}\cdot (\bm{\alpha}\wedge\bm{W}_\mu) \psi
 +\Order{\alpha^2}
 \mend
 \label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-terme_suppl}
@@ -167,9 +167,9 @@ Ainsi,
 \end{align}
 et nous obtenons alors, en combinant les équations~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-terme_suppl} et~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-simplification_trick},
 \begin{equation}
-\bar{\psi} \gamma^\mu \frac{1}{2} g_W \bm{\tau}\cdot\bm{W}_\mu \psi
+\bar{\psi} \gamma^\mu \frac{1}{2} g_I \bm{\tau}\cdot\bm{W}_\mu \psi
 \to
-\bar{\psi} \gamma^\mu \frac{g_W}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
+\bar{\psi} \gamma^\mu \frac{g_I}{2} \bm{\tau}\cdot\bm{W}_\mu \psi
 +
 \bar{\psi} \gamma^\mu \frac{1}{2} \bm{\tau}\cdot \partial_\mu\bm{\alpha} \psi
 +\Order{\alpha^2}
@@ -179,7 +179,7 @@ où le dernier terme obtenu compense exactement le terme brisant l'invariance de
 \par À ce stade, l'analogie avec l'électromagnétisme nous pousse à introduire $\bm{W}_{\mu\nu}$ l'analogue à $F_{\mu\nu}$ tel que
 $\bm{W}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu$. Or, les invariances de jauge imposées mènent à utiliser une définition légèrement différente,
 \begin{equation}
-\bm{W}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu + g_W(\bm{W}_\mu \wedge \bm{W}_\nu)
+\bm{W}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu + g_I(\bm{W}_\mu \wedge \bm{W}_\nu)
 \mend
 \end{equation}
 Le lagrangien pour $SU(2)$ s'écrit alors
@@ -223,7 +223,7 @@ A_\mu \leftrightarrow B_\mu
 \msep
 F_{\mu\nu} \leftrightarrow F^{(B)}_{\mu\nu}
 \msep
-e \leftrightarrow g'
+e \leftrightarrow g_Y
 \msep
 Q \leftrightarrow \frac{1}{2}Y
 \mend
@@ -231,15 +231,15 @@ Q \leftrightarrow \frac{1}{2}Y
 De plus, en sachant que $SU(2)_L$ couple les fermions de chiralité gauche et anti-fermions de chiralité droite, les résultats pour $SU(2)$ sont directement utilisables en ajoutant les projections décrites par les équations~\eqref{eq-projo_L} et~\eqref{eq-projo_R}.
 \par Nous arrivons donc à la définition de la dérivée covariante pour $SU(2)_L \times U(1)_Y$,
 \begin{equation}
-D_\mu = \partial_\mu - \im g_WI \bm{\tau}\cdot\bm{W}_\mu - \frac{\im}{2}g'YB_\mu
+D_\mu = \partial_\mu - \im g_II \bm{\tau}\cdot\bm{W}_\mu - \frac{\im}{2}g_YYB_\mu
 \label{eq-definition_Dmu_EW}
 \end{equation}
 pouvant agir sur un doublet d'isospin faible, noté $L$, ou un singlet d'isospin faible, noté $R$, selon
 \begin{align}
-D_\mu L &= \left[ \partial_\mu - \frac{\im}{2}g_W \bm{\tau}\cdot\bm{W}_\mu + \frac{\im}{2}g'B_\mu \right] L
+D_\mu L &= \left[ \partial_\mu - \frac{\im}{2}g_I \bm{\tau}\cdot\bm{W}_\mu + \frac{\im}{2}g_YB_\mu \right] L
 \mend[,]
 \\
-D_\mu R &= \left[ \partial_\mu + \im g'B_\mu \right] R
+D_\mu R &= \left[ \partial_\mu + \im g_YB_\mu \right] R
 \mend[,]
 \end{align}
 compte-tenu des différentes valeurs de $Y$ et $I$ données dans la table~\ref{tab-Y_I_I3_Q-leptons}.
