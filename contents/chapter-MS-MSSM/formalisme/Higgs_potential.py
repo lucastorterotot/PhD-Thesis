@@ -62,12 +62,23 @@ fig.addgraph('graph2',
 # Insert objects in graphs
 cmap = 'coolwarm'
 
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-norm = mpl.colors.Normalize(vmin=z_min, vmax=z_max)
+def rp_to_x(r,p):
+    return r * np.cos(p)
 
-fig.graphs['graph2'].graph.plot_surface(X, Y, Z, cmap=cmap, facecolors=getattr(mpl.cm, cmap)(norm(Z)), alpha=.7)
-fig.graphs['graph1'].graph.plot_surface(X, Y, Z2, cmap=cmap, facecolors=getattr(mpl.cm, cmap)(norm(Z2)), alpha=.7)
+def rp_to_y(r,p):
+    return r * np.sin(p)
+
+fig.addplot(
+    lt.ltPlotSurf(r, p,
+                  x_fct = rp_to_x, y_fct = rp_to_y, z_fct = Z2,
+                  cmap=cmap, use_cmap=True, cmap_low = z_min, cmap_high=z_max, alpha = .7, linewidth=None, only_lines=False),
+    'graph1')
+
+fig.addplot(
+    lt.ltPlotSurf(r, p,
+                  x_fct = rp_to_x, y_fct = rp_to_y, z_fct = Z,
+                  cmap=cmap, use_cmap=True, cmap_low = z_min, cmap_high=z_max, alpha = .7, linewidth=None, only_lines=False),
+    'graph2')
 
 # Save figure
 fig.save()
