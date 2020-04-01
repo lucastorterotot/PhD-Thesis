@@ -1,0 +1,23 @@
+\begin{fmffile}{gq_qGamma_S-ISR_2jets}\fmfstraight
+\begin{fmfchar*}(20,20)
+  \fmfleft{i1,i2}
+  \fmfright{o0,o1,o2}
+  \fmf{gluon}{i2,v1}
+  \fmf{phantom}{i1,v1}
+  \fmf{phantom, tension=2}{v1,v2}
+  \fmf{phantom}{v2,o2}
+  \fmf{phantom}{v2,o0}
+  \fmflabel{\gluon}{i2}
+  \fmflabel{\quark}{i1}
+  \fmflabel{\quark}{o2}
+  \fmflabel{\photon}{o1}
+  \fmfdot{v1,v2}
+  \fmffreeze
+  \fmf{fermion}{i1,v3,v1,v2,o2}
+  \fmffreeze
+  \fmf{photon}{v2,o1}
+  \fmf{gluon}{v3,o0}
+  \fmflabel{\gluon}{o0}
+  \fmfdot{v3}
+\end{fmfchar*}
+\end{fmffile}
