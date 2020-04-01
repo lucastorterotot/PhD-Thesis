@@ -30,18 +30,18 @@
 \def\ironryroutd{6.980}
 \def\muonrind{7.000}
 \def\muonroutd{7.380}
-\def\muoncolor{ltcoloryellow1}
+\def\muonchcolor{ltcoloryellow1}
 \def\ironrycolor{ltcolorred2}
 
 \def\drawCMS{
 \foreach \rin/\rout/\color in {
-\muonrind/\muonroutd/\muoncolor,
+\muonrind/\muonroutd/\muonchcolor,
 \ironryrind/\ironryroutd/\ironrycolor,
-\muonrinc/\muonroutc/\muoncolor,
+\muonrinc/\muonroutc/\muonchcolor,
 \ironryrinc/\ironryroutc/\ironrycolor,
-\muonrinb/\muonroutb/\muoncolor,
+\muonrinb/\muonroutb/\muonchcolor,
 \ironryrinb/\ironryroutb/\ironrycolor,
-\muonrina/\muonrouta/\muoncolor,
+\muonrina/\muonrouta/\muonchcolor,
 %\ironryrina/\ironryrouta/\ironrycolor,
 \Solenrin/\Solenrout/\Solencolor,
 \HCALrin/\HCALrout/\HCALcolor,
@@ -56,13 +56,14 @@
 \def\elecolor{ltcolorred}
 \def\muoncolor{ltcolorblue}
 \def\photoncolor{black}
+\def\hadroncolor{ltcolororange}
 \def\tauhcolor{ltcolorgreen4}
 \def\jetcolor{ltcolororange}
 
 \def\ECALdepositcolor{ltcolorblue4}
 \def\HCALdepositcolor{ltcoloryellow4}
 
-\def\MuChdepositcolor{red}
+\def\MuChdepositcolor{ltcolorcyan2}
 
 \def\printelenolabel#1{
 \draw [thick, \elecolor] (0,0) arc (#1-90:#1-90+27:3);
@@ -96,8 +97,32 @@
 }
 
 \newcommand{\printmuon}[2][\mu]{
-\printmunonolabel{#2}
+\printmuonnolabel{#2}
 \printmuonlabel[#1]{#2}
+}
+
+\def\printantimuonnolabel#1{
+\draw [thick, \muoncolor]  (0,0) arc (#1-90:#1-90-33:-6) arc (#1-90-33:#1-90:12) ;
+}
+\newcommand{\printantimuonlabel}[2][\mu]{
+\draw [\muoncolor] (#2-5:2) node {#1};
+}
+
+\newcommand{\printantimuon}[2][\mu]{
+\printantimuonnolabel{#2}
+\printantimuonlabel[#1]{#2}
+}
+
+\def\printphotonnolabel#1{
+\draw [thin, dashed, \photoncolor] (0,0) --+ (#1:{.5*(\ECALrin+\ECALrout)});
+}
+\newcommand{\printphotonlabel}[2][\photon]{
+\draw [\photoncolor] (#2+10:{.75*\ECALrin+.25*\ECALrout}) node {#1};
+}
+
+\newcommand{\printphoton}[2][\photon]{
+\printphotonnolabel{#2}
+\printphotonlabel[#1]{#2}
 }
 
 \def\printneutrinonolabel#1{
@@ -112,28 +137,40 @@
 \printneutrinolabel[#1]{#2}
 }
 
-\def\printantimuonnolabel#1{
-\draw [thick, \muoncolor]  (0,0) arc (#1-90:#1-90-33:-6) arc (#1-90-33:#1-90:12) ;
+\def\printhadronnolabel#1{
+\draw [thick, \hadroncolor] (0,0) arc (#1+90:#1+90-22:5) ;
 }
-\newcommand{\printantimuonlabel}[2][\mu]{
-\draw [\muoncolor] (#2-5:2) node {#1};
-}
-
-\newcommand{\printantimuon}[2][\mu]{
-\printantimunonolabel{#2}
-\printantimuonlabel[#1]{#2}
+\newcommand{\printhadronlabel}[2][\hadronplus]{
+\draw [\hadroncolor] (#2+3:1.5) node {#1};
 }
 
-\def\printphotonnolabel#1{
-\draw [thin, dashed, \photoncolor] (0,0) --+ (#1:{.5*(\ECALrin+\ECALrout)});
-}
-\newcommand{\printphotonlabel}[2][\photon]{
-\draw [\photoncolor] (#2+10:{.75*\ECALrin+.25*\ECALrout}) node {#1};
+\newcommand{\printhadron}[2][\hadronplus]{
+\printhadronnolabel{#2}
+\printhadronlabel[#1]{#2}
 }
 
-\newcommand{\printphoton}[2][\photon]{
-\printphotonnolabel{#2}
-\printphotonlabel[#1]{#2}
+\def\printantihadronnolabel#1{
+\draw [thick, \hadroncolor] (0,0) arc (#1-90:#1-90+22:5) ;
+}
+\newcommand{\printantihadronlabel}[2][\hadronminus]{
+\draw [\hadroncolor] (#2-3:1.5) node {#1};
+}
+
+\newcommand{\printantihadron}[2][\hadronminus]{
+\printantihadronnolabel{#2}
+\printantihadronlabel[#1]{#2}
+}
+
+\def\printneutralhadronnolabel#1{
+\draw [thin, dashed, \hadroncolor] (0,0) --+ (#1:{.5*(\HCALrin+\HCALrout)});
+}
+\newcommand{\printneutralhadronlabel}[2][\hadronnull]{
+\draw [\hadroncolor] (#2-3:1.5) node {#1};
+}
+
+\newcommand{\printneutralhadron}[2][\hadronnull]{
+\printneutralhadronnolabel{#2}
+\printneutralhadronlabel[#1]{#2}
 }
 
 \newcommand{\printtauhnolabel}[2][30]{
@@ -239,6 +276,10 @@
 \def\printantieledeposit#1{\printECALdeposit{\ECALdepositcolor}{#1-14}}
 
 \def\printphotondeposit#1{\printECALdeposit{\ECALdepositcolor}{#1}}
+
+\def\printhadrondeposit#1{\printHCALdeposit{\HCALdepositcolor}{#1-11}}
+\def\printantihadrondeposit#1{\printHCALdeposit{\HCALdepositcolor}{#1+11}}
+\def\printneutralhadrondeposit#1{\printHCALdeposit{\HCALdepositcolor}{#1}}
 
 \newcommand{\printtauhdeposit}[2][30]{
 \ifthenelse{\equal{#1}{31}\or\equal{#1}{11}}{
