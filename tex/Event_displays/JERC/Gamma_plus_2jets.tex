@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+\input{\PhDthesisdir/tex/Event_displays/macro_defs.tex}
+
+\clip (0,0) circle (\HCALrout);
+
+\drawCMS
+
+\printphotondeposit{-135}
+\printphoton{-135}
+
+
+\printbigjetdeposit{55}
+\printbigjetnolabel{55}
+\printbigjetlabel[jet 1]{145}
+
+\printjetdeposit{-10}
+\printjetnolabel{-10}
+\printjetlabel[jet 2]{-20}
+
+\end{tikzpicture}
