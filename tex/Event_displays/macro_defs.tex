@@ -128,7 +128,7 @@
 \draw [thin, dashed, \photoncolor] (0,0) --+ (#1:{.5*(\ECALrin+\ECALrout)});
 }
 \newcommand{\printphotonlabel}[2][\photon]{
-\draw [\photoncolor] (#2+5:2) (#2+7:{.75*\ECALrin+.25*\ECALrout}) node {#1};
+\draw [\photoncolor] (#2+10:{.75*\ECALrin+.25*\ECALrout}) node {#1};
 }
 
 \newcommand{\printphoton}[2][\photon]{
@@ -190,7 +190,7 @@
 \draw [thick, \jetcolor] (0,0) arc (#1-1-90:#1-1-90+27:3) coordinate (eledeposit); % electron
 }
 \newcommand{\printjetlabel}[2][jet]{
-\draw [\jetcolor] (#2-25:.5) node {#1};
+\draw [\jetcolor] (#2-25:.65) node {#1};
 }
 
 \newcommand{\printjet}[2][jet]{
