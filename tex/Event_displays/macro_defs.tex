@@ -41,8 +41,13 @@
 \ironryrinc/\ironryroutc/\ironrycolor,
 \muonrinb/\muonroutb/\muonchcolor,
 \ironryrinb/\ironryroutb/\ironrycolor,
-\muonrina/\muonrouta/\muonchcolor,
-%\ironryrina/\ironryrouta/\ironrycolor,
+\muonrina/\muonrouta/\muonchcolor
+%\ironryrina/\ironryrouta/\ironrycolor
+}{
+\fill [color = \color] (15:\rout)--(45:\rout)--(75:\rout)--(105:\rout)--(135:\rout)--(165:\rout)--(195:\rout)--(225:\rout)--(255:\rout)--(285:\rout)--(315:\rout)--(345:\rout)--cycle;
+\fill [color = white] (15:\rin)--(45:\rin)--(75:\rin)--(105:\rin)--(135:\rin)--(165:\rin)--(195:\rin)--(225:\rin)--(255:\rin)--(285:\rin)--(315:\rin)--(345:\rin)--cycle;;
+}
+\foreach \rin/\rout/\color in {
 \Solenrin/\Solenrout/\Solencolor,
 \HCALrin/\HCALrout/\HCALcolor,
 \ECALrin/\ECALrout/\ECALcolor,
@@ -322,7 +327,7 @@
 }
 
 \def\printMuChSigA#1#2{
-\fill [\MuChdepositcolor] (#1-7.5+20*#2:\muonrina) arc (#1-7.5+20*#2:#1+7.5+20*#2:\muonrina) -- (#1+7.5+20*#2:\muonrouta) arc (#1+7.5+20*#2:#1-7.5+20*#2:\muonrouta) ;
+\fill [\MuChdepositcolor] (15:\muonrina)--(45:\muonrina)--(45:\muonrouta)--(15:\muonrouta);
 }
 \def\printMuChSigB#1#2{
 \fill [\MuChdepositcolor] (#1-7.5+20*#2:\muonrinb) arc (#1-7.5+20*#2:#1+7.5+20*#2:\muonrinb) -- (#1+7.5+20*#2:\muonroutb) arc (#1+7.5+20*#2:#1-7.5+20*#2:\muonroutb) ;
