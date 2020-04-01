@@ -1,0 +1,308 @@
+\def\trackerrin{.100}
+\def\trackerrout{1.185}
+\def\trackercolor{ltcolorgray1}
+
+\def\ECALrin{1.290}
+\def\ECALrout{1.811}
+\def\ECALcolor{ltcolorgreen1}
+
+\def\HCALrin{1.812}
+\def\HCALrout{2.854}
+\def\HCALcolor{ltcoloryellow3}
+
+\def\Solenrin{2.950}
+\def\Solenrout{3.800}
+\def\Solencolor{ltcolorgray2}
+
+\def\ironryrina{3.850}
+\def\ironryrouta{4.000}
+\def\muonrina{4.020}
+\def\muonrouta{4.400}
+\def\ironryrinb{4.420}
+\def\ironryroutb{4.880}
+\def\muonrinb{4.905}
+\def\muonroutb{5.285}
+\def\ironryrinc{5.300}
+\def\ironryroutc{5.960}
+\def\muonrinc{5.975}
+\def\muonroutc{6.355}
+\def\ironryrind{6.375}
+\def\ironryroutd{6.980}
+\def\muonrind{7.000}
+\def\muonroutd{7.380}
+\def\muoncolor{ltcoloryellow1}
+\def\ironrycolor{ltcolorred2}
+
+\def\drawCMS{
+\foreach \rin/\rout/\color in {
+\muonrind/\muonroutd/\muoncolor,
+\ironryrind/\ironryroutd/\ironrycolor,
+\muonrinc/\muonroutc/\muoncolor,
+\ironryrinc/\ironryroutc/\ironrycolor,
+\muonrinb/\muonroutb/\muoncolor,
+\ironryrinb/\ironryroutb/\ironrycolor,
+\muonrina/\muonrouta/\muoncolor,
+%\ironryrina/\ironryrouta/\ironrycolor,
+\Solenrin/\Solenrout/\Solencolor,
+\HCALrin/\HCALrout/\HCALcolor,
+\ECALrin/\ECALrout/\ECALcolor,
+\trackerrin/\trackerrout/\trackercolor
+}{
+\fill (0,0) [color = \color] circle (\rout);
+\fill (0,0) [color = white] circle (\rin);
+}
+}
+
+\def\elecolor{ltcolorred}
+\def\muoncolor{ltcolorblue}
+\def\photoncolor{black}
+\def\tauhcolor{ltcolorgreen4}
+\def\jetcolor{ltcolororange}
+
+\def\ECALdepositcolor{ltcolorblue4}
+\def\HCALdepositcolor{ltcoloryellow4}
+
+\def\MuChdepositcolor{red}
+
+\def\printelenolabel#1{
+\draw [thick, \elecolor] (0,0) arc (#1-90:#1-90+27:3);
+}
+\newcommand{\printelelabel}[2][\ele]{
+\draw [\elecolor] (#2+17:1) node {#1};
+}
+
+\newcommand{\printele}[2][\ele]{
+\printelenolabel{#2}
+\printelelabel[#1]{#2}
+}
+
+\def\printantielenolabel#1{
+\draw [thick, \elecolor] (0,0) arc (#1-90:#1-90-27:-3);
+}
+\newcommand{\printantielelabel}[2][\ele]{
+\draw [\elecolor] (#2-17:1) node {#1};
+}
+
+\newcommand{\printantiele}[2][\ele]{
+\printantielenolabel{#2}
+\printantielelabel[#1]{#2}
+}
+
+\def\printmuonnolabel#1{
+\draw [thick, \muoncolor]  (0,0) arc (#1-90:#1-90+33:6) arc (#1-90+33:#1-90:-12) ;
+}
+\newcommand{\printmuonlabel}[2][\mu]{
+\draw [\muoncolor] (#2+5:2) node {#1};
+}
+
+\newcommand{\printmuon}[2][\mu]{
+\printmunonolabel{#2}
+\printmuonlabel[#1]{#2}
+}
+
+\def\printneutrinonolabel#1{
+\draw [thin, dotted, black] (0,0) --+ (#1:{1.5*\muonroutd});
+}
+\newcommand{\printneutrinolabel}[2][\neutrino]{
+\draw [black] (#2+5:{.75*\HCALrin+.25*\HCALrout}) node {#1};
+}
+
+\newcommand{\printneutrino}[2][\neutrino]{
+\printneutrinonolabel{#2}
+\printneutrinolabel[#1]{#2}
+}
+
+\def\printantimuonnolabel#1{
+\draw [thick, \muoncolor]  (0,0) arc (#1-90:#1-90-33:-6) arc (#1-90-33:#1-90:12) ;
+}
+\newcommand{\printantimuonlabel}[2][\mu]{
+\draw [\muoncolor] (#2-5:2) node {#1};
+}
+
+\newcommand{\printantimuon}[2][\mu]{
+\printantimunonolabel{#2}
+\printantimuonlabel[#1]{#2}
+}
+
+\def\printphotonnolabel#1{
+\draw [thin, dashed, \photoncolor] (0,0) --+ (#1:{.5*(\ECALrin+\ECALrout)});
+}
+\newcommand{\printphotonlabel}[2][\photon]{
+\draw [\photoncolor] (#2+5:2) (#2+7:{.75*\ECALrin+.25*\ECALrout}) node {#1};
+}
+
+\newcommand{\printphoton}[2][\photon]{
+\printphotonnolabel{#2}
+\printphotonlabel[#1]{#2}
+}
+
+\newcommand{\printtauhnolabel}[2][30]{
+\ifthenelse{\equal{#1}{31}\or\equal{#1}{11}}{
+\draw [thin, dashed, \tauhcolor] (0,0) --+ (#2:{.5*(\ECALrin+\ECALrout)});
+\draw [thin, dashed, \tauhcolor] (0,0) --+ (#2+7:{.5*(\ECALrin+\ECALrout)});
+}{}
+\ifthenelse{\equal{#1}{10}\or\equal{#1}{11}}{}{
+\draw [thick, \tauhcolor] (0,0) arc (#2-90:#2-90+11:10) ;
+\draw [thick, \tauhcolor] (0,0) arc (#2-90:#2-90-11:-10) ;
+}
+\draw [thick, \tauhcolor] (0,0) arc (#2-90:#2-90+6:20) ;
+}
+
+\newcommand{\printtauhlabel}[2][\tauh]{
+\draw [\tauhcolor] (#2-12:1.5) node {#1};
+}
+
+\newcommand{\printtauh}[2][30]{
+\printtauhnolabel[#1]{#2}
+\printtauhlabel{#2}
+}
+
+\newcommand{\printantitauhnolabel}[2][30]{
+\ifthenelse{\equal{#1}{31}\or\equal{#1}{11}}{
+\draw [thin, dashed, \tauhcolor] (0,0) --+ (#2:{.5*(\ECALrin+\ECALrout)});
+\draw [thin, dashed, \tauhcolor] (0,0) --+ (#2+7:{.5*(\ECALrin+\ECALrout)});
+}{}
+\ifthenelse{\equal{#1}{10}\or\equal{#1}{11}}{}{
+\draw [thick, \tauhcolor] (0,0) arc (#2-90:#2-90-11:-10) ;
+\draw [thick, \tauhcolor] (0,0) arc (#2-90:#2-90+11:10) ;
+}
+\draw [thick, \tauhcolor] (0,0) arc (#2-90:#2-90-6:-20) ;
+}
+
+\newcommand{\printantitauhlabel}[2][\tauh]{
+\draw [\tauhcolor] (#2-12:1.5) node {#1};
+}
+
+\newcommand{\printantitauh}[2][30]{
+\printantitauhnolabel[#1]{#2}
+\printantitauhlabel{#2}
+}
+
+\def\printjetnolabel#1{
+\draw [thick, \jetcolor] (0,0) arc (#1-90+10:#1-90+22+10:5) ;
+\draw [thick, \jetcolor] (0,0) arc (#1-90+5:#1-90+12+5:10) ;
+\draw [thick, \jetcolor] (0,0) arc (#1-90:#1-90-22:-5) ;
+\draw [thick, \jetcolor] (0,0) arc (#1-90:#1-90+6:20) ;
+\draw [thick, \jetcolor] (0,0) arc (#1-90+5:#1-90+8+5:10) ;
+\draw [thick, \jetcolor] (0,0) arc (#1-90:#1-90-11:-10) ;
+\draw [thick, \jetcolor] (0,0) arc (#1-90:#1-90+11:10) ;
+\draw [thick, \jetcolor] (0,0) arc (#1+2-90:#1+2-90-27:-3); % antielectron
+\draw [thick, \jetcolor] (0,0) arc (#1-1-90:#1-1-90+27:3) coordinate (eledeposit); % electron
+}
+\newcommand{\printjetlabel}[2][jet]{
+\draw [\jetcolor] (#2-25:.5) node {#1};
+}
+
+\newcommand{\printjet}[2][jet]{
+\printjetnolabel{#2}
+\printjetlabel[#1]{#2}
+}
+
+\def\printbigjetnolabel#1{
+\printjetnolabel{#1+5}
+\printjetnolabel{#1-5}
+}
+\newcommand{\printbigjetlabel}[2][jet]{
+\printjetlabel[#1]{#2-5}
+}
+
+\newcommand{\printbigjet}[2][jet]{
+\printbigjetnolabel{#2}
+\printbigjetlabel[#1]{#2}
+}
+
+\def\printjetfakenolabel#1{
+\printjetnolabel{#1}
+\draw [thick, \tauhcolor] (0,0) arc (#1-90:#1-90+11:10) ;
+\draw [thick, \tauhcolor] (0,0) arc (#1-90:#1-90+6:20) ;
+\draw [thick, \tauhcolor] (0,0) arc (#1-90:#1-90-11:-10) ;
+}
+\newcommand{\printjetfakelabel}[2][f.\tauh]{
+\draw [\tauhcolor] (#2-17:1.5) node {#1};
+}
+
+\newcommand{\printjetfake}[2][f.\tauh]{
+\printjetfakenolabel{#2}
+\printjetfakelabel[#1]{#2}
+}
+
+
+
+\def\printdeposit#1#2#3#4{
+\fill [#1] (#2-2:#3) arc (#2-2:#2+2:#3) -- (#2+2:#4) arc (#2+2:#2-2:#4) ;
+}
+
+\def\printECALdeposit#1#2{\printdeposit{#1}{#2}{\ECALrin}{\ECALrout}}
+\def\printHCALdeposit#1#2{\printdeposit{#1}{#2}{\HCALrin}{\HCALrout}}
+
+\def\printeledeposit#1{\printECALdeposit{\ECALdepositcolor}{#1+14}}
+\def\printantieledeposit#1{\printECALdeposit{\ECALdepositcolor}{#1-14}}
+
+\def\printphotondeposit#1{\printECALdeposit{\ECALdepositcolor}{#1}}
+
+\newcommand{\printtauhdeposit}[2][30]{
+\ifthenelse{\equal{#1}{31}\or\equal{#1}{11}}{
+\printphotondeposit{#2}
+\printphotondeposit{#2+7}
+}{}
+\ifthenelse{\equal{#1}{10}\or\equal{#1}{11}}{}{
+\printHCALdeposit{\HCALdepositcolor}{#2+5}
+\printHCALdeposit{\HCALdepositcolor}{#2-5}
+}
+\printHCALdeposit{\HCALdepositcolor}{#2+3}
+}
+
+\newcommand{\printantitauhdeposit}[2][30]{
+\ifthenelse{\equal{#1}{31}\or\equal{#1}{11}}{
+\printphotondeposit{#2}
+\printphotondeposit{#2+7}
+}{}
+\ifthenelse{\equal{#1}{10}\or\equal{#1}{11}}{}{
+\printHCALdeposit{\HCALdepositcolor}{#2+5}
+\printHCALdeposit{\HCALdepositcolor}{#2-5}
+}
+\printHCALdeposit{\HCALdepositcolor}{#2-3}
+}
+
+\def\printjetdeposit#1{
+\printHCALdeposit{\HCALdepositcolor}{#1+3}
+\printHCALdeposit{\HCALdepositcolor}{#1+5}
+\printHCALdeposit{\HCALdepositcolor}{#1-5}
+\printHCALdeposit{\HCALdepositcolor}{#1+21}
+\printHCALdeposit{\HCALdepositcolor}{#1+11}
+\printHCALdeposit{\HCALdepositcolor}{#1-11}
+\printECALdeposit{\ECALdepositcolor}{#1+2-14} %antielectron
+\printECALdeposit{\ECALdepositcolor}{#1-1+14} % electron
+}
+
+\def\printbigjetdeposit#1{
+\printjetdeposit{#1+5}
+\printjetdeposit{#1-5}
+}
+
+\def\printMuChSigA#1#2{
+\fill [\MuChdepositcolor] (#1-7.5+20*#2:\muonrina) arc (#1-7.5+20*#2:#1+7.5+20*#2:\muonrina) -- (#1+7.5+20*#2:\muonrouta) arc (#1+7.5+20*#2:#1-7.5+20*#2:\muonrouta) ;
+}
+\def\printMuChSigB#1#2{
+\fill [\MuChdepositcolor] (#1-7.5+20*#2:\muonrinb) arc (#1-7.5+20*#2:#1+7.5+20*#2:\muonrinb) -- (#1+7.5+20*#2:\muonroutb) arc (#1+7.5+20*#2:#1-7.5+20*#2:\muonroutb) ;
+}
+\def\printMuChSigC#1#2{
+\fill [\MuChdepositcolor] (#1-7.5+20*#2:\muonrinc) arc (#1-7.5+20*#2:#1+7.5+20*#2:\muonrinc) -- (#1+7.5+20*#2:\muonroutc) arc (#1+7.5+20*#2:#1-7.5+20*#2:\muonroutc) ;
+}
+\def\printMuChSigD#1#2{
+\fill [\MuChdepositcolor] (#1-7.5+20*#2:\muonrind) arc (#1-7.5+20*#2:#1+7.5+20*#2:\muonrind) -- (#1+7.5+20*#2:\muonroutd) arc (#1+7.5+20*#2:#1-7.5+20*#2:\muonroutd) ;
+}
+
+\def\printmudeposit#1{
+\printMuChSigA{#1}{1}
+\printMuChSigB{#1}{1}
+\printMuChSigC{#1}{1}
+\printMuChSigD{#1}{1}
+}
+
+\def\printantimudeposit#1{
+\printMuChSigA{#1}{-1}
+\printMuChSigB{#1}{-1}
+\printMuChSigC{#1}{-1}
+\printMuChSigD{#1}{-1}
+}
