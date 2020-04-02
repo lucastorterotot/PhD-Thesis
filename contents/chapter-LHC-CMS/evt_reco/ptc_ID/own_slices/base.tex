@@ -1,6 +1,5 @@
 \input{\PhDthesisdir/tex/Event_displays/macro_defs.tex}
 
-\def\angleouverture{10}
-\clip (0,0) -- (-\angleouverture:\muonroutd) arc (-\angleouverture:\angleouverture:\muonroutd) -- cycle;
+\clip (-\trackerrout/3,\trackerrout/3) -- (\HCALrout,\muonroutd/4) -- (\muonroutd,\muonroutd/4) -- (\muonroutd,-\muonroutd/4) -- (\HCALrout,-\muonroutd/4) -- (-\trackerrout/3,-\trackerrout/3) -- cycle;
 
 \drawCMS
