@@ -1,5 +1,9 @@
 \subsection{Interaction forte}\label{chapter-MS-MSSM-section-formalisme-subsec-QCD}
-\emph{Observation des baryons \Deltabaryonplusplus, \Deltabaryonminus, \Omegabaryonminus, tous de spin $3/2$. Interprétés dans le modèle des quarks comme}
+\subsubsection{La couleur}\label{chapter-MS-MSSM-section-formalisme-subsec-QCD-subsubsec-couleur}
+L'interaction forte est la troisième force fondamentale décrite par le modèle standard.
+L'analogue de la charge électrique pour l'interaction électromagnétique est, dans le cas de l'interaction forte, la \og couleur \fg.
+\par La couleur est un concept né de l'observation des baryons \Deltabaryonplusplus, \Deltabaryonminus, \Omegabaryonminus.
+Dans le modèle des quarks, ces baryons sont composés comme
 \begin{equation}
 \Deltabaryonplusplus = (\quarku\quarku\quarku)
 \msep
@@ -8,4 +12,44 @@
 \Omegabaryonminus = (\quarks\quarks\quarks)
 \mend
 \end{equation}
-\emph{À cause du principe de Pauli, pour que ces résonances existent, il faut postuler l'existence d'un nombre quantique supplémentaire, la couleur.}
+Or, ces baryons sont de spin $\frac{3}{2}$. Les quarks possédant un spin $\frac{1}{2}$, il faudrait alors que pour chacun de ces baryons, les trois quarks aient leurs nombres quantiques égaux, ce qui va à l'encontre du principe de Pauli.
+\par En introduisant la charge de couleur, pouvant prendre trois valeurs orthogonales que l'on nomme par convention rouge, vert et bleu, il est possible de décrire ces baryons sans violer le principe d'exclusion de Pauli. Il suffit en effet que chaque quark porte une couleur différente, \ie
+\begin{equation}
+\Deltabaryonplusplus = ({\color{red}\quarku}{\color{green}\quarku}{\color{blue}\quarku})
+\msep
+\Deltabaryonminus = ({\color{red}\quarkd}{\color{green}\quarkd}{\color{blue}\quarkd})
+\msep
+\Omegabaryonminus = ({\color{red}\quarks}{\color{green}\quarks}{\color{blue}\quarks})
+\mend
+\end{equation}
+\par Les baryons ainsi formés de trois quarks (un rouge, un vert et un bleu) portent une charge de couleur globale nulle, ils sont de couleur \og blanche \fg. Il en va de même pour les mésons, formés d'un quark un d'un anti-quark. Les anti-quarks portent une \og anticouleur \fg, ainsi l'association d'un quark d'une couleur avec un anti-quark de l'anticouleur correspondante donne un méson \og blanc \fg. La neutralité de couleur des hadrons (baryons et mésons) est effectivement confirmée expérimentalement.
+\subsubsection{Symétrie $SU(3)_C$}\label{chapter-MS-MSSM-section-formalisme-subsec-QCD-subsubsec-SU3C}
+Afin de décrire l'interaction forte dans le même formalisme que les autre interactions fondamentales, il nous faut un groupe de symétrie. Étant donné qu'il existe trois dimensions de couleur (rouge, verte, bleue), la théorie quantique des champs associée à l'interaction forte se base sur le groupe $SU(3)_C$, où $C$ signifie \og couleur \fg.
+\par Tout comme $SU(2)$, $SU(3)$ est un groupe non abélien. Il est possible de reprendre exactement les mêmes calculs que ceux de la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW-SU2_general}, en procédant aux changements
+\begin{equation}
+\bm{\tau} \leftrightarrow \bm{\lambda}
+\msep
+\bm{\alpha}\in\mathbb{R}^3 \leftrightarrow \bm{\theta}\in\mathbb{R}^8
+\msep
+g_I \leftrightarrow g_s
+\msep
+\bm{W}_\mu(x) \leftrightarrow \bm{G}_\mu(x)
+\msep
+\bm{W}_{\mu\nu} \leftrightarrow \bm{G}_{\mu\nu}
+\label{eq-hapter-MS-MSSM-section-formalisme-subsec-QCD-subsubsec-SU3C-analogieSU2}
+\end{equation}
+où $\bm{\lambda}$ est un vecteur à huit composantes, chacune étant une matrice de Gell-Mann, définies dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A} et où $\bm{G}_\mu(x)$ décrit donc huit gluons, bosons vecteurs de l'interaction forte.
+\par Le terme non linéaire $\bm{G}_\mu\wedge\bm{G}_\nu$ dans l'expression de $\bm{G}_{\mu\nu}$\footnote{Obtenue à partir de l'analogie~\eqref{eq-hapter-MS-MSSM-section-formalisme-subsec-QCD-subsubsec-SU3C-analogieSU2} appliquée à l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-defWmunu}.} est lourd de conséquences.
+Il permet le couplage entre trois et quatre gluons
+\begin{figure}[h]
+\centering
+\vspace{\baselineskip}
+\subcaptionbox{\label{subfig-fgraph-ggg}}[.45\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/QCD/fgraph-ggg.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{\label{subfig-fgraph-gggg}}[.45\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/QCD/fgraph-gggg.tex}\vspace{\baselineskip}}
+
+\caption{Diagrammes de Feynman correspondant à l'interaction entre trois et quatre gluons.}
+\label{fig-fgraph-QCD_3_et_4_gluons}
+\end{figure}
