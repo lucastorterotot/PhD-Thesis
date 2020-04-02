@@ -326,24 +326,19 @@
 \printjetdeposit{#1-5}
 }
 
-\def\printMuChSigA#1#2{
+\def\printMuChSigX#1#2#3#4#5#6{
 \begin{scope}
-\def\rout{\muonrouta}
-\clip (15:\rout)--(45:\rout)--(75:\rout)--(105:\rout)--(135:\rout)--(165:\rout)--(195:\rout)--(225:\rout)--(255:\rout)--(285:\rout)--(315:\rout)--(345:\rout)--(345:\muonrina)--(315:\muonrina)--(285:\muonrina)--(255:\muonrina)--(225:\muonrina)--(195:\muonrina)--(165:\muonrina)--(135:\muonrina)--(105:\muonrina)--(75:\muonrina)--(45:\muonrina)--(15:\muonrina)--cycle;
-
-%\fill [\MuChdepositcolor] (15:\muonrina)--(45:\muonrina)--(45:\muonrouta)--(15:\muonrouta);
-\fill [red] (15:\muonrina) circle (15);
+\clip (15:#4)--(45:#4)--(75:#4)--(105:#4)--(135:#4)--(165:#4)--(195:#4)--(225:#4)--(255:#4)--(285:#4)--(315:#4)--(345:#4)--(375:#4)--(375:#3)--(345:#3)--(315:#3)--(285:#3)--(255:#3)--(225:#3)--(195:#3)--(165:#3)--(135:#3)--(105:#3)--(75:#3)--(45:#3)--(15:#3)--cycle;
+\draw (0,0) + (#1+#5*#2:#4) coordinate (tmp1);
+\draw (0,0) + (#1+#6*#2:#4) coordinate (tmp2);
+\fill [\MuChdepositcolor]  (tmp1) -- (tmp2) -- (0,0) -- cycle ;
 \end{scope}
 }
-\def\printMuChSigB#1#2{
-\fill [\MuChdepositcolor] (#1-7.5+20*#2:\muonrinb) arc (#1-7.5+20*#2:#1+7.5+20*#2:\muonrinb) -- (#1+7.5+20*#2:\muonroutb) arc (#1+7.5+20*#2:#1-7.5+20*#2:\muonroutb) ;
-}
-\def\printMuChSigC#1#2{
-\fill [\MuChdepositcolor] (#1-7.5+20*#2:\muonrinc) arc (#1-7.5+20*#2:#1+7.5+20*#2:\muonrinc) -- (#1+7.5+20*#2:\muonroutc) arc (#1+7.5+20*#2:#1-7.5+20*#2:\muonroutc) ;
-}
-\def\printMuChSigD#1#2{
-\fill [\MuChdepositcolor] (#1-7.5+20*#2:\muonrind) arc (#1-7.5+20*#2:#1+7.5+20*#2:\muonrind) -- (#1+7.5+20*#2:\muonroutd) arc (#1+7.5+20*#2:#1-7.5+20*#2:\muonroutd) ;
-}
+
+\def\printMuChSigA#1#2{\printMuChSigX{#1}{#2}{\muonrina}{\muonrouta}{18}{21}}
+\def\printMuChSigB#1#2{\printMuChSigX{#1}{#2}{\muonrinb}{\muonroutb}{19.25}{21.75}}
+\def\printMuChSigC#1#2{\printMuChSigX{#1}{#2}{\muonrinc}{\muonroutc}{20}{21.5}}
+\def\printMuChSigD#1#2{\printMuChSigX{#1}{#2}{\muonrind}{\muonroutd}{19.75}{21.25}}
 
 \def\printmudeposit#1{
 \printMuChSigA{#1}{1}
