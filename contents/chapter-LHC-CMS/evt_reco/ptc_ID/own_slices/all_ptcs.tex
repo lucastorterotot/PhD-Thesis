@@ -1,22 +1,25 @@
 \begin{tikzpicture}
+\begin{scope}
 \input{\PhDthesisdir/contents/chapter-LHC-CMS/evt_reco/ptc_ID/own_slices/base.tex}
 
 \printphotondeposit{35}
 \printphotonnolabel{35}
-\printphotonlabel{15}
+%\printphotonlabel{15}
 
-\printantimudeposit{10}
-\printantimuon{10}
+\printantimudeposit{15}
+\printantimuonnolabel{15}
 
 \printeledeposit{-50}
-\printele{-50}
+\printelenolabel{-50}
 
 \printneutralhadrondeposit{15}
-\printneutralhadron{15}
+\printneutralhadronnolabel{15}
 
 \printhadrondeposit{-15}
-\printhadron{-15}
+\printhadronnolabel{-15}
+\end{scope}
 
+\input{\PhDthesisdir/contents/chapter-LHC-CMS/evt_reco/ptc_ID/own_slices/cms_legend.tex}
 \end{tikzpicture}
 
 
