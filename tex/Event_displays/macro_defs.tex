@@ -353,3 +353,42 @@
 \printMuChSigC{#1}{-1}
 \printMuChSigD{#1}{-1}
 }
+
+\def\printeletrk#1{
+\begin{scope}
+\clip (\trackerrout,0) arc (0:360:\trackerrout) -- (\trackerrin,0) arc (360:00:\trackerrin) --cycle;
+\draw [very thick, dotted] (0,0) arc (#1-90:#1-90+27:3);
+\end{scope}
+}
+\def\printantieletrk#1{
+\begin{scope}
+\clip (\trackerrout,0) arc (0:360:\trackerrout) -- (\trackerrin,0) arc (360:00:\trackerrin) --cycle;
+\draw [very thick, dotted] (0,0) arc (#1-90:#1-90-27:-3);
+\end{scope}
+}
+
+\def\printmutrk#1{
+\begin{scope}
+\clip (\trackerrout,0) arc (0:360:\trackerrout) -- (\trackerrin,0) arc (360:00:\trackerrin) --cycle;
+\draw [very thick, dotted]  (0,0) arc (#1-90:#1-90+33:6) arc (#1-90+33:#1-90:-12) ;
+\end{scope}
+}
+\def\printantimutrk#1{
+\begin{scope}
+\clip (\trackerrout,0) arc (0:360:\trackerrout) -- (\trackerrin,0) arc (360:00:\trackerrin) --cycle;
+\draw [very thick, dotted]  (0,0) arc (#1-90:#1-90-33:-6) arc (#1-90-33:#1-90:12) ;
+\end{scope}
+}
+
+\def\printhadrontrk#1{
+\begin{scope}
+\clip (\trackerrout,0) arc (0:360:\trackerrout) -- (\trackerrin,0) arc (360:00:\trackerrin) --cycle;
+\draw [very thick, dotted] (0,0) arc (#1+90:#1+90-22:5) ;
+\end{scope}
+}
+\def\printantihadrontrk#1{
+\begin{scope}
+\clip (\trackerrout,0) arc (0:360:\trackerrout) -- (\trackerrin,0) arc (360:00:\trackerrin) --cycle;
+\draw [very thick, dotted] (0,0) arc (#1-90:#1-90+22:5) ;
+\end{scope}
+}
