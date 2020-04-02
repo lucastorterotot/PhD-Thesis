@@ -65,35 +65,35 @@ Q\partial_\mu
 ce qui fait apparaître un terme supplémentaire, $\bar{\psi}\gamma^\mu Q\partial_\mu\alpha\psi$, provenant de la transformation du terme $\im \bar{\psi} \gamma^\mu\partial_\mu \psi$ de $\Lcal_{\text{fermion libre}}$ qui brise ainsi l'invariance de jauge du lagrangien.
 Afin de rendre le lagrangien invariant sous les transformations locales du groupe $U(1)_{em}$, il est possible de remplacer la dérivée usuelle $\partial_\mu$ par la \emph{dérivée covariante} $D_\mu$, telle que
 \begin{equation}
-\partial_\mu \to D_\mu = \partial_\mu + \im eQ A_\mu
+\partial_\mu \to D_\mu = \partial_\mu - \im eQ A_\mu
 \end{equation}
 où $e$ est la charge électrique élémentaire et $A_\mu$ un \emph{champ de jauge} nouvellement introduit, dont la transformation de jauge permet de supprimer le terme supplémentaire qui brise l'invariance de jauge du lagrangien. En effet, le champ $A_\mu$ se transforme tel que
 \begin{equation}
-A_\mu \to A_\mu - \frac{1}{e} \partial_\mu\alpha
+A_\mu \to A_\mu + \frac{1}{e} \partial_\mu\alpha
 \mend
 \end{equation}
 Ainsi, en réécrivant le lagrangien du fermion de l'équation~\eqref{eq-lagrangien_fermion_libre_partial} avec la dérivée covariante,
 \begin{equation}
 \Lcal_{\text{fermion libre}}' = \im \bar{\psi} \gamma^\mu D_\mu \psi - m \bar{\psi}\psi
-= \im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi - \bar{\psi}\gamma^\mu eQA_\mu \psi
-= \Lcal_{\text{fermion libre}} - \bar{\psi}\gamma^\mu eQA_\mu \psi
+= \im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi + \bar{\psi}\gamma^\mu eQA_\mu \psi
+= \Lcal_{\text{fermion libre}} + \bar{\psi}\gamma^\mu eQA_\mu \psi
 \mend[,]
 \end{equation}
 le dernier terme se transforme en
 \begin{equation}
--\bar{\psi}\gamma^\mu eQA_\mu \psi
+\bar{\psi}\gamma^\mu eQA_\mu \psi
 \to
--\bar{\psi}\eexp{-\im Q\alpha}
+\bar{\psi}\eexp{-\im Q\alpha}
 \gamma^\mu
-eQ\left(A_\mu - \frac{1}{e}\partial_\mu\alpha\right)
+eQ\left(A_\mu + \frac{1}{e}\partial_\mu\alpha\right)
 \eexp{\im Q\alpha}\psi
 =
--\bar{\psi} \gamma^\mu eQA_\mu \psi
+\bar{\psi} \gamma^\mu eQA_\mu \psi
 +
 \bar{\psi} \gamma^\mu  Q\partial_\mu\alpha \psi
 \end{equation}
 et le dernier terme obtenu compense exactement le terme brisant l'invariance de jauge dans l'équation~\eqref{eq-QED_jauge_brisee}.
-\par Le nouveau terme introduit par l'utilisation de la dérivée covariante, $- \bar{\psi}\gamma^\mu eQA_\mu \psi$, correspond à l'interaction entre un fermion et le champ de jauge $A_\mu$, dont l'intensité est directement proportionnelle à la charge électrique du fermion.
+\par Le nouveau terme introduit par l'utilisation de la dérivée covariante, $\bar{\psi}\gamma^\mu eQA_\mu \psi$, correspond à l'interaction entre un fermion et le champ de jauge $A_\mu$, dont l'intensité est directement proportionnelle à la charge électrique du fermion.
 Toutefois, le champ $A_\mu$ ne représente pas encore le photon en l'état, il faut permettre au photon de se propager librement. Pour cela, il faut introduire un terme cinétique qui soit invariant de jauge dans le lagrangien, ce qui peut se faire avec
 \begin{equation}
 \Lcal_{\text{photon libre}} = - \frac{1}{4} F_{\mu\nu}F^{\mu\nu}
@@ -108,7 +108,7 @@ Un terme de masse pour le champ $A_\mu$ devrait s'écrire sous la forme $\frac{1
 \underbrace{- \frac{1}{4} F_{\mu\nu}F^{\mu\nu} \vphantom{\frac{1}{4}}}_{\text{photons}}
 =
 \underbrace{\bar{\psi} \left( \im\slashed{\partial} - m \right) \psi \vphantom{\frac{1}{4}}}_{\Lcal_{\text{fermion libre}}}
-\underbrace{- \bar{\psi}\gamma^\mu eQA_\mu \psi \vphantom{\frac{1}{4}}}_{\text{interaction}}
+\underbrace{+ \bar{\psi}\gamma^\mu eQA_\mu \psi \vphantom{\frac{1}{4}}}_{\text{interaction}}
 \underbrace{- \frac{1}{4} F_{\mu\nu}F^{\mu\nu} \vphantom{\frac{1}{4}}}_{\Lcal_{\text{photon libre}}}
 \mend
 \end{equation}
