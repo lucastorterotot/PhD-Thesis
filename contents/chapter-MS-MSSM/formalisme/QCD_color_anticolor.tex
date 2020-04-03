@@ -3,29 +3,34 @@
 \def\overlappct{.9}
 \def\Dypct{2.5}
 
-\fill [ltcolorred2] (0,\Dypct*\rcircle) circle (\rcircle);
-\fill [ltcolorgreen2] (0,0) circle (\rcircle);
-\fill [ltcolorblue2] (0,-\Dypct*\rcircle) circle (\rcircle);
+\draw (90:\Dypct*\rcircle) coordinate (r);
+\draw (-150:\Dypct*\rcircle) coordinate (g);
+\draw (-30:\Dypct*\rcircle) coordinate (b);
 
-\fill [ltcolorcyan2] (\overlappct*\rcircle,\Dypct*\rcircle) circle (\rcircle);
-\fill [ltcolormagenta2] (\overlappct*\rcircle,0) circle (\rcircle);
-\fill [ltcoloryellow2] (\overlappct*\rcircle,-\Dypct*\rcircle) circle (\rcircle);
+\fill [ltcolorred2] (r)+(-\overlappct*\rcircle/2,0) circle (\rcircle);
+\fill [ltcolorgreen2] (g)+(-\overlappct*\rcircle/2,0) circle (\rcircle);
+\fill [ltcolorblue2] (b)+(-\overlappct*\rcircle/2,0) circle (\rcircle);
 
-\foreach \ypos in {\Dypct*\rcircle, 0, -\Dypct*\rcircle}{
+\fill [ltcolorcyan2] (r)+(\overlappct*\rcircle/2,0) circle (\rcircle);
+\fill [ltcolormagenta2] (g)+(\overlappct*\rcircle/2,0) circle (\rcircle);
+\fill [ltcoloryellow2] (b)+(\overlappct*\rcircle/2,0) circle (\rcircle);
+
+\foreach \pos in {r, g, b}{
 \begin{scope}
-\clip (0,\ypos) circle (\rcircle);
-\clip ((\overlappct*\rcircle,\ypos) circle (\rcircle);
-\fill [white] (\overlappct*\rcircle,\ypos) circle (\rcircle);
+\clip (\pos)+(-\overlappct*\rcircle/2,0) circle (\rcircle);
+\clip (\pos)+(\overlappct*\rcircle/2,0) circle (\rcircle);
+\fill [white] (\pos)+(\overlappct*\rcircle/2,0) circle (\rcircle);
 \end{scope}
-%\draw (\overlappct*\rcircle/2,\ypos) node {blanc} ;
+%\draw (\pos) node {blanc} ;
 }
 
-%\draw (0,\Dypct*\rcircle) node {rouge} ;
-%\draw (0,-\Dypct*\rcircle) node {bleu} ;
-%\draw (0,0) node {vert} ;
+%\draw (r)+(-\overlappct*\rcircle/2,0) node {rouge} ;
+%\draw (b)+(-\overlappct*\rcircle/2,0) node {bleu} ;
+%\draw (g)+(-\overlappct*\rcircle/2,0) node {vert} ;
 %
-%\draw (\overlappct*\rcircle,\Dypct*\rcircle) node {antirouge} ;
-%\draw (\overlappct*\rcircle,-\Dypct*\rcircle) node {antibleu} ;
-%\draw (\overlappct*\rcircle,0) node {antivert} ;
+%\draw (r)+(\overlappct*\rcircle/2,0) node {antirouge} ;
+%\draw (b)+(\overlappct*\rcircle/2,0) node {antibleu} ;
+%\draw (g)+(\overlappct*\rcircle/2,0) node {antivert} ;
 
+\input{\PhDthesisdir/contents/chapter-MS-MSSM/formalisme/QCD_diagrams_top_bottom.tex}
 \end{tikzpicture}
