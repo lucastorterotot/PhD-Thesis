@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+\def\rcircle{.6}
+\def\overlappct{.9}
+\def\Dypct{2.5}
+
+\fill [ltcolorred2] (0,\Dypct*\rcircle) circle (\rcircle);
+\fill [ltcolorgreen2] (0,0) circle (\rcircle);
+\fill [ltcolorblue2] (0,-\Dypct*\rcircle) circle (\rcircle);
+
+\fill [ltcolorcyan2] (\overlappct*\rcircle,\Dypct*\rcircle) circle (\rcircle);
+\fill [ltcolormagenta2] (\overlappct*\rcircle,0) circle (\rcircle);
+\fill [ltcoloryellow2] (\overlappct*\rcircle,-\Dypct*\rcircle) circle (\rcircle);
+
+\foreach \ypos in {\Dypct*\rcircle, 0, -\Dypct*\rcircle}{
+\begin{scope}
+\clip (0,\ypos) circle (\rcircle);
+\clip ((\overlappct*\rcircle,\ypos) circle (\rcircle);
+\fill [white] (\overlappct*\rcircle,\ypos) circle (\rcircle);
+\end{scope}
+%\draw (\overlappct*\rcircle/2,\ypos) node {blanc} ;
+}
+
+%\draw (0,\Dypct*\rcircle) node {rouge} ;
+%\draw (0,-\Dypct*\rcircle) node {bleu} ;
+%\draw (0,0) node {vert} ;
+%
+%\draw (\overlappct*\rcircle,\Dypct*\rcircle) node {anti-rouge} ;
+%\draw (\overlappct*\rcircle,-\Dypct*\rcircle) node {anti-bleu} ;
+%\draw (\overlappct*\rcircle,0) node {anti-vert} ;
+
+\end{tikzpicture}

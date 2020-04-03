@@ -1,0 +1,43 @@
+\begin{tikzpicture}
+\def\rcircle{1.5}
+\def\overlappct{.6}
+
+\fill [ltcolorcyan2] (-90:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolormagenta2] (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcoloryellow2] (-90-120:\overlappct*\rcircle) circle (\rcircle);
+
+\begin{scope}
+\clip (-90:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90-120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorgreen2] (-90:\overlappct*\rcircle) circle (\rcircle);
+\end{scope}
+
+\begin{scope}
+\clip (-90:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorblue2] (-90:\overlappct*\rcircle) circle (\rcircle);
+\end{scope}
+
+\begin{scope}
+\clip (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90-120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorred2] (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\end{scope}
+
+\begin{scope}
+\clip (-90:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90-120:\overlappct*\rcircle) circle (\rcircle);
+\fill [white] (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\end{scope}
+
+\draw (-90:\overlappct*\rcircle+.5*\rcircle) node {anti-rouge} ;
+\draw (-90+120:\overlappct*\rcircle+.5*\rcircle) node [rotate=-60] {anti-vert} ;
+\draw (-90-120:\overlappct*\rcircle+.5*\rcircle) node [rotate=60] {anti-bleu} ;
+
+%\draw (90:\overlappct*\rcircle+0*\rcircle) node {rouge} ;
+%\draw (90+120:\overlappct*\rcircle+0*\rcircle) node [rotate=-60] {vert} ;
+%\draw (90-120:\overlappct*\rcircle+0*\rcircle) node [rotate=60] {bleu} ;
+
+\draw (0,0) node {blanc};
+\end{tikzpicture}
