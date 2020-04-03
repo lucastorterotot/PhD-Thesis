@@ -1,0 +1,17 @@
+\begin{fmffile}{qgq_colors}\fmfstraight
+\begin{fmfchar*}(20,20)
+  \fmfleft{i1,i2}
+  \fmfright{o1}
+  \fmf{phantom}{i2,v,o1}
+  \fmf{phantom}{i1,v}
+  \fmflabel{\gluon}{i1}
+  \fmflabel{\quark}{i2}
+  \fmflabel{\quark}{o1}
+  \fmffreeze
+  \fmf{fermion, fore=red}{v,i1}
+  \fmf{fermion, fore=red}{i2,v}
+  \fmf{fermion, fore=blue}{v,o1}
+  \fmfi{fermion, fore=blue}{vpath (__i1,__v) shifted (thick*(2,0))}
+  \fmfblob{.2w}{v}
+\end{fmfchar*}
+\end{fmffile}
