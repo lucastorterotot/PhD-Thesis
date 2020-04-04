@@ -393,9 +393,7 @@
 \def\printMuChSigX#1#2#3#4#5#6{
 \begin{scope}
 \clipMuCh{#3}{#4}
-\draw \CurrentVertex + (#1+#5*#2:#4) coordinate (tmp1);
-\draw \CurrentVertex + (#1+#6*#2:#4) coordinate (tmp2);
-\fill [\MuChdepositcolor]  (tmp1) -- (tmp2) -- \CurrentVertex -- cycle ;
+\fill [\MuChdepositcolor] \CurrentVertex + (#1+90:-.075) arc (#1-90:#1-90+33*#2:6*#2) arc (#1-90+33*#2:#1-90:-12*#2) -- + (#1+90:.15) arc (#1-90:#1-90+33*#2:-12*#2) arc (#1-90+33*#2:#1-90:6*#2) -- cycle ;
 \end{scope}
 }
 
