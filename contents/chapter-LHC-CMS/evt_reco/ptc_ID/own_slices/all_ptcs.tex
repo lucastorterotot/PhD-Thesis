@@ -1,6 +1,10 @@
 \begin{tikzpicture}
+\input{\PhDthesisdir/tex/Event_displays/macro_defs.tex}
+
 \begin{scope}
-\input{\PhDthesisdir/contents/chapter-LHC-CMS/evt_reco/ptc_ID/own_slices/base.tex}
+\clipSlice
+
+\drawCMS
 
 \printphotondeposit{35}
 \printphotonnolabel{35}

@@ -33,6 +33,21 @@
 \def\muonchcolor{ltcoloryellow1}
 \def\ironrycolor{ltcolorred3}
 
+\def\clipCircle#1#2{
+\clip (#1,0) arc (0:360:#1) -- (#2,0) arc (360:0:#2) -- cycle ;
+}
+\def\clipTRK{\clipCircle{\trackerrin}{\trackerrout}}
+\def\clipECAL{\clipCircle{\ECALrin}{\ECALrout}}
+\def\clipHCAL{\clipCircle{\HCALrin}{\HCALrout}}
+
+\def\clipMuCh#1#2{
+\clip (15:#1)--(45:#1)--(75:#1)--(105:#1)--(135:#1)--(165:#1)--(195:#1)--(225:#1)--(255:#1)--(285:#1)--(315:#1)--(345:#1)--(375:#1)--(375:#2)--(345:#2)--(315:#2)--(285:#2)--(255:#2)--(225:#2)--(195:#2)--(165:#2)--(135:#2)--(105:#2)--(75:#2)--(45:#2)--(15:#2)--cycle;
+}
+
+\def\clipSlice{
+\clip (-\trackerrout/3,\trackerrout/3) -- (\HCALrout,\muonroutd/4) -- (\muonroutd,\muonroutd/4) -- (\muonroutd,-\muonroutd/4) -- (\HCALrout,-\muonroutd/4) -- (-\trackerrout/3,-\trackerrout/3) -- cycle;
+}
+
 \def\drawCMS{
 \foreach \rin/\rout/\color in {
 \muonrind/\muonroutd/\muonchcolor,
@@ -44,8 +59,11 @@
 \muonrina/\muonrouta/\muonchcolor
 %\ironryrina/\ironryrouta/\ironrycolor
 }{
+\begin{scope}
+\clipMuCh{\rin}{\rout}
+\fill (0,0) [color = \color] circle (\rout);
 \fill [color = \color] (15:\rout)--(45:\rout)--(75:\rout)--(105:\rout)--(135:\rout)--(165:\rout)--(195:\rout)--(225:\rout)--(255:\rout)--(285:\rout)--(315:\rout)--(345:\rout)--cycle;
-\fill [color = white] (15:\rin)--(45:\rin)--(75:\rin)--(105:\rin)--(135:\rin)--(165:\rin)--(195:\rin)--(225:\rin)--(255:\rin)--(285:\rin)--(315:\rin)--(345:\rin)--cycle;
+\end{scope}
 }
 \foreach \rin/\rout/\color in {
 \Solenrin/\Solenrout/\Solencolor,
@@ -53,8 +71,11 @@
 \ECALrin/\ECALrout/\ECALcolor,
 \trackerrin/\trackerrout/\trackercolor
 }{
+\begin{scope}
+\clipCircle{\rin}{\rout}
 \fill (0,0) [color = \color] circle (\rout);
-\fill (0,0) [color = white] circle (\rin);
+\end{scope}
+%\fill (0,0) [color = white] circle (\rin);
 }
 }
 
@@ -229,7 +250,7 @@
 \draw [thick, \jetcolor] (0,0) arc (#1-90:#1-90-11:-10) ;
 \draw [thick, \jetcolor] (0,0) arc (#1-90:#1-90+11:10) ;
 \draw [thick, \jetcolor] (0,0) arc (#1+2-90:#1+2-90-27:-3); % antielectron
-\draw [thick, \jetcolor] (0,0) arc (#1-1-90:#1-1-90+27:3) coordinate (eledeposit); % electron
+\draw [thick, \jetcolor] (0,0) arc (#1-1-90:#1-1-90+27:3); % electron
 }
 \newcommand{\printjetlabel}[2][jet]{
 \draw [\jetcolor] (#2-25:.65) node {#1};
@@ -328,7 +349,7 @@
 
 \def\printMuChSigX#1#2#3#4#5#6{
 \begin{scope}
-\clip (15:#4)--(45:#4)--(75:#4)--(105:#4)--(135:#4)--(165:#4)--(195:#4)--(225:#4)--(255:#4)--(285:#4)--(315:#4)--(345:#4)--(375:#4)--(375:#3)--(345:#3)--(315:#3)--(285:#3)--(255:#3)--(225:#3)--(195:#3)--(165:#3)--(135:#3)--(105:#3)--(75:#3)--(45:#3)--(15:#3)--cycle;
+\clipMuCh{#3}{#4}
 \draw (0,0) + (#1+#5*#2:#4) coordinate (tmp1);
 \draw (0,0) + (#1+#6*#2:#4) coordinate (tmp2);
 \fill [\MuChdepositcolor]  (tmp1) -- (tmp2) -- (0,0) -- cycle ;
@@ -356,39 +377,39 @@
 
 \def\printeletrk#1{
 \begin{scope}
-\clip (\trackerrout,0) arc (0:360:\trackerrout) -- (\trackerrin,0) arc (360:00:\trackerrin) --cycle;
+\clipTRK
 \draw [very thick, dotted] (0,0) arc (#1-90:#1-90+27:3);
 \end{scope}
 }
 \def\printantieletrk#1{
 \begin{scope}
-\clip (\trackerrout,0) arc (0:360:\trackerrout) -- (\trackerrin,0) arc (360:00:\trackerrin) --cycle;
+\clipTRK
 \draw [very thick, dotted] (0,0) arc (#1-90:#1-90-27:-3);
 \end{scope}
 }
 
 \def\printmuontrk#1{
 \begin{scope}
-\clip (\trackerrout,0) arc (0:360:\trackerrout) -- (\trackerrin,0) arc (360:00:\trackerrin) --cycle;
+\clipTRK
 \draw [very thick, dotted]  (0,0) arc (#1-90:#1-90+33:6) arc (#1-90+33:#1-90:-12) ;
 \end{scope}
 }
 \def\printantimuontrk#1{
 \begin{scope}
-\clip (\trackerrout,0) arc (0:360:\trackerrout) -- (\trackerrin,0) arc (360:00:\trackerrin) --cycle;
+\clipTRK
 \draw [very thick, dotted]  (0,0) arc (#1-90:#1-90-33:-6) arc (#1-90-33:#1-90:12) ;
 \end{scope}
 }
 
 \def\printhadrontrk#1{
 \begin{scope}
-\clip (\trackerrout,0) arc (0:360:\trackerrout) -- (\trackerrin,0) arc (360:00:\trackerrin) --cycle;
+\clipTRK
 \draw [very thick, dotted] (0,0) arc (#1+90:#1+90-22:5) ;
 \end{scope}
 }
 \def\printantihadrontrk#1{
 \begin{scope}
-\clip (\trackerrout,0) arc (0:360:\trackerrout) -- (\trackerrin,0) arc (360:00:\trackerrin) --cycle;
+\clipTRK
 \draw [very thick, dotted] (0,0) arc (#1-90:#1-90+22:5) ;
 \end{scope}
 }
