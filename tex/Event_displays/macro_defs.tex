@@ -36,9 +36,11 @@
 \def\clipCircle#1#2{
 \clip (#1,0) arc (0:360:#1) -- (#2,0) arc (360:0:#2) -- cycle ;
 }
-\def\clipTRK{\clipCircle{\trackerrin}{\trackerrout}}
-\def\clipECAL{\clipCircle{\ECALrin}{\ECALrout}}
-\def\clipHCAL{\clipCircle{\HCALrin}{\HCALrout}}
+\def\clipInTRK{\clipCircle{\trackerrin}{\trackerrout}}
+\def\clipInECAL{\clipCircle{\ECALrin}{\ECALrout}}
+\def\clipInHCAL{\clipCircle{\HCALrin}{\HCALrout}}
+\def\clipECAL{\clip (0,0) circle (\ECALrout);}
+\def\clipHCAL{\clip (0,0) circle (\HCALrout);}
 
 \def\clipMuCh#1#2{
 \clip (15:#1)--(45:#1)--(75:#1)--(105:#1)--(135:#1)--(165:#1)--(195:#1)--(225:#1)--(255:#1)--(285:#1)--(315:#1)--(345:#1)--(375:#1)--(375:#2)--(345:#2)--(315:#2)--(285:#2)--(255:#2)--(225:#2)--(195:#2)--(165:#2)--(135:#2)--(105:#2)--(75:#2)--(45:#2)--(15:#2)--cycle;
@@ -79,6 +81,8 @@
 }
 }
 
+\def\CurrentVertex{(0,0)}
+
 \def\elecolor{ltcolorred}
 \def\muoncolor{ltcolorblue}
 \def\photoncolor{black}
@@ -92,7 +96,10 @@
 \def\MuChdepositcolor{ltcolorcyan2}
 
 \def\printelenolabel#1{
-\draw [thick, \elecolor] (0,0) arc (#1-90:#1-90+27:3);
+\begin{scope}
+\clipECAL
+\draw [thick, \elecolor] \CurrentVertex arc (#1-90:#1-90+27:3);
+\end{scope}
 }
 \newcommand{\printelelabel}[2][\ele]{
 \draw [\elecolor] (#2+17:1) node {#1};
@@ -104,7 +111,10 @@
 }
 
 \def\printantielenolabel#1{
-\draw [thick, \elecolor] (0,0) arc (#1-90:#1-90-27:-3);
+\begin{scope}
+\clipECAL
+\draw [thick, \elecolor] \CurrentVertex arc (#1-90:#1-90-27:-3);
+\end{scope}
 }
 \newcommand{\printantielelabel}[2][\ele]{
 \draw [\elecolor] (#2-17:1) node {#1};
@@ -116,7 +126,7 @@
 }
 
 \def\printmuonnolabel#1{
-\draw [thick, \muoncolor]  (0,0) arc (#1-90:#1-90+33:6) arc (#1-90+33:#1-90:-12) ;
+\draw [thick, \muoncolor]  \CurrentVertex arc (#1-90:#1-90+33:6) arc (#1-90+33:#1-90:-12) ;
 }
 \newcommand{\printmuonlabel}[2][\mu]{
 \draw [\muoncolor] (#2+5:2) node {#1};
@@ -128,7 +138,7 @@
 }
 
 \def\printantimuonnolabel#1{
-\draw [thick, \muoncolor]  (0,0) arc (#1-90:#1-90-33:-6) arc (#1-90-33:#1-90:12) ;
+\draw [thick, \muoncolor]  \CurrentVertex arc (#1-90:#1-90-33:-6) arc (#1-90-33:#1-90:12) ;
 }
 \newcommand{\printantimuonlabel}[2][\mu]{
 \draw [\muoncolor] (#2-5:2) node {#1};
@@ -140,7 +150,10 @@
 }
 
 \def\printphotonnolabel#1{
-\draw [thin, dashed, \photoncolor] (0,0) --+ (#1:{.5*(\ECALrin+\ECALrout)});
+\begin{scope}
+\clipECAL
+\draw [thin, dashed, \photoncolor] \CurrentVertex --+ (#1:{.5*(\ECALrin+\ECALrout)});
+\end{scope}
 }
 \newcommand{\printphotonlabel}[2][\photon]{
 \draw [\photoncolor] (#2+10:{.75*\ECALrin+.25*\ECALrout}) node {#1};
@@ -152,7 +165,7 @@
 }
 
 \def\printneutrinonolabel#1{
-\draw [thin, dotted, black] (0,0) --+ (#1:{1.5*\muonroutd});
+\draw [thin, dotted, black] \CurrentVertex --+ (#1:{1.5*\muonroutd});
 }
 \newcommand{\printneutrinolabel}[2][\neutrino]{
 \draw [black] (#2+5:{.75*\HCALrin+.25*\HCALrout}) node {#1};
@@ -164,7 +177,10 @@
 }
 
 \def\printhadronnolabel#1{
-\draw [thick, \hadroncolor] (0,0) arc (#1+90:#1+90-22:5) ;
+\begin{scope}
+\clipHCAL
+\draw [thick, \hadroncolor] \CurrentVertex arc (#1+90:#1+90-22:5) ;
+\end{scope}
 }
 \newcommand{\printhadronlabel}[2][\hadronplus]{
 \draw [\hadroncolor] (#2+3:1.5) node {#1};
@@ -176,7 +192,10 @@
 }
 
 \def\printantihadronnolabel#1{
-\draw [thick, \hadroncolor] (0,0) arc (#1-90:#1-90+22:5) ;
+\begin{scope}
+\clipHCAL
+\draw [thick, \hadroncolor] \CurrentVertex arc (#1-90:#1-90+22:5) ;
+\end{scope}
 }
 \newcommand{\printantihadronlabel}[2][\hadronminus]{
 \draw [\hadroncolor] (#2-3:1.5) node {#1};
@@ -188,7 +207,10 @@
 }
 
 \def\printneutralhadronnolabel#1{
-\draw [thin, dashed, \hadroncolor] (0,0) --+ (#1:{.5*(\HCALrin+\HCALrout)});
+\begin{scope}
+\clipHCAL
+\draw [thin, dashed, \hadroncolor] \CurrentVertex --+ (#1:{.5*(\HCALrin+\HCALrout)});
+\end{scope}
 }
 \newcommand{\printneutralhadronlabel}[2][\hadronnull]{
 \draw [\hadroncolor] (#2-3:1.5) node {#1};
@@ -201,14 +223,20 @@
 
 \newcommand{\printtauhnolabel}[2][30]{
 \ifthenelse{\equal{#1}{31}\or\equal{#1}{11}}{
-\draw [thin, dashed, \tauhcolor] (0,0) --+ (#2:{.5*(\ECALrin+\ECALrout)});
-\draw [thin, dashed, \tauhcolor] (0,0) --+ (#2+7:{.5*(\ECALrin+\ECALrout)});
+\begin{scope}
+\clipECAL
+\draw [thin, dashed, \tauhcolor] \CurrentVertex --+ (#2:{.5*(\ECALrin+\ECALrout)});
+\draw [thin, dashed, \tauhcolor] \CurrentVertex --+ (#2+7:{.5*(\ECALrin+\ECALrout)});
+\end{scope}
 }{}
+\begin{scope}
+\clipHCAL
 \ifthenelse{\equal{#1}{10}\or\equal{#1}{11}}{}{
-\draw [thick, \tauhcolor] (0,0) arc (#2-90:#2-90+11:10) ;
-\draw [thick, \tauhcolor] (0,0) arc (#2-90:#2-90-11:-10) ;
+\draw [thick, \tauhcolor] \CurrentVertex arc (#2-90:#2-90+11:10) ;
+\draw [thick, \tauhcolor] \CurrentVertex arc (#2-90:#2-90-11:-10) ;
 }
-\draw [thick, \tauhcolor] (0,0) arc (#2-90:#2-90+6:20) ;
+\draw [thick, \tauhcolor] \CurrentVertex arc (#2-90:#2-90+6:20) ;
+\end{scope}
 }
 
 \newcommand{\printtauhlabel}[2][\tauh]{
@@ -222,14 +250,20 @@
 
 \newcommand{\printantitauhnolabel}[2][30]{
 \ifthenelse{\equal{#1}{31}\or\equal{#1}{11}}{
-\draw [thin, dashed, \tauhcolor] (0,0) --+ (#2:{.5*(\ECALrin+\ECALrout)});
-\draw [thin, dashed, \tauhcolor] (0,0) --+ (#2+7:{.5*(\ECALrin+\ECALrout)});
+\begin{scope}
+\clipECAL
+\draw [thin, dashed, \tauhcolor] \CurrentVertex --+ (#2:{.5*(\ECALrin+\ECALrout)});
+\draw [thin, dashed, \tauhcolor] \CurrentVertex --+ (#2+7:{.5*(\ECALrin+\ECALrout)});
+\end{scope}
 }{}
+\begin{scope}
+\clipHCAL
 \ifthenelse{\equal{#1}{10}\or\equal{#1}{11}}{}{
-\draw [thick, \tauhcolor] (0,0) arc (#2-90:#2-90-11:-10) ;
-\draw [thick, \tauhcolor] (0,0) arc (#2-90:#2-90+11:10) ;
+\draw [thick, \tauhcolor] \CurrentVertex arc (#2-90:#2-90-11:-10) ;
+\draw [thick, \tauhcolor] \CurrentVertex arc (#2-90:#2-90+11:10) ;
 }
-\draw [thick, \tauhcolor] (0,0) arc (#2-90:#2-90-6:-20) ;
+\draw [thick, \tauhcolor] \CurrentVertex arc (#2-90:#2-90-6:-20) ;
+\end{scope}
 }
 
 \newcommand{\printantitauhlabel}[2][\tauh]{
@@ -242,15 +276,21 @@
 }
 
 \def\printjetnolabel#1{
-\draw [thick, \jetcolor] (0,0) arc (#1-90+10:#1-90+22+10:5) ;
-\draw [thick, \jetcolor] (0,0) arc (#1-90+5:#1-90+12+5:10) ;
-\draw [thick, \jetcolor] (0,0) arc (#1-90:#1-90-22:-5) ;
-\draw [thick, \jetcolor] (0,0) arc (#1-90:#1-90+6:20) ;
-\draw [thick, \jetcolor] (0,0) arc (#1-90+5:#1-90+8+5:10) ;
-\draw [thick, \jetcolor] (0,0) arc (#1-90:#1-90-11:-10) ;
-\draw [thick, \jetcolor] (0,0) arc (#1-90:#1-90+11:10) ;
-\draw [thick, \jetcolor] (0,0) arc (#1+2-90:#1+2-90-27:-3); % antielectron
-\draw [thick, \jetcolor] (0,0) arc (#1-1-90:#1-1-90+27:3); % electron
+\begin{scope}
+\clipHCAL
+\draw [thick, \jetcolor] \CurrentVertex arc (#1-90+10:#1-90+22+10:5) ;
+\draw [thick, \jetcolor] \CurrentVertex arc (#1-90+5:#1-90+12+5:10) ;
+\draw [thick, \jetcolor] \CurrentVertex arc (#1-90:#1-90-22:-5) ;
+\draw [thick, \jetcolor] \CurrentVertex arc (#1-90:#1-90+6:20) ;
+\draw [thick, \jetcolor] \CurrentVertex arc (#1-90+5:#1-90+8+5:10) ;
+\draw [thick, \jetcolor] \CurrentVertex arc (#1-90:#1-90-11:-10) ;
+\draw [thick, \jetcolor] \CurrentVertex arc (#1-90:#1-90+11:10) ;
+\end{scope}
+\begin{scope}
+\clipECAL
+\draw [thick, \jetcolor] \CurrentVertex arc (#1+2-90:#1+2-90-27:-3); % antielectron
+\draw [thick, \jetcolor] \CurrentVertex arc (#1-1-90:#1-1-90+27:3); % electron
+\end{scope}
 }
 \newcommand{\printjetlabel}[2][jet]{
 \draw [\jetcolor] (#2-25:.65) node {#1};
@@ -276,9 +316,12 @@
 
 \def\printjetfakenolabel#1{
 \printjetnolabel{#1}
-\draw [thick, \tauhcolor] (0,0) arc (#1-90:#1-90+11:10) ;
-\draw [thick, \tauhcolor] (0,0) arc (#1-90:#1-90+6:20) ;
-\draw [thick, \tauhcolor] (0,0) arc (#1-90:#1-90-11:-10) ;
+\begin{scope}
+\clipHCAL
+\draw [thick, \tauhcolor] \CurrentVertex arc (#1-90:#1-90+11:10) ;
+\draw [thick, \tauhcolor] \CurrentVertex arc (#1-90:#1-90+6:20) ;
+\draw [thick, \tauhcolor] \CurrentVertex arc (#1-90:#1-90-11:-10) ;
+\end{scope}
 }
 \newcommand{\printjetfakelabel}[2][f.\tauh]{
 \draw [\tauhcolor] (#2-17:1.5) node {#1};
@@ -350,9 +393,9 @@
 \def\printMuChSigX#1#2#3#4#5#6{
 \begin{scope}
 \clipMuCh{#3}{#4}
-\draw (0,0) + (#1+#5*#2:#4) coordinate (tmp1);
-\draw (0,0) + (#1+#6*#2:#4) coordinate (tmp2);
-\fill [\MuChdepositcolor]  (tmp1) -- (tmp2) -- (0,0) -- cycle ;
+\draw \CurrentVertex + (#1+#5*#2:#4) coordinate (tmp1);
+\draw \CurrentVertex + (#1+#6*#2:#4) coordinate (tmp2);
+\fill [\MuChdepositcolor]  (tmp1) -- (tmp2) -- \CurrentVertex -- cycle ;
 \end{scope}
 }
 
@@ -377,39 +420,39 @@
 
 \def\printeletrk#1{
 \begin{scope}
-\clipTRK
-\draw [very thick, dotted] (0,0) arc (#1-90:#1-90+27:3);
+\clipInTRK
+\draw [very thick, dotted] \CurrentVertex arc (#1-90:#1-90+27:3);
 \end{scope}
 }
 \def\printantieletrk#1{
 \begin{scope}
-\clipTRK
-\draw [very thick, dotted] (0,0) arc (#1-90:#1-90-27:-3);
+\clipInTRK
+\draw [very thick, dotted] \CurrentVertex arc (#1-90:#1-90-27:-3);
 \end{scope}
 }
 
 \def\printmuontrk#1{
 \begin{scope}
-\clipTRK
-\draw [very thick, dotted]  (0,0) arc (#1-90:#1-90+33:6) arc (#1-90+33:#1-90:-12) ;
+\clipInTRK
+\draw [very thick, dotted]  \CurrentVertex arc (#1-90:#1-90+33:6) arc (#1-90+33:#1-90:-12) ;
 \end{scope}
 }
 \def\printantimuontrk#1{
 \begin{scope}
-\clipTRK
-\draw [very thick, dotted]  (0,0) arc (#1-90:#1-90-33:-6) arc (#1-90-33:#1-90:12) ;
+\clipInTRK
+\draw [very thick, dotted]  \CurrentVertex arc (#1-90:#1-90-33:-6) arc (#1-90-33:#1-90:12) ;
 \end{scope}
 }
 
 \def\printhadrontrk#1{
 \begin{scope}
-\clipTRK
-\draw [very thick, dotted] (0,0) arc (#1+90:#1+90-22:5) ;
+\clipInTRK
+\draw [very thick, dotted] \CurrentVertex arc (#1+90:#1+90-22:5) ;
 \end{scope}
 }
 \def\printantihadrontrk#1{
 \begin{scope}
-\clipTRK
-\draw [very thick, dotted] (0,0) arc (#1-90:#1-90+22:5) ;
+\clipInTRK
+\draw [very thick, dotted] \CurrentVertex arc (#1-90:#1-90+22:5) ;
 \end{scope}
 }
