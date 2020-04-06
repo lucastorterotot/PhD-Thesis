@@ -27,3 +27,48 @@ quels critères?
 
 \subsection{Saveur des jets}\label{chapter-JERC-section-jets_reco-subsec-flavor}
 b-tagging
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=1.5]
+\input{\PhDthesisdir/tex/Event_displays/macro_defs.tex}
+
+\foreach\jetangle in {120,-145}{
+\printbigjetnolabel{\jetangle}
+\draw (\jetangle:2.5) node {jet} ;
+}
+
+\def\Bjetangle{30}
+\def\Bhaddronangle{5}
+\def\Bhaddronflight{.75}
+
+\def\CurrentVertex{(\Bhaddronangle:\Bhaddronflight)}
+
+\draw [thick, dotted] (0,0) -- \CurrentVertex ;
+
+{
+\def\jetcolor{ltcolorred}
+\printjetnolabel{\Bjetangle}
+\draw [\jetcolor] (\Bjetangle:2)+(1.5,.75) node {traces déplacées};
+}
+\begin{scope}
+\clip circle (\Solenrin);
+\printantimuonnolabel{\Bjetangle}
+\end{scope}
+
+\draw [\muoncolor] (\Bjetangle:4) +(0,{-2*\baselineskip}) node {lepton chargé};
+
+\draw (\Bjetangle:4) + (-.125,-.5) circle (1.125);
+\draw [-latex] (\Bjetangle:4) + (-.125,-1.625) --+ (-.125,-2) node [below] {jet de saveur lourde};
+
+\draw (0,0) node [left] {PV} ;
+\draw \CurrentVertex node [below right] {SV} ;
+
+\fill (0,0) circle (2pt);
+\fill \CurrentVertex circle (2pt);
+
+\draw [dashed] \CurrentVertex --+ (\Bjetangle:-.8);
+
+\draw [red, latex-latex] (0,0)--+ (-90+\Bjetangle:{\Bhaddronflight*sin(\Bjetangle-\Bhaddronangle)}) node [below right] {IP};
+\end{tikzpicture}
+\end{figure}
