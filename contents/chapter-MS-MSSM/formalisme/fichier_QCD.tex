@@ -117,13 +117,19 @@ D'autres techniques sont toutefois utilisées, comme la méthode de QCD sur rés
 \caption{Mesures de $g_s$ en fonction de l'échelle d'énergie $k$ (points) et prédiction théorique (courbe). Le degré des calculs perturbatifs de QCD utilisés pour extraire $g_s$ est indiqué entre parenthèses (NLO: \emph{next-to-leading order}, \ie\ jusqu'à l'ordre suivant le premier degré non nul; NNLO: un ordre de plus que NLO; etc.)~\cite{PDG_booklet_2018}.}
 \label{fig-g_s_fct_energy}
 \end{figure}
-\par Aux hautes énergie, $g_s$ diminue et tend vers zéro selon
+\par La valeur de $g_s$ à une échelle d'énergie $k$ est reliée à la valeur de $g_s$ à une échelle d'énergie $\mu$ par la relation
 \begin{equation}
-g_s (k) = \frac{6\pi}{(33-2n_f)\ln(\frac{k}{\Lambda_\text{QCD}})}
+g_s(k) = \frac{g_s(\mu)}{1+ \frac{11n_c-2n_f}{12\pi} g_s(\mu)\ln(\frac{k^2}{\mu^2})}
+\end{equation}
+avec $n_c$ le nombre de couleurs et $n_f$ le nombre de saveurs de quarks, \ie\ $n_c=3$ et $n_f=6$. Cette relation peut ainsi se réécrire
+\begin{equation}
+g_s (k) =
+\frac{6\pi}{21 \ln(\frac{k}{\Lambda_\text{QCD}})}
 \msep
 \Lambda_\text{QCD} = 218\pm\SI{24}{\MeV}
 \mend[,]
 \end{equation}
-avec $n_f$ le nombre de saveurs de quarks et $\Lambda_\text{QCD}$ l'échelle d'énergie à laquelle $g_s$ diverge.
+avec $\Lambda_\text{QCD}$ l'échelle d'énergie à laquelle $g_s$ diverge.
+Il ressort que $g_s$ décroît lorsque l'échelle d'énergie augmente.
 Cette diminution de $g_s$ aux hautes énergies est la \og liberté asymptotique \fg, régime où les particules colorées ne sont plus confinées et peuvent se propager comme des particules libres. Aux LHC, les énergies de collision permettent d'atteindre ce régime.
 %the coupling decreases logarithmically, a phenomenon known as asymptotic freedom (the discovery of which was awarded with the Nobel Prize in Physics in 2004).
