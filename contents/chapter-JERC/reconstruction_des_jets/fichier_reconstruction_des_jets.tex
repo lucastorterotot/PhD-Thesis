@@ -2,7 +2,11 @@
 
 q,g --> jet dans détecteur
 
+
 \subsection{Algorithmes de reconstruction}\label{chapter-JERC-section-jets_reco-subsec-algo}
+Dans la section~\ref{chapter-JERC-section-jets}, nous avons vu que les radiations de partons sont plus importantes pour de basses énergies (limite infrarouge) ou pour un parton radié colinéaire au parton initial (limite colinéaire).
+Afin de conserver des prédictions de QCD vérifiables sur des jets réels, les algorithmes de reconstruction doivent être insensibles à l'ajout d'une particule de basse énergie ou au partage d'une particule en deux particules d'énergies inférieures. C'est ce que l'on appelle l'insensibilité IRC, pour \emph{InfraRed and Colinear}.
+
 
 anti-\kT
 
@@ -21,6 +25,17 @@ moins sensible aux perturbations dues aux partons spectateurs
 regroupement autour des particules de plus haute énergie en utilisant les écarts angulaires
 
 moins proche de l'évolution du parton shower
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{/home/torterotot/Documents/PhD-Thesis/contents/chapter-JERC/reconstruction_des_jets/forme_des_jets.png}
+\caption{Formes des jets reconstruits à partir de différents algorithmes pour un même événement. En haut à gauche, \kT; en haut à droite, C/A; en bas à gauche, SISCone; en bas à droite, anti-\kT. L'algorithme anti-\kT\ permet d'obtenir des jets de forme régulière, conique.}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=.6\textwidth]{/home/torterotot/Documents/PhD-Thesis/contents/chapter-JERC/reconstruction_des_jets/temps_de_calcul.png}
+\caption{Temps de reconstruction d'un empilement d'un événement di-jets de \SI{50}{\GeV} avec $N$ événements ne produisant que des jets de bas \pT\ pour différents algorithmes de reconstruction des jets.}
+\end{figure}
 
 \subsection{Identification des jets dans CMS}\label{chapter-JERC-section-jets_reco-subsec-jetID}
 quels critères?
