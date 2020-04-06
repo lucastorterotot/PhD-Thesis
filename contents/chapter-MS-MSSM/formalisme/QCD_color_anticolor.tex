@@ -3,9 +3,9 @@
 \def\overlappct{.9}
 \def\Dypct{2.5}
 
-\draw (90:\Dypct*\rcircle) coordinate (r);
-\draw (-150:\Dypct*\rcircle) coordinate (g);
-\draw (-30:\Dypct*\rcircle) coordinate (b);
+\draw (30:\Dypct*\rcircle) coordinate (r);
+\draw (150:\Dypct*\rcircle) coordinate (g);
+\draw (-90:\Dypct*\rcircle) coordinate (b);
 
 \fill [ltcolorred2] (r)+(-\overlappct*\rcircle/2,0) circle (\rcircle);
 \fill [ltcolorgreen2] (g)+(-\overlappct*\rcircle/2,0) circle (\rcircle);
@@ -32,5 +32,7 @@
 %\draw (b)+(\overlappct*\rcircle/2,0) node {antibleu} ;
 %\draw (g)+(\overlappct*\rcircle/2,0) node {antivert} ;
 
-\input{\PhDthesisdir/contents/chapter-MS-MSSM/formalisme/QCD_diagrams_top_bottom.tex}
+\def\rcircle{1.5}
+\def\overlappct{.6}
+\draw (-90:\overlappct*\rcircle)+(0, -\rcircle) coordinate (bottom);
 \end{tikzpicture}

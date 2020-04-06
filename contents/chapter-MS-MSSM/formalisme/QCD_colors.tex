@@ -2,44 +2,43 @@
 \def\rcircle{1.5}
 \def\overlappct{.6}
 
-\fill [ltcolorred2] (90:\overlappct*\rcircle) circle (\rcircle);
-\fill [ltcolorblue2] (90-120:\overlappct*\rcircle) circle (\rcircle);
-\fill [ltcolorgreen2] (90+120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorblue2] (-90:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorred2] (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorgreen2] (-90-120:\overlappct*\rcircle) circle (\rcircle);
 
 \begin{scope}
-\clip (90:\overlappct*\rcircle) circle (\rcircle);
-\clip (90+120:\overlappct*\rcircle) circle (\rcircle);
-\fill [ltcoloryellow2] (90:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90-120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorcyan2] (-90:\overlappct*\rcircle) circle (\rcircle);
 \end{scope}
 
 \begin{scope}
-\clip (90:\overlappct*\rcircle) circle (\rcircle);
-\clip (90-120:\overlappct*\rcircle) circle (\rcircle);
-\fill [ltcolormagenta2] (90:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolormagenta2] (-90:\overlappct*\rcircle) circle (\rcircle);
 \end{scope}
 
 \begin{scope}
-\clip (90-120:\overlappct*\rcircle) circle (\rcircle);
-\clip (90+120:\overlappct*\rcircle) circle (\rcircle);
-\fill [ltcolorcyan2] (90-120:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90-120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcoloryellow2] (-90+120:\overlappct*\rcircle) circle (\rcircle);
 \end{scope}
 
 \begin{scope}
-\clip (90:\overlappct*\rcircle) circle (\rcircle);
-\clip (90-120:\overlappct*\rcircle) circle (\rcircle);
-\clip (90+120:\overlappct*\rcircle) circle (\rcircle);
-\fill [white] (90-120:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90-120:\overlappct*\rcircle) circle (\rcircle);
+\fill [white] (-90+120:\overlappct*\rcircle) circle (\rcircle);
 \end{scope}
 
-\draw (90:\overlappct*\rcircle+.5*\rcircle) node {rouge} ;
-\draw (90-120:\overlappct*\rcircle+.5*\rcircle) node [rotate=60] {bleu} ;
-\draw (90+120:\overlappct*\rcircle+.5*\rcircle) node [rotate=-60] {vert} ;
+\draw (-90:\overlappct*\rcircle+.5*\rcircle) node {bleu} ;
+\draw (-90+120:\overlappct*\rcircle+.5*\rcircle) node [rotate=-60] {rouge} ;
+\draw (-90-120:\overlappct*\rcircle+.5*\rcircle) node [rotate=60] {vert} ;
 
-%\draw (-90:\overlappct*\rcircle+0*\rcircle) node {antirouge} ;
-%\draw (-90-120:\overlappct*\rcircle+0*\rcircle) node [rotate=60] {antibleu} ;
-%\draw (-90+120:\overlappct*\rcircle+0*\rcircle) node [rotate=-60] {antivert} ;
+%\draw (90:\overlappct*\rcircle+0*\rcircle) node {antibleu} ;
+%\draw (90+120:\overlappct*\rcircle+0*\rcircle) node [rotate=-60] {antirouge} ;
+%\draw (90-120:\overlappct*\rcircle+0*\rcircle) node [rotate=60] {antivert} ;
 
 \draw (0,0) node {blanc};
 
-\input{\PhDthesisdir/contents/chapter-MS-MSSM/formalisme/QCD_diagrams_top_bottom.tex}
 \end{tikzpicture}
