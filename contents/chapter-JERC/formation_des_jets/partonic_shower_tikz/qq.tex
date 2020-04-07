@@ -1,0 +1,12 @@
+\def\Lenght{2.5}
+\def\qangle{45}
+\def\antiqangle{\qangle+180}
+
+\clip (-\Lenght,-\Lenght) rectangle (\Lenght,\Lenght) ;
+
+\fill (0,0) circle (2pt);
+\draw (0,0) node [left] {PV} ;
+
+\draw (0,0) --+ (\qangle:\Lenght) node [left] {\quark} ;
+\draw (0,0) --+ (\antiqangle:\Lenght) node [right] {\antiquark} ;
+
