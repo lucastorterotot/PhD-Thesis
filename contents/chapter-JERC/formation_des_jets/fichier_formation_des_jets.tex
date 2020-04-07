@@ -4,7 +4,48 @@ Lorsqu'une particule colorée, \ie\ un quark ou un gluon, est issue de la collis
 \par Au fur et à mesure des radiations, l'échelle en énergie diminue et en deçà d'une centaine de \SI{}{\MeV}, il n'est plus possible de réaliser des calculs perturbatifs car $g_s$ augmente. Des modèles paramétriques sont alors utilisés pour caractériser le phénomène de \og hadronisation \fg, sujet de la section suivante.
 
 \subsection{Gerbe partonique}\label{chapter-JERC-section-jets-subsec-gerbe-partonique}
-\fullcite{Unorthodox_Introduction_QCD}
+%\fullcite{Unorthodox_Introduction_QCD}
+Lorsqu'une particule colorée est issue d'une collision au LHC, elle se trouve dans un premier temps dans le régime de liberté asymptotique. Elle radie alors d'autres particules colorées. Ainsi, pour un événement $\Zboson\to\quark\antiquark$ comme celui de la figure~\ref{subfig-fgraph-Z_q_q} avec deux quarks dans l'état final, il est possible d'obtenir par radiation d'un gluon un état $\quark\antiquark\gluon$ comme ceux illustrés sur les figures~\ref{subfig-fgraph-Z_qg_q} et~\ref{subfig-fgraph-Z_q_qg}, par exemple.
+\begin{figure}[h]
+\centering\vspace{\baselineskip}
+\subcaptionbox{\label{subfig-fgraph-Z_q_q}}[.3\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/gerbe_partonique/fgraph-Z_q_q.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{\label{subfig-fgraph-Z_qg_q}}[.3\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/gerbe_partonique/fgraph-Z_qg_q.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{\label{subfig-fgraph-Z_q_qg}}[.3\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/gerbe_partonique/fgraph-Z_q_qg.tex}\vspace{\baselineskip}}
+\caption{Un boson \Zboson\ se désintègre en paire quark-antiquark. Dans les cas des figures~\ref{subfig-fgraph-Z_qg_q} et~\ref{subfig-fgraph-Z_q_qg}, un gluon supplémentaire est radié.}
+\label{fig-fgraph-Z_q_q_xg}
+\end{figure}
+\par Il est légitime de se demander quelle est la probabilité d'obtenir un état $\quark\antiquark\gluon$ à partir d'un état $\quark\antiquark$.
+Des calculs de section efficace permettent d'obtenir, pour un état initialement à $X$ partons dont un parton $i$ radie un parton $j$,
+\begin{equation}
+\dd{\sigma_{X+j}} \simeq \sigma_{X} \sum_{i\in\set{X}} \frac{g_s}{2\pi} \frac{\dd{\theta^2}}{\theta^2} \dd{z} P_{ij}(z)
+\end{equation}
+où $\theta$ est l'angle entre le parton radié $j$ et le parton radiant $i$. La grandeur $P_{ij}(z)$ est la probabilité qu'un parton de type $i$ radie un parton de type $j$ emportant une fraction $z$ de l'énergie initiale de $i$, qui s'exprime
+\begin{align}
+P_{\quark\quark}(z) &= C_F \frac{1+z^2}{1-z} \msep&
+P_{\quark\gluon}(z) &= C_F \frac{1+(1-z)^2}{z} \mend[,]
+\\
+P_{\gluon\gluon}(z) &= C_A \frac{z^4 + 1 + (1-z)^4}{z(1-z)} \msep&
+P_{\gluon\quark}(z) &= T_R (z^2+(1-z)^2) \mend[,]
+\end{align}
+et $P_{\gluon\antiquark}(z) = P_{\gluon\quark}(z)$,
+avec
+$C_F=\frac{4}{3}$,
+$C_A = 3$ et
+$T_R=\frac{1}{2}$.
+\par La probabilité de radier un parton supplémentaire diverge dans deux cas:
+\begin{itemize}
+\item le parton rayonné a une énergie faible devant celle du parton rayonnant, c'est la limite infrarouge;
+\item l'angle entre le parton rayonné est le parton rayonnant est petit, c'est la limite colinéaire.
+\end{itemize}
+
+Les nouveaux partons ainsi radiés, et les partons initiaux, continuent chacun ce processus jusqu'à ce que le phénomène de confinement de couleur réapparaisse. Nous obtenons alors, pour un parton directement issu de la collision, une gerbe partonique, \ie\ un ensemble collimé de particules colorées. Ce sont ces particules qui, à cause du confinement de couleur, vont participer au phénomène de hadronisation.
+
+\cite{salam2010elements}
 
 \subsection{Hadronisation}\label{chapter-JERC-section-jets-subsec-hadronisation}
 
