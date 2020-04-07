@@ -12,4 +12,19 @@ CMS
 
 \og ce qui suit dans ce manuscrit \fg{} 
 
-unités naturelles $\hbar=c=1$.
+\begin{table}
+\centering
+\def\clumunit{\text{$c$}}
+\def\hbarunit{\text{$\hbar$}}
+\begin{tabularx}{\textwidth}{lYYYl}
+\toprule
+Grandeur & \multicolumn{3}{c}{Dimensions: (\dimM, \dimL, \dimT), ($\hbar$, $c$, \SI{}{\GeV}), ($\hbar=c=1$, \SI{}{\GeV})} & Conversion $\text{SI}\leftrightarrow\text{UN}$\\
+\midrule
+Masse & \dimM & \SI{}{\GeV.\clumunit^{-2}} & \SI{}{\GeV} & $\SI{1}{\kilo\gram} = \SI{5.61e26}{\GeV}$ \\
+Longueur & \dimL & \SI{}{\hbarunit.\clumunit.\GeV^{-1}} & \SI{}{\GeV^{-1}} & $\SI{1}{\meter} = \SI{5.07e15}{\GeV^{-1}}$ \\
+Durée & \dimT & \SI{}{\hbarunit.\GeV^{-1}} & \SI{}{\GeV^{-1}} & $\SI{1}{\second} = \SI{1.52e24}{\GeV^{-1}}$ \\
+Énergie & $\dimM \dimL^2 \dimT^{-2}$ & \SI{}{\GeV} & \SI{}{\GeV} & $\SI{1}{\joule} = \frac{\num{e-3}}{\num{1.6e-19}} \usp \SI{}{\GeV}$\\
+Impulsion & $\dimM \dimL \dimT^{-1}$ & \SI{}{\GeV.\clumunit^{-1}} & \SI{}{\GeV} & $\SI{1}{\kilo\gram.\meter.\second^{-1}} = \SI{1.87e18}{\GeV}$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
