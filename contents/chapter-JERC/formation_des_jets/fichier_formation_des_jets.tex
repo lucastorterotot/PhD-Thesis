@@ -20,7 +20,7 @@ Lorsqu'une particule colorée est issue d'une collision au LHC, elle se trouve d
 \label{fig-fgraph-Z_q_q_xg}
 \end{figure}
 \par Il est légitime de se demander quelle est la probabilité d'obtenir un état $\quark\antiquark\gluon$ à partir d'un état $\quark\antiquark$.
-Des calculs de section efficace permettent d'obtenir, pour un état initialement à $X$ partons dont un parton $i$ radie un parton $j$,
+Des calculs de section efficace permettent d'obtenir~\cite{salam2010elements}, pour un état initialement à $X$ partons dont un parton $i$ radie un parton $j$,
 \begin{equation}
 \dd{\sigma_{X+j}} \simeq \sigma_{X} \sum_{i\in\set{X}} \frac{g_s}{2\pi} \frac{\dd{\theta^2}}{\theta^2} \dd{z} P_{ij}(z)
 \end{equation}
@@ -37,41 +37,40 @@ avec
 $C_F=\frac{4}{3}$,
 $C_A = 3$ et
 $T_R=\frac{1}{2}$.
-\par La probabilité de radier un parton supplémentaire diverge dans deux cas:
+La probabilité de radier un parton supplémentaire diverge dans deux cas:
 \begin{itemize}
 \item le parton rayonné a une énergie faible devant celle du parton rayonnant, c'est la limite infrarouge;
 \item l'angle entre le parton rayonné est le parton rayonnant est petit, c'est la limite colinéaire.
 \end{itemize}
-
-Les nouveaux partons ainsi radiés, et les partons initiaux, continuent chacun ce processus jusqu'à ce que le phénomène de confinement de couleur réapparaisse. Nous obtenons alors, pour un parton directement issu de la collision, une gerbe partonique, \ie\ un ensemble collimé de particules colorées. Ce sont ces particules qui, à cause du confinement de couleur, vont participer au phénomène de hadronisation.
-
-\cite{salam2010elements}
-
+\par Les nouveaux partons ainsi radiés, et les partons initiaux, continuent chacun ce processus jusqu'à ce que le phénomène de confinement de couleur réapparaisse. Nous obtenons alors, pour un parton directement issu de la collision, une gerbe partonique, \ie\ un ensemble collimé de particules colorées, ce qui est illustré sur la figure~\ref{fig-parton_shower}.
+Ce sont ces particules qui vont participer au phénomène de hadronisation dû au confinement de couleur.
 \begin{figure}[h]
 \centering
-\subcaptionbox{}[.32\textwidth]
+\subcaptionbox{Deux quarks sont initialement produits, ce qui correspond au diagramme de la figure~\ref{subfig-fgraph-Z_q_q}.\label{subfig-parton_shower-qq}}[.32\textwidth]
 {\begin{tikzpicture}
 \input{\PhDthesisdir/contents/chapter-JERC/formation_des_jets/partonic_shower_tikz/qq.tex}
 \end{tikzpicture}}
 \hfill
-\subcaptionbox{}[.32\textwidth]
+\subcaptionbox{Un des quarks peut radier un gluon, ce qui correspond au diagramme de la figure~\ref{subfig-fgraph-Z_q_qg}.\label{subfig-parton_shower-qqg}}[.32\textwidth]
 {\begin{tikzpicture}
 \input{\PhDthesisdir/contents/chapter-JERC/formation_des_jets/partonic_shower_tikz/qq.tex}
 \input{\PhDthesisdir/contents/chapter-JERC/formation_des_jets/partonic_shower_tikz/qqg.tex}
 \end{tikzpicture}}
 \hfill
-\subcaptionbox{}[.32\textwidth]
+\subcaptionbox{Le processus est réitéré, donnant un ensemble de particules colorées.\label{subfig-parton_shower-qqNg}}[.32\textwidth]
 {\begin{tikzpicture}
 \input{\PhDthesisdir/contents/chapter-JERC/formation_des_jets/partonic_shower_tikz/qq.tex}
 \input{\PhDthesisdir/contents/chapter-JERC/formation_des_jets/partonic_shower_tikz/qqg.tex}
 \input{\PhDthesisdir/contents/chapter-JERC/formation_des_jets/partonic_shower_tikz/qqNg.tex}
 \end{tikzpicture}}
 
-\caption{•}
-
+\caption{Illustration de la formation de deux gerbes partoniques à partir d'une paire de quarks.}
+\label{fig-parton_shower}
 \end{figure}
 
 \subsection{Hadronisation}\label{chapter-JERC-section-jets-subsec-hadronisation}
+
+% \PhDthesisdir/tex/Feynman_diagrams/QCD/fgraph-QCD_clustering_fragmentation.tex
 
 cordes de Lund\footcite{Andersson_parton_fragmentation}
 
