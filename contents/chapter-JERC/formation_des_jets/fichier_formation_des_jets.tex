@@ -42,6 +42,7 @@ La probabilité de radier un parton supplémentaire diverge dans deux cas:
 \item le parton radié a une énergie faible devant celle du parton radiant, c'est la limite infrarouge;
 \item l'angle entre le parton radié et le parton radiant est petit, c'est la limite colinéaire.
 \end{itemize}
+% Hugues: ces radiations augmentent fortement le nombre de quarks et de gluons dans l’événement et nous le verrons par la suite (partie 3.3.1) nécessite un traitement particulier pour garantir une desciption expérimentale cohé- rente avec l’événement dur.
 \par Les nouveaux partons ainsi radiés, et les partons initiaux, continuent chacun ce processus jusqu'à ce que le phénomène de confinement de couleur réapparaisse. Nous obtenons alors, pour un parton directement issu de la collision, une gerbe partonique, \ie\ un ensemble collimé de particules colorées, ce qui est illustré sur la figure~\ref{fig-parton_shower}.
 Ce sont ces particules qui vont participer au phénomène de hadronisation dû au confinement de couleur.
 \begin{figure}[h]
@@ -69,9 +70,52 @@ Ce sont ces particules qui vont participer au phénomène de hadronisation dû a
 \end{figure}
 
 \subsection{Hadronisation}\label{chapter-JERC-section-jets-subsec-hadronisation}
+Lorsque des particules colorées radient d'autres particules colorées, la conservation de l'énergie implique que chaque particule, individuellement, perd de l'énergie.
+Dans le chapitre~\ifref{chapter-MS-MSSM}{\ref{chapter-MS-MSSM}}{sur le modèle standard}, nous avons vu que $g_s$ augmente lorsque l'échelle d'énergie diminue. 
+Lorsque l'échelle d'énergie passe en-deçà de quelques centaines de \SI{}{\MeV}, $g_s$ diverge.
+Le phénomène de confinement de couleur réapparaît et la gerbe partonique, constituée de particules colorées, subit le phénomène de hadronisation et produit un flux collimé de hadrons, particules de charge de couleur nulle composées de particules colorées.
+Certains de ces hadrons peuvent comporter des quarks des deuxième ou troisième génération. Ils sont alors instables et peuvent être amenés à se désintégrer, auquel cas ce sont leurs produits de désintégration qui sont observés dans le détecteur.
+\par Le phénomène de hadronisation ayant lieu lorsque $g_s\gg1$, il n'est pas possible de réaliser des calculs perturbatifs. Afin de décrire ce phénomène, il faut donc avoir recours à des modèles paramétriques. Nous en décrivons ici deux, le modèle des cordes de Lund~\cite{Andersson_parton_fragmentation} et le modèle d'agglomération hadronique~\cite{Winter_2004}.
+\subsubsection{Modèle des cordes de Lund}\label{chapter-JERC-section-jets-subsec-hadronisation-subsubsec-Lund}
+Dans le modèle des cordes de Lund~\cite{Andersson_parton_fragmentation}, les quarks sont reliés en paires $\quark\antiquark$ par des \og cordes \fg{} de couleur, de tension $\kappa \simeq \SI{1}{\GeV.\femto\meter^{-1}}$, comme sur la figure~\ref{subfig-Lund2}. Les gluons sont décrits comme des nœuds des cordes de couleur.
+\begin{figure}[h]
+\centering
+\subcaptionbox{Les deux quarks issus de la collision se séparent à grande vitesse.\label{subfig-Lund1}}[.3\textwidth]
+{\input{\PhDthesisdir/contents/chapter-JERC/formation_des_jets/Lund_tikz/Lund_1.tex}}
+\hfill
+\subcaptionbox{Une \og corde \fg{} de flux de couleur se forme entre les deux quarks.\label{subfig-Lund2}}[.3\textwidth]
+{\input{\PhDthesisdir/contents/chapter-JERC/formation_des_jets/Lund_tikz/Lund_2.tex}}
+\hfill
+\subcaptionbox{L'énergie potentielle de la corde est suffisamment grande pour former de nouvelles paires de quarks.\label{subfig-Lund3}}[.3\textwidth]
+{\input{\PhDthesisdir/contents/chapter-JERC/formation_des_jets/Lund_tikz/Lund_3.tex}}
 
-% \PhDthesisdir/tex/Feynman_diagrams/QCD/fgraph-QCD_clustering_fragmentation.tex
+\vspace{\baselineskip}
 
-cordes de Lund\footcite{Andersson_parton_fragmentation}
+\subcaptionbox{Le processus se répète tant qu'il y a suffisamment d'énergie pour générer une paire de quarks.\label{subfig-Lund4}}[.4\textwidth]
+{\input{\PhDthesisdir/contents/chapter-JERC/formation_des_jets/Lund_tikz/Lund_4.tex}}
+\qquad\qquad
+\subcaptionbox{Des hadrons non colorés sont formés se forment à partir des quarks de basse énergie.\label{subfig-Lund5}}[.4\textwidth]
+{\input{\PhDthesisdir/contents/chapter-JERC/formation_des_jets/Lund_tikz/Lund_5.tex}}
 
-agglomération hadronique\footcite{Winter_2004}
+\caption{Processus de formation de deux jets dans le cadre du modèle des cordes de Lund.}
+\label{fig-Lund}
+\end{figure}
+\par Lorsque deux charges colorées s'éloignent, l'énergie potentielle augmente.
+Une fois que l'énergie potentielle est suffisamment grande, une nouvelle paire $\quark'\antiquark'$ est créée (fig.~\ref{subfig-Lund3}), avec une probabilité proportionnelle à $\exp(-\frac{\pi}{\kappa} m_{\quark'})$; la probabilité d'obtenir des quarks lourds par ce processus est donc très faible.
+Le partage de l'énergie entre les paires de quarks est régie par une fonction de partition dont les paramètres sont estimés expérimentalement.
+
+\subsubsection{Modèle d'agglomération hadronique}\label{chapter-JERC-section-jets-subsec-hadronisation-subsubsec-agglo_hadronique}
+\begin{wrapfigure}{R}{8cm}
+\centering
+\input{\PhDthesisdir/tex/Feynman_diagrams/QCD/fgraph-QCD_clustering_fragmentation.tex}
+\caption{Schématisation de l'hadronisation dans le cadre du modèle d'agglomération hadronique.}
+\label{fig-agglo_hadronique}
+\end{wrapfigure}
+Le modèle d'agglomération hadronique~\cite{Winter_2004} repose sur l'hypothèse de conservation des nombres quantiques ainsi que de l'énergie-impulsion enter les partons issus de la gerbe hadronique et les hadrons obtenus après hadronisation.
+\par Dans un premier temps, les gluons de la gerbe partonique se désintègrent en paires $\quark\antiquark$. Les partons, uniquement des quarks donc, se rassemblent dans un second temps en agglomérats de charge de couleur nulle, c'est le \emph{pré-confinement}.
+Deux cas de figurent se présentent alors:
+\begin{itemize}
+\item la masse de l'agrégat est proche de celle d'un hadron, l'agrégat produit ce hadron;
+\item la masse de l'agrégat n'est pas proche de celle d'un hadron et son énergie est supérieure à un seuil $Q_0$, cet agrégat se désintègre en agrégats plus petits et forme plusieurs hadrons.
+\end{itemize}
+Ce processus est illustré sur la figure~\ref{fig-agglo_hadronique}.
