@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+\draw (-1.05,0) node (q1) {} ;
+\draw (+1.05,0) node (q2) {} ;
+
+
+\draw (-.25,0) node (q3) {} ;
+\draw (+.25,0) node (q4) {} ;
+
+\foreach \qa/\qb in {
+q1/q3,%
+q4/q2%
+}{
+\foreach \Dangle in {-15,0,15}{
+\draw [thick, ltcolormagenta] (\qa) to  [in=180-\Dangle, out=\Dangle] (\qb);
+}
+}
+
+\draw [black, fill=ltcolorred3] (q1) circle (3pt);
+\draw [black, fill=ltcolorcyan3] (q2) circle (3pt);
+\draw [black, fill=ltcoloryellow3] (q3) circle (3pt);
+\draw [black, fill=ltcolorblue3] (q4) circle (3pt);
+
+\draw [very thick, -latex] (q1) --+ (-.75,0);
+\draw [very thick, -latex] (q2) --+ (+.75,0);
+
+\draw (q1) node [above] {\quark};
+\draw (q2) node [above] {\antiquark};
+\draw (q3) node [above] {$\antiquark'$};
+\draw (q4) node [above] {$\quark'$};
+\end{tikzpicture}

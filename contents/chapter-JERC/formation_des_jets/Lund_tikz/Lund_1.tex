@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+\draw (-.15,0) node (q1) {} ;
+\draw (+.15,0) node (q2) {} ;
+
+\draw [black, fill=ltcolorred3] (q1) circle (3pt);
+\draw [black, fill=ltcolorcyan3] (q2) circle (3pt);
+
+\draw [very thick, -latex] (q1) --+ (-.75,0);
+\draw [very thick, -latex] (q2) --+ (+.75,0);
+
+\draw (q1) node [above] {\quark};
+\draw (q2) node [above] {\antiquark};
+\end{tikzpicture}
