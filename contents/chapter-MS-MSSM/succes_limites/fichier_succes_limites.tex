@@ -5,22 +5,19 @@ Ses succès sont nombreux, notamment de par son pouvoir prédictif.
 L'existence de bosons massifs \Wboson\ et \Zboson\ est ainsi prédite dès la fin des années 60~\cite{Weinberg_leptons_model}, leur observation est réalisée en 1983~\cite{Wboson_discovery1,Wboson_discovery2,Zboson_discovery1,Zboson_discovery2,Wboson_discovery3}.
 De même, le quark top prédit en 1973~\cite{CKM_KM} est observé 22~ans plus tard~\cite{top_discovery1,top_discovery2}.
 Dernier tour de force en date, le boson de Higgs, prédit en 1964~\cite{Englert_Brout,Higgs_1,Higgs_2,Guralnik_Hagen_Kibble} et observé en 2012~\cite{ATLAS_Higgs_discovery,CMS_Higgs_discovery}.
-
-
+\par Le lagrangien du modèle standard s'écrit à ce jour sous la forme
 \begin{equation}
 \Lcal_{SM} = 
-\im \bar{\psi} \slashed{D} \psi
-- \frac{1}{4} \mathcal{F}_{\mu\nu}\mathcal{F}^{\mu\nu}
-+ (D^\mu\phi)^\dagger(D_\mu\phi) - V(\phi)
-+ y \bar{\psi}\phi\psi + \text{h.c.}
+\underbrace{- \frac{1}{4} \mathcal{F}_{\mu\nu}\mathcal{F}^{\mu\nu} \vphantom{\frac{1}{4}}}_{\substack{\text{bosons vecteurs\vphantom{YHg}}\\\text{libres\vphantom{(lHg)}}}}
++ \underbrace{\im \bar{\psi} \slashed{D} \psi \vphantom{\frac{1}{4}}}_{\substack{\text{fermions et\vphantom{YHg}}\\\text{interactions\vphantom{(lHg)}}}}
++ \underbrace{(D^\mu\phi)^\dagger(D_\mu\phi) - V(\phi) \vphantom{\frac{1}{4}}}_{\substack{\text{boson de Higgs et\vphantom{YHg}}\\\text{interactions avec les autres bosons\vphantom{(lHg)}}}}
++ \underbrace{(y \bar{\psi}\phi\psi + \text{h.c.}) \vphantom{\frac{1}{4}}}_{\substack{\text{termes de Yukawa\vphantom{YHg}}\\\text{(interactions fermions-Higgs)\vphantom{(lHg)}}}}
 \end{equation}
-où
+où \og $\text{h.c.}$ \fg{} signifie conjugué hermitien et
 \begin{align}
-\slashed{D} &= \gamma^\mu D_\mu
-\mend[,]\\
-D &= \left[ \partial_\mu - \im g_I I \bm{\tau}\cdot\bm{W}_\mu - \im g_Y \frac{Y}{2} B_\mu - \im g_s \frac{C}{2} \bm{\lambda}\cdot\bm{G}_\mu \right]
-\mend[,]\\
 \mathcal{F}_{\mu\nu}\mathcal{F}^{\mu\nu} &= \bm{G}_{\mu\nu} \cdot \bm{G}^{\mu\nu} + \bm{W}_{\mu\nu} \cdot \bm{W}^{\mu\nu} + F^{(B)}_{\mu\nu} F^{(B)\mu\nu}
+\mend[,]\\
+\slashed{D} = \gamma^\mu D_\mu &= \gamma^\mu \left[ \partial_\mu - \im g_I I \bm{\tau}\cdot\bm{W}_\mu - \im g_Y \frac{Y}{2} B_\mu - \im g_s \frac{C}{2} \bm{\lambda}\cdot\bm{G}_\mu \right]
 \mend[,]\\
 V(\phi) &= \mu^2\phi^\dagger\phi + \frac{\lambda^2}{2} (\phi^\dagger\phi)^2
 \mend
