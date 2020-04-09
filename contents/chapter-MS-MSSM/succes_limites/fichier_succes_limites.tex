@@ -23,10 +23,46 @@ où \og $\text{h.c.}$ \fg{} signifie conjugué hermitien et
 V(\phi) &= \mu^2\phi^\dagger\phi + \frac{\lambda^2}{2} (\phi^\dagger\phi)^2
 \mend
 \end{align}
-
 \subsection{Limites}\label{chapter-MS-MSSM-section-succes_limites-subsec-limites}
+La plupart des phénomènes connus sont parfaitement décrits par le modèle standard et son formalisme, mais ils ne le sont pas tous.
+En effet, certaines observations présentées de manière non exhaustive ci-après laissent à penser que le modèle standard est une théorie effective à basse énergie et qu'il existe une théorie plus fondamentale au-delà à même de pouvoir les expliquer.
+% Direct lacks of the model
+\paragraph{Nombre de générations}
+Le modèle standard ne permet pas de prédire le nombre de générations, aujourd'hui égal à trois.
+Ainsi, il est tout à fait possible qu'il existe une quatrième génération de fermions (quarks $\quarkt'$ et $\quarkb'$, leptons $\tau'$ et $\nutau'$).
+Seule contrainte connue à ce jour, les mesures sur la largeur du \Zboson\ impliquent que seulement trois générations peuvent présenter des neutrinos de masse inférieure à $\frac{1}{2} m_{\Zboson}$~\cite{light_neutrino_number}.
+Il faudrait ainsi nécessairement $\nutau' > \frac{1}{2} m_{\Zboson}$.
+Mesurer avec précision les paramètres de la matrice CKM permet de tester la présence d'une génération supplémentaire de fermions, cette matrice devant être unitaire.
+\paragraph{Masse des neutrinos}
+Dans le lagrangien du modèle standard~\eqref{eq-SM_lagrangian}, les neutrinos ne possèdent pas de masse.
+Or, des oscillations entre saveurs de neutrinos ont été observées~\cite{neutrino_oscillations_1,neutrino_oscillations_2}.
+Ces oscillations impliquent d'une part que les neutrinos possèdent une masse, et d'autre part que les états propres de l'interaction faible ne sont pas les états propres de masse des neutrinos.
+\par Introduire une masse aux neutrinos demande d'introduire des neutrinos de chiralité droite, non présents dans le modèle standard.
+Des telles particules, par construction, n'interagissent ni par interaction forte (pas de charge de couleur), ni par interaction électromagnétique (pas de charge électrique), ni par interaction faible (particules de chiralité droite).
+Plusieurs hypothèses, comme le mécanisme de Seesaw~\cite{neutrino_masses_1,neutrino_masses_2,neutrino_masses_3,neutrino_masses_4,neutrino_masses_5}, sont avancées afin de décrire de tels neutrinos stériles.
+Il n'existe à ce jour aucun résultat expérimental permettant de conclure sur la validité de ces hypothèses.
+\par Les états propres de l'interaction faible des neutrinos peuvent être reliés à leurs états propres de masse à l'aide de la matrice \emph{PMNS}~\cite{PMNS_MNS}, pour Pontecorvo, Maki, Nakagawa et Sakata, analogue à la matrice CKM\footnote{La matrice CKM, introduite dans la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW-quarks}, relie les états propres de l'interaction faible aux états propres de masse des quarks.}.
+Dans ce cas,
+\begin{equation}
+\begin{pmatrix}
+\nuele \\ \numu \\ \nutau
+\end{pmatrix}
+=
+\begin{pmatrix}
+U_{\ele 1} & U_{\mu 2} & U_{\tau 3} \\
+U_{\ele 1} & U_{\mu 2} & U_{\tau 3} \\
+U_{\ele 1} & U_{\mu 2} & U_{\tau 3} \\
+\end{pmatrix}
+\begin{pmatrix}
+\neutrino_1 \\ \neutrino_2 \\ \neutrino_3
+\end{pmatrix}
+\mend[,]
+\end{equation}
+où $\nuele$, $\numu$ et $\nutau$ sont les états propres de l'interaction faible et $\neutrino_1$, $\neutrino_2$ et $\neutrino_3$ ceux de masse.
 % Issues just with this model in this state
 \paragraph{Nombre de paramètres libres}
+Le modèle standard tel que décrit dans la section~\ref{chapter-MS-MSSM-section-formalisme} comporte 19 paramètres libres, listés dans le tableau~\ref{tab-19_free_SM_parameters}.
+Une théorie comportant moins de paramètres libres propose plus de prédictions, sur la masse des particules par exemple, ce qui permet de réaliser plus de comparaisons aux données expérimentales.
 \begin{table}[h]
 \centering
 \begin{tabular}{lcrl}
@@ -57,20 +93,33 @@ Masse du boson de Higgs & $m_{\higgs}$ & $\num{125.18}\pm\num{0.16}$ & \SI{}{\Ge
 \caption{Valeurs expérimentales des 19 paramètres libres du modèle standard~\cite{PDG_booklet_2018}.}
 \label{tab-19_free_SM_parameters}
 \end{table}
-
-\emph{It is interesting to note that 15 out of the 19 (the 9 Yukawa fermion mass terms, the Higgs mass, the Higgs potential v.e.v., and the four CKM values) are related to the Higgs boson. In other words, most of our ignorance in the Standard Model is related to the Higgs.}
-
-\emph{the canonical form of the Standard Model includes massless neutrinos. We know that neutrinos must have mass, and also that they oscillate (turn into one another), which means that their mass eigenstates do not coincide with their eigenstates with respect to the weak interaction. Thus, another mixing matrix must be involved, which is called the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix. So we end up with three neutrino masses $m_1$, $m_2$ and $m_3$, and the three angles $\theta_{12}$, $\theta_{23}$ and $\theta_{13}$ (not to be confused with the CKM angles above) plus the CP-violating phase $\delta_{\text{PMNS}}$ of the PMNS matrix.}
-
-\emph{So this is potentially as many as 26 parameters in the Standard Model that need to be determined by experiment. This is quite a long way away from the “holy grail” of theoretical physics, a theory that combines all four interactions, all the particle content, and which preferably has no free parameters whatsoever. Nonetheless the theory, and the level of our understanding of Nature’s fundamental building blocks that it represents, is a remarkable intellectual achievement of our era.}
+Parmi ces 19 paramètres libres, 15\footnote{Ces 15 paramètres sont les masses des 6 quarks et des 3 leptons chargés, la masse du Higgs, son condensat dans le vide et les quatre paramètres de la matrice CKM.} sont reliés au boson de Higgs. C'est pourquoi l'étude du boson de Higgs est un enjeu majeur en physique des particules.
+\par Notons également que l'introduction de neutrinos massifs, précédemment évoquée, apporte trois nouveaux paramètres libre, les masses des trois neutrinos. De plus, la matrice PMNS permettant de décrire leurs oscillation demande quatre paramètres libres, analogues aux quatre paramètres reliés à la matrice CKM dans le tableau~\ref{tab-19_free_SM_parameters}. Il y a donc potentiellement 26 paramètres libres pour un modèle standard incluant les neutrinos massifs.
 \paragraph{Ajustement fin}
-% Direct lacks of the model
-\paragraph{Nombre de générations}
-\paragraph{Masse des neutrinos}and right-handed neutrinos
+Le calcul de la masse du boson de Higgs demande d'introduire des diagrammes de Feynman avec des boucles, comme celui de la figure~\ref{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_fermion}.
+\begin{figure}[b]
+\centering
+\subcaptionbox{Diagramme à contribution positive.\label{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_fermion}}[.4\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/for_SUSY/Higgs_loop_fermion.tex}}
+\qquad\qquad
+\subcaptionbox{Diagramme à contribution négative.\label{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_boson}}[.4\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/for_SUSY/Higgs_loop_sfermion.tex}}
+
+\caption{Diagrammes de Feynman à boucle inclus dans le calcul de la masse du boson de Higgs}
+\label{fig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loops}
+\end{figure}
+De tels diagrammes introduisent des divergences, qu'il est possible d'absorber à l'aide d'une renormalisation.
+Dans ce cas, la masse effective du boson de Higgs $m_{\higgs}$ s'exprime à partir de la masse \og nue \fg{} $m_{\higgs 0}$ à laquelle sont apportées des corrections.
+Le modèle standard étant considéré comme valide jusqu'à une échelle d'énergie $\Lambda_c$, la masse du Higgs peut s'exprimer
+\begin{equation}
+m_{\higgs}^2 = m_{\higgs 0}^2 - \frac{\lambda_{\fermion}^2}{8\pi^2} \Lambda_c^2 + \ldots
+\end{equation}
+où $\lambda_{\fermion}$ est la constante de couplage de Yukawa avec les fermions.
+L'observation du boson de Higgs avec une masse effective de $\num{125.18}\pm\num{0.16}\usp\SI{}{\GeV}$ implique que les paramètres $ m_{\higgs 0}$ et $\lambda_{\fermion}$ soient ajustés jusqu'à la 32\up{e} décimale, ce qui semble peu naturel.
 % Beyond, gravity
 \paragraph{Gravitation}
 \paragraph{Matière noire}
-bullet cluster!\cite{Clowe_2006}
+bullet cluster!\cite{Clowe_2006}not described/predicted in the SM
 \paragraph{Énergie noire}
 % Just why are we here?!
 \paragraph{Asymétrie matière-antimatière}
