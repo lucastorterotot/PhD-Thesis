@@ -68,14 +68,17 @@ Cet algorithme propose un regroupement des particules moins fidèle à la gerbe 
 \caption{Formes des jets reconstruits à partir de différents algorithmes pour un même événement. En haut à gauche, \kT; en haut à droite, C/A; en bas à gauche, \textsc{SISCone}; en bas à droite, anti-\kT. L'algorithme anti-\kT\ permet d'obtenir des jets de forme régulière, conique.}
 \label{fig-chapter-JERC-section-jets_reco-subsec-algo-examples}
 \end{figure}
-
-
-\begin{figure}
+\par Le temps de calcul de ces algorithmes est un enjeu majeur au LHC.
+Leurs temps d'exécution sont représentés en fonction du nombre d'événements d'empilement sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-algo-perfs}.
+L'algorithme anti-\kT\ se place parmi les algorithmes les plus rapides.
+Dans les conditions des collisions proton-proton du LHC, il permet le traitement d'un événement en moins d'une milliseconde.
+C'est cet algorithme de regroupement qui est utilisé dans le cadre de l'expérience CMS.
+\begin{figure}[h]
 \centering
 \includegraphics[width=.6\textwidth]{\PhDthesisdir/contents/chapter-JERC/reconstruction_des_jets/temps_de_calcul.png}
 \caption{Temps de reconstruction d'un empilement d'un événement di-jets avec $N$ événements ne produisant que des jets de bas \pT\ pour différents algorithmes de reconstruction des jets.} % 50 GeV
+\label{fig-chapter-JERC-section-jets_reco-subsec-algo-perfs}
 \end{figure}
-
 \subsection{Identification des jets dans CMS}\label{chapter-JERC-section-jets_reco-subsec-jetID}
 quels critères?
 
