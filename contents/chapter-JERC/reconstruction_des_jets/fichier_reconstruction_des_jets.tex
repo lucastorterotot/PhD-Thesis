@@ -80,9 +80,36 @@ C'est cet algorithme de regroupement qui est utilisé dans le cadre de l'expéri
 \label{fig-chapter-JERC-section-jets_reco-subsec-algo-perfs}
 \end{figure}
 \subsection{Identification des jets dans CMS}\label{chapter-JERC-section-jets_reco-subsec-jetID}
-quels critères?
-\todo{find twiki to get criteria for 2017}
-
+Les jets ainsi reconstruits à l'aide des algorithmes de recombinaison sont en fait des \og candidats \fg{} jets.
+À l'instar des particules individuelles, des critères d'identification leur sont appliqués afin de rejeter le bruit de fond et s'assurer de la qualité des jets ainsi reconstruits.
+\par Ces critères reposent sur les caractéristiques des candidats jets comme la fraction d'énergie provenant de leurs constituants neutres ou encore le nombre de ces constituants.
+Ces critères dépendent des années de prise de données et de la pseudo-rapidité du jet, \ie\ de la région du détecteur dans laquelle il se trouve.
+\par Les critères utilisés pour les années 2016, 2017 et 2018, listés page~\pageref{tab-chapter-JERC-section-jets_reco-subsec-jetID-2017UL}, permettent d'obtenir une efficacité d'identification des jets supérieure à \SI{99}{\%} dans chacune des régions en $\eta$ du détecteur.
+La réjection du bruit de fond est supérieure à \SI{98}{\%} pour $\abs{\eta}\leq\num{3.0}$ et supérieure à \SI{36}{\%} pour $\abs{\eta}>\num{3.0}$.
+\begin{table}[p]
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/contents/chapter-JERC/reconstruction_des_jets/JetIDs/2016.tex}
+\caption{Critères d'identification des jets à CMS pour l'analyse des données de 2016.}
+\label{tab-chapter-JERC-section-jets_reco-subsec-jetID-2016}
+\end{table}
+\begin{table}[p]
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/contents/chapter-JERC/reconstruction_des_jets/JetIDs/2017.tex}
+\caption{Critères d'identification des jets à CMS pour l'analyse des données de 2017.}
+\label{tab-chapter-JERC-section-jets_reco-subsec-jetID-2017}
+\end{table}
+\begin{table}[p]
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/contents/chapter-JERC/reconstruction_des_jets/JetIDs/2018.tex}
+\caption{Critères d'identification des jets à CMS pour l'analyse des données de 2018.}
+\label{tab-chapter-JERC-section-jets_reco-subsec-jetID-2018}
+\end{table}
+\begin{table}[p]
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/contents/chapter-JERC/reconstruction_des_jets/JetIDs/2017UL.tex}
+\caption{Critères d'identification des jets à CMS pour l'analyse des données de 2017-UL.}
+\label{tab-chapter-JERC-section-jets_reco-subsec-jetID-2017UL}
+\end{table}
 \subsection{Saveur des jets}\label{chapter-JERC-section-jets_reco-subsec-flavor}
 b-tagging
 
