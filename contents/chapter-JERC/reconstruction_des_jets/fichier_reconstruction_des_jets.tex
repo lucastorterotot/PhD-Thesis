@@ -211,7 +211,7 @@ Les hadrons contenant un quark \quarkc\ ont ainsi une durée de vie $\tau$ de in
 Dans tous les cas, les traces des particules chargées observées proviennent du PV, lieu de formation du quark initial.
 Le phénomène décrit précédemment pour les quarks \quarkb\ et \quarkc\ n'est donc pas observable.
 Les jets issus de ces trois types de quarks, les plus légers, sont ainsi regroupés sous la dénomination de \og jets légers \fg.
-\subsubsection{Algorithmes d'identification de la saveur des jets}
+\subsubsection{Identification de la saveur des jets}
 Les jets présentent ainsi des propriétés caractéristiques, selon qu'il s'agisse:
 \begin{itemize}
 \item d'un jet léger, issu d'un quark \quarkd, \quarku\ ou \quarks;
@@ -222,11 +222,53 @@ Les jets présentent ainsi des propriétés caractéristiques, selon qu'il s'agi
 \end{itemize}
 \item d'un jet issu d'un gluon (\gluon): le jet est moins collimé qu'avec un quark.
 \end{itemize}
+En utilisant ces propriétés, des algorithmes d'identification de la saveur des jets ont été mis au point par la collaboration CMS~\cite{jet_btag_CSV_RunI}.
+Les avancées récentes dans le domaine du \emph{Deep Learning}, appliquées à l'identification des jets~\cite{jet_flavor_deep_nn}, ont permis l'amélioration de ces algorithmes. L'algorithme \DeepCSV~\cite{Sirunyan_heavy_flavor_jets_2018} a ainsi été développé.
+\par Les variables utilisées dans cet algorithme sont décrites dans la référence~\cite{Sirunyan_heavy_flavor_jets_2018}.
+Elles sont traitées par un réseau de neurones profond de quatre couches cachées de 100 nœuds connectés les uns aux autres.
+Ce réseau est entraîné sur un ensemble d'événements simulés $\quarkt\antiquarkt$, présentant de nombreux jets de quarks \quarkb, et multi-jets à l'aide des librairies
+\KERAS~\cite{keras}
+et
+\TENSORFLOW~\cite{tensorflow}.
+\par Les performances ainsi obtenues pour l'algorithme \DeepCSV\ peuvent sont comparées à d'autres algorithme d'identification de la saveur des jets sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-flavor-bc_tag_roc_curves}.
+Les algorithmes \textsc{cMVAv2} et \DeepCSV\ présentent les meilleures performances en termes d'identification des jets de quark~\quarb.
+Pour le traitement des jets de quark~\quarkc, l'algorithme \DeepCSV\ propose les meilleures performances.
+Dans les analyses présentées dans ce chapitre et le chapitre\ifref{chapter-HTT_analysis}{~\ref{chapter-HTT_analysis}}{~5}, c'est cet algorithme qui est utilisé afin d'identifier les jets issus de quarks~\quarc\ ou~\quarkb.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Probabilité de mauvaise identification en tant que jet de quark~\quarkb\ de jets de gluon ou quarks légers (traits pleins) ou de jets de quark~\quarkc\ (pointillés) en fonction de l'efficacité d'identification des jets de quark~\quarkb.\label{subfig-chapter-JERC-section-jets_reco-subsec-flavor-b_or_mis}}[.75\textwidth]
+{\includegraphics[width=.45\linewidth]{\PhDthesisdir/contents/chapter-JERC/reconstruction_des_jets/Btag_roc_curves/b_or_mis.png}}
+
+\vspace{\baselineskip}
+
+\subcaptionbox{Probabilité de mauvaise identification en tant que jet de quark~\quarkc\ de jets de gluon ou quarks légers en fonction de l'efficacité d'identification des jets de quark~\quarkc.\label{subfig-chapter-JERC-section-jets_reco-subsec-flavor-c_or_mis}}[.45\textwidth]
+{\includegraphics[width=.45\linewidth]{\PhDthesisdir/contents/chapter-JERC/reconstruction_des_jets/Btag_roc_curves/c_or_mis.png}}
+\hfill
+\subcaptionbox{Probabilité de mauvaise identification en tant que jet de quark~\quarkb\ de jets de quark~\quarkc en fonction de l'efficacité d'identification des jets de quark~\quarkc.\label{subfig-chapter-JERC-section-jets_reco-subsec-flavor-c_or_b}}[.45\textwidth]
+{\includegraphics[width=.45\linewidth]{\PhDthesisdir/contents/chapter-JERC/reconstruction_des_jets/Btag_roc_curves/c_or_b.png}}
+
+\caption{Comparaison des performances des algorithmes d'identification de la saveur des jets~\cite{Sirunyan_heavy_flavor_jets_2018}.}
+\label{fig-chapter-JERC-section-jets_reco-subsec-flavor-bc_tag_roc_curves}
+\end{figure}
+
+Misidentification probability for c and light-flavour jets versus b jet identification
+efficiency for various b tagging algorithms applied to jets in tt events.
+
+Misidentification probability for b jets (left) or light-flavour jets (right) versus c jet
+identification efficiency for various c tagging algorithms applied to jets in tt events.
+
+
+
+\emph{The efficiency for the tagging of b jets and the mistagging rate for light-flavour jets has been measured in both data and simulation. The efficiency and mistagging rate of the simulation is corrected through the application of efficiency and mistagging scale factors. The values of these factors and a description of the methods used to determine them can be found in Ref.~\cite{Sirunyan_heavy_flavor_jets_2018}.}
 
 b-tagging
 
 Il est ainsi possible de d'étiqueter les jets comme étant des jets issus de quarks \quarkb\, \quarkc, de gluons, ou \og légers \fg{} (issus de quarks \quarkd, \quarku, \quarks).
 
 
-%Cacciari_pu_sub_jet_area_2008
-%Sirunyan_heavy_flavor_jets_2018
+%Sirunyan_heavy_flavor_jets_2018 53
+%Cacciari_pu_sub_jet_area_2008 54
+%Sarle1994NeuralNA 55
+%keras 57
+%tensorflow 58
