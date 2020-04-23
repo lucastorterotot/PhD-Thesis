@@ -1,10 +1,19 @@
 \section{Calibration en énergie des jets dans CMS}\label{chapter-JERC-section-CMS}
-
+% JERC_RunI = 61 : Jet energy scale and resolution in the CMS experiment in \proton\proton\ collisions at \SI{8}{\TeV}
+% CMS-DP-2018-028 = 62 : Jet energy scale and resolution performance with \SI{13}{\TeV} data collected by CMS in 2016
+% JERC_2011 = 63 : Determination of jet energy calibration and transverse momentum resolution in CMS
+Les jets sont des objets composites, complexes, qu'il est nécessaire de calibrer comme tout autre objet reconstruit afin d'obtenir leurs énergies.
+La précision apportée à la mesure des jets est capitale dans de nombreuses analyses, où il s'agit d'une source majeure d'incertitude systématique.
+Les avancées réalisées récemment sur la calibration des jets ont ainsi permis d'améliorer la précision sur la mesure de la section efficace inclusive de production de jets et de la masse du quark~\quarkt~\cite{JERC_RunI}.
+\par À partir des jets reconstruits par les méthodes décrites précédemment, un procédé de \emph{correction de l'énergie des jets} (JEC\footnote{\emph{Jet Energy Correction}}) est réalisé.
+Il permet de corriger l'échelle en énergie des jets (JES\footnote{\emph{Jet Energy Scale}}) ainsi que la résolution sur cette énergie (JER\footnote{\emph{Jet Energy Resolution}}).
+La collaboration CMS utilise une approche factorisée dans laquelle plusieurs étapes corrigent un effet en particulier et dépendent des étapes précédentes~\cite{JERC_RunI}.
+La figure~\ref{fig-CMS-JME-13-004_Figure_002-TeX} résume ces étapes, décrites plus en détails dans les sections qui suivent.
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{\PhDthesisdir/tex/slides/JERC/CMS-JME-13-004_Figure_002-FR-TeX.tex}
-\caption{Procédé de calibration des jets. Plusieurs corrections sont appliquées pour obtenir les jets calibrés à partir des jets reconstruits.}
-\label{fig-CMS-JME-13-004_Figure_002-FR-TeX}
+\caption{Étapes successives de la JEC pour les données et les simulations~\cite{JERC_RunI}. Les corrections des étapes marquées \og MC \fg{} sont obtenues par l'étude de simulations, celles marquées \og RC \fg{} par une méthode de cône aléatoire (\emph{Random Cone}). Les types d'événements utilisés dans les corrections résiduelles sont également indiqués.}
+\label{fig-CMS-JME-13-004_Figure_002-TeX}
 \end{figure}
 
 \subsection{Correction de l'empilement}\label{chapter-JERC-section-CMS-subsec-PU}
