@@ -2,7 +2,7 @@
 % JERC_RunI = 61 : Jet energy scale and resolution in the CMS experiment in \proton\proton\ collisions at \SI{8}{\TeV}
 % CMS-DP-2018-028 = 62 : Jet energy scale and resolution performance with \SI{13}{\TeV} data collected by CMS in 2016
 % JERC_2011 = 63 : Determination of jet energy calibration and transverse momentum resolution in CMS
-Les jets sont des objets composites, complexes, qu'il est nécessaire de calibrer comme tout autre objet reconstruit afin d'obtenir leurs énergies.
+Les jets sont des objets composites, complexes, qu'il est nécessaire de calibrer comme tout autre objet reconstruit.
 La précision apportée à la mesure des jets est capitale dans de nombreuses analyses, où il s'agit d'une source majeure d'incertitude systématique.
 Les avancées réalisées récemment sur la calibration des jets ont ainsi permis d'améliorer la précision sur la mesure de la section efficace inclusive de production de jets et de la masse du quark~\quarkt~\cite{JERC_RunI}.
 \par À partir des jets reconstruits par les méthodes décrites précédemment, un procédé de \emph{correction de l'énergie des jets} (JEC\footnote{\emph{Jet Energy Correction}}) est réalisé.
@@ -15,18 +15,88 @@ La figure~\ref{fig-CMS-JME-13-004_Figure_002-TeX} résume ces étapes, décrites
 \caption{Étapes successives de la JEC pour les données et les simulations~\cite{JERC_RunI}. Les corrections des étapes marquées \og MC \fg{} sont obtenues par l'étude de simulations, celles marquées \og RC \fg{} par une méthode de cône aléatoire (\emph{Random Cone}). Les types d'événements utilisés dans les corrections résiduelles sont également indiqués.}
 \label{fig-CMS-JME-13-004_Figure_002-TeX}
 \end{figure}
-
+\par Distinguons trois stades ou \og niveaux \fg{} de connaissance sur les particules.
+\begin{itemize}
+\item Le niveau \emph{particule}, noté \ptcl, ou niveau \og vrai \fg{}, se réfère aux objets et variables après hadronisation mais avant interaction avec le détecteur. Il s'agit donc des grandeurs recherchées, uniquement accessibles dans les événements simulés.
+\item Le niveau \emph{reconstruit}, noté \reco, correspond aux objets et variables après interaction avec le détecteur et reconstruction par l'algorithme de \PF.
+\item Le niveau \emph{corrigé} ou calibré, noté \cali, correspond aux objets et variables corrigés, \ie\ ceux du niveau \reco\ auxquels ont été appliquées les corrections.
+\end{itemize}
+Définissons également une variable importante pour ce chapitre, la réponse d'un jet,
+\begin{equation}
+R = \frac{\pT}{\pT_\ptcl}
+\mend
+\end{equation}
+La réponse peut être définie à différents niveaux, et par définition $R_\ptcl=1$.
+Si la JEC est correcte, alors les variables corrigées doivent correspondre aux variables au niveau particule, \ie\ $R_\cali=1$.
+Sur la figure~\ref{fig-JERC_RunI-1} sont représentées les réponses de jets d'événements QCD simulés à différentes étapes de la JEC. Après avoir appliqué toutes les corrections, ce qui correspond à la figure~\ref{subfig-JERC_RunI-1_3}, la réponse est sensiblement égal à 1, ce qui montre que la JEC est correcte.
+\begin{figure}[h]
+\centering
+\subcaptionbox{Avant toute correction ($R_\reco$).\label{subfig-JERC_RunI-1_1}}[.31\textwidth]
+{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/response_evolution_1.png}}
+\hfill
+\subcaptionbox{Après correction de l'empilement.\label{subfig-JERC_RunI-1_2}}[.31\textwidth]
+{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/response_evolution_2.png}}
+\hfill
+\subcaptionbox{Après toutes les corrections ($R_\cali$).\label{subfig-JERC_RunI-1_3}}[.31\textwidth]
+{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/response_evolution_3.png}}
+\caption{Valeur moyenne de la réponse de jets d'événements QCD simulés en fonction de $\pT_\ptcl$ à différentes étapes de la JEC~\cite{JERC_RunI} et pour différentes valeurs d'interactions d'empilement $\mu$.}
+\label{fig-JERC_RunI-1}
+\end{figure}
+\par Les jets au niveau particule sont construits en appliquant la procédure de recombinaison à toutes les particules de durée de vie $\tau$ telle que $c\tau>\SI{1}{\centi\meter}$ à l'exception des neutrinos~\cite{JERC_RunI}.
+Les hadrons contenant des quarks~\quarkc\ ou~\quarkb\ ne rentrent pas dans cette catégorie et ce sont donc leurs produits de désintégration qui sont pris en compte pour la recombinaison.
+Exclure les neutrinos de la recombinaison au niveau particule est une convention adoptée par la collaboration CMS, mais pas de manière universelle en physique des particules.
+Les neutrinos sont en fait généralement inclus au niveau particule.
+La réponse des jets étant mesurée dans des événements contenant peu de neutrinos, comme cela est discuté dans la section~\ref{chapter-JERC-section-pheno-GJets}, ce choix n'apporte pratiquement aucune différence à la JEC.
+L'intérêt de cette convention est de pouvoir définir la réponse des jets d'une manière qui soit accessible expérimentalement et qui réduit significativement les différences de réponse entre jets lourds et jets légers ou de gluons, à cause des neutrinos produits dans les désintégration des quarks lourds.
 \subsection{Correction de l'empilement}\label{chapter-JERC-section-CMS-subsec-PU}
 offset en énergie d'empilement
 
+charged-hadron subtraction (CHS, Section 4.2)
+
+discussed in Section 4
+
+determined from the simulation of a sample of dijet events processed with and without pileup overlay
+
+parameterized as a function of offset energy density $\rho$, jet area $A$, jet pseudorapidity $\eta$, and jet transverse momentum \pT.
+
+Corrections for residual differences between data and detector simulation as a function of $\eta$ are determined using the random cone (RC, Section 4.3) method in zero-bias events (Section 3.2).
+
 \subsection{Correction de la réponse du détecteur en $\pT$ et en $\eta$}\label{chapter-JERC-section-CMS-subsec-reponse}
 non uniformité de la réponse de CMS
+
+The simulated jet response corrections are determined with a CMS detector simulation based
+on G EANT 4 [18] combined with the PYTHIA 6.4 [19] tune Z2* [20], as discussed in Section 5.
+The corrections are determined for various jet sizes. The default corrections are provided for
+the QCD dijet flavor mixture as a function of p T and $\eta$. Uncertainties arising from the modeling
+of jet fragmentation are evaluated with HERWIG ++ 2.3 [21] tune EE3C [22], and uncertainties
+from the detector simulation are evaluated with the CMS fast simulation [23].
 
 \subsection{Propagation à la MET}\label{chapter-JERC-section-CMS-subsec-MET}
 
 \subsection{Corrections résiduelles}\label{chapter-JERC-section-CMS-subsec-residuals}
 une fois le ECAL calibré (test de presque chaque cristal en faisceau), calibration du HCAL.
 
+see end of page 3, beg. p.4
+
 \subsection{Correction de la résolution en énergie}\label{chapter-JERC-section-CMS-subsec-JER}
+The jet p T resolution, measured after applying JEC, is extracted in data and simulated events.
+It is studied as a function of pileup, jet size R, and jet flavor. The effect of the presence of
+neutrinos in the jets is also studied. The typical JER is 15–20% at 30 GeV, about 10% at 100 GeV,
+and 5% at 1 TeV at central rapidities.
+
+
+The jet p T resolutions are determined with both dijet and photon+jet events, as discussed in
+Section 8. The reference resolutions obtained from simulation are parameterized as a function
+of particle-level jet pTptcl (defined in Section 2) and average number $\mu$ of PU interactions in bins of jet $\eta$.
+Corrections for differences between data and MC simulation are applied as
+$\eta$-binned scale factors.
 
 \subsection{Incertitudes}\label{chapter-JERC-section-CMS-subsec-unc}
+The JES uncertainties, discussed in Section 9, are provided in the form of a limited set of sources
+that allow a detailed statistical analysis of uncertainty correlations. The final uncertainties are
+below 1\% across much of the phase space covered by these corrections at p T > 10 GeV and
+$\abs{\eta} < 5.2$. This sets a new benchmark for jet energy scale at hadron colliders.
+
+
+\subsection{•}
+The optional jet-flavor corrections derived from MC simulation are discussed in Section 7 together with the JEC flavor uncertainty estimates based on comparing PYTHIA 6.4 and HERWIG ++2.3 predictions. These uncertainties are applicable to data vs. simulation comparisons regardless of whether or not the jet-flavor corrections are applied. The flavor corrections and their uncertainties for b-quark jets are checked in data with Z+b events.
