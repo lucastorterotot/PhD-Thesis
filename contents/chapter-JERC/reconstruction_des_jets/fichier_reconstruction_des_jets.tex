@@ -114,7 +114,6 @@ La réjection du bruit de fond est supérieure à \SI{98}{\%} pour $\abs{\eta}\l
 Pour étudier la physique du processus initial, la connaissance de la particule colorée à l'origine d'un jet ainsi identifié dans le détecteur est une information de choix.
 Il est impossible de connaître avec certitude cette particule, mais sa nature influe directement sur certaines propriétés des jets, permettant de l'estimer.
 \subsubsection{Saveur de la particule initiale et caractéristiques des jets}
-\paragraph{Les gluons} portent une charge de couleur plus importante que les quarks\footnote{Les quarks portent une couleur, les antiquarks une anticouleur et les gluons portent une couleur et une anticouleur.}. Il en résulte des jets moins collimés qu'avec des quarks.
 \paragraph{Le quark~\quarkt} possède un temps de vie trop court pour participer à l'hadronisation. Il se désintègre alors par interaction faible en un autre quark, très majoritairement un quark~\quarkb, et un boson \Wboson. Le nouveau quark issu de cette désintégration forme alors un jet.
 \par Les autres quarks, \quarkd, \quarku, \quarks, \quarkc\ et~\quarkb, sont plus stables que le top et participent à l'hadronisation.
 Ils se retrouvent alors confinés au sein des hadrons formés.
@@ -211,17 +210,10 @@ Les hadrons contenant un quark~\quarkc\ ont ainsi une durée de vie $\tau$ de in
 Dans tous les cas, les traces des particules chargées observées proviennent du PV, lieu de formation du quark initial.
 Le phénomène décrit précédemment pour les quarks~\quarkb\ et~\quarkc\ n'est donc pas observable.
 Les jets issus de ces trois types de quarks, les plus légers, sont ainsi regroupés sous la dénomination de \og jets légers \fg.
+\paragraph{Les gluons} portent une charge de couleur plus importante que les quarks\footnote{Les quarks portent une couleur, les antiquarks une anticouleur et les gluons portent une couleur et une anticouleur.}.
+Les jets initiés par des gluons comportement typiquement plus de particules électriquement chargées et sont moins collimés que les jets légers~\cite{CMS-PAS-JME-13-002}.
 \subsubsection{Identification de la saveur des jets}
-Les jets présentent ainsi des propriétés caractéristiques, selon qu'il s'agisse:
-\begin{itemize}
-\item d'un jet léger, issu d'un quark~\quarkd, \quarku\ ou~\quarks;
-\item d'un jet lourd:
-\begin{itemize}
-\item issu d'un quark~\quarkc: traces déplacées et éventuellement un lepton chargé,
-\item issu d'un quark~\quarkb: même phénomène, encore plus marqué;
-\end{itemize}
-\item d'un jet issu d'un gluon (\gluon): le jet est moins collimé qu'avec un quark.
-\end{itemize}
+Les jets présentent ainsi des propriétés caractéristiques, selon qu'il s'agisse d'un jet léger (quarks~\quarkd, \quarku\ ou~\quarks), d'un jet lourd (quarks~\quarkc\ ou~\quarkb) ou d'un jet issu d'un gluon.
 En utilisant ces propriétés, des algorithmes d'identification de la saveur des jets ont été mis au point par la collaboration CMS~\cite{jet_btag_CSV_RunI}.
 Les avancées récentes dans le domaine du \emph{Deep Learning}, appliquées à l'identification des jets~\cite{jet_flavor_deep_nn}, ont permis l'amélioration de ces algorithmes. L'algorithme \DeepCSV~\cite{Sirunyan_heavy_flavor_jets_2018} a ainsi été développé.
 \par Les variables utilisées dans cet algorithme sont décrites dans la référence~\cite{Sirunyan_heavy_flavor_jets_2018}.
@@ -250,6 +242,13 @@ Dans les analyses présentées dans ce chapitre et le chapitre\ifref{chapter-HTT
 
 \caption{Comparaison des performances des algorithmes d'identification de la saveur des jets~\cite{Sirunyan_heavy_flavor_jets_2018}.}
 \label{fig-chapter-JERC-section-jets_reco-subsec-flavor-bc_tag_roc_curves}
+\end{figure}
+\par La discrimination entre jet léger et jet initié par un gluon peut être réalisée à l'aide d'une fonction de vraisemblance~\cite{CMS-PAS-JME-13-002} renvoyant un score entre 0 et 1 pour chaque jet, correspondant à la probabilité que ce jet soit issu d'un quark. La densité de probabilité de cette fonction, selon qu'il s'agisse de jets initiés par des gluons ou des quarks, est représentée sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-flavor-qgl_likelihood}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=.5\textwidth]{\PhDthesisdir/contents/chapter-JERC/reconstruction_des_jets/qgl.pdf}
+\caption{Densité de probabilité de la fonction de vraisemblance utilisée pour discriminer les jets issus de gluons de ceux issus de quarks~\cite{CMS-PAS-JME-13-002}. En rouge, pour les jets issus de gluons. En bleu, pour des jets issus de quarks.}
+\label{fig-chapter-JERC-section-jets_reco-subsec-flavor-qgl_likelihood}
 \end{figure}
 %Sirunyan_heavy_flavor_jets_2018 53
 %Cacciari_pu_sub_jet_area_2008 54
