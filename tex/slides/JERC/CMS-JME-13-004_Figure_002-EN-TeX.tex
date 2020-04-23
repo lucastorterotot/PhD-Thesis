@@ -6,14 +6,14 @@
 
 \def\deltaX{0}
 
-\fill [ltcolorblue3] (0,0) -- (0,\JMEfigH) -- (\JMEfigW-\JMEfigdW,\JMEfigH) -- (\JMEfigW,\JMEfigH/2) -- (\JMEfigW-\JMEfigdW,0) ;
+\fill [ltcolorblue2] (0,0) -- (0,\JMEfigH) -- (\JMEfigW-\JMEfigdW,\JMEfigH) -- (\JMEfigW,\JMEfigH/2) -- (\JMEfigW-\JMEfigdW,0) ;
 
 \draw (0, \JMEfigH/2) node [above right] {\bfseries Reconstructed} node [below right] {\bfseries Jets};
 
 \def\deltaX{\JMEfigW+\JMEfigsW-\JMEfigdW}
 
-\fill [ltcolorviolet3] (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW-2*\JMEfigdW,\JMEfigH);
-\fill [ltcolorblue3] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW-2*\JMEfigdW,0);
+\fill [ltcolorviolet2] (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW-2*\JMEfigdW,\JMEfigH);
+\fill [ltcolorviolet3] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW-2*\JMEfigdW,0);
 
 \draw (\deltaX+\JMEfigW/2-\JMEfigdW, \JMEfigH) node [below] {\bfseries Pileup};
 \draw (\deltaX+\JMEfigW/2-\JMEfigdW/2, \JMEfigH/2) node [above] {MC+RC};
@@ -21,14 +21,14 @@
 
 \def\deltaX{2*\JMEfigW+2*\JMEfigsW-3*\JMEfigdW}
 
-\fill [ltcolorred3] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigW,\JMEfigH) -- (\deltaX+\JMEfigW+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,0);
+\fill [ltcolorred2] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigW,\JMEfigH) -- (\deltaX+\JMEfigW+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,0);
 
 \draw (\deltaX+\JMEfigW/2, \JMEfigH) node [below] {\bfseries \, Response $(\pT,\eta)$};
 \draw (\deltaX+\JMEfigW/2+\JMEfigdW, \JMEfigH/2) node {MC};
 
 \def\deltaX{3*\JMEfigW+3*\JMEfigsW-3*\JMEfigdW}
 
-\fill [ltcolororange3] (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH);
+\fill [ltcolororange2] (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH);
 \fill [ltcolororange1] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,0);
 
 \draw (\deltaX+\JMEfigW/2-\JMEfigdW/2, \JMEfigH) node [below] {\bfseries Residuals $(\eta)$};
@@ -36,7 +36,7 @@
 
 \def\deltaX{4*\JMEfigW+4*\JMEfigsW-4*\JMEfigdW}
 
-\fill [ltcolororange3] (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH);
+\fill [ltcolororange2] (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH);
 \fill [ltcolororange1] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,0);
 
 \draw (\deltaX+\JMEfigW/2-\JMEfigdW/2, \JMEfigH) node [below] {\bfseries \, Residuals $(\pT)$};
@@ -44,14 +44,14 @@
 
 \def\deltaX{5*\JMEfigW+5*\JMEfigsW-5*\JMEfigdW}
 
-\fill [ltcoloryellow3] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigW/2,\JMEfigH) -- (\deltaX+\JMEfigW/2+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW/2,0);
+\fill [ltcoloryellow2] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigW/2,\JMEfigH) -- (\deltaX+\JMEfigW/2+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW/2,0);
 
 \draw (\deltaX+\JMEfigW/4, \JMEfigH) node [below] {\bfseries Flavor};
 \draw (\deltaX+\JMEfigW/4+\JMEfigdW, \JMEfigH/2) node {MC};
 
 \def\deltaX{6*\JMEfigW+6*\JMEfigsW-5*\JMEfigdW-\JMEfigW/2}
 
-\fill [ltcolorgreen3] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+4*\JMEfigW/5,\JMEfigH) -- (\deltaX+4*\JMEfigW/5,0);
+\fill [ltcolorgreen2] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+4*\JMEfigW/5,\JMEfigH) -- (\deltaX+4*\JMEfigW/5,0);
 \draw (\deltaX+4*\JMEfigW/5, \JMEfigH/2) node [above left] {\bfseries Calibrated} node [below left] {\bfseries Jets};
 
 \draw (\JMEfigW,\JMEfigH) node [above right] {\color{ltcolororange}\bfseries\large Applied to data} ;
