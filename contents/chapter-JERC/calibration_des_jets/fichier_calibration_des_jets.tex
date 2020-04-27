@@ -49,16 +49,43 @@ Les neutrinos sont en fait généralement inclus au niveau particule.
 La réponse des jets étant mesurée dans des événements contenant peu de neutrinos, comme cela est discuté dans la section~\ref{chapter-JERC-section-pheno-GJets}, ce choix n'apporte pratiquement aucune différence à la JEC.
 L'intérêt de cette convention est de pouvoir définir la réponse des jets d'une manière qui soit accessible expérimentalement et qui réduit significativement les différences de réponse entre jets lourds et jets légers ou de gluons, à cause des neutrinos produits dans les désintégration des quarks lourds.
 \subsection{Correction de l'empilement}\label{chapter-JERC-section-CMS-subsec-PU}
-offset en énergie d'empilement
+Des contributions additionnelles à l'énergie et à l'impulsion des jets peuvent apparaître du fait de l'empilement\footnote{Le phénomène d'empilement est décrit dans la section~\ifref{chapter-LHC-section-LHC-subsec-PU}{\ref{chapter-LHC-section-LHC-subsec-PU}}{1.4} du chapitre\ifref{chapter-LHC}{~\ref{chapter-LHC}}{ \og Dispositif expérimental \fg}.}.
+La correction de l'empilement a pour but de soustraire ces contributions et est appliquée dans les données et les événements simulés.
+\par L'empilement asynchrone est réduit par l'analyse temporelle des signaux des calorimètres,
+l'empilement synchrone par la méthode de soustraction des hadrons chargés (CHS, \emph{Charged Hadron Subtraction}), décrite ci-après.
+\par Pour chacun des vertex primaires de l'événement, la somme des impulsions transverses au carré des traces associées au vertex est calculée.
+Le vertex primaire principal est choisi comme étant le vertex présentant la plus grande valeur de cette somme.
+Les autres vertex primaires sont considérés comme des vertex d'empilement.
+Alors, toutes les traces associées aux vertex d'empilement sont retirées de l'événement.
+La procédure CHS permet ainsi de supprimer environ \SI{50}{\%} de l'empilement synchrone, uniquement à l'aide du trajectographe.
+L'efficacité de reconstruction des vertex d'empilement étant de \SI{30}{\%}, des traces de hadrons chargés non associées à un vertex subsistent.
+\par La correction de l'empilement résiduel, principalement due aux particules neutres, aux traces non associées à un vertex et à l'empilement asynchrone qui n'a pas pu être corrigé totalement, est déterminée à l'aide de la méthode de l'aire hybride (\emph{hybrid jet area}).
+Il s'agit d'une correction paramétrique dépendant de:
+\begin{itemize}
+\item la densité en énergie de l'événement, $\rho$;
+\item l'aire du jet dans le plan $(\eta, \phi)$, $A$;
+\item la pseudo-rapidité du jet, $\eta$;
+\item l'impulsion transverse du jet avant application de la correction, \ie\ à cette étape $\pT_\reco$\\\todo{ben non, tu as déjà une correction CHS! propage la correction ...}.
+\end{itemize}
+La correction $C$ à appliquer à un jet s'exprime alors
+\begin{equation}
+C(\pT_\reco, \eta, A, \rho) = 1 - \frac{\average{\pT_\ptcl^\text{add}}}{\pT_\reco}
+\end{equation}
+où $\average{\pT_\ptcl^\text{add}}$ représente l'effet additionnel de l'empilement au niveau particule, estimé à partir d'événements di-jet simulés avec et sans empilement, tel que
+\begin{equation}
+\average{\pT_\ptcl^\text{add}}
+=
+\average{\pT_\ptcl^\text{avec PU} - \pT_\ptcl^\text{sans PU}}
+\mend[,]
+\end{equation}
+avec
+$\pT_\ptcl^\text{avec PU}$
+l'impulsion au niveau particule avec empilement
+et
+$\pT_\ptcl^\text{sans PU}$
+l'impulsion au niveau particule sans empilement.
 
-charged-hadron subtraction (CHS, Section 4.2)
-
-discussed in Section 4
-
-determined from the simulation of a sample of dijet events processed with and without pileup overlay
-
-parameterized as a function of offset energy density $\rho$, jet area $A$, jet pseudorapidity $\eta$, and jet transverse momentum \pT.
-
+\par
 Corrections for residual differences between data and detector simulation as a function of $\eta$ are determined using the random cone (RC, Section 4.3) method in zero-bias events (Section 3.2).
 
 \subsection{Correction de la réponse du détecteur en $\pT$ et en $\eta$}\label{chapter-JERC-section-CMS-subsec-reponse}
