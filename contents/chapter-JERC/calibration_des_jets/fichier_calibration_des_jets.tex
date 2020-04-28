@@ -141,16 +141,7 @@ déterminée grâce à une simulation du détecteur CMS basée sur \GEANTfour~\c
 combinée à \PYTHIA~6.4~\cite{pythia6.4}
 avec les réglages Z2*~\cite{Khachatryan:2015pea},
 est représentée sur la figure~\ref{fig-simulated_jet_response_RunII} pour les trois années du Run~II du LHC.
-
-non uniformité de la réponse de CMS
-
-The simulated jet response corrections are determined with a CMS detector simulation based
-on G EANT 4 [18] combined with the PYTHIA 6.4 [19] tune Z2* [20], as discussed in Section 5.
-The corrections are determined for various jet sizes. The default corrections are provided for
-the QCD dijet flavor mixture as a function of p T and $\eta$. Uncertainties arising from the modeling
-of jet fragmentation are evaluated with HERWIG ++ 2.3 [21] tune EE3C [22], and uncertainties
-from the detector simulation are evaluated with the CMS fast simulation [23].
-
+Il apparaît, par exemple, qu'un jet de $\pT=\SI{30}{\GeV}$ nécessite une correction allant de \SI{10}{\%} dans la région centrale $\abs{\eta}<\num{0.7}$ à plus de \SI{30}{\%} lorsque $\abs{\eta}\simeq\num{3}$ en 2017 et 2018.
 \begin{figure}[h]
 \centering
 \subcaptionbox{Année 2016.\label{subfig-simulated_jet_response_2016}}[.31\textwidth]
@@ -161,10 +152,15 @@ from the detector simulation are evaluated with the CMS fast simulation [23].
 \hfill
 \subcaptionbox{Année 2018.\label{subfig-simulated_jet_response_2018}}[.31\textwidth]
 {\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/simulated_jet_response_2018.png}}
-\caption{Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II. Les baisses dans les régions $\num{3.0}<\abs{\eta}<\num{3.2}$ et $\abs{\eta}>\num{4.5}$ sont dues, respectivement, à la transition entre le barillet et le bouchon du détecteur et à son acceptation. La dégradation au cours du temps du détecteur dans la région \og EC2 \fg{} s'observe par la baisse de la réponse des jets dans cette région de 2016 à 2017.}
+\caption{Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II. La baisse dans la région $\num{3.0}<\abs{\eta}<\num{3.2}$ (respectivement $\abs{\eta}>\num{4.5}$) est due à la transition le bouchon (\emph{endcap}) et la partie avancée (\emph{forward}) du détecteur (reps. son acceptation). La dégradation au cours du temps du détecteur dans la région \og EC2 \fg{} s'observe par la baisse de la réponse des jets dans cette région de 2016 à 2017.}
 \label{fig-simulated_jet_response_RunII}
 \end{figure}
-
+\par Afin de corriger la réponse du détecteur en $\pT$ et en $\eta$, la correction $\mathcal{C}_\text{Rép}$ à appliquer s'exprime
+\begin{equation}
+\mathcal{C}_\text{Rép}(\pT_\reco', \eta) = \frac{\average{\pT_\ptcl}}{\average{\pT_\reco'}} = \frac{1}{\average{R_\reco'}}
+\end{equation}
+où $\pT_\reco'$ est l'impulsion transverse du jet après correction de l'empilement.
+Les moyennes sont réalisées sur les jets appartenant à la même cellule d'une grille en $(\pT_\ptcl, \eta)$ prédéfinie~\cite{JERC_RunI}.
 \subsection{Propagation à la MET}\label{chapter-JERC-section-CMS-subsec-MET}
 
 \subsection{Corrections résiduelles}\label{chapter-JERC-section-CMS-subsec-residuals}
