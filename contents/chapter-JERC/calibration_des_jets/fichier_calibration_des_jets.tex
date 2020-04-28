@@ -51,43 +51,89 @@ L'intérêt de cette convention est de pouvoir définir la réponse des jets d'u
 \subsection{Correction de l'empilement}\label{chapter-JERC-section-CMS-subsec-PU}
 Des contributions additionnelles à l'énergie et à l'impulsion des jets peuvent apparaître du fait de l'empilement\footnote{Le phénomène d'empilement est décrit dans la section~\ifref{chapter-LHC-section-LHC-subsec-PU}{\ref{chapter-LHC-section-LHC-subsec-PU}}{1.4} du chapitre\ifref{chapter-LHC}{~\ref{chapter-LHC}}{ \og Dispositif expérimental \fg}.}.
 La correction de l'empilement a pour but de soustraire ces contributions et est appliquée dans les données et les événements simulés.
+Elle permet d'améliorer la résolution du détecteur et d'obtenir une JES plus précise.
 \par L'empilement asynchrone est réduit par l'analyse temporelle des signaux des calorimètres,
 l'empilement synchrone par la méthode de soustraction des hadrons chargés (CHS, \emph{Charged Hadron Subtraction}), décrite ci-après.
 \par Pour chacun des vertex primaires de l'événement, la somme des impulsions transverses au carré des traces associées au vertex est calculée.
 Le vertex primaire principal est choisi comme étant le vertex présentant la plus grande valeur de cette somme.
 Les autres vertex primaires sont considérés comme des vertex d'empilement.
-Alors, toutes les traces associées aux vertex d'empilement sont retirées de l'événement.
+Toutes les traces associées aux vertex d'empilement sont retirées de l'événement.
+La reconstruction des jets est alors réalisée à partir de l'événement \og nettoyé \fg.
 La procédure CHS permet ainsi de supprimer environ \SI{50}{\%} de l'empilement synchrone, uniquement à l'aide du trajectographe.
+La correction de l'empilement peut être calculée avec et sans utilisation de la CHS; la JES est peu modifiée par ce choix. Cependant, l'utilisation de la CHS permet d'améliorer la résolution en \pT\ des jets.
 L'efficacité de reconstruction des vertex d'empilement étant de \SI{30}{\%}, des traces de hadrons chargés non associées à un vertex subsistent.
+De plus, cette méthode ne permet pas de corriger l'empilement des particules neutres.
 \par La correction de l'empilement résiduel, principalement due aux particules neutres, aux traces non associées à un vertex et à l'empilement asynchrone qui n'a pas pu être corrigé totalement, est déterminée à l'aide de la méthode de l'aire hybride (\emph{hybrid jet area}).
-Il s'agit d'une correction paramétrique dépendant de:
+Il s'agit d'une correction paramétrique, appliquée à chaque jet indépendamment, dépendant de:
 \begin{itemize}
-\item la densité en énergie de l'événement, $\rho$;
-\item l'aire du jet dans le plan $(\eta, \phi)$, $A$;
+\item la densité en énergie dans le plan $(\eta, \phi)$ de l'événement contenant ce jet, $\rho$;
+\item l'aire du jet dans le plan $(\eta, \phi)$, $A_j$;
 \item la pseudo-rapidité du jet, $\eta$;
-\item l'impulsion transverse du jet avant application de la correction, \ie\ à cette étape $\pT_\reco$\\\todo{ben non, tu as déjà une correction CHS! propage la correction ...}.
+\item l'impulsion transverse du jet avant application de cette correction et après CHS, $\pT_\reco^\text{CHS}$.
 \end{itemize}
 La correction $C$ à appliquer à un jet s'exprime alors
 \begin{equation}
-C(\pT_\reco, \eta, A, \rho) = 1 - \frac{\average{\pT_\ptcl^\text{add}}}{\pT_\reco}
+C(\pT_\reco^\text{CHS}, \eta, A_j, \rho)
+= 1 - \frac{\left[\rho_0(\eta) + \rho\,\beta(\eta)(1+\gamma(\eta)\log\pT_\reco^\text{CHS})\right]A_j}{\pT_\reco^\text{CHS}}
+\label{eq-chapter-JERC-section-CMS-subsec-PU-offset_corr_v1}
 \end{equation}
-où $\average{\pT_\ptcl^\text{add}}$ représente l'effet additionnel de l'empilement au niveau particule, estimé à partir d'événements di-jet simulés avec et sans empilement, tel que
+où $\rho_0(\eta)$, $\beta(\eta)$ et $\gamma(\eta)$ sont les paramètres de cette correction, dépendants de $\eta$.
+Ils sont déterminés à partir de la contribution additionnelle de l'empilement au niveau particule $\pT_\ptcl^\text{add}$, estimée à partir d'événements QCD multijet simulés avec et sans empilement, telle que
 \begin{equation}
-\average{\pT_\ptcl^\text{add}}
+\average{\pT_\ptcl^\text{add}}(\rho, \eta, \pT_\reco^\text{CHS})
 =
 \average{\pT_\ptcl^\text{avec PU} - \pT_\ptcl^\text{sans PU}}
 \mend[,]
+\label{eq-chapter-JERC-section-CMS-subsec-PU-pTaddptcl}
 \end{equation}
 avec
-$\pT_\ptcl^\text{avec PU}$
-l'impulsion au niveau particule avec empilement
-et
-$\pT_\ptcl^\text{sans PU}$
-l'impulsion au niveau particule sans empilement.
-
-\par
-Corrections for residual differences between data and detector simulation as a function of $\eta$ are determined using the random cone (RC, Section 4.3) method in zero-bias events (Section 3.2).
-
+$\pT_\ptcl^\text{avec PU}$ et $\pT_\ptcl^\text{sans PU}$
+les impulsions du jet au niveau particule avec et sans empilement.
+La contribution additionnelle de l'empilement au niveau particule est alors paramétrée en fonction de $\rho$, $\eta$, $\pT_\reco^\text{CHS}$ et $A_j$ afin d'obtenir les paramètres $\rho_0(\eta)$, $\beta(\eta)$ et $\gamma(\eta)$ de l'équation~\eqref{eq-chapter-JERC-section-CMS-subsec-PU-offset_corr_v1} qui peut se réécrire
+\begin{equation}
+C(\pT_\reco^\text{CHS}, \eta, A_j, \rho)
+= 1 - \frac{\average{\pT_\ptcl^\text{add}}}{\pT_\reco^\text{CHS}}
+\mend
+\label{eq-chapter-JERC-section-CMS-subsec-PU-offset_corr_v2}
+\end{equation}
+La figure~\ref{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005} montre $\average{\pT_\ptcl^\text{add}}$ en fonction de l'impulsion transverse du jet au niveau particule, avant et après application de la correction de l'empilement.
+Les résultats de la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005b} sont cohérents avec l'absence d'énergie supplémentaire due à l'empilement à $\pm\SI{0.2}{\GeV}$. Dans le cas d'un grand nombre d'interactions d'empilement ($\mu>30$), un léger effet est visible, lié à une dépendance quadratique en $\rho$ de la contribution en énergie de l'empilement qui n'est pas modélisée~\cite{JERC_RunI}.
+\begin{figure}[h]
+\centering
+\subcaptionbox{Avant correction.\label{subfig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005a}}[8.1cm]
+{\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=8cm]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/Figure_005-a.png}};
+\fill [white] (0, 4) rectangle + (.65, 3.5);
+\draw (.3, 7.2) node [left, rotate=90] {$\average{\pT_\ptcl^\text{add}}$ (\SI{}{\GeV})};
+\fill [white] (5, 0) rectangle + (2.6, .625);
+\draw (6.5, .3) node {$\pT_\ptcl$ (\SI{}{\GeV})};
+\end{tikzpicture}}
+\hfill
+\subcaptionbox{Après correction.\label{subfig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005b}}[8.1cm]
+{\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=8cm]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/Figure_005-b.png}};
+\fill [white] (0, 4) rectangle + (.65, 3.5);
+\draw (.3, 7.2) node [left, rotate=90] {$\average{\pT_\ptcl^\text{add}}$ (\SI{}{\GeV})};
+\fill [white] (5, 0) rectangle + (2.6, .625);
+\draw (6.5, .3) node {$\pT_\ptcl$ (\SI{}{\GeV})};
+\end{tikzpicture}}
+\caption{Contribution additionnelle de l'empilement au niveau particule telle que définie dans l'équation~\eqref{eq-chapter-JERC-section-CMS-subsec-PU-pTaddptcl} pour $\abs{\eta}<\num{1.3}$ en fonction de l'impulsion du jet au niveau particule pour différentes valeurs du nombre d'interaction d'empilement ($\mu$)~\cite{JERC_RunI}.}
+\label{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005}
+\end{figure}
+\par La correction ainsi décrite doit être légèrement adaptée pour pouvoir l'appliquer aux données à cause des biais de simulation du détecteur.
+Pour cela, un ajustement en fonction de $\eta$ est déterminé à l'aide de la méthode de cône aléatoire (RC, \emph {Random Cone}). La méthode RC reconstruit les jets à l'aide de cônes dont la direction en $(\eta, \phi)$ est choisie de manière aléatoire.
+L'étude est réalisée sur des événements dits de \og zéro biais \fg, dans lesquels aucune énergie provenant d'une interaction dure\footnote{\todo{définir?}} n'est présente.
+Dans ce cas, la valeur moyenne du \pT\ des jets reconstruits par la méthode RC permet d'estimer la moyenne de la contribution additionnelle de l'empilement, \ie
+\begin{equation}
+\average{\pT^\text{add}}^\text{RC} = \average{\pT_\text{cône}}
+\mend
+\end{equation}
+Il est alors possible de définir un facteur d'échelle à appliquer aux paramètres $\rho_0$ et $\beta$ de l'équation~\eqref{eq-chapter-JERC-section-CMS-subsec-PU-offset_corr_v1} lorsque cette correction est appliquée aux données. Ce facteur d'échelle s'exprime
+\begin{equation}
+\frac{\average{\pT^\text{add}}^\text{RC}_\text{données}(\eta, \rho_\text{données})}{\average{\pT^\text{add}}^\text{RC}_\text{simulation}(\eta, \rho_\text{simulation})}
+\mend
+\end{equation}
+La contribution additionnelle de l'empilement est ainsi corrigée dans les simulations et dans les données.
 \subsection{Correction de la réponse du détecteur en $\pT$ et en $\eta$}\label{chapter-JERC-section-CMS-subsec-reponse}
 non uniformité de la réponse de CMS
 
