@@ -135,6 +135,13 @@ Il est alors possible de définir un facteur d'échelle à appliquer aux paramè
 \end{equation}
 La contribution additionnelle de l'empilement est ainsi corrigée dans les simulations et dans les données.
 \subsection{Correction de la réponse du détecteur en $\pT$ et en $\eta$}\label{chapter-JERC-section-CMS-subsec-reponse}
+La réponse du détecteur CMS à un jet n'est pas uniforme selon la valeur de \pT\ et $\eta$ du jet.
+La réponse au niveau reconstruit de jets simulés $R_\reco$,
+déterminée grâce à une simulation du détecteur CMS basée sur \GEANTfour~\cite{geant4},
+combinée à \PYTHIA~6.4~\cite{pythia6.4}
+avec les réglages Z2*~\cite{Khachatryan:2015pea},
+est représentée sur la figure~\ref{fig-simulated_jet_response_RunII} pour les trois années du Run~II du LHC.
+
 non uniformité de la réponse de CMS
 
 The simulated jet response corrections are determined with a CMS detector simulation based
@@ -143,6 +150,20 @@ The corrections are determined for various jet sizes. The default corrections ar
 the QCD dijet flavor mixture as a function of p T and $\eta$. Uncertainties arising from the modeling
 of jet fragmentation are evaluated with HERWIG ++ 2.3 [21] tune EE3C [22], and uncertainties
 from the detector simulation are evaluated with the CMS fast simulation [23].
+
+\begin{figure}[h]
+\centering
+\subcaptionbox{Année 2016.\label{subfig-simulated_jet_response_2016}}[.31\textwidth]
+{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/simulated_jet_response_2016_CMS-DP-2018-028.png}}
+\hfill
+\subcaptionbox{Année 2017.\label{subfig-simulated_jet_response_2017}}[.31\textwidth]
+{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/simulated_jet_response_2017.png}}
+\hfill
+\subcaptionbox{Année 2018.\label{subfig-simulated_jet_response_2018}}[.31\textwidth]
+{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/simulated_jet_response_2018.png}}
+\caption{Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II. Les baisses dans les régions $\num{3.0}<\abs{\eta}<\num{3.2}$ et $\abs{\eta}>\num{4.5}$ sont dues, respectivement, à la transition entre le barillet et le bouchon du détecteur et à son acceptation. La dégradation au cours du temps du détecteur dans la région \og EC2 \fg{} s'observe par la baisse de la réponse des jets dans cette région de 2016 à 2017.}
+\label{fig-simulated_jet_response_RunII}
+\end{figure}
 
 \subsection{Propagation à la MET}\label{chapter-JERC-section-CMS-subsec-MET}
 
