@@ -255,11 +255,44 @@ La correction à appliquer aux données ainsi obtenue est illustrée sur la figu
 \par L'analyse des événements \Gjets\ utilisés dans ces ajustement globaux pour les années 2018, utilisés dans la figure~\ref{subfig-absolute_pT_residual_2018}, et 2017-UL\footnote{La dénomination \og UL \fg{} signifie \emph{Ultra-Legacy} et correspond à une réinterprétation des données récoltées une fois que la collaboration peut prendre plus de recul sur l'obtention des celles-ci.} a fait partie de mon travail de thèse.
 La phénoménologie de ces événements ainsi que leur analyse sont détaillées dans les sections~\ref{chapter-JERC-section-pheno-GJets}, \ref{chapter-JERC-section-JES} et~\ref{chapter-JERC-section-JER}.
 %une fois le ECAL calibré (test de presque chaque cristal en faisceau), calibration du HCAL.
-\subsection{Corrections dépendantes de la saveur}
-The optional jet-flavor corrections derived from MC simulation are discussed in Section 7 together with the JEC flavor uncertainty estimates based on comparing PYTHIA 6.4 and HERWIG ++2.3 predictions. These uncertainties are applicable to data vs. simulation comparisons regardless of whether or not the jet-flavor corrections are applied. The flavor corrections and their uncertainties for b-quark jets are checked in data with Z+b events.
+\subsection{Corrections résiduelles de saveur}
+Il existe une différence de réponse selon la saveur du jet, majoritairement due à la fragmentation en énergie et la composition du jet qui dépend de cette saveur~\cite{JERC_RunI}.
+Par exemple, des particules de bas \pT\ se retrouvent hors de la zone d'acceptation du détecteur.
+Or, des jets initiés par des gluons présentent de nombreuses particules de bas \pT\ par rapport aux jets issus de quarks légers.
+Dans une moindre mesure, les jets lourds possèdent également plus de particules de bas \pT\ que les jets de quarks légers suite à la désintégration du hadron lourd\footnote{Le lecteur pourra se référer à la section~\ref{chapter-JERC-section-jets_reco-subsec-flavor} pour plus de détails sur la saveur des jets.}.
+La proportion de particules neutres dans le jet est également un des paramètres affectant le plus sa réponse.
+\par La correction $\mathcal{C}_\text{Sav}$ à appliquer aux données et aux simulations, obtenue à l'aide de
+\PYTHIA~6.4~\cite{pythia6.4}
+avec les réglages Z2*~\cite{Khachatryan:2015pea}
+sur des événements simulés dijet, \Zjets\ et \Gjets,
+est représentée sur la figure~\ref{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_030a}.
+Des corrections allant jusqu'à \SI{4}{\%} sont appliquées.
+\begin{figure}[h]
+\centering
+\includegraphics[width=.4\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/Figure_030-a.png}
+\caption{Corrections résiduelles de saveur en fonction de l'impulsion du jet préalablement corrigée par les corrections décrites dans les sections précédantes, $\pT_\cali$, pour des jets de pseudo-rapidité $\abs{\eta}<\num{1.3}$~\cite{JERC_RunI}.}
+\label{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_030a}
+\end{figure}
+\subsection{Incertitudes sur la correction en énergie des jets}\label{chapter-JERC-section-CMS-subsec-unc}
+The JES uncertainties, discussed in Section 9, are provided in the form of a limited set of sources
+that allow a detailed statistical analysis of uncertainty correlations. The final uncertainties are
+below 1\% across much of the phase space covered by these corrections at p T > 10 GeV and
+$\abs{\eta} < 5.2$. This sets a new benchmark for jet energy scale at hadron colliders.
 
-As explained, the MC-truth based corrections are extracted for a QCD flavor mixture sample. Optional jet-flavor corrections are derived from MC simulation, using Z+jet and photon+jets simulated events. These corrections are provided for the Z+jet and photon+jets mixtures, and also for pure flavors (to be applied to analysis-specific mixtures). JEC flavor uncertainties (see the JEC uncertainty twiki) are also extracted, and can be applied to data vs simulation comparisons regardless of whether or not the jet-flavor corrections are applied in the analysis. The flavor corrections and their uncertainties for b-quark jets are checked in data with Z+b events. 
 
+\subsection{Bilan de la correction en énergie des jets}
+\begin{equation}
+\pT_\cali =
+\underbrace{\underbrace{\underbrace{\pT_\reco^\text{CHS}
+\times
+\mathcal{C}_\text{PU}(\pT_\reco^\text{CHS}, \eta, A_j, \rho)}_{\pT_\reco'}
+\times
+\mathcal{C}_\text{Rép}(\pT_\reco', \eta)}_{\pT_\reco''}
+\times
+\mathcal{C}_\text{Res}(\pT_\reco'', \eta)}_{\pT_\reco'''}
+\times
+\mathcal{C}_\text{Sav}(\pT_\reco''', \eta)
+\end{equation}
 \subsection{Correction de la résolution en énergie}\label{chapter-JERC-section-CMS-subsec-JER}
 The jet p T resolution, measured after applying JEC, is extracted in data and simulated events.
 It is studied as a function of pileup, jet size R, and jet flavor. The effect of the presence of
@@ -272,23 +305,3 @@ Section 8. The reference resolutions obtained from simulation are parameterized 
 of particle-level jet pTptcl (defined in Section 2) and average number $\mu$ of PU interactions in bins of jet $\eta$.
 Corrections for differences between data and MC simulation are applied as
 $\eta$-binned scale factors.
-
-\subsection{Incertitudes}\label{chapter-JERC-section-CMS-subsec-unc}
-The JES uncertainties, discussed in Section 9, are provided in the form of a limited set of sources
-that allow a detailed statistical analysis of uncertainty correlations. The final uncertainties are
-below 1\% across much of the phase space covered by these corrections at p T > 10 GeV and
-$\abs{\eta} < 5.2$. This sets a new benchmark for jet energy scale at hadron colliders.
-
-
-\subsection{Résumé des corrections}
-
-\begin{equation}
-\pT_\cali =
-\underbrace{\underbrace{\pT_\reco^\text{CHS}
-\times
-\mathcal{C}_\text{PU}(\pT_\reco^\text{CHS}, \eta, A_j, \rho)}_{\pT_\reco'}
-\times
-\mathcal{C}_\text{Rép}(\pT_\reco', \eta)}_{\pT_\reco''}
-\times
-\mathcal{C}_\text{Res}(\pT_\reco'', \eta)
-\end{equation}
