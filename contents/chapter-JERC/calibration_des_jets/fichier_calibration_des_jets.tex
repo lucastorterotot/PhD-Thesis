@@ -323,23 +323,23 @@ L'incertitude globale sur la JEC est généralement inférieure à \SI{2}{\%}, e
 \caption[Incertitudes relatives sur la JEC en fonction de \pT\ et $\eta$ lors du Run~II.]{Incertitudes relatives sur la JEC lors du Run~II~\cite{CMS-DP-2020-019}.}
 \label{fig-Syst_uncs_JEC_RunII}
 \end{figure}
-\subsection{Bilan de la correction en énergie des jets}
-\begin{equation}
-\pT_\cali =
-\underbrace{\underbrace{\underbrace{\pT_\reco^\text{CHS}
-\times
-\mathcal{C}_\text{PU}(\pT_\reco^\text{CHS}, \eta, A_j, \rho)}_{\pT_\reco'}
-\times
-\mathcal{C}_\text{Rép}(\pT_\reco', \eta)}_{\pT_\reco''}
-\times
-\mathcal{C}_\text{Res}(\pT_\reco'', \eta)}_{\pT_\reco'''}
-\times
-\mathcal{C}_\text{Sav}(\pT_\reco''', \eta)
-\end{equation}
+%\subsection{Bilan de la correction en énergie des jets}
+%\begin{equation}
+%\pT_\cali =
+%\underbrace{\underbrace{\underbrace{\pT_\reco^\text{CHS}
+%\times
+%\mathcal{C}_\text{PU}(\pT_\reco^\text{CHS}, \eta, A_j, \rho)}_{\pT_\reco'}
+%\times
+%\mathcal{C}_\text{Rép}(\pT_\reco', \eta)}_{\pT_\reco''}
+%\times
+%\mathcal{C}_\text{Res}(\pT_\reco'', \eta)}_{\pT_\reco'''}
+%\times
+%\mathcal{C}_\text{Sav}(\pT_\reco''', \eta)
+%\end{equation}
 \subsection{Correction de la résolution en énergie}\label{chapter-JERC-section-CMS-subsec-JER}
 La résolution en énergie des jets, notée JER, est de l'ordre de \SI{10}{\%} pour des jets avec $\pT\geq\SI{50}{\GeV}$ et peut atteindre environ \SI{40}{\%} pour des jets de bas \pT\ et un empilement important~\cite{JERC_RunI}.
 Cette résolution est donc bien moins bonne que celles d'autres objets physiques tels que les électrons (\num{2} à \SI{5}{\%}), les muons (\num{1} à \SI{6}{\%}) et les photons (environ \SI{1}{\%}), ce qui peut introduire des biais importants dans les analyses cherchant des résonances étroites, par exemple.
-\par La JER est définie comme la largeur de la gaussienne obtenue par un ajustement sur la distribution de $R_\cali$ des jets, \ie $\pT_\cali/\pT_\ptcl$.
+\par La JER est définie comme la largeur de la gaussienne obtenue par un ajustement sur la distribution de $R_\cali$ des jets, \ie\ $\pT_\cali/\pT_\ptcl$.
 Sa mesure est réalisée à l'aide d'événements \Gjets\ et \Zjets\ et les résultats obtenus lors du Run~I sont présentés sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}.
 Elle est définie comme une fonction de $\pT_\ptcl$, $\eta$ et $\mu$.
 \par La JER observée dans les simulations diffère de celle observée dans les données, elle est légèrement meilleure.
@@ -349,11 +349,11 @@ Les résultats obtenus lors du Run~II sont présentés sur la figure~\ref{subfig
 Le principe est le même que pour les corrections résiduelles décrites dans les sections~\ref{chapter-JERC-section-CMS-subsec-residuals_eta} et~\ref{chapter-JERC-section-CMS-subsec-residuals_pT}. Au lieu de s'intéresser à la moyenne de la distribution, c'est sa largeur qui est étudiée.
 \begin{figure}[h]
 \centering
-\subcaptionbox{JER en fonction de \pT\ dans le barillet de CMS ($\abs{\eta}<\unm{1.3}$) pour différentes valeurs d'interactions d'empilement $\mu$ lors du Run~I~\cite{JERC_RunI}.\label{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}}[.4\textwidth]
-{\includegraphics[width=8cm]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/Figure_036-b.png}}
+\subcaptionbox{JER en fonction de \pT\ dans le barillet de CMS ($\abs{\eta}<\num{1.3}$) pour différentes valeurs d'interactions d'empilement $\mu$ lors du Run~I~\cite{JERC_RunI}.\label{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/Figure_036-b.png}}
 \hfill
-\subcaptionbox{Facteurs d'échelle de la résolution en énergie des jets en fonction de $\eta$ lors du Run~II~\cite{CMS-DP-2020-019}.\label{subfig-chapter-JERC-section-CMS-subsec-JER-JER_SF_RunII}}[.4\textwidth]
-{\includegraphics[width=\linewidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/JER_SF_RunII.png}}
+\subcaptionbox{Facteurs d'échelle de la résolution en énergie des jets en fonction de $\eta$ lors du Run~II~\cite{CMS-DP-2020-019}.\label{subfig-chapter-JERC-section-CMS-subsec-JER-JER_SF_RunII}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/JER_SF_RunII.png}}
 \caption[Résolution en énergie des jets.]{Résolution en énergie des jets dans les simulations et facteurs d'échelle à leur appliquer.}
 \label{fig-chapter-JERC-section-CMS-subsec-JER}
 \end{figure}
