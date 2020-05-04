@@ -253,7 +253,7 @@ La correction à appliquer aux données ainsi obtenue est illustrée sur la figu
 \label{fig-L2ResAbs_RunII}
 \end{figure}
 \par L'analyse des événements \Gjets\ utilisés dans ces ajustement globaux pour les années 2018, utilisés dans la figure~\ref{subfig-absolute_pT_residual_2018}, et 2017-UL\footnote{La dénomination \og UL \fg{} signifie \emph{Ultra-Legacy} et correspond à une réinterprétation des données récoltées une fois que la collaboration peut prendre plus de recul sur l'obtention de celles-ci.} a fait partie de mon travail de thèse.
-La phénoménologie de ces événements ainsi que leur analyse sont détaillées dans les sections~\ref{chapter-JERC-section-pheno-GJets}, \ref{chapter-JERC-section-JES} et~\ref{chapter-JERC-section-JER}.
+La phénoménologie de ces événements ainsi que leur analyse sont détaillées dans les sections~\ref{chapter-JERC-section-pheno-GJets} et~\ref{chapter-JERC-section-JES}.
 %une fois le ECAL calibré (test de presque chaque cristal en faisceau), calibration du HCAL.
 \subsubsection{Correction résiduelle de saveur}\label{chapter-JERC-section-CMS-subsec-residuals_flavor}
 Il existe une différence de réponse selon la saveur du jet, majoritairement due à la fragmentation en énergie et la composition du jet qui dépend de cette saveur~\cite{JERC_RunI}.
@@ -337,14 +337,25 @@ L'incertitude globale sur la JEC est généralement inférieure à \SI{2}{\%}, e
 \mathcal{C}_\text{Sav}(\pT_\reco''', \eta)
 \end{equation}
 \subsection{Correction de la résolution en énergie}\label{chapter-JERC-section-CMS-subsec-JER}
-The jet p T resolution, measured after applying JEC, is extracted in data and simulated events.
-It is studied as a function of pileup, jet size R, and jet flavor. The effect of the presence of
-neutrinos in the jets is also studied. The typical JER is 15–20% at 30 GeV, about 10% at 100 GeV,
-and 5% at 1 TeV at central rapidities.
-
-
-The jet p T resolutions are determined with both dijet and photon+jet events, as discussed in
-Section 8. The reference resolutions obtained from simulation are parameterized as a function
-of particle-level jet pTptcl (defined in Section 2) and average number $\mu$ of PU interactions in bins of jet $\eta$.
-Corrections for differences between data and MC simulation are applied as
-$\eta$-binned scale factors.
+La résolution en énergie des jets, notée JER, est de l'ordre de \SI{10}{\%} pour des jets avec $\pT\geq\SI{50}{\GeV}$ et peut atteindre environ \SI{40}{\%} pour des jets de bas \pT\ et un empilement important~\cite{JERC_RunI}.
+Cette résolution est donc bien moins bonne que celles d'autres objets physiques tels que les électrons (\num{2} à \SI{5}{\%}), les muons (\num{1} à \SI{6}{\%}) et les photons (environ \SI{1}{\%}), ce qui peut introduire des biais importants dans les analyses cherchant des résonances étroites, par exemple.
+\par La JER est définie comme la largeur de la gaussienne obtenue par un ajustement sur la distribution de $R_\cali$ des jets, \ie $\pT_\cali/\pT_\ptcl$.
+Sa mesure est réalisée à l'aide d'événements \Gjets\ et \Zjets\ et les résultats obtenus lors du Run~I sont présentés sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}.
+Elle est définie comme une fonction de $\pT_\ptcl$, $\eta$ et $\mu$.
+\par La JER observée dans les simulations diffère de celle observée dans les données, elle est légèrement meilleure.
+Afin de pouvoir réaliser des analyses comparant données et simulations, il est nécessaire d'avoir une JER comparable dans ces deux catégories d'événements.
+La JER des simulations est ainsi détériorée par un facteur d'échelle (\emph{JER SF}), déterminé à partir d'événements \Gjets\ et dijet et défini en fonction de $\eta$.
+Les résultats obtenus lors du Run~II sont présentés sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JER_SF_RunII}.
+Le principe est le même que pour les corrections résiduelles décrites dans les sections~\ref{chapter-JERC-section-CMS-subsec-residuals_eta} et~\ref{chapter-JERC-section-CMS-subsec-residuals_pT}. Au lieu de s'intéresser à la moyenne de la distribution, c'est sa largeur qui est étudiée.
+\begin{figure}[h]
+\centering
+\subcaptionbox{JER en fonction de \pT\ dans le barillet de CMS ($\abs{\eta}<\unm{1.3}$) pour différentes valeurs d'interactions d'empilement $\mu$ lors du Run~I~\cite{JERC_RunI}.\label{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}}[.4\textwidth]
+{\includegraphics[width=8cm]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/Figure_036-b.png}}
+\hfill
+\subcaptionbox{Facteurs d'échelle de la résolution en énergie des jets en fonction de $\eta$ lors du Run~II~\cite{CMS-DP-2020-019}.\label{subfig-chapter-JERC-section-CMS-subsec-JER-JER_SF_RunII}}[.4\textwidth]
+{\includegraphics[width=\linewidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/JER_SF_RunII.png}}
+\caption[Résolution en énergie des jets.]{Résolution en énergie des jets dans les simulations et facteurs d'échelle à leur appliquer.}
+\label{fig-chapter-JERC-section-CMS-subsec-JER}
+\end{figure}
+\par L'analyse des événements \Gjets\ utilisés pour les années 2018 et 2017-UL\footnote{La dénomination \og UL \fg{} signifie \emph{Ultra-Legacy} et correspond à une réinterprétation des données récoltées une fois que la collaboration peut prendre plus de recul sur l'obtention de celles-ci.} a fait partie de mon travail de thèse.
+La phénoménologie de ces événements ainsi que leur analyse sont détaillées dans les sections~\ref{chapter-JERC-section-pheno-GJets} et~\ref{chapter-JERC-section-JER}.
