@@ -1,5 +1,24 @@
-\section{Phénoménologie des événements photon + jets}\label{chapter-JERC-section-pheno-GJets}
-\Gjet\ donne beaucoup de stats, donc on peut sélectionner beaucoup et obtenir une bonne pureté.
+\section{Phénoménologie des événements \Gjet}\label{chapter-JERC-section-pheno-GJets}
+Les événements \Gjet\ peuvent être utilisés afin d'obtenir la correction résiduelle absolue en \pT\ des jets, introduite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals_pT}, ainsi que la résolution en énergie des jets. Les analyses correspondantes sont abordées dans les sections~\ref{chapter-JERC-section-JES} et~\ref{chapter-JERC-section-JER}.
+\subsection{Principe des événements \Gjet\ et réponse balancée}
+L'état final d'un événement \Gjet\ comporte un jet à calibrer d'une part et un photon utilisé comme objet de référence d'autre part.
+En effet, les performances de reconstruction des photons sont meilleures que celles des jets. Sur la figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, la résolution sur les photons est inférieure à \SI{4}{\%} et de l'ordre du pourcent dans le barillet. Dans le cas des jets, sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}, la résolution minimale est de \SI{5}{\%}.
+L'utilisation de photons comme objet de référence est donc justifiée.
+\begin{figure}[h]
+\centering
+\includegraphics[width=.6\textwidth]{\PhDthesisdir/contents/chapter-JERC/phenomenologie/img_from_photon_ID_2015/photon_resolution.png}
+\caption{Résolution relative en énergie des photons en fonction de $\eta$ pour des événements simulés $\higgs\to\photon\photon$~\cite{photon_ID_2015}. La variable $R_9$ est définie dans la section~\todo{???}.}
+\label{fig-chapter-JERC-section-pheno-GJets-photon_resolution}
+\end{figure}
+\par Des diagrammes de Feynman correspondant à des événements \Gjet\ sont présentés sur la figure~\ref{fig-fgraph-gamma_plus_jets}.
+Ces événements ne comportent pas de neutrino issu de l'interaction dure\footnote{Des neutrinos peuvent apparaître lors de la formation du jet.}, il n'y a donc pas d'énergie transverse manquante due à la physique de ces événements.
+L'impulsion transverse étant nulle dans l'état initial, par conservation, elle est nulle dans l'état final. Le photon et le jet sont donc balancés, \ie
+\begin{equation}
+\vpT_\ptcl^{\photon} + \vpT_\ptcl^\text{jet} = \vec{0}
+\Rightarrow
+\pT_\ptcl^{\photon} = \pT_\ptcl^\text{jet}
+\mend
+\end{equation}
 \begin{figure}[h]
 \centering\vspace{\baselineskip}
 \subcaptionbox{\label{subfig-fgraph-gq_qGamma_S}}[.3\textwidth]
@@ -13,7 +32,31 @@
 \caption[Diagrammes de Feynman donnant un photon et un jet dans l'état final.]{Exemples de diagrammes de Feynman de processus physiques donnant un photon et un jet dans l'état final.}
 \label{fig-fgraph-gamma_plus_jets}
 \end{figure}
-
+\par L'impulsion transverse du jet doit donc être égale à celle du photon, objet de référence. Leur ratio au niveau reconstruit doit donc être égal à 1.
+La bonne résolution en énergie sur les photons permet de considérer que leur impulsion transverse au niveau reconstruit est égale à leur impulsion transverse au niveau particule.
+Ainsi, la méthode de la balance\footnote{La méthode de la balance est introduite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals}.} permet de définir
+\begin{equation}
+\Rbal = \frac{\pT_\reco^\text{jet}}{\pT^{\photon}}
+\mend[,]
+\end{equation}
+qui doit valoir 1 après correction.
+Cette méthode est performante pour les événements à un photon et un jet dont la topologie est représentée sur la figure~\ref{subfig-Gamma_plus_jet_basic_event}.
+\begin{figure}[h]
+\centering
+\subcaptionbox{Topologie typique des événements correspondant aux diagrammes de la figure~\ref{fig-fgraph-gamma_plus_jets}.\label{subfig-Gamma_plus_jet_basic_event}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth,height=.25\textheight,keepaspectratio]{\PhDthesisdir/tex/Event_displays/JERC/Gamma_plus_jet.tex}}
+\qquad
+\subcaptionbox{Topologie typique des événements correspondant au diagramme de la figure~\ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}.\label{subfig-Gamma_plus_two_jets}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth,height=.25\textheight,keepaspectratio]{\PhDthesisdir/tex/Event_displays/JERC/Gamma_plus_2jets.tex}}
+\caption{Topologies typiques des événements \Gjet.}
+\label{fig-Gamma_plus_jet_events}
+\end{figure}
+\subsection{Effets radiatifs et activité additionnelle}
+Des effets radiatifs peuvent survenir et altérer la topologie des événements \Gjet.
+Un photon peut ainsi être radié dans l'état initial (ISR, \emph{Initial State Radiation}) ou dans l'état final (FSR, \emph{Final State Radiation}), ce qui correspond aux diagrammes de Feynman des figures~\ref{subfig-fgraph-gq_qGamma_S-ISR_2photons} et~\ref{subfig-fgraph-gq_qGamma_S-FSR_2photons}.
+Un système composé d'un des photons et du jet n'est donc pas balancé dans ce cas.
+Il est possible de supprimer ce biais en imposant la présence d'un seul photon dans l'événement.
+La section efficace de production d'événements \Gjet\ à \SI{13}{\TeV} est importante~\cite{Gjet_xsec_2018}, il est donc possible de sélectionner de manière stricte les événements afin d'obtenir une bonne pureté tout en conservant une statistique suffisante.
 \begin{figure}[h]
 \centering\vspace{\baselineskip}
 \subcaptionbox{\label{subfig-fgraph-gq_qGamma_S-ISR_2jets}}[.225\textwidth]
@@ -30,16 +73,47 @@
 \caption[Diagrammes de Feynman de processus avec ISR ou FSR.]{Exemples de diagrammes de Feynman de processus avec ISR (\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets}, \ref{subfig-fgraph-gq_qGamma_S-ISR_2photons}) ou FSR (\ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}, \ref{subfig-fgraph-gq_qGamma_S-FSR_2photons}) donnant des événements avec deux jets (\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets}, \ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}) ou deux photons (\ref{subfig-fgraph-gq_qGamma_S-ISR_2photons}, \ref{subfig-fgraph-gq_qGamma_S-FSR_2photons}) dans l'état final.}
 \label{fig-fgraph-gamma_plus_jets-ISR-FSR}
 \end{figure}
-
+\par L'ISR et la FSR peuvent aussi produire un gluon, ce qui correspond aux diagrammes de Feynman des figures~\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets} et~\ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}.
+Plusieurs jets sont alors présents dans l'état final et sont ordonnés par impulsion transverse décroissante.
+Le cas de la figure~\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets}, correspondant à un jet additionnel par ISR, peut être supprimé par une condition sur les directions du photon et du premier jet qui doivent être opposées.
+Dans le cas du diagramme de la figure~\ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}, correspondant à un jet additionnel par FSR, le photon est balancé avec le \par système des deux jets. La topologie d'un tel événement est illustrée sur la figure~\ref{subfig-Gamma_plus_two_jets}.
+La réponse balancée est alors considérée entre le photon et le premier jet, \ie
+\begin{equation}
+\Rbal = \frac{\pT_\reco^\text{jet 1}}{\pT^{\photon}}
+\mend
+\end{equation}
+\par La présence d'un jet secondaire, comme sur la figure~\ref{subfig-Gamma_plus_two_jets}, créé un déséquilibre dans \Rbal\ dû à la physique de l'événement et non à la JES. Il ne faut donc pas corriger cet effet.
+Pour cela, il faut pouvoir se ramener au cas où un seul jet est présent, comme dans l'événement de la figure~\ref{subfig-Gamma_plus_jet_basic_event}.
+L'activité additionnelle liée aux jets supplémentaires est quantifié par la variable
+\begin{equation}
+\alpha = \frac{\pT_\reco^\text{jet 2}}{\pT^{\photon}}
+\mend
+\label{eq-chapter-JERC-definition_alpha}
+\end{equation}
+L'analyse des événements \Gjets\ est ainsi réalisée à différentes valeurs de $\alpha$, puis une extrapolation de \Rbal\ à $\alpha=0$ permet d'obtenir le résultat souhaité. Cette procédure est détaillée dans la section~\ref{chapter-JERC-section-JES}.
+\subsection{Utilisation conjointe de la réponse MPF}
+En complément de la réponse balancée, la réponse MPF, définie comme
+\begin{equation}
+\RMPF = 1 + \frac{\vpT^{\photon}\cdot\vMET}{\abs{\vpT^{\photon}}^2}
+\mend[,]
+\end{equation}
+est également analysée.
+L'impulsion de toutes les particules présentes étant considérée, \RMPF\ est moins sensible à l'activité additionnelle que \Rbal, ce qui se retrouve sur les résultats de la figure~\ref{fig-responsebal_and_MPF_eta0013_ptPhot_175_230} où ces deux réponses sont représentées en fonction de $\alpha$.
 \begin{figure}[h]
 \centering
-\subcaptionbox{Topologie typique des événements correspondant aux diagrammes de la figure~\ref{fig-fgraph-gamma_plus_jets}.\label{subfig-Gamma_plus_jet_basic_event}}[.45\textwidth]
-{\includegraphics[width=\linewidth,height=.25\textheight,keepaspectratio]{\PhDthesisdir/tex/Event_displays/JERC/Gamma_plus_jet.tex}}
+\subcaptionbox{Réponse balancée.\label{subfig-response_eta0013_ptPhot_175_230}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/plots/used/only_L2Res/Run2018ABCD/extrapolation/response_eta0013_ptPhot_175_230.pdf}}
 \qquad
-\subcaptionbox{Topologie typique des événements correspondant au diagramme de la figure~\ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}.\label{subfig-Gamma_plus_two_jets}}[.45\textwidth]
-{\includegraphics[width=\linewidth,height=.25\textheight,keepaspectratio]{\PhDthesisdir/tex/Event_displays/JERC/Gamma_plus_2jets.tex}}
-\caption{Topologies typiques des événements \Gjet.}
-\label{fig-Gamma_plus_jet_events}
+\subcaptionbox{Réponse MPF.\label{subfig-responseMPF_eta0013_ptPhot_175_230}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/plots/used/only_L2Res/Run2018ABCD/extrapolation/responseMPF_eta0013_ptPhot_175_230.pdf}}
+\caption[Réponses des jets en fonction de $\alpha$.]{Réponses des jets en fonction de $\alpha$ et extrapolation pour $\abs{\eta}<\num{1.3}$ et $\num{175}<\pT^{\photon}<\SI{230}{\GeV}$ en 2018.}
+\label{fig-responsebal_and_MPF_eta0013_ptPhot_175_230}
 \end{figure}
-
-initial state radiation: réjection par la condition back-to-back.
+\par L'utilisation de la réponse MPF nécessite une bonne reconstruction de \vMET, ce qui est le cas grâce aux bonnes performances de l'algorithme de \PF.
+Son utilisation conjointe avec la réponse balancée permet d'obtenir des résultats complémentaires.
+Des écarts significatifs observés entre les deux méthodes indiqueraient ainsi des effets incompris, nécessitant de plus amples investigations.
+Dans la situation de la figure~\ref{fig-responsebal_and_MPF_eta0013_ptPhot_175_230} par exemple, les rapports des réponses balancée et MPF entre données et simulations valent
+$\num{0.970}\pm\num{0.001}$
+et
+$\num{0.971}\pm\num{0.001}$,
+ce qui est tout à fait compatible.
