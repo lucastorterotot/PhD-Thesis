@@ -196,7 +196,12 @@ Ainsi, au niveau reconstruit\footnote{Le niveau reconstruit prend ici en compte 
 \Leftrightarrow
 \vpT_\ptcl^\text{réf} + \Rbal\vpT_\ptcl^\text{jet} = \vec{0}
 \end{equation}
-car l'objet de référence, fidèlement reconstruit, permet de considérer $\vpT_\reco^\text{réf}=\vpT_\ptcl^\text{réf}=\vpT^\text{réf}$.\\
+car l'objet de référence, fidèlement reconstruit, permet de considérer
+\begin{equation}
+\vpT_\reco^\text{réf} \simeq \vpT_\ptcl^\text{réf} = \vpT^\text{réf}
+\mend
+\label{eq-chapter-JERC-section-CMS-subsec-residuals-pT_ref_approx_ptcl_reco}
+\end{equation}
 La réponse balancée \Rbal\ est alors définie comme
 \begin{equation}
 \Rbal (\pT, \eta) = \frac{\pT_\reco^\text{jet}}{\pT^\text{ref}}
@@ -207,10 +212,15 @@ La réponse balancée \Rbal\ est alors définie comme
 \Rightarrow
 \vpT_\reco^\text{réf} + \vpT_\reco^\text{recul} = -\vMET
 \Leftrightarrow
-\vpT_\ptcl^\text{réf} + \RMPF\vpT_\ptcl^\text{recul} = -\vMET
+\vpT_\reco^\text{réf} + \RMPF\vpT_\ptcl^\text{recul} = -\vMET
+\mend
+\end{equation}
+En appliquant~\eqref{eq-chapter-JERC-section-CMS-subsec-residuals-pT_ref_approx_ptcl_reco} à l'équation précédente, il est possible d'écrire
+\begin{equation}
+\vpT^\text{réf} - \RMPF\vpT^\text{réf} = -\vMET
 \mend[,]
 \end{equation}
-définissant ainsi la réponse MPF \RMPF\ comme
+ce qui permet de définir la réponse MPF \RMPF\ comme
 \begin{equation}
 \RMPF (\pT, \eta) = 1 + \frac{\vpT^\text{réf}\cdot\vMET}{\abs{\vpT^\text{ref}}^2}
 \mend
