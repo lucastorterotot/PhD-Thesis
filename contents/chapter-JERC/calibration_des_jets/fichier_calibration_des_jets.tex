@@ -31,14 +31,14 @@ Si la JEC est correcte, alors les variables corrigées doivent correspondre aux 
 Sur la figure~\ref{fig-JERC_RunI-1} sont représentées les réponses de jets d'événements QCD simulés à différentes étapes de la JEC. Après avoir appliqué toutes les corrections, ce qui correspond à la figure~\ref{subfig-JERC_RunI-1_3}, la réponse est sensiblement égal à 1, ce qui montre que la JEC est correcte.
 \begin{figure}[h]
 \centering
-\subcaptionbox{Avant correction ($R_\reco$).\label{subfig-JERC_RunI-1_1}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/response_evolution_1.png}}
+\subcaptionbox{Avant correction ($R_\reco$).\label{subfig-JERC_RunI-1_1}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/response_evolution_1.png}}
 \hfill
-\subcaptionbox{Après correction de l'empilement.\label{subfig-JERC_RunI-1_2}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/response_evolution_2.png}}
+\subcaptionbox{Correction de l'empilement.\label{subfig-JERC_RunI-1_2}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/response_evolution_2.png}}
 \hfill
-\subcaptionbox{Après correction ($R_\cali$).\label{subfig-JERC_RunI-1_3}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/response_evolution_3.png}}
+\subcaptionbox{Après correction ($R_\cali$).\label{subfig-JERC_RunI-1_3}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/response_evolution_3.png}}
 \caption[Valeur moyenne de la réponse de jets d'événements QCD simulés.]{Valeur moyenne de la réponse de jets d'événements QCD simulés en fonction de $\pT_\ptcl$ à différentes étapes de la JEC~\cite{JERC_RunI} et pour différentes valeurs d'interactions d'empilement $\mu$.}
 \label{fig-JERC_RunI-1}
 \end{figure}
@@ -100,23 +100,11 @@ La figure~\ref{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005} mont
 Les résultats de la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005b} sont cohérents avec l'absence d'énergie supplémentaire due à l'empilement à $\pm\SI{0.2}{\GeV}$. Dans le cas d'un grand nombre d'interactions d'empilement ($\mu>30$), un léger effet est visible, lié à une dépendance quadratique en $\rho$ de la contribution en énergie de l'empilement qui n'est pas modélisée~\cite{JERC_RunI}.
 \begin{figure}[h]
 \centering
-\subcaptionbox{Avant correction.\label{subfig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005a}}[8.1cm]
-{\begin{tikzpicture}
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=8cm]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/Figure_005-a.png}};
-\fill [white] (0, 4) rectangle + (.65, 3.5);
-\draw (.3, 7.2) node [left, rotate=90] {$\average{\pT_\ptcl^\text{add}}$ (\SI{}{\GeV})};
-\fill [white] (5, 0) rectangle + (2.6, .625);
-\draw (6.5, .3) node {$\pT_\ptcl$ (\SI{}{\GeV})};
-\end{tikzpicture}}
+\subcaptionbox{Avant correction.\label{subfig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005a}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/Figure_005-a.tex}}
 \hfill
-\subcaptionbox{Après correction.\label{subfig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005b}}[8.1cm]
-{\begin{tikzpicture}
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=8cm]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/Figure_005-b.png}};
-\fill [white] (0, 4) rectangle + (.65, 3.5);
-\draw (.3, 7.2) node [left, rotate=90] {$\average{\pT_\ptcl^\text{add}}$ (\SI{}{\GeV})};
-\fill [white] (5, 0) rectangle + (2.6, .625);
-\draw (6.5, .3) node {$\pT_\ptcl$ (\SI{}{\GeV})};
-\end{tikzpicture}}
+\subcaptionbox{Après correction.\label{subfig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005b}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/Figure_005-b.tex}}
 \caption[Contribution additionnelle de l'empilement au niveau particule.]{Contribution additionnelle de l'empilement au niveau particule telle que définie dans l'équation~\eqref{eq-chapter-JERC-section-CMS-subsec-PU-pTaddptcl} pour $\abs{\eta}<\num{1.3}$ en fonction de l'impulsion du jet au niveau particule pour différentes valeurs du nombre d'interaction d'empilement ($\mu$)~\cite{JERC_RunI}.}
 \label{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005}
 \end{figure}
@@ -144,14 +132,14 @@ est représentée sur la figure~\ref{fig-simulated_jet_response_RunII} pour les 
 Il apparaît, par exemple, qu'un jet de $\pT=\SI{30}{\GeV}$ nécessite une correction allant de \SI{10}{\%} dans la région centrale $\abs{\eta}<\num{0.7}$ à plus de \SI{30}{\%} lorsque $\abs{\eta}\simeq\num{3}$ en 2017 et 2018.
 \begin{figure}[h]
 \centering
-\subcaptionbox{Année 2016.\label{subfig-simulated_jet_response_2016}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/simulated_jet_response_2016.png}}
+\subcaptionbox{Année 2016.\label{subfig-simulated_jet_response_2016}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/simulated_jet_response_2016.png}}
 \hfill
-\subcaptionbox{Année 2017.\label{subfig-simulated_jet_response_2017}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/simulated_jet_response_2017.png}}
+\subcaptionbox{Année 2017.\label{subfig-simulated_jet_response_2017}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/simulated_jet_response_2017.png}}
 \hfill
-\subcaptionbox{Année 2018.\label{subfig-simulated_jet_response_2018}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/simulated_jet_response_2018.png}}
+\subcaptionbox{Année 2018.\label{subfig-simulated_jet_response_2018}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/simulated_jet_response_2018.png}}
 \caption[Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II.]{Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II~\cite{CMS-DP-2020-019}. La baisse dans la région $\num{3.0}<\abs{\eta}<\num{3.2}$ (respectivement $\abs{\eta}>\num{4.5}$) est due à la transition le bouchon (\emph{endcap}) et la partie avancée (\emph{forward}) du détecteur (reps. son acceptation). La dégradation au cours du temps du détecteur dans la région \og EC2 \fg{} s'observe par la baisse de la réponse des jets dans cette région de 2016 à 2017.}
 \label{fig-simulated_jet_response_RunII}
 \end{figure}
@@ -234,7 +222,7 @@ Cette correction s'appuie sur la bonne reconstruction des jets dans le barillet,
 La correction à appliquer aux données ainsi obtenue est illustrée sur la figure~\ref{fig-L2ResRel_RunII} dans le cas des jets d'impulsion transverse égale à \SI{120}{\GeV}.
 \begin{figure}[h]
 \centering
-\includegraphics[width=.4\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/relative_eta_residual_RunII.png}
+\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/relative_eta_residual_RunII.png}
 \caption[Correction résiduelle relative en $\eta$ lors du Run~II.]{Correction résiduelle relative en $\eta$ lors du Run~II obtenue avec des événements dijets et la méthode MPF~\cite{CMS-DP-2020-019}.}
 \label{fig-L2ResRel_RunII}
 \end{figure}
@@ -251,14 +239,14 @@ Cette correction s'appuie donc sur un objet de référence qui n'est pas un jet,
 La correction à appliquer aux données ainsi obtenue est illustrée sur la figure~\ref{fig-L2ResAbs_RunII} dans le cas des jets de pseudo-rapidité $\abs{\eta}<\num{1.3}$.
 \begin{figure}[h]
 \centering
-\subcaptionbox{Année 2016.\label{subfig-absolute_pT_residual_2016}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/absolute_pT_residual_2016.png}}
+\subcaptionbox{Année 2016.\label{subfig-absolute_pT_residual_2016}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/absolute_pT_residual_2016.png}}
 \hfill
-\subcaptionbox{Année 2017.\label{subfig-absolute_pT_residual_2017}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/absolute_pT_residual_2017.png}}
+\subcaptionbox{Année 2017.\label{subfig-absolute_pT_residual_2017}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/absolute_pT_residual_2017.png}}
 \hfill
-\subcaptionbox{Année 2018.\label{subfig-absolute_pT_residual_2018}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/absolute_pT_residual_2018.png}}
+\subcaptionbox{Année 2018.\label{subfig-absolute_pT_residual_2018}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/absolute_pT_residual_2018.png}}
 \caption[Correction résiduelle absolue en $\pT$ pour $\abs{\eta}<\num{1.3}$ lors du Run~II.]{Correction résiduelle absolue en $\pT$ pour $\abs{\eta}<\num{1.3}$ lors du Run~II obtenue par ajustement global sur les événements \Gjet, \Zjet\ et multijets~\cite{CMS-DP-2020-019}.}
 \label{fig-L2ResAbs_RunII}
 \end{figure}
@@ -266,6 +254,13 @@ La correction à appliquer aux données ainsi obtenue est illustrée sur la figu
 La phénoménologie de ces événements ainsi que leur analyse sont détaillées dans les sections~\ref{chapter-JERC-section-pheno-GJets} et~\ref{chapter-JERC-section-JES}.
 %une fois le ECAL calibré (test de presque chaque cristal en faisceau), calibration du HCAL.
 \subsubsection{Correction résiduelle de saveur}\label{chapter-JERC-section-CMS-subsec-residuals_flavor}
+\begin{wrapfigure}{R}{8cm}
+\centering
+\vspace{-2\baselineskip}
+\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/Figure_030-a.png}
+\caption[Correction résiduelle de saveur en fonction de l'impulsion du jet.]{Correction résiduelle de saveur en fonction de l'impulsion du jet préalablement corrigée par les corrections décrites dans les sections précédantes, $\pT_\cali$, pour des jets de pseudo-rapidité $\abs{\eta}<\num{1.3}$~\cite{JERC_RunI}.}
+\label{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_030a}
+\end{wrapfigure}
 Il existe une différence de réponse selon la saveur du jet, majoritairement due à la fragmentation en énergie et la composition du jet qui dépend de cette saveur~\cite{JERC_RunI}.
 Par exemple, des particules de bas \pT\ se retrouvent hors de la zone d'acceptation du détecteur.
 Or, des jets initiés par des gluons présentent de nombreuses particules de bas \pT\ par rapport aux jets issus de quarks légers.
@@ -274,15 +269,9 @@ La proportion de particules neutres dans le jet est également un des paramètre
 \par La correction $\mathcal{C}_\text{Sav}$ à appliquer aux données et aux simulations, obtenue à l'aide de
 \PYTHIA~6.4~\cite{pythia6.4}
 avec les réglages Z2*~\cite{Khachatryan:2015pea}
-sur des événements simulés dijet, \Zjet\ et \Gjet,
+sur des événements dijet, \Zjet\ et \Gjet\ simulés,
 est représentée sur la figure~\ref{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_030a}.
-Des corrections allant jusqu'à \SI{4}{\%} sont appliquées.
-\begin{figure}[h]
-\centering
-\includegraphics[width=.4\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_JERC_RunI/Figure_030-a.png}
-\caption[Correction résiduelle de saveur en fonction de l'impulsion du jet.]{Correction résiduelle de saveur en fonction de l'impulsion du jet préalablement corrigée par les corrections décrites dans les sections précédantes, $\pT_\cali$, pour des jets de pseudo-rapidité $\abs{\eta}<\num{1.3}$~\cite{JERC_RunI}.}
-\label{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_030a}
-\end{figure}
+Elle est de moins de \SI{2}{\%} en-deçà de \SI{100}{\GeV} mais peut atteindre \SI{4}{\%} à bas \pT.
 \subsection{Incertitude sur la correction en énergie des jets}\label{chapter-JERC-section-CMS-subsec-unc}
 Chacune des étapes de la JEC comporte des incertitudes liées aux effets systématiques et, dans une moindre mesure, statistiques.
 La maîtrise de ces incertitudes est un enjeu important pour de nombreuses analyses de la collaboration CMS où elles constituent un des sources d'incertitudes les plus importantes.
@@ -310,25 +299,25 @@ La figure~\ref{fig-Syst_uncs_JEC_RunII} résume les valeurs de ces incertitudes 
 L'incertitude globale sur la JEC est généralement inférieure à \SI{2}{\%}, excepté pour les cas $\pT\leq\SI{30}{\GeV}$ ou $\abs{\eta}\geq\num{2}$ où elle peut être de l'ordre de \SI{10}{\%}.
 \begin{figure}[h]
 \centering
-\subcaptionbox{En fonction de $\pT$ pour $\abs{\eta}=0$ en 2016.\label{subfig-Syst_uncs_pT_2016}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/Syst_uncs_pT_2016.png}}
+\subcaptionbox{En fonction de $\pT$ pour $\abs{\eta}=0$ en 2016.\label{subfig-Syst_uncs_pT_2016}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/Syst_uncs_pT_2016.png}}
 \hfill
-\subcaptionbox{En fonction de $\pT$ pour $\abs{\eta}=0$ en 2017.\label{subfig-Syst_uncs_pT_2017}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/Syst_uncs_pT_2017.png}}
+\subcaptionbox{En fonction de $\pT$ pour $\abs{\eta}=0$ en 2017.\label{subfig-Syst_uncs_pT_2017}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/Syst_uncs_pT_2017.png}}
 \hfill
-\subcaptionbox{En fonction de $\pT$ pour $\abs{\eta}=0$ en 2018.\label{subfig-Syst_uncs_pT_2018}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/Syst_uncs_pT_2018.png}}
+\subcaptionbox{En fonction de $\pT$ pour $\abs{\eta}=0$ en 2018.\label{subfig-Syst_uncs_pT_2018}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/Syst_uncs_pT_2018.png}}
 
 \vspace{\baselineskip}
 
-\subcaptionbox{En fonction de $\eta$ pour $\pT=\SI{30}{\GeV}$ en 2016.\label{subfig-Syst_uncs_eta_2016}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/Syst_uncs_eta_2016.png}}
+\subcaptionbox{En fonction de $\eta$ pour $\pT=\SI{30}{\GeV}$ en 2016.\label{subfig-Syst_uncs_eta_2016}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/Syst_uncs_eta_2016.png}}
 \hfill
-\subcaptionbox{En fonction de $\eta$ pour $\pT=\SI{30}{\GeV}$ en 2017.\label{subfig-Syst_uncs_eta_2017}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/Syst_uncs_eta_2017.png}}
+\subcaptionbox{En fonction de $\eta$ pour $\pT=\SI{30}{\GeV}$ en 2017.\label{subfig-Syst_uncs_eta_2017}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/Syst_uncs_eta_2017.png}}
 \hfill
-\subcaptionbox{En fonction de $\eta$ pour $\pT=\SI{30}{\GeV}$ en 2018.\label{subfig-Syst_uncs_eta_2018}}[.31\textwidth]
-{\includegraphics[width=.31\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/Syst_uncs_eta_2018.png}}
+\subcaptionbox{En fonction de $\eta$ pour $\pT=\SI{30}{\GeV}$ en 2018.\label{subfig-Syst_uncs_eta_2018}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/Syst_uncs_eta_2018.png}}
 
 \caption[Incertitudes relatives sur la JEC en fonction de \pT\ et $\eta$ lors du Run~II.]{Incertitudes relatives sur la JEC lors du Run~II~\cite{CMS-DP-2020-019}.}
 \label{fig-Syst_uncs_JEC_RunII}
