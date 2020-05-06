@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+\input{\PhDthesisdir/tex/Event_displays/macro_defs.tex}
+
+\clip (0,0) circle (\HCALrout);
+
+\drawCMS
+
+{\def\tauhcolor{\jetcolor}
+\printtauhdeposit{-135}
+\printtauhnolabel{-135}}
+\printjetlabel{-135}
+
+\foreach \angle in {-132, -138}{
+\printphotondeposit{\angle-1}
+\printphotonnolabel{\angle-1}
+\printphotondeposit{\angle+1}
+\printphotonnolabel{\angle+1}
+}
+
+\printjetdeposit{45}
+\printjetnolabel{45}
+\printjetlabel{35}
+
+\end{tikzpicture}
