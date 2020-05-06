@@ -168,7 +168,7 @@ Des corrections résiduelles à appliquer aux données sont ainsi déterminées 
 \mathcal{C}_\text{Res} = \frac{R_\text{simulations}}{R_\text{données}}
 \mend
 \end{equation}
-\par Le principe est d'estimer la réponse du jet en s'appuyant sur un objet de référence pouvant être un boson \Zboson\ (événements \Zjet), un photon (événements \Gjet) ou un autre jet (événements dijets et multijets).
+\par Le principe est d'estimer la réponse du jet en s'appuyant sur un objet de référence pouvant être un boson \Zboson\ (événements \Zjets), un photon (événements \Gjets) ou un autre jet (événements dijets et multijets).
 Deux méthodes existent et sont utilisées de manière complémentaire:
 \begin{description}
 \item[la méthode de la balance] estime que l'objet de référence et le jet sont balancés au niveau particule, \ie\ d'impulsion transverse totale nulle, soit
@@ -230,11 +230,11 @@ La correction à appliquer aux données ainsi obtenue est illustrée sur la figu
 Cette correction, fonction de \pT, a pour but de rendre indépendant de \pT\ le rapport données sur simulations de la réponse des jets.
 Elle combine, à l'aide d'un ajustement global, les comparaisons données-simulations de plusieurs types d'événements afin de couvrir un large spectre de valeurs de \pT. Chaque type d'événement est en effet dominant, de par sa statistique, dans une gamme de \pT\ donnée:
 \begin{itemize}
-\item événements \Zjet: il s'agit d'événements \Zmmjet\ et \Zeejet, sélectionnés par la présence d'une paire de muons ou d'électrons compatibles avec la désintégration d'un \Zboson, ils couvrent la région $\pT<\SI{200}{\GeV}$;
-\item événements \Gjet: sélectionnés dans les données à l'aide d'un déclenchement basé sur la présence d'un photon, ils permettent de traiter la région $\SI{200}{\GeV}<\pT<\SI{800}{\GeV}$;
+\item événements \Zjets: il s'agit d'événements \Zmmjets\ et \Zeejets, sélectionnés par la présence d'une paire de muons ou d'électrons compatibles avec la désintégration d'un \Zboson, ils couvrent la région $\pT<\SI{200}{\GeV}$;
+\item événements \Gjets: sélectionnés dans les données à l'aide d'un déclenchement basé sur la présence d'un photon, ils permettent de traiter la région $\SI{200}{\GeV}<\pT<\SI{800}{\GeV}$;
 \item événements multijets: ces événements contiennent au moins deux jets dans l'état final et couvrent la région $\pT>\SI{800}{\GeV}$.
 \end{itemize}
-\par L'objet de référence utilisé pour calibrer le jet, que ce soit un boson \Zboson\ (\Zjet), un photon (\Gjet) ou un autre jet (multijets), possède une meilleure résolution en énergie.
+\par L'objet de référence utilisé pour calibrer le jet, que ce soit un boson \Zboson\ (\Zjets), un photon (\Gjets) ou un autre jet (multijets), possède une meilleure résolution en énergie.
 Cette correction s'appuie donc sur un objet de référence qui n'est pas un jet, d'où son qualificatif d'\og absolue \fg.
 La correction à appliquer aux données ainsi obtenue est illustrée sur la figure~\ref{fig-L2ResAbs_RunII} dans le cas des jets de pseudo-rapidité $\abs{\eta}<\num{1.3}$.
 \begin{figure}[h]
@@ -247,10 +247,10 @@ La correction à appliquer aux données ainsi obtenue est illustrée sur la figu
 \hfill
 \subcaptionbox{Année 2018.\label{subfig-absolute_pT_residual_2018}}[.3\textwidth]
 {\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/absolute_pT_residual_2018.png}}
-\caption[Correction résiduelle absolue en $\pT$ pour $\abs{\eta}<\num{1.3}$ lors du Run~II.]{Correction résiduelle absolue en $\pT$ pour $\abs{\eta}<\num{1.3}$ lors du Run~II obtenue par ajustement global sur les événements \Gjet, \Zjet\ et multijets~\cite{CMS-DP-2020-019}.}
+\caption[Correction résiduelle absolue en $\pT$ pour $\abs{\eta}<\num{1.3}$ lors du Run~II.]{Correction résiduelle absolue en $\pT$ pour $\abs{\eta}<\num{1.3}$ lors du Run~II obtenue par ajustement global sur les événements \Gjets, \Zjets\ et multijets~\cite{CMS-DP-2020-019}.}
 \label{fig-L2ResAbs_RunII}
 \end{figure}
-\par L'analyse des événements \Gjet\ utilisés dans ces ajustement globaux pour les années 2018, utilisés dans la figure~\ref{subfig-absolute_pT_residual_2018}, et 2017-UL\footnote{La dénomination \og UL \fg{} signifie \emph{Ultra-Legacy} et correspond à une réinterprétation des données récoltées une fois que la collaboration peut prendre plus de recul sur l'obtention de celles-ci.} a fait partie de mon travail de thèse.
+\par L'analyse des événements \Gjets\ utilisés dans ces ajustement globaux pour les années 2018, utilisés dans la figure~\ref{subfig-absolute_pT_residual_2018}, et 2017-UL\footnote{La dénomination \og UL \fg{} signifie \emph{Ultra-Legacy} et correspond à une réinterprétation des données récoltées une fois que la collaboration peut prendre plus de recul sur l'obtention de celles-ci.} a fait partie de mon travail de thèse.
 La phénoménologie de ces événements ainsi que leur analyse sont détaillées dans les sections~\ref{chapter-JERC-section-pheno-GJets} et~\ref{chapter-JERC-section-JES}.
 %une fois le ECAL calibré (test de presque chaque cristal en faisceau), calibration du HCAL.
 \subsubsection{Correction résiduelle de saveur}\label{chapter-JERC-section-CMS-subsec-residuals_flavor}
@@ -269,7 +269,7 @@ La proportion de particules neutres dans le jet est également un des paramètre
 \par La correction $\mathcal{C}_\text{Sav}$ à appliquer aux données et aux simulations, obtenue à l'aide de
 \PYTHIA~6.4~\cite{pythia6.4}
 avec les réglages Z2*~\cite{tunes_2016}
-sur des événements dijet, \Zjet\ et \Gjet\ simulés,
+sur des événements dijet, \Zjets\ et \Gjets\ simulés,
 est représentée sur la figure~\ref{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_030a}.
 Elle est de moins de \SI{2}{\%} en-deçà de \SI{100}{\GeV} mais peut atteindre \SI{4}{\%} à bas \pT.
 \subsection{Incertitude sur la correction en énergie des jets}\label{chapter-JERC-section-CMS-subsec-unc}
@@ -286,7 +286,7 @@ Il s'agit de rendre compte de l'incertitude sur la détermination de la contribu
 Une incertitude de \SI{5}{\%} sur le rapport données sur simulations de cette contribution, obtenue à l'aide de la méthode de cône aléatoire, est considérée.
 La différence résiduelle entre la contribution obtenue par cône aléatoire et la contribution réelle extraite des simulations est également prise en compte.
 \item[Méthode et jeux de données] ou \emph{Method \& sample} sur les légendes des figures~\ref{subfig-Syst_uncs_pT_2016} à~\ref{subfig-Syst_uncs_eta_2018}.
-Cette incertitude correspond aux écarts observés entre les méthodes utilisant les réponses~\Rbal\ et~\RMPF\ d'une part et entre les analyses utilisant les jeux de données \Zjet, \Gjet\ et dijets d'autre part.
+Cette incertitude correspond aux écarts observés entre les méthodes utilisant les réponses~\Rbal\ et~\RMPF\ d'une part et entre les analyses utilisant les jeux de données \Zjets, \Gjets\ et dijets d'autre part.
 \item[Saveur] ou \emph{Jet flavor} sur les légendes des figures~\ref{subfig-Syst_uncs_pT_2016} à~\ref{subfig-Syst_uncs_eta_2018}.
 L'incertitude sur la dépendance en saveur de la réponse des jets dans les simulations est estimée à partir de la différence entre deux générateurs,
 \PYTHIA~\cite{pythia6.4}
@@ -339,11 +339,11 @@ L'incertitude globale sur la JEC est généralement inférieure à \SI{2}{\%}, e
 La résolution en énergie des jets, notée JER, est de l'ordre de \SI{10}{\%} pour des jets avec $\pT\geq\SI{50}{\GeV}$ et peut atteindre environ \SI{40}{\%} pour des jets de bas \pT\ et un empilement important~\cite{JERC_RunI}.
 Cette résolution est donc bien moins bonne que celles d'autres objets physiques tels que les électrons (\num{2} à \SI{5}{\%}), les muons (\num{1} à \SI{6}{\%}) et les photons (environ \SI{1}{\%}), ce qui peut introduire des biais importants dans les analyses cherchant des résonances étroites, par exemple.
 \par La JER est définie comme la largeur de la gaussienne obtenue par un ajustement sur la distribution de $R_\cali$ des jets, \ie\ $\pT_\cali/\pT_\ptcl$.
-Sa mesure est réalisée à l'aide d'événements \Gjet\ et \Zjet\ et les résultats obtenus lors du Run~I sont présentés sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}.
+Sa mesure est réalisée à l'aide d'événements \Gjets\ et \Zjets\ et les résultats obtenus lors du Run~I sont présentés sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}.
 Elle est définie comme une fonction de $\pT_\ptcl$, $\eta$ et $\mu$.
 \par La JER observée dans les simulations diffère de celle observée dans les données, elle est légèrement meilleure.
 Afin de pouvoir réaliser des analyses comparant données et simulations, il est nécessaire d'avoir une JER comparable dans ces deux catégories d'événements.
-La JER des simulations est ainsi détériorée par un facteur d'échelle (\emph{JER SF}), déterminé à partir d'événements \Gjet\ et dijet et défini en fonction de $\eta$.
+La JER des simulations est ainsi détériorée par un facteur d'échelle (\emph{JER SF}), déterminé à partir d'événements \Gjets\ et dijet et défini en fonction de $\eta$.
 Les résultats obtenus lors du Run~II sont présentés sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JER_SF_RunII}.
 Le principe est le même que pour les corrections résiduelles décrites dans les sections~\ref{chapter-JERC-section-CMS-subsec-residuals_eta} et~\ref{chapter-JERC-section-CMS-subsec-residuals_pT}. Au lieu de s'intéresser à la moyenne de la distribution, c'est sa largeur qui est étudiée.
 \begin{figure}[h]
@@ -356,5 +356,5 @@ Le principe est le même que pour les corrections résiduelles décrites dans le
 \caption[Résolution en énergie des jets.]{Résolution en énergie des jets dans les simulations et facteurs d'échelle à leur appliquer.}
 \label{fig-chapter-JERC-section-CMS-subsec-JER}
 \end{figure}
-\par L'analyse des événements \Gjet\ utilisés pour les années 2018 et 2017-UL\footnote{La dénomination \og UL \fg{} signifie \emph{Ultra-Legacy} et correspond à une réinterprétation des données récoltées une fois que la collaboration peut prendre plus de recul sur l'obtention de celles-ci.} a fait partie de mon travail de thèse.
+\par L'analyse des événements \Gjets\ utilisés pour les années 2018 et 2017-UL\footnote{La dénomination \og UL \fg{} signifie \emph{Ultra-Legacy} et correspond à une réinterprétation des données récoltées une fois que la collaboration peut prendre plus de recul sur l'obtention de celles-ci.} a fait partie de mon travail de thèse.
 La phénoménologie de ces événements ainsi que leur analyse sont détaillées dans les sections~\ref{chapter-JERC-section-pheno-GJets} et~\ref{chapter-JERC-section-JER}.
