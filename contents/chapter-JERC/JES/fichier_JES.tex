@@ -165,9 +165,16 @@ Elle se définit comme le ratio entre la somme des impulsions transverses de tou
 \item $I_{NH}$ est l'isolation vis-à-vis des hadrons neutres, analogue à $I_{CH}$.
 \item $I_{\photon}$ est l'isolation vis-à-vis des photons autres que le candidat lui-même, analogue à $I_{CH}$.
 \end{itemize}
-
-\todo{R9}
-
+À cet ensemble de variables dont une valeur maximale est admise pour l'identification des photons s'ajoute $R_9$, définie comme
+\begin{equation}
+R_9 = \frac{E_{3\times3}}{E_{SC}}
+\end{equation}
+avec
+$E_{3\times3}$ la somme des énergies dans les cristaux du ECAL formant un carré de trois cristaux de côté centré sur le cristal contenant le plus d'énergie dans le \emph{supercluster}
+et
+$E_{SC}$
+l'énergie dans le \emph{supercluster}~\cite{photon_ID_2015}.
+Dans l'analyse des événements \Gjets, il est requis que $R_9 > \num{0.90}$.
 \par Les variables d'isolation sont corrigées afin de prendre en compte l'empilement, on considère alors $I^\text{corr}$ au lieu de $I$, telle que
 \begin{equation}
 I^\text{corr} = \max\left( I - \rho \times \mathcal{E_A} , 0\right)
