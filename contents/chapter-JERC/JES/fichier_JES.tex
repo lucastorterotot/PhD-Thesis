@@ -285,8 +285,60 @@ Ce chemin de déclenchement requière un photon d'impulsion transverse minimale 
 Ce même photon déclenche donc potentiellement le chemin nommé \inlinepython{HLT_Photon90_R9Id90_HE10_IsoM}.
 Utiliser un écart minimal entre l'impulsion du photon et l'impulsion minimale requise au déclenchement du chemin permet de se placer au plateau d'efficacité maximale du chemin de déclenchement.
 Des biais dus à la calibration du photon sont également évités grâce à cette méthode.
-\par \todo{PU reweighting per HLT}
 \subsection{Analyse}\label{chapter-JERC-section-JES-subsec-analyse}
+L'analyse a pour but de déterminer la correction résiduelle absolue en \pT\ des jets, définie dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals}.
+Pour cela, l'écart à l'unité du rapport moyen des réponses des jets dans les données réelles et simulées est déterminé dans différents intervalles de $\pT^{\photon}$, listé dans le tableau~\ref{tab-pT_photon_intervalles}.
+Ces intervalles sont une subdivision des intervalles définis pour les chemin de déclenchement dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}.
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+\toprule
+$[\num{40}, \num{50}[$ & $[\num{50}, \num{60}[$ & $[\num{60}, \num{85}[$ & $[\num{85}, \num{105}[$ \\
+$[\num{105}, \num{130}[$ & $[\num{130}, \num{175}[$ & $[\num{175}, \num{230}[$ & $[\num{230}, \num{300}[$ \\
+$[\num{300}, \num{400}[$ & $[\num{400}, \num{500}[$ & $[\num{500}, \num{700}[$ & $[\num{700}, \num{1000}[$ \\
+$[\num{1000}, \num{3000}]$ \\
+\bottomrule
+\end{tabular}
+\caption{Intervalles de $\pT^{\photon}$ en \SI{}{\GeV}.}
+\label{tab-pT_photon_intervalles}
+\end{table}
+\par La calibration en énergie des jets dépend fortement de la région du détecteur dans lequel il laisse un signal, comme le montre la figure~\ref{fig-simulated_jet_response_RunII} en page~\pageref{fig-simulated_jet_response_RunII}.
+Cet effet est dû aux différentes technologies utilisées ainsi qu'au vieillissement non uniforme du détecteur.
+Des intervalles de pseudo-rapidité du jet sont ainsi définis dans les tableaux~\ref{tab-eta_jet_intervalles_large} et~\ref{tab-eta_jet_intervalles_fin} afin de séparer le traitement de ces différentes régions.
+Des intervalles larges sont utilisés pour~\todo{?}, et des plus fins pour~\todo{?}.
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+\toprule
+$[\num{0}, \num{0.783}[$ & $[\num{0.783}, \num{1.305}[$ & $[\num{1.305}, \num{1.93}[$ & $[\num{1.93}, \num{2.5}[$ \\
+$[\num{2.5}, \num{2.964}[$ & $[\num{2.964}, \num{3.2}[$ & $[\num{3.2}, \num{5.191}[$ &  \\
+\bottomrule
+\end{tabular}
+\caption{Intervalles larges de $\abs{\eta^\text{jet}}$.}
+\label{tab-eta_jet_intervalles_large}
+\end{table}
+\begin{table}[h]
+\centering
+\begin{tabular}{cccccc}
+\toprule
+$[\num{0}, \num{0.261}[$ & $[\num{0.261}, \num{0.522}[$ & $[\num{0.522}, \num{0.783}[$ & $[\num{0.783}, \num{1.044}[$ & $[\num{1.044}, \num{1.305}[$ & $[\num{1.305}, \num{1.479}[$ \\
+$[\num{1.479}, \num{1.653}[$ & $[\num{1.653}, \num{1.930}[$ & $[\num{1.930}, \num{2.172}[$ & $[\num{2.172}, \num{2.322}[$ & $[\num{2.322}, \num{2.500}[$ & $[\num{2.500}, \num{2.650}[$ \\
+$[\num{2.650}, \num{2.853}[$ & $[\num{2.853}, \num{2.964}[$ & $[\num{2.964}, \num{3.319}[$ & $[\num{3.319}, \num{3.489}[$ & $[\num{3.489}, \num{3.839}[$ & $[\num{3.839}, \num{5.191}[$ \\
+\bottomrule
+\end{tabular}
+\caption{Intervalles fins de $\abs{\eta^\text{jet}}$.}
+\label{tab-eta_jet_intervalles_fin}
+\end{table}
+
+\par \todo{PU reweighting per HLT}
+
+
+\par \todo{TODO}: only eta photon < 1.3 for the moment (barrel) (already said ? check non ambiguous with eta jet) + future with all photons
+then tell grid pT photon-eta jet, analysis.
+Get plots (see Hugues thesis to make sure all relevant are here)
+98.5 pct RMS, mean
+
+\par alpha extrap
 
 \subsection{Incertitudes}\label{chapter-JERC-section-JES-subsec-uncertainties}
 
