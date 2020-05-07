@@ -5,6 +5,7 @@ avec les événements \Gjets\ a été un des mes travaux de thèse.
 J'ai ainsi traité les données de l'année 2018 et les données \og 2017-UL \fg{} où UL signifie \emph{Ultra-Legacy}.
 Il s'agit des données de l'année 2017 qui sont réinterprétées une fois les défauts du détecteurs mieux cernés, par exemple.
 \subsection{Jeux de données et sélection des événements}\label{chapter-JERC-section-JES-subsec-evt_select}
+\subsubsection{Jeux de données}
 %18 data
 %     Run2018A-17Sep2018-v2
 %     /EGamma/Run2018A-17Sep2018-v2/MINIAOD
@@ -69,6 +70,7 @@ Il s'agit des données de l'année 2017 qui sont réinterprétées une fois les 
 %     GJets_HT-600ToInf_RunIISummer19MiniAOD-106X
 %     /GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer19UL17MiniAOD-106X_mc2017_realistic_v6-v1/MINIAODSIM
 %     85.31 \pm 0.2564
+\paragraph{Données réelles}
 Les jeux de données réelles utilisés pour 2018 et 2017-UL sont basés sur la présence d'un photon dans l'état final.
 Plusieurs périodes sont considérées pour chacune de ces années, celles des collisions \proton\proton, dont la liste et les luminosités correspondantes sont présentés dans les tableaux~\ref{subtab-Runs_and_lumis_2018_GJet} et~\ref{subtab-Runs_and_lumis_2017UL_GJet}.
 \begin{table}[h]
@@ -103,7 +105,8 @@ Total & \num{41.52} \\
 \caption{Liste des périodes de prise de données considérées et luminosités correspondantes.}
 \label{tab-Runs_and_lumis_2018_and_2017UL_GJet}
 \end{table}
-\par Les simulations utilisées contiennent des événements \Gjets\ de type $\quark\gluon\to\quark\photon$, comme ceux des figures~\ref{subfig-fgraph-gq_qGamma_S} et~\ref{subfig-fgraph-gq_qGamma_T}, et $\quark\quark\to\gluon\photon$, comme celui de la figure~\ref{subfig-fgraph-qq_gGamma}.
+\paragraph{Données simulées}
+Les simulations utilisées contiennent des événements \Gjets\ de type $\quark\gluon\to\quark\photon$, comme ceux des figures~\ref{subfig-fgraph-gq_qGamma_S} et~\ref{subfig-fgraph-gq_qGamma_T}, et $\quark\quark\to\gluon\photon$, comme celui de la figure~\ref{subfig-fgraph-qq_gGamma}.
 Pour l'année 2018, les événements sont générés en un seul jeu de données
 à l'aide de \PYTHIA~8~\cite{pythia8.2}
 avec les réglages CP5-Flat~\cite{tunes_2019}
@@ -134,7 +137,8 @@ Année & Caractéristique & Section efficace (\SI{}{\pico\barn})\\
 \caption{Sections efficaces des différents jeux de données \Gjets\ simulés.}
 \label{tab-MC_xsec_2018_and_2017UL_GJet}
 \end{table}
-\par Une sélection plus fine des événements à considérer est réalisée lors de l'analyse elle-même.
+\subsubsection{Sélection des événements}
+Une sélection plus fine des événements à considérer est réalisée lors de l'analyse elle-même.
 En effet, les événements souhaités sont ceux contenant un photon avec un ou plusieurs jets;
 un des bruits de fond principal provient d'événements multijets où un des jets est identifié à tort comme un photon.
 Cette situation peut arriver lorsque ce jet contient de nombreux pions neutres, les \pionnull.
@@ -151,7 +155,8 @@ Les topologies de ces deux types d'événements, semblables, sont représentées
 \caption{Topologies d'événements \Gjet\ et dijets.}
 \label{fig-Gamma_plus_jet_events_real_faked}
 \end{figure}
-\par Une sélection des photons est appliquée afin de réduire le bruit de fond.
+\paragraph{Sélection sur les photons}
+Une sélection des photons est appliquée afin de réduire le bruit de fond.
 La collaboration CMS propose des critères d'identification des photons (lâche, moyen et strict) s'appuyant sur diverses propriétés du \og candidat \fg{} photon:
 \begin{itemize}
 \item $H/E$ est le rapport de l'énergie hadronique sur l'énergie électromagnétique associées à l'agglomérat d'énergie du photon.
@@ -228,7 +233,8 @@ Seuls les photons situés dans le barillet sont utilisés car ils présentent la
 La figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, page~\pageref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, montre en effet que ces photons possède une résolution relative en énergie de l'ordre de \SI{1}{\%}, contre environ \SI{2.5}{\%} pour les photons des bouchons.
 Une coupure sur leur pseudo-rapidité est donc appliquée, telle que $\abs{\eta} < \num{1.305}$.
 \par \todo{Barrel photon study if done in service task, else small paragraph on this idea}
-\par Les événements présentant un unique photon ainsi sélectionné sont retenus.
+\paragraph{Sélection sur les jets}
+Les événements présentant un unique photon sélectionné d'après les critères précédents sont retenus.
 Avec ce photon doit être présent au moins un jet reconstruit à l'aide de l'algorithme anti-\kT~\cite{Cacciari_antikT} avec un paramètre $R=\num{0.4}$ et respectant les critères définis dans le tableau~\ref{tab-chapter-JERC-section-jets_reco-subsec-jetID-2018} pour les données de 2018 et ceux du tableau~\ref{tab-chapter-JERC-section-jets_reco-subsec-jetID-2017UL} pour les données de 2017-UL.
 Ces critères permettent de rejeter les jets issus du bruit de fond avec une efficacité de \SI{99}{\%}.
 \par Les jets ainsi sélectionnés sont calibrés en énergie en suivant la procédure décrite dans la section~\ref{chapter-JERC-section-CMS} jusqu'à la correction résiduelle relative en $\eta$ incluse. Ils sont alors triés par impulsion transverse décroissante.
@@ -237,7 +243,8 @@ Le photon et le jet sont donc dos à dos dans le plan transverse, ce qui corresp
 \par Si un second jet d'impulsion transverse supérieure à \SI{10}{\GeV} est présent, l'événement est rejeté si $\alpha>\num{0.3}$ où $\alpha$ est défini dans l'équation~\eqref{eq-chapter-JERC-definition_alpha}, page~\pageref{eq-chapter-JERC-definition_alpha}.
 L'événement est également rejeté si un lepton (électron ou muon) isolé, en pratique hors des jets, est présent.
 \par \todo{graph pureté?}
-\par Dans le cas des données réelles, l'événement est sauvegardé si un chemin de déclenchement est activé\footnote{\todo{set a ref to the LHC chapter corresponding section when written}.}.
+\paragraph{Sélection sur le chemin de déclenchement}
+Dans le cas des données réelles, l'événement est sauvegardé si un chemin de déclenchement est activé\footnote{Le chemin de déclenchement est abordé dans la section~\ifref{chapter-LHC-section-CMS-subsec-data_taking}{\ref{chapter-LHC-section-CMS-subsec-data_taking}}{2.7} du chapitre\ifref{chapter-LHC}{~\ref{chapter-LHC}}{ \og Dispositif expérimental \fg}.}.
 Seuls les événements dont le photon retenu correspond au photon du chemin de déclenchement sont retenus.
 Il existe plusieurs chemins de déclenchement en fonction de l'impulsion du photon.
 Certains de ces chemins proposent une quantité trop importante d'événements à sauvegarder et pourraient saturer la chaîne d'acquisition.
