@@ -1,0 +1,15 @@
+% masks
+\fill [white] (1, 0) rectangle (8,.55);
+\fill [white] (0, 0) rectangle (.9,7.5);
+
+% X axis
+\foreach \val in {10, 20, ..., 70}{
+\draw ({1.475+(7.53-1.475)*(\val-10)/(70-10)}, .45) node {\tiny \val};
+}
+\draw (7.5, .15) node [left] {\scriptsize Nombre d'interactions d'empilement};
+
+% Y axis
+\foreach \pos/\val in {0/10^{-5}, 1/10^{-4}, 2/10^{-3}, 3/10^{-2}, 4/10^{-1}, 5/1}{
+\draw (1.075, {.6+\pos/5*(7.3-.6)}) node [left] {\tiny $\val$};
+}
+\draw (.25, 7.25) node [left, rotate=90] {\scriptsize Probabilité};
