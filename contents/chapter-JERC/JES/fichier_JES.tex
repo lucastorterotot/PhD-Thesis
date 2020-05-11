@@ -286,6 +286,7 @@ Ce même photon déclenche donc potentiellement le chemin nommé \inlinepython{H
 Utiliser un écart minimal entre l'impulsion du photon et l'impulsion minimale requise au déclenchement du chemin permet de se placer au plateau d'efficacité maximale du chemin de déclenchement.
 Des biais dus à la calibration du photon sont également évités grâce à cette méthode.
 \subsection{Analyse}\label{chapter-JERC-section-JES-subsec-analyse}
+\paragraph{Intervalles de $\pT^{\photon}$}
 L'analyse a pour but de déterminer la correction résiduelle absolue en \pT\ des jets, définie dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals}.
 Pour cela, l'écart à l'unité du rapport moyen des réponses des jets dans les données réelles et simulées est déterminé dans différents intervalles de $\pT^{\photon}$, listé dans le tableau~\ref{tab-pT_photon_intervalles}.
 Ces intervalles sont une subdivision des intervalles définis pour les chemin de déclenchement dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}.
@@ -302,7 +303,8 @@ $[\num{1000}, \num{3000}]$ \\
 \caption[Intervalles de $\pT^{\photon}$.]{Intervalles de $\pT^{\photon}$ en \SI{}{\GeV}.}
 \label{tab-pT_photon_intervalles}
 \end{table}
-\par La calibration en énergie des jets dépend fortement de la région du détecteur dans lequel il laisse un signal, comme le montre la figure~\ref{fig-simulated_jet_response_RunII} en page~\pageref{fig-simulated_jet_response_RunII}.
+\paragraph{Intervalles de $\abs{\eta^\text{jet}}$}
+La calibration en énergie des jets dépend fortement de la région du détecteur dans lequel le jet laisse un signal, comme le montre la figure~\ref{fig-simulated_jet_response_RunII} en page~\pageref{fig-simulated_jet_response_RunII}.
 Cet effet est dû aux différentes technologies utilisées ainsi qu'au vieillissement non uniforme du détecteur.
 Des intervalles de pseudo-rapidité du jet sont ainsi définis dans les tableaux~\ref{tab-eta_jet_intervalles_large} et~\ref{tab-eta_jet_intervalles_fin} afin de séparer le traitement de ces différentes régions.
 Des intervalles larges sont utilisés pour~\todo{?}, et des plus fins pour~\todo{?}.
@@ -329,17 +331,142 @@ $[\num{2.650}, \num{2.853}[$ & $[\num{2.853}, \num{2.964}[$ & $[\num{2.964}, \nu
 \caption{Intervalles fins de $\abs{\eta^\text{jet}}$.}
 \label{tab-eta_jet_intervalles_fin}
 \end{table}
+\paragraph{Pondération par l'empilement}
+Le profil d'empilement, \ie\ la densité de probabilité du nombre d'interactions d'empilement, dépend de la période de la prise de données et du chemin de déclenchement par lequel l'événement est retenu. Ces dépendances sont illustrées sur les graphiques des figures~\ref{fig-PU_profile_18} et~\ref{fig-PU_profile_17UL}.
+Les événements simulés sont ainsi pondérés afin que leur distribution du nombre d'interactions d'empilement soit similaire à celle dans les données réelles, en prenant en compte la double dépendance avec la période de prise de donnée et le chemin de déclenchement.
+\begin{figure}[p]
+\centering
+\subcaptionbox{Run 2018 A.\label{subfig-PU_profile_18_A}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/PUreweighting/2018/with_header/PU_HLT_profiles_run2018A_only_L2Res.tex}}
+\hfill
+\subcaptionbox{Run 2018 B.\label{subfig-PU_profile_18_B}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/PUreweighting/2018/with_header/PU_HLT_profiles_run2018B_only_L2Res.tex}}
 
-\par \todo{PU reweighting per HLT}
+\vfill
 
+\subcaptionbox{Run 2018 C.\label{subfig-PU_profile_18_C}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/PUreweighting/2018/with_header/PU_HLT_profiles_run2018C_only_L2Res.tex}}
+\hfill
+\subcaptionbox{Run 2018 D.\label{subfig-PU_profile_18_D}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/PUreweighting/2018/with_header/PU_HLT_profiles_run2018D_only_L2Res.tex}}
+
+\vfill
+
+\subcaptionbox{Run 2018 ABC.\label{subfig-PU_profile_18_ABC}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/PUreweighting/2018/with_header/PU_HLT_profiles_run2018ABC_only_L2Res.tex}}
+\hfill
+\subcaptionbox{Run 2018 ABCD.\label{subfig-PU_profile_18_ABCD}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/PUreweighting/2018/with_header/PU_HLT_profiles_run2018ABCD_only_L2Res.tex}}
+
+\caption{Densités de probabilité du nombre d'interactions d'empilement pour les périodes de prises de données de 2018.}
+\label{fig-PU_profile_18}
+\end{figure}
+\begin{figure}[p]
+\centering
+\subcaptionbox{Run 2017-UL B.\label{subfig-PU_profile_17UL_B}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/PUreweighting/2017UL/with_header/PU_HLT_profiles_run2017B_only_L2Res.tex}}
+\hfill
+\subcaptionbox{Run 2017-UL C.\label{subfig-PU_profile_17UL_C}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/PUreweighting/2017UL/with_header/PU_HLT_profiles_run2017C_only_L2Res.tex}}
+
+\vfill
+
+\subcaptionbox{Run 2017-UL D.\label{subfig-PU_profile_17UL_D}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/PUreweighting/2017UL/with_header/PU_HLT_profiles_run2017D_only_L2Res.tex}}
+\hfill
+\subcaptionbox{Run 2017-UL E.\label{subfig-PU_profile_17UL_E}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/PUreweighting/2017UL/with_header/PU_HLT_profiles_run2017E_only_L2Res.tex}}
+
+\vfill
+
+\subcaptionbox{Run 2017-UL F.\label{subfig-PU_profile_17UL_F}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/PUreweighting/2017UL/with_header/PU_HLT_profiles_run2017F_only_L2Res.tex}}
+\hfill
+\subcaptionbox{Run 2017-UL BCDEF.\label{subfig-PU_profile_17UL_BCDEF}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/PUreweighting/2017UL/with_header/PU_HLT_profiles_run2017BCDEF_only_L2Res.tex}}
+
+\caption{Densités de probabilité du nombre d'interactions d'empilement pour les périodes de prises de données de 2017-UL.}
+\label{fig-PU_profile_17UL}
+\end{figure}
+\paragraph{Accord données-simulation}
+Les distributions des événements simulés sont normalisées à la luminosité mesurée pour le jeu de données réelles considéré.
+Les comparaisons étant faites entre les données réelles et les événements simulés \Gjets, un désaccord dû à la contamination à bas \pT\ d'événements multijets est attendu, les événements multijets n'étant pas présents dans les simulations utilisées.
+Ce désaccord se constate sur les graphiques de la figure~\ref{fig-distribs_Gjets_17UL} présentant les distributions de l'impulsion transverse du photon, l'énergie transverse manquante et les impulsions transverses du premier et du second jet.
+Afin de déterminer la correction résiduelle absolue en \pT\ des jets ainsi que la correction de leur résolution en énergie, seule la comparaison des distributions de \Rbal\ et \RMPF\ est nécessaire.
+L'accord ainsi obtenu entre données réelles et simulées est considéré comme suffisant.
+\begin{figure}[h]
+\centering
+\subcaptionbox{Impulsion transverse du photon.\label{subfig-distrib_Gjets_17UL_ptPhoton}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/distributions/2017UL/with_header/ptPhoton_log.tex}}
+\hfill
+\subcaptionbox{Énergie transverse manquante.\label{subfig-distrib_Gjets_17UL_MET}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/distributions/2017UL/with_header/MET_log.tex}}
+
+\vspace{\baselineskip}
+
+\subcaptionbox{Impulsion transverse du premier jet.\label{subfig-distrib_Gjets_17UL_ptFirstJet}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/distributions/2017UL/with_header/ptFirstJet_log.tex}}
+\hfill
+\subcaptionbox{Impulsion transverse du second jet.\label{subfig-distrib_Gjets_17UL_ptSecondJet}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/distributions/2017UL/with_header/ptSecondJet_log.tex}}
+
+\caption[Observables d'événements \Gjets\ en 2017.]{Distributions d'observables dans les données réelles (points noirs) et simulées (histogramme en rouge) pour l'année 2017-UL.}
+\label{fig-distribs_Gjets_17UL}
+\end{figure}
+\paragraph{Intervalles de $\alpha$}
+Comme expliqué dans la section~\ref{chapter-JERC-section-pheno-GJets-subsec-alpha_definition}, l'analyse des événements \Gjets\ est réalisée pour différents intervalles de $\alpha$ afin de pouvoir réaliser par la suite une extrapolation à $\alpha=0$, correspondant au cas idéal d'événements \Gjet.
+Les intervalles utilisés sont présentés dans le tableau~\ref{tab-alpha_intervalles}.
+Il s'agit d'intervalles inclusifs, \ie\ que chaque intervalle contient l'intervalle précédent.
+L'évolution des réponses moyennes en fonction de $\alpha$ y étant linéaire, ce choix rend possible une extrapolation simple vers $\alpha=0$ par la suite.
+\begin{table}[h]
+\centering
+\begin{tabular}{ccccc}
+\toprule
+$[\num{0}, \num{0.10}[$ & $[\num{0}, \num{0.15}[$ & $[\num{0}, \num{0.20}[$ & $[\num{0}, \num{0.25}[$ & $[\num{0}, \num{0.30}[$ \\
+\bottomrule
+\end{tabular}
+\caption{Intervalles de $\alpha$ utilisés pour la JES.}
+\label{tab-alpha_intervalles}
+\end{table}
+\paragraph{Obtention des corrections pour $(\alpha^\text{max}, \pT^{\photon}, \eta^\text{jet})$ donnés}
+Pour chaque domaine
+de $\alpha$ défini dans le tableau~\ref{tab-alpha_intervalles},
+de $\pT^{\photon}$ défini dans le tableau~\ref{tab-pT_photon_intervalles} et
+de $\eta^\text{jet}$ défini dans les tableaux~\ref{tab-eta_jet_intervalles_large} et~\ref{tab-eta_jet_intervalles_fin},
+les distributions des réponses balancée et MPF des données réelles et simulées sont déterminées.
+Certaines de ces distributions sont représentées sur la figure~\ref{fig-distribs_Gjets_17UL_resp_bal_and_mpf}.
+
+\todo{98.5 pct RMS, mean}
 
 \par \todo{TODO}: only eta photon < 1.3 for the moment (barrel) (already said ? check non ambiguous with eta jet) + future with all photons
-then tell grid pT photon-eta jet, analysis.
-Get plots (see Hugues thesis to make sure all relevant are here)
-98.5 pct RMS, mean
 
-\par alpha extrap
 
-\subsection{Incertitudes}\label{chapter-JERC-section-JES-subsec-uncertainties}
+\begin{figure}[h]
+\centering
+\subcaptionbox{Réponse balancée pour $\pT^{\photon}\in[175, 230[$ \SI{}{\GeV}.\label{subfig-distrib_Gjets_17UL_resp_balancing_eta0013_ptPhot_175_230}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/distributions/2017UL/with_header/resp_balancing_eta0013_ptPhot_175_230.tex}}
+\hfill
+\subcaptionbox{Réponse balancée pour $\pT^{\photon}\in[300, 400[$ \SI{}{\GeV}.\label{subfig-distrib_Gjets_17UL_resp_balancing_eta0013_ptPhot_300_400}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/distributions/2017UL/with_header/resp_balancing_eta0013_ptPhot_300_400.tex}}
+
+\vfill
+
+\subcaptionbox{Réponse MPF pour $\pT^{\photon}\in[175, 230[$ \SI{}{\GeV}.\label{subfig-distrib_Gjets_17UL_resp_mpf_eta0013_ptPhot_175_230}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/distributions/2017UL/with_header/resp_mpf_eta0013_ptPhot_175_230.tex}}
+\hfill
+\subcaptionbox{Réponse MPF pour $\pT^{\photon}\in[300, 400[$ \SI{}{\GeV}.\label{subfig-distrib_Gjets_17UL_resp_mpf_eta0013_ptPhot_300_400}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/distributions/2017UL/with_header/resp_mpf_eta0013_ptPhot_300_400.tex}}
+
+\caption[Réponses balancée et MPF en 2017-UL.]{Réponses balancée et MPF dans les données réelles (points noirs) et simulées (histogramme en rouge) pour $\alpha<\num{0.3}$, $\abs{\eta^\text{jet}}<\num{1.3}$ et deux intervalles de $\pT^{\photon}$ en 2017-UL.}
+\label{fig-distribs_Gjets_17UL_resp_bal_and_mpf}
+\end{figure}
+
+
+\paragraph{Extrapolation vers $\alpha=0$}
+\todo{rappel de la figure dans section précédente}
+
+
+%\subsection{Incertitudes}\label{chapter-JERC-section-JES-subsec-uncertainties}
 
 \subsection{Résultats}\label{chapter-JERC-section-JES-subsec-results}
+\todo{avant et après extrap.}
