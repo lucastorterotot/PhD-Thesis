@@ -14,21 +14,21 @@
 
 % X axis
 \foreach \val in {0, 20, ..., 200}{
-\draw ({1.2+(7.53-1.2)*(\val)/(200)}, .85) node {\tiny \val};
+\draw ({1.2+(7.53-1.2)*(\val)/(200)}, .85) node {\small \val};
 }
-\draw (7.5, .45) node [left] {\scriptsize $\pT^\text{jet 2}$ (\SI{}{\GeV})};
+\draw (7.5, .45) node [left] {\normalsize $\pT^\text{jet 2}$ (\SI{}{\GeV})};
 
 % Y axis
 \foreach \pos/\val in {2/10^2, 3/10^3, 4/10^4, 5/10^5, 6/10^6}{
-\draw (1.3, {3.61+(\pos-2)/(6-2)*(9.26-3.61)}) node [left] {\tiny $\val$};
+\draw (1.3, {3.61+(\pos-2)/(6-2)*(9.26-3.61)}) node [left] {\small $\val$};
 }
-\draw (.25, 9.55) node [left, rotate=90] {\scriptsize Nombre d'événements / \SI{10}{\GeV}};
+\draw (.25, 9.55) node [left, rotate=90] {\normalsize Nombre d'événements / \SI{10}{\GeV}};
 
 \end{scope}
 % new X axis
 \foreach \val in {0, 20, ..., 200}{
-\draw ({1.2+(7.53-1.2)*(\val)/(200)}, .85+2.3) node {\tiny \val};
+\draw ({1.2+(7.53-1.2)*(\val)/(200)}, .85+2.3) node {\small \val};
 }
-\draw (7.5, .45+2.3) node [left] {\scriptsize $\pT^\text{jet 2}$ (\SI{}{\GeV})};
+\draw (7.5, .45+2.3) node [left] {\normalsize $\pT^\text{jet 2}$ (\SI{}{\GeV})};
 
 \end{tikzpicture}

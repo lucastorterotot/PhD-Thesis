@@ -11,15 +11,15 @@
 
 % X axis
 \foreach \val in {10, 20, ..., 70}{
-\draw ({1.475+(7.53-1.475)*(\val-10)/(70-10)}, .45) node {\tiny \val};
+\draw ({1.475+(7.53-1.475)*(\val-10)/(70-10)}, .45) node {\small \val};
 }
-\draw (7.5, .15) node [left] {\scriptsize Nombre d'interactions d'empilement};
+\draw (7.5, .15) node [left] {\normalsize Nombre d'interactions d'empilement};
 
 % Y axis
 \foreach \pos/\val in {0/10^{-5}, 1/10^{-4}, 2/10^{-3}, 3/10^{-2}, 4/10^{-1}, 5/1}{
-\draw (1.075, {.6+\pos/5*(7.3-.6)}) node [left] {\tiny $\val$};
+\draw (1.075, {.6+\pos/5*(7.3-.6)}) node [left] {\small $\val$};
 }
-\draw (.25, 7.25) node [left, rotate=90] {\scriptsize Probabilité};
+\draw (.25, 7.25) node [left, rotate=90] {\normalsize Probabilité};
 
 	\def\xmin{0} \def\xmax{8} \def\ymin{0} \def\ymax{10}
 	% Grilles

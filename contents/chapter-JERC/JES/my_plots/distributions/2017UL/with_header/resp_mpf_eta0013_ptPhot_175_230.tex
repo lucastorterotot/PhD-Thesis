@@ -11,14 +11,14 @@
 
 % X axis
 \foreach \val in {0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2}{
-\draw ({1.45+(7.51-1.45)*(\val)/(2)}, .95) node {\tiny $\num{\val}$};
+\draw ({1.45+(7.51-1.45)*(\val)/(2)}, .95) node {\small $\num{\val}$};
 }
-\draw (7.5, .5) node [left] {\scriptsize \RMPF};
+\draw (7.5, .5) node [left] {\normalsize \RMPF};
 
 % Y axis
 \foreach \val in {0, 500, ..., 4500}{
-\draw (1.5, {1.15+\val/4500*(6.8-1.15)}) node [left] {\tiny $\num{\val}$};
+\draw (1.5, {1.15+\val/4500*(6.8-1.15)}) node [left] {\small $\num{\val}$};
 }
-\draw (.25, 7.25) node [left, rotate=90] {\scriptsize Nombre d'événements / \num{0.01}};
+\draw (.25, 7.25) node [left, rotate=90] {\normalsize Nombre d'événements / \num{0.01}};
 
 \end{tikzpicture}
