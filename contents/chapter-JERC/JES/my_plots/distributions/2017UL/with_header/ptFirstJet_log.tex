@@ -13,7 +13,7 @@
 \fill [white] (0, 1) rectangle (1.15,9.4);
 
 % X axis
-\foreach \val in {100, 200, ..., 1000}{
+\foreach \val in {100, 300, ..., 900}{
 \draw ({1.75+(7.53-1.75)*(\val-100)/(1000-100)}, .85) node {\small \val};
 }
 \draw (7.5, .45) node [left] {\normalsize $\pT^\text{jet 1}$ (\SI{}{\GeV})};
@@ -26,7 +26,7 @@
 
 \end{scope}
 % new X axis
-\foreach \val in {100, 200, ..., 1000}{
+\foreach \val in {100, 300, ..., 900}{
 \draw ({1.75+(7.53-1.75)*(\val-100)/(1000-100)}, .85+2.3) node {\small \val};
 }
 \draw (7.5, .45+2.3) node [left] {\normalsize $\pT^\text{jet 1}$ (\SI{}{\GeV})};

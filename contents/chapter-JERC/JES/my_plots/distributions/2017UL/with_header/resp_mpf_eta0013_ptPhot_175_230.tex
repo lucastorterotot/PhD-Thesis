@@ -1,4 +1,6 @@
 \begin{tikzpicture}
+\clip (0,.25) rectangle (8,7.8) ;
+
 \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=8cm]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/distributions/2017UL/source/resp_mpf_eta0013_ptPhot_175_230.pdf}};
 
 % above txt
@@ -11,7 +13,7 @@
 
 % X axis
 \foreach \val in {0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2}{
-\draw ({1.45+(7.51-1.45)*(\val)/(2)}, .95) node {\small $\num{\val}$};
+\draw ({1.45+(7.51-1.45)*(\val)/(2)}, .95) node {\small $\num{\val}$\vphantom{$\num{\val}\num{0.0}$}};
 }
 \draw (7.5, .5) node [left] {\normalsize \RMPF};
 
