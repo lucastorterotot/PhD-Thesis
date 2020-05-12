@@ -499,12 +499,44 @@ L'utilisation des ces intervalles inclusifs permet une extrapolation linéaire e
 %\subsection{Incertitudes}\label{chapter-JERC-section-JES-subsec-uncertainties}
 \clearpage
 \subsection{Résultats}\label{chapter-JERC-section-JES-subsec-results}
-Les corrections à appliquer aux données, d'après la démarche exposée dans la section~\ref{chapter-JERC-section-CMS}, s'obtiennent en calculant la valeur moyenne des réponses \Rbal\ ou \RMPF\ pour les données et les simulations dans chacun des intervalles
+La correction à appliquer aux données, définie par la formule~\eqref{eq-chapter-JERC-section-CMS-subsec-residuals-Cres_def} d'après la démarche exposée dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals}, s'obtient en calculant la valeur moyenne des réponses \Rbal\ ou \RMPF\ pour les données et les simulations dans chacun des intervalles
 de $\pT^{\photon}$ défini dans le tableau~\ref{tab-pT_photon_intervalles} et
 de $\eta^\text{jet}$ défini dans les tableaux~\ref{tab-eta_jet_intervalles_large} et~\ref{tab-eta_jet_intervalles_fin}.
-Alors,
-\begin{equation}
-\mathcal{C}_\text{Res} = \frac{\average{R_\text{simulations}}}{\average{R_\text{données}}}
-\mend
-\end{equation}
-\todo{avant/après extrap, global fit, L2L3Res check}
+Elle permet de ramener la réponse moyenne des jets dans les données à celle constatée dans les simulations.
+\par Les résultats ainsi obtenus à l'aide des méthodes de la balance et MPF, avant et après extrapolation vers $\alpha=0$, sont présentés dans les sections~\ref{chapter-JERC-section-JES-subsec-results-subsubsec-before_extrap} et~\ref{chapter-JERC-section-JES-subsec-results-subsubsec-after_extrap}.
+Les distributions moyennes des réponses en fonction de $\pT^{\photon}$ dans les données et les simulations, ainsi que leurs rapports, y sont représentés.
+Un ajustement constant est réalisé dans chaque intervalle de $\eta^\text{jet}$ afin d'obtenir un ordre de grandeur de la correction à appliquer dans cet intervalle.
+La dépendance en $\pT$ de la correction est déterminée grâce à un ajustement global réalisé avec les résultats d'autres analyses, présenté dans la section~\ref{chapter-JERC-section-JES-subsec-results-subsubsec-global_fit}.
+Enfin, une vérification de la bonne mise en œuvre de la correction ainsi déterminée est présentée dans la section~\ref{chapter-JERC-section-JES-subsec-results-subsubsec-L2L3Res_cross_check}.
+\subsubsection{Résultats avant extrapolation}\label{chapter-JERC-section-JES-subsec-results-subsubsec-before_extrap}
+\par Les distributions des réponses balancées avant extrapolation se trouvent sur la figure~\ref{fig-responses_balancing_alpha_0_3_2018ABCD}, page~\pageref{fig-responses_balancing_alpha_0_3_2018ABCD}.
+Les corrections à appliquer sont de l'ordre de \SI{5}{\%} pour $\abs{\eta^\text{jet}} < \num{2.5}$.
+Au-delà, trop peu d'événements sont présents pour obtenir une calibration suffisante.
+\par Les distributions des réponses MPF avant extrapolation se trouvent sur la figure~\ref{fig-responses_MPF_alpha_0_3_2018ABCD}, page~\pageref{fig-responses_MPF_alpha_0_3_2018ABCD}.
+Les corrections à appliquer sont de l'ordre de \SI{4}{\%} pour $\abs{\eta^\text{jet}} < \num{2.5}$, soit environ \SI{1}{\%} de moins qu'avec la méthode balancée.
+Toutefois, ces résultats sont obtenus avant extrapolation vers $\alpha=0$. Or, cette extrapolation a un effet plus important sur la réponse balancée que sur la réponse MPF.
+\subsubsection{Résultats après extrapolation}\label{chapter-JERC-section-JES-subsec-results-subsubsec-after_extrap}
+L'extrapolation des réponses vers $\alpha=0$ est réalisée telle que décrite dans la section~\ref{chapter-JERC-section-JES-subsec-analyse}.
+\par Les distributions des réponses balancées après extrapolation se trouvent sur la figure~\ref{fig-responses_balancing_extrapolated_2018ABCD}, page~\pageref{fig-responses_balancing_extrapolated_2018ABCD}.
+Les corrections à appliquer sont de l'ordre de \SI{4}{\%} pour $\abs{\eta^\text{jet}} < \num{2.5}$, soit environ \SI{1}{\%} de moins qu'avant extrapolation.
+Pour $\abs{\eta^\text{jet}}\geq\num{2.5}$, le manque de statistique ne permet pas de réaliser une extrapolation satisfaisante.
+\par Les distributions des réponses MPF après extrapolation se trouvent sur la figure~\ref{fig-responses_MPF_extrapolated_2018ABCD}, page~\pageref{fig-responses_MPF_extrapolated_2018ABCD}.
+Les corrections à appliquer sont de l'ordre de \SI{4}{\%} pour $\abs{\eta^\text{jet}} < \num{2.5}$, l'extrapolation a bien un effet très faible sur \RMPF.
+Pour $\abs{\eta^\text{jet}}\geq\num{2.5}$, le manque de statistique ne permet pas de réaliser une extrapolation satisfaisante.
+\par Les valeurs des rapports données sur simulations des réponses balancée et MPF obtenus sont résumés dans le tableau~\ref{tab-responses_recap_table_2018ABCD}.
+L'extrapolation vers $\alpha=0$ permet de rétablir l'accord entre les rapport des réponses balancée et MPF.
+Cet accord permet de valider l'utilisation de ces méthodes afin d'estimer la JES.
+
+\input{\PhDthesisdir/contents/chapter-JERC/plots/figures_shortcuts/responses_recap_table.tex}
+
+\input{\PhDthesisdir/contents/chapter-JERC/plots/figures_shortcuts/responses_balancing_alpha_0_3_2018ABCD.tex}
+\input{\PhDthesisdir/contents/chapter-JERC/plots/figures_shortcuts/responses_MPF_alpha_0_3_2018ABCD.tex}
+\input{\PhDthesisdir/contents/chapter-JERC/plots/figures_shortcuts/responses_balancing_extrapolated_2018ABCD.tex}
+\input{\PhDthesisdir/contents/chapter-JERC/plots/figures_shortcuts/responses_MPF_extrapolated_2018ABCD.tex}
+\clearpage
+
+\subsubsection{Ajustement global}\label{chapter-JERC-section-JES-subsec-results-subsubsec-global_fit}
+\subsubsection{Test d'intégrité}\label{chapter-JERC-section-JES-subsec-results-subsubsec-L2L3Res_cross_check}
+réalisée en reprenant l'analyse décrite, mais en appliquant en plus cette correction.
+\paragraph{Méthode de la balance}
+\paragraph{Méthode MPF}
