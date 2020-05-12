@@ -243,6 +243,27 @@ Pour s'assurer d'une bonne balance dans le plan transverse entre le photon et le
 Le photon et le jet sont donc dos à dos dans le plan transverse, ce qui correspond à la situation illustrée figures~\ref{subfig-Gamma_plus_jet_basic_event}, \ref{subfig-Gamma_plus_two_jets} et~\ref{subfig-Gamma_plus_jet_basic_event_real}.
 \par Si un second jet d'impulsion transverse supérieure à \SI{10}{\GeV} est présent, l'événement est rejeté si $\alpha>\num{0.3}$ où $\alpha$ est défini dans l'équation~\eqref{eq-chapter-JERC-definition_alpha}, page~\pageref{eq-chapter-JERC-definition_alpha}.
 L'événement est également rejeté si un lepton (électron ou muon) isolé, en pratique hors des jets, est présent.
+\par Il a été observé que des régions des calorimètres produisent des signaux menant à des reconstructions biaisées de jets.
+De plus, un système de lecture expérimental \og SiPM \fg{} a été installé dans le bouchon du HCAL~\cite{SiPM_CMS_conf}.
+Il en résulte des calibrations qui ne sont pas optimales dans les régions correspondantes du détecteur.
+Afin d'éviter ces effets, tout événement est rejeté s'il comporte, dans ces régions des calorimètres, un jet utilisé dans l'analyse.
+Ces régions sont résumées sur la figure~\ref{fig-hotjets2017UL}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=.6\textwidth]{\PhDthesisdir/contents/chapter-JERC/plots/hotjets2017UL.pdf}
+\caption[Régions des calorimètres à exclure de l'analyse dans le plan $(\eta, \phi)$.]{Régions des calorimètres à exclure de l'analyse dans le plan $(\eta, \phi)$ pour les événements de 2017-UL. Certaines régions ne concernent que certaines périodes de l'année (en couleur). La région \og HEP17 \fg{} correspond à l'emplacement du système de lecture expérimental \og SiPM \fg~\cite{SiPM_CMS_conf}.}
+\label{fig-hotjets2017UL}
+\end{figure}
+%Some regions of the calorimeters are observed to produce anomalously high jet rates. This phenomenon is understood to result from sub-optimal calorimeter calibration for jet measurement performance. We can eliminate any bias arising from the problematic detector regions by excluding events with important jets in the 'hot' calorimeter zones. Hot zone maps are available for the end-of-year (EOY) re-reconstructions for 2016-2018 and the Summer19UL17 reco version in the JECDatabase repository:
+%
+%https://github.com/cms-jet/JECDatabase/tree/master/hotzone_maps
+%
+%The EOY maps are there for archiving purposes and we don't have an official recommendation for them at the moment. In the UL17 directory there's two versions; with and without the entire HEP17 HCAL region with sub-optimal calibration resulting from the experimental SiPM read-out system. Our recommendation for UltraLegacy 17 processing is the following:
+%
+%    All JERC analysers and anybody doing precision measurements with jets should use the h2hot_ul17_plus_hep17 map
+%    Searches that are sensitive to jet tails should use h2hot_ul17 for higher acceptance
+%    Non-jet measurements and searches that are not sensitive to jet tails can either use h2hot17_ul17 or ignore these maps for highest acceptance
+%    Please note that for analyses comparing data to simulation or otherwise relying heavily on simulation, it may be necessary to use the filtering also for MC processing for ensuring avoiding any biases due to angular dependencies etc. In these cases the same data-based filter should be used for data and MC. The maps labelled 'mc' (=pythia) or 'hw' (=herwig) in the JECDatabase are for expert studies only. 
 \paragraph{Sélection sur le chemin de déclenchement}
 Dans le cas des données réelles, l'événement est sauvegardé si un chemin de déclenchement est activé\footnote{Le chemin de déclenchement est abordé dans la section~\ifref{chapter-LHC-section-CMS-subsec-data_taking}{\ref{chapter-LHC-section-CMS-subsec-data_taking}}{2.7} du chapitre\ifref{chapter-LHC}{~\ref{chapter-LHC}}{ \og Dispositif expérimental \fg}.}.
 Seuls les événements dont le photon retenu correspond au photon du chemin de déclenchement sont retenus.
