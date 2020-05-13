@@ -536,7 +536,32 @@ Cet accord permet de valider l'utilisation de ces méthodes afin d'estimer la JE
 \clearpage
 
 \subsubsection{Ajustement global}\label{chapter-JERC-section-JES-subsec-results-subsubsec-global_fit}
+Les événements \Gjets\ ne permettent pas à eux seuls de couvrir avec une statistique suffisante l'ensemble de la gamme d'impulsions transverses à calibrer.
+De plus, l'utilisation de différentes catégories d'événements permet de valider \aposteriori\ les résultats des analyses entre elles.
+Un ajustement global est alors réalisé sur les événements \Zjets, \Gjets\ et multijets afin d'obtenir la correction finale à appliquer aux données.
+\par Cet ajustement est réalisé en minimisant un $\chi^2$ prenant en compte les contraintes de chaque catégorie d'événements.
+La correction résiduelle absolue en \pT\ des jets correspond ainsi à l'ajustement d'une fonction paramétrique.
+Les incertitudes présentes dans les différentes analyses sont considérées comme des paramètres de nuisance pour l'ajustement. Ces incertitudes sont:
+\begin{itemize}
+\item \SI{4.6}{\%} sur la section efficace de collision inélastique \proton-\proton\ utilisée pour estimer les profils d'empilement;
+\item les incertitudes de la JEC, décrites section~\ref{chapter-JERC-section-CMS-subsec-unc}, page~\pageref{chapter-JERC-section-CMS-subsec-unc};
+\item l'échelle en énergie des objets de référence, \SI{0.2}{\%} pour les photons et les muons, \SI{0.5}{\%} pour les électrons;
+\item les effets de l'ISR et du FSR se retrouvant dans l'incertitude de l'extrapolation en $\alpha$;
+\item la propagation des calibrations des photons et des électrons dans l'énergie transverse manquante.
+\end{itemize}
+\par Les résultats produits lors de ma thèse avec les événements \Gjets\ peuvent être comparés à ceux de l'analyse basée sur les événements \Zmmjets\ pour la même période de prise de données sur la figure~\ref{fig-chapter-JERC-section-JES-subsec-results-response_eta0013_alpha_0_3_2018}.
+Une dépendance temporelle des réponse est observée, en partie due au vieillissement du détecteur.
+\begin{figure}[h]
+\centering
+\subcaptionbox{Avec les événements \Gjets.\label{subfig-chapter-JERC-section-JES-subsec-results-response_eta0013_alpha_0_3_Gjets_2018}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/MPF_response_Run2018_alpha_0_3_in_Gjets.png}}
+\hfill
+\subcaptionbox{Avec les événements \Zmmjets.\label{subfig-chapter-JERC-section-JES-subsec-results-response_eta0013_alpha_0_3_Zmmjets_2018}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/calibration_des_jets/img_from_CMS-DP-2020-019/MPF_response_Run2018_alpha_0_3_in_Zmmjets.png}}
+\caption[Distributions de la réponse MPF moyenne en fonction de \pT\ en 2018.]{Distributions de la réponse MPF moyenne en fonction de \pT\ dans les événements avec $\abs{\eta^\text{jet}}<\num{1.3}$ et $\alpha<\num{0.3}$ pour chaque période de prise de données et pour les simulations en 2018~\cite{CMS-DP-2020-019}.}
+\label{fig-chapter-JERC-section-JES-subsec-results-response_eta0013_alpha_0_3_2018}
+\end{figure}
+\par L'ajustement global sur les résultats des différentes analyses est illustré, pour les trois années du Run~II, sur la figure~\ref{fig-L3ResAbs_RunII} en page~\pageref{fig-L3ResAbs_RunII}.
+La correction résiduelle absolue en \pT\ des jets utilisée par la collaboration CMS est ainsi obtenue.
 \subsubsection{Test d'intégrité}\label{chapter-JERC-section-JES-subsec-results-subsubsec-L2L3Res_cross_check}
 réalisée en reprenant l'analyse décrite, mais en appliquant en plus cette correction.
-\paragraph{Méthode de la balance}
-\paragraph{Méthode MPF}
