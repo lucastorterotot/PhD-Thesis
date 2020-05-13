@@ -326,8 +326,7 @@ $[\num{1000}, \num{3000}]$ \\
 \paragraph{Intervalles de $\abs{\eta^\text{jet}}$}
 La calibration en énergie des jets dépend fortement de la région du détecteur dans lequel le jet laisse un signal, comme le montre la figure~\ref{fig-simulated_jet_response_RunII} en page~\pageref{fig-simulated_jet_response_RunII}.
 Cet effet est dû aux différentes technologies utilisées ainsi qu'au vieillissement non uniforme du détecteur.
-Des intervalles de pseudo-rapidité du jet sont ainsi définis dans les tableaux~\ref{tab-eta_jet_intervalles_large} et~\ref{tab-eta_jet_intervalles_fin} afin de séparer le traitement de ces différentes régions.
-Des intervalles larges sont utilisés pour~\todo{?}, et des plus fins pour~\todo{?}.
+Des intervalles de pseudo-rapidité du jet sont ainsi définis dans le tableau~\ref{tab-eta_jet_intervalles_large} afin de séparer le traitement de ces différentes régions.
 \begin{table}[h]
 \centering
 \begin{tabular}{cccc}
@@ -339,18 +338,18 @@ $[\num{2.5}, \num{2.964}[$ & $[\num{2.964}, \num{3.2}[$ & $[\num{3.2}, \num{5.19
 \caption{Intervalles larges de $\abs{\eta^\text{jet}}$.}
 \label{tab-eta_jet_intervalles_large}
 \end{table}
-\begin{table}[h]
-\centering
-\begin{tabular}{cccccc}
-\toprule
-$[\num{0}, \num{0.261}[$ & $[\num{0.261}, \num{0.522}[$ & $[\num{0.522}, \num{0.783}[$ & $[\num{0.783}, \num{1.044}[$ & $[\num{1.044}, \num{1.305}[$ & $[\num{1.305}, \num{1.479}[$ \\
-$[\num{1.479}, \num{1.653}[$ & $[\num{1.653}, \num{1.930}[$ & $[\num{1.930}, \num{2.172}[$ & $[\num{2.172}, \num{2.322}[$ & $[\num{2.322}, \num{2.500}[$ & $[\num{2.500}, \num{2.650}[$ \\
-$[\num{2.650}, \num{2.853}[$ & $[\num{2.853}, \num{2.964}[$ & $[\num{2.964}, \num{3.319}[$ & $[\num{3.319}, \num{3.489}[$ & $[\num{3.489}, \num{3.839}[$ & $[\num{3.839}, \num{5.191}[$ \\
-\bottomrule
-\end{tabular}
-\caption{Intervalles fins de $\abs{\eta^\text{jet}}$.}
-\label{tab-eta_jet_intervalles_fin}
-\end{table}
+%\begin{table}[h]
+%\centering
+%\begin{tabular}{cccccc}
+%\toprule
+%$[\num{0}, \num{0.261}[$ & $[\num{0.261}, \num{0.522}[$ & $[\num{0.522}, \num{0.783}[$ & $[\num{0.783}, \num{1.044}[$ & $[\num{1.044}, \num{1.305}[$ & $[\num{1.305}, \num{1.479}[$ \\
+%$[\num{1.479}, \num{1.653}[$ & $[\num{1.653}, \num{1.930}[$ & $[\num{1.930}, \num{2.172}[$ & $[\num{2.172}, \num{2.322}[$ & $[\num{2.322}, \num{2.500}[$ & $[\num{2.500}, \num{2.650}[$ \\
+%$[\num{2.650}, \num{2.853}[$ & $[\num{2.853}, \num{2.964}[$ & $[\num{2.964}, \num{3.319}[$ & $[\num{3.319}, \num{3.489}[$ & $[\num{3.489}, \num{3.839}[$ & $[\num{3.839}, \num{5.191}[$ \\
+%\bottomrule
+%\end{tabular}
+%\caption{Intervalles fins de $\abs{\eta^\text{jet}}$.}
+%\label{tab-eta_jet_intervalles_fin}
+%\end{table}
 \paragraph{Pondération par l'empilement}
 Le profil d'empilement, \ie\ la densité de probabilité du nombre d'interactions d'empilement, dépend de la période de la prise de données et du chemin de déclenchement par lequel l'événement est retenu. Ces dépendances sont illustrées sur les graphiques des figures~\ref{fig-PU_profile_18} et~\ref{fig-PU_profile_17UL}.
 Les événements simulés sont ainsi pondérés afin que leur distribution du nombre d'interactions d'empilement soit similaire à celle dans les données réelles, en prenant en compte la double dépendance avec la période de prise de donnée et le chemin de déclenchement.
@@ -452,7 +451,7 @@ $[\num{0}, \num{0.10}[$ & $[\num{0}, \num{0.15}[$ & $[\num{0}, \num{0.20}[$ & $[
 Pour chaque domaine
 de $\alpha$ défini dans le tableau~\ref{tab-alpha_intervalles},
 de $\pT^{\photon}$ défini dans le tableau~\ref{tab-pT_photon_intervalles} et
-de $\eta^\text{jet}$ défini dans les tableaux~\ref{tab-eta_jet_intervalles_large} et~\ref{tab-eta_jet_intervalles_fin},
+de $\eta^\text{jet}$ défini dans le tableau~\ref{tab-eta_jet_intervalles_large},
 les distributions des réponses balancée et MPF des données réelles et simulées sont déterminées.
 Certaines de ces distributions sont représentées sur la figure~\ref{fig-distribs_Gjets_17UL_resp_bal_and_mpf}.
 \par Afin de limiter les effets des queues de ces distributions, seuls les points à moins de \SI{98.5}{\%} de l'erreur quadratique moyenne (RMS) sont considérés.
@@ -501,7 +500,7 @@ L'utilisation des ces intervalles inclusifs permet une extrapolation linéaire e
 \subsection{Résultats}\label{chapter-JERC-section-JES-subsec-results}
 La correction à appliquer aux données, définie par la formule~\eqref{eq-chapter-JERC-section-CMS-subsec-residuals-Cres_def} d'après la démarche exposée dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals}, s'obtient en calculant la valeur moyenne des réponses \Rbal\ ou \RMPF\ pour les données et les simulations dans chacun des intervalles
 de $\pT^{\photon}$ défini dans le tableau~\ref{tab-pT_photon_intervalles} et
-de $\eta^\text{jet}$ défini dans les tableaux~\ref{tab-eta_jet_intervalles_large} et~\ref{tab-eta_jet_intervalles_fin}.
+de $\eta^\text{jet}$ défini dans le tableau~\ref{tab-eta_jet_intervalles_large}.
 Elle permet de ramener la réponse moyenne des jets dans les données à celle constatée dans les simulations.
 \par Les résultats ainsi obtenus à l'aide des méthodes de la balance et MPF, avant et après extrapolation vers $\alpha=0$, sont présentés dans les sections~\ref{chapter-JERC-section-JES-subsec-results-subsubsec-before_extrap} et~\ref{chapter-JERC-section-JES-subsec-results-subsubsec-after_extrap}.
 Les distributions moyennes des réponses en fonction de $\pT^{\photon}$ dans les données et les simulations, ainsi que leurs rapports, y sont représentés.
