@@ -458,7 +458,7 @@ Certaines de ces distributions sont représentées sur la figure~\ref{fig-distri
 Une estimation des moyennes des distributions est alors obtenue ; ces moyennes sont représentées sur la figure~\ref{fig-distribs_Gjets_17UL_resp_bal_and_mpf}.
 Un écart est effectivement observé entre données et simulations.
 Il s'agit précisément de l'écart que la correction résiduelle absolue en \pT\ des jets doit corriger.
-\begin{figure}[p]
+\begin{figure}[h]
 \centering
 \subcaptionbox{Réponse balancée pour $\pT^{\photon}\in[175, 230[$ \SI{}{\GeV}.\label{subfig-distrib_Gjets_17UL_resp_balancing_eta0013_ptPhot_175_230}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/JES/my_plots/distributions/2017UL/with_header/resp_balancing_eta0013_ptPhot_175_230.tex}}
@@ -476,9 +476,13 @@ Il s'agit précisément de l'écart que la correction résiduelle absolue en \pT
 
 \caption[Réponses balancée et MPF en 2017-UL.]{Réponses balancée et MPF dans les données réelles (points noirs) et simulées (histogramme en rouge) pour $\alpha<\num{0.3}$, $\abs{\eta^\text{jet}}<\num{1.3}$ et deux intervalles de $\pT^{\photon}$ en 2017-UL.}
 \label{fig-distribs_Gjets_17UL_resp_bal_and_mpf}
-
-\vspace{.5\baselineskip}
-
+\end{figure}
+\todo{use one common era for all plots so that one can follow the points}
+\paragraph{Extrapolation vers $\alpha=0$}
+Une extrapolation vers $\alpha=0$ est réalisée afin de s'affranchir des effets radiatifs et de l'activité additionnelle des jets\footnote{Ces effets sont décrits dans la section~\ref{chapter-JERC-section-pheno-GJets-subsec-alpha_definition}.}.
+Les intervalles de $\alpha$ utilisés pour la JES sont présentés dans le tableau~\ref{tab-alpha_intervalles}.
+L'utilisation des ces intervalles inclusifs permet une extrapolation linéaire en $\alpha$, ce qui est réalisé sur la figure~\ref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}.
+\begin{figure}[h]
 \centering
 \subcaptionbox{Réponse balancée.\label{subfig-chapter-JERC-section-JES-subsec-analyse-response_eta0013_ptPhot_175_230_extrap}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/plots/used/only_L2Res/Run2018ABCD/extrapolation/response_eta0013_ptPhot_175_230.tex}}
@@ -488,15 +492,6 @@ Il s'agit précisément de l'écart que la correction résiduelle absolue en \pT
 \caption[Extrapolation vers $\alpha=0$ de la réponse des jets.]{Extrapolation vers $\alpha=0$ de la réponse des jets pour $\abs{\eta}<\num{1.3}$ et $\num{175}<\pT^{\photon}<\SI{230}{\GeV}$ en 2018.}
 \label{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}
 \end{figure}
-\todo{use one common era for all plots so that one can follow the points}
-\paragraph{Extrapolation vers $\alpha=0$}
-Une extrapolation vers $\alpha=0$ est réalisée afin de s'affranchir des effets radiatifs et de l'activité additionnelle des jets\footnote{Ces effets sont décrits dans la section~\ref{chapter-JERC-section-pheno-GJets-subsec-alpha_definition}.}.
-Les intervalles de $\alpha$ utilisés pour la JES sont présentés dans le tableau~\ref{tab-alpha_intervalles}.
-L'utilisation des ces intervalles inclusifs permet une extrapolation linéaire en $\alpha$, ce qui est réalisé sur la figure~\ref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}.
-
-
-%\subsection{Incertitudes}\label{chapter-JERC-section-JES-subsec-uncertainties}
-\clearpage
 \subsection{Résultats}\label{chapter-JERC-section-JES-subsec-results}
 La correction à appliquer aux données, définie par la formule~\eqref{eq-chapter-JERC-section-CMS-subsec-residuals-Cres_def} d'après la démarche exposée dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals}, s'obtient en calculant la valeur moyenne des réponses \Rbal\ ou \RMPF\ pour les données et les simulations dans chacun des intervalles
 de $\pT^{\photon}$ défini dans le tableau~\ref{tab-pT_photon_intervalles} et
