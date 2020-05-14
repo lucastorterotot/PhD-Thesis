@@ -567,10 +567,19 @@ Une dépendance temporelle des réponse est observée, en partie due au vieillis
 \end{figure}
 \par L'ajustement global sur les résultats des différentes analyses est illustré, pour les trois années du Run~II, sur la figure~\ref{fig-L3ResAbs_RunII} en page~\pageref{fig-L3ResAbs_RunII}.
 La correction résiduelle absolue en \pT\ des jets utilisée par la collaboration CMS est ainsi obtenue.
-%\subsubsection{Test d'intégrité}\label{chapter-JERC-section-JES-subsec-results-subsubsec-L2L3Res_cross_check}
-%\todo{Not convincing yet}
-%
-%réalisée en reprenant l'analyse décrite, mais en appliquant en plus cette correction.
-%
-%tableau~\ref{tab-responses_recap_table_L2L3Res_cross_check_2018ABCD}
-%\input{\PhDthesisdir/contents/chapter-JERC/plots/figures_shortcuts/responses_recap_table_L2L3Res_cross_check.tex}
+\subsubsection{Test d'intégrité}\label{chapter-JERC-section-JES-subsec-results-subsubsec-L2L3Res_cross_check}
+Il est possible de vérifier que la correction résiduelle absolue en \pT\ des jets déterminée permet bien de rapprocher les réponses des jets entre données et simulation.
+Pour cela, l'analyse est à nouveau réalisée en appliquant la correction résiduelle absolue en \pT\ des jets lors de leur calibration.
+Les valeurs des rapports données sur simulations des réponses balancée et MPF obtenus avant et après utilisation de cette correction sont présentés dans le tableau~\ref{tab-responses_recap_table_L2L3Res_cross_check_2018ABCD}. Ces rapports se rapprochent de \num{1}, ce qui montre que la correction améliore l'accord données-simulation.
+Cette amélioration peut également se constater sur les distributions des réponses des jets, dont une comparaison est proposée sur la figure~\ref{fig-distribs_Gjets_18_resp_mpf_L2L3Res_cross_check} où les deux distributions sont plus proches l'une de l'autre après correction complète.
+\input{\PhDthesisdir/contents/chapter-JERC/plots/figures_shortcuts/responses_recap_table_L2L3Res_cross_check.tex}
+\begin{figure}[h]
+\centering
+\subcaptionbox{Avant correction (figure~\ref{subfig-distrib_Gjets_18_resp_mpf_eta0013_ptPhot_175_230}).\label{subfig-distrib_Gjets_18_resp_mpf_eta0013_ptPhot_175_230_only_L2Res}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/plots/my_plots/distributions/2018/with_header/resp_mpf_eta0013_ptPhot_175_230.tex}}
+\hfill
+\subcaptionbox{Après correction.\label{subfig-distrib_Gjets_18_resp_mpf_eta0013_ptPhot_175_230_L2L3Res}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/plots/my_plots/distributions/2018/with_header/resp_mpf_eta0013_ptPhot_175_230_L2L3Res.tex}}
+\caption[Comparaison des réponses MPF avant et après correction résiduelle absolue en 2018.]{Comparaison des réponses MPF avant et après correction résiduelle absolue  pour $\pT^{\photon}\in[175, 230[$ \SI{}{\GeV} en 2018.}
+\label{fig-distribs_Gjets_18_resp_mpf_L2L3Res_cross_check}
+\end{figure}
