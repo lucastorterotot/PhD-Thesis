@@ -1,7 +1,7 @@
 \begin{tikzpicture}
 \begin{scope}
 \clip (0,.45) rectangle (8,7.8) ;
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=8cm]{\PhDthesisdir/contents/chapter-JERC/plots/used/JER/Run2018ABCD/extrapolation/resolution_eta0005_ptPhot_300_400.pdf}};
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=8cm]{\PhDthesisdir/contents/chapter-JERC/plots/my_plots/L2L3Res/Run2018ABCD/extrapolation/responseMPF_eta0013_ptPhot_175_230.pdf}};
 \end{scope}
 
 % masks
@@ -20,8 +20,8 @@
 \draw (7, .5) node {$\alpha$};
 
 % Y axis
-\foreach \val in {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6}{
-\draw (1.25, {1.15+(7.25-1.15)*(\val)/(0.6)}) node [left] {\small $\num{\val}$};
+\foreach \val in {0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2}{
+\draw (1.25, {1.15+(7.25-1.15)*(\val-0.8)/(1.2-0.8)}) node [left] {\small $\num{\val}$};
 }
-\draw (.25, 7.25) node [left, rotate=90] {$\sigma$};
+\draw (.25, 7.25) node [left, rotate=90] {\RMPF};
 \end{tikzpicture}
