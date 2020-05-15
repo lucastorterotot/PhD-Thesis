@@ -73,11 +73,25 @@ Leurs temps d'exécution sont représentés en fonction du nombre d'événements
 L'algorithme anti-\kT\ se place parmi les algorithmes les plus rapides.
 Dans les conditions des collisions proton-proton du LHC, il permet le traitement d'un événement en moins d'une milliseconde.
 C'est cet algorithme de regroupement qui est utilisé dans le cadre de l'expérience CMS.
+Sur la figure~\ref{fig-Jet_PF_Composition_RunII} sont illustrées les compositions des jets reconstruits lors des trois années du Run~II. L'écart entre données et simulations n'excède généralement pas \SI{2}{\%}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=.6\textwidth]{\PhDthesisdir/contents/chapter-JERC/reconstruction_des_jets/temps_de_calcul.png}
 \caption[Temps de recombinaison d'un événement dijet.]{Temps de recombinaison d'un événement dijet simulé de \SI{50}{\GeV} contenant $N$ événements d'empilement pour différents algorithmes de reconstruction des jets~\cite{towards_jetography}.}
 \label{fig-chapter-JERC-section-jets_reco-subsec-algo-perfs}
+\end{figure}
+\begin{figure}[h]
+\centering
+\subcaptionbox{Année 2016.\label{subfig-Jet_PF_Composition_2016}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/plots/img_from_CMS-DP-2020-019/Jet_PF_Composition_2016.png}}
+\hfill
+\subcaptionbox{Année 2017.\label{subfig-Jet_PF_Composition_2017}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/plots/img_from_CMS-DP-2020-019/Jet_PF_Composition_2017.png}}
+\hfill
+\subcaptionbox{Année 2018.\label{subfig-Jet_PF_Composition_2018}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/plots/img_from_CMS-DP-2020-019/Jet_PF_Composition_2018.png}}
+\caption[Compositions des jets reconstruits lors du Run~II.]{Composition des jets reconstruits à l'aide de l'algorithme anti-\kT\ lors du Run~II~\cite{CMS-DP-2020-019} en fonction de l'impulsion transverse du jet. La partie \emph{Charged pileup (overlaid)} en brun correspond à la fraction du jet retirée par la procédure CHS décrite section~\ref{chapter-JERC-section-CMS-subsec-PU}.}
+\label{fig-Jet_PF_Composition_RunII}
 \end{figure}
 \subsection{Identification des jets dans CMS}\label{chapter-JERC-section-jets_reco-subsec-jetID}
 Les jets ainsi reconstruits à l'aide des algorithmes de recombinaison sont en fait des \og candidats \fg{} jets.
