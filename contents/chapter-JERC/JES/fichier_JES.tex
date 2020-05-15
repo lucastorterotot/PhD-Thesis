@@ -140,7 +140,7 @@ Année & Caractéristique & Section efficace (\SI{}{\pico\barn})\\
 \subsubsection{Sélection des événements}
 Une sélection plus fine des événements à considérer est réalisée lors de l'analyse elle-même.
 En effet, les événements souhaités sont ceux contenant un photon avec un ou plusieurs jets;
-un des bruits de fond principal provient d'événements multijets où un des jets est identifié à tort comme un photon.
+un des bruits de fond principal provient d'événements multijet où un des jets est identifié à tort comme un photon.
 Cette situation peut arriver lorsque ce jet contient de nombreux pions neutres, les \pionnull.
 Les \pionnull\ se propagent sur des distances moyennes de \SI{26}{\nano\meter} puis se désintègrent dans \SI{99}{\%} des cas en deux photons~\cite{PDG_booklet_2018}.
 Ces particules ne laissent donc aucune trace dans le trajectographe et un dépôt d'énergie dans le ECAL, tout comme un vrai photon issu de l'interaction initiale.
@@ -152,7 +152,7 @@ Les topologies de ces deux types d'événements, semblables, sont représentées
 {\includegraphics[width=.45\textwidth,height=.25\textheight,keepaspectratio]{\PhDthesisdir/tex/Event_displays/JERC/Dijets_pi0s.tex}}
 \hfill
 \subcaptionbox{Topologie d'un vrai événement \Gjet\ avec un peu d'activité hadronique autour du photon.\label{subfig-Gamma_plus_jet_basic_event_real}}[.45\textwidth]{\includegraphics[width=.45\textwidth,height=.25\textheight,keepaspectratio]{\PhDthesisdir/tex/Event_displays/JERC/Gamma_plus_jet_hadronic_noise.tex}}
-\caption{Topologies d'événements \Gjet\ et dijets.}
+\caption{Topologies d'événements \Gjet\ et dijet.}
 \label{fig-Gamma_plus_jet_events_real_faked}
 \end{figure}
 \paragraph{Sélection sur les photons}
@@ -409,7 +409,7 @@ Les événements simulés sont ainsi pondérés afin que leur distribution du no
 \end{figure}
 \paragraph{Accord données-simulation}
 Les distributions des événements simulés sont normalisées à la luminosité mesurée pour le jeu de données réelles considéré.
-Les comparaisons étant faites entre les données réelles et les événements simulés \Gjets, un désaccord dû à la contamination à bas \pT\ d'événements multijets est attendu, les événements multijets n'étant pas présents dans les simulations utilisées.
+Les comparaisons étant faites entre les données réelles et les événements simulés \Gjets, un désaccord dû à la contamination à bas \pT\ d'événements multijet est attendu, les événements multijet n'étant pas présents dans les simulations utilisées.
 Ce désaccord se constate sur les graphiques de la figure~\ref{fig-distribs_Gjets_18} présentant les distributions de l'impulsion transverse du photon, l'énergie transverse manquante et les impulsions transverses du premier et du second jet.
 Afin de déterminer la correction résiduelle absolue en \pT\ des jets ainsi que la correction de leur résolution en énergie, seule la comparaison des distributions de \Rbal\ et \RMPF\ est nécessaire.
 L'accord ainsi obtenu entre données réelles et simulées est considéré comme suffisant.
@@ -541,7 +541,7 @@ Cet accord permet de valider l'utilisation de ces méthodes afin d'estimer la JE
 \subsubsection{Ajustement global}\label{chapter-JERC-section-JES-subsec-results-subsubsec-global_fit}
 Les événements \Gjets\ ne permettent pas à eux seuls de couvrir avec une statistique suffisante l'ensemble de la gamme d'impulsions transverses à calibrer.
 De plus, l'utilisation de différentes catégories d'événements permet de valider \aposteriori\ les résultats des analyses entre elles.
-Un ajustement global est alors réalisé sur les événements \Zjets, \Gjets\ et multijets afin d'obtenir la correction finale à appliquer aux données.
+Un ajustement global est alors réalisé sur les événements \Zjets, \Gjets\ et multijet afin d'obtenir la correction finale à appliquer aux données.
 \par Cet ajustement est réalisé en minimisant un $\chi^2$ prenant en compte les contraintes de chaque catégorie d'événements.
 La correction résiduelle absolue en \pT\ des jets correspond ainsi à l'ajustement d'une fonction paramétrique.
 Les incertitudes présentes dans les différentes analyses sont considérées comme des paramètres de nuisance pour l'ajustement. Ces incertitudes sont:
