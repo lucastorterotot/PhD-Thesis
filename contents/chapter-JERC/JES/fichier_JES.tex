@@ -3,8 +3,9 @@ L'obtention de la correction résiduelle absolue en \pT\ des jets
 ainsi que la correction de leur résolution en énergie
 avec les événements \Gjets\ a été un des mes travaux de thèse.
 J'ai ainsi traité les données des années 2018 et 2017-UL.
-\subsection{Jeux de données et sélection des événements}\label{chapter-JERC-section-JES-subsec-evt_select}
-\subsubsection{Jeux de données}
+Cette section présente la sélection des événements \Gjets, leur analyse et les derniers résultats obtenus pour l'année 2018.
+\subsection{Événements utilisés}\label{chapter-JERC-section-JES-subsec-evt_select}
+\subsubsection{Ensembles d'événements analysés}
 %18 data
 %     Run2018A-17Sep2018-v2
 %     /EGamma/Run2018A-17Sep2018-v2/MINIAOD
@@ -69,8 +70,8 @@ J'ai ainsi traité les données des années 2018 et 2017-UL.
 %     GJets_HT-600ToInf_RunIISummer19MiniAOD-106X
 %     /GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer19UL17MiniAOD-106X_mc2017_realistic_v6-v1/MINIAODSIM
 %     85.31 \pm 0.2564
-\paragraph{Données réelles}
-Les jeux de données réelles utilisés pour 2018 et 2017-UL sont basés sur la présence d'un photon dans l'état final.
+\paragraph{Données}
+Les jeux de données utilisés pour 2018 et 2017-UL sont basés sur la présence d'un photon dans l'état final.
 Plusieurs périodes sont considérées pour chacune de ces années, celles des collisions \proton\proton, dont la liste et les luminosités correspondantes sont présentés dans les tableaux~\ref{subtab-Runs_and_lumis_2018_GJet} et~\ref{subtab-Runs_and_lumis_2017UL_GJet}.
 \begin{table}[h]
 \centering
@@ -104,7 +105,7 @@ Total & \num{41.52} \\
 \caption{Liste des périodes de prise de données considérées et luminosités correspondantes.}
 \label{tab-Runs_and_lumis_2018_and_2017UL_GJet}
 \end{table}
-\paragraph{Données simulées}
+\paragraph{Simulations}
 Les simulations utilisées contiennent des événements \Gjets\ de type $\quark\gluon\to\quark\photon$, comme ceux des figures~\ref{subfig-fgraph-gq_qGamma_S} et~\ref{subfig-fgraph-gq_qGamma_T}, et $\quark\quark\to\gluon\photon$, comme celui de la figure~\ref{subfig-fgraph-qq_gGamma}.
 Pour l'année 2018, les événements sont générés en un seul jeu de données
 à l'aide de \PYTHIA~8~\cite{pythia8.2}
@@ -118,7 +119,7 @@ et
 \MADGRAPHc~\cite{madgraph5}
 et une énergie dans le centre de masse de \SI{13}{\TeV}.
 Dans l'état final, la somme scalaire des impulsions transverses des jets, notée HT, appartient à un intervalle, définissant ainsi cinq jeux de données.
-Les sections efficaces des jeux de données d'événements simulés ainsi obtenus sont présentées dans le tableau~\ref{tab-MC_xsec_2018_and_2017UL_GJet}.
+Les sections efficaces des événements simulés ainsi obtenus sont présentées dans le tableau~\ref{tab-MC_xsec_2018_and_2017UL_GJet}.
 \begin{table}[h]
 \centering
 \begin{tabular}{clc}
@@ -133,7 +134,7 @@ Année & Caractéristique & Section efficace (\SI{}{\pico\barn})\\
 2017-UL & $\text{HT} > \SI{600}{\GeV}$ & \num{85.31} \\
 \bottomrule
 \end{tabular}
-\caption{Sections efficaces des différents jeux de données \Gjets\ simulés.}
+\caption{Sections efficaces des différents événements \Gjets\ simulés.}
 \label{tab-MC_xsec_2018_and_2017UL_GJet}
 \end{table}
 \subsubsection{Sélection des événements}
@@ -264,7 +265,7 @@ Ces régions sont résumées sur la figure~\ref{fig-hotjets2017UL}.
 %    Non-jet measurements and searches that are not sensitive to jet tails can either use h2hot17_ul17 or ignore these maps for highest acceptance
 %    Please note that for analyses comparing data to simulation or otherwise relying heavily on simulation, it may be necessary to use the filtering also for MC processing for ensuring avoiding any biases due to angular dependencies etc. In these cases the same data-based filter should be used for data and MC. The maps labelled 'mc' (=pythia) or 'hw' (=herwig) in the JECDatabase are for expert studies only. 
 \paragraph{Sélection sur le chemin de déclenchement}
-Dans le cas des données réelles, l'événement est sauvegardé si un chemin de déclenchement est activé\footnote{Le chemin de déclenchement est abordé dans la section~\ifref{chapter-LHC-section-CMS-subsec-data_taking}{\ref{chapter-LHC-section-CMS-subsec-data_taking}}{2.7} du chapitre\ifref{chapter-LHC}{~\ref{chapter-LHC}}{ \og Dispositif expérimental \fg}.}.
+Dans le cas des données, l'événement est sauvegardé si un chemin de déclenchement est activé\footnote{Le chemin de déclenchement est abordé dans la section~\ifref{chapter-LHC-section-CMS-subsec-data_taking}{\ref{chapter-LHC-section-CMS-subsec-data_taking}}{2.7} du chapitre\ifref{chapter-LHC}{~\ref{chapter-LHC}}{ \og Dispositif expérimental \fg}.}.
 Seuls les événements dont le photon retenu correspond au photon du chemin de déclenchement sont retenus.
 Il existe plusieurs chemins de déclenchement en fonction de l'impulsion du photon.
 Certains de ces chemins proposent une quantité trop importante d'événements à sauvegarder et pourraient saturer la chaîne d'acquisition.
@@ -307,7 +308,7 @@ Des biais dus à la calibration du photon sont également évités grâce à cet
 \subsection{Analyse}\label{chapter-JERC-section-JES-subsec-analyse}
 \paragraph{Intervalles de $\pT^{\photon}$}
 L'analyse a pour but de déterminer la correction résiduelle absolue en \pT\ des jets, définie dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals}.
-Pour cela, l'écart à l'unité du rapport moyen des réponses des jets dans les données réelles et simulées est déterminé dans différents intervalles de $\pT^{\photon}$, listé dans le tableau~\ref{tab-pT_photon_intervalles}.
+Pour cela, l'écart à l'unité du rapport moyen des réponses des jets dans les données et les simulations est déterminé dans différents intervalles de $\pT^{\photon}$, listé dans le tableau~\ref{tab-pT_photon_intervalles}.
 Ces intervalles sont une subdivision des intervalles définis pour les chemin de déclenchement dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}.
 \begin{table}[h]
 \centering
@@ -351,7 +352,7 @@ $[\num{2.5}, \num{2.964}[$ & $[\num{2.964}, \num{3.2}[$ & $[\num{3.2}, \num{5.19
 %\end{table}
 \paragraph{Pondération par l'empilement}
 Le profil d'empilement, \ie\ la densité de probabilité du nombre d'interactions d'empilement, dépend de la période de la prise de données et du chemin de déclenchement par lequel l'événement est retenu. Ces dépendances sont illustrées sur les graphiques des figures~\ref{fig-PU_profile_18} et~\ref{fig-PU_profile_17UL}.
-Les événements simulés sont ainsi pondérés afin que leur distribution du nombre d'interactions d'empilement soit similaire à celle dans les données réelles, en prenant en compte la double dépendance avec la période de prise de donnée et le chemin de déclenchement.
+Les événements simulés sont ainsi pondérés afin que leur distribution du nombre d'interactions d'empilement soit similaire à celle dans les données, en prenant en compte la double dépendance avec la période de prise de donnée et le chemin de déclenchement.
 \begin{figure}[p]
 \centering
 \subcaptionbox{Run 2018 A.\label{subfig-PU_profile_18_A}}[.45\textwidth]
@@ -406,12 +407,12 @@ Les événements simulés sont ainsi pondérés afin que leur distribution du no
 \caption[Densités de probabilité de $N_\text{PU}$ pour 2017-UL.]{Densités de probabilité du nombre d'interactions d'empilement $N_\text{PU}$ pour les périodes de prises de données de 2017-UL.}
 \label{fig-PU_profile_17UL}
 \end{figure}
-\paragraph{Accord données-simulation}
-Les distributions des événements simulés sont normalisées à la luminosité mesurée pour le jeu de données réelles considéré.
-Les comparaisons étant faites entre les données réelles et les événements simulés \Gjets, un désaccord dû à la contamination à bas \pT\ d'événements multijet est attendu, les événements multijet n'étant pas présents dans les simulations utilisées.
+\paragraph{Accord données-simulations}
+Les distributions des événements simulés sont normalisées à la luminosité mesurée pour le jeu de données considéré.
+Les comparaisons étant faites entre les données et les événements simulés \Gjets, un désaccord dû à la contamination à bas \pT\ d'événements multijet est attendu, les événements multijet n'étant pas présents dans les simulations utilisées.
 Ce désaccord se constate sur les graphiques de la figure~\ref{fig-distribs_Gjets_18} présentant les distributions de l'impulsion transverse du photon, l'énergie transverse manquante et les impulsions transverses du premier et du second jet.
 Afin de déterminer la correction résiduelle absolue en \pT\ des jets ainsi que la correction de leur résolution en énergie, seule la comparaison des distributions de \Rbal\ et \RMPF\ est nécessaire.
-L'accord ainsi obtenu entre données réelles et simulées est considéré comme suffisant.
+L'accord ainsi obtenu entre données et simulations est considéré comme suffisant.
 \begin{figure}[h]
 \centering
 \subcaptionbox{Impulsion transverse du photon.\label{subfig-distrib_Gjets_18_ptPhoton}}[.45\textwidth]
@@ -428,7 +429,7 @@ L'accord ainsi obtenu entre données réelles et simulées est considéré comme
 \subcaptionbox{Impulsion transverse du second jet.\label{subfig-distrib_Gjets_18_ptSecondJet}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/plots/my_plots/distributions/2018/with_header/ptSecondJet_log.tex}}
 
-\caption[Observables d'événements \Gjets\ en 2018.]{Distributions d'observables dans les données réelles (points noirs) et simulées (histogramme en rouge) pour l'année 2018. Sur la figure~\ref{subfig-distrib_Gjets_18_ptPhoton}, l'effet des \emph{prescales} (voir page~\pageref{tab-HLT_pT_precales_18_and_17UL}) donnant une distribution en dents de scie est clairement visible.}
+\caption[Observables d'événements \Gjets\ en 2018.]{Distributions d'observables dans les données (points noirs) et les simulations (histogramme en rouge) pour l'année 2018. Sur la figure~\ref{subfig-distrib_Gjets_18_ptPhoton}, l'effet des \emph{prescales} (voir page~\pageref{tab-HLT_pT_precales_18_and_17UL}) donnant une distribution en dents de scie est clairement visible.}
 \label{fig-distribs_Gjets_18}
 \end{figure}
 \paragraph{Intervalles de $\alpha$}
@@ -462,7 +463,7 @@ Pour chaque domaine
 de $\alpha$ défini dans le tableau~\ref{tab-alpha_intervalles},
 de $\pT^{\photon}$ défini dans le tableau~\ref{tab-pT_photon_intervalles} et
 de $\eta^\text{jet}$ défini dans le tableau~\ref{tab-eta_jet_intervalles_large},
-les distributions des réponses balancée et MPF des données réelles et simulées sont déterminées.
+les distributions des réponses balancée et MPF des données et simulations sont déterminées.
 Certaines de ces distributions sont représentées sur la figure~\ref{fig-distribs_Gjets_18_resp_bal_and_mpf}.
 \par Afin de limiter les effets des queues de ces distributions, seuls les points à moins de \SI{98.5}{\%} de l'erreur quadratique moyenne (RMS) sont considérés.
 Une estimation des moyennes des distributions est alors obtenue ; ces moyennes sont représentées sur la figure~\ref{fig-distribs_Gjets_18_resp_bal_and_mpf}.
@@ -484,7 +485,7 @@ Il s'agit précisément de l'écart que la correction résiduelle absolue en \pT
 \subcaptionbox{Réponse MPF pour $\pT^{\photon}\in[300, 400[$ \SI{}{\GeV}.\label{subfig-distrib_Gjets_18_resp_mpf_eta0013_ptPhot_300_400}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-JERC/plots/my_plots/distributions/2018/with_header/resp_mpf_eta0013_ptPhot_300_400.tex}}
 
-\caption[Réponses balancée et MPF en 2018.]{Réponses balancée et MPF dans les données réelles (points noirs) et simulées (histogramme en rouge) pour $\alpha<\num{0.3}$, $\abs{\eta^\text{jet}}<\num{1.3}$ et deux intervalles de $\pT^{\photon}$ en 2018.}
+\caption[Réponses balancée et MPF en 2018.]{Réponses balancée et MPF dans les données (points noirs) et simulations (histogramme en rouge) pour $\alpha<\num{0.3}$, $\abs{\eta^\text{jet}}<\num{1.3}$ et deux intervalles de $\pT^{\photon}$ en 2018.}
 \label{fig-distribs_Gjets_18_resp_bal_and_mpf}
 \end{figure}
 \paragraph{Extrapolation vers $\alpha=0$}
@@ -566,9 +567,9 @@ Une dépendance temporelle des réponse est observée, en partie due au vieillis
 \par L'ajustement global sur les résultats des différentes analyses est illustré, pour les trois années du Run~II, sur la figure~\ref{fig-L3ResAbs_RunII} en page~\pageref{fig-L3ResAbs_RunII}.
 La correction résiduelle absolue en \pT\ des jets utilisée par la collaboration CMS est ainsi obtenue.
 \subsubsection{Test d'intégrité}\label{chapter-JERC-section-JES-subsec-results-subsubsec-L2L3Res_cross_check}
-Il est possible de vérifier que la correction résiduelle absolue en \pT\ des jets déterminée permet bien de rapprocher les réponses des jets entre données et simulation.
+Il est possible de vérifier que la correction résiduelle absolue en \pT\ des jets déterminée permet bien de rapprocher les réponses des jets entre données et simulations.
 Pour cela, l'analyse est à nouveau réalisée en appliquant la correction résiduelle absolue en \pT\ des jets lors de leur calibration.
-Les valeurs des rapports données sur simulations des réponses balancée et MPF obtenus avant et après utilisation de cette correction sont présentés dans le tableau~\ref{tab-responses_recap_table_L2L3Res_cross_check_2018ABCD}. Ces rapports se rapprochent de \num{1}, ce qui montre que la correction améliore l'accord données-simulation.
+Les valeurs des rapports données sur simulations des réponses balancée et MPF obtenus avant et après utilisation de cette correction sont présentés dans le tableau~\ref{tab-responses_recap_table_L2L3Res_cross_check_2018ABCD}. Ces rapports se rapprochent de \num{1}, ce qui montre que la correction améliore l'accord données-simulations.
 Cette amélioration peut également se constater sur les distributions des réponses des jets, dont une comparaison est proposée sur la figure~\ref{fig-distribs_Gjets_18_resp_mpf_L2L3Res_cross_check} où les deux distributions sont plus proches l'une de l'autre après correction complète.
 \input{\PhDthesisdir/contents/chapter-JERC/plots/figures_shortcuts/responses_recap_table_L2L3Res_cross_check.tex}
 \begin{figure}[h]
