@@ -1,6 +1,5 @@
 \section{Correction résiduelle absolue en \pT\ avec les événements \Gjets}\label{chapter-JERC-section-JES}
 L'obtention de la correction résiduelle absolue en \pT\ des jets
-ainsi que la correction de leur résolution en énergie
 avec les événements \Gjets\ a été un des mes travaux de thèse.
 J'ai ainsi traité les données des années 2018 et 2017-UL.
 Cette section présente la sélection des événements \Gjets, leur analyse et les derniers résultats obtenus pour l'année 2018.
@@ -231,7 +230,7 @@ $I_{CH}^\text{corr}$ & \num{1.694} & \num{2.089} & \num{1.141} & \num{1.051} & \
 \end{table}
 \par Le critère d'identification des photons retenu dans l'analyse est le critère strict.
 Seuls les photons situés dans le barillet sont utilisés car ils présentent la meilleure résolution.
-La figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, page~\pageref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, montre en effet que ces photons possède une résolution relative en énergie de l'ordre de \SI{1}{\%}, contre environ \SI{2.5}{\%} pour les photons des bouchons.
+La figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, page~\pageref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, montre en effet que ces photons possèdent une résolution relative en énergie de l'ordre de \SI{1}{\%}, contre environ \SI{2.5}{\%} pour les photons des bouchons.
 Une coupure sur leur pseudo-rapidité est donc appliquée, telle que $\abs{\eta} < \num{1.305}$.
 \par \todo{Barrel photon study if done in service task, else small paragraph on this idea}
 \paragraph{Sélection sur les jets}
@@ -239,8 +238,8 @@ Les événements présentant un unique photon sélectionné d'après les critèr
 Avec ce photon doit être présent au moins un jet reconstruit à l'aide de l'algorithme anti-\kT~\cite{Cacciari_antikT} avec un paramètre $R=\num{0.4}$ et respectant les critères définis dans le tableau~\ref{tab-chapter-JERC-section-jets_reco-subsec-jetID-2018} pour les données de 2018 et ceux du tableau~\ref{tab-chapter-JERC-section-jets_reco-subsec-jetID-2017UL} pour les données de 2017-UL.
 Ces critères permettent de rejeter les jets issus du bruit de fond avec une efficacité de \SI{99}{\%}.
 \par Les jets ainsi sélectionnés sont calibrés en énergie en suivant la procédure décrite dans la section~\ref{chapter-JERC-section-CMS} jusqu'à la correction résiduelle relative en $\eta$ incluse. Ils sont alors triés par impulsion transverse décroissante.
-Pour s'assurer d'une bonne balance dans le plan transverse entre le photon et le premier jet, \ie\ celui d'impulsion transverse la plus grande, seuls les événements proposant un écart angulaire entre le photon et le jet supérieur à \SI{2.8}{\rad} sont considérés dans la suite.
-Le photon et le jet sont donc dos à dos dans le plan transverse, ce qui correspond à la situation illustrée figures~\ref{subfig-Gamma_plus_jet_basic_event}, \ref{subfig-Gamma_plus_two_jets} et~\ref{subfig-Gamma_plus_jet_basic_event_real}.
+Pour s'assurer d'une bonne balance dans le plan transverse entre le photon et le premier jet, \ie\ celui d'impulsion transverse la plus grande, seuls les événements proposant un écart angulaire $\Delta\phi$ entre le photon et ce jet supérieur à \SI{2.8}{\rad} sont considérés dans la suite.
+Le photon et le jet sont donc dos à dos dans le plan transverse, ce qui correspond aux situations illustrées figures~\ref{subfig-Gamma_plus_jet_basic_event}, \ref{subfig-Gamma_plus_two_jets} et~\ref{subfig-Gamma_plus_jet_basic_event_real}.
 \par Si un second jet d'impulsion transverse supérieure à \SI{10}{\GeV} est présent, l'événement est rejeté si $\alpha>\num{0.3}$ où $\alpha$ est défini dans l'équation~\eqref{eq-chapter-JERC-definition_alpha}, page~\pageref{eq-chapter-JERC-definition_alpha}.
 L'événement est également rejeté si un lepton (électron ou muon) isolé, en pratique hors des jets, est présent.
 \par Il a été observé que des régions des calorimètres produisent des signaux menant à des reconstructions biaisées de jets.
@@ -301,7 +300,7 @@ Chemin de déclenchement & $\pT^{\photon}$ (\SI{}{\GeV}) & \emph{Prescale} 2018 
 \label{tab-HLT_pT_precales_18_and_17UL}
 \end{table}
 \par Par exemple, un photon d'impulsion transverse \SI{95}{\GeV} doit avoir déclenché le chemin nommé \inlinepython{HLT_Photon75_R9Id90_HE10_IsoM}.
-Ce chemin de déclenchement requière un photon d'impulsion transverse minimale \SI{75}{\GeV}.
+Ce chemin de déclenchement requiert un photon d'impulsion transverse minimale \SI{75}{\GeV}.
 Ce même photon déclenche donc potentiellement le chemin nommé \inlinepython{HLT_Photon90_R9Id90_HE10_IsoM}.
 Utiliser un écart minimal entre l'impulsion du photon et l'impulsion minimale requise au déclenchement du chemin permet de se placer au plateau d'efficacité maximale du chemin de déclenchement.
 Des biais dus à la calibration du photon sont également évités grâce à cette méthode.

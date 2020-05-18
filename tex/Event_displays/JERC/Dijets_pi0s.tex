@@ -6,14 +6,19 @@
 \drawCMS
 
 {\def\tauhcolor{\jetcolor}
-\printtauhdeposit{-135}
+\printtauhdeposit{-135}}
+
+\foreach \angle in {-132, -138}{
+\printphotondeposit{\angle-1}
+\printphotondeposit{\angle+1}
+}
+
+{\def\tauhcolor{\jetcolor}
 \printtauhnolabel{-135}}
 \printjetlabel{-135}
 
 \foreach \angle in {-132, -138}{
-\printphotondeposit{\angle-1}
 \printphotonnolabel{\angle-1}
-\printphotondeposit{\angle+1}
 \printphotonnolabel{\angle+1}
 }
 
