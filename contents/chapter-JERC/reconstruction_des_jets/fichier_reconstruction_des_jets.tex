@@ -20,16 +20,16 @@ Les algorithmes de cônes regroupent toutes les particules ayant une direction $
 \Delta R_{pa} ^2 = (\eta_p - \eta_a)^2 + (\phi_p - \phi_a)^2 < R_c^2
 \mend
 \end{equation}
-Alors, la direction $\vec{a}$ du cône et redéfinie comme étant la direction moyenne de toutes les particules rassemblées dans ce cône. Ce processus est itéré jusqu'à la stabilisation des cônes.
+Alors, la direction $\vec{a}$ du cône est redéfinie comme étant la direction moyenne de toutes les particules rassemblées dans ce cône. Ce processus est itéré jusqu'à la stabilisation des cônes.
 Enfin, les cônes sont séparés en cas de superposition, une particule ne pouvant appartenir qu'à un seul jet.
-\par L'algorithme \textsc{SISCone}~\cite{SISCone}, \emph{Seedless Infrared Safe Cone}, est un exemple d'algorithme de cônes IRC-insensible.
+\par L'algorithme \emph{Seedless Infrared Safe Cone} ou \textsc{SISCone}~\cite{SISCone} est un exemple d'algorithme de cônes IRC-insensible.
 Dans un premier temps, tous les cônes stables possibles sont reconstruits.
-Ces cônes sont alors fusionnés, les cônes ayant l'impulsion transverse la plus grande absorbant des cônes d'impulsion transverse moindre dont ils contiennent déjà une fraction.
+Ces cônes sont alors fusionnés, les cônes ayant l'impulsion transverse la plus grande absorbant des cônes d'impulsion transverse moindre dont ils contiennent déjà une fraction des constituants.
 Un exemple de reconstruction de jets à l'aide de l'algorithme \textsc{SISCone} est présenté sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-algo-examples}.
 \subsubsection{Les algorithmes de recombinaison séquentielle}
 Les algorithmes de recombinaison séquentielle commencent par considérer que chaque particule forme un jet d'une seule particule.
 Puis, à l'aide d'une métrique donnée, la paire de jets les plus proches entre eux fusionne en un seul jet tant que la distance entre eux est en-deçà d'une valeur seuil. Les jets fusionnés donnent la liste des jets de l'événement. Il est également possible de fixer le nombre de jets à déterminer et non la valeur seuil de la distance entre les jets à fusionner.
-\par Plusieurs métriques peuvent être définies, chacune correspondant à un algorithme de recombinaison séquentielle proposant des regroupement différents.
+\par Plusieurs métriques peuvent être définies, chacune correspondant à un algorithme de recombinaison séquentielle proposant des regroupements différents.
 \begin{description}
 %\item[Algorithme de Durham] La distance $d_{ij}$ entre deux jets $i$ et $j$ est
 %\begin{equation}
@@ -59,7 +59,7 @@ d_{ij} = \min\left(\frac{1}{{\pT}_i^2}, \frac{1}{{\pT}_j^2}\right) \, \frac{\Del
 \Delta R_{ij}^2 = (\eta_i-\eta_j)^2 + (\phi_i-\phi_j)^2
 \end{equation}
 où ${\pT}_x$ est l'impulsion transverse du jet $x$ et $R$ un paramètre libre.
-Le regroupement des particules se fait ainsi autour des particules de plus haute énergie.
+Le regroupement des particules se fait ainsi autour de celles de plus hautes énergies.
 Cet algorithme propose un regroupement des particules moins fidèle à la gerbe hadronique, mais produit des jets de forme régulière, comme cela se voit sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-algo-examples}.
 \end{description}
 \begin{figure}[h]
@@ -69,7 +69,7 @@ Cet algorithme propose un regroupement des particules moins fidèle à la gerbe 
 \label{fig-chapter-JERC-section-jets_reco-subsec-algo-examples}
 \end{figure}
 \par Le temps de calcul de ces algorithmes est un enjeu majeur au LHC.
-Leurs temps d'exécution sont représentés en fonction du nombre d'événements d'empilement sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-algo-perfs}.
+Leurs temps d'exécution sont représentés en fonction du nombre d'interactions d'empilement sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-algo-perfs}.
 L'algorithme anti-\kT\ se place parmi les algorithmes les plus rapides.
 Dans les conditions des collisions proton-proton du LHC, il permet le traitement d'un événement en moins d'une milliseconde.
 C'est cet algorithme de regroupement qui est utilisé dans le cadre de l'expérience CMS.
@@ -77,7 +77,7 @@ Sur la figure~\ref{fig-Jet_PF_Composition_RunII} sont illustrées les compositio
 \begin{figure}[h]
 \centering
 \includegraphics[width=.6\textwidth]{\PhDthesisdir/contents/chapter-JERC/reconstruction_des_jets/temps_de_calcul.png}
-\caption[Temps de recombinaison d'un événement dijet.]{Temps de recombinaison d'un événement dijet simulé de \SI{50}{\GeV} contenant $N$ événements d'empilement pour différents algorithmes de reconstruction des jets~\cite{towards_jetography}.}
+\caption[Temps de recombinaison d'un événement dijet.]{Temps de recombinaison d'un événement dijet simulé de \SI{50}{\GeV} contenant $N$ interactions d'empilement pour différents algorithmes de reconstruction des jets~\cite{towards_jetography}.}
 \label{fig-chapter-JERC-section-jets_reco-subsec-algo-perfs}
 \end{figure}
 \begin{figure}[h]
@@ -95,7 +95,7 @@ Sur la figure~\ref{fig-Jet_PF_Composition_RunII} sont illustrées les compositio
 \end{figure}
 \subsection{Identification des jets dans CMS}\label{chapter-JERC-section-jets_reco-subsec-jetID}
 Les jets ainsi reconstruits à l'aide des algorithmes de recombinaison sont en fait des \og candidats \fg{} jets.
-À l'instar des particules individuelles, des critères d'identification leur sont appliqués afin de rejeter le bruit de fond et s'assurer de la qualité des jets ainsi reconstruits.
+À l'instar des particules individuelles, des critères d'identification leur sont appliqués afin de rejeter le bruit de fond et s'assurer de la qualité des jets utilisés dans les analyses.
 \par Ces critères reposent sur les caractéristiques des candidats jets comme la fraction d'énergie provenant de leurs constituants neutres ou encore le nombre de ces constituants.
 Ces critères dépendent des années de prise de données et de la pseudo-rapidité du jet, \ie\ de la région du détecteur dans laquelle il se trouve.
 \par Les critères utilisés pour les années 2016, 2017, 2018 et 2017-UL\footnote{La dénomination \og UL \fg{} signifie \emph{Ultra-Legacy} et correspond à une réinterprétation des données récoltées une fois que la collaboration peut prendre plus de recul sur l'obtention de celles-ci.}, listés page~\pageref{tab-chapter-JERC-section-jets_reco-subsec-jetID-2017UL}, permettent d'obtenir une efficacité d'identification des jets supérieure à \SI{99}{\%} dans chacune des régions en $\eta$ du détecteur.
@@ -128,7 +128,7 @@ La réjection du bruit de fond est supérieure à \SI{98}{\%} pour $\abs{\eta}\l
 Pour étudier la physique du processus initial, la connaissance du parton à l'origine d'un jet ainsi identifié dans le détecteur est une information de choix.
 Il est impossible de connaître avec certitude cette particule, mais sa nature influe directement sur certaines propriétés des jets, permettant de l'estimer.
 \subsubsection{Saveur de la particule initiale et caractéristiques des jets}
-\paragraph{Le quark~\quarkt} possède un temps de vie trop court pour participer à l'hadronisation. Il se désintègre alors par interaction faible en un autre quark, très majoritairement un quark~\quarkb, et un boson \Wboson. Le nouveau quark issu de cette désintégration forme alors un jet.
+\paragraph{Le quark~\quarkt} possède une durée de vie trop courte pour participer à l'hadronisation. Il se désintègre alors par interaction faible en un autre quark, très majoritairement un quark~\quarkb, et un boson \Wboson. Le nouveau quark issu de cette désintégration forme alors un jet.
 \par Les autres quarks, \quarkd, \quarku, \quarks, \quarkc\ et~\quarkb, sont plus stables que le top et participent à l'hadronisation.
 Ils se retrouvent alors confinés au sein des hadrons formés.
 \paragraph{Le quark~\quarkb} ne forme pas de hadron stable. Il se désintègre en quark~\quarkc\ ou~\quarku\ selon
@@ -227,7 +227,7 @@ Les jets issus de ces trois types de quarks, les plus légers, sont ainsi regrou
 \paragraph{Les gluons} portent une charge de couleur plus importante que les quarks\footnote{Les quarks portent une couleur, les antiquarks une anticouleur et les gluons portent une couleur et une anticouleur.}.
 Les jets initiés par des gluons comportement typiquement plus de particules électriquement chargées et sont moins collimés que les jets légers~\cite{CMS-PAS-JME-13-002}.
 \subsubsection{Identification de la saveur des jets}
-Les jets présentent ainsi des propriétés caractéristiques, selon qu'il s'agisse d'un jet léger (quarks~\quarkd, \quarku\ ou~\quarks), d'un jet lourd (quarks~\quarkc\ ou~\quarkb) ou d'un jet issu d'un gluon.
+Les jets présentent ainsi des propriétés caractéristiques, selon qu'il s'agisse de jets légers (quarks~\quarkd, \quarku\ ou~\quarks), de jets lourds (quarks~\quarkc\ ou~\quarkb) ou de jets issus d'un gluon.
 En utilisant ces propriétés, des algorithmes d'identification de la saveur des jets ont été mis au point par la collaboration CMS~\cite{jet_btag_CSV_RunI}.
 Les avancées récentes dans le domaine du \emph{Deep Learning}, appliquées à l'identification des jets~\cite{jet_flavor_deep_nn}, ont permis l'amélioration de ces algorithmes. L'algorithme \DeepCSV~\cite{Sirunyan_heavy_flavor_jets_2018} a ainsi été développé.
 \par Les variables utilisées dans cet algorithme sont décrites dans la référence~\cite{Sirunyan_heavy_flavor_jets_2018}.
@@ -236,7 +236,7 @@ Ce réseau est entraîné sur un ensemble d'événements simulés $\quarkt\antiq
 \KERAS~\cite{keras}
 et
 \TENSORFLOW~\cite{tensorflow}.
-\par Les performances ainsi obtenues pour l'algorithme \DeepCSV\ peuvent sont comparées à d'autres algorithme d'identification de la saveur des jets sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-flavor-bc_tag_roc_curves}.
+\par Les performances ainsi obtenues pour l'algorithme \DeepCSV\ sont comparées à d'autres algorithmes d'identification de la saveur des jets sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-flavor-bc_tag_roc_curves}.
 Les algorithmes \textsc{cMVAv2} et \DeepCSV\ présentent les meilleures performances en termes d'identification des jets de quark~\quarkb.
 Pour le traitement des jets de quark~\quarkc, l'algorithme \DeepCSV\ propose les meilleures performances.
 Dans les analyses présentées dans ce chapitre et le chapitre\ifref{chapter-HTT_analysis}{~\ref{chapter-HTT_analysis}}{~5}, c'est cet algorithme qui est utilisé afin d'identifier les jets issus de quarks~\quarkc\ ou~\quarkb.
