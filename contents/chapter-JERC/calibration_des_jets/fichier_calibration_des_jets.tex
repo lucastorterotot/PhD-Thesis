@@ -1,10 +1,10 @@
 \section{Calibration en énergie des jets dans CMS}\label{chapter-JERC-section-CMS}
-Les jets sont des objets composites, complexes, qu'il est nécessaire de calibrer comme tout autre objet reconstruit.
+Les jets sont des objets physiques composites complexes qu'il est nécessaire de calibrer, comme tout autre objet reconstruit.
 La précision apportée à la mesure des jets est capitale dans de nombreuses analyses, où il s'agit d'une source majeure d'incertitude systématique.
 Les avancées réalisées récemment sur la calibration des jets ont ainsi permis d'améliorer la précision sur la mesure de la section efficace inclusive de production de jets et de la masse du quark~\quarkt~\cite{JERC_RunI}.
-\par À partir des jets reconstruits par les méthodes décrites précédemment, un procédé de \emph{correction de l'énergie des jets} (JEC\footnote{\emph{Jet Energy Correction}}) est réalisé.
-Il permet de corriger l'échelle en énergie des jets (JES\footnote{\emph{Jet Energy Scale}}) ainsi que la résolution sur cette énergie (JER\footnote{\emph{Jet Energy Resolution}}).
-La collaboration CMS utilise une approche factorisée dans laquelle plusieurs étapes corrigent un effet en particulier et dépendent des étapes précédentes~\cite{JERC_RunI}.
+\par À partir des jets reconstruits par les méthodes décrites précédemment, un procédé de \emph{correction de l'énergie des jets} (JEC\footnote{JEC signifie \emph{Jet Energy Correction}.}) est réalisé.
+Il permet de corriger l'échelle en énergie des jets (JES\footnote{JES signifie \emph{Jet Energy Scale}.}) ainsi que la résolution sur cette énergie (JER\footnote{JER signifie \emph{Jet Energy Resolution}.}).
+La collaboration CMS utilise une approche factorisée dans laquelle plusieurs étapes corrigent chacune un effet en particulier et dépendent des étapes précédentes~\cite{JERC_RunI}.
 La figure~\ref{fig-CMS-JME-13-004_Figure_002-TeX} résume ces étapes, décrites plus en détails dans les sections qui suivent.
 \begin{figure}[h]
 \centering
@@ -16,7 +16,7 @@ La figure~\ref{fig-CMS-JME-13-004_Figure_002-TeX} résume ces étapes, décrites
 \begin{itemize}
 \item Le niveau \emph{particule}, noté \ptcl, ou niveau \og vrai \fg{}, se réfère aux objets et variables après hadronisation mais avant interaction avec le détecteur. Il s'agit donc des grandeurs recherchées, uniquement accessibles dans les événements simulés.
 \item Le niveau \emph{reconstruit}, noté \reco, correspond aux objets et variables après interaction avec le détecteur et reconstruction par l'algorithme de \PF.
-\item Le niveau \emph{corrigé} ou calibré, noté \cali, correspond aux objets et variables corrigés, \ie\ ceux du niveau \reco\ auxquels ont été appliquées les corrections.
+\item Le niveau \emph{corrigé} ou calibré, noté \cali, correspond aux objets et variables corrigés, \ie\ ceux du niveau reconstruit auxquels ont été appliquées les corrections.
 \end{itemize}
 Définissons également une variable importante pour ce chapitre, la réponse d'un jet,
 \begin{equation}
@@ -24,8 +24,8 @@ R = \frac{\pT}{\pT_\ptcl}
 \mend
 \end{equation}
 La réponse peut être définie à différents niveaux, et par définition $R_\ptcl=1$.
-Si la JEC est correcte, alors les variables corrigées doivent correspondre aux variables au niveau particule, \ie\ $R_\cali=1$.
-Sur la figure~\ref{fig-JERC_RunI-1} sont représentées les réponses de jets d'événements QCD simulés à différentes étapes de la JEC. Après avoir appliqué toutes les corrections, ce qui correspond à la figure~\ref{subfig-JERC_RunI-1_3}, la réponse est sensiblement égal à 1, ce qui montre que la JEC est correcte.
+Si la JEC est correcte, alors les variables corrigées doivent correspondre sensiblement aux variables au niveau particule, \ie\ $R_\cali\simeq1$.
+Sur la figure~\ref{fig-JERC_RunI-1} sont représentées les réponses de jets d'événements QCD simulés à différentes étapes de la JEC. Après avoir appliqué toutes les corrections, ce qui correspond à la figure~\ref{subfig-JERC_RunI-1_3}, la réponse est sensiblement égale à 1, ce qui montre que la JEC est correcte.
 \begin{figure}[h]
 \centering
 \subcaptionbox{Avant correction ($R_\reco$).\label{subfig-JERC_RunI-1_1}}[.3\textwidth]
@@ -39,12 +39,12 @@ Sur la figure~\ref{fig-JERC_RunI-1} sont représentées les réponses de jets d'
 \caption[Valeur moyenne de la réponse de jets d'événements QCD simulés.]{Valeur moyenne de la réponse de jets d'événements QCD simulés en fonction de $\pT_\ptcl$ à différentes étapes de la JEC~\cite{JERC_RunI} et pour différentes valeurs d'interactions d'empilement $\mu$.}
 \label{fig-JERC_RunI-1}
 \end{figure}
-\par Les jets au niveau particule sont construits en appliquant la procédure de recombinaison à toutes les particules de durée de vie $\tau$ telle que $c\tau>\SI{1}{\centi\meter}$ à l'exception des neutrinos~\cite{JERC_RunI}.
+\par Les jets au niveau particule sont reconstruits en appliquant la procédure de recombinaison à toutes les particules de durée de vie $\tau$ telle que $c\tau>\SI{1}{\centi\meter}$ à l'exception des neutrinos~\cite{JERC_RunI}.
 Les hadrons contenant des quarks~\quarkc\ ou~\quarkb\ ne rentrent pas dans cette catégorie et ce sont donc leurs produits de désintégration qui sont pris en compte pour la recombinaison.
 Exclure les neutrinos de la recombinaison au niveau particule est une convention adoptée par la collaboration CMS, mais pas de manière universelle en physique des particules.
 Les neutrinos sont en fait généralement inclus au niveau particule.
 La réponse des jets étant mesurée dans des événements contenant peu de neutrinos, comme cela est discuté dans la section~\ref{chapter-JERC-section-pheno-GJets}, ce choix n'apporte pratiquement aucune différence à la JEC.
-L'intérêt de cette convention est de pouvoir définir la réponse des jets d'une manière qui soit accessible expérimentalement et qui réduit significativement les différences de réponse entre jets lourds et jets légers ou de gluons, à cause des neutrinos produits dans les désintégration des quarks lourds.
+L'intérêt de cette convention est de pouvoir définir la réponse des jets d'une manière qui soit accessible expérimentalement et qui réduise significativement les différences de réponse entre jets lourds et jets légers ou de gluons, à cause des neutrinos produits dans les désintégration des quarks lourds.
 \subsection{Correction de l'empilement}\label{chapter-JERC-section-CMS-subsec-PU}
 Des contributions additionnelles à l'énergie et à l'impulsion des jets peuvent apparaître du fait de l'empilement\footnote{Le phénomène d'empilement est décrit dans la section~\ifref{chapter-LHC-section-LHC-subsec-PU}{\ref{chapter-LHC-section-LHC-subsec-PU}}{1.4} du chapitre\ifref{chapter-LHC}{~\ref{chapter-LHC}}{ \og Dispositif expérimental \fg}.}.
 La correction de l'empilement a pour but de soustraire ces contributions et est appliquée dans les données et les événements simulés.
@@ -61,7 +61,7 @@ La correction de l'empilement peut être calculée avec et sans utilisation de l
 L'efficacité de reconstruction des vertex d'empilement étant de \SI{30}{\%}, des traces de hadrons chargés non associées à un vertex subsistent.
 De plus, cette méthode ne permet pas de corriger l'empilement des particules neutres.
 \par La correction de l'empilement résiduel, principalement due aux particules neutres, aux traces non associées à un vertex et à l'empilement asynchrone qui n'a pas pu être corrigé totalement, est déterminée à l'aide de la méthode de l'aire hybride (\emph{hybrid jet area}).
-Il s'agit d'une correction paramétrique, appliquée à chaque jet indépendamment, dépendant de:
+Il s'agit d'une correction paramétrique, appliquée indépendamment à chaque jet, dépendante de:
 \begin{itemize}
 \item la densité en énergie dans le plan $(\eta, \phi)$ de l'événement contenant ce jet, $\rho$;
 \item l'aire du jet dans le plan $(\eta, \phi)$, $A_j$;
@@ -110,7 +110,7 @@ Pour cela, un ajustement en fonction de $\eta$ est déterminé à l'aide de la m
 L'étude est réalisée sur des événements dits de \og zéro biais \fg.
 Il s'agit d'événements sélectionnés par un déclenchement aléatoire pendant que les faisceaux de protons se croisent.
 Le déclenchement n'étant pas dû à un dépôt d'énergie en particulier, ces événements ne comportent pas, en général, de contribution provenant d'une interaction dure, \ie\ d'une collision effective entre les protons.
-Dans ce cas, la valeur moyenne du \pT\ des jets reconstruits par la méthode RC permet d'estimer la moyenne de la contribution additionnelle de l'empilement, \ie
+Dans ce cas, la valeur moyenne de l'impulsion transverse des jets reconstruits par la méthode RC permet d'estimer la moyenne de la contribution additionnelle de l'empilement, \ie
 \begin{equation}
 \average{\pT^\text{add}}^\text{RC} = \average{\pT_\text{cône}}
 \mend
@@ -139,7 +139,7 @@ Il apparaît, par exemple, qu'un jet de $\pT=\SI{30}{\GeV}$ nécessite une corre
 \hfill
 \subcaptionbox{Année 2018.\label{subfig-simulated_jet_response_2018}}[.3\textwidth]
 {\includegraphics[width=.3\textwidth]{\PhDthesisdir/contents/chapter-JERC/plots/img_from_CMS-DP-2020-019/simulated_jet_response_2018.png}}
-\caption[Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II.]{Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II~\cite{CMS-DP-2020-019}. La baisse dans la région $\num{3.0}<\abs{\eta}<\num{3.2}$ (respectivement $\abs{\eta}>\num{4.5}$) est due à la transition le bouchon (\emph{endcap}) et la partie avancée (\emph{forward}) du détecteur (reps. son acceptation). La dégradation au cours du temps du détecteur dans la région \og EC2 \fg{} s'observe par la baisse de la réponse des jets dans cette région de 2016 à 2017.}
+\caption[Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II.]{Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II~\cite{CMS-DP-2020-019}. La chute de la réponse des jets dans la région $\abs{\eta}\simeq\num{3}$ est due à la transition entre le bouchon (\emph{Endcap}) et la partie avancée (\emph{Forward}) du détecteur. Pour $\abs{\eta}>\num{4.5}$, les limites du détecteur en termes d'acceptation expliquent la chute de la réponse des jets. La dégradation au cours du temps du détecteur dans la région \og EC2 \fg{} s'observe par la baisse de la réponse des jets dans cette région de 2016 à 2017.}
 \label{fig-simulated_jet_response_RunII}
 \end{figure}
 \par Afin de corriger la réponse du détecteur en $\pT$ et en $\eta$, la correction $\mathcal{C}_\text{Rép}$ à appliquer s'exprime
@@ -158,7 +158,7 @@ doivent prendre en compte les corrections apportées aux jets afin de garder une
 \end{equation}
 où $\vpT_\cali$ correspond à l'impulsion transverse du jet après correction de la réponse du détecteur
 et
-$\vec{\mathcal{O}}_\text{RC}$ la contribution moyenne de l'empilement obtenu par la méthode RC.
+$\vec{\mathcal{O}}_\text{RC}$ la contribution moyenne de l'empilement obtenue par la méthode RC.
 \subsection{Corrections résiduelles}\label{chapter-JERC-section-CMS-subsec-residuals}
 Les corrections décrites dans les sections précédentes permettent d'obtenir une bonne correction en énergie des jets.
 Toutefois, des différences dans les réponses des jets, de l'ordre du pourcent, subsistent entre données et simulations.
@@ -192,7 +192,7 @@ car l'objet de référence, fidèlement reconstruit, permet de considérer
 \end{equation}
 La réponse balancée \Rbal\ est alors définie comme
 \begin{equation}
-\Rbal (\pT, \eta) = \frac{\pT_\reco^\text{jet}}{\pT^\text{ref}}
+\Rbal (\pT, \eta) = \frac{\pT_\reco^\text{jet}}{\pT^\text{réf}}
 \label{eq-chapter-JERC-section-CMS-subsec-residuals-Rbal_def}
 \end{equation}
 \item[la méthode \og MPF \fg] (\emph{MET Projection Fraction}) prend en compte l'ensemble de l'activité hadronique de l'événement et considère l'impulsion de recul vis-à-vis de l'objet de référence, \ie
@@ -211,7 +211,7 @@ En appliquant~\eqref{eq-chapter-JERC-section-CMS-subsec-residuals-pT_ref_approx_
 \end{equation}
 ce qui permet de définir la réponse MPF \RMPF\ comme
 \begin{equation}
-\RMPF (\pT, \eta) = 1 + \frac{\vpT^\text{réf}\cdot\vMET}{\abs{\vpT^\text{ref}}^2}
+\RMPF (\pT, \eta) = 1 + \frac{\vpT^\text{réf}\cdot\vMET}{\abs{\vpT^\text{réf}}^2}
 \mend
 \end{equation}
 \end{description}
@@ -254,7 +254,7 @@ La correction à appliquer aux données ainsi obtenue est illustrée sur la figu
 %We are now using multijet again, thanks to getting it back to Helsinki, reverting back closer to Run 1 method and actually pushing hard to understand and reduce the systematic uncertainties. And it’s working wonderfully! We’re for sure going to use multijet for all UL samples. Now is the first time it’s actually more constraining at high pT than gamma+jet.
 \label{fig-L3ResAbs_RunII}
 \end{figure}
-\par L'analyse des événements \Gjets\ utilisés dans ces ajustement globaux pour les années 2018, utilisés dans la figure~\ref{subfig-absolute_pT_residual_2018}, et 2017-UL a fait partie de mon travail de thèse.
+\par L'analyse des événements \Gjets\ utilisés dans ces ajustements globaux pour les années 2018, utilisés dans la figure~\ref{subfig-absolute_pT_residual_2018}, et 2017-UL a fait partie de mon travail de thèse.
 La phénoménologie de ces événements ainsi que leur analyse sont détaillées dans les sections~\ref{chapter-JERC-section-pheno-GJets} et~\ref{chapter-JERC-section-JES}.
 %une fois le ECAL calibré (test de presque chaque cristal en faisceau), calibration du HCAL.
 \newpage
@@ -266,8 +266,8 @@ La phénoménologie de ces événements ainsi que leur analyse sont détaillées
 \caption[Correction résiduelle de saveur en fonction de l'impulsion du jet.]{Correction résiduelle de saveur en fonction de l'impulsion du jet préalablement corrigée par les corrections décrites dans les sections précédantes, $\pT_\cali$, pour des jets de pseudo-rapidité $\abs{\eta}<\num{1.3}$~\cite{JERC_RunI}.}
 \label{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_030a}
 \end{wrapfigure}
-Il existe une différence de réponse selon la saveur du jet, majoritairement due à la fragmentation en énergie et la composition du jet qui dépend de cette saveur~\cite{JERC_RunI}.
-Par exemple, des particules de bas \pT\ se retrouvent hors de la zone d'acceptation du détecteur.
+Il existe une différence de réponse selon la saveur du jet, majoritairement due à la fragmentation en énergie et la composition du jet qui dépendent de cette saveur~\cite{JERC_RunI}.
+Par exemple, les particules de bas \pT\ se retrouvent hors de la zone d'acceptation du détecteur.
 Or, des jets initiés par des gluons présentent de nombreuses particules de bas \pT\ par rapport aux jets issus de quarks légers.
 Dans une moindre mesure, les jets lourds possèdent également plus de particules de bas \pT\ que les jets de quarks légers suite à la désintégration du hadron lourd\footnote{Le lecteur pourra se référer à la section~\ref{chapter-JERC-section-jets_reco-subsec-flavor} pour plus de détails sur la saveur des jets.}.
 La proportion de particules neutres dans le jet est également un des paramètres affectant le plus sa réponse.
@@ -279,7 +279,7 @@ est représentée sur la figure~\ref{fig-chapter-JERC-section-CMS-subsec-PU-JERC
 Elle est de moins de \SI{2}{\%} en-deçà de \SI{100}{\GeV} mais peut atteindre \SI{4}{\%} à bas \pT.
 \subsection{Incertitude sur la correction en énergie des jets}\label{chapter-JERC-section-CMS-subsec-unc}
 Chacune des étapes de la JEC comporte des incertitudes liées aux effets systématiques et, dans une moindre mesure, statistiques.
-La maîtrise de ces incertitudes est un enjeu important pour de nombreuses analyses de la collaboration CMS où elles constituent un des sources d'incertitudes les plus importantes.
+La maîtrise de ces incertitudes est un enjeu important pour de nombreuses analyses de la collaboration CMS où elles constituent une des sources d'incertitude les plus importantes.
 \begin{figure}[p]
 \centering
 \subcaptionbox{En fonction de $\pT$ pour $\abs{\eta}=0$ en 2016.\label{subfig-Syst_uncs_pT_2016}}[.45\textwidth]
@@ -307,12 +307,12 @@ La maîtrise de ces incertitudes est un enjeu important pour de nombreuses analy
 \caption[Incertitudes relatives sur la JEC en fonction de \pT\ et $\eta$ lors du Run~II.]{Incertitudes relatives sur la JEC lors du Run~II~\cite{CMS-DP-2020-019}.}
 \label{fig-Syst_uncs_JEC_RunII}
 \end{figure}
-Les sources d'incertitudes considérées pour la JEC sont regroupées en six groupes~\cite{CMS-DP-2020-019}:
+Les sources d'incertitude considérées pour la JEC sont réparties en six groupes~\cite{CMS-DP-2020-019}:
 \begin{description}
 \item[Échelle absolue] ou \emph{Absolute scale} sur les légendes des figures~\ref{subfig-Syst_uncs_pT_2016} à~\ref{subfig-Syst_uncs_eta_2018}.
-Cette incertitude prend en compte l'échelle en énergie des objets de référence utilisés pour obtenir la correction résiduelle absolue en \pT\ décrite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals_pT} ainsi que les effets de l'ISR et du FSR\footnote{L'\emph{Initial State Radiation} et le \emph{Final State Radiation} sont abordés dans la section~\ref{chapter-JERC-section-pheno-GJets}}.
+Cette incertitude prend en compte l'échelle en énergie des objets de référence utilisés pour obtenir la correction résiduelle absolue en \pT\ décrite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals_pT} ainsi que les effets de l'ISR et du FSR\footnote{L'\emph{Initial State Radiation} et le \emph{Final State Radiation} sont abordés dans la section~\ref{chapter-JERC-section-pheno-GJets}.}.
 \item[Échelle relative] ou \emph{Relative scale} sur les légendes des figures~\ref{subfig-Syst_uncs_pT_2016} à~\ref{subfig-Syst_uncs_eta_2018}.
-Cette incertitude est principalement due à la JER qui s'applique à l'objet de référence dans la correction résiduelle relative en $\eta$ décrite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals_eta} ainsi que les effets de l'ISR et du FSR.
+Cette incertitude est principalement due à la JER qui s'applique à l'objet de référence dans la correction résiduelle relative en $\eta$ décrite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals_eta} ainsi qu'aux effets de l'ISR et du FSR.
 \item[Empilement] ou \emph{Pileup} sur les légendes des figures~\ref{subfig-Syst_uncs_pT_2016} à~\ref{subfig-Syst_uncs_eta_2018}.
 Il s'agit de rendre compte de l'incertitude sur la détermination de la contribution additionnelle de l'empilement au niveau particule.
 Une incertitude de \SI{5}{\%} sur le rapport données sur simulations de cette contribution, obtenue à l'aide de la méthode de cône aléatoire, est considérée.
