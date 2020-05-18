@@ -32,7 +32,7 @@ L'impulsion transverse étant nulle dans l'état initial, par conservation, elle
 \caption[Diagrammes de Feynman donnant un photon et un jet dans l'état final.]{Exemples de diagrammes de Feynman de processus physiques donnant un photon et un jet dans l'état final.}
 \label{fig-fgraph-gamma_plus_jets}
 \end{figure}
-\par L'impulsion transverse du jet doit donc être égale à celle du photon, objet de référence. Leur ratio au niveau reconstruit doit donc être égal à 1.
+\par L'impulsion transverse du jet doit donc être égale à celle du photon, objet de référence.
 La bonne résolution en énergie sur les photons permet de considérer que leur impulsion transverse au niveau reconstruit est égale à leur impulsion transverse au niveau particule.
 Ainsi, la méthode de la balance\footnote{La méthode de la balance est introduite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals}.} permet de définir
 \begin{equation}
@@ -73,18 +73,18 @@ La section efficace de production d'événements \Gjets\ à \SI{13}{\TeV} est im
 \caption[Diagrammes de Feynman de processus avec ISR ou FSR.]{Exemples de diagrammes de Feynman de processus avec ISR (\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets}, \ref{subfig-fgraph-gq_qGamma_S-ISR_2photons}) ou FSR (\ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}, \ref{subfig-fgraph-gq_qGamma_S-FSR_2photons}) donnant des événements avec deux jets (\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets}, \ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}) ou deux photons (\ref{subfig-fgraph-gq_qGamma_S-ISR_2photons}, \ref{subfig-fgraph-gq_qGamma_S-FSR_2photons}) dans l'état final.}
 \label{fig-fgraph-gamma_plus_jets-ISR-FSR}
 \end{figure}
-\par L'ISR et la FSR peuvent aussi produire un gluon, ce qui correspond aux diagrammes de Feynman des figures~\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets} et~\ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}.
+\par L'ISR et le FSR peuvent aussi produire un gluon, ce qui correspond aux diagrammes de Feynman des figures~\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets} et~\ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}.
 Plusieurs jets sont alors présents dans l'état final et sont ordonnés par impulsion transverse décroissante.
 Le cas de la figure~\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets}, correspondant à un jet additionnel par ISR, peut être supprimé par une condition sur les directions du photon et du premier jet qui doivent être opposées.
 Dans le cas du diagramme de la figure~\ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}, correspondant à un jet additionnel par FSR, le photon est balancé avec le système des deux jets. La topologie d'un tel événement est illustrée sur la figure~\ref{subfig-Gamma_plus_two_jets}.
-La réponse balancée est alors considérée entre le photon et le premier jet,% \ie
+La réponse balancée est alors considérée entre le photon et le premier jet, \ie\ le jet d'impulsion transverse la plus grande. Ainsi,
 \begin{equation}
 \Rbal = \frac{\pT_\reco^\text{jet 1}}{\pT^{\photon}}
 \mend
 \end{equation}
 \par La présence d'un jet secondaire, comme sur la figure~\ref{subfig-Gamma_plus_two_jets}, créé un déséquilibre dans \Rbal\ dû à la physique de l'événement et non à la JES. Il ne faut donc pas corriger cet effet.
 Pour cela, il faut pouvoir se ramener au cas où un seul jet est présent, comme dans l'événement de la figure~\ref{subfig-Gamma_plus_jet_basic_event}.
-L'activité additionnelle liée aux jets supplémentaires est quantifié par la variable
+L'activité additionnelle liée aux jets supplémentaires est quantifiée par la variable
 \begin{equation}
 \alpha = \frac{\pT_\reco^\text{jet 2}}{\pT^{\photon}}
 \mend
@@ -98,7 +98,7 @@ En complément de la réponse balancée, la réponse MPF, définie comme
 \mend[,]
 \end{equation}
 est également analysée.
-L'impulsion de toutes les particules présentes étant considérée, \RMPF\ est moins sensible à l'activité additionnelle que \Rbal, ce qui se retrouve dans les résultats de l'analyse, figure~\ref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}, page~\pageref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}, où ces deux réponses sont représentées en fonction de $\alpha$.
+Les impulsions de toutes les particules présentes étant considérées, \RMPF\ est moins sensible à l'activité additionnelle que \Rbal, ce qui se retrouve dans les résultats de l'analyse, figure~\ref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}, page~\pageref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}, où ces deux réponses sont représentées en fonction de $\alpha$.
 \par L'utilisation de la réponse MPF nécessite une bonne reconstruction de \vMET, ce qui est le cas grâce aux bonnes performances de l'algorithme de \PF.
 Son utilisation conjointe avec la réponse balancée permet d'obtenir des résultats complémentaires.
 Des écarts significatifs observés entre les deux méthodes indiqueraient ainsi des effets incompris, nécessitant de plus amples investigations.
