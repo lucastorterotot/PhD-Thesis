@@ -1,7 +1,7 @@
 \section{Correction résiduelle absolue en \pT\ avec les événements \Gjets}\label{chapter-JERC-section-JES}
 L'obtention de la correction résiduelle absolue en \pT\ des jets
-avec les événements \Gjets\ a été un des mes travaux de thèse.
-J'ai ainsi traité les données des années 2018 et 2017-UL.
+avec les événements \Gjets\ a été un de mes travaux de thèse.
+J'ai ainsi traité les événements des années 2018 et 2017-UL.
 Cette section présente la sélection des événements \Gjets, leur analyse et les derniers résultats obtenus pour l'année 2018.
 \subsection{Événements utilisés}\label{chapter-JERC-section-JES-subsec-evt_select}
 \subsubsection{Ensembles d'événements analysés}
@@ -307,8 +307,8 @@ Des biais dus à la calibration du photon sont également évités grâce à cet
 \subsection{Analyse}\label{chapter-JERC-section-JES-subsec-analyse}
 \paragraph{Intervalles de $\pT^{\photon}$}
 L'analyse a pour but de déterminer la correction résiduelle absolue en \pT\ des jets, définie dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals}.
-Pour cela, l'écart à l'unité du rapport moyen des réponses des jets dans les données et les simulations est déterminé dans différents intervalles de $\pT^{\photon}$, listé dans le tableau~\ref{tab-pT_photon_intervalles}.
-Ces intervalles sont une subdivision des intervalles définis pour les chemin de déclenchement dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}.
+Pour cela, l'écart à l'unité du rapport moyen des réponses des jets dans les données et les simulations est déterminé dans différents intervalles de $\pT^{\photon}$, listés dans le tableau~\ref{tab-pT_photon_intervalles}.
+Ils sont une subdivision des intervalles définis pour les chemin de déclenchement dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}.
 \begin{table}[h]
 \centering
 \begin{tabular}{cccc}
@@ -323,7 +323,7 @@ $[\num{1000}, \num{3000}]$ \\
 \label{tab-pT_photon_intervalles}
 \end{table}
 \paragraph{Intervalles de $\abs{\eta^\text{jet}}$}
-La calibration en énergie des jets dépend fortement de la région du détecteur dans lequel le jet laisse un signal, comme le montre la figure~\ref{fig-simulated_jet_response_RunII} en page~\pageref{fig-simulated_jet_response_RunII}.
+La calibration en énergie des jets dépend fortement de la région du détecteur dans laquelle le jet laisse un signal, comme le montre la figure~\ref{fig-simulated_jet_response_RunII} en page~\pageref{fig-simulated_jet_response_RunII}.
 Cet effet est dû aux différentes technologies utilisées ainsi qu'au vieillissement non uniforme du détecteur.
 Des intervalles de pseudo-rapidité du jet sont ainsi définis dans le tableau~\ref{tab-eta_jet_intervalles_large} afin de séparer le traitement de ces différentes régions.
 \begin{table}[h]
@@ -408,8 +408,9 @@ Les événements simulés sont ainsi pondérés afin que leur distribution du no
 \end{figure}
 \paragraph{Accord données-simulations}
 Les distributions des événements simulés sont normalisées à la luminosité mesurée pour le jeu de données considéré.
-Les comparaisons étant faites entre les données et les événements simulés \Gjets, un désaccord dû à la contamination à bas \pT\ d'événements multijet est attendu, les événements multijet n'étant pas présents dans les simulations utilisées.
-Ce désaccord se constate sur les graphiques de la figure~\ref{fig-distribs_Gjets_18} présentant les distributions de l'impulsion transverse du photon, l'énergie transverse manquante et les impulsions transverses du premier et du second jet.
+Les comparaisons étant faites entre les données et les événements simulés \Gjets, un désaccord dû à la contamination à bas \pT\ d'événements multijet est attendu, ces événements n'étant pas présents dans les simulations utilisées.
+De plus, l'utilisation d'une simulation au premier ordre perturbatif seulement influe sur le nombre de jets dans l'état final qui s'en trouve plus faible, en particulier dans les queues des distributions.
+Ces désaccords se constatent sur les graphiques de la figure~\ref{fig-distribs_Gjets_18} présentant les distributions de l'impulsion transverse du photon, l'énergie transverse manquante et les impulsions transverses du premier et du second jet.
 Afin de déterminer la correction résiduelle absolue en \pT\ des jets ainsi que la correction de leur résolution en énergie, seule la comparaison des distributions de \Rbal\ et \RMPF\ est nécessaire.
 L'accord ainsi obtenu entre données et simulations est considéré comme suffisant.
 \begin{figure}[h]
@@ -435,7 +436,7 @@ L'accord ainsi obtenu entre données et simulations est considéré comme suffis
 Comme expliqué dans la section~\ref{chapter-JERC-section-pheno-GJets-subsec-alpha_definition}, l'analyse des événements \Gjets\ est réalisée pour différents intervalles de $\alpha$ afin de pouvoir réaliser par la suite une extrapolation à $\alpha=0$, correspondant au cas idéal d'événements \Gjet.
 Les intervalles utilisés sont présentés dans le tableau~\ref{tab-alpha_intervalles}.
 Il s'agit d'intervalles inclusifs, \ie\ que chaque intervalle contient l'intervalle précédent.
-L'évolution des réponses moyennes en fonction de $\alpha$ y étant linéaire, ce choix rend possible une extrapolation simple vers $\alpha=0$ par la suite.
+L'évolution des réponses moyennes en fonction de $\alpha$ y étant linéaire, ce choix rend possible une extrapolation simple vers $\alpha=0$.
 \begin{table}[h]
 \centering
 \begin{tabular}{ccccc}
@@ -462,10 +463,10 @@ Pour chaque domaine
 de $\alpha$ défini dans le tableau~\ref{tab-alpha_intervalles},
 de $\pT^{\photon}$ défini dans le tableau~\ref{tab-pT_photon_intervalles} et
 de $\eta^\text{jet}$ défini dans le tableau~\ref{tab-eta_jet_intervalles_large},
-les distributions des réponses balancée et MPF des données et simulations sont déterminées.
+les distributions des réponses balancée et MPF des données et des simulations sont déterminées.
 Certaines de ces distributions sont représentées sur la figure~\ref{fig-distribs_Gjets_18_resp_bal_and_mpf}.
-\par Afin de limiter les effets des queues de ces distributions, seuls les points à moins de \SI{98.5}{\%} de l'erreur quadratique moyenne (RMS) sont considérés.
-Une estimation des moyennes des distributions est alors obtenue ; ces moyennes sont représentées sur la figure~\ref{fig-distribs_Gjets_18_resp_bal_and_mpf}.
+\par Afin de limiter les effets des queues de ces distributions, en particulier dans le cas de la réponse balancée, seuls les points à moins de \SI{98.5}{\%} de l'erreur quadratique moyenne (RMS) sont considérés.
+Une estimation des moyennes de ces distributions tronquées est alors obtenue ; ces moyennes sont représentées sur la figure~\ref{fig-distribs_Gjets_18_resp_bal_and_mpf}.
 Un écart est effectivement observé entre données et simulations.
 Il s'agit précisément de l'écart que la correction résiduelle absolue en \pT\ des jets doit corriger.
 \begin{figure}[h]
@@ -514,7 +515,7 @@ La dépendance en $\pT$ de la correction est déterminée grâce à un ajustemen
 \subsubsection{Résultats avant extrapolation}\label{chapter-JERC-section-JES-subsec-results-subsubsec-before_extrap}
 \par Les distributions des réponses balancées avant extrapolation se trouvent figure~\ref{fig-responses_balancing_alpha_0_3_2018ABCD}, page~\pageref{fig-responses_balancing_alpha_0_3_2018ABCD}.
 Les corrections à appliquer sont de l'ordre de \SI{5}{\%} pour $\abs{\eta^\text{jet}} < \num{2.5}$.
-Au-delà, trop peu d'événements sont présents pour obtenir une calibration suffisante.
+Au-delà, trop peu d'événements sont présents pour obtenir une calibration satisfaisante.
 \par Les distributions des réponses MPF avant extrapolation se trouvent figure~\ref{fig-responses_MPF_alpha_0_3_2018ABCD}, page~\pageref{fig-responses_MPF_alpha_0_3_2018ABCD}.
 Les corrections à appliquer sont de l'ordre de \SI{4}{\%} pour $\abs{\eta^\text{jet}} < \num{2.5}$, soit environ \SI{1}{\%} de moins qu'avec la méthode balancée.
 Toutefois, ces résultats sont obtenus avant extrapolation vers $\alpha=0$. Or, cette extrapolation a un effet plus important sur la réponse balancée que sur la réponse MPF.
@@ -545,7 +546,7 @@ Un ajustement global est alors réalisé sur les événements \Zjets, \Gjets\ et
 La correction résiduelle absolue en \pT\ des jets correspond ainsi à l'ajustement d'une fonction paramétrique.
 Les incertitudes présentes dans les différentes analyses sont considérées comme des paramètres de nuisance pour l'ajustement. Ces incertitudes sont:
 \begin{itemize}
-\item \SI{4.6}{\%} sur la section efficace de collision inélastique \proton-\proton\ utilisée pour estimer les profils d'empilement;
+\item \SI{4.6}{\%} sur la section efficace de collision inélastique \proton\proton\ utilisée pour estimer les profils d'empilement;
 \item les incertitudes de la JEC, décrites section~\ref{chapter-JERC-section-CMS-subsec-unc}, page~\pageref{chapter-JERC-section-CMS-subsec-unc};
 \item l'échelle en énergie des objets de référence, \SI{0.2}{\%} pour les photons et les muons, \SI{0.5}{\%} pour les électrons;
 \item les effets de l'ISR et du FSR se retrouvant dans l'incertitude de l'extrapolation en $\alpha$;
