@@ -1,50 +1,226 @@
 \section{Au-delà du modèle standard}\label{chapter-MS-MSSM-section-BSM}
+\subsection{La supersymétrie}\label{chapter-MS-MSSM-section-BSM-subsec-SUSY}
+prometteur
+
+candidat pour la matière noire
+
+superpartenaires
+
+sfermions et bosinos
+
+Higgs mass quadratic divergence = naturalness
+p. 233 of~\cite{Higgs_hunter_guide}
 \subsection{Modèles à deux doublets de Higgs}\label{chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl}
 
 \fullcite{Higgs_hunter_guide}
 
+\fullcite{Higgs_hunter_guide_errata}
+
+Dans le cadre du modèle standard, le secteur du Higgs comporte un doublet de Higgs complexe, défini par~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_doublet}.
+Il existe alors un seul boson de Higgs, \higgs, boson scalaire neutre observé en 2012~\cite{ATLAS_Higgs_discovery,CMS_Higgs_discovery,CMS_Higgs_discovery_2013,ATLAS-CMS-Higgs_combined_1,ATLAS-CMS-Higgs_combined_2}.
+
+
+% eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-thetaW GLASHOW1961579
+
+éviter FCNC:
+\begin{itemize}
+\item soit les masses des bosons de Higgs sont élevée, de l'ordre du \SI{}{\TeV}, supprimant ainsi suffisamment le FCNC pour rester dans les limites observées;
+\item soit [11 from \cite{Higgs_hunter_guide} = Glashow and Weinberg Phys. Rev. D15 (1977) 1958] tous les fermions portant une même charge électrique ne sont couplés qu'à un seul doublet de Higgs au plus.
+\end{itemize}
+
+Les modèles à deux doublets de Higgs
+\begin{itemize}
+\item sont une extension du modèle standard ajoutant une nouvelle physique;
+\item apportent le moins de nouveaux paramètres arbitraires possibles;
+\item satisfont $m_{\Wboson} \simeq m_{\Zboson} \cos\theta_W$;
+\item ne proposent pas de changement de saveur par courant neutre à l'arbre;
+\end{itemize}
+Ils sont nécessaires dans les modèles supersymétriques \og basse énergie \fg{}.
+
+
+\begin{multline}
+V(\phi_1,\phi_2)
+= \lambda_1 (\phi_1^\dagger\phi_1-v_1^2)
++ \lambda_2 (\phi_2^\dagger\phi_2-v_2^2)
+\\
++ \lambda_3 \left[ (\phi_1^\dagger\phi_1-v_1^2) + (\phi_2^\dagger\phi_2-v_2^2) \right]^2
++ \lambda_4 \left[ (\phi_1^\dagger\phi_1)(\phi_2^\dagger\phi_2) - (\phi_1^\dagger\phi_2)(\phi_2^\dagger\phi_1) \right]
+\\
++ \lambda_5 \left[ \Re(\phi_1^\dagger\phi_2) -v_1v_2\cos\xi \right]^2
++ \lambda_6 \left[ \Im(\phi_1^\dagger\phi_2) -v_1v_2\sin\xi \right]^2
+\\
++ \lambda_7 \left[ \Re(\phi_1^\dagger\phi_2) -v_1v_2\cos\xi \right]\left[ \Im(\phi_1^\dagger\phi_2) -v_1v_2\sin\xi \right]
+\end{multline}
+où le dernier terme peut être éliminé en redéfinissant les phases des champs scalaires~\cite{Higgs_hunter_guide_errata}.
+
+$\lambda_i\in\mathbb{R}_+$
+
+$\lambda_5=\lambda_6$ for SUSY
+
+$CP$ violation si $\sin\xi\neq0$
+
 \begin{equation}
-V(\phi_u,\phi_d)
-=
-\mu_u^2\phi^\dagger\phi
-+
-\mu_d^2\phi^\dagger\phi
-+
-\mu^4 (\phi_d\wedge\phi_u+\text{h.c.})
-+
-\frac{g_I^2+g_Y^2}{8} (\phi_d^\dagger\phi_d-\phi_u^\dagger\phi_u)
-+
-\frac{g_I^2}{2} (\phi_d^\dagger\phi_u)^2
+\tan\beta = \frac{v_2}{v_1}
+\end{equation}
+avec $0\leq\beta\leq\pi/2$.
+
+\begin{equation}
+v^2 = v_1^2+v_2^2
+\end{equation}
+
+\begin{align}
+&
+\text{Higgs chargés:}
+&
+\Higgspm &= - \phi_1^\pm \sin\beta + \phi_2^\pm \cos\beta
+\msep&
+m_{\Higgspm} &= \lambda_4 v
+\mend[,]
+\\
+&
+\text{Higgs pseudo-scalaire:}
+&
+\HiggsA &= \sqrt{2}\left(-\Im(\phi_1^0)\sin\beta+\Im(\phi_2^0)\cos\beta\right)
+\msep&
+m_{\HiggsA} &= \lambda_6 v
+\mend[,]
+\end{align}
+ainsi que deux bosons de Higgs neutres scalaires dont les champs quantiques sont mélangés par la matrice
+\begin{equation}
+\mathcal{M} = \begin{pmatrix}
+4v_1^2 (\lambda_1+\lambda_3) + v_2^2\lambda_5 & (4\lambda_3+\lambda_5)v_1v_2 \\
+(4\lambda_3+\lambda_5)v_1v_2 & 4v_2^2 (\lambda_2+\lambda_3) + v_1^2\lambda_5
+\end{pmatrix}
 \mend
 \end{equation}
+Ces deux bosons de Higgs sont
+\begin{align}
+\higgs &= \sqrt{2}\left(-\Re(\phi_1^0-v_1)\sin\alpha+\Re(\phi_2^0-v_2)\cos\alpha\right)
+\mend[,]
+\\
+\Higgs &= \sqrt{2}\left(\Re(\phi_1^0-v_1)\cos\alpha+\Re(\phi_2^0-v_2)\sin\alpha\right)
+\mend[,]
+\end{align}
+où l'angle de mixage $\alpha$ s'obtient par
 \begin{equation}
-\average{\phi_u} = \frac{1}{\sqrt{2}} \begin{pmatrix}v_u \\ 0 \end{pmatrix}
+\sin 2\alpha = \frac{2\mathcal{M}_{12}}{\sqrt{(\mathcal{M}_{11}-\mathcal{M}_{22})^2+4\mathcal{M}_{12}^2}}
 \msep
-\average{\phi_d} = \frac{1}{\sqrt{2}} \begin{pmatrix} 0\\ v_d \end{pmatrix}
+\cos 2\alpha = \frac{\mathcal{M}_{11}-\mathcal{M}_{22}}{\sqrt{(\mathcal{M}_{11}-\mathcal{M}_{22})^2+4\mathcal{M}_{12}^2}}
+\end{equation}
+avec $-\pi/2\leq\alpha\leq0$
+et
+dont les masses s'expriment, en considérant $m_{\higgs} \leq m_{\Higgs}$,
+\begin{equation}
+m_{\higgs,\Higgs}^2 = \frac{1}{2} \left( \mathcal{M}_{11} + \mathcal{M}_{22} \mp \sqrt{(\mathcal{M}_{11}-\mathcal{M}_{22})^2+4\mathcal{M}_{12}^2} \right)
 \mend
 \end{equation}
+
+6 paramètres libres:
+\begin{itemize}
+\item les masses des bosons de Higgs: $m_{\higgs}$, $m_{\Higgs}$, $m_{\HiggsA}$, $m_{\Higgspm}$;
+\item $\tan\beta$;
+\item $\alpha$ l'angle de mixage des Higgs.
+\end{itemize}
+
+Modèle de type~I  = quarks et leptons ne sont pas couplés à $\phi_1$, mais le sont à $\phi_2$.
+Modèle de type~II = down/up-type fermions : $\phi_2$ pour up-type
+
+\begin{table}[H]
+\centering
+\begin{tabular}{rccc}
+\toprule
+Couplage avec & \higgs & \Higgs & \HiggsA \\
+\midrule
+Bosons vecteurs & $\sim\sin(\beta-\alpha)$ & $\sim\cos(\beta-\alpha)$ & $0$\\
+Fermions hauts & $\displaystyle \sim\frac{\cos\alpha}{\sin\beta}$ & $\displaystyle \sim\frac{\sin\alpha}{\sin\beta}$ & $\sim\cot\beta$ \\
+Fermions bas & $\displaystyle \sim\frac{-\sin\alpha}{\cos\beta}$ & $\displaystyle \sim\frac{\cos\alpha}{\cos\beta}$ & $\sim\tan\beta$ \\
+\bottomrule
+\end{tabular}
+\caption[Couplages des bosons de Higgs neutres.]{Couplages des bosons de Higgs neutres des modèles de type~II par rapport aux couplages du boson de Higgs du modèle standard~\cite{Higgs_hunter_guide}.}
+\end{table}
+
+
+\subsection{L'extension supersymétrique minimale du modèle standard ou MSSM}\label{chapter-MS-MSSM-section-BSM-subsec-MSSM}
+MSSM = modèle à deux doublets de Higgs
+
+
 \begin{equation}
-v^2 = v_u^2 + v_d^2
+\Higgs_u
+=
+\begin{pmatrix}
+{\phi_1^0}^* \\ -\phi_1^-
+\end{pmatrix}
+\msep
+\Higgs_d
+=
+\begin{pmatrix}
+\phi_2^+ \\ \phi_2^0
+\end{pmatrix}
+\mend
+\label{eq-chapter-MS-MSSM-section-BSM-Higgs_doublets}
 \end{equation}
 \begin{equation}
-\tan\beta = \frac{v_u}{v_d}
+\average{\Higgs_u} = \frac{1}{\sqrt{2}} \begin{pmatrix}v_1 \\ 0 \end{pmatrix}
+\msep
+\average{\Higgs_d} = \frac{1}{\sqrt{2}} \begin{pmatrix} 0\\ v_2 \end{pmatrix}
+\mend
 \end{equation}
+
+
+\begin{align}
+V(\Higgs_u,\Higgs_d)
+&
+=
+\mu_u^2\Higgs_u^\dagger\Higgs_u
++
+\mu_d^2\Higgs_d^\dagger\Higgs_d
+-
+\mu^2 (\Higgs_u\wedge\Higgs_d+\text{h.c.})
+\\
+&\hphantom{=}
++
+\frac{g_I^2+g_Y^2}{8} (\Higgs_d^\dagger\Higgs_d-\Higgs_u^\dagger\Higgs_u)
++
+\frac{g_I^2}{2} (\Higgs_d^\dagger\Higgs_u)^2
+\mend
+\end{align}
+
+\begin{subequations}
+\begin{align}
+\lambda_2 &= \lambda_1\\
+\lambda_3 &= \frac{1}{8} (g_I^2+g_Y^2)-\lambda_1\\
+\lambda_4 &= 2\lambda_1 - \frac{1}{2} g_Y^2\\
+\lambda_5 &= \lambda_6 = 2\lambda_1 - \frac{1}{2}(g_I^2+g_Y^2)\\
+\mu_u^2 &= 2 \lambda_1 v_2^2 - \frac{1}{2} m_{\Zboson}^2\\
+\mu_d^2 &= 2 \lambda_1 v_1^2 - \frac{1}{2} m_{\Zboson}^2\\
+\mu^2 &= -\frac{1}{2}v_1v_2(g_I^2+g_Y^2-4\lambda_1)
+\end{align}
+\end{subequations}
+
+
+\begin{align}
+m_{\HiggsA}^2 &= \mu^2 (\tan\beta+\cot\beta) = \frac{2\mu^2}{\sin 2\beta}
+\mend[,]\\
+m_{\Higgspm}^2 &= m_{\HiggsA}^2+m_{\Wboson}^2
+\mend[,]\\
+m_{\higgs,\Higgs}^2 &= \frac{1}{2} \left( m_{\HiggsA}^2+m_{\Zboson}^2 \mp \sqrt{(m_{\HiggsA}^2+m_{\Zboson}^2)^2-4m_{\HiggsA}^2m_{\Zboson}^2\cos^2 2\beta} \right)
+\mend
+\end{align}
+
+\begin{equation}
+\cos 2\alpha = - \frac{m_{\HiggsA}^2-m_{\Zboson}^2}{m_{\Higgs}^2-m_{\higgs}^2} \cos 2\beta
+\msep
+\sin 2\alpha = - \frac{m_{\Higgs}^2+m_{\higgs}^2}{m_{\Higgs}^2-m_{\higgs}^2} \sin 2\beta
+\end{equation}
+\begin{equation}
+\tan 2\alpha = \frac{m_{\HiggsA}^2+m_{\Zboson}^2}{m_{\HiggsA}^2-m_{\Zboson}^2} \tan 2\beta
+\end{equation}
+
 \begin{equation}
 m_{\Wboson} = \frac{1}{2} v g_I
 \msep
 m_{\Zboson} = \frac{\mu_d^2\mu_u^2 \, \tan^2\beta}{\tan^2\beta-1}
 \mend
 \end{equation}
-\begin{equation}
-\tan 2\alpha = \frac{m_{\HiggsA}^2+m_{\Zboson}^2}{m_{\HiggsA}^2-m_{\Zboson}^2} \tan 2\beta
-\end{equation}
-\begin{align}
-m_{\HiggsA}^2 &= \frac{2\mu^2}{\sin 2\beta}
-\mend[,]\\
-m_{\Higgspm}^2 &= m_{\HiggsA}^2+m_{\Wboson}^2
-\mend[,]\\
-m_{\Higgs,\higgs}^2 &= \frac{1}{2} \left( m_{\HiggsA}^2+m_{\Zboson}^2 \pm \sqrt{(m_{\HiggsA}^2+m_{\Zboson}^2)^2-4m_{\HiggsA}^2m_{\Zboson}^2\cos^2 2\beta} \right)
-\mend
-\end{align}
-\subsection{La supersymétrie}\label{chapter-MS-MSSM-section-BSM-subsec-SUSY}
-\subsection{L'extension supersymétrique minimale du modèle standard ou MSSM}\label{chapter-MS-MSSM-section-BSM-subsec-MSSM}
+
+
