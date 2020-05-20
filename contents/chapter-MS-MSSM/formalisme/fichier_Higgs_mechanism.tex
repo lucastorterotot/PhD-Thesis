@@ -135,26 +135,52 @@ Il est possible de développer cette expression et d'identifier les termes quadr
 \begin{align}
 &
 \text{bosons \Wbosonpm:}
-&&
-W_\mu^\pm = \frac{1}{\sqrt{2}} \left( W_\mu^1 \mp \im W_\mu^2 \right)
-\msep&&
-m_{\Wboson} = \frac{1}{2} v g_I
+&
+W_\mu^\pm &= \frac{1}{\sqrt{2}} \left( W_\mu^1 \mp \im W_\mu^2 \right)
+\msep&
+m_{\Wboson} &= \frac{1}{2} v g_I
 \mend[,]
 \\
 &
 \text{photon \photon:}
-&&
-A_\mu = \frac{g_I W_\mu^3 + g_Y B_\mu}{\sqrt{g_I^2 + g_Y^2}}
-\msep&&
-m_A = 0
+&
+A_\mu &= \frac{g_Y W_\mu^3 + g_I B_\mu}{\sqrt{g_I^2 + g_Y^2}}
+\msep&
+m_A &= 0
 \mend[,]
 \\
 &
 \text{boson \Zboson:}
-&&
-Z_\mu = \frac{g_I W_\mu^3 - g_Y B_\mu}{\sqrt{g_I^2 + g_Y^2}}
-\msep&&
-m_{\Zboson} = \frac{1}{2} v \sqrt{g_I^2 + g_Y^2}
+&
+Z_\mu &= \frac{g_I W_\mu^3 - g_Y B_\mu}{\sqrt{g_I^2 + g_Y^2}}
+\msep&
+m_{\Zboson} &= \frac{1}{2} v \sqrt{g_I^2 + g_Y^2}
+\mend
+\end{align}
+Ces équations peuvent être réécrite en introduisant l'angle de mixage faible\footnote{L'angle de mixage faible est également connu sous le nom d'angle de Weinberg.} noté $\theta_W$~\cite{GLASHOW1961579}, tel que
+\begin{equation}
+\cos\theta_W = \frac{g_I}{\sqrt{g_I^2 + g_Y^2}}
+\msep
+\sin\theta_W = \frac{g_Y}{\sqrt{g_I^2 + g_Y^2}}
+\mend
+\label{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-thetaW}
+\end{equation}
+Alors,
+\begin{align}
+&
+\text{photon \photon:}
+&
+A_\mu &= B_\mu \cos\theta_W + W_\mu^3 \sin\theta_W
+\msep&
+m_A &= 0
+\mend[,]
+\\
+&
+\text{boson \Zboson:}
+&
+Z_\mu &= W_\mu^3 \cos\theta_W - B_\mu \sin\theta_W
+\msep&
+m_{\Zboson} &= \frac{m_{\Wboson}}{\cos\theta_W}
 \mend
 \end{align}
 Pour le boson de Higgs lui-même, le terme de masse provient de $V(\phi)$ et donne $m_{\higgs} = \sqrt{-2\mu^2}$.
