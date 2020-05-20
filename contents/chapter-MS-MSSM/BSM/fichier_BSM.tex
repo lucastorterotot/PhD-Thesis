@@ -10,13 +10,23 @@ Les fermions du modèle standard ont des superpartenaires de spin entier, \ie\ d
 tandis que
 les bosons du modèle standard ont des superpartenaires de spin demi-entier, \ie\ des fermions, les \og bosinos \fg.
 Chaque particule et son superpartenaire ont les mêmes nombres quantiques à l'exception de leurs spins.
+\par De nouvelles interactions sont potentiellement possibles avec la SUSY dans lesquelles les nombres baryonique $B$ et leptonique $L$ ne sont pas conservés et $B-L$ non plus.
+Or, ce type d'interactions rendent le proton instable, ce qui n'est pas observé expérimentalement.
+Une nouvelle symétrie est ainsi introduite afin de supprimer ces interactions violant la conservation de $B-L$, la parité $R$.
+L'opérateur de parité $R$ est ainsi défini comme
+\begin{equation}
+P_R = (-1)^{3(B-L)-2s}
+\end{equation}
+où $s$ correspond au spin de la particule.
+Les particules du modèle standard possèdent une parité $R$ égale à $1$, leurs superpartenaires une parité $R$ égale à $-1$.
+La conservation de cette nouvelle parité permet non seulement de garder le proton stable, mais rend également stable la particule supersymétrique de plus basse masse, notée LSP (\emph{Lightest Supersymmetric Particle}).
 \par La SUSY est un des modèles BSM les plus prometteurs.
 Ce type de modèle permet en effet de résoudre, s'il est confirmé expérimentalement, de nombreuses lacunes du modèle standard.
 Les trois forces fondamentales décrites par le modèle standard pourraient être unifiées grâce à ce modèle.
 Comme nous l'avons vu dans la section~\ref{chapter-MS-MSSM-section-formalisme}, les forces électromagnétique et faible sont déjà unifiées.
 Toutefois, la force électrofaible et la force forte ne semblent pas s'unifier à haute énergie.
 Or, les interactions avec les superpartenaires introduits par la SUSY modifient le comportement des constantes de couplages des trois forces fondamentales de manière à les unifier à haute énergie.
-La SUSY propose également un candidat pour la matière noire comme étant la particule supersymétrique de plus basse masse, potentiellement un neutralino ou un sneutrino.
+La SUSY propose également un candidat pour la matière noire dans le cas où la LSP est de charge électrique nulle, potentiellement un neutralino ou un sneutrino.
 De plus, la SUSY permet de résoudre le problème de l'ajustement fin.
 La divergence quadratique de la masse du Higgs est naturellement supprimée par les diagrammes à boucles des superpartenaires dont les contributions ont des signes opposées à celles des particules, les fermions ayant des contributions positives et les bosons des contributions négatives~\cite{Higgs_hunter_guide}.
 \par Cependant, l'ajout d'un superpartenaire fermionique au boson de Higgs du modèle standard, unique, apporte une anomalie chirale au modèle.
@@ -25,10 +35,9 @@ De tels états n'ayant pas été observés expérimentalement, il doit exister u
 De plus, la suppression du changement de saveur par courant neutre, ou FCNC (\emph{Flavor-Changing Neutral Currents}), n'est pas garantie.
 Or, le FCNC n'est pas observé expérimentalement non plus.
 Afin d'éviter de telles incohérences avec les observations, la SUSY nécessite l'introduction d'un second doublet de Higgs et est donc un cas particulier de modèle à deux doublets de Higgs.
-\par Une conséquence importante de l'introduction d'un second doublet de Higgs est l'apparition de quatre bosons de Higgs supplémentaires, effet décrit dans la section suivante.
 \subsection{Modèles à deux doublets de Higgs}\label{chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl}
-Dans le cadre du modèle standard, le secteur du Higgs comporte un doublet de Higgs complexe, défini par~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_doublet}.
-Il existe alors un seul boson de Higgs, \higgs, boson scalaire neutre observé en 2012~\cite{ATLAS_Higgs_discovery,CMS_Higgs_discovery,CMS_Higgs_discovery_2013,ATLAS-CMS-Higgs_combined_1,ATLAS-CMS-Higgs_combined_2}.
+%Dans le cadre du modèle standard, le secteur du Higgs comporte un doublet de Higgs complexe, défini par~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_doublet}.
+%Il existe alors un seul boson de Higgs, \higgs, boson scalaire neutre observé en 2012~\cite{ATLAS_Higgs_discovery,CMS_Higgs_discovery,CMS_Higgs_discovery_2013,ATLAS-CMS-Higgs_combined_1,ATLAS-CMS-Higgs_combined_2}.
 \par Les modèles à deux doublets de Higgs (2HDM) introduisent un second doublet de Higgs.
 Ainsi, au lieu d'avoir uniquement le doublet $\phi$ défini par~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_doublet}, il existe $\phi_1$ et $\phi_2$.
 Le potentiel de Higgs~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_potential} du modèle standard est remplacé par
@@ -105,9 +114,9 @@ et
 dont les masses s'expriment, en considérant $m_{\higgs} \leq m_{\Higgs}$,
 \begin{equation}
 m_{\higgs,\Higgs}^2 = \frac{1}{2} \left( \mathcal{M}_{11} + \mathcal{M}_{22} \mp \sqrt{(\mathcal{M}_{11}-\mathcal{M}_{22})^2+4\mathcal{M}_{12}^2} \right)
-\mend
 \end{equation}
-Le 2HDM ainsi construit possède 6 paramètres libres:
+où l'on considère que \higgs\ est le boson de Higgs observé expérimentalement en 2012~\cite{ATLAS_Higgs_discovery,CMS_Higgs_discovery,CMS_Higgs_discovery_2013,ATLAS-CMS-Higgs_combined_1,ATLAS-CMS-Higgs_combined_2} et que les quatre bosons de Higgs supplémentaires sont plus massifs, ce qui semble être favorisé par les observations actuelles~\cite{ATLAS-CMS-Higgs_combined_1,ATLAS-CMS-Higgs_combined_2,CMS-MSSM-HTT_2014}.
+\par Le 2HDM ainsi construit possède 6 paramètres libres:
 \begin{itemize}
 \item $m_{\higgs}$, $m_{\Higgs}$, $m_{\HiggsA}$, $m_{\Higgspm}$ les masses des bosons de Higgs;
 \item $\tan\beta$ le rapport des condensats des doublets de Higgs dans le vide;
