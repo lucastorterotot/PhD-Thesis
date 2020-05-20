@@ -1,43 +1,37 @@
 \section{Au-delà du modèle standard}\label{chapter-MS-MSSM-section-BSM}
+Le modèle standard souffre ainsi de lacunes malgré ses prédictions précises.
+Des modèles sont développés afin de combler ces lacunes, ils sont dits \og au-delà \fg{} du modèle standard, ou BSM (\emph{Beyond Standard Model}).
+Nous développerons ici le cas de l'extension supersymétrique minimale du modèle standard, ou MSSM, cas particulier d'un modèle de supersymétrie, ou SUSY.
 \subsection{La supersymétrie}\label{chapter-MS-MSSM-section-BSM-subsec-SUSY}
-prometteur
-
-candidat pour la matière noire
-
-superpartenaires
-
-sfermions et bosinos
-
-Higgs mass quadratic divergence = naturalness
-p. 233 of~\cite{Higgs_hunter_guide}
+La supersymétrie (SUSY)~\cite{MARTIN_1998} introduit une nouvelle symétrie entre fermions et bosons.
+Ces deux types de particules ne sont plus indépendants, ce sont des saveurs, ou manifestations, d'un champ quantique plus complexe.
+À chaque particule du modèle standard correspond alors une nouvelle particule du fait de cette symétrie, nommée \og superpartenaire \fg.
+Les fermions du modèle standard ont des superpartenaires de spin entier, \ie\ des bosons, les \og sfermions \fg,
+tandis que
+les bosons du modèle standard ont des superpartenaires de spin demi-entier, \ie\ des fermions, les \og bosinos \fg.
+Chaque particule et son superpartenaire ont les mêmes nombres quantiques à l'exception de leurs spins.
+\par La SUSY est un des modèles BSM les plus prometteurs.
+Ce type de modèle permet en effet de résoudre, s'il est confirmé expérimentalement, de nombreuses lacunes du modèle standard.
+Les trois forces fondamentales décrites par le modèle standard pourraient être unifiées grâce à ce modèle.
+Comme nous l'avons vu dans la section~\ref{chapter-MS-MSSM-section-formalisme}, les forces électromagnétique et faible sont déjà unifiées.
+Toutefois, la force électrofaible et la force forte ne semblent pas s'unifier à haute énergie.
+Or, les interactions avec les superpartenaires introduits par la SUSY modifient le comportement des constantes de couplages des trois forces fondamentales de manière à les unifier à haute énergie.
+La SUSY propose également un candidat pour la matière noire comme étant la particule supersymétrique de plus basse masse, potentiellement un neutralino ou un sneutrino.
+De plus, la SUSY permet de résoudre le problème de l'ajustement fin.
+La divergence quadratique de la masse du Higgs est naturellement supprimée par les diagrammes à boucles des superpartenaires dont les contributions ont des signes opposées à celles des particules, les fermions ayant des contributions positives et les bosons des contributions négatives~\cite{Higgs_hunter_guide}.
+\par Cependant, l'ajout d'un superpartenaire fermionique au boson de Higgs du modèle standard, unique, apporte une anomalie chirale au modèle.
+En d'autres termes, un courant chiral n'est plus conservé et peut alors générer des états de basse masse.
+De tels états n'ayant pas été observés expérimentalement, il doit exister une suppression d'un tel mécanisme.
+De plus, la suppression du changement de saveur par courant neutre, ou FCNC (\emph{Flavor-Changing Neutral Currents}), n'est pas garantie.
+Or, le FCNC n'est pas observé expérimentalement non plus.
+Afin d'éviter de telles incohérences avec les observations, la SUSY nécessite l'introduction d'un second doublet de Higgs et est donc un cas particulier de modèle à deux doublets de Higgs.
+\par Une conséquence importante de l'introduction d'un second doublet de Higgs est l'apparition de quatre bosons de Higgs supplémentaires, effet décrit dans la section suivante.
 \subsection{Modèles à deux doublets de Higgs}\label{chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl}
-
-\fullcite{Higgs_hunter_guide}
-
-\fullcite{Higgs_hunter_guide_errata}
-
 Dans le cadre du modèle standard, le secteur du Higgs comporte un doublet de Higgs complexe, défini par~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_doublet}.
 Il existe alors un seul boson de Higgs, \higgs, boson scalaire neutre observé en 2012~\cite{ATLAS_Higgs_discovery,CMS_Higgs_discovery,CMS_Higgs_discovery_2013,ATLAS-CMS-Higgs_combined_1,ATLAS-CMS-Higgs_combined_2}.
-
-
-% eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-thetaW GLASHOW1961579
-
-éviter FCNC:
-\begin{itemize}
-\item soit les masses des bosons de Higgs sont élevée, de l'ordre du \SI{}{\TeV}, supprimant ainsi suffisamment le FCNC pour rester dans les limites observées;
-\item soit [11 from \cite{Higgs_hunter_guide} = Glashow and Weinberg Phys. Rev. D15 (1977) 1958] tous les fermions portant une même charge électrique ne sont couplés qu'à un seul doublet de Higgs au plus.
-\end{itemize}
-
-Les modèles à deux doublets de Higgs
-\begin{itemize}
-\item sont une extension du modèle standard ajoutant une nouvelle physique;
-\item apportent le moins de nouveaux paramètres arbitraires possibles;
-\item satisfont $m_{\Wboson} \simeq m_{\Zboson} \cos\theta_W$;
-\item ne proposent pas de changement de saveur par courant neutre à l'arbre;
-\end{itemize}
-Ils sont nécessaires dans les modèles supersymétriques \og basse énergie \fg{}.
-
-
+\par Les modèles à deux doublets de Higgs (2HDM) introduisent un second doublet de Higgs.
+Ainsi, au lieu d'avoir uniquement le doublet $\phi$ défini par~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_doublet}, il existe $\phi_1$ et $\phi_2$.
+Le potentiel de Higgs~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_potential} du modèle standard est remplacé par
 \begin{multline}
 V(\phi_1,\phi_2)
 = \lambda_1 (\phi_1^\dagger\phi_1-v_1^2)
@@ -50,27 +44,26 @@ V(\phi_1,\phi_2)
 + \lambda_6 \left[ \Im(\phi_1^\dagger\phi_2) -v_1v_2\sin\xi \right]^2
 \\
 + \lambda_7 \left[ \Re(\phi_1^\dagger\phi_2) -v_1v_2\cos\xi \right]\left[ \Im(\phi_1^\dagger\phi_2) -v_1v_2\sin\xi \right]
+\label{eq-chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl-Higgs_potential}
 \end{multline}
-où le dernier terme peut être éliminé en redéfinissant les phases des champs scalaires~\cite{Higgs_hunter_guide_errata}.
-
-$\lambda_i\in\mathbb{R}_+$
-
-$\lambda_5=\lambda_6$ for SUSY
-
-$CP$ violation si $\sin\xi\neq0$
-
+où $v_1$ et $v_2$ sont les minimums de potentiel des deux doublets.
+Le dernier terme peut être éliminé en redéfinissant les phases des champs scalaires~\cite{Higgs_hunter_guide,Higgs_hunter_guide_errata}.
+Les paramètres $\lambda_i$ sont réels et dans le cas de la SUSY, $\lambda_5=\lambda_6$.
+Dans le cas $\sin\xi\neq0$, le secteur de Higgs du modèle viole la symétrie $CP$.
+\par Il est possible de définir, à ce stade, une variable importante dans la suite, le rapport des condensats des doublets de Higgs dans le vide,
 \begin{equation}
-\tan\beta = \frac{v_2}{v_1}
+\tan\beta = \frac{\average{\phi_2}_0}{\average{\phi_1}_0} = \frac{v_2}{v_1}
 \end{equation}
 avec $0\leq\beta\leq\pi/2$.
-
+Il est aussi possible de définir
 \begin{equation}
 v^2 = v_1^2+v_2^2
 \end{equation}
-
+afin d'alléger les notations dans la suite.
+\par De ce formalisme découle l'existence de cinq bosons de Higgs massifs,
 \begin{align}
 &
-\text{Higgs chargés:}
+\text{deux Higgs chargés:}
 &
 \Higgspm &= - \phi_1^\pm \sin\beta + \phi_2^\pm \cos\beta
 \msep&
@@ -78,14 +71,14 @@ m_{\Higgspm} &= \lambda_4 v
 \mend[,]
 \\
 &
-\text{Higgs pseudo-scalaire:}
+\text{un Higgs pseudo-scalaire:}
 &
 \HiggsA &= \sqrt{2}\left(-\Im(\phi_1^0)\sin\beta+\Im(\phi_2^0)\cos\beta\right)
 \msep&
 m_{\HiggsA} &= \lambda_6 v
 \mend[,]
 \end{align}
-ainsi que deux bosons de Higgs neutres scalaires dont les champs quantiques sont mélangés par la matrice
+ainsi que deux bosons de Higgs scalaires neutres dont les champs quantiques sont mélangés par la matrice
 \begin{equation}
 \mathcal{M} = \begin{pmatrix}
 4v_1^2 (\lambda_1+\lambda_3) + v_2^2\lambda_5 & (4\lambda_3+\lambda_5)v_1v_2 \\
@@ -114,17 +107,20 @@ dont les masses s'expriment, en considérant $m_{\higgs} \leq m_{\Higgs}$,
 m_{\higgs,\Higgs}^2 = \frac{1}{2} \left( \mathcal{M}_{11} + \mathcal{M}_{22} \mp \sqrt{(\mathcal{M}_{11}-\mathcal{M}_{22})^2+4\mathcal{M}_{12}^2} \right)
 \mend
 \end{equation}
-
-6 paramètres libres:
+Le 2HDM ainsi construit possède 6 paramètres libres:
 \begin{itemize}
-\item les masses des bosons de Higgs: $m_{\higgs}$, $m_{\Higgs}$, $m_{\HiggsA}$, $m_{\Higgspm}$;
-\item $\tan\beta$;
+\item $m_{\higgs}$, $m_{\Higgs}$, $m_{\HiggsA}$, $m_{\Higgspm}$ les masses des bosons de Higgs;
+\item $\tan\beta$ le rapport des condensats des doublets de Higgs dans le vide;
 \item $\alpha$ l'angle de mixage des Higgs.
 \end{itemize}
-
-Modèle de type~I  = quarks et leptons ne sont pas couplés à $\phi_1$, mais le sont à $\phi_2$.
-Modèle de type~II = down/up-type fermions : $\phi_2$ pour up-type
-
+\par Afin d'être compatible avec l'absence d'observation de FCNC~\cite{Higgs_hunter_guide},
+\begin{itemize}
+\item soit les masses des bosons de Higgs sont élevées, de l'ordre du \SI{}{\TeV}, supprimant ainsi suffisamment le FCNC pour rester dans les limites observées;
+\item soit tous les fermions portant une même charge électrique ne sont couplés qu'à un seul doublet de Higgs au plus.
+\end{itemize}
+Or, la masse du Higgs du modèle standard n'est pas de l'ordre du \SI{}{\TeV}; la seconde option est donc celle à suivre.
+\par Dans le cas des modèles de type~II\footnote{Dans les modèle de type~I, les fermions ne sont pas couplés à $\phi_1$, mais le sont à $\phi_2$.}, les fermions d'isospin faible bas sont ainsi couplés à $\phi_1$ et ceux d'isospin faible haut à $\phi_2$.
+Les intensités de ces couplages, par rapport aux couplages du boson de Higgs du modèle standard à ces mêmes particules, sont présentés dans le tableau~\ref{tab-Higgs_couplings_2HDM}. En particulier, le couplage du boson de Higgs du modèle standard, \higgs, est modifié et une mesure précise de ses couplages aux autres particules est un test de ce type de modèles.
 \begin{table}[H]
 \centering
 \begin{tabular}{rccc}
@@ -137,13 +133,17 @@ Fermions bas & $\displaystyle \sim\frac{-\sin\alpha}{\cos\beta}$ & $\displaystyl
 \bottomrule
 \end{tabular}
 \caption[Couplages des bosons de Higgs neutres.]{Couplages des bosons de Higgs neutres des modèles de type~II par rapport aux couplages du boson de Higgs du modèle standard~\cite{Higgs_hunter_guide}.}
+\label{tab-Higgs_couplings_2HDM}
 \end{table}
-
-
-\subsection{L'extension supersymétrique minimale du modèle standard ou MSSM}\label{chapter-MS-MSSM-section-BSM-subsec-MSSM}
-MSSM = modèle à deux doublets de Higgs
-
-
+\par Les modèles à deux doublets de Higgs sont donc une extension du modèle standard ajoutant une nouvelle physique, par exemple l'existence de nouveaux bosons de Higgs.
+Ces modèles, par rapport à d'autres possibilités explorées, apportent le moins de nouveaux paramètres arbitraires possibles, ce qui est un critère important dans l'élaboration d'une nouvelle théorie.
+Enfin, ils doivent être introduits dans les modèles supersymétriques pour que ceux-ci respectent les observations expérimentales.
+Nous avons à présent le formalisme nécessaire pour discuter de l'extension supersymétrique minimale du modèle standard.
+\subsection{L'extension supersymétrique minimale du modèle standard}\label{chapter-MS-MSSM-section-BSM-subsec-MSSM}
+L'extension supersymétrique minimale du modèle standard ou MSSM
+est un modèle supersymétrique et donc, à ce titre, un cas particulier de modèle à deux doublets de Higgs.
+Il s'agit du modèle le plus simple permettant d'introduire la supersymétrie tout en étant compatible avec les observations expérimentales à ce jour.
+Dans le MSSM, les deux doublets de Higgs s'expriment en fonction de $\phi_1$ et $\phi_2$ introduits dans la section traitant de la supersymétrie comme
 \begin{equation}
 \Higgs_u
 =
@@ -159,14 +159,14 @@ MSSM = modèle à deux doublets de Higgs
 \mend
 \label{eq-chapter-MS-MSSM-section-BSM-Higgs_doublets}
 \end{equation}
+Leurs condensats dans le vide sont alors
 \begin{equation}
-\average{\Higgs_u} = \frac{1}{\sqrt{2}} \begin{pmatrix}v_1 \\ 0 \end{pmatrix}
+\average{\Higgs_u}_0 = \frac{1}{\sqrt{2}} \begin{pmatrix}v_1 \\ 0 \end{pmatrix}
 \msep
-\average{\Higgs_d} = \frac{1}{\sqrt{2}} \begin{pmatrix} 0\\ v_2 \end{pmatrix}
+\average{\Higgs_d}_0 = \frac{1}{\sqrt{2}} \begin{pmatrix} 0\\ v_2 \end{pmatrix}
 \mend
 \end{equation}
-
-
+L'expression du potentiel de Higgs~\eqref{eq-chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl-Higgs_potential} se simplifie en
 \begin{align}
 V(\Higgs_u,\Higgs_d)
 &
@@ -176,7 +176,7 @@ V(\Higgs_u,\Higgs_d)
 \mu_d^2\Higgs_d^\dagger\Higgs_d
 -
 \mu^2 (\Higgs_u\wedge\Higgs_d+\text{h.c.})
-\\
+\nonumber\\
 &\hphantom{=}
 +
 \frac{g_I^2+g_Y^2}{8} (\Higgs_d^\dagger\Higgs_d-\Higgs_u^\dagger\Higgs_u)
@@ -184,43 +184,80 @@ V(\Higgs_u,\Higgs_d)
 \frac{g_I^2}{2} (\Higgs_d^\dagger\Higgs_u)^2
 \mend
 \end{align}
-
+en posant
+\vspace{-.5\baselineskip}\par\noindent
 \begin{subequations}
+\noindent
+\begin{minipage}[c]{.49\textwidth}
 \begin{align}
-\lambda_2 &= \lambda_1\\
-\lambda_3 &= \frac{1}{8} (g_I^2+g_Y^2)-\lambda_1\\
-\lambda_4 &= 2\lambda_1 - \frac{1}{2} g_Y^2\\
-\lambda_5 &= \lambda_6 = 2\lambda_1 - \frac{1}{2}(g_I^2+g_Y^2)\\
-\mu_u^2 &= 2 \lambda_1 v_2^2 - \frac{1}{2} m_{\Zboson}^2\\
-\mu_d^2 &= 2 \lambda_1 v_1^2 - \frac{1}{2} m_{\Zboson}^2\\
-\mu^2 &= -\frac{1}{2}v_1v_2(g_I^2+g_Y^2-4\lambda_1)
+\lambda_2 &= \lambda_1 \mend[,]\\
+\lambda_3 &= \frac{1}{8} (g_I^2+g_Y^2)-\lambda_1 \mend[,]\\
+\lambda_4 &= 2\lambda_1 - \frac{1}{2} g_Y^2 \mend[,]\\
+\lambda_5 &= \lambda_6 = 2\lambda_1 - \frac{1}{2}(g_I^2+g_Y^2) \mend[,]
 \end{align}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.49\textwidth}
+\begin{align}
+\mu_u^2 &= 2 \lambda_1 v_2^2 - \frac{1}{2} m_{\Zboson}^2 \mend[,]\\
+\mu_d^2 &= 2 \lambda_1 v_1^2 - \frac{1}{2} m_{\Zboson}^2 \mend[,]\\
+\mu^2 &= -\frac{1}{2}v_1v_2(g_I^2+g_Y^2-4\lambda_1)
+\mend
+\end{align}
+\end{minipage}
 \end{subequations}
-
-
+\vspace{.5\baselineskip}\par\noindent
+Alors, les masses des bosons de Higgs s'expriment
 \begin{align}
 m_{\HiggsA}^2 &= \mu^2 (\tan\beta+\cot\beta) = \frac{2\mu^2}{\sin 2\beta}
 \mend[,]\\
 m_{\Higgspm}^2 &= m_{\HiggsA}^2+m_{\Wboson}^2
 \mend[,]\\
 m_{\higgs,\Higgs}^2 &= \frac{1}{2} \left( m_{\HiggsA}^2+m_{\Zboson}^2 \mp \sqrt{(m_{\HiggsA}^2+m_{\Zboson}^2)^2-4m_{\HiggsA}^2m_{\Zboson}^2\cos^2 2\beta} \right)
-\mend
+\mend[,]
 \end{align}
-
+et l'angle de mixage des Higgs scalaires neutres vérifie
 \begin{equation}
 \cos 2\alpha = - \frac{m_{\HiggsA}^2-m_{\Zboson}^2}{m_{\Higgs}^2-m_{\higgs}^2} \cos 2\beta
 \msep
 \sin 2\alpha = - \frac{m_{\Higgs}^2+m_{\higgs}^2}{m_{\Higgs}^2-m_{\higgs}^2} \sin 2\beta
+\mend
 \end{equation}
-\begin{equation}
-\tan 2\alpha = \frac{m_{\HiggsA}^2+m_{\Zboson}^2}{m_{\HiggsA}^2-m_{\Zboson}^2} \tan 2\beta
-\end{equation}
-
+Enfin, les masses des bosons de l'interaction faible sont à présent
 \begin{equation}
 m_{\Wboson} = \frac{1}{2} v g_I
 \msep
 m_{\Zboson} = \frac{\mu_d^2\mu_u^2 \, \tan^2\beta}{\tan^2\beta-1}
 \mend
 \end{equation}
-
-
+\par Les particules du MSSM et leur superpartenaires sont résumés dans le tableau~\ref{tab-ptcs_and_superpartners}.
+Un test expérimental est possible par la recherche d'un signal correspondant aux bosons de Higgs supplémentaire, ce qui est un des sujets de cette thèse.
+L'étude de la phénoménologie de ces bosons de Higgs, présentée ci-après, nous permet de déterminer les conditions favorables à la recherche d'un tel signal.
+\begin{table}
+\centering
+\begin{tabular}{cccccccc}
+\toprule
+\multicolumn{4}{c}{Particules} & \multicolumn{4}{c}{Superpartenaires}\\
+\cmidrule(lr){1-4}\cmidrule(lr){5-8}
+Type & Spin & Particules & Symboles & Type & Spin & Particules & Symboles \\
+\midrule
+\multirow{2}{*}{Fermions} & \multirow{2}{*}{$\dfrac{1}{2}$} & quarks & \quark &
+\multirow{2}{*}{Sfermions} & \multirow{2}{*}{$0$} & squarks & \squark \\
+ &  & leptons & $\ell$ &
+ &  & sleptons & $\tilde{\ell}$ \\
+\cmidrule(lr){1-8}
+\multirow{5}{*}{Bosons} & \multirow{4}{*}{$1$} & gluon & \gluon &
+\multirow{5}{*}{Bosinos} & \multirow{5}{*}{$\dfrac{1}{2}$} & gluino & \gluino \\
+ & & bosons \Wbosonpm & \Wbosonplus, \Wbosonminus &
+ & & winos & \sWbosonplus, \sWbosonminus \\
+ & & photon & \photon &
+ & & photino & \photino \\
+ & & boson \Zboson & \Zboson &
+ & & zino & \sZboson \\
+ & $0$ & Higgs & \higgs, \Higgs, \HiggsA, \Higgspm &
+ & & Higgsinos & $\tilde{h}$, $\tilde{H}$, $\tilde{A}$, $\tilde{H}^\pm$  \\
+\bottomrule
+\end{tabular}
+\caption[Particules et leurs superpartenaires.]{Particules et leurs superpartenaires. La présence de plusieurs bosons de Higgs est justifiée par la nécessité d'un second doublet de Higgs. Ce formalisme est décrit dans la section~\ref{chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl}.}
+\label{tab-ptcs_and_superpartners}
+\end{table}
