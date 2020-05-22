@@ -48,7 +48,9 @@ Dans la limite découplée, les couplages du tableau~\ref{tab-Higgs_couplings_2H
 Or, lorsque $\tan\beta$ augmente, les couplages de \Higgs\ et \HiggsA\ aux fermions d'isospin bas sont augmentés et leurs couplages aux fermions d'isospin haut supprimés.
 La production des bosons de Higgs neutres supplémentaires, tout comme leurs désintégrations, s'en trouvent donc intrinsèquement liées à la présence de fermions d'isospin bas.
 \subsection{Production de bosons de Higgs}\label{chapter-MS-MSSM-section-pheno_Higgs_MSSM-subsec-production}
-
+\fullcite{Higgs_xsec_book}
+\subsubsection{Dans le cadre du modèle standard}
+gluon fusion, vector-boson fusion
 \begin{figure}[h]
 \centering
 \vspace{\baselineskip}
@@ -64,6 +66,7 @@ La production des bosons de Higgs neutres supplémentaires, tout comme leurs dé
 \label{fig-fgraph-Higgs_prod_ggh_VBF}
 \end{figure}
 
+WH and ZH modes
 \begin{figure}[h]
 \centering
 \vspace{\baselineskip}
@@ -79,33 +82,70 @@ La production des bosons de Higgs neutres supplémentaires, tout comme leurs dé
 \label{fig-fgraph-Higgs_prod_VH_ggZh}
 \end{figure}
 
+ttH
 \begin{figure}[h]
 \centering
 \vspace{\baselineskip}
-\subcaptionbox{\label{subfig-fgraph-Higgs_with_b_gg_g_bbh}}[.45\textwidth]
-{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-Higgs_with_b_gg_g_bbh.tex}\vspace{\baselineskip}}
+\subcaptionbox{\label{subfig-fgraph-Higgs_with_t_qq_g_tth}}[.45\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-Higgs_with_t_qq_g_tth.tex}\vspace{\baselineskip}}
 \hfill
-\subcaptionbox{\label{subfig-fgraph-Higgs_with_b_qq_g_bbh}}[.45\textwidth]
-{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-Higgs_with_b_qq_g_bbh.tex}\vspace{\baselineskip}}
+\subcaptionbox{\label{subfig-fgraph-Higgs_with_t_gg_htt}}[.45\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-Higgs_with_t_gg_htt.tex}\vspace{\baselineskip}}
 
-\vspace{2\baselineskip}
-\subcaptionbox{\label{subfig-fgraph-Higgs_with_b_gg_hbb}}[.45\textwidth]
-{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-Higgs_with_b_gg_hbb.tex}\vspace{\baselineskip}}
-\hfill
-\subcaptionbox{\label{subfig-fgraph-Higgs_with_b_bg_b_bh}}[.45\textwidth]
-{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-Higgs_with_b_bg_b_bh.tex}\vspace{\baselineskip}}
-
-\caption[Production de boson de Higgs en association avec un quark \quarkb.]{Diagrammes de Feynman de production de boson de Higgs dans le cadre du modèle standard en association avec un quark \quarkb.}
-\label{fig-fgraph-Higgs_prod_with_b}
+\caption[Production de boson de Higgs en association avec un quark \quarkt.]{Diagrammes de Feynman de production de boson de Higgs dans le cadre du modèle standard en association avec un quark \quarkt.}
+\label{fig-fgraph-Higgs_prod_with_t}
 \end{figure}
 
-\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-bb_hHA.tex}
+\subsubsection{Modes additionnels du MSSM}
+gluon fusion, vector-boson fusion
+\begin{figure}[h]
+\centering
+\vspace{\baselineskip}
+\subcaptionbox{Production par fusion de gluons.\label{subfig-fgraph-gg_loop_hHA}}[.45\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-gg_loop_hHA.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{Production par fusion de bosons vecteurs en voie $t$.\label{subfig-fgraph-Higgs_VBF_t-MSSM}}[.45\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-Higgs_VBF_t-MSSM.tex}\vspace{\baselineskip}}
+\caption[Production de boson de Higgs par fusion de gluons et de bosons vecteurs.]{Diagrammes de Feynman de production de boson de Higgs dans le cadre du MSSM par fusion de gluons (\gluon\gluon\Higgs) et fusion de bosons vecteurs (VBF).}
+\label{fig-fgraph-Higgs_prod_ggh_VBF-MSSM}
+\end{figure}
 
-\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-bg_b_bhHA.tex}
 
-\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-gg_hHAbb.tex}
+WH and ZH modes
+\begin{figure}[h]
+\centering
+\vspace{\baselineskip}
+\subcaptionbox{Production en association avec un boson \Wboson.\label{subfig-fgraph-Higgs_VH_W-MSSM}}[.45\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-Higgs_VH_W-MSSM.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{Production en association avec un boson \Zboson.\label{subfig-fgraph-Higgs_VH_Z-MSSM}}[.45\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-Higgs_VH_Z-MSSM.tex}\vspace{\baselineskip}}
+\caption[Production de boson de Higgs en association avec un boson.]{Diagrammes de Feynman de production de boson de Higgs dans le cadre du MSSM en association avec un boson.}
+\label{fig-fgraph-Higgs_prod_VH_ggZh-MSSM}
+\end{figure}
 
-\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-gg_loop_hHA.tex}
+b quark
+\begin{figure}[h]
+\centering
+\vspace{\baselineskip}
+\subcaptionbox{\label{subfig-fgraph-bb_hHA}}[.45\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-bb_hHA.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{\label{subfig-fgraph-Higgs_with_b_qq_g_bbh-MSSM}}[.45\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-qq_g_bbhHA.tex}\vspace{\baselineskip}}
+
+\vspace{2\baselineskip}
+\subcaptionbox{\label{subfig-fgraph-gg_hHAbb}}[.45\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-gg_hHAbb.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{\label{subfig-fgraph-bg_b_bhHA}}[.45\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/H_production/fgraph-bg_b_bhHA.tex}\vspace{\baselineskip}}
+
+\caption[Production de boson de Higgs en association avec un quark \quarkb.]{Diagrammes de Feynman de production de boson de Higgs dans le cadre du MSSM en association avec un quark \quarkb.}
+\label{fig-fgraph-Higgs_prod_with_b-MSSM}
+\end{figure}
+
+
 
 
 \subsection{Désintégration de bosons de Higgs}\label{chapter-MS-MSSM-section-pheno_Higgs_MSSM-subsec-desintegration_Higgs}
