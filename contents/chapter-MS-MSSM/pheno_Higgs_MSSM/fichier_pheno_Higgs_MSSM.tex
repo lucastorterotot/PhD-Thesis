@@ -1,50 +1,52 @@
 \section{Phénoménologie des bosons de Higgs du MSSM}\label{chapter-MS-MSSM-section-pheno_Higgs_MSSM}
-
-\fullcite{Higgs_hunter_guide}
-
-5 bosons, 3 neutres.
-
-At leading order, 2 free parameters: $(m_{\HiggsA}, \tan\beta)$.
-
-
-équation~\eqref{eq-Higgs_mixing_angle_MSSM},
+Pour concevoir une analyse de physique des particules à même de tester le MSSM, il nous faut dans un premier temps déterminer la manifestation du MSSM à observer.
+Comme cela a été développé dans la section précédente, le MSSM implique l'existence de quatre bosons de Higgs supplémentaires, en particulier deux nouveaux bosons de Higgs neutres, \Higgs\ et \HiggsA.
+Si de tels bosons existent, un signal leur correspondant doit pouvoir être observé.
+Dans la suite, nous nous concentrons donc sur la phénoménologie des trois bosons de Higgs neutres.
+\par Nous avons vu qu'au premier ordre, les masses des bosons de Higgs s'expriment en fonction de deux paramètres uniquement, $m_{\HiggsA}$ et $\tan\beta$.
+Les couplages des trois bosons de Higgs neutres du MSSM aux autres particules, par rapport aux couplages du boson de Higgs du modèle standard, sont présentés dans le tableau~\ref{tab-Higgs_couplings_2HDM} en fonction de $\alpha$ et $\beta$.
+Or, $\alpha$ et $\beta$ sont reliés par les équations~\eqref{eq-Higgs_mixing_angle_MSSM}, donnant
 \begin{equation}
-\tan 2\alpha = - \frac{m_{\HiggsA}^2+m_{\Zboson}^2}{m_{\HiggsA}^2-m_{\Zboson}^2} \tan 2\beta
+\tan 2\alpha = \frac{m_{\HiggsA}^2+m_{\Zboson}^2}{m_{\HiggsA}^2-m_{\Zboson}^2} \tan 2\beta
+\mend
+\label{eq-Higgs_mixing_angle_MSSM_tan}
 \end{equation}
-Decoupling limit $m_{\HiggsA}\gg m_{\Zboson}$:
-$\tan 2\alpha \to - \tan 2\beta$,
-$\alpha \to -\beta$ ou $\alpha\to\beta-\frac{\pi}{2}$
-mais $\cos 2\alpha$ et $\cos 2\beta$ sont de signes opposés~\eqref{eq-Higgs_mixing_angle_MSSM},
-$\alpha\to\beta-\frac{\pi}{2}$.
-tableau~\ref{tab-Higgs_couplings_2HDM} devient~\ref{tab-Higgs_couplings_MSSM_decoupling}
-\begin{table}[H]
+\begin{wraptable}{R}{8cm}
 \centering
 \begin{tabular}{rccc}
 \toprule
 Couplage avec & \higgs & \Higgs & \HiggsA \\
 \midrule
 Bosons vecteurs & $1$ & $0$ & $0$\\
-Fermions hauts & $1$ & $\cot\beta$ & $\cot\beta$ \\
+Fermions hauts & $1$ & $-\cot\beta$ & $\cot\beta$ \\
 Fermions bas & $1$ & $\tan\beta$ & $\tan\beta$ \\
 \bottomrule
 \end{tabular}
-\caption[Couplages des bosons de Higgs neutres dans la limite découplée.]{Couplages des bosons de Higgs neutres dans la limite découplée du MSSM par rapport aux couplages du boson de Higgs du modèle standard~\cite{Higgs_hunter_guide}.}
+\caption[Couplages des bosons de Higgs neutres dans la limite découplée.]{Couplages des bosons de Higgs neutres dans la limite découplée du MSSM par rapport aux couplages du boson de Higgs du modèle standard.}
 \label{tab-Higgs_couplings_MSSM_decoupling}
-\end{table}
-
-Consequences:
+\end{wraptable}
+\par Les observations expérimentales semblent favoriser $m_{\HiggsA}\gg m_{\Zboson}$~\cite{ATLAS-CMS-Higgs_combined_1,ATLAS-CMS-Higgs_combined_2,CMS-MSSM-HTT_2014}.
+Cette situation correspond à la limite découplée, dans laquelle
+\begin{equation}
+\lim_{m_{\HiggsA}\gg m_{\Zboson}} \tan 2\alpha = \tan 2\beta
+\end{equation}
+d'après ~\eqref{eq-Higgs_mixing_angle_MSSM_tan}.
+Alors, dans la limite découplée, $\alpha \sim \beta$ ou $\alpha\sim\beta\pm\frac{\pi}{2}$.
+Or, $\beta\geq0$ et $\alpha\leq0$.
+Il ne reste donc plus que la possibilité $\alpha\sim\beta-\frac{\pi}{2}$.
+Dans la limite découplée, les couplages du tableau~\ref{tab-Higgs_couplings_2HDM} deviennent alors ceux du tableau~\ref{tab-Higgs_couplings_MSSM_decoupling}.
+\par Les couplages ainsi obtenus dans le tableau~\ref{tab-Higgs_couplings_MSSM_decoupling} présentent trois caractéristiques d'intérêt:
 \begin{itemize}
-\item SM-like behaviour of \higgs;
-\item vanishing $\Higgs\to VV$ coupling;
-\item $\Higgs\to\fermion\antifermion$ couplings similar to those for \HiggsA.
+\item le boson de Higgs le plus léger, \higgs, se comporte exactement comme le boson de Higgs du modèle standard, ce qui le rend tout à fait cohérent avec les observations actuelles;
+\item les bosons de Higgs neutres massifs \Higgs\ et \HiggsA\ ne présentent aucun couplage aux bosons vecteurs, par exemple la désintégration $\HiggsA\to\Zboson\Zboson$ est impossible mais $\HiggsA\to\Zboson\higgs$ est possible;
+\item les bosons de Higgs neutres massifs \Higgs\ et \HiggsA\ sont couplés de manière similaire aux fermions.
 \end{itemize}
-
-With increasing $\tan\beta$:
-\begin{itemize}
-\item enhanced $\Higgs/\HiggsA \to \tau\tau$ decay;
-\item enhanced \quarkb-associated production of \Higgs\ and \HiggsA.
-\end{itemize}
-
+\par De plus, $\tan\beta$ est contraint par~\cite{Ridolfi-SUSY}
+\begin{equation}
+1 < \tan\beta \lesssim \frac{m_{\quarkt}}{m_{\quarkb}} \simeq \num{42} \mend
+\end{equation}
+Or, lorsque $\tan\beta$ augmente, les couplages de \Higgs\ et \HiggsA\ aux fermions d'isospin bas sont augmentés et leurs couplages aux fermions d'isospin haut supprimés.
+La production des bosons de Higgs neutres supplémentaires, tout comme leurs désintégrations, s'en trouvent donc intrinsèquement liées à la présence de fermions d'isospin bas.
 \subsection{Production de bosons de Higgs}\label{chapter-MS-MSSM-section-pheno_Higgs_MSSM-subsec-production}
 
 \begin{figure}[h]
