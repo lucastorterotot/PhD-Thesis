@@ -11,18 +11,21 @@ fig = lt.ltFigure(name='fig', width_frac=1, height_width_ratio=.5, tight_layout=
 # Define what to plot
 mH = 125.18
 vev = 246.22
+
 mu = mH * .5**.5
-Lambda = mu/vev
+Lambda = (mu/vev)**2
+
+minimum_V = vev * .5**.5
     
-maxrange = vev*1.225
+maxrange = minimum_V*1.225
 
 r = np.linspace(0, maxrange, 50)
 p = np.linspace(0, 2*np.pi, 50)
 R, P = np.meshgrid(r, p)
 
 X, Y = R*np.cos(P), R*np.sin(P)
-Z = - mu**2 * R**2 + .5*Lambda**2 * R**4
-Z2 =  (.5*mu**2 * R**2 + .5*Lambda**2 * R**4)/4
+Z = - mu**2 * R**2 + Lambda * R**4
+Z2 =  (.5*mu**2 * R**2 + Lambda * R**4)/4
 
 z_max = 0
 z_min = 0
