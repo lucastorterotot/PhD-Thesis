@@ -96,26 +96,40 @@ Masse du boson de Higgs & $m_{\higgs}$ & $\num{125.18}\pm\num{0.16}$ & \SI{}{\Ge
 Parmi ces 19 paramètres libres, 15\footnote{Ces 15 paramètres sont les masses des 6 quarks et des 3 leptons chargés, la masse du Higgs, son condensat dans le vide et les quatre paramètres de la matrice CKM.} sont reliés au boson de Higgs. C'est pourquoi l'étude du boson de Higgs est un enjeu majeur en physique des particules.
 \par Notons également que l'introduction de neutrinos massifs, précédemment évoquée, apporte trois nouveaux paramètres libre, les masses des trois neutrinos. De plus, la matrice PMNS permettant de décrire leurs oscillation demande quatre paramètres libres, analogues aux quatre paramètres reliés à la matrice CKM dans le tableau~\ref{tab-19_free_SM_parameters}. Il y a donc potentiellement 26 paramètres libres pour un modèle standard incluant les neutrinos massifs.
 \paragraph{Ajustement fin}
-Le calcul de la masse du boson de Higgs demande d'introduire des diagrammes de Feynman avec des boucles, comme celui de la figure~\ref{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_fermion}.
-De tels diagrammes introduisent des divergences, qu'il est possible d'absorber à l'aide d'une renormalisation.
-Dans ce cas, la masse effective du boson de Higgs $m_{\higgs}$ s'exprime à partir de la masse \og nue \fg{} $m_{\higgs 0}$ à laquelle sont apportées des corrections.
+Le calcul de la masse du boson de Higgs demande d'introduire des diagrammes de Feynman avec des boucles, comme ceux de la figure~\ref{fig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loops}.
 \begin{figure}[h]
 \centering
-\subcaptionbox{Diagramme à contribution positive.\label{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_fermion}}[.45\textwidth]
+\subcaptionbox{Quark top.\label{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_fermion}}[.3\textwidth]
 {\input{\PhDthesisdir/tex/Feynman_diagrams/for_SUSY/Higgs_loop_fermion.tex}}
 \hfill
-\subcaptionbox{Diagramme à contribution négative.\label{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_boson}}[.45\textwidth]
+\subcaptionbox{Bosons vecteurs.\label{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_gauge}}[.3\textwidth]
+{\input{\PhDthesisdir/tex/Feynman_diagrams/for_SUSY/Higgs_loop_gauge.tex}}
+\hfill
+\subcaptionbox{Couplage quadratique du Higgs.\label{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_boson}}[.3\textwidth]
 {\input{\PhDthesisdir/tex/Feynman_diagrams/for_SUSY/Higgs_loop_sfermion.tex}}
 
-\caption[Diagrammes de Feynman inclus dans le calcul de la masse du boson de Higgs.]{Diagrammes de Feynman à boucle inclus dans le calcul de la masse du boson de Higgs.}
+\caption{Diagrammes de Feynman des contributions aux corrections radiatives à la masse du boson de Higgs.}
 \label{fig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loops}
 \end{figure}
-\par Le modèle standard étant considéré comme valide jusqu'à une échelle d'énergie $\Lambda_c$, la masse du Higgs peut s'exprimer
+\par Dans ce cas, la masse effective du boson de Higgs $m_{\higgs}$ s'exprime à partir de la masse \og nue \fg{} $m_{\higgs 0}$ à laquelle sont apportées des corrections~\cite{Nagashima_BSM}:
+\begin{align}
+\allowdisplaybreaks
+& \text{du top, figure~\ref{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_fermion}} && -\frac{3}{8\pi^2} y_{\quarkt}^2 \Lambda^2 && \sim -(\SI{2}{\TeV})^2 \\
+& \text{des bosons vecteurs, figure~\ref{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_gauge}} && +\frac{1}{16\pi^2} g^2 \Lambda^2 && \sim +(\SI{0.7}{\TeV})^2 \\
+& \text{du Higgs, figure~\ref{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_boson}} && +\frac{1}{16\pi^2} \lambda^2 \Lambda^2 && \sim +(\SI{0.5}{\TeV})^2 \\
+\end{align}
+où
+$y_{\quarkt}^2$ est la constante de couplage de Yukawa du quark top défini équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-subsubsec-fermions-Yukawa_couplings},
+$g$ la constante de couplage de l'interaction associée au boson vecteur considéré,
+$\lambda$ la paramètre du terme quadratique du potentiel de Higgs~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_potential} et
+$\Lambda$ l'échelle d'énergie de la \og nouvelle physique \fg, \ie\ l'échelle d'énergie où le modèle standard n'est plus valable.
+\par La masse du boson de Higgs s'exprime alors
 \begin{equation}
-m_{\higgs}^2 = m_{\higgs 0}^2 - \frac{\lambda_{\fermion}^2}{8\pi^2} \Lambda_c^2 + \ldots
+m_{\higgs}^2 = m_{\higgs 0}^2 -\frac{3}{8\pi^2} y_{\quarkt}^2 \Lambda^2  +\frac{1}{16\pi^2} g^2 \Lambda^2 + \frac{1}{16\pi^2} \lambda^2 \Lambda^2 + \ldots
 \end{equation}
-où $\lambda_{\fermion}$ est la constante de couplage de Yukawa avec les fermions.
-L'observation du boson de Higgs avec une masse effective de $\num{125.18}\pm\num{0.16}\usp\SI{}{\GeV}$ implique que les paramètres $ m_{\higgs 0}$ et $\lambda_{\fermion}$ soient ajustés jusqu'à la 32\up{e} décimale, ce qui semble peu naturel.
+Le boson de Higgs a été observé avec une masse de $\num{125.18}\pm\num{0.16}\usp\SI{}{\GeV}$.
+Or, les corrections sont de l'ordre du \SI{}{\TeV}.
+Les paramètres dont dépendent ces corrections devraient donc être ajustés jusqu'à la 32\up{e} décimale, ce qui semble peu naturel.
 % Beyond, gravity
 \paragraph{Gravitation}
 Le modèle standard ne propose aucune description de la gravitation.

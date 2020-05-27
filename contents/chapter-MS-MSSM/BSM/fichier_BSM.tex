@@ -245,29 +245,46 @@ et l'angle de mélange des Higgs scalaires neutres vérifie
 \mend
 \label{eq-Higgs_mixing_angle_MSSM}
 \end{equation}
-%Enfin, les masses des bosons de l'interaction faible sont à présent
-%\begin{equation}
-%m_{\Wboson} = \frac{1}{2} v g_I
-%\msep
-%m_{\Zboson} = \frac{\mu_d^2\mu_u^2 \, \tan^2\beta}{\tan^2\beta-1}
-%\mend
-%\end{equation}
-\par Les équations~\eqref{eq-mA-MSSM}, \eqref{eq-mHpm-MSSM} et~\eqref{eq-mH0-MSSM} montrent qu'à l'ordre le plus bas, les masses des bosons de Higgs dépendent seulement de deux paramètres libres, $m_{\HiggsA}$ et $\tan\beta$, défini par~\eqref{eq-tan_beta-2HDM}.
-Des corrections d'ordres supérieurs existent~\cite{Nagashima_BSM} mais dépendent d'autres paramètres, comme le paramètre de mélange du stop \squarkt, superpartenaire du quark top,
+Enfin, la masse du \Wboson\ vérifie toujours~\eqref{eq-2HDM_W_mass} et celle du \Zboson\ peut être exprimée en fonction des paramètres du MSSM. Ainsi,
+\begin{equation}
+m_{\Wboson} = \frac{1}{2} v g_I
+\msep
+m_{\Zboson} = \frac{\mu_d^2\mu_u^2 \, \tan^2\beta}{\tan^2\beta-1}
+\mend
+\end{equation}
+\begin{wrapfigure}{R}{8cm}
+\centering
+\includegraphics[width=.45\textwidth]{\PhDthesisdir/contents/chapter-MS-MSSM/plots/from_Nagashima_BSM/fig_1-9.tex}
+\caption[Masses des bosons de Higgs du MSSM.]{Masses des bosons de Higgs du MSSM en fonction de $m_{\HiggsA}$ pour $\tan\beta=3$ et $30$ dans le cas de mélange maximal du stop avec $m_{\squarkt}=\SI{2}{\TeV}$ et les autres paramètres de la SUSY fixés à \SI{1}{\TeV}~\cite{Nagashima_BSM}.}
+\label{fig-Higgs_corrected_masses_as_fct_of_mA_and_tanbeta}
+\vspace{\baselineskip}
+\end{wrapfigure}
+\par À l'ordre le plus bas, les masses des bosons de Higgs dépendent donc seulement de deux paramètres libres, $m_{\HiggsA}$ et $\tan\beta$ défini par~\eqref{eq-tan_beta-2HDM}.
+Il est à noter que l'équation~\eqref{eq-mH0-MSSM} implique l'existence d'un boson de Higgs neutre de masse inférieure à $m_{\Zboson}=\SI{91.2}{\GeV}$.
+Toutefois, ceci n'est vrai qu'à l'ordre le plus bas.
+La prise en compte des corrections radiatives change les expressions de ces masses, en particulier les corrections dues au quark top et à son superpartenaire le stop.
+La correction à la masse du boson de Higgs léger est ainsi donnée par~\cite{Nagashima_BSM}
+\begin{gather}
+m_{\higgs}^2 \to m_{\higgs}^2 + \delta m_{\higgs}^2
+\nonumber\\
+\! \! \simeq m_{\Zboson}^2
++ \frac{3 m_{\quarkt}^4}{2 \pi^2 v^2} \left[ \! \ln\frac{m_S^2}{m_{\quarkt}^2} + \frac{X_t^2}{m_S^2} \! \left(1-\frac{X_t^2}{12 m_S^2}\right) \! \right]
+\end{gather}
+où
 \begin{equation}
 X_t = A_t - \mu\cot\beta
 \end{equation}
-où $A_t$ est la constante de couplage entre les Higgs et le stop.
-Un autre de ces paramètres est l'échelle d'énergie de la SUSY $m_\text{SUSY}$, définie comme la moyenne des masses des stops,
+est le paramètre de mélange du stop avec $A_t$ la constante de couplage entre les Higgs et le stop
+et
 \begin{equation}
-m_\text{SUSY} = \sqrt{m_{\squarkt_1}m_{\squarkt_2}}
+m_S = \sqrt{m_{\squarkt_1}m_{\squarkt_2}}
 \mend
 \end{equation}
-La correction sur la masse de \higgs\ s'exprime en effet~\cite{Nagashima_BSM}
-\begin{equation}
-m_{\higgs}^2 \to m_{\higgs}^2 + \delta m_{\higgs}^2 \simeq m_{\Zboson}^2 + \frac{3 m_{\quarkt}^4}{2 \pi^2 v^2} \left[ \ln\frac{m_\text{SUSY}^2}{m_{\quarkt}^2} + \frac{X_t^2}{m_\text{SUSY}^2}\left(1-\frac{X_t^2}{12 m_\text{SUSY}^2}\right) \right]
-\mend
-\end{equation}
+est l'échelle d'énergie de la SUSY, définie comme la moyenne géométrique des masses des stops.
+Il existe en effet deux états propres de masse du stop, $\squarkt_1$ et $\squarkt_2$, mélanges des stops de chiralité droite et gauche.
+Les valeurs des masses corrigées de \higgs, \Higgs\ et \Higgspm\ sont tracées sur la figure~\ref{fig-Higgs_corrected_masses_as_fct_of_mA_and_tanbeta} en fonction de $m_{\HiggsA}$ pour $\tan\beta=3$ et $30$ dans le cas de mélange maximal du stop.
+Ainsi, pour $m_{\HiggsA} \lesssim \SI{125}{\GeV}$, \Higgs\ joue le rôle du modèle standard et il existe un Higgs léger.
+Pour $m_{\HiggsA} \gtrsim \SI{125}{\GeV}$, \higgs\ joue le rôle du modèle standard et les bosons de Higgs supplémentaires sont de masses plus élevées.
 \par Les particules du MSSM et leurs superpartenaires sont résumés dans le tableau~\ref{tab-ptcs_and_superpartners}.
 Un test expérimental est possible par la recherche d'un signal correspondant aux bosons de Higgs supplémentaires, ce qui est un des sujets de cette thèse.
 L'étude de la phénoménologie de ces bosons de Higgs, présentée ci-après, nous permet de déterminer les conditions favorables à la recherche d'un tel signal.
