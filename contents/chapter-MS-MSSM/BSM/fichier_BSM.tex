@@ -43,23 +43,33 @@ Afin d'éviter de telles incohérences avec les observations, la SUSY nécessite
 %Il existe alors un seul boson de Higgs, \higgs, boson scalaire neutre observé en 2012~\cite{ATLAS_Higgs_discovery,CMS_Higgs_discovery,CMS_Higgs_discovery_2013,ATLAS-CMS-Higgs_combined_1,ATLAS-CMS-Higgs_combined_2}.
 \par Les modèles à deux doublets de Higgs (2HDM, \emph{2 Higgs Doublets Model}) introduisent un second doublet de Higgs.
 Ainsi, au lieu d'avoir uniquement le doublet $\phi$ défini par~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_doublet}, il en existe deux, $\phi_1$ et $\phi_2$.
-Le potentiel de Higgs~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_potential} du modèle standard est remplacé par le potentiel scalaire le plus général possible~\cite{Higgs_hunter_guide,Higgs_hunter_guide_errata},
+Le potentiel de Higgs~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_potential} du modèle standard est remplacé par le potentiel scalaire le plus général possible\footnote{Afin de conserver une cohérence avec la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism}, des facteurs $\tfrac{1}{2}$ ont été introduits dans le potentiel issu de~\cite{Higgs_hunter_guide,Higgs_hunter_guide_errata}. La physique reste bien entendu inchangée.} brisant spontanément $SU(2)_L \times U(1)_Y$ en $U(1)_{em}$~\cite{Higgs_hunter_guide,Higgs_hunter_guide_errata},
 \begin{multline}
 V(\phi_1,\phi_2)
-= \lambda_1 (\phi_1^\dagger\phi_1-v_1^2)
-+ \lambda_2 (\phi_2^\dagger\phi_2-v_2^2)
+= \lambda_1 (\phi_1^\dagger\phi_1 - \tfrac{1}{2} v_1^2)^2
++ \lambda_2 (\phi_2^\dagger\phi_2 - \tfrac{1}{2} v_2^2)^2
 \\
-+ \lambda_3 \left[ (\phi_1^\dagger\phi_1-v_1^2) + (\phi_2^\dagger\phi_2-v_2^2) \right]^2
++ \lambda_3 \left[ (\phi_1^\dagger\phi_1 - \tfrac{1}{2} v_1^2) + (\phi_2^\dagger\phi_2 - \tfrac{1}{2} v_2^2) \right]^2
 + \lambda_4 \left[ (\phi_1^\dagger\phi_1)(\phi_2^\dagger\phi_2) - (\phi_1^\dagger\phi_2)(\phi_2^\dagger\phi_1) \right]
 \\
-+ \lambda_5 \left[ \Re(\phi_1^\dagger\phi_2) -v_1v_2\cos\xi \right]^2
-+ \lambda_6 \left[ \Im(\phi_1^\dagger\phi_2) -v_1v_2\sin\xi \right]^2
++ \lambda_5 \left[ \Re(\phi_1^\dagger\phi_2) - \tfrac{1}{2} v_1v_2\cos\xi \right]^2
++ \lambda_6 \left[ \Im(\phi_1^\dagger\phi_2) - \tfrac{1}{2} v_1v_2\sin\xi \right]^2
 \\
-+ \lambda_7 \left[ \Re(\phi_1^\dagger\phi_2) -v_1v_2\cos\xi \right]\left[ \Im(\phi_1^\dagger\phi_2) -v_1v_2\sin\xi \right]
++ \lambda_7 \left[ \Re(\phi_1^\dagger\phi_2) - \tfrac{1}{2} v_1v_2\cos\xi \right]\left[ \Im(\phi_1^\dagger\phi_2) - \tfrac{1}{2} v_1v_2\sin\xi \right]
 \label{eq-chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl-Higgs_potential}
 \end{multline}
-où $v_1$ et $v_2$ sont les minimums de potentiel des deux doublets.
-Le dernier terme peut être éliminé en redéfinissant les phases des champs scalaires.
+où le minimum du potentiel est en
+\begin{equation}
+\average{\phi_1} = \frac{1}{\sqrt{2}} \begin{pmatrix}
+0\\v_1
+\end{pmatrix}
+\msep
+\average{\phi_2} = \frac{1}{\sqrt{2}} \begin{pmatrix}
+0\\v_2 \eexp{\im\xi}
+\end{pmatrix}
+\mend
+\end{equation}
+Le dernier terme de~\eqref{eq-chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl-Higgs_potential} peut être éliminé en redéfinissant les phases des champs scalaires.
 Les paramètres $\lambda_i$ sont réels et dans le cas de la SUSY, $\lambda_5=\lambda_6$.
 Dans le cas $\sin\xi\neq0$, le secteur de Higgs du modèle viole la symétrie $CP$.
 \par Il est possible de définir, à ce stade, une variable importante dans la suite, le rapport des condensats des doublets de Higgs dans le vide,
@@ -80,7 +90,7 @@ v^2 = v_1^2+v_2^2
 &
 \Higgspm &= - \phi_1^\pm \sin\beta + \phi_2^\pm \cos\beta
 \msep&
-m_{\Higgspm} &= \lambda_4 v
+m_{\Higgspm}^2 &= \frac{1}{2} \lambda_4 v^2
 \mend[,]
 \\
 &
@@ -88,12 +98,12 @@ m_{\Higgspm} &= \lambda_4 v
 &
 \HiggsA &= \sqrt{2}\left(-\Im(\phi_1^0)\sin\beta+\Im(\phi_2^0)\cos\beta\right)
 \msep&
-m_{\HiggsA} &= \lambda_6 v
+m_{\HiggsA}^2 &= \frac{1}{2} \lambda_6 v^2
 \mend[,]
 \end{align}
 ainsi que deux bosons de Higgs scalaires neutres dont les champs quantiques sont mélangés par la matrice
 \begin{equation}
-\mathcal{M} = \begin{pmatrix}
+\mathcal{M} = \frac{1}{2} \begin{pmatrix}
 4v_1^2 (\lambda_1+\lambda_3) + v_2^2\lambda_5 & (4\lambda_3+\lambda_5)v_1v_2 \\
 (4\lambda_3+\lambda_5)v_1v_2 & 4v_2^2 (\lambda_2+\lambda_3) + v_1^2\lambda_5
 \end{pmatrix}
@@ -101,10 +111,10 @@ ainsi que deux bosons de Higgs scalaires neutres dont les champs quantiques sont
 \end{equation}
 Ces deux bosons de Higgs sont
 \begin{align}
-\higgs &= \sqrt{2}\left(-\Re(\phi_1^0-v_1)\sin\alpha+\Re(\phi_2^0-v_2)\cos\alpha\right)
+\higgs &= \sqrt{2}\left(-\Re(\phi_1^0-v_1/\sqrt{2})\sin\alpha+\Re(\phi_2^0-v_2/\sqrt{2})\cos\alpha\right)
 \mend[,]
 \\
-\Higgs &= \sqrt{2}\left(\Re(\phi_1^0-v_1)\cos\alpha+\Re(\phi_2^0-v_2)\sin\alpha\right)
+\Higgs &= \sqrt{2}\left(\Re(\phi_1^0-v_1/\sqrt{2})\cos\alpha+\Re(\phi_2^0-v_2/\sqrt{2})\sin\alpha\right)
 \mend[,]
 \end{align}
 où l'angle de mélange $\alpha$ s'obtient par
@@ -192,11 +202,11 @@ V(\Higgs_d,\Higgs_u)
 \nonumber\\
 &\hphantom{=}
 +
-\frac{g_I^2+g_Y^2}{8} (\Higgs_d^\dagger\Higgs_d-\Higgs_u^\dagger\Higgs_u)
+\frac{g_I^2+g_Y^2}{8} (\Higgs_d^\dagger\Higgs_d-\Higgs_u^\dagger\Higgs_u)^2
 +
 \frac{g_I^2}{2} (\Higgs_d^\dagger\Higgs_u)^2
 \end{align}
-en posant
+en posant~\cite{Higgs_hunter_guide,Higgs_hunter_guide_errata,Nagashima_BSM}
 \vspace{-.5\baselineskip}\par\noindent
 \begin{subequations}
 \noindent
@@ -211,8 +221,8 @@ en posant
 \hfill
 \begin{minipage}[c]{.49\textwidth}
 \begin{align}
-\mu_d^2 &= 2 \lambda_1 v_2^2 - \frac{1}{2} m_{\Zboson}^2 \mend[,]\\
-\mu_u^2 &= 2 \lambda_1 v_1^2 - \frac{1}{2} m_{\Zboson}^2 \mend[,]\\
+\mu_d^2 &= \mu^2\tan\beta - \frac{1}{2} m_{\Zboson}^2 \cos(2\beta) \mend[,]\\
+\mu_u^2 &= \mu^2\cot\beta + \frac{1}{2} m_{\Zboson}^2 \cos(2\beta) \mend[,]\\
 \mu^2 &= -\frac{1}{2}v_1v_2(g_I^2+g_Y^2-4\lambda_1)
 \mend
 \end{align}
@@ -223,9 +233,9 @@ Afin d'assurer la stabilité du vide, le potentiel ne doit pas pouvoir être inf
 La brisure spontanée de symétrie donnant leurs masses aux bosons de l'interaction faible est présente si $\mu^4>\mu_u^2 \mu_d^2$.
 Alors, les condensats dans le vide des deux doublets de Higgs sont
 \begin{equation}
-\average{\Higgs_d}_0 = \begin{pmatrix}v_1 \\ 0 \end{pmatrix}
+\average{\Higgs_d}_0 = \frac{1}{\sqrt{2}} \begin{pmatrix}v_1 \\ 0 \end{pmatrix}
 \msep
-\average{\Higgs_u}_0 = \begin{pmatrix} 0\\ v_2 \end{pmatrix}
+\average{\Higgs_u}_0 = \frac{1}{\sqrt{2}} \begin{pmatrix} 0\\ v_2 \end{pmatrix}
 \mend
 \end{equation}
 \par Les masses des bosons de Higgs s'expriment alors à l'ordre le plus bas
@@ -247,9 +257,11 @@ et l'angle de mélange des Higgs scalaires neutres vérifie
 \end{equation}
 Enfin, la masse du \Wboson\ vérifie toujours~\eqref{eq-2HDM_W_mass} et celle du \Zboson\ peut être exprimée en fonction des paramètres du MSSM. Ainsi,
 \begin{equation}
-m_{\Wboson} = \frac{1}{2} v g_I
+m_{\Wboson} = \frac{1}{2}vg_I
+\Leftrightarrow
+m_{\Wboson}^2 = \frac{1}{4}v^2g_I^2
 \msep
-m_{\Zboson} = \frac{\mu_d^2\mu_u^2 \, \tan^2\beta}{\tan^2\beta-1}
+m_{\Zboson}^2 = \frac{\mu_d^2 - \mu_u^2 \, \tan^2\beta}{\tan^2\beta-1}
 \mend
 \end{equation}
 \begin{wrapfigure}{R}{8cm}
