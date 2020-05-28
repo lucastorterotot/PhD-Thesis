@@ -25,7 +25,7 @@ Dans les termes de couplage du lagrangien, un facteur $\gamma^\mu$ correspond à
 Or, il est possible de projeter un spineur $\psi$ afin d'obtenir sa composante de chiralité gauche $\psi_L$ à l'aide du projecteur chiral $\gamma^5$,
 \begin{equation}
 \psi_L = \frac{1}{2}(1-\gamma^5)\psi
-\mend[,]
+\mend
 \label{eq-projo_L}
 \end{equation}
 Pour les antiparticules décrites par $\bar{\psi}=\psi^\dagger \gamma^0$,
@@ -42,7 +42,7 @@ Pour les antiparticules décrites par $\bar{\psi}=\psi^\dagger \gamma^0$,
 d'où le couplage entre fermions de chiralité gauche et antifermions de chiralité droite.
 \par L'introduction de la symétrie $SU(2)_L$ amène un nouveau nombre quantique, l'\og isospin faible \fg, noté $I$. Il se comporte mathématiquement comme le spin des particules, d'où son nom \emph{iso}spin.
 Les fermions de chiralité gauche sont rassemblés en doublet d'isospin faible $I=\frac{1}{2}$, les fermions de chiralité droite en singlets d'isospin faible $I=0$. Ces derniers sont ainsi invariants sous les transformations de $SU(2)_L$, ce qui se traduit physiquement par une insensibilité à l'interaction faible.
-\par Mis à part les neutrinos qui n'existent, dans le cadre actuel du modèle standard, qu'avec une chiralité gauche\footnote{Il n'y a à ce jour aucune raison pour les neutrinos de chiralité droite de ne pas exister. Cependant, ils n'interagissent pas avec la matière dans le cadre du modèle standard. Ainsi, il est possible de les retirer du modèle tout en conservant une description du comportement des particules cohérente.}, les fermions peuvent être de chiralité droite ou gauche. Nous obtenons donc les représentations du tableau~\ref{tab-chapter-MS-MSSM-section-formalisme-subsec-EW-rzpt_femrions_chiralite_isospin}.
+\par Mis à part les neutrinos qui n'existent, dans le cadre actuel du modèle standard, qu'avec une chiralité gauche\footnote{Il n'y a à ce jour aucune raison pour les neutrinos de chiralité droite de ne pas exister. Cependant, ils n'interagissent pas avec la matière dans le cadre du modèle standard. Ainsi, il est possible de les retirer du modèle tout en conservant une description cohérente du comportement des particules.}, les fermions peuvent être de chiralité droite ou gauche. Nous obtenons donc les représentations du tableau~\ref{tab-chapter-MS-MSSM-section-formalisme-subsec-EW-rzpt_femrions_chiralite_isospin}.
 \begin{table}[h]
 \centering
 \begin{tabular}{ccccc}
@@ -53,7 +53,7 @@ $\frac{1}{2}$ & $\displaystyle \begin{pmatrix} \quarku_i \\ \quarkd_i \end{pmatr
 $0$ & - & $\quarku_{i,R}$, $\quarkd_{i,R}$ & - & $\ell_{i,R}$\\
 \bottomrule
 \end{tabular}
-\caption[Représentation des fermions selon leur chiralité et leur isospin.]{Représentation des fermions selon leur chiralité et leur isospin. L'indice $i\in\set{1,2,3}$ correspond à la génération des particules. Ainsi, les symboles $\quarku_i$, $\quarkd_i$, $\ell_i$ et $\neutrino_i$ correspondent, respectivement, aux quarks d'isospin faible haut (\quarku, \quarkc, \quarkt), d'isospin faible bas (\quarkd, \quarks, \quarkb), aux leptons chargés (\ele, \mu, \tau) et aux neutrinos (\nuele, \numu, \nutau).}
+\caption[Représentation des fermions selon leur chiralité et leur isospin faible.]{Représentation des fermions selon leur chiralité et leur isospin faible. L'indice $i\in\set{1,2,3}$ correspond à la génération des particules. Ainsi, les symboles $\quarku_i$, $\quarkd_i$, $\ell_i$ et $\neutrino_i$ correspondent, respectivement, aux quarks d'isospin faible haut (\quarku, \quarkc, \quarkt), d'isospin faible bas (\quarkd, \quarks, \quarkb), aux leptons chargés (\ele, \mu, \tau) et aux neutrinos (\nuele, \numu, \nutau).}
 \label{tab-chapter-MS-MSSM-section-formalisme-subsec-EW-rzpt_femrions_chiralite_isospin}
 \end{table}
 \subsubsection{Symétrie $SU(2)$ et interactions entre bosons}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-SU2_general}
@@ -65,8 +65,8 @@ Procédons comme pour l'électromagnétisme et observons ce que l'invariance de 
 \bar{\psi} \to \bar{\psi}\eexp{-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}
 \label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-spineur}
 \end{equation}
-où $\bm{\alpha}\in\mathbb{R}^3$ et $\bm{\tau}$ un vecteur dont les composantes $\tau_i$ sont les générateurs de $SU(2)$\footnote{Les générateurs de $SU(2)$ sont des matrices $2\times2$ s'identifiant aux matrices de Pauli $\sigma_i$ définies dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A}. Toutefois, ces générateurs agissent dans le cas de $SU(2)_L$ sur les doublets d'isospin alors que les matrices de Pauli agissent sur le spin d'un fermion. Afin d'éviter les confusions, nous utiliserons donc la notation $\tau$.}.
-Notons que l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-spineur} et l'analogue directe de l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-QED-tr_jauge-spineur}.
+où $\bm{\alpha}\in\mathbb{R}^3$ et $\bm{\tau}$ est un vecteur dont les composantes $\tau_i$ sont les générateurs de $SU(2)$\footnote{Les générateurs de $SU(2)$ sont des matrices $2\times2$ s'identifiant aux matrices de Pauli $\sigma_i$ définies dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A}. Toutefois, ces générateurs agissent dans le cas de $SU(2)_L$ sur les doublets d'isospin faible alors que les matrices de Pauli agissent sur le spin d'un fermion. Afin d'éviter les confusions, nous utiliserons donc la notation $\tau$.}.
+Notons que l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-spineur} est l'analogue directe de l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-QED-tr_jauge-spineur}.
 \par Afin de simplifier les calculs qui suivent, nous ne considérerons que des transformations infinitésimales. En effet, $SU(2)$ est un groupe non abélien. Cela signifie deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que l'on applique $a$ puis $b$ ou $b$ puis $a$, \ie\ $ab-ba\neq0$. Ainsi, des termes supplémentaires apparaissent, ou plutôt ne se simplifient pas entre eux. Nous considérons donc les transformations précédentes sous leurs formes infinitésimales, \ie\ au premier ordre en $\bm{\alpha}$,
 \begin{equation}
 \psi \to \left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi
@@ -186,6 +186,7 @@ $\bm{W}_{\mu\nu} = \partial_\mu \bm{W}_\nu - \partial_\nu\bm{W}_\mu$. Or, les in
 Le lagrangien pour $SU(2)$ s'écrit alors
 \begin{equation}
 \Lcal_{SU(2)} = \bar{\psi}(\im \slashed{D} - m) \psi - \frac{1}{4} \bm{W}_{\mu\nu} \cdot \bm{W}^{\mu\nu}
+\mend
 \end{equation}
 \begin{wrapfigure}{R}{6.25cm}
 \centering
@@ -208,7 +209,7 @@ $I_3$ & $\frac{1}{2}$ & $-\frac{1}{2}$ & $0$ \\
 $Q$ & $0$ & $-1$ & $-1$\\
 \bottomrule
 \end{tabular}
-\caption{Valeurs des hypercharges, isospins et charges électriques pour les leptons.}
+\caption{Valeurs des hypercharges, isospins faibles et charges électriques pour les leptons.}
 \label{tab-Y_I_I3_Q-leptons}
 \end{wraptable}
 \subsubsection{Symétrie $SU(2)_L \times U(1)_Y$ et unification électrofaible}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-U1}
@@ -229,10 +230,11 @@ e \leftrightarrow g_Y
 Q \leftrightarrow \frac{1}{2}Y
 \mend
 \end{equation}
-De plus, en sachant que $SU(2)_L$ couple les fermions de chiralité gauche et antifermions de chiralité droite, les résultats pour $SU(2)$ sont directement utilisables en ajoutant les projections décrites par les équations~\eqref{eq-projo_L} et~\eqref{eq-projo_R}.
+De plus, sachant que $SU(2)_L$ couple les fermions de chiralité gauche et les antifermions de chiralité droite, les résultats pour $SU(2)$ sont directement utilisables en ajoutant les projections décrites par les équations~\eqref{eq-projo_L} et~\eqref{eq-projo_R}.
 \par Nous arrivons donc à la définition de la dérivée covariante pour $SU(2)_L \times U(1)_Y$,
 \begin{equation}
 D_\mu = \partial_\mu - \im g_II \bm{\tau}\cdot\bm{W}_\mu - \frac{\im}{2}g_YYB_\mu
+\mend[,]
 \label{eq-definition_Dmu_EW}
 \end{equation}
 pouvant agir sur un doublet d'isospin faible, noté $L$, ou un singlet d'isospin faible, noté $R$, selon
@@ -244,7 +246,7 @@ D_\mu R &= \left[ \partial_\mu + \im g_YB_\mu \right] R
 \mend[,]
 \end{align}
 compte-tenu des différentes valeurs de $Y$ et $I$ données dans le tableau~\ref{tab-Y_I_I3_Q-leptons}.
-\par Nous pouvons alors écrire le lagrangien pour l'interaction électrofaible, invariant sous $SU(2)_L\times U(1)_Y$,
+\par Nous pouvons alors écrire le lagrangien invariant sous $SU(2)_L\times U(1)_Y$ de l'interaction électrofaible,
 \begin{equation}
 \Lcal_{EW}
 =
@@ -252,10 +254,10 @@ compte-tenu des différentes valeurs de $Y$ et $I$ données dans le tableau~\ref
 \mend[,]
 \label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-LSU2LU1Y}
 \end{equation}
-et nous pourrions imaginer que le champ $B_\mu$ correspond au photon, et les champs $W^i_\mu$ aux bosons \Wbosonpm\ et \Zboson. Comme nous allons le voir plus loin, ces quatre bosons sont en fait des combinaisons de ces quatre champs.
+où nous pourrions imaginer que le champ $B_\mu$ correspond au photon et les champs $W^i_\mu$ aux bosons \Wbosonpm\ et \Zboson. Comme nous allons le voir plus loin, ces quatre bosons sont en fait des combinaisons de ces quatre champs.
 \subsubsection{Interaction électrofaible pour les quarks}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-quarks}
 Le lagrangien électrofaible ainsi construit pour les leptons pourrait facilement être réutilisé dans le cas des quarks, $\psi$ étant un champ décrivant un fermion. Cependant, le lagrangien de l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-LSU2LU1Y} ne couple entre eux que des fermions de même génération. Or, il a été observé expérimentalement que l'interaction faible peut également coupler des quarks de générations différentes.
-\par Un mécanisme rendant possible de tels couplages a été introduit par Cabibbo, Kobayashi et Maskawa~\cite{CMK_C1,CMK_C2,CKM_KM}. Le principe est de faire, pour les quarks, la distinction entre les états propres de masse, \ie\ ceux que l'on observe, et les états propres de l'interaction faible. Ces deux ensembles d'états propres diffèrent ainsi pour les quarks d'isospin faible bas et sont reliés entre eux par la matrice CKM $\mathcal{M}_{CKM}$, matrice $3\times3$, unitaire complexe,
+\par Un mécanisme rendant possible de tels couplages a été introduit par Cabibbo, Kobayashi et Maskawa~\cite{CMK_C1,CMK_C2,CKM_KM}. Le principe est de faire, pour les quarks, la distinction entre les états propres de masse, \ie\ ceux que l'on observe, et les états propres de l'interaction faible. Ces deux ensembles d'états propres diffèrent ainsi pour les quarks d'isospin faible bas et sont reliés entre eux par la matrice CKM $\mathcal{M}_{CKM}$, matrice $3\times3$ unitaire complexe,
 \begin{equation}
 \begin{pmatrix}
 \quarkd' \\ \quarks' \\ \quarkb'
@@ -301,7 +303,7 @@ Cependant, il n'y a aucun terme de masse dans le lagrangien de l'équation~\eqre
 \end{equation}
 Or, ce terme n'est pas invariant sous $SU(2)_L\times U(1)_Y$.
 Pour les champs $W^i_\mu$ et $B_\mu$, des termes de masse violeraient également la symétrie de jauge.
-Dès lors, il semble difficile pour un tel lagrangien de décrire les forces électromagnétiques et faible.
+Dès lors, il semble difficile pour un tel lagrangien de décrire les forces électromagnétique et faible.
 \par En réalité, ce lagrangien décrit l'interaction \og électrofaible \fg.
 Les interactions électromagnétique et faible résultent d'un mécanisme de brisure spontanée de symétrie, qui se trouve dans ce cas être le mécanisme de Higgs.
 Dans la section suivante, nous allons voir comment l'introduction du champ de Higgs amène cette brisure de symétrie et comment nous retrouvons des fermions massifs, le photon et les bosons \Wbosonpm\ et \Zboson.
