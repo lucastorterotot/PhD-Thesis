@@ -2,8 +2,8 @@
 Les jets sont des objets physiques composites complexes qu'il est nécessaire de calibrer, comme tout autre objet reconstruit.
 La précision apportée à la mesure des jets est capitale dans de nombreuses analyses, où il s'agit d'une source majeure d'incertitude systématique.
 Les avancées réalisées récemment sur la calibration des jets ont ainsi permis d'améliorer la précision sur la mesure de la section efficace inclusive de production de jets et de la masse du quark~\quarkt~\cite{JERC_RunI}.
-\par À partir des jets reconstruits par les méthodes décrites précédemment, un procédé de \emph{correction de l'énergie des jets} (JEC\footnote{JEC signifie \emph{Jet Energy Correction}.}) est réalisé.
-Il permet de corriger l'échelle en énergie des jets (JES\footnote{JES signifie \emph{Jet Energy Scale}.}) ainsi que la résolution sur cette énergie (JER\footnote{JER signifie \emph{Jet Energy Resolution}.}).
+\par À partir des jets reconstruits par les méthodes décrites précédemment, un procédé de correction de l'énergie des jets (JEC, \emph{Jet Energy Correction}) est réalisé.
+Il permet de corriger l'échelle en énergie des jets (JES, \emph{Jet Energy Scale}) ainsi que la résolution sur cette énergie (JER, \emph{Jet Energy Resolution}).
 La collaboration CMS utilise une approche factorisée dans laquelle plusieurs étapes corrigent chacune un effet en particulier et dépendent des étapes précédentes~\cite{JERC_RunI}.
 La figure~\ref{fig-CMS-JME-13-004_Figure_002-TeX} résume ces étapes, décrites plus en détails dans les sections qui suivent.
 \begin{figure}[h]
@@ -14,9 +14,9 @@ La figure~\ref{fig-CMS-JME-13-004_Figure_002-TeX} résume ces étapes, décrites
 \end{figure}
 \par Distinguons trois stades ou \og niveaux \fg{} de connaissance sur les particules.
 \begin{itemize}
-\item Le niveau \emph{particule}, noté \ptcl, ou niveau \og vrai \fg{}, se réfère aux objets et variables après hadronisation mais avant interaction avec le détecteur. Il s'agit donc des grandeurs recherchées, uniquement accessibles dans les événements simulés.
-\item Le niveau \emph{reconstruit}, noté \reco, correspond aux objets et variables après interaction avec le détecteur et reconstruction par l'algorithme de \PF.
-\item Le niveau \emph{corrigé} ou calibré, noté \cali, correspond aux objets et variables corrigés, \ie\ ceux du niveau reconstruit auxquels ont été appliquées les corrections.
+\item Le niveau \og particule \fg, noté \ptcl, ou niveau \og vrai \fg{}, se réfère aux objets et variables après hadronisation mais avant interaction avec le détecteur. Il s'agit donc des grandeurs recherchées, uniquement accessibles dans les événements simulés.
+\item Le niveau \og reconstruit \fg, noté \reco, correspond aux objets et variables après interaction avec le détecteur et reconstruction par l'algorithme de \PF.
+\item Le niveau \og corrigé \fg{} ou calibré, noté \cali, correspond aux objets et variables corrigés, \ie\ ceux du niveau reconstruit auxquels ont été appliquées les corrections.
 \end{itemize}
 Définissons également une variable importante pour ce chapitre, la réponse d'un jet,
 \begin{equation}
@@ -348,7 +348,7 @@ Sa mesure est réalisée à l'aide d'événements \Gjets\ et \Zjets\ et les rés
 Elle est définie comme une fonction de $\pT_\ptcl$, $\eta$ et $\mu$.
 \par La JER observée dans les simulations diffère de celle observée dans les données, elle est légèrement meilleure.
 Afin de pouvoir réaliser des analyses comparant données et simulations, il est nécessaire d'avoir une JER comparable dans ces deux catégories d'événements.
-La JER des simulations est ainsi détériorée par un facteur d'échelle (\emph{JER SF}), déterminé à partir d'événements \Gjets\ et dijet et défini en fonction de $\eta$.
+La JER des simulations est ainsi détériorée par un facteur d'échelle (JER SF), déterminé à partir d'événements \Gjets\ et dijet et défini en fonction de $\eta$.
 Les résultats obtenus lors du Run~II sont présentés sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JER_SF_RunII}.
 Le principe est le même que pour les corrections résiduelles décrites dans les sections~\ref{chapter-JERC-section-CMS-subsec-residuals_eta} et~\ref{chapter-JERC-section-CMS-subsec-residuals_pT}. Au lieu de s'intéresser à la moyenne de la distribution, c'est sa largeur qui est étudiée.
 \begin{figure}[h]
