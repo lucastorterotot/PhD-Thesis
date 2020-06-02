@@ -89,27 +89,7 @@ Il permet le couplage entre trois et quatre gluons, comme cela est illustré sur
 Le confinement de couleur force les quarks, particules colorées, à s'associer en formant des particules composites, les hadrons, états liés de charge globale de couleur nulle. Ce phénomène empirique peut s'expliquer par la variation en fonction de l'échelle d'énergie de la constante de couplage de l'interaction forte $g_s$, représentée sur la figure~\ref{fig-g_s_fct_energy}.
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=10cm]{\PhDthesisdir/contents/chapter-MS-MSSM/formalisme/QCD_value_fct_Q.png}};
-\fill [white] (1,0) rectangle (10, .65);
-\fill [white] (1.15,0) rectangle (0,6);
-\fill [white] (1.5,.85) rectangle (7.2,1.3);
-
-\draw (1.2,.5) node {\small \num{1}} ;
-\draw (3.8,.5) node {\small \num{10}} ;
-\draw (6.45,.5) node {\small \num{100}} ;
-\draw (9.1,.5) node {\small \num{1000}} ;
-
-\draw (5,.25) node {$k$ (\SI{}{\GeV})} ;
-
-\draw (.8,1.5) node {\small \num{0.1}} ;
-\draw (.8,3.15) node {\small \num{0.2}} ;
-\draw (.8,4.7) node {\small \num{0.3}} ;
-
-\draw (.5,5.8) node {$g_s(k)$} ;
-
-\draw (1.6, 1.1) node [right] {\small $\equiv$ QCD $g_s(m_{\Zboson}) = \num{0.1181}\pm\num{0.0011}$};
-\end{tikzpicture}
+\includegraphics[width=10cm]{\PhDthesisdir/plots_and_images/from_PDG_booklet_2018/QCD_value_fct_Q.tex}
 \caption[Mesure de $g_s$ en fonction de l'échelle d'énergie.]{Mesures de $g_s$ en fonction de l'échelle d'énergie $k$ (points) et prédiction théorique (courbe)~\cite{PDG_booklet_2018}. Le degré des calculs perturbatifs de QCD utilisés pour extraire $g_s$ est indiqué entre parenthèses (NLO: \emph{next-to-leading order}, \ie\ jusqu'à l'ordre suivant le premier degré non nul; NNLO: un ordre de plus que NLO; etc.).}
 \label{fig-g_s_fct_energy}
 \end{figure}
@@ -119,7 +99,7 @@ Ainsi, séparer et isoler des particules colorées mène à une énergie potenti
 D'autres techniques sont toutefois utilisées, comme la méthode de QCD sur réseau. Son principe est de discrétiser l'espace-temps en un réseau de points. Bien que cette méthode requière d'importantes capacités de calcul et beaucoup de temps, elle permet d'obtenir avec succès les masses des hadrons comme cela se voit sur la figure~\ref{fig-lattice_QCD_masses} pour les hadrons légers.
 \begin{figure}[h]
 \centering
-\includegraphics[width=.5\textwidth]{\PhDthesisdir/contents/chapter-MS-MSSM/formalisme/light_hadrons_masses.png}
+\includegraphics[width=.5\textwidth]{\PhDthesisdir/plots_and_images/from_ab_initio_hadron_masses/light_hadrons_masses.png}
 \caption[Spectre de masse des hadrons légers.]{Spectre de masse des hadrons légers~\cite{ab_initio_hadron_masses}. Les lignes horizontales ainsi que les zones grisées sont les valeurs expérimentales et les largeurs de désintégration. Les résultats obtenus en utilisant des calculs de QCD sur réseau sont représentés par des cercles, avec les erreurs associées. Seules les masses des hadrons \pion, \Kaon\ et \Xibaryon\ sont sans barre d'erreur, elles sont utilisées pour fixer les paramètres libres du modèle.}
 \label{fig-lattice_QCD_masses}
 \end{figure}
