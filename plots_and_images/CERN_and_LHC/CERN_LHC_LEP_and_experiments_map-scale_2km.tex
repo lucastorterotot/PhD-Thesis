@@ -1,0 +1,36 @@
+\newcounter{LHCMapLineCounter}
+\def\theLHCMapLineCounter{\arabic{LHCMapLineCounter}}
+\begin{tikzpicture}
+\input{\PhDthesisdir/plots_and_images/CERN_and_LHC/CERN_LHC_map-scale-bg.tex}
+
+\def\LHCcolor{ltcolorred3}
+\def\LEPcolor{ltcolorcyan3}
+\def\RingPtcolor{black}
+
+%\foreach \coord in {1,2,3,4,5,6,7,8,32}{
+%\fill[\RingPtcolor] (LHCp\coord) circle (1pt);
+%}
+
+
+\setcounter{LHCMapLineCounter}{0}
+\foreach \coord in {DELPHI,L3,OPAL,ALEPH}{
+\draw (-.5,{.75+(6.45-.75)*\theLHCMapLineCounter/3}) node (tmp) [left] {\coord};
+\draw [ultra thick, \LEPcolor] (tmp.east)--+(.25,0) -- (\coord);
+\fill[\LEPcolor] (\coord) circle (4pt);
+\stepcounter{LHCMapLineCounter}
+}
+\setcounter{LHCMapLineCounter}{0}
+\foreach \coord in {ATLAS,LHCb,ALICE,CMS}{
+\draw (7.5,{.75+(6.45-.75)*\theLHCMapLineCounter/3}) node (tmp) [right] {\coord};
+\draw [ultra thick, \LHCcolor] (tmp.west)--+(-.25,0) -- (\coord);
+\fill[\LHCcolor] (\coord) circle (4pt);
+\stepcounter{LHCMapLineCounter}
+}
+\foreach \coord in {ALEPH,L3,DELPHI,OPAL}{
+\fill[\LEPcolor] (\coord) --+ (110:4pt) arc (110:110+180:4pt);
+}
+
+\draw (9,3.6) node {\bfseries\textsl{LHC}};
+\draw (-2,3.6) node {\bfseries\textsl{LEP}};
+
+\end{tikzpicture}
