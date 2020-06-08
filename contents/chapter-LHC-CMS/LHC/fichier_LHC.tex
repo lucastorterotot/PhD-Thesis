@@ -5,8 +5,29 @@ Le LHC est installé dans le même tunnel que le LEP, il s'agit donc d'un accél
 \par Le LHC permet de réaliser des collisions proton-proton, proton-ion lourd et ion lourd-ion lourd.
 Les collisions d'ions lourds permettent de reproduire les conditions des premiers instants de l'Univers après le \emph{Big Bang} et sont principalement étudiée par l'expérience ALICE, une des quatre expériences du LHC présentées dans la section~\ref{chapter-LHC-section-LHC-subsec-experiments}.
 Dans tous les cas, deux faisceaux de particules sont accélérés en sens inverses.
-Dans le cadre de cette thèse, seules les collisions de protons sont considérées.
-\par \todo{Run I, II, III ...}
+Seules les collisions de protons sont considérées dans cette thèse.
+\subsection{Exploitation du LHC}\label{chapter-LHC-section-LHC-subsec-LHC_runs}
+Le fonctionnement du LHC peut être divisé en plusieurs périodes ou \emph{Runs}.
+Chaque \emph{Run} du LHC présente différentes caractéristiques, en particulier l'énergie dans le centre de masse des collisions.
+Le tableau~\ref{tab-LHC_runs} résume les différents \emph{Runs} du LHC, passés et à venir.
+Chaque \emph{Run} est lui-même divisé par année civile, des arrêts techniques étant faits en période hivernale.
+Enfin, une année civile est subdivisée en plusieurs périodes (A, B, C, etc.) entre lesquelles les conditions expérimentales peuvent varier, comme la nature des particules entrant en collision.
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+\toprule
+Run & Période & Énergie dans le centre de masse & Luminosité\\
+\midrule
+I & 2011-2012 & 7 à \SI{8}{\TeV} & \SI{30}{\femto\barn^{-1}} \\
+II & 2016-2018 & \SI{13}{\TeV} & \SI{190}{\femto\barn^{-1}} \\
+III & 2021-2024 & 13 à \SI{14}{\TeV} & \SI{350}{\femto\barn^{-1}}? \\
+IV & 2027-2030 & \SI{14}{\TeV} & \multirow{2}{*}{\SI{3000}{\femto\barn^{-1}}?}\\
+V & 2032-2034 & \SI{14}{\TeV} & \\
+\bottomrule
+\end{tabular}
+\caption[Runs du LHC.]{Runs du LHC avec les énergies dans le centre de masse et les luminosités correspondantes~\cite{LHC_commissioning}. La luminosité est présentée dans la section~\ref{chapter-LHC-section-LHC-subsec-lumi}.}
+\label{tab-LHC_runs}
+\end{table}
 \subsection{Accélération de protons}\label{chapter-LHC-section-LHC-subsec-pp_acceleration}
 Les protons sont obtenus par ionisation de dihydrogène, directement issu d'une bouteille.
 Les protons sont alors progressivement accélérés à travers différentes installations du CERN, illustrées sur la figure~\ref{fig-chapter-LHC-section-CERN-CERN_Accelerator-Complex}, menant les protons à des niveaux d'énergie de plus en plus hauts avant de pouvoir être injectés dans le LHC~\cite{LHC_paper3}:
