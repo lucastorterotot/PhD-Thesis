@@ -98,7 +98,77 @@ Il s'agit de collisions dans lesquelles les constituants des protons interagisse
 Les faisceaux du LHC sont stables une dizaine d'heures, pendant lesquelles des collisions surviennent 40 millions de fois par seconde.
 La luminosité permet de rendre compte de la quantité de collisions réalisées.
 \subsection{Luminosité et nombre d'événements}\label{chapter-LHC-section-LHC-subsec-lumi}
+La quantité d'événements par unité de temps $\dd{N}_i$ d'un processus physique $i$ de section efficace $\sigma_i$ s'exprime
+\begin{equation}
+\dd{N}_i = \lumi_\text{inst} \sigma_i \dd{t}
+\end{equation}
+où $\lumi_\text{inst}$ est la luminosité instantanée du dispositif expérimental, exprimée par unité de surface et de temps.
+La luminosité instantanée est donc une densité de flux, d'où son nom.
+\par La luminosité instantanée au LHC peut s'exprimer en fonction des propriétés des faisceaux selon
+\begin{equation}
+\lumi_\text{inst}
+= \frac{\gamma\nu n_p N_p^2}{4\pi\epsilon_n\beta^*}
+= \frac{\nu n_p N_p^2}{4\pi\sigma_x\sigma_y}
+\end{equation}
+où
+$\gamma$ le boost de Lorentz des paquets de protons,
+$\nu$ est la fréquence de révolution des paquets dans l'anneau du LHC,
+$n_p$ le nombre de paquets,
+$N_p$ le nombre de protons par paquet,
+$\epsilon_n$ l'émittance transverse, qui permet de mesurer le parallélisme des faisceaux,
+$\beta^*$ la fonction d'amplitude mesurant la distance entre le point de croisement des faisceaux et le lieu où un faisceau est deux fois plus large,
+$\sigma_x$ et $\sigma_y$ les dimensions transverses du faisceau au point d'interaction.
+La luminosité instantanée est donc favorisée par une faible largeur du faisceau au niveau des points d'interactions.
+\par La luminosité totale \lumi\ s'obtient par intégration temporelle de $\lumi_\text{inst}$.
+La luminosité intégrée s'exprime donc par unité de surface.
+Elle permet de quantifier statistiquement le nombre d'événements $N_i$ d'un processus physique $i$ de section efficace $\sigma_i$ par
+\begin{equation}
+N_i = \lumi \sigma_i
+\mend
+\end{equation}
+\par Les figures~\ref{subfig-CMS_int_lumi_2016}, \ref{subfig-CMS_int_lumi_2017} et~\ref{subfig-CMS_int_lumi_2018} présentent les luminosités totales délivrées par le LHC et enregistrées par le détecteur CMS en fonction du temps lors du Run~II.
+Les luminosités y sont exprimées en inverse femtobarn.
+Le barn ($\SI{1}{\barn}=\SI{e-28}{\meter^2}$) est une unité qui permet d'obtenir des valeurs numériques pour la luminosité plus abordables qu'avec les unités usuelles du système international.
+En effet pour le Run~II du LHC, la luminosité totale est de
+\begin{equation}
+\SI{190}{\femto\barn^{-1}} = \SI{190e15}{\barn^{-1}} = \SI{190e43}{\meter^{-2}}
+\mend[,]
+\end{equation}
+son expression en \SI{}{\meter^{-2}} n'est donc pas pratique à cause du facteur \num{e43}.
+\par Pendant le Run~II, les bonnes performances du détecteur CMS lui ont permis d'enregistrer \SI{92.39}{\%} de la luminosité délivrée par le LHC\footnote{\SI{92.22}{\%} en 2016, \SI{90.34}{\%} en 2017 et \SI{93.83}{\%} en 2018.}~\cite{CMS-PAS-LUM-17-001,CMS-PAS-LUM-17-004,CMS-PAS-LUM-18-002}.
+Les projets de développements futurs du LHC s'orientent dans un premier temps vers une augmentation de la luminosité, il s'agit du \og HL-LHC \fg{} (LHC Haute Luminosité).
+Les performances actuelles du détecteur devront être encore améliorées d'ici-là et la collaboration y travaille d'ores et déjà.
+\begin{figure}[p]
+\centering
 
+\subcaptionbox{Luminosité totale délivrée par le LHC et enregistrée par le détecteur CMS en fonction du temps en 2016.\label{subfig-CMS_int_lumi_2016}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS_lumi_public/lumi/int_lumi_per_day_cumulative_pp_2016.pdf}}
+\hfill
+\subcaptionbox{Distribution du nombre moyen d'interactions par croisement de faisceaux en 2016.\label{subfig-CMS_PU_profile_16}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS_lumi_public/PU/pileup_pp_2016_69200.pdf}}
+\caption[Luminosité totale et empilement en 2016.]{Luminosité totale et empilement en 2016~\cite{CMS_lumi_public,CMS-PAS-LUM-17-001}.}
+\label{fig-CMS_int_lumi_and_PU2016}
+
+\vspace{.75\baselineskip}
+
+\subcaptionbox{Luminosité totale délivrée par le LHC et enregistrée par le détecteur CMS en fonction du temps en 2017.\label{subfig-CMS_int_lumi_2017}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS_lumi_public/lumi/int_lumi_per_day_cumulative_pp_2017NormtagLumi.pdf}}
+\hfill
+\subcaptionbox{Distribution du nombre moyen d'interactions par croisement de faisceaux en 2017.\label{subfig-CMS_PU_profile_17}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS_lumi_public/PU/pileup_pp_2017_69200.pdf}}
+\caption[Luminosité totale et empilement en 2017.]{Luminosité totale et empilement en 2017~\cite{CMS_lumi_public,CMS-PAS-LUM-17-004}.}
+\label{fig-CMS_int_lumi_and_PU2017}
+
+\vspace{.75\baselineskip}
+
+\subcaptionbox{Luminosité totale délivrée par le LHC et enregistrée par le détecteur CMS en fonction du temps en 2018.\label{subfig-CMS_int_lumi_2018}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS_lumi_public/lumi/int_lumi_per_day_cumulative_pp_2018NormtagLumi.pdf}}
+\hfill
+\subcaptionbox{Distribution du nombre moyen d'interactions par croisement de faisceaux en 2018.\label{subfig-CMS_PU_profile_18}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS_lumi_public/PU/pileup_pp_2018_69200.pdf}}
+\caption[Luminosité totale et empilement en 2018.]{Luminosité totale et empilement en 2018~\cite{CMS_lumi_public,CMS-PAS-LUM-18-002}.}
+\label{fig-CMS_int_lumi_and_PU2018}
+\end{figure}
 \subsection{L'empilement}\label{chapter-LHC-section-LHC-subsec-PU}
 
 \subsection{Les expériences du LHC}\label{chapter-LHC-section-LHC-subsec-experiments}
