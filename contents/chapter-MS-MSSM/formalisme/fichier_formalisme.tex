@@ -23,14 +23,14 @@ Afin de comprendre pourquoi ce formalisme mathématique permet effectivement d'o
 \end{wrapfigure}
 \subsection{Lagrangien et équation d'Euler-Lagrange}\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien}
 \subsubsection{Lagrangien en mécanique Newtonienne}\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien-subsubsec-lagrangien_meca_classique}
-Considérons une particule de masse $m$, soumise à une force $F$, se déplaçant dans le temps le long d'une dimension $x$, d'un point $A$ à $t=0$ à un point $B$ à $t=\tau$, comme illustré sur la figure~\ref{fig-ptc_classique_ptA_to_pt_B}.
+Soit une particule de masse $m$, soumise à une force $F$, se déplaçant dans le temps le long d'une dimension $x$, d'un point $A$ à $t=0$ à un point $B$ à $t=\tau$, comme illustré sur la figure~\ref{fig-ptc_classique_ptA_to_pt_B}.
 \par 
 Comme cela est enseigné dès les premiers cours de physique, la trajectoire de cette particule peut être déterminée à l'aide du principe fondamental de la dynamique, ou seconde loi de Newton, qui s'exprime simplement dans ce cas sous la forme
 \begin{equation}
 m\dv[2]{x}{t} = F
 \mend
 \end{equation}
-Nous obtenons la position de la particule à tout instant.
+La position de la particule à tout instant est alors obtenue.
 \begin{wrapfigure}{R}{7cm}
 \centering
 \begin{tikzpicture}
@@ -73,7 +73,8 @@ avec, en notant $\dot{x}=\dv{x}{t}$,
 \mend
 \end{equation}
 \par
-Nous pouvons alors nous demander de quelle manière ces grandeurs sont modifiées lorsque la trajectoire suivie par la particule varie par rapport à la trajectoire déterminée par la mécanique Newtonienne. La variation de la valeur moyenne de l'énergie potentielle s'exprime
+Lorsque la trajectoire suivie par la particule varie par rapport à la trajectoire déterminée par la mécanique Newtonienne, ce qui est le cas en mécanique quantique, ces grandeurs sont modifiées.
+La variation de la valeur moyenne de l'énergie potentielle s'exprime
 \begin{equation}
 \fdv{\average{V}}{x(t')}
 = \frac{1}{\tau}\int_0^\tau \fdv{V(x(t))}{x(t')} \dd{t}
@@ -105,7 +106,7 @@ m\dv[2]{x}{t} = F
 \fdv{x(t')}(\average{T}-\average{V}) = 0 \label{eq-fdv_x_T-V_is_0}
 \mend
 \end{equation}
-Ainsi, la différence entre l'énergie cinétique et l'énergie potentielle du système étudié semble jouer un rôle particulier lorsque l'on s'intéresse aux différentes trajectoires possibles pour ce système. Définissons alors le lagrangien $L$ du système étudié comme
+Ainsi, la différence entre l'énergie cinétique et l'énergie potentielle du système étudié semble jouer un rôle particulier lorsque l'on s'intéresse aux différentes trajectoires possibles pour ce système. Le lagrangien $L$ du système étudié est alors défini comme
 \begin{equation}
 L = T-V
 \mend
@@ -141,7 +142,7 @@ ce qui implique
 Cette équation est l'équation d'Euler-Lagrange et permet d'obtenir toutes les équations du mouvement du système, \ie\ de décrire son évolution au cours du temps.
 
 \subsubsection{Lagrangien, champs et symétries}\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien-subsubsec-lagrangien_champs_symetries}
-Généralisons le raisonnement précédent à un espace à une dimension temporelle et trois dimensions spatiales.
+Le raisonnement précédent peut se généraliser à un espace à une dimension temporelle et trois dimensions spatiales.
 À partir du lagrangien, il est possible de définir la densité lagrangienne \Lcal\ telle que
 \begin{equation}
 L = \int\dd[3]{x}\Lcal
@@ -149,7 +150,7 @@ L = \int\dd[3]{x}\Lcal
 S = \int\dd[4]{x}\Lcal
 \end{equation}
 où $x$ désigne la coordonnée dans l'espace de Minkowski, \ie\ l'espace-temps à quatre dimensions.
-Considérons maintenant une densité lagrangienne dépendant d'un champ $\phi(x)$ et de ses dérivées $\partial_\mu\phi(x)$.
+Soit à présent une densité lagrangienne dépendant d'un champ $\phi(x)$ et de ses dérivées $\partial_\mu\phi(x)$.
 Alors,
 \begin{equation}
 S = \int\dd[4]{x}\Lcal(\phi(x),\partial_\mu\phi(x))
@@ -162,8 +163,7 @@ et du principe de moindre action résultent les équations d'Euler-Lagrange pour
 \mend
 \end{equation}
 Il s'agit à présent de déterminer la densité lagrangienne \Lcal\ du modèle standard.
-Par la suite, nous nommerons la densité lagrangienne \Lcal\ \og lagrangien \fg{} dans un souci de praticité.
-%Nous cherchons donc à déterminer le lagrangien du modèle standard.
+Par la suite, la densité lagrangienne \Lcal\ est nommée \og lagrangien \fg{} dans un souci de praticité.
 \par Un champ quantique peut subir une transformation de jauge locale. Une telle transformation doit laisser la physique inchangée, ainsi le lagrangien du modèle standard est construit pour être invariant sous les transformations de jauges locales du groupe de symétrie
 \begin{equation}
 SU(3)_C \times SU(2)_L \times U(1)_Y
