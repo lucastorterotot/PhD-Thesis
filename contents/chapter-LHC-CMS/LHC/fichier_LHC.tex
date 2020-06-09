@@ -44,7 +44,59 @@ Cette technique présente l'avantage d'accélérer les particules différemment 
 \par Afin de maintenir les particules dans le tube circulaire du LHC, leur trajectoire est courbée, \ie\ qu'une accélération orthogonale aux faisceaux est appliquée.
 Cette courbure s'obtient grâce à un champ magnétique de \SI{8.33}{\tesla} généré par 1232 aimants dipolaires supraconducteurs répartis tout au long des \SI{27}{\kilo\meter} du LHC et refroidis à l'hélium superfluide à \SI{1.8}{\kelvin}.
 \subsection{Collisions de protons}\label{chapter-LHC-section-LHC-subsec-pp_collisions}
-
+\subsubsection{Structure du proton}
+\begin{wrapfigure}{R}{8cm}
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/plots_and_images/Feynman_diagrams/QCD/fgraph-proton_structure.tex}
+\vspace{\baselineskip}
+\caption{Diagramme de Feynman de la propagation d'un proton avec apparition d'une paire \quark\antiquark.}
+\label{fig-proton_mer_quarks_fmf}
+\end{wrapfigure}
+Les protons ne sont pas des particules fondamentales, ils possèdent une sous-structure.
+En tant que baryons, les protons sont donc des hadrons dont la composition moyenne est de trois quarks, en l'occurrence deux \emph{up} et un \emph{down}.
+Cependant, ces quarks échangent des gluons virtuels par l'intermédiaire de l'interaction forte.
+Ces gluons peuvent se matérialiser en paires \quark\antiquark, comme illustré sur la figure~\ref{fig-proton_mer_quarks_fmf}.
+Au sein des protons, d'autres partons que les trois quarks~\quarku, \quarku\ et~\quarkd\ dits \og de valence \fg{} peuvent donc être présents.
+Ces particules additionnelles forment la \og mer \fg{} dans laquelle se trouvent ainsi des gluons, des antiquarks et des quarks de saveurs lourdes.
+\par Chacun des constituants du proton porte une fraction $x$ de l'énergie totale du proton.
+La probabilité pour qu'un parton $i$ du proton porte une fraction $x_i$ de l'énergie peut être décrite à l'aide des fonctions de densité partoniques (PDF, \emph{Parton Distribution Functions}).
+Ces fonctions sont obtenues par ajustement des données expérimentales~\cite{Gao_2018,Ball_2015} et sont représentées sur la figure~\ref{fig-proton_PDFs}.
+Les partons de la mer portent généralement une faible fraction de l'énergie.
+La fraction d'énergie la plus probable portée par un quark de valence est de \num{10} à \SI{20}{\%} selon l'échelle d'énergie.
+L'ensemble des quarks de valence porte ainsi \num{30} à \SI{60}{\%} seulement de l'énergie totale du proton.
+Dans le cas du proton, les quarks de valence~\quarku\ portent environ deux fois plus d'énergie que les quarks de valence~\quarkd, ce qui est cohérent avec la structure moyenne (\quarku\quarku\quarkd) du proton.
+\begin{figure}[h]
+\centering
+\subcaptionbox{Pour $\mu^2 = \SI{10}{\GeV^2}$.\label{subfig-proton_PDF_100_GeV2}}[.45\textwidth]
+{\input{/home/torterotot/Documents/PhD-Thesis/plots_and_images/from_PDG_booklet_2018/parton_pdf_100_GeV2.tex}}
+\hfill
+\subcaptionbox{Pour $\mu^2 = \SI{e4}{\GeV^2}$.\label{subfig-proton_PDF_10000_GeV2}}[.45\textwidth]
+{\input{/home/torterotot/Documents/PhD-Thesis/plots_and_images/from_PDG_booklet_2018/parton_pdf_10000_GeV2.tex}}
+\caption[Fonctions de densité partoniques.]{Fonctions de densité partoniques (PDF, \emph{Parton Distribution Functions}) à différentes échelles d'énergie $\mu$ obtenues au NNLO NNPDF3.0~\cite{NNPDF30} avec $g_s(m_{\Zboson}^2)=\num{0.118}$~\cite{PDG_booklet_2018}. Les bandes tracées correspondent aux PDF $f$, avec incertitude, multipliées la fraction d'impulsion $x$, où $f$ peut être les quarks~\quarku\ et~\quarkd\ de valence ($\quarku_v$, $\quarkd_v$) ou les gluons (\gluon), quarks et antiquarks de la mer (\antiquarku, \antiquarkd, $\quarks\simeq\antiquarks$, $\quarkc=\antiquarkc$, $\quarkb=\antiquarkb$).}
+\label{fig-proton_PDFs}
+\end{figure}
+\par Lorsque deux protons entrent en collision, se sont donc des constituants de ces protons qui interagissent.
+Or, le constituant du premier proton ne porte pas forcément une fraction d'énergie $x$ identique à celle que porte le constituant du second proton.
+Ainsi, bien que les impulsions des deux protons soient opposées l'une à l'autre, \ie\ que le référentiel du centre de masse des protons coïncide avec le référentiel du détecteur, ceci n'est pas vrai pour les partons impliqués dans la collision.
+Lors des collisions de protons, seule l'impulsion totale dans le plan transverse aux faisceaux est donc nulle et l'impulsion selon l'axe des faisceaux est inconnue.
+De plus, l'énergie dans le centre de masse des protons n'est pas totalement utilisée dans la collision.
+Une collision de partons à \SI{13}{\TeV} est ainsi peu probable au LHC, toutefois ces collisions de protons permettent de balayer une large gamme d'énergies effectives de collision, ce qui est favorable aux recherches de nouvelles particules.
+\subsubsection{Faisceaux et paquets de protons}
+La dimension spatiale des protons, de l'ordre du femtomètre (\SI{e-15}{\meter}) ne permet pas de les faire se collisionner un à un de manière efficace.
+Au LHC, deux faisceaux de protons sont ainsi accélérés, chacun dans un sens.
+Afin de ne pas avoir des collisions en permanence, ce qui rendrait impossible une exploitation des signaux dans les détecteurs, les protons des faisceaux sont regroupés par paquets.
+Ces paquets sont espacés temporellement de \SI{25}{\nano\second} lors du Run~II, laissant aux instruments de détection un laps de temps suffisant afin de distinguer deux collisions successives.
+\par La formation et le maintient de ces paquets est rendue possible par l'utilisation des cavités radiofréquence.
+Elles produisent un champ électrique dont la norme est plus importante au niveau des queues des paquets qu'à leurs têtes.
+Alors, les protons \og en queue de peloton \fg{} sont plus accélérés que les protons en tête et ils les rattrapent.
+\par Dans chacun des deux faisceaux du LHC, 2808 paquets sont ainsi formés.
+Avant les premières collisions, un paquet comporte \num{1.15e11} protons.
+Les paquets font environ \SI{30}{\centi\meter} de long.
+Lorsqu'ils circulent dans le LHC, leur diamètre est de l'ordre du millimètre mais au niveau des points de collisions, un ensemble de champs magnétique réduit ce diamètre à \SI{16}{\micro\meter}.
+\par Le passage des \num{1.15e11} protons d'un paquet d'un faisceau du LHC à travers la surface de \SI{16}{\micro\meter} de diamètre, combiné au passage d'un paquet de l'autre faisceau, permet d'obtenir des collisions dures entre protons.
+Il s'agit de collisions dans lesquelles les constituants des protons interagissent et créent de nouvelles particules par conservation de l'énergie.
+Les faisceaux du LHC sont stables une dizaine d'heures, pendant lesquelles des collisions surviennent 40 millions de fois par seconde.
+La luminosité permet de rendre compte de la quantité de collisions réalisées.
 \subsection{Luminosité et nombre d'événements}\label{chapter-LHC-section-LHC-subsec-lumi}
 
 \subsection{L'empilement}\label{chapter-LHC-section-LHC-subsec-PU}
