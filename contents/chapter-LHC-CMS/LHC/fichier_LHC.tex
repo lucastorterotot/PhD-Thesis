@@ -170,7 +170,23 @@ Les performances actuelles du détecteur devront être encore améliorées d'ici
 \label{fig-CMS_int_lumi_and_PU2018}
 \end{figure}
 \subsection{L'empilement}\label{chapter-LHC-section-LHC-subsec-PU}
-
+L'empilement (PU, \emph{Pile-Up}) est le phénomène de superposition des signaux issus de différents processus physiques.
+Il existe deux types d'empilement, synchrone et asynchrone.
+\subsubsection{L'empilement synchrone}
+Plusieurs collisions de protons peuvent avoir lieu lors d'un même  croisement de paquet de protons ou \og événement \fg.
+Le nombre d'interactions d'empilement synchrone moyen dépend des conditions du LHC.
+Les figures~\ref{subfig-CMS_PU_profile_16}, \ref{subfig-CMS_PU_profile_17} et~\ref{subfig-CMS_PU_profile_18} présentent ces distributions pour les trois années du Run~II.
+\par À chaque collision correspond un vertex, lieu effectif de la rencontre entre les deux protons.
+Pour chacun des vertex de l'événement, la somme des impulsions transverses au carré des traces provenant de ce vertex est calculée.
+Le vertex principal est choisi comme étant le vertex présentant la plus grande valeur de cette somme.
+Les autres vertex sont considérés comme des vertex d'empilement et sont en général peu intéressants dans les analyses expérimentales.
+\par Toutefois, les particules provenant des vertex d'empilement laissent elles aussi des signaux dans le détecteur, en plus des signaux d'intérêts.
+Par conséquent, la reconstruction et l'identification des particules issues du vertex principal est perturbée.
+\subsubsection{L'empilement asynchrone}
+L'empilement asynchrone est dû aux temps de réponses des composants du détecteur.
+Des croisements de paquets ont en effet lieu toutes les \SI{25}{\nano\second} au LHC.
+Or, des composants peuvent présenter ponctuellement un temps de réponse supérieur, selon les signaux qu'ils doivent traiter.
+Les signaux de sortie du détecteur pour un événement donné peuvent donc être superposés avec ceux de l'événement suivant, ou précédant selon le point de vue.
 \subsection{Les expériences du LHC}\label{chapter-LHC-section-LHC-subsec-experiments}
 Il existe sept expériences au LHC.
 Parmi elles, quatre sont de \og grandes expériences \fg{} et se situent chacune aux points d'interactions de l'anneau afin d'étudier les collisions qui y sont produites.
