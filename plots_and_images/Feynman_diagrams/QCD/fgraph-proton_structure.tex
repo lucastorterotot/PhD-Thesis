@@ -1,0 +1,28 @@
+\begin{fmffile}{proton_structure}\fmfstraight
+\begin{fmfchar*}(50,30)
+  \fmfleft{in1,in2,i1,i2,i3}
+  \fmfright{on1,on2,o1,o2,o3}
+  \fmf{phantom}{in1,vn1,in2}
+  \fmf{phantom,tension=3}{vn1,vn2}
+  \fmf{phantom}{on1,vn2,on2}
+  \fmf{phantom}{i1,v11,v12,v13,v14,o1}
+  \fmf{phantom}{i2,v21,v22,v23,v24,o2}
+  \fmf{phantom}{i3,v31,v32,v33,v34,o3}
+  \fmffreeze
+  \fmf{fermion}{i1,v11,v12,v14,o1}
+  \fmf{fermion}{i2,v21,v23,o2}
+  \fmf{fermion}{i3,v32,o3}
+  \fmf{fermion,left}{vn1,vn2,vn1}
+  \fmf{gluon}{v21,v32}
+  \fmf{gluon}{v12,v23}
+  \fmf{gluon}{v11,vn1}
+  \fmf{gluon}{vn2,v14}
+  \fmfdot{v21,v32,v23,v12,v11,vn1,vn2,v14}
+  \fmflabel{\quarku}{i1}
+  \fmflabel{\quarku}{i2}
+  \fmflabel{\quarkd}{i3}
+  \fmflabel{\quarku}{o1}
+  \fmflabel{\quarku}{o2}
+  \fmflabel{\quarkd}{o3}
+\end{fmfchar*}
+\end{fmffile}
