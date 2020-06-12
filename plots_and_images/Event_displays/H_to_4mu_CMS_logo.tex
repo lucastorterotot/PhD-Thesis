@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+\input{\PhDthesisdir/plots_and_images/Event_displays/macro_defs.tex}
+
+\clip (0,0) circle (\muonroutd);
+
+\foreach \rin/\rout/\color in {
+\muonrina/\muonroutd/ltcolorblue1,
+\Solenrin/\Solenrout/ltcolororange1,
+\HCALrin/\HCALrout/ltcolorgray1,
+\ECALrin/\ECALrout/ltcolorgreen2,
+\trackerrin/\trackerrout/ltcolorgreen1%
+}{
+\begin{scope}
+\clipCircle{\rin}{\rout}
+\fill (0,0) [color = \color] circle (\rout);
+\end{scope}
+%\fill (0,0) [color = white] circle (\rin);
+}
+
+\def\muoncolor{ltcolorred}
+\printantimuonnolabel{50}
+\printantimuonnolabel{45}
+\printantimuonnolabel{40}
+\printantimuonnolabel{35}
+
+\end{tikzpicture}
