@@ -1,6 +1,25 @@
 \section{Reconstruction des événements}\label{chapter-LHC-section-evt_reco}
-
-\input{\PhDthesisdir/contents/chapter-LHC-CMS/evt_reco/PF/fichier_PF.tex}
+L'analyse des événements à partir des signaux bruts issus du détecteur n'est pas aisée, qu'il s'agisse de données ou de simulations.
+Une interprétation de ces signaux en termes de particules physiques donne un point de départ beaucoup plus accessible.
+En effet, ces signaux sont comme des \og symptômes \fg{} du passage des particules dans le détecteur.
+La reconstruction des événements consiste donc en un \og diagnostic \fg{} de l'événement.
+\par Les signaux caractéristiques des différents types de particules dans le plan transverse du détecteur CMS sont illustrées sur la figure~\ref{fig-chapter-LHC-section-evt_reco-cms_slice}\footnote{Dans toute la suite de ce manuscrit, les schémas des événements dans le détecteur utilisent la même présentation que sur la figure~\ref{fig-chapter-LHC-section-evt_reco-cms_slice}, en particulier pour les couleurs des sous-détecteurs et des particules.}.
+Il s'agit de la conséquence directe de la description du détecteur de la section~\ref{chapter-LHC-section-CMS}.
+La plupart des particules laissent des signaux dans plusieurs sous-détecteurs.
+Pour une particule donnée, ces signaux doivent donc présenter une corrélation.
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{\PhDthesisdir/plots_and_images/CMS_slices/own/all_ptcs.tex}
+\caption[Coupe transverse schématique du détecteur CMS.]{Coupe transverse schématique du détecteur CMS et signaux caractéristiques laissés par les particules. Les hadrons forment un dépôt dans le HCAL. Les hadrons chargés présentent de plus une trace dans le trajectographe dont l'extrapolation doit passer par ce dépôt. De même, les photons et électrons forment un dépôt dans le ECAL et les électrons présentent une trace dans le trajectographe dont l'extrapolation doit passer par ce dépôt. Enfin, les muons se propagent à travers tout le détecteur et laissent une trace dans les chambres à muons dont l'extrapolation doit correspondre à une trace du trajectographe.}
+\label{fig-chapter-LHC-section-evt_reco-cms_slice}
+\end{figure}
+\par La reconstruction des événements se fait ainsi en combinant les informations issues des différents sous-détecteurs.
+Un algorithme spécialement développé afin d'optimiser cette combinaison, l'algorithme de \emph{Particle Flow} (\PF), a pour rôle de réaliser cette reconstruction qui se déroule en deux temps:
+\begin{enumerate}
+\item reconstruction des éléments d'identification des particules à partir des signaux de chaque sous-détecteur;
+\item reconstruction des particules par combinaison des éléments d'identification.
+\end{enumerate}
+Les sections~\ref{} et~\ref{} présentent ces deux étapes.
+\input{\PhDthesisdir/contents/chapter-LHC-CMS/evt_reco/PF_elements/fichier_PF_elements.tex}
 \input{\PhDthesisdir/contents/chapter-LHC-CMS/evt_reco/ptc_ID/fichier_ptc_ID.tex}
 \input{\PhDthesisdir/contents/chapter-LHC-CMS/evt_reco/objets_haut_niveau/fichier_objets_haut_niveau.tex}
 \input{\PhDthesisdir/contents/chapter-LHC-CMS/evt_reco/MET/fichier_MET.tex}
