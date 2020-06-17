@@ -1,7 +1,56 @@
 \subsection{Identification et reconstruction des particules}\label{chapter-LHC-section-evt_reco-subsec-ptc_ID}
-
+Des éléments d'identification du \PF\ dans différents sous-détecteurs sont généralement dus à une même particule.
+La reconstruction des particules se fait alors par association de ces éléments.
+L'association des éléments dus à une particule est uniquement limitée par la granularité des sous-détecteurs et par le nombre de particules par unité d'angle solide~\cite{particle-flow}.
+De même, l'association de tous les éléments dus à une seule particule est limitée par la quantité de matière traversée en amont des calorimètres ou, le cas échéant, des chambres à muons, pouvant dévier la particule~\cite{moliere_scat_1,moliere_scat_2}.
+\par Un algorithme teste les paires d'éléments de reconstruction possibles.
+Afin de limiter les temps de calcul, seules les paires d'éléments les plus proches entre eux dans le plan $(\eta,\phi)$ sont considérées.
+Des conditions supplémentaires sont requises afin d'associer deux éléments et sont détaillées dans les sections suivantes.
+Lorsque deux éléments sont associés, une distance est définie par l'algorithme afin de quantifier la qualité de cette association.
+Des \og blocs \fg{} du \PF\ sont ainsi obtenus par association des éléments de reconstruction.
+Selon le contenu de ce bloc, un type de  particule est reconstruit.
+Ces différents types de particules sont détaillés dans les sections qui suivent.
 \subsubsection{Muons}
-
+Les muons sont reconstruits à partir des éléments d'identifications que sont les muons globaux, seuls et du trajectographe définis dans la section~\ref{chapter-LHC-section-evt_reco-subsec-PF_elements-subsubsec-tracks}.
+\par Tout d'abord, les muons globaux isolés, \ie\ sans autre activité dans le voisinage de la trajectoire correspondante, sont sélectionnés~\cite{particle-flow}.
+Les traces additionnelles et les dépôts d'énergie dans les calorimètres se situant dans un cône de rayon $\Delta R$ inférieur à \num{0.3} dans le plan $(\eta,\phi)$, où
+\begin{equation}
+\Delta R_{ij}^2 = (\eta_i-\eta_j)^2 + (\phi_i-\phi_j)^2
+\mend[,]
+\end{equation}
+sont également associés au muon global.
+Il est requis que la somme des impulsions transverses et des énergies de ces traces et dépôts n'excède pas \SI{10}{\%} de l'impulsion transverse du muon global.
+Ce critère est suffisant pour rejeter les hadrons réussissant à traverser le HCAL.
+Ensuite, les muons globaux non isolés sont sélectionnés à l'aide d'un critère d'identification strict (\emph{Tight muon ID})~\cite{CMS-MUO-16-001} auquel la présence d'au moins trois segments de trace compatibles est requise.
+\par Les muons non identifiés à ce stade peuvent l'être en utilisant les muons seuls et les muons du trajectographe.
+Les muons seuls présentant un grand nombre de signaux dans les chambres à muons, au moins 23 dans les DT (pour un maximum possible de 32) ou 15 dans les CSC (pour un maximum possible de 24), et dont l'ajustement de la trace à ces signaux est de bonne qualité sont ainsi retenus.
+Les muons du trajectographe sont également retenus s'ils contiennent au moins 13 points de passage dans le trajectographe et que les agglomérats dans les calorimètres sont compatibles avec la traduction de la trace correspondante en tant que muon.
+\par Jusqu'à $\pT=\SI{100}{\GeV}$, la résolution en énergie des muons reconstruits par cette méthode est de \SI{1}{\%} dans le barillet et de \SI{3}{\%} dans les bouchons~\cite{CMS-MUO-16-001}.
+L'efficacité de reconstruction est de \SI{95}{\%} et le taux d'identification de hadrons en tant que muons inférieur à \SI{1}{\%}.
+Les éléments d'identification du \PF\ utilisés pour reconstruire les muons sont retirés dans la suite du processus de reconstruction de l'événement.
 \subsubsection{Électrons et photons isolés}
-
+L'identification des électrons et des photons isolés se base sur les éléments d'identification du \PF\ provenant du trajectographe et du ECAL.
+De par la présence de la matière du trajectographe, les électrons émettent des photons par \emph{bremsstrahlung} et les photons se convertissent en paires $\antielectron\electron$, ces électrons étant également sujets au \emph{bremsstrahlung}, etc.
+C'est pour cela qu'électrons et photons isolés sont traités de manières similaires pour leur reconstruction.
+\par Un candidat électron est défini lorsqu'une trace du trajectographe, extrapolée jusqu'au ECAL, est associée à un dépôt d'énergie, si ce dépôt n'est pas lui-même relié à trois autres traces ou plus.
+Les candidats photons isolés correspondent aux dépôts du ECAL avec une énergie transverse supérieure à \SI{10}{\GeV} n'étant pas associé à une trace.
+Pour tous ces candidats, la somme des énergies mesurées dans les cellules du HCAL se situant dans un cône de rayon $\Delta R$ inférieur à \num{0.15} dans le plan $(\eta,\phi)$ ne doit pas correspondre à plus de \SI{10}{\%} de l'énergie du dépôt du ECAL.
+Les traces identifiées comme celles de conversions de photons et les dépôts du ECAL associés sont de plus regroupées au candidat initial.
+\par Les électrons et photons isolés sont alors obtenus en soumettant aux candidats définis précédemment des critères d'identification, prenant en compte jusqu'à 14 variables~\cite{particle-flow}.
+Les définitions exactes de ces critères varient d'une année à l'autre en fonction des performances du détecteur et plusieurs niveaux d'exigence existent.
+Les éléments d'identification du \PF\ utilisés pour reconstruire les électrons et photons isolés sont retirés dans la suite du processus de reconstruction de l'événement.
 \subsubsection{Hadrons et photons non isolés}
+Les muons, électrons et photons isolés ayant été reconstruits, seuls les hadrons et les photons non isolés issus de la formation des jets et de l'hadronisation\footnote{La formation des jets ainsi que l'hadronisation sont détaillées~\ifref{chapter-JERC-section-jets}{\ref{chapter-JERC-section-jets-subsec-hadronisation}}{2} du chapitre\ifref{chapter-JERC}{~\ref{chapter-JERC}}{ \og Calibration en énergie des jets \fg{}}.} restent à être reconstruits.
+Ces particules sont généralement détectées comme des hadrons chargés (\pionpm, \Kaonpm, protons), de hadrons neutres (\Kaonlong, neutrons), des photons non isolés (désintégration de \pionnull) et plus rarement comme des muons (désintégration de hadrons lourds\footnote{La phénoménologie de la désintégration des hadrons lourds est abordée dans la section~\ifref{chapter-JERC-section-jets}{\ref{chapter-JERC-section-jets-subsec-hadronisation}}{2} du chapitre\ifref{chapter-JERC}{~\ref{chapter-JERC}}{ \og Calibration en énergie des jets \fg{}}.}).
+\par Dans la région d'acceptation du trajectographe ($\abs{\eta}<\num{2.5}$), les photons non isolés et les hadrons neutres sont reconstruits respectivement à partir des dépôts d'énergie dans les ECAL et HCAL non associés à une trace.
+Une priorité est donnée aux photons dans la mesure où \SI{25}{\%} de l'énergie des jets est portée par ces particules alors que seulement \SI{3}{\%} de l'énergie des jets est déposée dans le ECAL par les hadrons neutres.
+Au-delà de l'acceptation du trajectographe, il n'est pas possible de faire la distinction entre hadrons neutres et chargés.
+Près de \SI{25}{\%} de l'énergie des jets est ainsi déposée dans le ECAL et les agglomérats du ECAL se situant dans la même région qu'un agglomérat du HCAL sont considérés comme dus à la même gerbe hadronique, \ie\ au même hadron.
+Les autres dépôts du ECAL sont considérés comme dus à des photons.
+\par Les hadrons chargés sont identifiés à partir des agglomérats restant dans le HCAL, associés aux traces dans le trajectographe non utilisées pour l'identification des particules précédentes.
+Ces traces peuvent elles-mêmes être reliées à un agglomérat résiduel du ECAL.
+Pour chaque bloc du \PF\ ainsi construit, l'énergie dans les calorimètres est comparée à la somme des moments des traces.
+Si un excès est observé avec les calorimètres, il est interprété comme la présence d'une particule neutre supplémentaire.
+Si cet excès est inférieur à l'énergie dans le ECAL et plus grand que \SI{500}{\MeV}, alors la particule neutre est considérée comme étant un photon d'énergie égale à cet excès.
+Sinon, l'énergie dans le ECAL donne un photon et si la partie de l'excès dans le HCAL est supérieure à \SI{1}{\GeV}, un hadron neutre est également considéré.
+Puis, à partir de l'énergie calorimétrique restante, chaque trace du bloc du \PF\ donne un hadron chargé.
