@@ -1,1 +1,22 @@
 \subsection{Énergie transverse manquante}\label{chapter-LHC-section-evt_reco-subsec-MET}
+Des particules neutres interagissant peu avec le détecteur, en particulier les neutrinos, peuvent être produites lors des collisions et se propager sans laisser de signal dans le détecteur, les rendant ainsi invisibles.
+Toutefois, lorsque de telles particules sont produites en association avec des particules détectées, leur présence peut être déduite du déséquilibre dans le moment total des particules de l'événement~\cite{CMS-PAS-JME-17-001}.
+\par Les collisions de protons, dont la phénoménologie est discutée section~\ref{chapter-LHC-section-LHC-subsec-pp_collisions}, présentent une impulsion totale dans le plan transverse nulle dans l'état initial.
+Par conservation, l'impulsion totale dans le plan transverse est nulle dans l'état final.
+La somme des impulsions transverses des particules invisibles doit donc compenser celle des particules reconstruites, \ie
+\begin{equation}
+\sum_{\substack{\text{toutes les}\\\text{particules}}} \vpT = \vec{0}
+\Leftrightarrow
+\sum_{\substack{\text{particules}\\\text{invisibles}}} \vpT + \sum_{\substack{\text{particules}\\\text{reconstruites}}} \vpT = \vec{0}
+\Leftrightarrow
+\sum_{\substack{\text{particules}\\\text{invisibles}}} \vpT = -\sum_{\substack{\text{particules}\\\text{reconstruites}}} \vpT \mend
+\end{equation}
+\par L'énergie transverse manquante (MET, \emph{Missing Transverse Momentum}) est ainsi définie comme
+\begin{equation}
+\vMET = -\sum_{\substack{\text{particules}\\\text{reconstruites}}} \vpT
+\msep
+\MET = \abs{\vMET}
+\mend[,]
+\end{equation}
+et représente l'impulsion transverse totale des particules invisibles.
+Cette définition correspond à la MET \og brute \fg{} (\emph{raw MET}) et doit être corrigée des effets de reconstruction de l'événement\footnote{C'est en particulier le cas lors de la calibration en énergie des jets, ce qui est détaillé dans la section~\ifref{chapter-JERC-section-CMS-subsec-MET}{\ref{chapter-JERC-section-CMS-subsec-MET}}{4.3} du chapitre~\ifref{chapter-JERC}{\ref{chapter-JERC}}{4}.}.
