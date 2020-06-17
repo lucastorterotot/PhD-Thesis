@@ -6,6 +6,10 @@ La structure du trajectographe présentée en section~\ref{chapter-LHC-section-C
 Les traces présentant au moins huit points de passage avec au plus un point manquant le long de l'extrapolation obtenue sont considérées pour la suite de la reconstruction~\cite{particle-flow}.
 Il est également requis que les traces proviennent d'un cylindre de quelques millimètres de rayon autour du faisceau et qu'elles correspondent à une impulsion transverse minimale de \SI{0.9}{\GeV}.
 Les performances de cette méthode sont discutées dans la référence~\cite{CMS_TDR_1}.
+\par La combinaison de ces traces permet de reconstruire les vertex d'interactions de l'événement.
+Plusieurs vertex sont présents du fait de l'empilement.
+Le vertex principal est choisi comme étant le vertex dont la somme des impulsions transverses au carré des traces en provenant est la plus élevée, les autres sont considérés comme des vertex de l'empilement.
+L'efficacité de reconstruction du vertex principal est ainsi de l'ordre de \SI{100}{\%}, celle des vertex de l'empilement de \SI{70}{\%}~\cite{JERC_RunI}.
 \par Les particules peuvent être déviées par interaction avec la matière du trajectographe~\cite{moliere_scat_1,moliere_scat_2}.
 Un algorithme dédié à ce phénomène est utilisé et permet de déterminer les lieux de ces interactions, représentés sur la figure~\ref{fig-chapter-LHC-section-evt_reco-subsec-PF_elements-CMS-self-radio}.
 La structure du trajectographe se retrouve et le taux de mauvaise reconstruction est réduit par un traitement spécifique des traces présentant de telles déviations.
