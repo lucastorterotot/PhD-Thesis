@@ -1,4 +1,20 @@
 \subsection{Le trajectographe ou \emph{tracker}}\label{chapter-LHC-section-CMS-subsec-tracker}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-TRK-17-001/CMS-TRK-17-001_Figure_001-a.pdf}
+\caption[Schéma détaillé du trajectographe du détecteur CMS.]{Schéma détaillé du trajectographe du détecteur CMS dans le plan \plane{r}{z}~\cite{CMS-TRK-11-001,CMS-TRK-17-001}. Le trajectographe est symétrique par rapport à l'axe $r=0$, axe du faisceau. Le centre du trajectographe, correspond approximativement au lieu des collisions, est indiqué par une étoile. Les différentes sous-parties du trajectographe sont délimitées par les pointillés verts. Les modules à fils donnant des signaux en deux dimensions sont indiqués en lignes noires fines et ceux donnant des signaux en trois dimensions en lignes bleues épaisses. Ces derniers sont en fait constitués de deux modules à files dos à dos dont l'un est tourné de \ang{90}. Les modules à pixels, en rouge, permettent également d'obtenir des signaux à trois dimensions. Les légers décalages des modules leur permettent d'éviter tout angle mort dans la zone d'acceptation du détecteur.}
+\label{fig-CMS-trk_detailed_scheme}
+\end{figure}
+\begin{figure}[p]
+\centering
+\subcaptionbox{Résolution pour des muons seuls et isolés.\label{subfig-chapter-LHC-section-CMS-subsec-tracker-pT-resolution-muons}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-TRK-11-001/figs_2011_trackPerformance_MC_SingleParticles_mu_resolutionPtVsPt.png}}
+\hfill
+\subcaptionbox{Résolution pour des particules chargées.\label{subfig-chapter-LHC-section-CMS-subsec-tracker-pT-resolution-charged_ptcs}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-TRK-11-001/figs_2011_trackPerformance_MC_ttbarHpWithPuSplitByEta_resolutionPtVsPt.png}}
+\caption[Résolution en \pT\ du trajectographe.]{Résolution en \pT, en fonction de \pT, du trajectographe pour différentes particules~\cite{CMS-TRK-11-001}. Les symboles pleins correspondent à la demi-largeur à \SI{68}{\%} de la distribution, les symboles creux à \SI{90}{\%}.}
+\label{fig-chapter-LHC-section-CMS-subsec-tracker-pT-resolution}
+\end{figure}
 Le trajectographe permet de reconstruire les trajectoires des particules chargées de pseudo-rapidité inférieure à \num{2.5}.
 Ces particules laissent en effet des signaux de leur passage dans les différents modules du trajectographe.
 Le trajectographe est ainsi essentiel à la reconstruction des vertex des événements du LHC.
@@ -18,19 +34,3 @@ Enfin, les bouchons du trajectographe (TEC, \emph{Tracker EndCaps}) se situent a
 \par Les trajectoires des particules chargées sont alors reconstruites par interpolation entre les différents points de passage dans le trajectographe compatibles avec la trajectoire d'une particule.
 À partir de ces trajectoires, il est possible de déterminer l'impulsion transverse des particules à l'aide de l'équation~\eqref{eq-chapter-LHC-section-CMS-subsec-solenoide-rayon_courbure}.
 Les résolutions obtenues sur les impulsions transverses des muons et de particules chargées à l'aide du trajectographe sont présentées sur la figure~\ref{fig-chapter-LHC-section-CMS-subsec-tracker-pT-resolution}.
-\begin{figure}[p]
-\centering
-\includegraphics[width=\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-TRK-17-001/CMS-TRK-17-001_Figure_001-a.pdf}
-\caption[Schéma détaillé du trajectographe du détecteur CMS.]{Schéma détaillé du trajectographe du détecteur CMS dans le plan \plane{r}{z}~\cite{CMS-TRK-11-001,CMS-TRK-17-001}. Le trajectographe est symétrique par rapport à l'axe $r=0$, axe du faisceau. Le centre du trajectographe, correspond approximativement au lieu des collisions, est indiqué par une étoile. Les différentes sous-parties du trajectographe sont délimitées par les pointillés verts. Les modules à fils donnant des signaux en deux dimensions sont indiqués en lignes noires fines et ceux donnant des signaux en trois dimensions en lignes bleues épaisses. Ces derniers sont en fait constitués de deux modules à files dos à dos dont l'un est tourné de \ang{90}. Les modules à pixels, en rouge, permettent également d'obtenir des signaux à trois dimensions. Les légers décalages des modules leur permettent d'éviter tout angle mort dans la zone d'acceptation du détecteur.}
-\label{fig-CMS-trk_detailed_scheme}
-\end{figure}
-\begin{figure}[p]
-\centering
-\subcaptionbox{Résolution pour des muons seuls et isolés.\label{subfig-chapter-LHC-section-CMS-subsec-tracker-pT-resolution-muons}}[.45\textwidth]
-{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-TRK-11-001/figs_2011_trackPerformance_MC_SingleParticles_mu_resolutionPtVsPt.png}}
-\hfill
-\subcaptionbox{Résolution pour des particules chargées.\label{subfig-chapter-LHC-section-CMS-subsec-tracker-pT-resolution-charged_ptcs}}[.45\textwidth]
-{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-TRK-11-001/figs_2011_trackPerformance_MC_ttbarHpWithPuSplitByEta_resolutionPtVsPt.png}}
-\caption[Résolution en \pT\ du trajectographe.]{Résolution en \pT, en fonction de \pT, du trajectographe pour différentes particules~\cite{CMS-TRK-11-001}. Les symboles pleins correspondent à la demi-largeur à \SI{68}{\%} de la distribution, les symboles creux à \SI{90}{\%}.}
-\label{fig-chapter-LHC-section-CMS-subsec-tracker-pT-resolution}
-\end{figure}

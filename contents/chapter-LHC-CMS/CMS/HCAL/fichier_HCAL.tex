@@ -19,6 +19,12 @@ Des fibres optiques permettent de recueillir la lumière émise par les gerbes h
 La mesure de ce signal lumineux donne une mesure de l'énergie des hadrons.
 \par Cependant, le nombre de longueurs de radiations combinées des ECAL et HCAL dans le barillet, de l'ordre de dix, est insuffisant pour contenir toutes les gerbes hadroniques~\cite{cms_paper}.
 Le HB est ainsi complété par un calorimètre hadronique externe (HO) installé sur la face interne de la culasse, \ie\ de l'autre côté du solénoïde et avant les chambres à muons.
+\begin{wrapfigure}{R}{0.45\textwidth}
+\centering
+\includegraphics[width=0.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-DP-2016-071/hcal_method2_3_performance.pdf}
+\caption[Réponse relative du calorimètre hadronique de CMS.]{Réponse relative du calorimètre hadronique de CMS~\cite{CMS-DP-2016-071} en fonction de l'énergie simulée du dépôt. En noir, sans correction de l'empilement asynchrone (OOTPU). En bleu, avec des correction en ligne, \ie\ un ajustement des amplitudes et temps d'arrivée des signaux en prenant en compte jusqu'à trois signaux avant et après le signal d'intérêt. En rouge, avec l'ensemble des corrections.}
+\label{fig-chapter-LHC-section-CMS-subsec-HCAL-CMS-DP-2016-071-hcal_method2_3_performance}
+\end{wrapfigure}
 \par Enfin, une couverture plus large en $\eta$ est assurée par le calorimètre hadronique avancé (HF) couvrant $\num{2.9}<\abs{\eta}<\num{5.2}$.
 Les deux HF, un à chaque extrémité de CMS, sont des détecteurs cylindriques ayant des absorbeurs en acier auxquels sont connectés des fibres optiques de quartz.
 Les particules incidentes émettent de la lumière Cherenkov lors de leur passage dans l'acier.
@@ -31,9 +37,3 @@ La résolution $\sigma$ obtenue sur l'énergie des hadrons, par combinaison avec
 \frac{\sigma}{E} = \frac{\num{1.1}}{\sqrt{E}} + \frac{9}{100}
 \end{equation}
 où $E$ est l'énergie mesurée en \SI{}{\GeV}.
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-DP-2016-071/hcal_method2_3_performance.pdf}
-\caption[Réponse relative du calorimètre hadronique de CMS.]{Réponse relative du calorimètre hadronique de CMS~\cite{CMS-DP-2016-071} en fonction de l'énergie simulée du dépôt. En noir, sans correction de l'empilement asynchrone (OOTPU). En bleu, avec des correction en ligne, \ie\ un ajustement des amplitudes et temps d'arrivée des signaux en prenant en compte jusqu'à trois signaux avant et après le signal d'intérêt. En rouge, avec l'ensemble des corrections.}
-\label{fig-chapter-LHC-section-CMS-subsec-HCAL-CMS-DP-2016-071-hcal_method2_3_performance}
-\end{figure}

@@ -9,6 +9,12 @@ Pour cela, la conception du détecteur repose sur:
 \item un calorimètre hadronique avec une résolution suffisante et une bonne herméticité.
 \end{itemize}
 Son design généraliste permet de l'utiliser pour de nombreuses autres analyses de physique, comme des mesures de précision, la recherche d'une nouvelle physique ou encore les collisions d'ions lourds.
+\begin{figure}[b]
+\centering
+\includegraphics[width=\textwidth]{\PhDthesisdir/plots_and_images/CMS_slices/from_CMS_document_13631-v4/cms_160312_06-FR.tex}
+\caption[Vue éclatée du détecteur CMS.]{Vue éclatée du détecteur CMS~\cite{CMS_document_13631-v4}.}
+\label{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-vue_eclatee_CMS}
+\end{figure}
 \par La figure~\ref{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-vue_eclatee_CMS} présente une vue éclatée du détecteur CMS.
 Il possède une forme cylindrique de \SI{28.7}{\meter} de long et \SI{15}{\meter} de diamètre pour un poids total de \num{14000} tonnes.
 Il est structuré en couches concentriques, chacune ayant un rôle spécifique détaillé dans les sections qui suivent.
@@ -25,12 +31,6 @@ La première, centrale, est le \og barillet \fg, dans laquelle les sous-parties 
 Les parties sensibles du détecteur y sont orientées vers l'axe du faisceau.
 Aux deux extrémités du détecteur se trouvent les \og bouchons \fg, dont l'orientation des parties sensibles du détecteur se fait dans le plan transverse au faisceau.
 Ces orientations différentes sont bien visibles sur la figure~\ref{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-vue_eclatee_CMS}.
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth]{\PhDthesisdir/plots_and_images/CMS_slices/from_CMS_document_13631-v4/cms_160312_06-FR.tex}
-\caption[Vue éclatée du détecteur CMS.]{Vue éclatée du détecteur CMS~\cite{CMS_document_13631-v4}.}
-\label{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-vue_eclatee_CMS}
-\end{figure}
 \par L'acronyme CMS signifie ainsi \emph{Compact Muon Solenoïd}, \ie\ Solénoïde Compact à Muons.
 Son qualificatif de \og compact \fg{} se comprend par comparaison à d'autres détecteurs de physique des particules, comme son homologue au LHC, ATLAS.
 Ce détecteur est également cylindrique et fait \SI{40}{\meter} de long pour \SI{22}{\meter} de diamètre, soit un volume trois fois plus grand que celui de CMS.
@@ -48,14 +48,6 @@ L'angle entre les directions $\vec{a}$ et $\bvec_z$ est $\theta$.
 \input{\PhDthesisdir/plots_and_images/CMS_slices/own/CMS_3D_phi_theta_defs.tex}
 \caption[Système de coordonnées du détecteur CMS.]{Système de coordonnées du détecteur CMS. L'axe \axis{x} pointe vers le centre du LHC, l'axe \axis{y} vers le haut ($\vec{g}\cdot\bvec_y<0$) et l'axe \axis{z} est aligné avec le faisceau tel que $(\bvec_x, \bvec_y, \bvec_z)$ forme un trièdre direct. L'angle entre les plans $(\bvec_x, \bvec_z)$ et $(\vec{a}, \bvec_z)$ est $\phi$, défini dans le plan $(\bvec_y,\bvec_z)$ à partir de l'axe \axis{x}. L'angle entre les directions $\vec{a}$ et $\bvec_z$ est $\theta$.}
 \label{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-CMS_3D_phi_theta_defs}
-%\end{figure}
-%\begin{figure}[h]
-%\centering
-\vspace{\baselineskip}
-
-\includegraphics[width=.8\textwidth]{\PhDthesisdir/plots_and_images/from_CMS_alignment_photodetectors/CMS-eta-ranges.png}
-\caption[Vue longitudinale d'un quadrant du détecteur CMS.]{Vue longitudinale d'un quadrant du détecteur CMS~\cite{CMS_alignment_photodetectors}. Les directions correspondant à quelques valeurs de pseudo-rapidité sont illustrées et des mesures de distances par rapport au centre du détecteur, lieu des collisions, sont indiquées. Le sol de la caverne présente une inclinaison de \SI{1.23}{\%} par rapport à la direction de la gravité locale $\vec{g}$, ce que montre le schéma à gauche.}
-\label{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-CMS-eta-ranges}
 \end{figure}
 \par L'angle $\theta$ n'est généralement pas utilisé directement et est remplacé par la \og pseudo-rapidité \fg{} $\eta$ définie comme
 \begin{equation}
@@ -72,6 +64,12 @@ y = \frac{1}{2} \ln(\frac{E+p_zc}{E-p_zc})
 \end{equation}
 Or la rapidité est un invariant de Lorentz, ainsi au LHC $\eta$ est en très bonne approximation un invariant de Lorentz, contrairement à $\theta$.
 La figure~\ref{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-CMS-eta-ranges} présente un quadrant du détecteur CMS sur lequel figurent quelques valeurs de pseudo-rapidité est les directions correspondantes dans le plan \plane{y}{z}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=.8\textwidth]{\PhDthesisdir/plots_and_images/from_CMS_alignment_photodetectors/CMS-eta-ranges.png}
+\caption[Vue longitudinale d'un quadrant du détecteur CMS.]{Vue longitudinale d'un quadrant du détecteur CMS~\cite{CMS_alignment_photodetectors}. Les directions correspondant à quelques valeurs de pseudo-rapidité sont illustrées et des mesures de distances par rapport au centre du détecteur, lieu des collisions, sont indiquées. Le sol de la caverne présente une inclinaison de \SI{1.23}{\%} par rapport à la direction de la gravité locale $\vec{g}$, ce que montre le schéma à gauche.}
+\label{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-CMS-eta-ranges}
+\end{figure}
 \par Du fait de la structure des protons discutée dans la section~\ref{chapter-LHC-section-LHC-subsec-pp_collisions}, lors de la collision, l'impulsion totale selon l'axe des faisceaux est inconnue.
 Seule l'impulsion totale dans le plan transverse, \ie\ le plan \plane{x}{y}, est nulle.
 C'est pourquoi des variables relatives au plan transverse sont définies, en particulier l'impulsion transverse \vpT, sa norme \pT\ et l'énergie transverse \ET,
