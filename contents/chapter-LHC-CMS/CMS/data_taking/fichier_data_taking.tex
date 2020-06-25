@@ -3,15 +3,15 @@ Pour un événement, le détecteur CMS décrit dans les sections précédentes p
 Si cette grandeur peut paraître raisonnable, il faut la mettre en relation avec la fréquence des événements.
 Des collisions ont lieu toutes les \SI{25}{\nano\second} au LHC, soit à une fréquence de \SI{40}{\mega\hertz}.
 Le détecteur CMS produit alors un flux de données de \SI{40}{\tera o.\second^{-1}}, ce qui est bien trop conséquent tant pour l'électronique d'acquisition que pour l'écriture en vue du stockage et la quantité de données à stocker elle-même.
-Afin de réduire ce débit de données, la collaboration CMS s'appuie sur un système de déclenchement (\emph{trigger})~\cite{cms_paper,CERN-LHCC-2000-038,CERN-LHCC-2002-026,CMS-TRG-12-001} dont le rôle est de supprimer les événements présentant peu d'intérêt physique.
+Afin de réduire ce débit de données, la collaboration CMS s'appuie sur un système de déclenchement (\emph{trigger})~\cite{cms_paper,CERN-LHCC-2000-038,CERN-LHCC-2002-026,CMS-TRG-12-001,CMS-TDR-12} dont le rôle est de supprimer les événements présentant peu d'intérêt physique.
 \par Le système de déclenchement de CMS comporte deux niveaux, le niveau \og L1 \fg{} (\emph{Level-1}) et le niveau \og HLT \fg{} (\emph{High Level Trigger}).
 Le L1 est constitué d'un système électronique programmable utilisant les signaux issus des chambres à muons et des calorimètres pour estimer l'intérêt d'un événement, par exemple par la présence de paires de muons.
 Le L1 conserve ou rejette ainsi un événement en moins de \SI{3.2}{\micro\second}~\cite{cms_paper} et réduit la fréquence des événements à analyser de \SI{40}{\mega\hertz} à \SI{100}{\kilo\hertz}, limite imposée par l'électronique de lecture~\cite{CMS-TRG-12-001}.
 La structure du L1 est illustrée sur la figure~\ref{fig-chapter-LHC-section-CMS-subsec-data_taking-cms_paper-fig_8-1}.
 \begin{figure}[h]
 \centering
-\includegraphics[width=.6\textwidth]{\PhDthesisdir/plots_and_images/from_cms_paper/fig_8-1.png}
-\caption[Architecture du système de déclenchement L1.]{Architecture du système de déclenchement L1~\cite{cms_paper}.}
+\includegraphics[width=\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-TDR-12/L1_structure.png}
+\caption[Architecture du système de déclenchement L1.]{Architecture du système de déclenchement L1~\cite{CMS-TDR-12}.}
 \label{fig-chapter-LHC-section-CMS-subsec-data_taking-cms_paper-fig_8-1}
 \end{figure}
 \par Le second niveau de déclenchement, le HLT, a accès à l'ensemble des signaux issus du détecteur.
