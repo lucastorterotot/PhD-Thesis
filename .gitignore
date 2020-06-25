@@ -10,6 +10,7 @@
 *.aux
 *.out
 *.toc
+*.lot
 *.lof
 *.nav
 *.snm
