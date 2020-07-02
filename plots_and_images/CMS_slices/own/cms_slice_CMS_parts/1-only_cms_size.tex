@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+\input{\PhDthesisdir/plots_and_images/Event_displays/macro_defs.tex}
+
+% CMS scale
+\draw [thick] (0,\muonroutd/4+.5) --+ (\muonroutd,0);
+\foreach \m in {0,1,...,7}{
+\draw [thick] (\m,\muonroutd/4+.5) --+ (0,-.125);
+\draw [thick] (\m,\muonroutd/4+.5) + (0,-.2) node {\tiny \SI{\m}{\meter}};
+}
+
+% Ensure good size
+\draw (\muonroutb,-\muonroutd/4) node [below] {\tiny \vphantom{Chambres à muons et culasse de fer}};
+\draw (-1.25,\muonroutd/4) node (leg) [right] {\tiny \hphantom{Légende:}};
+\draw (leg.west) coordinate (tmp1);
+\end{tikzpicture}
+
+
