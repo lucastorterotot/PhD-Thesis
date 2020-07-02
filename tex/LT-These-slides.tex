@@ -1,6 +1,6 @@
-\documentclass[10pt]{beamer}
+\documentclass[10pt,aspectratio=169]{beamer}
 
-\input{tex/PhDthesisdirs.tex}
+\input{../tex/PhDthesisdirs.tex}
 \IfFileExists{/home/lucas/texmf/tex/latex/ltstyle/ltstyle.sty}{\def\homedir{/home/lucas}}{}
 \IfFileExists{/home/torterotot/texmf/tex/latex/ltstyle/ltstyle.sty}{\def\homedir{/home/torterotot}}{}
 \RequirePackage[log-declarations=false]{xparse}
@@ -11,7 +11,7 @@
 \usecolortheme[named=CERNblue]{structure} 
 
 \institute[IP2I]{Institut de Physique des deux Infinis -- Lyon} % Lycée Kléber  Lycée Assomption Bellevue ... possède une version courte optionnelle
-\title{Recherche d'un boson de Higgs de haute masse se désintégrant en paire de taus dans l'expérience CMS au LHC}
+\title[Recherche d'un boson de Higgs de haute masse se désintégrant en paire de taus ...]{Recherche d'un boson de Higgs de haute masse se désintégrant en paire de taus dans l'expérience CMS au LHC}
 \matiere{Thèse de doctorat}
 \author[Lucas \textsc{Torterotot} -- \mailto{lucas.torterotot@ipnl.in2p3.fr}]{Lucas \textsc{Torterotot}}
 \date{\todo{XX xxxx} 2021}
@@ -36,23 +36,21 @@
 \newcommand{\graphw}{\textwidth}
 \newcounter{totalframes}
 
-\IfFileExists{\homedir/Dropbox/resources/img/logos/CERN/CERN-logo_bleu.jpg}{
-\def\upperleftlogos{\includegraphics[height=.5cm]{\homedir/Dropbox/resources/img/logos/CERN/CERN-logo_bleu.jpg}\quad\includegraphics[height=.5cm]{\homedir/Dropbox/resources/img/logos/CMS/CMSlogo_white_nolabel_128_May2014.png}}
-\def\upperrightlogos{\includegraphics[height=.5cm]{\homedir/Dropbox/resources/img/logos/IN2P3/IN2P3Filaire-B_SignV_noirNB-eps-converted-to.pdf}\quad\includegraphics[height=.5cm]{\homedir/Dropbox/resources/img/logos/IP2I/logo_IP2I.jpg}}
+\def\upperleftlogos{\includegraphics[height=.5cm]{\PhDthesisdir/plots_and_images/logos/CERN-logo_bleu.jpg}\quad\includegraphics[height=.5cm]{\PhDthesisdir/plots_and_images/logos/CMSlogo_white_nolabel_128_May2014.png}}
+\def\upperrightlogos{\includegraphics[height=.5cm]{\PhDthesisdir/plots_and_images/logos/IN2P3Filaire-B_SignV_noirNB-eps-converted-to.pdf}\quad\includegraphics[height=.5cm]{\PhDthesisdir/plots_and_images/logos/logo_IP2I.jpg}}
 \def\lowerleftlogos{}
 \def\lowerrightlogos{}
-}{}
 
 \begin{document}
-\IfFileExists{\homedir/Dropbox/resources/img/logos/CERN/CERN-logo.jpg}{
+
 \begin{frame}[noframenumbering] \thispagestyle{empty}
 \vspace{-.75cm}
 
-\includegraphics[height=1.25cm]{\homedir/Dropbox/resources/img/logos/Gouvernement/ES-R-I_horizontal.pdf}
+\includegraphics[height=1.25cm]{\PhDthesisdir/plots_and_images/logos/ES-R-I_horizontal.pdf}
 \hfill
-\includegraphics[height=1.25cm]{\homedir/Dropbox/resources/img/logos/ED52-PHAST/phast-logo.png}
+\includegraphics[height=1.25cm]{\PhDthesisdir/plots_and_images/logos/phast-logo.png}
 \hfill
-\includegraphics[height=1.25cm]{\homedir/Dropbox/resources/img/logos/UCBL/Planche_UdL_LogoLyon1Sig_CoulCmjnVecto-eps-converted-to.pdf}
+\includegraphics[height=1.25cm]{\PhDthesisdir/plots_and_images/logos/Planche_UdL_LogoLyon1Sig_CoulCmjnVecto-eps-converted-to.pdf}
 
 \vfill
 
@@ -61,27 +59,23 @@
 \vfill
 
 ~ \hfill
-\includegraphics[height=1.25cm]{\homedir/Dropbox/resources/img/logos/IN2P3/IN2P3-B_SignV_bleu-eps-converted-to.pdf}
+\includegraphics[height=1.25cm]{\PhDthesisdir/plots_and_images/logos/IN2P3-B_SignV_bleu-eps-converted-to.pdf}
 \hfill
-\includegraphics[height=1.25cm]{\homedir/Dropbox/resources/img/logos/CERN/CERN-logo.jpg}
+\includegraphics[height=1.25cm]{\PhDthesisdir/plots_and_images/logos/CERN-logo.jpg}
 \hfill
-\includegraphics[height=1.25cm]{\homedir/Dropbox/resources/img/logos/CMS/CMS_logo.pdf}
+\includegraphics[height=1.25cm]{\PhDthesisdir/plots_and_images/logos/CMS_logo.pdf}
 \hfill
-\includegraphics[height=1.25cm]{\homedir/Dropbox/resources/img/logos/IP2I/logo_IP2I.jpg}
+\includegraphics[height=1.25cm]{\PhDthesisdir/plots_and_images/logos/logo_IP2I.jpg}
 \hfill ~
 
 \vspace{-.5cm}
 \end{frame}
-}{
-\begin{frame}[noframenumbering] \thispagestyle{empty}
-\titlepage
-\end{frame}
-}
 
 \begin{frame}
 \tableofcontents 
 \end{frame}
 
+\input{\PhDthesisdir/slides/slides_main.tex}
 
 \begin{frame}\thispagestyle{empty}
 \begin{center}
@@ -94,6 +88,7 @@
 \setcounter{totalframes}{\theframenumber}
 
 %%% backup 
+\input{\PhDthesisdir/slides/slides_backup.tex}
 
 \setcounter{framenumber}{\thetotalframes}
 
