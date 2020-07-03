@@ -1,6 +1,8 @@
 #!/bin/bash
 
 fast=0
+fmf=0
+bib=0
 for arg in "$@"; do
     case "$arg" in
         -f)
@@ -9,6 +11,18 @@ for arg in "$@"; do
             ;;
         --fast)
             fast=1
+            shift
+            ;;
+        --fmf)
+            fmf=1
+            shift
+            ;;
+        -b)
+            bib=1
+            shift
+            ;;
+        --bib)
+            bib=1
             shift
             ;;
     esac
@@ -22,6 +36,17 @@ then
 else
     if [ -e LT-These-slides.bcf ]
     then
+        if [[ $bib == 1 ]]
+        then
+            biber LT-These-slides
+        fi
+        if [[ $fmf == 1 ]]
+        then
+            for mpfile in $(find . -maxdepth 1 -type f -iname \*.mp) ; do
+                mpost $mpfile
+            done
+        fi
+        wait
         pdflatex -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-slides
     else
         pdflatex_complete_sequence -nc $lt_PhD_thesis_dir/tex/LT-These-slides
