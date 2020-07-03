@@ -1,5 +1,13 @@
+%\input{/home/torterotot/Documents/PhD-Thesis/slides/JERC/JEC_Principe/slides_anims/Gamma_plus_jet.tex}
 \begin{frame}
-\frametitle{$\photon+\text{jet}$ events: Feynman graphs examples}
+\begin{center}
+\includegraphics[width=\graphw,height=\graphh,keepaspectratio]{\PhDthesisdir/plots_and_images/Event_displays/JERC/Gamma_plus_jet.tex}
+\end{center}
+\end{frame}
+
+\begin{frame}[t]
+\vspace{\baselineskip}
+
 ~\hfill
 \input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_S.tex}
 \hfill\hfill\hfill
@@ -11,17 +19,87 @@
 \pause
 \vfill
 
-\manip Only 2 \og particles \fg{} (physics objects) in final state:
-\begin{itemize}
-\item photon (well known);
-\item jet (to calibrate).
-\end{itemize}
-\manip No neutrino $\Rightarrow$ no real \MET.
+\begin{equation*}
+\vpT_\ptcl^{\photon} + \vpT_\ptcl^\text{jet} = \vec{0}
+\Rightarrow
+\pT_\ptcl^{\photon} = \pT_\ptcl^\text{jet}
+\end{equation*}
+\pause
+\begin{equation*}
+R
+= \frac{\pT_\reco^\text{jet}}{\pT_\ptcl^\text{jet}}
+= \frac{\pT_\reco^\text{jet}}{\pT_\ptcl^{\photon}}
+\simeq \frac{\pT_\reco^\text{jet}}{\pT_\reco^{\photon}}
+\end{equation*}
+\pause
+\begin{equation*}
+\Rbal = \frac{\pT_\reco^\text{jet}}{\pT^{\photon}}
+\end{equation*}
+
+%\manip Only 2 \og particles \fg{} (physics objects) in final state:
+%\begin{itemize}
+%\item photon (well known);
+%\item jet (to calibrate).
+%\end{itemize}
+%\manip No neutrino $\Rightarrow$ no real \MET.
+\end{frame}
+
+%\input{/home/torterotot/Documents/PhD-Thesis/slides/JERC/JEC_Principe/slides_anims/Gamma_plus_2jets.tex}
+\begin{frame}
+\begin{center}
+\includegraphics[width=\graphw,height=\graphh,keepaspectratio]{\PhDthesisdir/plots_and_images/Event_displays/JERC/Gamma_plus_2jets.tex}
+\end{center}
+\end{frame}
+
+\begin{frame}[t]
+\vspace{\baselineskip}
+
+~\hfill
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_T.tex}
+\hfill~
+
+\pause
+\vfill
+
+~\hfill
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_S-ISR_2jets.tex}
+\hfill\hfill\hfill
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_S-ISR_2photons.tex}
+\hfill\hfill\hfill
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_S-FSR_2jets.tex}
+\hfill\hfill\hfill
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_S-FSR_2photons.tex}
+\hfill~
+
 \end{frame}
 
 \begin{frame}
-\frametitle{$\photon+\text{jet}$ events: what it looks like}
-\begin{center}
-\includegraphics[width=\graphw,height=\graphh,keepaspectratio]{\PhDthesisdir/plots_and_images/Event_displays/JERC/Gamma_plus_jet.tex}
-\end{center}
+\begin{minipage}[t]{.45\textwidth}
+\begin{equation*}
+\Rbal = \frac{\pT_\reco^\text{jet 1}}{\pT^{\photon}}
+\end{equation*}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.45\textwidth}
+\begin{equation*}
+\alpha = \frac{\pT_\reco^\text{jet 2}}{\pT^{\photon}}
+\end{equation*}
+\end{minipage}
+\end{frame}
+
+\begin{frame}
+
+\begin{equation*}
+\vpT^\photon_\ptcl + \vpT^\text{recul}_\ptcl = \vec{0}
+\end{equation*}
+
+\pause
+\vfill
+
+
+\begin{equation*}
+\vpT^\photon_\reco + \underbrace{\RMPF \vpT^\text{recul}_\ptcl}_{\vpT^\text{recul}_\reco} = -\vMET
+\Rightarrow
+\boxed{\RMPF = 1 + \frac{\vpT^\photon\cdot\vMET}{\abs{\vpT^\photon}^2}}
+\end{equation*}
 \end{frame}

@@ -1,0 +1,39 @@
+\begin{tikzpicture}
+\def\JMEfigH{2.5}
+\def\JMEfigW{3.25}
+\def\JMEfigdW{.4}
+\def\JMEfigsW{.125}
+
+\def\deltaX{0}
+
+\fill [ltcolorblue2] (0,0) -- (0,\JMEfigH) -- (\JMEfigW-2*\JMEfigdW,\JMEfigH) -- (\JMEfigW-\JMEfigdW,\JMEfigH/2) -- (\JMEfigW-2*\JMEfigdW,0) ;
+
+\draw (0, \JMEfigH/2) node [above right] {\bfseries Jets} node [below right] {\bfseries Reconstruits};
+
+\def\deltaX{\JMEfigW+\JMEfigsW-2*\JMEfigdW}
+
+\fill [ltcolorviolet2] (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH);
+\fill [ltcolorviolet3] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,0);
+
+\draw (\deltaX+\JMEfigW/2-\JMEfigdW/2, \JMEfigH) node [below] {\bfseries Empilement};
+\draw (\deltaX+\JMEfigW/2, \JMEfigH/2) node [above] {MC+RC};
+\draw (\deltaX+\JMEfigW/2, \JMEfigH/4) node {MC};
+
+\def\deltaX{2*\JMEfigW+2*\JMEfigsW-3*\JMEfigdW}
+
+\fill [ltcolorred2] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigW,\JMEfigH) -- (\deltaX+\JMEfigW+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,0);
+
+\draw (\deltaX+\JMEfigW/2, \JMEfigH) node [below] {\bfseries Réponse $(\pT,\eta)$};
+\draw (\deltaX+\JMEfigW/2+\JMEfigdW, \JMEfigH/2) node {MC};
+
+\def\deltaX{6*\JMEfigW+6*\JMEfigsW-3*\JMEfigdW-\JMEfigW/2}
+
+\fill [ltcolorgreen2] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+3*\JMEfigW/4,\JMEfigH) -- (\deltaX+3*\JMEfigW/4,0);
+\draw (\deltaX+3*\JMEfigW/4, \JMEfigH/2) node [above left] {\bfseries Jets} node [below left] {\bfseries Calibrés};
+
+\draw (\JMEfigW,\JMEfigH) node [above right] {\color{ltcolororange}\bfseries\large Appliqué aux données} ;
+\draw [thick, ltcolororange, -latex] (\JMEfigW+4.8,\JMEfigH + .3) -- (3*\JMEfigW+\JMEfigdW,\JMEfigH + .3);
+\draw (\JMEfigW,0) node [below right] {\color{ltcolorblue}\bfseries\large Appliqué aux simulations} ;
+\draw [thick, ltcolorblue, -latex] (\JMEfigW+5.6,-.3) -- (3*\JMEfigW+\JMEfigdW,-.3);
+
+\end{tikzpicture}
