@@ -1,8 +1,32 @@
 #!/bin/bash
 
+fast=0
+for arg in "$@"; do
+    case "$arg" in
+        -f)
+            fast=1
+            shift
+            ;;
+        --fast)
+            fast=1
+            shift
+            ;;
+    esac
+done
+
 cd $lt_PhD_thesis_dir/slides
 
-pdflatex_complete_sequence $lt_PhD_thesis_dir/tex/LT-These-slides
+if [[ $fast == 0 ]]
+then
+    pdflatex_complete_sequence $lt_PhD_thesis_dir/tex/LT-These-slides
+else
+    if [ -e LT-These-slides.bcf ]
+    then
+        pdflatex -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-slides
+    else
+        pdflatex_complete_sequence -nc $lt_PhD_thesis_dir/tex/LT-These-slides
+    fi
+fi
 check_LaTeX_logs
 # mv LT-These-slides.log LT-These-slides.llog
 # rm *.log
