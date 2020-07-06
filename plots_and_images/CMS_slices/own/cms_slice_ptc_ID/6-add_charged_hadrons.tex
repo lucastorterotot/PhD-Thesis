@@ -1,0 +1,66 @@
+\begin{tikzpicture}
+\input{\PhDthesisdir/plots_and_images/Event_displays/macro_defs.tex}
+
+\begin{scope}
+\clipSlice
+
+\drawCMS
+
+\printphotondeposit{35}
+\printphotonnolabel{35}
+%\printphotonlabel{15}
+
+\printantimuondeposit{15}
+\printantimuonnolabel{15}
+\printantimuontrk{15}
+
+\printeledeposit{-50}
+\printelenolabel{-50}
+\printeletrk{-50}
+
+\printneutralhadrondeposit{15}
+%\printneutralhadronnolabel{15}
+
+\printhadrondeposit{-15}
+\printhadronnolabel{-15}
+\printhadrontrk{-15}
+\end{scope}
+
+% CMS parts
+\draw (0,-.8*\trackerrout) node {\tiny Trajectographe};
+\draw (-55:{0.5*(\ECALrin+\ECALrout)}) node {\tiny ECAL};
+\draw (-45:{0.5*(\HCALrin+\HCALrout)}) node {\tiny HCAL};
+\draw (-37:{0.5*(\Solenrin+\Solenrout)}) node {\tiny Solénoïde};
+\draw (\muonroutb,-\muonroutd/4) node [below] {\tiny Chambres à muons et culasse de fer};
+
+% CMS scale
+\draw [thick] (0,\muonroutd/4+.5) --+ (\muonroutd,0);
+\foreach \m in {0,1,...,7}{
+\draw [thick] (\m,\muonroutd/4+.5) --+ (0,-.125);
+\draw [thick] (\m,\muonroutd/4+.5) + (0,-.2) node {\tiny \SI{\m}{\meter}};
+}
+
+% Ptcs legend
+\draw (-1.25,\muonroutd/4) node (leg) [right] {\tiny Légende:};
+\foreach \Nb/\col/\style/\txt in {
+5/\muoncolor/thick/Muons,
+4/\elecolor/thick/Électrons,
+1/\hadroncolor/thick/Hadrons chargés,
+3/\photoncolor/dashed/Photons
+}{
+\draw (leg.west)+(0,-\Nb*\baselineskip/2) coordinate (tmp1);
+\draw [\col, \style] (tmp1) --+ (.3,0) coordinate (tmp2);
+\draw (tmp2) node [right] {\tiny \txt\vphantom{ÀQ}};
+}
+
+% Magnetic field
+\draw (-10:{0.5*(\HCALrin+\HCALrout)}) node [below right] {\tiny\SI{4}{\tesla}} node {$\bm{\otimes}$};
+\draw (0:\ironryrinc) node [below right] {\tiny\SI{2}{\tesla}} node {$\bm{\odot}$};
+
+% Ensure good size
+\draw (\muonroutb,-\muonroutd/4) node [below] {\tiny \vphantom{Chambres à muons et culasse de fer}};
+\draw (-1.25,\muonroutd/4) node (leg) [right] {\tiny \hphantom{Légende:}};
+\draw (leg.west) coordinate (tmp1);
+\end{tikzpicture}
+
+
