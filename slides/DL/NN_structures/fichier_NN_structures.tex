@@ -1,0 +1,85 @@
+\newcommand{\drawN}[2][c]{
+\node [draw, circle] (#1) at (#2) {};
+}
+
+\def\linkN#1#2{
+\draw [-latex] (#1) -- (#2);
+}
+\begin{frame}
+\begin{center}
+\begin{tikzpicture}
+
+\foreach \y in {0,1,2,-2}{
+\drawN[1\y]{1,\y}
+\foreach \x in {2,3,...,5}{
+\drawN[\x\y]{\x.5,\y}
+}
+}
+
+\foreach \yi/\N in {1.5/1,0.5/2,-1.5/n}{
+\fill (-.5,\yi) circle(2pt) node [left] {$x_{\N}$};
+\foreach \y in {0,1,2,-2}{
+\draw [-latex] (-.5,\yi) -- (1\y);
+}
+}
+
+\drawN[No]{7,0}
+
+\draw [-latex] (No) --+ (.5,0) node [right] {$y=f(\vec{x})$};
+
+\foreach \ya in {0,1,2,-2}{
+\foreach \yb in {0,1,2,-2}{
+\linkN{5\ya}{No}
+\foreach \xa/\xb in {1/2,2/3,3/4,4/5}{
+\linkN{\xa\ya}{\xb\yb}
+}
+}
+}
+
+\fill[white] (2.83,-2.5) rectangle (5.16,2.5);
+
+\foreach \x/\y in {-.5/-.5,1/-1,2.5/-1,5.5/-1}{
+\fill (\x,\y) circle (1pt);
+\fill (\x,\y+.2) circle (1pt);
+\fill (\x,\y-.2) circle (1pt);
+}
+
+\foreach \y in {0,1,2,-2}{
+\fill (4,\y) circle (1pt);
+\fill (4+.2,\y) circle (1pt);
+\fill (4-.2,\y) circle (1pt);
+}
+
+\foreach \x in {1.75,6.25}{
+\draw [thick, dotted, ltcolorblue] (\x,-2.5) -- (\x,2.5);
+}
+
+\draw [ltcolorblue] (.725, 2.5) node {Input layer\vphantom{Àq}};
+\draw [ltcolorblue] (4, 2.5) node {Hidden layers\vphantom{Àq}};
+\draw [ltcolorblue] (7.5, 2.5) node {Output layer\vphantom{Àq}};
+
+\draw [thick, ltcolorred, latex-latex] (1.75,-2.25) -- (6.25,-2.25);
+\draw [ltcolorred] (4, -2.5) node {$N_L$\vphantom{Àq}};
+
+\draw [thick, ltcolorred, latex-latex] (5,-2.125) -- (5,2.125);
+\draw [ltcolorred] (5, 0) node [left] {$N_N$\vphantom{Àq}};
+
+\end{tikzpicture}
+
+$N_L \in \set{2,3,4,5,10,15}$
+\qquad
+$N_N \in \set{1000, 2000}$
+\end{center}
+\end{frame}
+
+\begin{frame}
+\manip The \og bottleneck \fg{} variant:
+\submanip Get a smoother reduction from $\sim$ 1k neurons in hidden layers to 1 neuron for the output layer.
+\submanip Set a maximum value for $N_N$ in the 3 last hidden layers: $[1000, 500, 100]$.
+\end{frame}
+
+\begin{frame}
+\manip Activation functions:
+\submanip linear for input and output layers;
+\submanip relu for hidden layers.
+\end{frame}

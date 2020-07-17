@@ -1,0 +1,22 @@
+\begin{fmffile}{tau_to_tauh_small_beamer}%\fmfstraight
+\begin{fmfchar*}(20,10)
+  \fmfleft{taui}
+  \fmfright{l1,l2,l3,f1,f2,f3,nuout}
+  \fmf{fermion, tension=2}{taui,v1}
+  \fmf{fermion}{v1,nuout}
+  \fmf{phantom}{v1,l1}
+  \fmffreeze
+  \fmflabel{$\nutau$}{nuout}
+  \fmf{boson, label=$\Wbosonminus$, l.side=right, tension=2}{v1,v2}
+  \fmf{phantom}{v2,td1,l1}
+  \fmf{phantom}{v2,td2,l2}
+  \fmf{phantom}{v2,td3,l3}
+  \fmffreeze
+  \fmf{plain}{td3,v2,td1}
+  \fmfblob{.15w}{td2}
+  \fmf{plain}{td2,l2}
+  \fmflabel{\tauhm}{l2}
+  \fmflabel{\leptau}{taui}
+  \fmfdot{v1,v2}
+\end{fmfchar*}
+\end{fmffile}
