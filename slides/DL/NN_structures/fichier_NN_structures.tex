@@ -10,9 +10,8 @@
 \begin{tikzpicture}
 
 \foreach \y in {0,1,2,-2}{
-\drawN[1\y]{1,\y}
-\foreach \x in {2,3,...,5}{
-\drawN[\x\y]{\x.5,\y}
+\foreach \x in {1,2,...,5}{
+\drawN[\x\y]{\x,\y}
 }
 }
 
@@ -23,7 +22,7 @@
 }
 }
 
-\drawN[No]{7,0}
+\drawN[No]{6.5,0}
 
 \draw [-latex] (No) --+ (.5,0) node [right] {$y=f(\vec{x})$};
 
@@ -36,33 +35,33 @@
 }
 }
 
-\fill[white] (2.83,-2.5) rectangle (5.16,2.5);
+\fill[white] (2.33,-2.5) rectangle (4.66,2.5);
 
-\foreach \x/\y in {-.5/-.5,1/-1,2.5/-1,5.5/-1}{
+\foreach \x/\y in {-.5/-.5,1/-1,2/-1,5/-1}{
 \fill (\x,\y) circle (1pt);
 \fill (\x,\y+.2) circle (1pt);
 \fill (\x,\y-.2) circle (1pt);
 }
 
 \foreach \y in {0,1,2,-2}{
-\fill (4,\y) circle (1pt);
-\fill (4+.2,\y) circle (1pt);
-\fill (4-.2,\y) circle (1pt);
+\fill (3.5,\y) circle (1pt);
+\fill (3.5+.2,\y) circle (1pt);
+\fill (3.5-.2,\y) circle (1pt);
 }
 
-\foreach \x in {1.75,6.25}{
+\foreach \x in {.25,5.75}{
 \draw [thick, dotted, ltcolorblue] (\x,-2.5) -- (\x,2.5);
 }
 
-\draw [ltcolorblue] (.725, 2.5) node {Input layer\vphantom{Àq}};
-\draw [ltcolorblue] (4, 2.5) node {Hidden layers\vphantom{Àq}};
+\draw [ltcolorblue] (-.65, 2.5) node {Input layer\vphantom{Àq}};
+\draw [ltcolorblue] (3, 2.5) node {Hidden layers\vphantom{Àq}};
 \draw [ltcolorblue] (7.5, 2.5) node {Output layer\vphantom{Àq}};
 
-\draw [thick, ltcolorred, latex-latex] (1.75,-2.25) -- (6.25,-2.25);
-\draw [ltcolorred] (4, -2.5) node {$N_L$\vphantom{Àq}};
+\draw [thick, ltcolorred, latex-latex] (.25,-2.25) -- (5.75,-2.25);
+\draw [ltcolorred] (3, -2.5) node {$N_L$\vphantom{Àq}};
 
-\draw [thick, ltcolorred, latex-latex] (5,-2.125) -- (5,2.125);
-\draw [ltcolorred] (5, 0) node [left] {$N_N$\vphantom{Àq}};
+\draw [thick, ltcolorred, latex-latex] (4.5,-2.125) -- (4.5,2.125);
+\draw [ltcolorred] (4.5, 0) node [left] {$N_N$\vphantom{Àq}};
 
 \end{tikzpicture}
 
@@ -76,10 +75,20 @@ $N_N \in \set{1000, 2000}$
 \manip The \og bottleneck \fg{} variant:
 \submanip Get a smoother reduction from $\sim$ 1k neurons in hidden layers to 1 neuron for the output layer.
 \submanip Set a maximum value for $N_N$ in the 3 last hidden layers: $[1000, 500, 100]$.
+
+\vfill
+\manip Example: neurons per layers with settings $N_L = 4$, $N_N=2000$ gives
+\begin{center}
+\begin{tabular}{rccccc}
+Case & \multicolumn{4}{c}{Hidden layers} & Output layer \\
+without bottleneck & 2000 & 2000 & 2000 & 2000 & 1\\
+with bottleneck & 2000 & 1000 & 500 & 100 & 1
+\end{tabular}
+\end{center}
 \end{frame}
 
 \begin{frame}
 \manip Activation functions:
-\submanip linear for input and output layers;
-\submanip relu for hidden layers.
+\submanip relu for hidden layers;
+\submanip linear for output layer.
 \end{frame}
