@@ -28,7 +28,7 @@ if [ -e LT-These-${generator}_generator_with_toc.bcf ] && [[ $redo_bib == 0 ]]
 then
    echo 'Not reprocessing bib.'
 else
-    pdflatex -draftmode -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-${generator}_generator_with_toc
+    pdflatex -shell-escape -draftmode -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-${generator}_generator_with_toc
     biber LT-These-${generator}_generator_with_toc
 fi
 
@@ -39,7 +39,7 @@ else
     mpost_all
 fi
 
-pdflatex -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-${generator}_generator_with_toc
+pdflatex -shell-escape -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-${generator}_generator_with_toc
 
 mv LT-These-${generator}_generator_with_toc.log $pdffilename.log
 mv LT-These-${generator}_generator_with_toc.pdf $pdffilename.pdf

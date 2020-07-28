@@ -47,7 +47,7 @@ else
             done
         fi
         wait
-        pdflatex -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-slides
+        pdflatex -shell-escape -interaction=batchmode -halt-on-error $lt_PhD_thesis_dir/tex/LT-These-slides
     else
         pdflatex_complete_sequence -nc $lt_PhD_thesis_dir/tex/LT-These-slides
     fi
