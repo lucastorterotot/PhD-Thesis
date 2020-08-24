@@ -280,28 +280,28 @@ Les différents chemins de déclenchement, leurs \emph{prescales} et intervalles
 \toprule
 Chemin de déclenchement & $\pT^{\photon}$ (\SI{}{\GeV}) & \emph{Prescale} 2018 & \emph{Prescale} 2017-UL\\
 \midrule
-%\inlinepython{HLT_Photon33} & $[\num{40}, \num{60}[$ & \num{4.0115375867e-5} & \num{3.434860938821936e-4} \\
-%\inlinepython{HLT_Photon50_R9Id90_HE10_IsoM} & $[\num{60}, \num{85}[$ & \num{3.9473720141e-3} & \num{7.40465688874224e-3} \\
-%\inlinepython{HLT_Photon75_R9Id90_HE10_IsoM} & $[\num{85}, \num{105}[$ & \num{0.0156656382257} & \num{0.03195516364518142} \\
-%\inlinepython{HLT_Photon90_R9Id90_HE10_IsoM} & $[\num{105}, \num{130}[$ & \num{0.0312899931745} & \num{0.0636323095006467} \\
-%\inlinepython{HLT_Photon120_R9Id90_HE10_IsoM} & $[\num{130}, \num{175}[$ & \num{0.125036122867} & \num{0.18787162142132302} \\
-%\inlinepython{HLT_Photon165_R9Id90_HE10_IsoM} & $[\num{175}, \num{230}[$ & \num{0.250030962458} & \num{0.6823580953102895} \\
-%\inlinepython{HLT_Photon200} & $[\num{230}, +\infty$ & \num{1} & \num{1} \\
-\inlinepython{HLT_Photon33} & $[\num{40}, \num{60}[$ & \num{4.01154e-5} & \num{3.43486e-4} \\
-\inlinepython{HLT_Photon50_R9Id90_HE10_IsoM} & $[\num{60}, \num{85}[$ & \num{3.94737e-3} & \num{7.40466e-3} \\
-\inlinepython{HLT_Photon75_R9Id90_HE10_IsoM} & $[\num{85}, \num{105}[$ & \num{0.0156656} & \num{0.0319552} \\
-\inlinepython{HLT_Photon90_R9Id90_HE10_IsoM} & $[\num{105}, \num{130}[$ & \num{0.0312900} & \num{0.0636323} \\
-\inlinepython{HLT_Photon120_R9Id90_HE10_IsoM} & $[\num{130}, \num{175}[$ & \num{0.125036} & \num{0.187872} \\
-\inlinepython{HLT_Photon165_R9Id90_HE10_IsoM} & $[\num{175}, \num{230}[$ & \num{0.250031} & \num{0.682358} \\
-\inlinepython{HLT_Photon200} & $[\num{230}, +\infty [$ & \num{1} & \num{1} \\
+%\inlinecode{python}{HLT_Photon33} & $[\num{40}, \num{60}[$ & \num{4.0115375867e-5} & \num{3.434860938821936e-4} \\
+%\inlinecode{python}{HLT_Photon50_R9Id90_HE10_IsoM} & $[\num{60}, \num{85}[$ & \num{3.9473720141e-3} & \num{7.40465688874224e-3} \\
+%\inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM} & $[\num{85}, \num{105}[$ & \num{0.0156656382257} & \num{0.03195516364518142} \\
+%\inlinecode{python}{HLT_Photon90_R9Id90_HE10_IsoM} & $[\num{105}, \num{130}[$ & \num{0.0312899931745} & \num{0.0636323095006467} \\
+%\inlinecode{python}{HLT_Photon120_R9Id90_HE10_IsoM} & $[\num{130}, \num{175}[$ & \num{0.125036122867} & \num{0.18787162142132302} \\
+%\inlinecode{python}{HLT_Photon165_R9Id90_HE10_IsoM} & $[\num{175}, \num{230}[$ & \num{0.250030962458} & \num{0.6823580953102895} \\
+%\inlinecode{python}{HLT_Photon200} & $[\num{230}, +\infty$ & \num{1} & \num{1} \\
+\inlinecode{python}{HLT_Photon33} & $[\num{40}, \num{60}[$ & \num{4.01154e-5} & \num{3.43486e-4} \\
+\inlinecode{python}{HLT_Photon50_R9Id90_HE10_IsoM} & $[\num{60}, \num{85}[$ & \num{3.94737e-3} & \num{7.40466e-3} \\
+\inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM} & $[\num{85}, \num{105}[$ & \num{0.0156656} & \num{0.0319552} \\
+\inlinecode{python}{HLT_Photon90_R9Id90_HE10_IsoM} & $[\num{105}, \num{130}[$ & \num{0.0312900} & \num{0.0636323} \\
+\inlinecode{python}{HLT_Photon120_R9Id90_HE10_IsoM} & $[\num{130}, \num{175}[$ & \num{0.125036} & \num{0.187872} \\
+\inlinecode{python}{HLT_Photon165_R9Id90_HE10_IsoM} & $[\num{175}, \num{230}[$ & \num{0.250031} & \num{0.682358} \\
+\inlinecode{python}{HLT_Photon200} & $[\num{230}, +\infty [$ & \num{1} & \num{1} \\
 \bottomrule
 \end{tabular}
 \caption[Chemins de déclenchement.]{Chemins de déclenchement, intervalles d'impulsion transverse du photon et \emph{prescales} utilisés.}
 \label{tab-HLT_pT_precales_18_and_17UL}
 \end{table}
-\par Par exemple, un photon d'impulsion transverse \SI{95}{\GeV} doit avoir déclenché le chemin nommé \inlinepython{HLT_Photon75_R9Id90_HE10_IsoM}.
+\par Par exemple, un photon d'impulsion transverse \SI{95}{\GeV} doit avoir déclenché le chemin nommé \inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM}.
 Ce chemin de déclenchement requiert un photon d'impulsion transverse minimale \SI{75}{\GeV}.
-Ce même photon déclenche donc potentiellement le chemin nommé \inlinepython{HLT_Photon90_R9Id90_HE10_IsoM}.
+Ce même photon déclenche donc potentiellement le chemin nommé \inlinecode{python}{HLT_Photon90_R9Id90_HE10_IsoM}.
 Utiliser un écart minimal entre l'impulsion du photon et l'impulsion minimale requise au déclenchement du chemin permet de se placer au plateau d'efficacité maximale du chemin de déclenchement.
 Des biais dus à la calibration du photon sont également évités grâce à cette méthode.
 \subsection{Analyse}\label{chapter-JERC-section-JES-subsec-analyse}

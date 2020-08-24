@@ -15,19 +15,19 @@
 \centering
 \begin{tabular}{ccl}
 \toprule
-\inlinepython{gen_match} & Type de particule & Propriétés de l'objet au niveau générateur\\
+\inlinecode{python}{gen_match} & Type de particule & Propriétés de l'objet au niveau générateur\\
 \midrule
-1 & électron natif & $\abs{\text{pdgID}} = 11$, $\pT > \SI{8}{\GeV}$, \inlinepython{IsPrompt == True} \\
-2 & muon natif & $\abs{\text{pdgID}} = 13$, $\pT > \SI{8}{\GeV}$, \inlinepython{IsPrompt == True} \\
+1 & électron natif & $\abs{\text{pdgID}} = 11$, $\pT > \SI{8}{\GeV}$, \inlinecode{python}{IsPrompt == True} \\
+2 & muon natif & $\abs{\text{pdgID}} = 13$, $\pT > \SI{8}{\GeV}$, \inlinecode{python}{IsPrompt == True} \\
 3 & $\tau\to\ele$  & $\abs{\text{pdgID}} = 11$, $\pT > \SI{8}{\GeV}$, \\
-  & &  \inlinepython{IsDirectPromptTauDecayProduct == True} \\
+  & &  \inlinecode{python}{IsDirectPromptTauDecayProduct == True} \\
 4 & $\tau\to\mu$  & $\abs{\text{pdgID}} = 13$, $\pT > \SI{8}{\GeV}$, \\
-  & & \inlinepython{IsDirectPromptTauDecayProduct == True} \\
+  & & \inlinecode{python}{IsDirectPromptTauDecayProduct == True} \\
 5 & $\tau\to\tauh$ & Tau hadronique généré\\
 6 & Faux \tauh, \tauh\ de l'empilement & Tout objet ne rentrant pas dans les catégories 1 à 5\\
 \bottomrule
 \end{tabular}
-\caption[Valeurs prises par {\rm\texttt{gen\_match}}.]{Valeurs prises par \inlinepython{gen_match}, variable de correspondance des taus hadroniques à l'objet généré dans les événements simulés.}
+\caption[Valeurs prises par {\rm\texttt{gen\_match}}.]{Valeurs prises par \inlinecode{python}{gen_match}, variable de correspondance des taus hadroniques à l'objet généré dans les événements simulés.}
 \label{tab-chapter-HTT_analysis-gen_match_values}
 \end{table}
 
