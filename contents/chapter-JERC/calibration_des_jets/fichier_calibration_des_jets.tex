@@ -156,23 +156,28 @@ Deux méthodes existent et sont utilisées de manière complémentaire:
 \item[la méthode de la balance] estime que l'objet de référence et le jet sont balancés au niveau particule, \ie\ d'impulsion transverse totale nulle, soit
 \begin{equation}
 \vpT_\ptcl^\text{réf} + \vpT_\ptcl^\text{jet} = \vec{0}
-\Rightarrow
-\pT_\ptcl^\text{jet} = \pT_\ptcl^\text{réf}
 \mend
+\label{eq-chapter-JERC-section-CMS-subsec-residuals-pT_bal_ppe1}
 \end{equation}
-Ainsi, au niveau reconstruit\footnote{Le niveau reconstruit prend ici en compte les étapes de correction de l'empilement et de la réponse du détecteur.},
-\begin{equation}
-\vpT_\reco^\text{réf} + \vpT_\reco^\text{jet} = \vec{0}
-\Leftrightarrow
-\vpT_\ptcl^\text{réf} + \Rbal\vpT_\ptcl^\text{jet} = \vec{0}
-\end{equation}
-car l'objet de référence, fidèlement reconstruit, permet de considérer
+L'objet de référence étant fidèlement reconstruit,
 \begin{equation}
 \vpT_\reco^\text{réf} \simeq \vpT_\ptcl^\text{réf} = \vpT^\text{réf}
 \mend
 \label{eq-chapter-JERC-section-CMS-subsec-residuals-pT_ref_approx_ptcl_reco}
 \end{equation}
-La réponse balancée \Rbal\ est alors définie comme
+Ainsi, l'équation~\eqref{eq-chapter-JERC-section-CMS-subsec-residuals-pT_bal_ppe1} peut se réécrire à l'aide de~\eqref{eq-chapter-JERC-section-CMS-subsec-residuals-pT_ref_approx_ptcl_reco} sous la forme
+\begin{equation}
+\vpT^\text{réf} + \vpT_\ptcl^\text{jet} = \vec{0}
+\mend
+\label{eq-chapter-JERC-section-CMS-subsec-residuals-pT_bal_ppe2}
+\end{equation}
+La réponse d'un jet définie par~\eqref{eq-def_R_jet} permet alors de faire apparaître la réponse balancée du jet, notée \Rbal,
+\begin{equation}
+\vpT^\text{réf} + \frac{1}{\Rbal} \vpT_\reco^\text{jet} = \vec{0}
+\mend
+\label{eq-chapter-JERC-section-CMS-subsec-residuals-pT_bal_ppe3}
+\end{equation}
+Il en résulte
 \begin{equation}
 \Rbal (\pT, \eta) = \frac{\pT_\reco^\text{jet}}{\pT^\text{réf}}
 \label{eq-chapter-JERC-section-CMS-subsec-residuals-Rbal_def}
@@ -180,26 +185,38 @@ La réponse balancée \Rbal\ est alors définie comme
 \item[la méthode \og MPF \fg] (\emph{MET Projection Fraction}) prend en compte l'ensemble de l'activité hadronique de l'événement et considère l'impulsion de recul vis-à-vis de l'objet de référence, \ie
 \begin{equation}
 \vpT_\ptcl^\text{réf} + \vpT_\ptcl^\text{recul} = \vec{0}
-\Rightarrow
-\vpT_\reco^\text{réf} + \vpT_\reco^\text{recul} = -\vMET
-\Leftrightarrow
-\vpT_\reco^\text{réf} + \RMPF\vpT_\ptcl^\text{recul} = -\vMET
-\mend[,]
+\mend
+\label{eq-chapter-JERC-section-CMS-subsec-residuals-pT_MPF_ppe1}
 \end{equation}
-où \vMET\ est l'impulsion transverse manquante (MET) définie dans la section~\ifref{chapter-LHC-section-evt_reco-subsec-MET}{\ref{chapter-LHC-section-evt_reco-subsec-MET}}{4.4} du chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3}.
-Afin de garder une description cohérente de l'événement, les corrections apportées aux jets sont propagées à la MET par la correction dite de \og type-I \fg,
+Au niveau reconstruit, l'impulsion transverse manquante (MET) définie dans la section~\ifref{chapter-LHC-section-evt_reco-subsec-MET}{\ref{chapter-LHC-section-evt_reco-subsec-MET}}{6.3} du chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3} doit être prise en compte dans le recul.
+Afin de garder une description cohérente de l'événement, les corrections précédentes apportées aux jets sont d'abord propagées à \vMET.
+L'équation précédente, valable au niveau particule, s'écrit alors
 \begin{equation}
-\vMET = \vMET_\text{type-I} = \vMET_\reco + \sum_{\substack{\text{jets}\\\pT_\reco>\SI{15}{\GeV}}} \left(\vpT_\reco - \vpT_\cali\right) - \vec{\mathcal{O}}_\text{RC}
+\vpT_\reco^\text{réf} + \vpT_\reco^\text{recul} = -\vMET
 \end{equation}
-où $\vpT_\cali$ correspond à l'impulsion transverse du jet après application des corrections des étapes précédentes de la JEC
-et
-$\vec{\mathcal{O}}_\text{RC}$ la contribution moyenne de l'empilement obtenue par la méthode RC.
-\par En appliquant~\eqref{eq-chapter-JERC-section-CMS-subsec-residuals-pT_ref_approx_ptcl_reco} à l'équation précédente, il est possible d'écrire
+%Afin de garder une description cohérente de l'événement, les corrections apportées aux jets sont propagées à la MET par la correction dite de \og type-I \fg,
+%\begin{equation}
+%\vMET = \vMET_\text{type-I} = \vMET_\reco + \sum_{\substack{\text{jets}\\\pT_\reco>\SI{15}{\GeV}}} \left(\vpT_\reco - \vpT_\cali\right) - \vec{\mathcal{O}}_\text{RC}
+%\end{equation}
+%où $\vpT_\cali$ correspond à l'impulsion transverse du jet après application des corrections des étapes précédentes de la JEC
+%et
+%$\vec{\mathcal{O}}_\text{RC}$ la contribution moyenne de l'empilement obtenue par la méthode RC.
+La réponse d'un jet définie par~\eqref{eq-def_R_jet} permet alors de faire apparaître la réponse MPF du jet, notée \RMPF,
+\begin{equation}
+\vpT_\reco^\text{réf} + \RMPF\vpT_\ptcl^\text{recul} = -\vMET
+\mend
+\end{equation}
+En appliquant~\eqref{eq-chapter-JERC-section-CMS-subsec-residuals-pT_ref_approx_ptcl_reco} et~\eqref{eq-chapter-JERC-section-CMS-subsec-residuals-pT_MPF_ppe1} à l'équation précédente, il est possible d'écrire
 \begin{equation}
 \vpT^\text{réf} - \RMPF\vpT^\text{réf} = -\vMET
+\mend
+\end{equation}
+Par produit scalaire avec $\vpT^\text{réf}$, il vient
+\begin{equation}
+\abs{\vpT^\text{réf}}^2 (1-\RMPF) = -\vpT^\text{réf}\cdot\vMET
 \mend[,]
 \end{equation}
-ce qui permet de définir la réponse MPF \RMPF\ comme
+ce qui permet de définir \RMPF\ comme
 \begin{equation}
 \RMPF (\pT, \eta) = 1 + \frac{\vpT^\text{réf}\cdot\vMET}{\abs{\vpT^\text{réf}}^2}
 \mend
