@@ -53,22 +53,20 @@ Le vertex primaire principal est choisi comme étant le vertex présentant la pl
 Les autres vertex primaires sont considérés comme des vertex d'empilement.
 Les hadrons chargés dont les traces associées proviennent de vertex d'empilement sont retirés de l'événement.
 La reconstruction des jets est alors réalisée à partir de l'événement nettoyé, ce qui permet d'améliorer la résolution en \pT\ des jets.
-\par La correction de l'empilement résiduel, principalement due aux hadrons neutres, aux photons, aux traces non associées à un vertex et à l'empilement asynchrone qui n'a pas pu être corrigé totalement, est déterminée à l'aide de la méthode de l'aire hybride (\emph{hybrid jet area}).
-Il s'agit d'une correction paramétrique, appliquée indépendamment à chaque jet, dépendante de:
+\par La correction de l'empilement résiduel $\mathcal{C}_\text{PU}$, principalement due aux hadrons neutres, aux photons, aux traces non associées à un vertex et à l'empilement asynchrone qui n'a pas pu être corrigé totalement, s'exprime en fonction de
 \begin{itemize}
 \item la densité en énergie dans le plan $(\eta, \phi)$ de l'événement contenant ce jet, notée $\rho$;
 \item l'aire du jet dans le plan $(\eta, \phi)$, $A$;
 \item la pseudo-rapidité du jet, $\eta$;
 \item l'impulsion transverse du jet avant application de cette correction et après CHS, $\pT_\reco^\text{CHS}$.
 \end{itemize}
-La correction de l'empilement résiduel $\mathcal{C}_\text{PU}$ à appliquer à un jet s'exprime alors
+sous la forme
 \begin{equation}
 \mathcal{C}_\text{PU}(\pT_\reco^\text{CHS}, \eta, A, \rho)
-= 1 - \frac{\left[\rho_0(\eta) + \rho\,\beta(\eta)(1+\gamma(\eta)\log\pT_\reco^\text{CHS})\right]A}{\pT_\reco^\text{CHS}}
-\label{eq-chapter-JERC-section-CMS-subsec-PU-offset_corr_v1}
+= 1 - \frac{\average{\pT_\ptcl^\text{add}}}{\pT_\reco^\text{CHS}}
+\label{eq-chapter-JERC-section-CMS-subsec-PU-offset_corr_v2}
 \end{equation}
-où $\rho_0(\eta)$, $\beta(\eta)$ et $\gamma(\eta)$ sont les paramètres de cette correction, dépendants de $\eta$.
-Ils sont déterminés à partir de la contribution additionnelle de l'empilement au niveau particule $\pT_\ptcl^\text{add}$, estimée à partir d'événements QCD multijet simulés avec et sans empilement, telle que
+où $\average{\pT_\ptcl^\text{add}}$ est la contribution additionnelle de l'empilement au niveau particule, estimée à l'aide de la méthode de l'aire hybride (\emph{hybrid jet area}) à partir d'événements QCD multijet simulés avec et sans empilement, \ie
 \begin{equation}
 \average{\pT_\ptcl^\text{add}}(\rho, \eta, \pT_\reco^\text{CHS})
 =
@@ -79,14 +77,14 @@ Ils sont déterminés à partir de la contribution additionnelle de l'empilement
 avec
 $\pT_\ptcl^\text{avec PU}$ et $\pT_\ptcl^\text{sans PU}$
 les impulsions du jet au niveau particule avec et sans empilement.
-La contribution additionnelle de l'empilement au niveau particule est alors paramétrée en fonction de $\rho$, $\eta$, $\pT_\reco^\text{CHS}$ et $A$ afin d'obtenir les paramètres $\rho_0(\eta)$, $\beta(\eta)$ et $\gamma(\eta)$ de l'équation~\eqref{eq-chapter-JERC-section-CMS-subsec-PU-offset_corr_v1} qui peut se réécrire
+La contribution additionnelle de l'empilement au niveau particule est alors paramétrée en fonction de $\pT_\reco^\text{CHS}$, $\eta$, $A$ et $\rho$ et la correction de l'empilement résiduel $\mathcal{C}_\text{PU}$ définie par~\eqref{eq-chapter-JERC-section-CMS-subsec-PU-offset_corr_v2} peut se réécrire
 \begin{equation}
 \mathcal{C}_\text{PU}(\pT_\reco^\text{CHS}, \eta, A, \rho)
-= 1 - \frac{\average{\pT_\ptcl^\text{add}}}{\pT_\reco^\text{CHS}}
-\mend
-\label{eq-chapter-JERC-section-CMS-subsec-PU-offset_corr_v2}
+= 1 - \frac{\left[\rho_0(\eta) + \rho\,\beta(\eta)(1+\gamma(\eta)\log\pT_\reco^\text{CHS})\right]A}{\pT_\reco^\text{CHS}}
+\label{eq-chapter-JERC-section-CMS-subsec-PU-offset_corr_v1}
 \end{equation}
-La figure~\ref{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005} montre $\average{\pT_\ptcl^\text{add}}$ en fonction de l'impulsion transverse du jet au niveau particule, avant et après application de la correction de l'empilement.
+où $\rho_0(\eta)$, $\beta(\eta)$ et $\gamma(\eta)$ sont les paramètres de cette correction, dépendants de $\eta$.
+\par La figure~\ref{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005} montre $\average{\pT_\ptcl^\text{add}}$ en fonction de l'impulsion transverse du jet au niveau particule, avant et après application de la correction de l'empilement.
 Les résultats de la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005b} sont cohérents avec l'absence d'énergie supplémentaire due à l'empilement à $\pm\SI{0.2}{\GeV}$. Dans le cas d'un grand nombre d'interactions d'empilement ($\mu>30$), un léger effet est visible, lié à une dépendance quadratique en $\rho$ de la contribution en énergie de l'empilement qui n'est pas modélisée~\cite{JERC_RunI}.
 \begin{figure}[h]
 \centering
