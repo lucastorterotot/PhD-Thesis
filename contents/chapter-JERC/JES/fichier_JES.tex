@@ -241,7 +241,7 @@ Ces critères permettent de rejeter les jets issus du bruit de fond avec une eff
 \par Les jets ainsi sélectionnés sont calibrés en énergie en suivant la procédure décrite dans la section~\ref{chapter-JERC-section-CMS} jusqu'à la correction résiduelle relative en $\eta$ incluse. Ils sont alors triés par impulsion transverse décroissante.
 Pour s'assurer d'une bonne balance dans le plan transverse entre le photon et le premier jet, \ie\ celui d'impulsion transverse la plus grande, seuls les événements proposant un écart angulaire $\Delta\phi$ entre le photon et ce jet supérieur à \SI{2.8}{\rad} sont considérés dans la suite.
 Le photon et le jet sont donc dos à dos dans le plan transverse, ce qui correspond aux situations illustrées figures~\ref{subfig-Gamma_plus_jet_basic_event}, \ref{subfig-Gamma_plus_two_jets} et~\ref{subfig-Gamma_plus_jet_basic_event_real}.
-\par Si un second jet d'impulsion transverse supérieure à \SI{10}{\GeV} est présent, l'événement est rejeté si $\alpha>\num{0.3}$ où $\alpha$ est défini dans l'équation~\eqref{eq-chapter-JERC-definition_alpha}, page~\pageref{eq-chapter-JERC-definition_alpha}.
+\par Si un second jet d'impulsion transverse supérieure à \SI{10}{\GeV} et à \SI{30}{\%} de $\pT^{\photon}$ est présent, l'événement est rejeté.
 L'événement est également rejeté si un lepton (électron ou muon) isolé, en pratique hors des jets, est présent.
 \par Il a été observé que des régions des calorimètres produisent des signaux menant à des reconstructions biaisées de jets.
 De plus, un système de lecture expérimental \og SiPM \fg{} a été installé dans le bouchon du HCAL~\cite{SiPM_CMS_conf}.
@@ -433,11 +433,19 @@ L'accord ainsi obtenu entre données et simulations est considéré comme suffis
 \caption[Observables d'événements \Gjets\ en 2018.]{Distributions d'observables dans les données (points noirs) et les simulations (histogramme en rouge) pour l'année 2018. Sur la figure~\ref{subfig-distrib_Gjets_18_ptPhoton}, l'effet des \emph{prescales} (voir page~\pageref{tab-HLT_pT_precales_18_and_17UL}) donnant une distribution en dents de scie est clairement visible.}
 \label{fig-distribs_Gjets_18}
 \end{figure}
-\paragraph{Intervalles de $\alpha$}
-Comme expliqué dans la section~\ref{chapter-JERC-section-pheno-GJets-subsec-alpha_definition}, l'analyse des événements \Gjets\ est réalisée pour différents intervalles de $\alpha$ afin de pouvoir réaliser par la suite une extrapolation à $\alpha=0$, correspondant au cas idéal d'événements \Gjet.
+\paragraph{Activité additionnelle des jets supplémentaires}
+La présence d'un jet secondaire, comme sur la figure~\ref{subfig-Gamma_plus_two_jets}, créé un déséquilibre dans \Rbal\ dû à la physique de l'événement et non à la JES. Il ne faut donc pas corriger cet effet.
+Pour cela, il faut pouvoir se ramener au cas où un seul jet est présent, comme dans l'événement de la figure~\ref{subfig-Gamma_plus_jet_basic_event}.
+L'activité additionnelle liée aux jets supplémentaires est quantifiée par la variable
+\begin{equation}
+\alpha = \frac{\pT_\reco^\text{jet 2}}{\pT^{\photon}}
+\mend
+\label{eq-chapter-JERC-definition_alpha}
+\end{equation}
+\par L'analyse des événements \Gjets\ est alors réalisée pour différents intervalles de $\alpha$ afin de pouvoir réaliser par la suite une extrapolation à $\alpha=0$, correspondant au cas idéal d'événements \Gjet.
 Les intervalles utilisés sont présentés dans le tableau~\ref{tab-alpha_intervalles}.
 Il s'agit d'intervalles inclusifs, \ie\ que chaque intervalle contient l'intervalle précédent.
-L'évolution des réponses moyennes en fonction de $\alpha$ y étant linéaire, ce choix rend possible une extrapolation simple vers $\alpha=0$.
+L'évolution des réponses moyennes en fonction de $\alpha$ y étant linéaire \aposteriori, ce qui se retrouve dans les résultats de la figure~\ref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}, page~\pageref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}, ce choix rend possible une extrapolation simple vers $\alpha=0$.
 \begin{table}[h]
 \centering
 \begin{tabular}{ccccc}
@@ -451,8 +459,7 @@ $[\num{0}, \num{0.10}[$ & $[\num{0}, \num{0.15}[$ & $[\num{0}, \num{0.20}[$ & $[
 \par Des études sont en cours afin d'inclure des valeurs de $\alpha$ allant jusqu'à \num{1}.
 L'exploitation des événements tels que $\alpha>\num{0.3}$ est doublement motivée.
 Ces événements permettraient d'améliorer les corrections vis-à-vis du FSR\footnote{Voir page~\pageref{subfig-fgraph-gq_qGamma_S-FSR_2jets}.} et les corrections à bas \pT.
-En effet, pour $\pT^{\photon}<\SI{100}{\GeV}$, imposer $\alpha<\num{0.3}$ équivaut à imposer $\pT^\text{jet 2}<\SI{30}{\GeV}$.
-Or, les jets d'impulsion transverse inférieure à \SI{30}{\GeV} sont très majoritairement issus de l'empilement, ce qui limite le nombre d'événements exploitables.
+En effet, pour $\pT^{\photon}<\SI{100}{\GeV}$, imposer $\alpha<\num{0.3}$ implique $\pT^\text{jet 2}<\SI{30}{\GeV}$, ce qui limite fortement le nombre d'événements exploitables.
 %Mikko:
 %The alpha>0.3 values are not (yet) used to constrain the FSR correction because they are outside the linear regime, but I’m working on including them for better low pT constraints. It’s a new unexplored region so taking some time to understand to sufficient detail.
 %The alpha values higher than 0.3 may be necessary for reliably extending the measurement below pT<100 GeV. Here alpha<0.3 corresponds to pT2=30 GeV, which is the threshold below which pileup jet rates start to rapidly increase. This leads to large alpha cut inefficiencies and strong bias on average <rho> (i.e. PU profile). So the best solution might be to have a sliding cut of alpha<30 GeV/pT,gamma at pT<100 GeV instead of fixed 0.3.

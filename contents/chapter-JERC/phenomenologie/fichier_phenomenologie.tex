@@ -59,51 +59,36 @@ Il est possible de supprimer ce biais en imposant la présence d'un seul photon 
 La section efficace de production d'événements \Gjets\ à \SI{13}{\TeV} est importante~\cite{Gjet_xsec_2018}, il est donc possible de sélectionner de manière stricte les événements afin d'obtenir une bonne pureté tout en conservant une statistique suffisante.
 \begin{figure}[h]
 \centering\vspace{\baselineskip}
-\subcaptionbox{\label{subfig-fgraph-gq_qGamma_S-ISR_2jets}}[.225\textwidth]
-{\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_S-ISR_2jets.tex}\vspace{\baselineskip}}
-\hfill
 \subcaptionbox{\label{subfig-fgraph-gq_qGamma_S-ISR_2photons}}[.225\textwidth]
 {\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_S-ISR_2photons.tex}\vspace{\baselineskip}}
 \hfill
-\subcaptionbox{\label{subfig-fgraph-gq_qGamma_S-FSR_2jets}}[.225\textwidth]
-{\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_S-FSR_2jets.tex}\vspace{\baselineskip}}
-\hfill
 \subcaptionbox{\label{subfig-fgraph-gq_qGamma_S-FSR_2photons}}[.225\textwidth]
 {\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_S-FSR_2photons.tex}\vspace{\baselineskip}}
-\caption[Diagrammes de Feynman de processus avec ISR ou FSR.]{Exemples de diagrammes de Feynman de processus avec ISR (\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets}, \ref{subfig-fgraph-gq_qGamma_S-ISR_2photons}) ou FSR (\ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}, \ref{subfig-fgraph-gq_qGamma_S-FSR_2photons}) donnant des événements avec deux jets (\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets}, \ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}) ou deux photons (\ref{subfig-fgraph-gq_qGamma_S-ISR_2photons}, \ref{subfig-fgraph-gq_qGamma_S-FSR_2photons}) dans l'état final.}
+\hfill
+\subcaptionbox{\label{subfig-fgraph-gq_qGamma_S-ISR_2jets}}[.225\textwidth]
+{\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_S-ISR_2jets.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{\label{subfig-fgraph-gq_qGamma_S-FSR_2jets}}[.225\textwidth]
+{\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_S-FSR_2jets.tex}\vspace{\baselineskip}}
+\caption[Diagrammes de Feynman de processus avec ISR ou FSR.]{Exemples de diagrammes de Feynman de processus correspondant à des événements avec deux photons (\ref{subfig-fgraph-gq_qGamma_S-ISR_2photons}, \ref{subfig-fgraph-gq_qGamma_S-FSR_2photons}) ou deux jets (\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets}, \ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}) dans l'état final, dus à l'ISR (\ref{subfig-fgraph-gq_qGamma_S-ISR_2photons}, \ref{subfig-fgraph-gq_qGamma_S-ISR_2jets}) ou au FSR (\ref{subfig-fgraph-gq_qGamma_S-FSR_2photons}, \ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}).}
 \label{fig-fgraph-gamma_plus_jets-ISR-FSR}
 \end{figure}
 \par L'ISR et le FSR peuvent aussi produire un gluon, ce qui correspond aux diagrammes de Feynman des figures~\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets} et~\ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}.
 Plusieurs jets sont alors présents dans l'état final et sont ordonnés par impulsion transverse décroissante.
-Le cas de la figure~\ref{subfig-fgraph-gq_qGamma_S-ISR_2jets}, correspondant à un jet additionnel par ISR, peut être supprimé par une condition sur les directions du photon et du premier jet qui doivent être opposées.
-Dans le cas du diagramme de la figure~\ref{subfig-fgraph-gq_qGamma_S-FSR_2jets}, correspondant à un jet additionnel par FSR, le photon est balancé avec le système des deux jets. La topologie d'un tel événement est illustrée sur la figure~\ref{subfig-Gamma_plus_two_jets}.
+La topologie d'un tel événement est illustrée sur la figure~\ref{subfig-Gamma_plus_two_jets}.
+Il est possible de réduire le nombre d'événements avec ISR ou FSR en imposant une condition sur les directions du photon et du premier jet qui doivent être opposées.
+Toutefois, la plupart des événements présentent plusieurs jets dans la direction opposée au photon.
 La réponse balancée est alors considérée entre le photon et le premier jet, \ie\ le jet d'impulsion transverse la plus grande. Ainsi,
 \begin{equation}
 \Rbal = \frac{\pT_\reco^\text{jet 1}}{\pT^{\photon}}
 \mend
 \end{equation}
-\par La présence d'un jet secondaire, comme sur la figure~\ref{subfig-Gamma_plus_two_jets}, créé un déséquilibre dans \Rbal\ dû à la physique de l'événement et non à la JES. Il ne faut donc pas corriger cet effet.
-Pour cela, il faut pouvoir se ramener au cas où un seul jet est présent, comme dans l'événement de la figure~\ref{subfig-Gamma_plus_jet_basic_event}.
-L'activité additionnelle liée aux jets supplémentaires est quantifiée par la variable
-\begin{equation}
-\alpha = \frac{\pT_\reco^\text{jet 2}}{\pT^{\photon}}
-\mend
-\label{eq-chapter-JERC-definition_alpha}
-\end{equation}
-L'analyse des événements \Gjets\ est ainsi réalisée à différentes valeurs de $\alpha$, puis une extrapolation de \Rbal\ à $\alpha=0$ permet d'obtenir le résultat souhaité. Cette procédure est détaillée dans la section~\ref{chapter-JERC-section-JES}.
-\subsection{Utilisation conjointe de la réponse MPF}
-En complément de la réponse balancée, la réponse MPF, définie comme
+\par En complément de la réponse balancée, la réponse MPF, définie comme
 \begin{equation}
 \RMPF = 1 + \frac{\vpT^{\photon}\cdot\vMET}{\abs{\vpT^{\photon}}^2}
 \mend[,]
 \end{equation}
 est également analysée.
-Les impulsions de toutes les particules présentes étant considérées, \RMPF\ est moins sensible à l'activité additionnelle que \Rbal, ce qui se retrouve dans les résultats de l'analyse, figure~\ref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}, page~\pageref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}, où ces deux réponses sont représentées en fonction de $\alpha$.
-\par L'utilisation de la réponse MPF nécessite une bonne reconstruction de \vMET, ce qui est le cas grâce aux bonnes performances de l'algorithme de \PF.
-Son utilisation conjointe avec la réponse balancée permet d'obtenir des résultats complémentaires.
+Les impulsions de toutes les particules présentes étant considérées, \RMPF\ est moins sensible à l'activité additionnelle que \Rbal.
+L'utilisation conjointe de \RMPF\ avec \Rbal\ permet d'obtenir des résultats complémentaires.
 Des écarts significatifs observés entre les deux méthodes indiqueraient ainsi des effets incompris, nécessitant de plus amples investigations.
-Dans la situation de la figure~\ref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap} par exemple, les rapports des réponses balancée et MPF entre données et simulations valent
-$\num{0.967}\pm\num{0.001}$
-et
-$\num{0.966}\pm\num{0.001}$,
-ce qui est tout à fait compatible.
