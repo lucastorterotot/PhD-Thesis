@@ -243,8 +243,7 @@ Elle combine, à l'aide d'un ajustement global, les comparaisons données-simula
 \item événements multijet: ces événements contiennent au moins deux jets dans l'état final et couvrent la région $\pT>\SI{200}{\GeV}$.
 \end{itemize}
 En 2017 et 2018, les événements multijet n'ont pas été exploités et la correction résiduelle absolue en \pT\ dans la région $\pT>\SI{800}{\GeV}$ est contrainte par l'analyse des événements \Gjets.
-\par L'objet de référence utilisé pour calibrer le jet, que ce soit un boson \Zboson\ (\Zjets), un photon (\Gjets) ou un autre jet (multijet), possède une meilleure résolution en énergie.
-Cette correction corrige l'échelle en énergie absolue des jets, d'où son qualificatif. % d'\og absolue \fg.
+\par Cette correction corrige l'échelle en énergie absolue des jets, d'où son qualificatif, à partir d'un objet de référence pouvant être un boson \Zboson\ (\Zjets), un photon (\Gjets) ou un autre jet (multijet).
 La correction à appliquer aux données ainsi obtenue est illustrée sur la figure~\ref{fig-L3ResAbs_RunII} dans le cas des jets de pseudo-rapidité $\abs{\eta}<\num{1.3}$.
 \begin{figure}[h]
 \centering
@@ -261,7 +260,7 @@ La correction à appliquer aux données ainsi obtenue est illustrée sur la figu
 %We are now using multijet again, thanks to getting it back to Helsinki, reverting back closer to Run 1 method and actually pushing hard to understand and reduce the systematic uncertainties. And it’s working wonderfully! We’re for sure going to use multijet for all UL samples. Now is the first time it’s actually more constraining at high pT than gamma+jet.
 \label{fig-L3ResAbs_RunII}
 \end{figure}
-\par L'analyse des événements \Gjets\ utilisés dans ces ajustements globaux pour les années 2018, utilisés dans la figure~\ref{subfig-absolute_pT_residual_2018}, et 2017-UL a fait partie de mon travail de thèse.
+\par Durant ma thèse, j'étais responsable de la mesure de cette correction avec les événements \Gjets\ pour les années 2018, utilisés dans la figure~\ref{subfig-absolute_pT_residual_2018} afin de réaliser un ajustement global avec les autres analyses, et 2017-UL.
 La phénoménologie de ces événements ainsi que leur analyse sont détaillées dans les sections~\ref{chapter-JERC-section-pheno-GJets} et~\ref{chapter-JERC-section-JES}.
 %une fois le ECAL calibré (test de presque chaque cristal en faisceau), calibration du HCAL.
 \newpage
@@ -274,9 +273,9 @@ La phénoménologie de ces événements ainsi que leur analyse sont détaillées
 \label{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_030a}
 \end{wrapfigure}
 Il existe une différence de réponse selon la saveur du jet, majoritairement due à la fragmentation en énergie et la composition du jet qui dépendent de cette saveur~\cite{JERC_RunI}.
-Par exemple, les particules de bas \pT\ se retrouvent hors de la zone d'acceptation du détecteur.
+Par exemple, les particules de bas \pT\ se retrouvent hors de l'acceptance du détecteur.
 Or, des jets initiés par des gluons présentent de nombreuses particules de bas \pT\ par rapport aux jets issus de quarks légers.
-Dans une moindre mesure, les jets lourds possèdent également plus de particules de bas \pT\ que les jets de quarks légers suite à la désintégration du hadron lourd\footnote{Le lecteur pourra se référer à la section~\ref{chapter-JERC-section-jets_reco-subsec-flavor} pour plus de détails sur la saveur des jets.}.
+Dans une moindre mesure, les jets lourds possèdent également plus de particules de bas \pT\ que les jets de quarks légers suite à la désintégration du hadron lourd.
 La proportion de particules neutres dans le jet est également un des paramètres affectant le plus sa réponse.
 \par La correction résiduelle de saveur $\mathcal{C}_\text{Sav}$ à appliquer aux données et aux simulations est obtenue à l'aide de
 \PYTHIA~6.4~\cite{pythia6.4}
@@ -284,6 +283,8 @@ avec les réglages Z2*~\cite{tunes_2016}
 sur des événements dijet, \Zjets\ et \Gjets\ simulés
 et est représentée sur la figure~\ref{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_030a}.
 Elle est de moins de \SI{2}{\%} en-deçà de \SI{100}{\GeV} mais peut atteindre \SI{4}{\%} à bas \pT.
+Dans les analyses de physique des particules, cette correction ne peut être appliquée qu'à condition de connaître la saveur du jet.
+Elle n'est donc applicable en pratique qu'aux jets issus de quarks~\quarkb.
 \subsection{Incertitude sur la correction en énergie des jets}\label{chapter-JERC-section-CMS-subsec-unc}
 Chacune des étapes de la JEC comporte des incertitudes liées aux effets systématiques et, dans une moindre mesure, statistiques.
 La maîtrise de ces incertitudes est un enjeu important pour de nombreuses analyses de la collaboration CMS où elles constituent une des sources d'incertitude les plus importantes.
@@ -317,7 +318,7 @@ La maîtrise de ces incertitudes est un enjeu important pour de nombreuses analy
 Les sources d'incertitude considérées pour la JEC sont réparties en six groupes~\cite{CMS-DP-2020-019}:
 \begin{description}
 \item[Échelle absolue] ou \emph{Absolute scale} sur les légendes des figures~\ref{subfig-Syst_uncs_pT_2016} à~\ref{subfig-Syst_uncs_eta_2018}.
-Cette incertitude prend en compte l'échelle en énergie des objets de référence utilisés pour obtenir la correction résiduelle absolue en \pT\ décrite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals_pT} ainsi que les effets de l'ISR et du FSR\footnote{L'\emph{Initial State Radiation} et le \emph{Final State Radiation} sont abordés dans la section~\ref{chapter-JERC-section-pheno-GJets}.}.
+Cette incertitude prend en compte l'échelle en énergie des objets de référence utilisés pour obtenir la correction résiduelle absolue en \pT\ décrite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals_pT} ainsi que les effets de l'ISR (\emph{Initial State Radiation}) et du FSR (\emph{Final State Radiation}) abordés dans la section~\ref{chapter-JERC-section-pheno-GJets}.
 \item[Échelle relative] ou \emph{Relative scale} sur les légendes des figures~\ref{subfig-Syst_uncs_pT_2016} à~\ref{subfig-Syst_uncs_eta_2018}.
 Cette incertitude est principalement due à la JER qui s'applique à l'objet de référence dans la correction résiduelle relative en $\eta$ décrite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals_eta} ainsi qu'aux effets de l'ISR et du FSR.
 \item[Empilement] ou \emph{Pileup} sur les légendes des figures~\ref{subfig-Syst_uncs_pT_2016} à~\ref{subfig-Syst_uncs_eta_2018}.
@@ -350,11 +351,13 @@ L'incertitude globale sur la JEC est généralement inférieure à \SI{2}{\%}, e
 %\mathcal{C}_\text{Sav}(\pT_\reco''', \eta)
 %\end{equation}
 \subsection{Correction de la résolution en énergie}\label{chapter-JERC-section-CMS-subsec-JER}
-La résolution en énergie des jets, notée JER, est de l'ordre de \SI{10}{\%} pour des jets avec $\pT\geq\SI{50}{\GeV}$ et peut atteindre environ \SI{40}{\%} pour des jets de bas \pT\ et un empilement important~\cite{JERC_RunI}.
-Cette résolution est donc bien moins bonne que celles d'autres objets physiques tels que les électrons (\num{2} à \SI{5}{\%}), les muons (\num{1} à \SI{6}{\%}) et les photons (environ \SI{1}{\%}), ce qui peut introduire des biais importants dans les analyses cherchant des résonances étroites, par exemple.
+La résolution en énergie des jets, notée JER, est de l'ordre de \SI{20}{\%} pour des jets à $\pT=\SI{30}{\GeV}$ et de \SI{10}{\%} à $\pT=\SI{100}{\GeV}$~\cite{JERC_RunI}.
+Cette résolution est donc bien moins bonne que celles d'autres objets physiques tels que les électrons (\num{2} à \SI{5}{\%}), les muons (\num{1} à \SI{6}{\%}) et les photons (environ \SI{1}{\%}).
+La JER joue ainsi un rôle important dans les analyses cherchant des résonances étroites, par exemple.
+Il est donc nécessaire de maîtriser cette grandeur.
 \par La JER est définie comme la largeur de la gaussienne obtenue par un ajustement sur la distribution de $R_\cali$ des jets, \ie\ $\pT_\cali/\pT_\ptcl$.
 Sa mesure est réalisée à l'aide d'événements \Gjets\ et \Zjets\ et les résultats obtenus lors du Run~I sont présentés sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}.
-Elle est définie comme une fonction de $\pT_\ptcl$, $\eta$ et $\mu$.
+Elle dépend de $\pT_\ptcl$, $\eta$ et $\mu$.
 \par La JER observée dans les simulations diffère de celle observée dans les données, elle est légèrement meilleure.
 Afin de pouvoir réaliser des analyses comparant données et simulations, il est nécessaire d'avoir une JER comparable dans ces deux catégories d'événements.
 La JER des simulations est ainsi détériorée par un facteur d'échelle (JER SF), déterminé à partir d'événements \Gjets\ et dijet et défini en fonction de $\eta$.
@@ -370,5 +373,3 @@ Le principe est le même que pour les corrections résiduelles décrites dans le
 \caption[Résolution en énergie des jets.]{Résolution en énergie des jets dans les simulations et facteurs d'échelle à leur appliquer.}
 \label{fig-chapter-JERC-section-CMS-subsec-JER}
 \end{figure}
-\par L'analyse des événements \Gjets\ utilisés pour les années 2018 et 2017-UL a fait partie de mon travail de thèse.
-La phénoménologie de ces événements ainsi que leur analyse sont détaillées dans les sections~\ref{chapter-JERC-section-pheno-GJets} et~\ref{chapter-JERC-section-JER}.
