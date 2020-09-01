@@ -40,25 +40,30 @@ Puis, à l'aide d'une métrique donnée, la paire de jets les plus proches entre
 \item[Algorithme \kT~\cite{Catani_kT_algo}] La distance $d_{ij}$ entre deux jets $i$ et $j$ est
 \begin{equation}
 d_{ij} = \min({\pT}_i^2, {\pT}_j^2) \, \frac{\Delta R_{ij}^2}{R^2}
-\msep
-\Delta R_{ij}^2 = (\eta_i-\eta_j)^2 + (\phi_i-\phi_j)^2
+\mend[,]
 \end{equation}
-où ${\pT}_x$ est l'impulsion transverse du jet $x$ et $R$ un paramètre libre.
+où
+\begin{equation}
+\Delta R_{ij}^2 = (\eta_i-\eta_j)^2 + (\phi_i-\phi_j)^2
+\label{eq-DRij_jets_def}
+\end{equation}
+avec $\eta_x$ la pseudo-rapidité et $\phi_x$ l'angle azimutal du jet $x$
+et où ${\pT}_x$ est l'impulsion transverse du jet $x$ et $R$ un paramètre libre.
 Cet algorithme a l'avantage de regrouper les particules très fidèlement vis-à-vis de la gerbe hadronique, mais les jets obtenus possèdent une géométrie spatiale irrégulière, comme cela se voit sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-algo-examples}.
 \item[Algorithme de Cambridge/Aachen~\cite{Dokshitzer_1997,wobisch1999hadronization}] La distance $d_{ij}$ entre deux jets $i$ et $j$ est
 \begin{equation}
 d_{ij} = \frac{\Delta R_{ij}^2}{R^2}
-\msep
-\Delta R_{ij}^2 = (\eta_i-\eta_j)^2 + (\phi_i-\phi_j)^2
+\mend[,]
 \end{equation}
-où $R$ est un paramètre libre. Le regroupement des jets est ainsi uniquement basé sur l'écart angulaire.
+où $\Delta R_{ij}^2$ est défini par l'équation~\eqref{eq-DRij_jets_def}
+et $R$ est un paramètre libre. Le regroupement des jets est ainsi uniquement basé sur l'écart angulaire.
 \item[Algorithme anti-\kT~\cite{Cacciari_antikT}] La distance $d_{ij}$ entre deux jets $i$ et $j$ est
 \begin{equation}
 d_{ij} = \min\left(\frac{1}{{\pT}_i^2}, \frac{1}{{\pT}_j^2}\right) \, \frac{\Delta R_{ij}^2}{R^2}
-\msep
-\Delta R_{ij}^2 = (\eta_i-\eta_j)^2 + (\phi_i-\phi_j)^2
+\mend[,]
 \end{equation}
-où ${\pT}_x$ est l'impulsion transverse du jet $x$ et $R$ un paramètre libre.
+où $\Delta R_{ij}^2$ est défini par l'équation~\eqref{eq-DRij_jets_def},
+${\pT}_x$ l'impulsion transverse du jet $x$ et $R$ un paramètre libre.
 Le regroupement des particules se fait ainsi autour de celles de plus hautes énergies.
 Cet algorithme propose un regroupement des particules moins fidèle à la gerbe hadronique, mais produit des jets de forme régulière, comme cela se voit sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-algo-examples}.
 \end{description}
