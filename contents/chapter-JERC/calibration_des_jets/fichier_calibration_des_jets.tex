@@ -51,13 +51,9 @@ l'empilement synchrone par la méthode de soustraction des hadrons chargés (CHS
 \par Pour chacun des vertex primaires de l'événement, la somme des impulsions transverses au carré des traces associées au vertex est calculée.
 Le vertex primaire principal est choisi comme étant le vertex présentant la plus grande valeur de cette somme.
 Les autres vertex primaires sont considérés comme des vertex d'empilement.
-Toutes les traces associées aux vertex d'empilement sont retirées de l'événement.
-La reconstruction des jets est alors réalisée à partir de l'événement \og nettoyé \fg.
-La procédure CHS permet ainsi de supprimer environ \SI{50}{\%} de l'empilement synchrone, uniquement à l'aide du trajectographe.
-La correction de l'empilement peut être calculée avec et sans utilisation de la CHS; la JEC est peu modifiée par ce choix. Cependant, l'utilisation de la CHS permet d'améliorer la résolution en \pT\ des jets.
-L'efficacité de reconstruction des vertex d'empilement étant de \SI{30}{\%}, des traces de hadrons chargés non associées à un vertex subsistent.
-De plus, cette méthode ne permet pas de corriger l'empilement des particules neutres.
-\par La correction de l'empilement résiduel, principalement due aux particules neutres, aux traces non associées à un vertex et à l'empilement asynchrone qui n'a pas pu être corrigé totalement, est déterminée à l'aide de la méthode de l'aire hybride (\emph{hybrid jet area}).
+Les hadrons chargés dont les traces associées proviennent de vertex d'empilement sont retirés de l'événement.
+La reconstruction des jets est alors réalisée à partir de l'événement nettoyé, ce qui permet d'améliorer la résolution en \pT\ des jets.
+\par La correction de l'empilement résiduel, principalement due aux hadrons neutres, aux photons, aux traces non associées à un vertex et à l'empilement asynchrone qui n'a pas pu être corrigé totalement, est déterminée à l'aide de la méthode de l'aire hybride (\emph{hybrid jet area}).
 Il s'agit d'une correction paramétrique, appliquée indépendamment à chaque jet, dépendante de:
 \begin{itemize}
 \item la densité en énergie dans le plan $(\eta, \phi)$ de l'événement contenant ce jet, $\rho$;
