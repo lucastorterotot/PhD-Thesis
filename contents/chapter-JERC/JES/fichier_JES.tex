@@ -124,12 +124,12 @@ Année & Caractéristique & Section efficace (\SI{}{\pico\barn})\\
 \label{tab-MC_xsec_2018_and_2017UL_GJet}
 \end{table}
 \subsubsection{Sélection des événements}
-Une sélection plus fine des événements à considérer est réalisée lors de l'analyse elle-même.
+Une sélection des événements à considérer est réalisée lors de l'analyse.
 En effet, les événements souhaités sont ceux contenant un photon avec un ou plusieurs jets;
 un des bruits de fond principal provient d'événements multijet où un des jets est identifié à tort comme un photon.
-Cette situation peut arriver lorsque ce jet contient de nombreux pions neutres, les \pionnull.
+Cette situation peut arriver lorsqu'une fraction importante de l'énergie de ce jet est portée par un ou plusieurs pions neutres, les \pionnull.
 Les \pionnull\ se propagent sur des distances moyennes de \SI{26}{\nano\meter} puis se désintègrent dans \SI{99}{\%} des cas en deux photons~\cite{PDG_booklet_2020}.
-Ces particules ne laissent donc aucune trace dans le trajectographe et un dépôt d'énergie dans le ECAL, tout comme un vrai photon issu de l'interaction initiale.
+Ces particules ne laissent donc aucune trace dans le trajectographe et un dépôt d'énergie dans le ECAL, tout comme les photons issus de l'interaction initiale.
 Un tel jet comporte ainsi une signature similaire à un photon d'un événement \Gjet\ autour duquel une activité hadronique existe.
 Les topologies de ces deux types d'événements, semblables, sont représentées sur la figure~\ref{fig-Gamma_plus_jet_events_real_faked}.
 \begin{figure}[h]
@@ -145,12 +145,12 @@ Les topologies de ces deux types d'événements, semblables, sont représentées
 Une sélection des photons est appliquée afin de réduire le bruit de fond.
 La collaboration CMS propose des critères d'identification des photons (lâche, moyen et strict) s'appuyant sur diverses propriétés du \og candidat \fg{} photon:
 \begin{itemize}
-\item $H/E$ est le rapport de l'énergie hadronique sur l'énergie électromagnétique associées à l'agglomérat d'énergie du photon.
+\item $H/E$ est le rapport de l'énergie hadronique sur l'énergie électromagnétique associées au photon.
 Un photon est sensé déposer son énergie dans le ECAL et ne laisser aucun signal dans le HCAL.
 Une faible valeur de $H/E$ est donc compatible avec un photon.
 \item $\sigma_{i\eta i\eta}$ est l'étalement en $\eta$ du dépôt d'énergie dans le ECAL.
-Cette observable est reliée à la forme de la gerbe électromagnétique, moins étalée pour un photon que pour un électron.
-Une faible valeur de $\sigma_{i\eta i\eta}$ est donc compatible avec un photon.
+Cette observable est reliée à la forme de la gerbe électromagnétique.
+Un seuil maximal sur $\sigma_{i\eta i\eta}$ est imposé pour l'identification des photons.
 \item $I_{CH}$ est l'isolation vis-à-vis des hadrons chargés.
 Elle se définit comme le ratio entre la somme des impulsions transverses de tous les hadrons chargés situés à une distance $\Delta R$ du candidat photon dans le plan $(\eta,\phi)$ inférieure à \num{0.3} et l'impulsion transverse du candidat photon lui-même.
 \item $I_{NH}$ est l'isolation vis-à-vis des hadrons neutres, analogue à $I_{CH}$.
@@ -166,7 +166,7 @@ $E_{3\times3}$ la somme des énergies dans les cristaux du ECAL formant un carr�
 et
 $E_{SC}$
 l'énergie dans le \emph{supercluster}~\cite{photon_ID_2015}.
-Dans l'analyse des événements \Gjets, il est requis que $R_9 > \num{0.90}$.
+Dans l'analyse des événements \Gjets, il est demandé que $R_9 > \num{0.90}$.
 \par Les variables d'isolation sont corrigées afin de prendre en compte l'empilement.
 L'isolation corrigée $I^\text{corr}$ s'exprime ainsi en fonction de l'isolation $I$ comme
 \begin{equation}
