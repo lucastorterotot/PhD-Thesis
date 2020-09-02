@@ -252,17 +252,17 @@ Ces régions sont résumées sur la figure~\ref{fig-hotjets2017UL}.
 %    Non-jet measurements and searches that are not sensitive to jet tails can either use h2hot17_ul17 or ignore these maps for highest acceptance
 %    Please note that for analyses comparing data to simulation or otherwise relying heavily on simulation, it may be necessary to use the filtering also for MC processing for ensuring avoiding any biases due to angular dependencies etc. In these cases the same data-based filter should be used for data and MC. The maps labelled 'mc' (=pythia) or 'hw' (=herwig) in the JECDatabase are for expert studies only. 
 \paragraph{Sélection sur le chemin de déclenchement}
-Dans le cas des données, l'événement est sauvegardé si un chemin de déclenchement est activé\footnote{Le chemin de déclenchement est abordé dans la section~\ifref{chapter-LHC-section-CMS-subsec-data_taking}{\ref{chapter-LHC-section-CMS-subsec-data_taking}}{2.7} du chapitre\ifref{chapter-LHC}{~\ref{chapter-LHC}}{ \og Dispositif expérimental \fg}.}.
-Seuls les événements dont le photon retenu correspond au photon du chemin de déclenchement sont retenus.
-Il existe plusieurs chemins de déclenchement en fonction de l'impulsion du photon.
-Certains de ces chemins proposent une quantité trop importante d'événements à sauvegarder et pourraient saturer la chaîne d'acquisition.
-Pour éviter cette saturation, seule une fraction des événements passant un tel chemin de déclenchement sont effectivement sauvegardés.
+Comme expliqué dans la section~\ifref{chapter-LHC-section-CMS-subsec-data_taking}{\ref{chapter-LHC-section-CMS-subsec-data_taking}}{2.7} du chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3}, un événement observé par le détecteur CMS est sauvegardé si un chemin de déclenchement est activé.
+Dans cette analyse, seuls les événements dont le photon servant d'objet de référence pour la calibration des jets correspond au photon ayant activé le chemin de déclenchement pour cet événement sont retenus.
+Or, plus l'impulsion transverse du photon est faible, plus le nombre d'événements pouvant être sauvegardés est importante, si bien que la chaîne d'acquisition arrive à saturation.
+Pour pallier à cette saturation, il existe différents chemins de déclenchement en fonction de l'impulsion transverse du photon et pour chacun d'entre eux, seule une fraction des événements les déclenchant est effectivement sauvegardée.
 Cette fraction est nommée \emph{prescale}.
-Chaque chemin de déclenchement possède ainsi son \emph{prescale}.
-Afin de ne pas introduire de biais dû à ces \emph{prescales} dans l'analyse, un intervalle d'impulsion transverse du photon retenu est défini pour chaque chemin de déclenchement utilisé.
-Il est ainsi requis que le photon retenu soit le photon du chemin de déclenchement correspondant à l'intervalle dans lequel se trouve son impulsion transverse.
+À chaque chemin de déclenchement correspond ainsi un \emph{prescale}.
+Un intervalle d'impulsion transverse du photon retenu est alors défini pour chaque chemin de déclenchement utilisé.
+Cet intervalle permet de se placer au plateau d'efficacité du chemin de déclenchement.
 Les différents chemins de déclenchement, leurs \emph{prescales} et intervalles d'impulsion transverse sont présentés dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}.
-\begin{table}
+Par exemple, un photon d'impulsion transverse \SI{95}{\GeV} doit avoir déclenché le chemin nommé \inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM}.
+\begin{table}[h]
 \centering
 \begin{tabular}{lccc}
 \toprule
@@ -287,16 +287,11 @@ Chemin de déclenchement & $\pT^{\photon}$ (\SI{}{\GeV}) & \emph{Prescale} 2018 
 \caption[Chemins de déclenchement.]{Chemins de déclenchement, intervalles d'impulsion transverse du photon et \emph{prescales} utilisés.}
 \label{tab-HLT_pT_precales_18_and_17UL}
 \end{table}
-\par Par exemple, un photon d'impulsion transverse \SI{95}{\GeV} doit avoir déclenché le chemin nommé \inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM}.
-Ce chemin de déclenchement requiert un photon d'impulsion transverse minimale \SI{75}{\GeV}.
-Ce même photon déclenche donc potentiellement le chemin nommé \inlinecode{python}{HLT_Photon90_R9Id90_HE10_IsoM}.
-Utiliser un écart minimal entre l'impulsion du photon et l'impulsion minimale requise au déclenchement du chemin permet de se placer au plateau d'efficacité maximale du chemin de déclenchement.
-Des biais dus à la calibration du photon sont également évités grâce à cette méthode.
 \subsection{Analyse}\label{chapter-JERC-section-JES-subsec-analyse}
 \paragraph{Intervalles de $\pT^{\photon}$}
 L'analyse a pour but de déterminer la correction résiduelle absolue en \pT\ des jets, définie dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals}.
 Pour cela, l'écart à l'unité du rapport moyen des réponses des jets dans les données et les simulations est déterminé dans différents intervalles de $\pT^{\photon}$, listés dans le tableau~\ref{tab-pT_photon_intervalles}.
-Ils sont une subdivision des intervalles définis pour les chemin de déclenchement dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}.
+Ils sont une subdivision des intervalles définis pour les chemin de déclenchement dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}, ce qui permet de séparer le traitement des événements correspondant à différents chemins de déclenchement.
 \begin{table}[h]
 \centering
 \begin{tabular}{cccc}
