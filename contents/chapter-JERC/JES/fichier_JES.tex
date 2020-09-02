@@ -455,7 +455,10 @@ de $\eta^\text{jet}$ défini dans le tableau~\ref{tab-eta_jet_intervalles_large}
 de $\alpha$ défini dans le tableau~\ref{tab-alpha_intervalles},
 les distributions des réponses balancée et MPF des données et des simulations sont déterminées.
 Certaines de ces distributions sont représentées sur la figure~\ref{fig-distribs_Gjets_18_resp_bal_and_mpf}.
-\par Afin de limiter les effets des queues de ces distributions, en particulier dans le cas de la réponse balancée, seuls les points à moins de \SI{98.5}{\%} de l'erreur quadratique moyenne (RMS) sont considérés.
+\par Afin de limiter les effets des queues de ces distributions, en particulier dans le cas de la réponse balancée,
+une troncature leur est appliquée pour n'en conserver que les parties centrales.
+Pour cela, un ajustement à une gaussienne est réalisé pour chaque distribution.
+Les points considérés dans la suite sont alors ceux appartenant à un intervalle  $[ \bar{R} - \Delta R, \bar{R} + \Delta R ]$ où $\bar{R}$ est le centre de la gaussienne obtenue et $\Delta R$ est fixé tel que l'intégrale de la distribution tronquée représente \SI{98.5}{\%} de l'intégrale de la distribution initiale.
 Une estimation des moyennes de ces distributions tronquées est alors obtenue ; ces moyennes sont représentées sur la figure~\ref{fig-distribs_Gjets_18_resp_bal_and_mpf}.
 Un écart est effectivement observé entre données et simulations.
 Il s'agit précisément de l'écart que la correction résiduelle absolue en \pT\ des jets doit corriger.
