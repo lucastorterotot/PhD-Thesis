@@ -81,7 +81,7 @@ C'est cet algorithme de regroupement qui est utilisé dans le cadre de l'expéri
 Sur la figure~\ref{fig-Jet_PF_Composition_RunII} sont illustrées les compositions des jets reconstruits lors des trois années du Run~II. L'écart entre données et simulations n'excède généralement pas \SI{2}{\%}.
 \begin{figure}[h]
 \centering
-\includegraphics[width=.6\textwidth]{\PhDthesisdir/plots_and_images/from_towards_jetography/temps_de_calcul.png}
+\includegraphics[width=.7\textwidth]{\PhDthesisdir/plots_and_images/from_towards_jetography/temps_de_calcul.png}
 \caption[Temps de recombinaison d'un événement dijet.]{Temps de recombinaison d'un événement dijet simulé de \SI{50}{\GeV} contenant $N$ interactions d'empilement pour différents algorithmes de reconstruction des jets~\cite{towards_jetography}.}
 \label{fig-chapter-JERC-section-jets_reco-subsec-algo-perfs}
 \end{figure}
@@ -253,7 +253,7 @@ et
 Les algorithmes \textsc{cMVAv2} et \DeepCSV\ présentent les meilleures performances en termes d'identification des jets de quark~\quarkb.
 Pour le traitement des jets de quark~\quarkc, l'algorithme \DeepCSV\ propose les meilleures performances.
 Dans les analyses présentées dans ce chapitre et le chapitre\ifref{chapter-HTT_analysis}{~\ref{chapter-HTT_analysis}}{~5}, c'est cet algorithme qui est utilisé afin d'identifier les jets issus de quarks~\quarkc\ ou~\quarkb.
-\begin{figure}[h]
+\begin{figure}[p]
 \centering
 
 \subcaptionbox{Probabilité de mauvaise identification en tant que jet de quark~\quarkb\ de jets de gluon ou quarks légers (traits pleins) ou de jets de quark~\quarkc\ (pointillés) en fonction de l'efficacité d'identification des jets de quark~\quarkb.\label{subfig-chapter-JERC-section-jets_reco-subsec-flavor-b_or_mis}}[.75\textwidth]
@@ -271,7 +271,7 @@ Dans les analyses présentées dans ce chapitre et le chapitre\ifref{chapter-HTT
 \label{fig-chapter-JERC-section-jets_reco-subsec-flavor-bc_tag_roc_curves}
 \end{figure}
 \par La discrimination entre jet léger et jet initié par un gluon peut être réalisée à l'aide d'une fonction de vraisemblance~\cite{CMS-PAS-JME-13-002} renvoyant un score entre 0 et 1 pour chaque jet, correspondant à la probabilité que ce jet soit issu d'un quark. La densité de probabilité de cette fonction, selon qu'il s'agisse de jets initiés par des gluons ou des quarks, est représentée sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-flavor-qgl_likelihood}.
-\begin{figure}[h]
+\begin{figure}[p]
 \centering
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-PAS-JME-13-002/qgl.pdf}
 \caption[Performances de la discrimation quark-gluon pour la saveur des jets.]{Densité de probabilité de la fonction de vraisemblance utilisée pour discriminer les jets issus de gluons de ceux issus de quarks~\cite{CMS-PAS-JME-13-002}. En rouge, pour les jets issus de gluons. En bleu, pour des jets issus de quarks.}
