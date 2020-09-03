@@ -1,10 +1,10 @@
 \section{Formation des jets}\label{chapter-JERC-section-jets}
 Lorsqu'un parton est issu de la collision, cette particule possède une haute énergie.
 Il radie alors, par interaction forte, d'autres partons.
-Par conservation, l'énergie portée par chaque parton ainsi obtenu diminue et par conséquent, $g_s$ augmente.
-\par Tant que l'échelle d'énergie est suffisamment grande pour que $g_s \ll 1$, ce qui correspond à des énergies supérieures à la centaine de \SI{}{\MeV}, il est possible de réaliser des calculs perturbatifs.
+Par conservation, l'énergie portée par chaque parton ainsi obtenu diminue et par conséquent, $\alpha_s$ augmente.
+\par Tant que l'échelle d'énergie est suffisamment grande pour que $\alpha_s \ll 1$, ce qui correspond à des énergies supérieures à la centaine de \SI{}{\MeV}, il est possible de réaliser des calculs perturbatifs.
 La radiation de partons créé la \og gerbe partonique \fg, sujet de la prochaine section.
-\par Au fur et à mesure des radiations, l'échelle en énergie diminue et en deçà d'une centaine de \SI{}{\MeV}, il n'est plus possible de réaliser des calculs perturbatifs car $g_s$ augmente.
+\par Au fur et à mesure des radiations, l'échelle en énergie diminue et en deçà d'une centaine de \SI{}{\MeV}, il n'est plus possible de réaliser des calculs perturbatifs car $\alpha_s$ augmente.
 Des modèles paramétriques sont alors utilisés pour caractériser le phénomène d'\og hadronisation \fg, abordés ensuite.
 
 \subsection{Gerbe partonique}\label{chapter-JERC-section-jets-subsec-gerbe-partonique}
@@ -26,7 +26,7 @@ Lorsqu'un parton est issu d'une collision au LHC, il se trouve dans un premier t
 \par Il est légitime de se demander quelle est la probabilité d'obtenir un état $\quark\antiquark\gluon$ à partir d'un état $\quark\antiquark$.
 Des calculs de section efficace permettent d'obtenir~\cite{salam2010elements}, pour un état initialement à $X$ partons dont un parton $i$ radie un parton $j$,
 \begin{equation}
-\dd{\sigma_{X+j}} \simeq \sigma_{X} \sum_{i\in\set{X}} \frac{g_s}{2\pi} \frac{\dd{\theta^2}}{\theta^2} \dd{z} P_{ij}(z)
+\dd{\sigma_{X+j}} \simeq \sigma_{X} \sum_{i\in\set{X}} \frac{\alpha_s}{2\pi} \frac{\dd{\theta^2}}{\theta^2} \dd{z} P_{ij}(z)
 \end{equation}
 où $\theta$ est l'angle entre le parton radié $j$ et le parton radiant $i$. La grandeur $P_{ij}(z)$ est la probabilité qu'un parton de type $i$ radie un parton de type $j$ emportant une fraction $z$ de l'énergie initiale de $i$, qui s'exprime
 \begin{align}
@@ -74,11 +74,11 @@ Ce sont ces particules qui vont participer au phénomène d'hadronisation dû au
 
 \subsection{Hadronisation}\label{chapter-JERC-section-jets-subsec-hadronisation}
 Lorsque des partons en radient d'autres, la conservation de l'énergie implique que chaque particule, individuellement, possède une énergie de plus en plus petite.
-Or, comme cela est discuté dans le chapitre~\ifref{chapter-MS-MSSM}{\ref{chapter-MS-MSSM}}{sur le modèle standard}, $g_s$ augmente lorsque l'échelle d'énergie diminue et en-deçà de quelques centaines de \SI{}{\MeV}, $g_s$ diverge.
+Or, comme cela est discuté dans le chapitre~\ifref{chapter-MS-MSSM}{\ref{chapter-MS-MSSM}}{sur le modèle standard}, $\alpha_s$ augmente lorsque l'échelle d'énergie diminue et en-deçà de quelques centaines de \SI{}{\MeV}, $\alpha_s$ diverge.
 Le phénomène de confinement de couleur réapparaît et la gerbe partonique subit le phénomène d'hadronisation.
 Un flux collimé de hadrons, particules de charge de couleur nulle composées de partons, est alors obtenu.
 Certains de ces hadrons peuvent comporter des quarks de deuxième ou troisième génération. Ils sont alors instables et peuvent être amenés à se désintégrer, auquel cas ce sont leurs produits de désintégration qui sont observés dans le détecteur.
-\par Le phénomène d'hadronisation ayant lieu lorsque $g_s\gg1$, il n'est pas possible de réaliser des calculs perturbatifs. Afin de décrire ce phénomène, il faut avoir recours à des modèles paramétriques. Deux d'entre eux sont décrits ci-après, le modèle des cordes de Lund~\cite{Andersson_parton_fragmentation} et le modèle d'agglomération hadronique~\cite{Winter_2004}.
+\par Le phénomène d'hadronisation ayant lieu lorsque $\alpha_s\gg1$, il n'est pas possible de réaliser des calculs perturbatifs. Afin de décrire ce phénomène, il faut avoir recours à des modèles paramétriques. Deux d'entre eux sont décrits ci-après, le modèle des cordes de Lund~\cite{Andersson_parton_fragmentation} et le modèle d'agglomération hadronique~\cite{Winter_2004}.
 \subsubsection{Modèle des cordes de Lund}\label{chapter-JERC-section-jets-subsec-hadronisation-subsubsec-Lund}
 Dans le modèle des cordes de Lund~\cite{Andersson_parton_fragmentation}, les quarks sont reliés en paires $\quark\antiquark$ par des \og cordes \fg{} de couleur, de tension $\kappa \simeq \SI{1}{\GeV.\femto\meter^{-1}}$, comme sur la figure~\ref{subfig-Lund2}. Les gluons sont décrits comme des nœuds des cordes de couleur.
 \begin{figure}[h]

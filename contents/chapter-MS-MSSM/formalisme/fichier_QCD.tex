@@ -40,20 +40,20 @@ Il est également possible de former une particule composite blanche par associa
 \par Les quarks et antiquarks se regroupent ainsi en particules composites, les hadrons (baryons et mésons), dont la neutralité de couleur est confirmée expérimentalement. Ce phénomène est connu sous le nom de \og confinement de couleur \fg{} et est abordé dans la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-QCD-subsubsec-confinement}.
 \subsubsection{Symétrie $SU(3)_C$}\label{chapter-MS-MSSM-section-formalisme-subsec-QCD-subsubsec-SU3C}
 Afin de décrire l'interaction forte dans le même formalisme que les autre interactions fondamentales, il faut un groupe de symétrie. Étant donné qu'il existe trois dimensions de couleur (rouge, verte, bleue), la théorie quantique des champs associée à l'interaction forte se base sur le groupe $SU(3)_C$, où $C$ signifie \og couleur \fg.
-\par Tout comme $SU(2)$, $SU(3)$ est un groupe non abélien. Il est possible de reprendre exactement les mêmes calculs que ceux de la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW-SU2_general}, en procédant aux changements\footnote{La constante de couplage pour l'interaction forte est souvent notée $\alpha_s$. La notation $g_s$ est utilisée ici afin d'illustrer le rôle analogue avec celui $g_Y$ et $g_I$.}
+\par Tout comme $SU(2)$, $SU(3)$ est un groupe non abélien. Il est possible de reprendre exactement les mêmes calculs que ceux de la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW-SU2_general}, en procédant aux changements
 \begin{equation}
 \bm{\tau} \in \mathcal{M}_2(\mathbb{C})^3 \leftrightarrow \bm{\lambda} \in \mathcal{M}_3(\mathbb{C})^8
 \msep
 \bm{\alpha}\in\mathbb{R}^3 \leftrightarrow \bm{\theta}\in\mathbb{R}^8
 \msep
-g_I \leftrightarrow g_s
+g_I \leftrightarrow \alpha_s
 \msep
 \bm{W}_\mu \leftrightarrow \bm{G}_\mu
 \msep
 \bm{W}_{\mu\nu} \leftrightarrow \bm{G}_{\mu\nu}
 \label{eq-chapter-MS-MSSM-section-formalisme-subsec-QCD-subsubsec-SU3C-analogieSU2}
 \end{equation}
-où $\bm{\lambda}$ est un vecteur à huit composantes, chacune étant une matrice de Gell-Mann, définies dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A} et où $\bm{G}_\mu$ décrit donc huit gluons, bosons vecteurs de l'interaction forte.
+où $\bm{\lambda}$ est un vecteur à huit composantes, chacune étant une matrice de Gell-Mann, définies dans l'annexe~\ifref{annexe-maths}{\ref{annexe-maths}}{A}, $\bm{G}_\mu$ décrit donc huit gluons, bosons vecteurs de l'interaction forte et $\alpha_s$ est la constante de couplage de l'interaction forte.
 \par Les gluons portent une couleur et une anticouleur. Lors de chaque interaction, la charge de couleur est conservée, ainsi un quark rouge interagissant avec un gluon bleu-antirouge devient un quark bleu. Le flux de couleur ainsi conservé dans cet exemple est représenté sur la figure~\ref{fig-fgraph-QCD_color_flux}.
 \begin{figure}[h]
 \centering
@@ -85,16 +85,16 @@ où $\bm{\lambda}$ est un vecteur à huit composantes, chacune étant une matric
 \par Le terme non linéaire $\bm{G}_\mu\wedge\bm{G}_\nu$ dans l'expression de $\bm{G}_{\mu\nu}$\footnote{Obtenue à partir de l'analogie~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-QCD-subsubsec-SU3C-analogieSU2} appliquée à l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-defWmunu}.} est lourd de conséquences.
 Il permet le couplage entre trois et quatre gluons, comme cela est illustré sur la figure~\ref{fig-fgraph-QCD_3_et_4_gluons}, et donne à l'interaction forte toute sa singularité. En effet, ce terme est responsable de l'initiation de la gerbe partonique qui donne naissance aux jets\footnote{Les jets sont abordés dans le chapitre\ifref{chapter-JERC}{~\ref{chapter-JERC}}{ \og Calibration en énergie des jets \fg}.} ainsi que du confinement de couleur.
 \subsubsection{Confinement de couleur et liberté asymptotique}\label{chapter-MS-MSSM-section-formalisme-subsec-QCD-subsubsec-confinement}
-Le confinement de couleur force les quarks, particules colorées, à s'associer en formant des particules composites, les hadrons, états liés de charge globale de couleur nulle. Ce phénomène empirique peut s'expliquer par la variation en fonction de l'échelle d'énergie de la constante de couplage de l'interaction forte $g_s$, représentée sur la figure~\ref{fig-g_s_fct_energy}.
+Le confinement de couleur force les quarks, particules colorées, à s'associer en formant des particules composites, les hadrons, états liés de charge globale de couleur nulle. Ce phénomène empirique peut s'expliquer par la variation en fonction de l'échelle d'énergie de la constante de couplage de l'interaction forte $\alpha_s$, représentée sur la figure~\ref{fig-alpha_s_fct_energy}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=8cm]{\PhDthesisdir/plots_and_images/from_PDG_booklet_2020/QCD_value_fct_Q.tex}
-\caption[Mesure de $g_s$ en fonction de l'échelle d'énergie.]{Mesures de $g_s$ en fonction de l'échelle d'énergie $k$ (points) et prédiction théorique (courbe)~\cite{PDG_booklet_2020}. Le degré des calculs perturbatifs de QCD utilisés pour extraire $g_s$ est indiqué entre parenthèses (NLO: \emph{next-to-leading order}, \ie\ jusqu'à l'ordre suivant le premier degré non nul; NNLO: un ordre de plus que NLO; etc.).}
-\label{fig-g_s_fct_energy}
+\caption[Mesure de $\alpha_s$ en fonction de l'échelle d'énergie.]{Mesures de $\alpha_s$ en fonction de l'échelle d'énergie $k$ (points) et prédiction théorique (courbe)~\cite{PDG_booklet_2020}. Le degré des calculs perturbatifs de QCD utilisés pour extraire $\alpha_s$ est indiqué entre parenthèses (NLO: \emph{next-to-leading order}, \ie\ jusqu'à l'ordre suivant le premier degré non nul; NNLO: un ordre de plus que NLO; etc.).}
+\label{fig-alpha_s_fct_energy}
 \end{figure}
-\par Aux basses énergie, $g_s$ diverge.
+\par Aux basses énergie, $\alpha_s$ diverge.
 Ainsi, séparer et isoler des particules colorées mène à une énergie potentielle de couleur suffisamment grande pour créer des paires quark-antiquark. Lorsqu'un quark est issu d'une collision en physique des particules, ce processus se réalise et produit un ensemble collimé de particules, un jet.
-\par De plus, à cause de la valeur élevée de $g_s$ aux basses énergies, il n'est pas possible de réaliser des calculs perturbatifs pourtant usuels en théorie quantique des champs.
+\par De plus, à cause de la valeur élevée de $\alpha_s$ aux basses énergies, il n'est pas possible de réaliser des calculs perturbatifs pourtant usuels en théorie quantique des champs.
 D'autres techniques sont toutefois utilisées, comme la méthode de QCD sur réseau. Son principe est de discrétiser l'espace-temps en un réseau de points. Bien que cette méthode requière d'importantes capacités de calcul et beaucoup de temps, elle permet d'obtenir avec succès les masses des hadrons comme cela se voit sur la figure~\ref{fig-lattice_QCD_masses} pour les hadrons légers.
 \begin{figure}[h]
 \centering
@@ -102,20 +102,20 @@ D'autres techniques sont toutefois utilisées, comme la méthode de QCD sur rés
 \caption[Spectre de masse des hadrons légers.]{Spectre de masse des hadrons légers~\cite{ab_initio_hadron_masses}. Les lignes horizontales ainsi que les zones grisées sont les valeurs expérimentales et les largeurs de désintégration. Les résultats obtenus en utilisant des calculs de QCD sur réseau sont représentés par des cercles, avec les erreurs associées. Seules les masses des hadrons \pion, \Kaon\ et \Xibaryon\ sont sans barre d'erreur, elles sont utilisées pour fixer les paramètres libres du modèle.}
 \label{fig-lattice_QCD_masses}
 \end{figure}
-\par Les valeurs de $g_s$ à deux échelles d'énergie $k$ et $\mu$ sont reliées par la relation
+\par Les valeurs de $\alpha_s$ à deux échelles d'énergie $k$ et $\mu$ sont reliées par la relation
 \begin{equation}
-g_s(k) = \frac{g_s(\mu)}{1+ \frac{11n_c-2n_f}{12\pi} g_s(\mu)\ln(\frac{k^2}{\mu^2})}
+\alpha_s(k) = \frac{\alpha_s(\mu)}{1+ \frac{11n_c-2n_f}{12\pi} \alpha_s(\mu)\ln(\frac{k^2}{\mu^2})}
 \end{equation}
 avec $n_c$ le nombre de couleurs et $n_f$ le nombre de saveurs de quarks, \ie\ $n_c=3$ et $n_f=6$~\cite{salam2010elements}.
 Cette relation peut ainsi se réécrire
 \begin{equation}
-g_s (k) =
+\alpha_s (k) =
 \frac{6\pi}{21 \ln(\frac{k}{\Lambda_\text{QCD}})}
 \msep
 \Lambda_\text{QCD} = 218\pm\SI{24}{\MeV}
 \mend[,]
 \end{equation}
-avec $\Lambda_\text{QCD}$ l'échelle d'énergie à laquelle $g_s$ diverge.
-Il ressort que $g_s$ décroît lorsque l'échelle d'énergie augmente.
-Cette diminution de $g_s$ aux hautes énergies est la \og liberté asymptotique \fg, régime où les particules colorées ne sont plus confinées et peuvent se propager comme des particules libres. Aux LHC, les énergies de collision permettent d'atteindre ce régime.
+avec $\Lambda_\text{QCD}$ l'échelle d'énergie à laquelle $\alpha_s$ diverge.
+Il ressort que $\alpha_s$ décroît lorsque l'échelle d'énergie augmente.
+Cette diminution de $\alpha_s$ aux hautes énergies est la \og liberté asymptotique \fg, régime où les particules colorées ne sont plus confinées et peuvent se propager comme des particules libres. Aux LHC, les énergies de collision permettent d'atteindre ce régime.
 %the coupling decreases logarithmically, a phenomenon known as asymptotic freedom (the discovery of which was awarded with the Nobel Prize in Physics in 2004).
