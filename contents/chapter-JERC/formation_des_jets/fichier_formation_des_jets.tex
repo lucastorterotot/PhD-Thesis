@@ -1,14 +1,14 @@
 \section{Formation des jets}\label{chapter-JERC-section-jets}
-Lorsqu'un parton est issu de la collision, il possède une haute énergie et radie alors, par interaction forte, d'autres partons.
+Lorsqu'un parton est issu de la collision, il possède une haute énergie et émet alors, par interaction forte, d'autres partons.
 Par conservation, l'énergie portée par chaque parton ainsi obtenu diminue et par conséquent, $\alpha_s$ augmente.
 \par Tant que l'échelle d'énergie est suffisamment grande pour que $\alpha_s \ll 1$, ce qui correspond à des énergies supérieures à la centaine de \SI{}{\MeV}, il est possible de réaliser des calculs perturbatifs.
-La radiation de partons créé la \og gerbe partonique \fg, sujet de la prochaine section.
-\par Au fur et à mesure des radiations, l'échelle en énergie diminue et en deçà d'une centaine de \SI{}{\MeV}, il n'est plus possible de réaliser des calculs perturbatifs car $\alpha_s$ augmente.
+L'émission de partons créé la \og gerbe partonique \fg, sujet de la prochaine section.
+\par Au fur et à mesure des émissions, l'échelle en énergie diminue et en deçà d'une centaine de \SI{}{\MeV}, il n'est plus possible de réaliser des calculs perturbatifs car $\alpha_s$ augmente.
 Des modèles paramétriques sont alors utilisés pour caractériser le phénomène d'\og hadronisation \fg, abordés ensuite.
 
 \subsection{Gerbe partonique}\label{chapter-JERC-section-jets-subsec-gerbe-partonique}
 %\fullcite{Unorthodox_Introduction_QCD}
-Lorsqu'un parton est issu d'une collision au LHC, il se trouve dans un premier temps dans le régime de liberté asymptotique. Il radie alors d'autres partons. Ainsi, pour un événement $\Zboson\to\quark\antiquark$ comme celui de la figure~\ref{subfig-fgraph-Z_q_q} avec deux quarks dans l'état final, il est possible d'obtenir par radiation d'un gluon un état $\quark\antiquark\gluon$ comme ceux illustrés sur les figures~\ref{subfig-fgraph-Z_qg_q} et~\ref{subfig-fgraph-Z_q_qg}, par exemple.
+Lorsqu'un parton est issu d'une collision au LHC, il se trouve dans un premier temps dans le régime de liberté asymptotique. Il émet alors d'autres partons. Ainsi, pour un événement $\Zboson\to\quark\antiquark$ comme celui de la figure~\ref{subfig-fgraph-Z_q_q} avec deux quarks dans l'état final, il est possible d'obtenir par émission d'un gluon un état $\quark\antiquark\gluon$ comme ceux illustrés sur les figures~\ref{subfig-fgraph-Z_qg_q} et~\ref{subfig-fgraph-Z_q_qg}, par exemple.
 \begin{figure}[h]
 \centering\vspace{\baselineskip}
 \subcaptionbox{\label{subfig-fgraph-Z_q_q}}[.3\textwidth]
@@ -19,15 +19,15 @@ Lorsqu'un parton est issu d'une collision au LHC, il se trouve dans un premier t
 \hfill
 \subcaptionbox{\label{subfig-fgraph-Z_q_qg}}[.3\textwidth]
 {\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/gerbe_partonique/fgraph-Z_q_qg.tex}\vspace{\baselineskip}}
-\caption[Un boson \Zboson\ se désintègre en paire quark-antiquark.]{Un boson \Zboson\ se désintègre en paire quark-antiquark. Dans les cas des figures~\ref{subfig-fgraph-Z_qg_q} et~\ref{subfig-fgraph-Z_q_qg}, un gluon supplémentaire est radié.}
+\caption[Un boson \Zboson\ se désintègre en paire quark-antiquark.]{Un boson \Zboson\ se désintègre en paire quark-antiquark. Dans les cas des figures~\ref{subfig-fgraph-Z_qg_q} et~\ref{subfig-fgraph-Z_q_qg}, un gluon supplémentaire est émis.}
 \label{fig-fgraph-Z_q_q_xg}
 \end{figure}
 \par Il est légitime de se demander quelle est la probabilité d'obtenir un état $\quark\antiquark\gluon$ à partir d'un état $\quark\antiquark$.
-Des calculs de section efficace permettent d'obtenir~\cite{salam2010elements}, pour un état initialement à $X$ partons dont un parton $i$ radie un parton $j$,
+Des calculs de section efficace permettent d'obtenir~\cite{salam2010elements}, pour un état initialement à $X$ partons dont un parton $i$ émet un parton $j$,
 \begin{equation}
 \dd{\sigma_{X+j}} \simeq \sigma_{X} \sum_{i\in\set{X}} \frac{\alpha_s}{2\pi} \frac{\dd{\theta^2}}{\theta^2} \dd{z} P_{ij}(z)
 \end{equation}
-où $\theta$ est l'angle entre le parton radié $j$ et le parton radiant $i$. La grandeur $P_{ij}(z)$ est la probabilité qu'un parton de type $i$ radie un parton de type $j$ emportant une fraction $z$ de l'énergie initiale de $i$, qui s'exprime
+où $\theta$ est l'angle entre le parton émis $j$ et le parton émetteur $i$. La grandeur $P_{ij}(z)$ est la probabilité qu'un parton de type $i$ émette un parton de type $j$ emportant une fraction $z$ de l'énergie initiale de $i$, qui s'exprime
 \begin{align}
 P_{\quark\quark}(z) &= C_F \frac{1+z^2}{1-z} \msep&
 P_{\quark\gluon}(z) &= C_F \frac{1+(1-z)^2}{z} \mend[,]
@@ -40,12 +40,12 @@ avec
 $C_F=\frac{4}{3}$,
 $C_A = 3$ et
 $T_R=\frac{1}{2}$.
-La probabilité de radier un parton supplémentaire diverge dans deux cas:
+La probabilité d'émettre un parton supplémentaire diverge dans deux cas:
 \begin{itemize}
-\item le parton radié a une énergie faible devant celle du parton radiant, c'est la limite infrarouge;
-\item l'angle entre le parton radié et le parton radiant est petit, c'est la limite colinéaire.
+\item le parton émis a une énergie faible devant celle du parton émetteur, c'est la limite infrarouge;
+\item l'angle entre le parton émis et le parton émetteur est petit, c'est la limite colinéaire.
 \end{itemize}
-\par Les nouveaux partons ainsi radiés et les partons initiaux continuent chacun ce processus jusqu'à ce que le phénomène de confinement de couleur réapparaisse. Pour un unique parton directement issu de la collision, une gerbe partonique est formée, \ie\ un ensemble collimé de partons, comme illustré sur la figure~\ref{fig-parton_shower}.
+\par Les nouveaux partons ainsi émis et les partons initiaux continuent chacun ce processus jusqu'à ce que le phénomène de confinement de couleur réapparaisse. Pour un unique parton directement issu de la collision, une gerbe partonique est formée, \ie\ un ensemble collimé de partons, comme illustré sur la figure~\ref{fig-parton_shower}.
 Ce sont ces particules qui vont participer au phénomène d'hadronisation dû au confinement de couleur.
 \begin{figure}[h]
 \centering
@@ -54,7 +54,7 @@ Ce sont ces particules qui vont participer au phénomène d'hadronisation dû au
 \input{\PhDthesisdir/plots_and_images/partonic_shower_tikz/qq.tex}
 \end{tikzpicture}}
 \hfill
-\subcaptionbox{Un des quarks peut radier un gluon, ce qui correspond au diagramme de la figure~\ref{subfig-fgraph-Z_q_qg}.\label{subfig-parton_shower-qqg}}[.3\textwidth]
+\subcaptionbox{Un des quarks peut émettre un gluon, ce qui correspond au diagramme de la figure~\ref{subfig-fgraph-Z_q_qg}.\label{subfig-parton_shower-qqg}}[.3\textwidth]
 {\begin{tikzpicture}
 \input{\PhDthesisdir/plots_and_images/partonic_shower_tikz/qq.tex}
 \input{\PhDthesisdir/plots_and_images/partonic_shower_tikz/qqg.tex}
@@ -72,7 +72,7 @@ Ce sont ces particules qui vont participer au phénomène d'hadronisation dû au
 \end{figure}
 
 \subsection{Hadronisation}\label{chapter-JERC-section-jets-subsec-hadronisation}
-Lorsque des partons en radient d'autres, la conservation de l'énergie implique que chaque particule, individuellement, possède une énergie de plus en plus petite.
+Lorsque des partons en émettent d'autres, la conservation de l'énergie implique que chaque particule, individuellement, possède une énergie de plus en plus petite.
 Or, comme cela est discuté dans le chapitre~\ifref{chapter-MS-MSSM}{\ref{chapter-MS-MSSM}}{2}, $\alpha_s$ augmente lorsque l'échelle d'énergie diminue et en-deçà de quelques centaines de \SI{}{\MeV}, $\alpha_s$ diverge.
 Le phénomène de confinement de couleur réapparaît et la gerbe partonique subit le phénomène d'hadronisation.
 Un flux collimé de hadrons, particules de charge de couleur nulle composées de partons, est alors obtenu.
