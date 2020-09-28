@@ -233,17 +233,17 @@ ce qui permet de définir \RMPF\ comme
 \end{equation}
 \end{description}
 \subsubsection{Correction résiduelle relative en $\eta$}\label{chapter-JERC-section-CMS-subsec-residuals_eta}
+\begin{wrapfigure}{R}{8cm}
+\centering
+\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-DP-2020-019/relative_eta_residual_RunII.png}
+\caption[Correction résiduelle relative en $\eta$ lors du Run~II.]{Correction résiduelle relative en $\eta$ lors du Run~II obtenue avec des événements dijet et la méthode MPF~\cite{CMS-DP-2020-019}.}
+\label{fig-L2ResRel_RunII}
+\end{wrapfigure}
 La première de ces corrections résiduelles, fonction de $\eta$, est obtenue à partir de la comparaison données-simulations sur une sélection d'événements dijet.
 Son but est de rendre indépendant de $\eta$ le rapport données sur simulations de la réponse des jets.
 Cette correction s'appuie sur la bonne reconstruction des jets dans le barillet.
 Lorsqu'un événement présente un premier jet avec $\abs{\eta}<\num{1.3}$, \ie\ dans la région de référence du barillet, et un second avec $\abs{\eta}>\num{1.3}$ et de \pT\ similaire, le premier sert d'objet de référence afin de calibrer le second; c'est pourquoi cette correction est qualifiée de \og relative \fg.
 La correction à appliquer aux données ainsi obtenue est illustrée sur la figure~\ref{fig-L2ResRel_RunII} dans le cas des jets d'impulsion transverse égale à \SI{120}{\GeV}.
-\begin{figure}[h]
-\centering
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-DP-2020-019/relative_eta_residual_RunII.png}
-\caption[Correction résiduelle relative en $\eta$ lors du Run~II.]{Correction résiduelle relative en $\eta$ lors du Run~II obtenue avec des événements dijet et la méthode MPF~\cite{CMS-DP-2020-019}.}
-\label{fig-L2ResRel_RunII}
-\end{figure}
 \subsubsection{Correction résiduelle absolue en \pT}\label{chapter-JERC-section-CMS-subsec-residuals_pT}
 Cette correction, fonction de \pT, a pour but de rendre indépendant de \pT\ le rapport données sur simulations de la réponse des jets.
 Elle combine, à l'aide d'un ajustement global, les comparaisons données-simulations de plusieurs types d'événements afin de couvrir un large spectre de valeurs de \pT. Chaque type d'événement est en effet dominant, de par sa statistique, dans une gamme de \pT\ donnée:
