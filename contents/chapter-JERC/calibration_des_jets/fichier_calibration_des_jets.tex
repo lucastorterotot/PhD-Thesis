@@ -109,11 +109,15 @@ Les résultats de la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-PU-JERC_
 \label{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005}
 \end{figure}
 \par La correction ainsi décrite doit être légèrement adaptée pour pouvoir l'appliquer aux données à cause des biais de simulation du détecteur.
-Pour cela, un ajustement en fonction de $\eta$ est déterminé à l'aide de la méthode de cône aléatoire (RC, \emph {Random Cone}). La méthode RC reconstruit les jets à l'aide de cônes dont la direction en $(\eta, \phi)$ est choisie de manière aléatoire.
+Pour cela, un ajustement en fonction de $\eta$ est déterminé à l'aide de la méthode de cône aléatoire (RC, \emph {Random Cone}).
+La méthode RC consiste à placer aléatoirement des cônes couvrant l'ensemble de l'acceptance du détecteur dans le plan $(\eta, \phi)$.
+La reconstruction des jets se fait alors cône par cône, par regroupement des particules contenues dans le cône.
+%La méthode RC reconstruit ainsi autant de jets que possible.
+L'impulsion transverse moyenne de ces jets, dans chaque événement, est une mesure de la densité d'énergie moyenne se retrouvant dans les jets~\cite{JERC_RunI}.
 L'étude est réalisée sur des événements dits de \og zéro biais \fg.
 Il s'agit d'événements sélectionnés par un déclenchement aléatoire pendant que les faisceaux de protons se croisent.
 Le déclenchement n'étant pas dû à un dépôt d'énergie en particulier, ces événements ne comportent pas, en général, de contribution provenant d'une interaction dure, \ie\ d'une collision effective entre les protons.
-Dans ce cas, la valeur moyenne de l'impulsion transverse des jets reconstruits par la méthode RC permet d'estimer la moyenne de la contribution additionnelle de l'empilement, \ie
+Dans ce cas, l'impulsion transverse moyenne des jets reconstruits par la méthode RC permet d'estimer la moyenne de la contribution additionnelle de l'empilement, \ie
 \begin{equation}
 \average{\pT^\text{add}}^\text{RC} = \average{\pT_\text{cône}}
 \mend
