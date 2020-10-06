@@ -1,25 +1,13 @@
 \section{Phénoménologie des événements \Gjets}\label{chapter-JERC-section-pheno-GJets}
 Les événements \Gjets\ peuvent être utilisés afin d'obtenir la correction résiduelle absolue en \pT\ des jets, introduite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals_pT}, ainsi que la résolution en énergie des jets. Les analyses correspondantes sont abordées dans les sections~\ref{chapter-JERC-section-JES} et~\ref{chapter-JERC-section-JER}.
 \subsection{Principe des événements \Gjets\ et réponse balancée}
-L'état final d'un événement \Gjets\ comporte un jet à calibrer d'une part et un photon utilisé comme objet de référence d'autre part.
-Sur la figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, la résolution sur les photons est inférieure à \SI{4}{\%} et de l'ordre du pourcent dans le barillet. Dans le cas des jets, sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}, la résolution minimale est de \SI{5}{\%}.
-L'utilisation de photons comme objet de référence est donc justifiée.
-\begin{figure}[h]
+\begin{figure}[p]
 \centering
 \includegraphics[width=.6\textwidth]{\PhDthesisdir/contents/chapter-JERC/phenomenologie/img_from_photon_ID_2015/photon_resolution.png}
 \caption[Résolution en énergie des photons.]{Résolution relative en énergie des photons en fonction de $\eta$ pour des événements simulés $\higgs\to\photon\photon$~\cite{photon_ID_2015}. La variable $R_9$ est définie page~\pageref{eq-R9_definition}.}
 \label{fig-chapter-JERC-section-pheno-GJets-photon_resolution}
 \end{figure}
-\par Des diagrammes de Feynman correspondant à des événements \Gjets\ sont présentés sur la figure~\ref{fig-fgraph-gamma_plus_jets}.
-Ces événements ne comportent pas de neutrino issu de l'interaction dure\footnote{Des neutrinos peuvent apparaître lors de la formation du jet.}, il n'y a donc pas d'énergie transverse manquante due à la physique de ces événements.
-L'impulsion transverse étant nulle dans l'état initial, par conservation, elle est nulle dans l'état final. Le photon et le jet sont donc balancés, \ie
-\begin{equation}
-\vpT_\ptcl^{\photon} + \vpT_\ptcl^\text{jet} = \vec{0}
-\Rightarrow
-\pT_\ptcl^{\photon} = \pT_\ptcl^\text{jet}
-\mend
-\end{equation}
-\begin{figure}[h]
+\begin{figure}[p]
 \centering\vspace{\baselineskip}
 \subcaptionbox{\label{subfig-fgraph-gq_qGamma_S}}[.3\textwidth]
 {\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/Gamma_plus_jets/fgraph-gq_qGamma_S.tex}\vspace{\baselineskip}}
@@ -32,16 +20,7 @@ L'impulsion transverse étant nulle dans l'état initial, par conservation, elle
 \caption[Diagrammes de Feynman donnant un photon et un jet dans l'état final.]{Exemples de diagrammes de Feynman de processus physiques donnant un photon et un jet dans l'état final.}
 \label{fig-fgraph-gamma_plus_jets}
 \end{figure}
-\par L'impulsion transverse du jet doit donc être égale à celle du photon, objet de référence.
-La bonne résolution en énergie sur les photons permet de considérer que leur impulsion transverse au niveau reconstruit est égale à leur impulsion transverse au niveau particule.
-Ainsi, la méthode de la balance introduite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals} permet de définir
-\begin{equation}
-\Rbal = \frac{\pT_\reco^\text{jet}}{\pT^{\photon}}
-\mend[,]
-\end{equation}
-qui doit valoir 1 après correction.
-Cette méthode est performante pour les événements à un photon et un jet dont la topologie est représentée sur la figure~\ref{subfig-Gamma_plus_jet_basic_event}.
-\begin{figure}[h]
+\begin{figure}[p]
 \centering
 \subcaptionbox{Topologie typique des événements correspondant aux diagrammes de la figure~\ref{fig-fgraph-gamma_plus_jets}.\label{subfig-Gamma_plus_jet_basic_event}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth,height=.25\textheight,keepaspectratio]{\PhDthesisdir/plots_and_images/Event_displays/JERC/Gamma_plus_jet.tex}}
@@ -51,6 +30,27 @@ Cette méthode est performante pour les événements à un photon et un jet dont
 \caption{Topologies typiques des événements \Gjets.}
 \label{fig-Gamma_plus_jet_events}
 \end{figure}
+L'état final d'un événement \Gjets\ comporte un jet à calibrer d'une part et un photon utilisé comme objet de référence d'autre part.
+Sur la figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, la résolution sur les photons est inférieure à \SI{4}{\%} et de l'ordre du pourcent dans le barillet. Dans le cas des jets, sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}, la résolution minimale est de \SI{5}{\%}.
+L'utilisation de photons comme objet de référence est donc justifiée.
+\par Des diagrammes de Feynman correspondant à des événements \Gjets\ sont présentés sur la figure~\ref{fig-fgraph-gamma_plus_jets}.
+Ces événements ne comportent pas de neutrino issu de l'interaction dure\footnote{Des neutrinos peuvent apparaître lors de la formation du jet.}, il n'y a donc pas d'énergie transverse manquante due à la physique de ces événements.
+L'impulsion transverse étant nulle dans l'état initial, par conservation, elle est nulle dans l'état final. Le photon et le jet sont donc balancés, \ie
+\begin{equation}
+\vpT_\ptcl^{\photon} + \vpT_\ptcl^\text{jet} = \vec{0}
+\Rightarrow
+\pT_\ptcl^{\photon} = \pT_\ptcl^\text{jet}
+\mend
+\end{equation}
+\par L'impulsion transverse du jet doit donc être égale à celle du photon, objet de référence.
+La bonne résolution en énergie sur les photons permet de considérer que leur impulsion transverse au niveau reconstruit est égale à leur impulsion transverse au niveau particule.
+Ainsi, la méthode de la balance introduite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals} permet de définir
+\begin{equation}
+\Rbal = \frac{\pT_\reco^\text{jet}}{\pT^{\photon}}
+\mend[,]
+\end{equation}
+qui doit valoir 1 après correction.
+Cette méthode est performante pour les événements à un photon et un jet dont la topologie est représentée sur la figure~\ref{subfig-Gamma_plus_jet_basic_event}.
 \subsection{Activité additionnelle des jets}\label{chapter-JERC-section-pheno-GJets-subsec-effets_radiatifs}
 Une activité additionnelle des jets peut survenir et altérer la topologie des événements \Gjets.
 Un photon peut être émis dans l'état initial (ISR, \emph{Initial State Radiation}) ou dans l'état final (FSR, \emph{Final State Radiation}), ce qui correspond aux diagrammes de Feynman des figures~\ref{subfig-fgraph-gq_qGamma_S-ISR_2photons} et~\ref{subfig-fgraph-gq_qGamma_S-FSR_2photons}.
