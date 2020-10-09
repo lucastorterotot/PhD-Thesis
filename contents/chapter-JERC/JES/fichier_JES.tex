@@ -220,9 +220,13 @@ $I_{CH}^\text{corr}$ & \num{1.694} & \num{2.089} & \num{1.141} & \num{1.051} & \
 \end{table}
 \par Le critère d'identification des photons retenu dans l'analyse est le critère strict.
 Seuls les photons situés dans le barillet sont utilisés car ils présentent la meilleure résolution.
-La figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, page~\pageref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, montre en effet que ces photons possèdent une résolution relative en énergie de l'ordre de \SI{1}{\%}, contre environ \SI{2.5}{\%} pour les photons des bouchons.
+%La figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, page~\pageref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, montre en effet que ces photons possèdent une résolution relative en énergie de l'ordre de \SI{1}{\%}, contre environ \SI{2.5}{\%} pour les photons des bouchons.
 Une coupure sur leur pseudo-rapidité est donc appliquée, telle que $\abs{\eta} < \num{1.305}$.
-\par \todo{Barrel photon study if done in service task, else small paragraph on this idea}
+\par Une étude interne a montré que l'utilisation des photons des bouchons ($\abs{\eta} > \num{1.479}$) permettrait de rajouter près de \SI{30}{\%} d'événements dans les données et de réduire ainsi les incertitudes statistiques.
+Les corrections résiduelles obtenues pourraient alors être plus précises.
+Toutefois, la résolution en énergie des photons, représentée en fonction de $\abs{\eta}$ sur la figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution} en page~\pageref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, est de l'ordre de \SI{1}{\%} dans le barillet contre \SI{2.5}{\%} dans les bouchons.
+Cette différence sur la résolution en énergie de l'objet de référence rend délicate la combinaison des photons du barillet et des bouchons dans cette analyse.
+Des travaux sont actuellement menés dans cette direction.
 \paragraph{Sélection sur les jets}
 Les événements présentant un unique photon sélectionné d'après les critères précédents sont retenus.
 Avec ce photon doit être présent au moins un jet reconstruit à l'aide de l'algorithme anti-\kT~\cite{Cacciari_antikT} avec un paramètre $R=\num{0.4}$ et respectant les critères définis dans le tableau~\ref{tab-chapter-JERC-section-jets_reco-subsec-jetID-2018} pour les données de 2018 et ceux du tableau~\ref{tab-chapter-JERC-section-jets_reco-subsec-jetID-2017UL} pour les données de 2017-UL.
