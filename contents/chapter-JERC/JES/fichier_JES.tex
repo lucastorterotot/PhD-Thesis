@@ -173,7 +173,6 @@ L'isolation corrigée $I^\text{corr}$ s'exprime ainsi en fonction de l'isolation
 I^\text{corr} = \max\left( I - \rho \times \mathcal{E_A} , 0\right)
 \end{equation}
 où $\mathcal{E_A}$ est l'aire effective, \ie\ la fraction de l'espace $(\eta,\phi)$ correspondant à la zone d'isolation à corriger pour l'empilement. Les valeurs des aires effectives utilisées sont présentées dans le tableau~\ref{tab-CutBasedPhotonIdentificationRun2-effective_areas}.
-Les coupures définissant les différents critères d'identification des photons ainsi que leurs efficacités d'identification et de réjection sont résumées dans le tableau~\ref{tab-CutBasedPhotonIdentificationRun2}.
 \begin{table}[h]
 \centering
 \begin{tabular}{cccc}
@@ -192,6 +191,9 @@ $\abs{\eta} > \num{2.4}$ & \num{0.0087} & \num{0.0137} & \num{0.1466} \\
 \caption[Aires effectives de correction de l'isolation du photon.]{Valeurs de l'aire effective $\mathcal{E_A}$ utilisée pour corriger la contribution de l'empilement aux isolations des photons vis-à-vis des autres particules.}
 \label{tab-CutBasedPhotonIdentificationRun2-effective_areas}
 \end{table}
+\par De plus, un veto est appliqué aux photons pouvant être reliés à une trace dans le trajectographe.
+Ce veto permet de limiter la contamination des photons considérés dans l'analyse par des électrons reconstruits à tort comme des photons.
+Les coupures correspondant aux différents critères d'identification des photons ainsi que leurs efficacités d'identification et de réjection sont résumées dans le tableau~\ref{tab-CutBasedPhotonIdentificationRun2}.
 \begin{table}[h]
 \centering\small
 \begin{tabularx}{\textwidth}{Xcccccc}
