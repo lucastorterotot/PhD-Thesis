@@ -28,6 +28,38 @@ Citer également la thèse de Gaël:\\\fullcite{Gael_thesis}
 \item PU + plots
 \end{itemize}
 
+\section*{Étapes des choix}
+\subsection*{Inputs variables}
+phéno, tau1 tau2 MET pT eta phi + mT 1 2 tt tot.
+\subsection*{Inputs events}
+sélection des événements, target flattening. pas de PU
+
+80-800 GeV (aller plus loin que \cite{BARTSCHI201929})
+\subsection*{DNN}
+Comme dans~\cite{BARTSCHI201929}, table 1.
+
+output activation function to linear instead of relu to not cut?
+
+changement de la structure: 3 couches de 1000 neurones?
+
+loss mse
+
+optimizer adadelta
+
+w_init_mode uniform
+
+early stopping
+
+Changement du mass range (biais aux bords) -> down to 50 GeV
+
+\subsection*{XGB}
+avoid overfitting, max\_depth
+
+learning rate (eta)
+
+num\_round, early stopping (choose value of 5)
+
+loss
 
 \input{\PhDthesisdir/contents/chapter-ML/introduction/fichier_introduction.tex}
 
