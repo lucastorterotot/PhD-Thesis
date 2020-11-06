@@ -90,12 +90,12 @@ with plt.xkcd():
     txt3.remove()
 
     txt4 = plt.annotate(
-         'Underfitting here',
+         'Underfitting',
          xy=(15, .65), arrowprops=dict(arrowstyle='->'), xytext=(33, .65))
 
     txt5 = plt.annotate(
-         'Overfitting here',
-         xy=(85, .45), arrowprops=dict(arrowstyle='->'), xytext=(33, .45))
+         'Overfitting',
+         xy=(85, .45), arrowprops=dict(arrowstyle='->'), xytext=(40, .45))
 
     fig.savefig(image_name.format(n_saves_counter))
     n_saves_counter+=1
