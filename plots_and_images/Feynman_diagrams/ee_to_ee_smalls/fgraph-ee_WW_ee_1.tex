@@ -1,0 +1,20 @@
+\begin{fmffile}{ee_WW_ee_1}\fmfstraight
+\begin{fmfchar*}(30,10)
+  \fmfleft{i1,i2}
+  \fmfright{o1,o2}
+  \fmf{fermion}{i1,v1}
+  \fmf{boson, label=\Wbosonminus, l.side=right}{v1,v4}
+  \fmf{fermion}{v4,o1}
+  \fmf{fermion}{o2,v3}
+  \fmf{boson, label=\Wbosonplus, l.side=left}{v2,v3}
+  \fmf{fermion}{v2,i2}
+  \fmffreeze
+  \fmf{fermion, label=\nuele, l.side=left}{v1,v2}
+  \fmf{fermion, label=\nuele, l.side=left}{v3,v4}
+  \fmflabel{\antiele}{i2}
+  \fmflabel{\electron}{i1}
+  \fmflabel{\antiele}{o2}
+  \fmflabel{\electron}{o1}
+  \fmfdot{v1,v2,v3,v4}
+\end{fmfchar*}
+\end{fmffile}
