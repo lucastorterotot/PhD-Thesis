@@ -75,6 +75,14 @@ La convention utilisée dans cette thèse est illustrée sur la figure~\ref{fig-
 \caption[Types de particules et lignes correspondantes dans les diagrammes de Feynman.]{Types de particules et lignes correspondantes dans les diagrammes de Feynman.}
 \label{fig-fmf_lines_convention-annexeB}
 \end{figure}
+\begin{wrapfigure}{R}{8cm}
+\centering
+\vspace{\baselineskip}
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/QED/fgraph-ff_Gamma1-large_with_annotations.tex}
+\vspace{\baselineskip}
+\caption[Diagramme de Feynman issu du terme~\eqref{eq-QCD_interaction_developped}.]{Diagramme de Feynman issu du terme du lagrangien du modèle standard de l'équation~\eqref{eq-QCD_interaction_developped}. Un fermion \fermion\ et un antifermion \antifermion\ sont présents dans l'état initial et sont décrits par un champ fermionique $\psi$ et son adjoint $\bar{\psi}$. Le champ $\psi$ interagit par ses composantes $a$ et $b$ avec le champ vectoriel $A_\mu$ au vertex, avec un couplage donné par $eQ\gamma^\mu_{ab}$. Il en résulte un photon \photon, décrit par ce champ $A_\mu$.}
+\label{fig-fgraph-ff_Gamma1-large-annexeB}
+\end{wrapfigure}
 \par Les interactions entre les particules ont lieu, dans les diagrammes de Feynman, au niveau des connexions entre les lignes correspondant à ces particules.
 Ces connexions sont les \og vertex \fg{} du diagramme.
 Dans le cadre de la théorie quantique des champs, les interactions entre les particules sont possibles grâce aux termes du lagrangien faisant intervenir les champs correspondants à ces particules.
@@ -88,13 +96,18 @@ Par exemple, dans le cas de l'interaction électromagnétique abordée dans le c
 \end{equation}
 faisant intervenir le champ $\psi$ des fermions, $\bar{\psi}$ pour les antifermions ainsi que le champ $A_\mu$ des photons.
 Ce terme du lagrangien correspond directement aux vertex comme celui de la figure~\ref{fig-fgraph-ff_Gamma1-large-annexeB}, sur laquelle les rôles des différents facteurs présents dans ce terme du lagrangien sont illustrés.
-\begin{figure}[h]
-\centering
-\vspace{\baselineskip}
-\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/QED/fgraph-ff_Gamma1-large_with_annotations.tex}
-\vspace{\baselineskip}
-\caption[Diagramme de Feynman issu du terme~\eqref{eq-QCD_interaction_developped}.]{Diagramme de Feynman issu du terme du lagrangien du modèle standard de l'équation~\eqref{eq-QCD_interaction_developped}. Un fermion \fermion\ et un antifermion \antifermion\ sont présents dans l'état initial et sont décrits par un champ fermionique $\psi$ et son adjoint $\bar{\psi}$. Le champ $\psi$ interagit par ses composantes $a$ et $b$ avec le champ vectoriel $A_\mu$ au vertex, avec un couplage donné par $eQ\gamma^\mu_{ab}$. Il en résulte un photon \photon, décrit par ce champ $A_\mu$.}
-\label{fig-fgraph-ff_Gamma1-large-annexeB}
-\end{figure}
-\par Les diagrammes de Feynman ainsi obtenus sont un outil incontournable en physique des particules.
+\par La probabilité de passer d'un état initial $\ket{i}$ à un état final $\ket{f}$ s'exprime
+\begin{equation}
+P(\ket{i}\to\ket{f}) = \abs{\mathcal{S}_{fi}}^2
+\msep
+\mathcal{S}_{fi} = \bbraket{f}{\mathcal{S}}{i}
+\mend
+\end{equation}
+où $\mathcal{S}$ est la matrice de diffusion ou \og matrice S \fg{} pour \emph{scattering}.
+Pour déterminer $\mathcal{S}_{fi}$, il faut sommer les contributions des différents modes de passage de $\ket{i}$ à $\ket{f}$.
+Les termes de cette somme correspondent aux diagrammes de Feynman permettant le passage de $\ket{i}$ à $\ket{f}$, comme sur la figure~\ref{fig-several_fmfs-annexeB}.
+Chacun de ces termes consiste en un produit de différents facteurs.
+Certains d'eux assurent la conservation de l'énergie et de l'impulsion.
+De plus, chaque ligne et vertex du diagramme de Feynman correspondant apporte un facteur supplémentaire, dont l'expression exacte est donnée par les règles de Feynman.
+\par Les diagrammes de Feynman sont ainsi un outil incontournable en physique des particules.
 En physique nucléaire et en physique de la matière condensée, le formalisme étant proche de celui de la physique des particules, des analogues des diagrammes de Feynman sont également utilisés.
