@@ -27,11 +27,11 @@
 \end{scope}
 
 % CMS parts
-\draw (0,-.8*\trackerrout) node {\tiny Trajectographe};
+\draw (0,-.8*\trackerrout) node {\tiny Tracker};
 \draw (-55:{0.5*(\ECALrin+\ECALrout)}) node {\tiny ECAL};
 \draw (-45:{0.5*(\HCALrin+\HCALrout)}) node {\tiny HCAL};
-\draw (-37:{0.5*(\Solenrin+\Solenrout)}) node {\tiny Solénoïde};
-\draw (\muonroutb,-\muonroutd/4) node [below] {\tiny Chambres à muons et culasse de fer};
+\draw (-37:{0.5*(\Solenrin+\Solenrout)}) node {\tiny Solenoid};
+\draw (\muonroutb,-\muonroutd/4) node [below] {\tiny Muon chambers and iron return yoke};
 
 % CMS scale
 \draw [thick] (0,\muonroutd/4+.5) --+ (\muonroutd,0);
@@ -41,8 +41,8 @@
 }
 
 % Ensure good size
-\draw (\muonroutb,-\muonroutd/4) node [below] {\tiny \vphantom{Chambres à muons et culasse de fer}};
-\draw (-1.25,\muonroutd/4) node (leg) [right] {\tiny \hphantom{Légende:}};
+\draw (\muonroutb,-\muonroutd/4) node [below] {\tiny \vphantom{Muon chambers and iron return yoke}};
+\draw (-1.25,\muonroutd/4) node (leg) [right] {\tiny \hphantom{Legend:}};
 \draw (leg.west) coordinate (tmp1);
 \end{tikzpicture}
 
