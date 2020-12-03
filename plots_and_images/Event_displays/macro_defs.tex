@@ -14,24 +14,24 @@
 \def\Solenrout{3.800} % from eta-ranges pict
 \def\Solencolor{ltcolorgray2}
 
-\def\ironryrina{3.850}
-\def\ironryrouta{4.000}
+\def\steelryrina{3.850}
+\def\steelryrouta{4.000}
 \def\muonrina{4.020} % from eta-ranges pict
 \def\muonrouta{4.400}
-\def\ironryrinb{4.550}
-\def\ironryroutb{4.870}
+\def\steelryrinb{4.550}
+\def\steelryroutb{4.870}
 \def\muonrinb{4.905} % from eta-ranges pict
 \def\muonroutb{5.285}
-\def\ironryrinc{5.355}
-\def\ironryroutc{5.905}
+\def\steelryrinc{5.355}
+\def\steelryroutc{5.905}
 \def\muonrinc{5.975} % from eta-ranges pict
 \def\muonroutc{6.355}
-\def\ironryrind{6.425}
-\def\ironryroutd{6.930}
+\def\steelryrind{6.425}
+\def\steelryroutd{6.930}
 \def\muonrind{7.000} % from eta-ranges pict
 \def\muonroutd{7.380} % from eta-ranges pict
 \def\muonchcolor{ltcoloryellow1}
-\def\ironrycolor{ltcolorred3}
+\def\steelrycolor{ltcolorred3}
 
 \def\clipCircle#1#2{
 \clip (#1,0) arc (0:360:#1) -- (#2,0) arc (360:0:#2) -- cycle ;
@@ -53,13 +53,13 @@
 \def\drawCMS{
 \foreach \rin/\rout/\color in {
 \muonrind/\muonroutd/\muonchcolor,
-\ironryrind/\ironryroutd/\ironrycolor,
+\steelryrind/\steelryroutd/\steelrycolor,
 \muonrinc/\muonroutc/\muonchcolor,
-\ironryrinc/\ironryroutc/\ironrycolor,
+\steelryrinc/\steelryroutc/\steelrycolor,
 \muonrinb/\muonroutb/\muonchcolor,
-\ironryrinb/\ironryroutb/\ironrycolor,
+\steelryrinb/\steelryroutb/\steelrycolor,
 \muonrina/\muonrouta/\muonchcolor
-%\ironryrina/\ironryrouta/\ironrycolor
+%\steelryrina/\steelryrouta/\steelrycolor
 }{
 \begin{scope}
 \clipMuCh{\rin}{\rout}
