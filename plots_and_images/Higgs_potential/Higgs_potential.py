@@ -51,7 +51,7 @@ fig.addgraph('graph1',
              y_ticks_min = 0, y_ticks_max = 1, y_ticks_step = 2,
              z_ticks_min = 0, z_ticks_max = 1, z_ticks_step = 2,
              x_label="$\\Re(\\phi)", y_label="$\\Im(\\phi)",
-             title="$\\mu\\geq0$")
+             title="$\\mu^2\\geq0$")
 fig.addgraph('graph2',
              position=122, show_cmap_legend=False, projection='3d',
              x_ticks=True, y_ticks=True, z_ticks=True,
@@ -60,7 +60,7 @@ fig.addgraph('graph2',
              y_ticks_min = 0, y_ticks_max = 1, y_ticks_step = 2,
              z_ticks_min = 0, z_ticks_max = 1, z_ticks_step = 2,
              x_label="$\\Re(\\phi)", y_label="$\\Im(\\phi)",
-             title="$\\mu<0$")
+             title="$\\mu^2<0$")
 
 # Insert objects in graphs
 cmap = 'coolwarm'
@@ -84,4 +84,23 @@ fig.addplot(
     'graph2')
 
 # Save figure
+fig.save()
+
+fig = lt.ltFigure(name='fig_for_slides', width_frac=.45, height_width_ratio=1, tight_layout=False)
+fig.addgraph('graph2',
+             position=111, show_cmap_legend=False, projection='3d',
+             x_ticks=True, y_ticks=True, z_ticks=True,
+             z_min = z_min, z_max=z_max,
+             x_ticks_min = 0, x_ticks_max = 1, x_ticks_step = 2,
+             y_ticks_min = 0, y_ticks_max = 1, y_ticks_step = 2,
+             z_ticks_min = 0, z_ticks_max = 1, z_ticks_step = 2,
+             x_label="$\\Re(\\phi)", y_label="$\\Im(\\phi)",
+             title="$\\mu^2<0$")
+
+fig.addplot(
+    lt.ltPlotSurf(r, p,
+                  x_fct = rp_to_x, y_fct = rp_to_y, z_fct = Z,
+                  cmap=cmap, use_cmap=True, cmap_low = z_min, cmap_high=z_max, alpha = .7, linewidth=None, only_lines=False),
+    'graph2')
+
 fig.save()
