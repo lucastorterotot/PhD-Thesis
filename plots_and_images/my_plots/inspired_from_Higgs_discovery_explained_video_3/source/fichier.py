@@ -239,8 +239,32 @@ for N_samples in N_samples_to_plot:
                 ys.append(N_samples * (1-shyness_real) * 1./6 + N_samples * shyness_real)
         xs.append(xs[-1]+1)
         ys.append(ys[-1])
-        lt.ltPlotFct(xs, ys, color='C3', label = "Lapin, 3").plot(fig, 'graph1')
+        red_line = lt.ltPlotFct(xs, ys, color='C3', label = "Lapin, 3")
+        red_line.plot(fig, 'graph1')
         
     lt.ltPlotFct([0,7], [1,1], color='black', linewidth=.5).plot(fig, 'graph2')
     
     fig.save(format='pgf')
+
+N_fig+=1
+fig = lt.ltFigure(
+    name=fig.name+"_no_ratio",
+    height_width_ratio = 2,
+    tight_layout=True,
+)
+fig.addgraph(
+    'graph1',
+    position=211,
+    x_label='Valeur du dé',
+    y_label='$N$',
+    show_legend=True,
+    legend_on_side=False,
+    x_min = 0.5,
+    x_max = 6.5,
+    y_min = 0,
+    y_max = 2500,
+)
+data.plot_pts(fig, 'graph1')
+bg.plot_stack(fig, 'graph1', [bg])
+red_line.plot(fig, 'graph1')
+fig.save(format='pgf')
