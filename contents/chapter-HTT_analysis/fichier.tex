@@ -18,9 +18,24 @@ ATLAS \mu\mu\ et \tau\tau~\cite{Aad:2012cfr,ATLAS-MSSM-HTT_2018}
 
 CMS \mu\mu~\cite{CMS:2015ooa} \tau\tau~\cite{Chatrchyan:2012vp,CMS-MSSM-HTT_2014,CMS-PAS-HIG-17-020}
 
-reconstruction \tauh~\cite{Khachatryan:2015dfa}
+object reco:\\
+reconstruction \tauh~\cite{Khachatryan:2015dfa,Sirunyan:2018pgf}\\
+tauID \cite{TauPOG,CMS-DP-2019-033}\\
+For muons selected in the emu and mutau channels additional \textit{Medium muon} requirements as recommended by the Muon POG, are applied.\cite{cmsMediumMuon}\\
+In addition, electrons are required to pass an identification variable based on a Boosted Decision Tree (BDT) discriminator which uses track quality, shower shapes and kinematic quantities as input. The following variables are used as input to the BDT... \cite{cmsElectronMVA}
+
+
+lumi unc.~\cite{LumiTwiki}
+
+systematics EGamma recommendation~\cite{EGammaRunII}.
 
 PuppiMET~\cite{PUPPI} and PFJetsCHs
+
+For the fit we use the implementation of the $CL_S$ method~\cite{CLs_method} provided by \textsc{combine}, the CMS Higgs combination tool based on RooStats \cite{RooStats}.
+
+In the absence of a signal, upper limits on the $\sigma\times\mathcal{B}^{\tau\tau}$ are set using the modified frequentist approach \citep{Junk:1999kv,Read_2002}.
+
+systematic unc. shifts~\cite{BarlowBeeston,BarlowBeeston2}
 
 \section{Introduction}\label{chapter-HTT_analysis-section-introduction}
 
