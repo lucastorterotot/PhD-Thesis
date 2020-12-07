@@ -1266,7 +1266,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=2.804812in,y=0.222655in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Valeur du dé}%
+\pgftext[x=2.804812in,y=0.222655in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Dice value}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -2879,15 +2879,15 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetstrokeopacity{0.800000}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{4.196864in}{4.927815in}}%
+\pgfpathmoveto{\pgfqpoint{3.997589in}{4.927815in}}%
 \pgfpathlineto{\pgfqpoint{5.066831in}{4.927815in}}%
 \pgfpathquadraticcurveto{\pgfqpoint{5.091831in}{4.927815in}}{\pgfqpoint{5.091831in}{4.952815in}}%
 \pgfpathlineto{\pgfqpoint{5.091831in}{5.288914in}}%
 \pgfpathquadraticcurveto{\pgfqpoint{5.091831in}{5.313914in}}{\pgfqpoint{5.066831in}{5.313914in}}%
-\pgfpathlineto{\pgfqpoint{4.196864in}{5.313914in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{4.171864in}{5.313914in}}{\pgfqpoint{4.171864in}{5.288914in}}%
-\pgfpathlineto{\pgfqpoint{4.171864in}{4.952815in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{4.171864in}{4.927815in}}{\pgfqpoint{4.196864in}{4.927815in}}%
+\pgfpathlineto{\pgfqpoint{3.997589in}{5.313914in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{3.972589in}{5.313914in}}{\pgfqpoint{3.972589in}{5.288914in}}%
+\pgfpathlineto{\pgfqpoint{3.972589in}{4.952815in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{3.972589in}{4.927815in}}{\pgfqpoint{3.997589in}{4.927815in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -2900,10 +2900,10 @@
 \definecolor{currentstroke}{rgb}{0.090196,0.745098,0.811765}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{4.221864in}{5.176414in}}%
-\pgfpathlineto{\pgfqpoint{4.471864in}{5.176414in}}%
-\pgfpathlineto{\pgfqpoint{4.471864in}{5.263914in}}%
-\pgfpathlineto{\pgfqpoint{4.221864in}{5.263914in}}%
+\pgfpathmoveto{\pgfqpoint{4.022589in}{5.176414in}}%
+\pgfpathlineto{\pgfqpoint{4.272589in}{5.176414in}}%
+\pgfpathlineto{\pgfqpoint{4.272589in}{5.263914in}}%
+\pgfpathlineto{\pgfqpoint{4.022589in}{5.263914in}}%
 \pgfpathclose%
 \pgfusepath{fill}%
 \end{pgfscope}%
@@ -2911,7 +2911,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=4.571864in,y=5.176414in,left,base]{\color{textcolor}\rmfamily\fontsize{9.000000}{10.800000}\selectfont BG}%
+\pgftext[x=4.372589in,y=5.176414in,left,base]{\color{textcolor}\rmfamily\fontsize{9.000000}{10.800000}\selectfont Background}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -2920,8 +2920,8 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{4.284364in}{5.045864in}}%
-\pgfpathlineto{\pgfqpoint{4.409364in}{5.045864in}}%
+\pgfpathmoveto{\pgfqpoint{4.085089in}{5.045864in}}%
+\pgfpathlineto{\pgfqpoint{4.210089in}{5.045864in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
@@ -2931,8 +2931,8 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{4.346864in}{4.983364in}}%
-\pgfpathlineto{\pgfqpoint{4.346864in}{5.108364in}}%
+\pgfpathmoveto{\pgfqpoint{4.147589in}{4.983364in}}%
+\pgfpathlineto{\pgfqpoint{4.147589in}{5.108364in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
@@ -2958,7 +2958,7 @@
 \pgfusepath{stroke,fill}%
 }%
 \begin{pgfscope}%
-\pgfsys@transformshift{4.346864in}{5.045864in}%
+\pgfsys@transformshift{4.147589in}{5.045864in}%
 \pgfsys@useobject{currentmarker}{}%
 \end{pgfscope}%
 \end{pgfscope}%
@@ -2966,7 +2966,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=4.571864in,y=5.002114in,left,base]{\color{textcolor}\rmfamily\fontsize{9.000000}{10.800000}\selectfont Données}%
+\pgftext[x=4.372589in,y=5.002114in,left,base]{\color{textcolor}\rmfamily\fontsize{9.000000}{10.800000}\selectfont Data}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%

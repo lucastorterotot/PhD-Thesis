@@ -38,9 +38,9 @@ def get_samples(N_samples):
     
     signal_real = signal_value_real * np.ones(int(N_samples*shyness_real))
     
-    data = lt.ltPlotHist(data=np.concatenate([background_for_data, signal_real]), bins=binning, label="Données", color='black')
-    bg_for_data = lt.ltPlotHist(data=background_for_data, bins=binning, label="BG", color = 'C9')
-    bg = lt.ltPlotHist(data=background, weights = N_samples/len(background)*np.ones(len(background)), bins=binning, label="BG", color = 'C9')
+    data = lt.ltPlotHist(data=np.concatenate([background_for_data, signal_real]), bins=binning, label="Data", color='black')
+    bg_for_data = lt.ltPlotHist(data=background_for_data, bins=binning, label="Background", color = 'C9')
+    bg = lt.ltPlotHist(data=background, weights = N_samples/len(background)*np.ones(len(background)), bins=binning, label="Background", color = 'C9')
     SR = lt.ltPlotHist(data=signal_real, bins=binning, label="Real signal", color='C3')
     SR_bak = lt.ltPlotHist(data=signal_real, bins=binning, label="Real signal", color='C3')
 
@@ -68,7 +68,7 @@ fig2 = lt.ltFigure(
 fig.addgraph(
     'graph1',
     position=211,
-    x_label='Valeur du dé',
+    x_label='Dice value',
     y_label='$N$',
     show_legend=True,
     legend_on_side=False,
@@ -123,8 +123,8 @@ fig = fig_for_ratio
 fig.addgraph(
     'graph2',
     position=814,
-    x_label='Valeur du dé',
-    y_label='Obs./Bg.',
+    x_label='Dice value',
+    y_label='Obs./Bkg.',
     show_legend=False,
     legend_on_side=False,
     share_x='graph1',
@@ -209,8 +209,8 @@ for N_samples in N_samples_to_plot:
     fig.addgraph(
         'graph2',
         position=814,
-        x_label='Valeur du dé',
-        y_label='Obs./Bg.',
+        x_label='Dice value',
+        y_label='Obs./Bkg.',
         show_legend=False,
         legend_on_side=False,
         share_x='graph1',
@@ -239,7 +239,7 @@ for N_samples in N_samples_to_plot:
                 ys.append(N_samples * (1-shyness_real) * 1./6 + N_samples * shyness_real)
         xs.append(xs[-1]+1)
         ys.append(ys[-1])
-        red_line = lt.ltPlotFct(xs, ys, color='C3', label = "Lapin, 3")
+        red_line = lt.ltPlotFct(xs, ys, color='C3', label = "$\\text{Rabbit}=3$ @ \\SI{5}{%}")
         red_line.plot(fig, 'graph1')
         
     lt.ltPlotFct([0,7], [1,1], color='black', linewidth=.5).plot(fig, 'graph2')
@@ -255,7 +255,7 @@ fig = lt.ltFigure(
 fig.addgraph(
     'graph1',
     position=211,
-    x_label='Valeur du dé',
+    x_label='Dice value',
     y_label='$N$',
     show_legend=True,
     legend_on_side=False,
