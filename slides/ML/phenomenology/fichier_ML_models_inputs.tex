@@ -1,6 +1,6 @@
 \begin{frame}%{Stored observables}
 
-\manip NN inputs are based on reconstructed variables.
+\manip ML models inputs are based on reconstructed variables (what is available in real data).
 
 \pause
 \manip $\Higgs\to\tau\tau$ decays:
@@ -16,9 +16,16 @@
 \submanip transverse masses $\mT^1$, $\mT^2$, $\mT^{\tau\tau}$,
 \submanip total transverse mass \mTtot.
 
-\vfill
-
 \pause
-\manip \num{18} inputs.
+\manip Additionnal variables:
+\submanip MET covariance matrix;
+\submanip remaining jets overall $\vec{p}$ $\to$ $\pT^r$, $\eta^r$ and $\phi^r$;
+\submanip number of neutrinos ($\tauh\tauh = 2$, $\ell\tauh=3$, $\ell\ell=4$);
+\submanip number of PU vertices \inlinecode{python}{npvsGood};
+
+%\vfill
+%
+%\pause
+%\manip \todo{update above list with best model's inputs and compute numb. of} inputs.
 
 \end{frame}
