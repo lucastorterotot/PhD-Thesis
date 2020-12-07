@@ -4,50 +4,26 @@
 \begin{tikzpicture}
 \input{\PhDthesisdir/plots_and_images/Event_displays/macro_defs.tex}
 
-\clip (-\graphw/2,-\graphh/2) rectangle (\graphw/2,\graphh/2);
+\begin{scope}
+\clip (-\graphw/2,-\graphh/2.1) rectangle (\graphw/2,\graphh/2.1);
 
-\draw (0,0) coordinate (PV);
+\drawCMS
 
-\foreach \rin/\rout/\color in {
-\muonrind/\muonroutd/\muoncolor,
-\steelryrind/\steelryroutd/\steelrycolor,
-\muonrinc/\muonroutc/\muoncolor,
-\steelryrinc/\steelryroutc/\steelrycolor,
-\muonrinb/\muonroutb/\muoncolor,
-\steelryrinb/\steelryroutb/\steelrycolor,
-\muonrina/\muonrouta/\muoncolor,
-%\steelryrina/\steelryrouta/\steelrycolor,
-\Solenrin/\Solenrout/\Solencolor,
-\HCALrin/\HCALrout/\HCALcolor,
-\ECALrin/\ECALrout/\ECALcolor,
-\trackerrin/\trackerrout/\trackercolor
-}{
-\fill (PV) [color = \color] circle (\rout);
-\fill (PV) [color = white] circle (\rin);
-}
+\printmuondeposit{10}
+\printmuon{10}
 
 
-\printMuChSigA{10}{1}
-\printMuChSigB{10}{1}
-\printMuChSigC{10}{1}
-\printMuChSigD{10}{1}
-\printmu{10}
-
-
-\printMuChSigA{-60}{1}
-\printMuChSigB{-60}{1}
-\printMuChSigC{-60}{1}
-\printMuChSigD{-60}{1}
 \printjetdeposit{-60}
+\printmuondeposit{-60}
 \printjet{-60}
-\printmu{-60}
+\printmuonnolabel{-60}
 
 \printtauhdeposit{150}
 \printtauh{150}
 
 \printjetdeposit{-150}
-\printjetfake{-150}
-
+\printjetfakenolabel{-150}
+\end{scope}
 \end{tikzpicture}
 \end{center}
 \end{frame}
