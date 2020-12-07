@@ -1,83 +1,29 @@
 \begin{frame}
-\frametitle{Signal region (SR) for semi-leptonic channels ($\ell\tauh$)}
+\frametitle{Signal region (SR) -- 2017 \mu\tauh\ channel as example}
 
-\begin{block}{Particles identification}
-\begin{multicols}{2}
+\begin{block}{\mu\ and \tauh\ candidates}
+\begin{minipage}{.5\linewidth}
 \begin{itemize}
-\item $\ell$ ID:
+\item $L_1=\mu$
 \begin{itemize}
-\item \mu: medium (eff. \SI{99.5}{\%})
-\item \ele: tight (eff. \SI{80}{\%})
+\item $p_T > \SI{21}{\GeV}$, $\abs{\eta}<\num{2.1}$
+\item $d_z < \SI{0.2}{\centi\meter}$, $d_{xy} < \SI{0.045}{\centi\meter}$
+\item $\text{relative isolation} < \num{0.15}$
+\item medium \texttt{muonID}
 \end{itemize}
-\item \tauh\ ID:
+\item $L_2=\tauh$
 \begin{itemize}
-\item vs. \mu: loose
-\item vs. \ele: tight
+\item $p_T > \SI{30}{\GeV}$, $\abs{\eta}<\num{2.3}$
+\item $d_z < \SI{0.2}{\centi\meter}$
+\item $\text{relative isolation} < \num{0.15}$
+\item NewDecayModeFinding (modes 5 to 9 vetoed)
+\item deepTau anti-electron (VVL WP)
+\item deepTau anti-muon (tight WP)
+\item deepTau vs jet (medium WP)
 \end{itemize}
-\end{itemize}
-\end{multicols}
-\end{block}
-
-\pause
-\begin{block}{Primary vertex}
-\begin{minipage}{.3\linewidth}
-\begin{itemize}
-\item $d_{xy}(\ell) < \SI{0.045}{\centi\meter}$
-\item $d_{z}(\ell) < \SI{0.2}{\centi\meter}$
-\item $d_{z}(\tauh) < \SI{0.2}{\centi\meter}$
 \end{itemize}
 \end{minipage}
-\begin{minipage}{.65\linewidth}
-\begin{center}
-\begin{tikzpicture}[scale=1]
-
-\draw [ltcolorgreen, very thick, -latex] (1,1)--+(30:1) node [right] {$\tauh$};
-\draw [ltcolorgreen, very thick, -latex] (1,1)--+(50:1.4);
-\draw [ltcolorgreen, very thick, -latex] (1,1)--+(70:.9);
-\draw [ltcolorblue, dotted, thick, -latex] (1,1)--+(80:.6) node [above] {$\nutau$};
-
-\draw [ltcolorgreen, dashed, thick ] (1,1)--+(30:-{2^.5});
-\draw [ltcolorgreen, dashed, thick ] (1,1)--+(50:-{2^.5});
-\draw [ltcolorgreen, dashed, thick ] (1,1)--+(70:-{2^.5});
-
-\draw [ltcolorred, very thick, -latex] (0,0)-+(45:{2^.5}) node [below] {$\tau$};
-
-\fill [ltcolororange] (0,0) circle (2pt);
-\end{tikzpicture}
-\qquad
-\begin{tikzpicture}[scale=1]
-
-\draw [ltcolorgreen, very thick, -latex] (1,1)--+(50:1.4)node [right] {$\mu$};
-\draw [ltcolorblue, dotted, thick, -latex] (1,1)--+(80:.6) node [above] {$\nutau$};
-\draw [ltcolorblue, dotted, thick, -latex] (1,1)--+(40:.6) node [right] {$\numu$};
-
-\draw [ltcolorgreen, dashed, thick ] (1,1)--+(50:-{2^.5});
-
-\draw [ltcolorred, very thick, -latex] (0,0)-+(45:{2^.5}) node [below] {$\tau$};
-
-\fill [ltcolororange] (0,0) circle (2pt);
-\end{tikzpicture}
-\end{center}
-\end{minipage}
-\end{block}
-
-\end{frame}
-\begin{frame}
-\frametitle{Signal region (SR) for semi-leptonic channels ($\ell\tauh$)}
-
-\begin{block}{Kinematics}
-\begin{minipage}{.4\linewidth}
-\begin{itemize}
-\item \mu: $p_T > \SI{21}{\GeV}$, $\abs{\eta}<\num{2.1}$
-\item \ele: $p_T > \SI{25}{\GeV}$, $\abs{\eta}<\num{2.1}$
-\item \tauh: $p_T > \SI{23}{\GeV}$, $\abs{\eta}<\num{2.3}$
-\end{itemize}
-\vspace{\baselineskip}
-\begin{equation*}
-\eta = -\ln\tan\frac{\theta}{2}
-\end{equation*}
-\end{minipage}
-\begin{minipage}{.55\linewidth}
+\begin{minipage}{.49\linewidth}
 \begin{center}
 {\tdplotsetmaincoords{70}{115}
 \tdplotsetrotatedcoords{-90}{-90}{-90}
@@ -120,6 +66,9 @@
 \draw [tdplot_rotated_coords,-latex] (1,0,0) arc (0:45:1);
 \draw [tdplot_rotated_coords] (22.5:1.2) node {$\theta$};
 \end{tikzpicture}}
+\begin{equation*}
+\eta = -\ln\tan\frac{\theta}{2}
+\end{equation*}
 \end{center}
 \end{minipage}
 \end{block}
@@ -131,37 +80,38 @@
 \begin{center}
 \includegraphics[width=\graphw, height=\graphh, keepaspectratio]{\PhDthesisdir/plots_and_images/from_CMS_alignment_photodetectors/CMS-eta-ranges.png}
 \end{center}
+\vspace{-9pt}
 \end{frame}
 
 \input{\PhDthesisdir/slides/HTT_analysis/isolation_explained/isolation_explained.tex}
 
-\begin{frame}\addtocounter{framenumber}{-1}
-\frametitle{Particles isolation -- quantitatively}
-\begin{block}{}
-\begin{equation*}
-\input{\PhDthesisdir/slides/HTT_analysis/isolation_explained/relative_isolation_equation.tex}
-\end{equation*}
-\begin{center}
-with $\Delta R = \sqrt{\Delta\phi^2+\Delta\eta^2}$.
-\end{center}
-\end{block}
-\pause
-\begin{block}{Particles isolation cut for SR}
-\begin{itemize}
-\item[$\ell$] $I_\text{rel}<\num{0.3}$,
-$R_\ell = \num{0.5}$.
-\item[\tauh] MVA-based isolation criterion with 3 available WP:
-\begin{itemize}
-\item Very Loose (VLoose),
-\item Medium,
-\item Tight (used for SR).
-\end{itemize}
-\end{itemize}
-\end{block}
-\end{frame}
+%\begin{frame}\addtocounter{framenumber}{-1}
+%\frametitle{Particles isolation -- quantitatively}
+%\begin{block}{}
+%\begin{equation*}
+%\input{\PhDthesisdir/slides/HTT_analysis/isolation_explained/relative_isolation_equation.tex}
+%\end{equation*}
+%\begin{center}
+%with $\Delta R = \sqrt{\Delta\phi^2+\Delta\eta^2}$.
+%\end{center}
+%\end{block}
+%\pause
+%\begin{block}{Particles isolation cut for SR}
+%\begin{itemize}
+%\item[$\ell$] $I_\text{rel}<\num{0.3}$,
+%$R_\ell = \num{0.5}$.
+%\item[\tauh] MVA-based isolation criterion with 3 available WP:
+%\begin{itemize}
+%\item Very Loose (VLoose),
+%\item Medium,
+%\item Tight (used for SR).
+%\end{itemize}
+%\end{itemize}
+%\end{block}
+%\end{frame}
 
 \begin{frame}
-\frametitle{Signal region (SR) for semi-leptonic channels ($\ell\tauh$)}
+\frametitle{Signal region (SR) -- 2017 \mu\tauh\ channel as example}
 
 \begin{block}{Obtaining \emph{dileptons} candidates}
 \begin{minipage}[c]{.55\linewidth}
@@ -173,7 +123,9 @@ compose  pairs ($L_1L_2$) respecting:
 \end{itemize}
 \end{minipage}
 \begin{minipage}[c]{.4\linewidth}
+\vspace{\baselineskip}
 \input{\PhDthesisdir/plots_and_images/Feynman_diagrams/fgraph-H-tautau_small.tex}
+\vspace{\baselineskip}
 \end{minipage}
 \end{block}
 \pause
@@ -194,34 +146,20 @@ highest $\pT^{L_2}$.
 
 
 \begin{frame}
-\frametitle{Signal region (SR) for semi-leptonic channels ($\ell\tauh$)}
+\frametitle{Signal region (SR) -- 2017 \mu\tauh\ channel as example}
 
-\begin{block}{Extra leptons}
-\begin{center}
-\begin{tabular}{ccccc}
-\toprule
-Variable & Dilepton (\mu) & 3\up{rd} lepton (\mu) & Dilepton (\ele) & 3\up{rd} lepton (\ele) \\
-\midrule
-$p_T^{(\ell')}$ & $>\SI{15}{\GeV}$ & $>\SI{10}{\GeV}$ & $>\SI{15}{\GeV}$ & $>\SI{10}{\GeV}$\\
-$\eta^{(\ell')}$ & $<\num{2.4}$ & $<\num{2.4}$ & $<\num{2.5}$ & $<\num{2.5}$\\
-\bottomrule
-\end{tabular}
-%\quad
-%\begin{tabular}{ccc}
-%\toprule
-%Grandeur & Dilepton (\ele) & 3\up{e} lepton (\ele) \\
-%\midrule
-%$p_T^{(\ele')}$ & $>\SI{15}{\GeV}$ & $>\SI{10}{\GeV}$ \\
-%$\eta^{(\ele')}$ & $<\num{2.5}$ & $<\num{2.5}$\\
-%\bottomrule
-%\end{tabular}
-\end{center}
+\begin{block}{Extra leptons: reject events containing}
+\begin{itemize}
+\item electron with $\pT > \SI{10}{\GeV}$, $\abs{\eta} < \num{2.4}$, \SI{90}{\%} eff. WP of the \texttt{electronID} MVA, $\text{rel. iso}<\num{0.3}$
+\item second muon with $\pT > \SI{10}{\GeV}$, $\abs{\eta} < \num{2.4}$, medium \texttt{muonID}, $\text{rel. iso}<\num{0.3}$
+\item opposite-charge muon pair ($\mu\mu$ channel overlapping)
+\end{itemize}
 \end{block}
 
 \pause
 \begin{block}{Transverse mass}
 \begin{equation*}
-m_T^{(\ell)}<\SI{50}{\GeV}
+m_T^{(\ell)}<\SI{70}{\GeV}
 \msep
 m_T^{(\ell)} = \sqrt{2p_T^{(\ell)} E_T^\text{miss}(1-\cos\Delta\phi)}
 \end{equation*}
