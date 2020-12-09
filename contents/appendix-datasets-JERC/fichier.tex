@@ -1,0 +1,89 @@
+\chapter{Jeux de données -- \Gjets}\label{annexe-datasets-GJets}
+
+\section{Jeux de données pour l'analyse 2018 des événements \Gjets}
+L'analyse est basée sur les données à $\sqrt{s}=\SI{13}{\TeV}$ collectées en 2018 par l'expérience CMS, correspondant à une luminosité intégrée de \SI{59.7}{\femto\barn^{-1}}.
+Les jeux de données utilisés ainsi que leurs gammes de \emph{runs} et luminosités intégrées sont donnés dans le tableau~\ref{tab-annexe-datasets-GJets-2018_data}.
+Seuls les événements certifiés par la collaboration CMS sont considérés. Cette sélection est renseignée dans le fichier \texttt{JSON}
+\begin{center}
+\inlinecode{bash}{Cert_314472-325175_13TeV_17SeptEarlyReReco2018ABC_PromptEraD_Collisions18_JSON.txt}
+\end{center}
+se trouvant dans \inlinecode{bash}{Collisions18/13TeV/ReReco/}.
+Les jeux de données simulées utilisés ainsi que leurs sections efficaces sont donnés dans le tableau~\ref{tab-annexe-datasets-GJets-2018_MC}.
+
+\begin{table}[p]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Jeu de données & Gamme de \emph{run} & \Lumi\ (\SI{}{\femto\barn^{-1}})\\
+\midrule
+\inlinecode{bash}{/EGamma/Run2018A-17Sep2018-v2/MINIAOD} & $\num{315252}-\num{316995}$ & $\num{13.98}$ \\
+\inlinecode{bash}{/EGamma/Run2018B-17Sep2018-v1/MINIAOD} & $\num{317080}-\num{319310}$ & $\num{7.064}$ \\
+\inlinecode{bash}{/EGamma/Run2018C-17Sep2018-v1/MINIAOD} & $\num{319337}-\num{320065}$ & $\num{6.899}$ \\
+\inlinecode{bash}{/EGamma/Run2018D-PromptReco-v2/MINIAOD} & $\num{320673}-\num{325175}$ & $\num{31.75}$ \\
+\bottomrule
+\end{tabular}
+\caption{Jeux de données utilisés pour l'analyse 2018 des événements \Gjets.}
+\label{tab-annexe-datasets-GJets-2018_data}
+
+\vspace{\baselineskip}
+
+\begin{tabular}{lc}
+\toprule
+Jeu de données simulées & $\sigma$ (\SI{}{\pico\barn})\\
+\midrule
+\inlinecode{bash}{/GJet_Pt-15To6000_TuneCP5-Flat_13TeV_pythia8/} & \multirow{2}{*}{$\num{283000.0}$} \\
+\quad\inlinecode{bash}{RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM} &  \\
+\bottomrule
+\end{tabular}
+\caption{Jeux de données simulées utilisés pour l'analyse 2018 des événements \Gjets.}
+\label{tab-annexe-datasets-GJets-2018_MC}
+\end{table}
+
+\section{Jeux de données pour l'analyse 2017UL des événements \Gjets}
+L'analyse est basée sur les données à $\sqrt{s}=\SI{13}{\TeV}$ collectées en 2017 par l'expérience CMS, correspondant à une luminosité intégrée de \SI{41.6}{\femto\barn^{-1}}.
+Les jeux de données utilisés ainsi que leurs gammes de \emph{runs} et luminosités intégrées sont donnés dans le tableau~\ref{tab-annexe-datasets-GJets-2017UL_data}.
+Seuls les événements certifiés par la collaboration CMS sont considérés. Cette sélection est renseignée dans le fichier \texttt{JSON}
+\begin{center}
+\inlinecode{bash}{Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt}
+\end{center}
+se trouvant dans \inlinecode{bash}{Collisions17/13TeV/Legacy_2017/}.
+Les jeux de données simulées utilisés ainsi que leurs sections efficaces sont donnés dans le tableau~\ref{tab-annexe-datasets-GJets-2017UL_MC}.
+
+\begin{table}[p]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Jeu de données & Gamme de \emph{run} & \Lumi\ (\SI{}{\femto\barn^{-1}})\\
+\midrule
+\inlinecode{bash}{/SinglePhoton/Run2017B-09Aug2019_UL2017-v1/MINIAOD} & $\num{297046}-\num{299329}$ & $\num{4.823}$ \\
+\inlinecode{bash}{/SinglePhoton/Run2017C-09Aug2019_UL2017-v1/MINIAOD} & $\num{299368}-\num{302029}$ & $\num{9.664}$ \\
+\inlinecode{bash}{/SinglePhoton/Run2017D-09Aug2019_UL2017-v1/MINIAOD} & $\num{302030}-\num{303434}$ & $\num{4.252}$ \\
+\inlinecode{bash}{/SinglePhoton/Run2017E-09Aug2019_UL2017-v1/MINIAOD} & $\num{303824}-\num{304797}$ & $\num{9.278}$ \\
+\inlinecode{bash}{/SinglePhoton/Run2017F-09Aug2019_UL2017-v1/MINIAOD} & $\num{305040}-\num{306462}$ & $\num{13.54}$ \\
+\bottomrule
+\end{tabular}
+\caption{Jeux de données utilisés pour l'analyse 2017UL des événements \Gjets.}
+\label{tab-annexe-datasets-GJets-2017UL_data}
+
+\vspace{\baselineskip}
+
+\begin{tabular}{lc}
+\toprule
+Jeu de données simulées & $\sigma$ (\SI{}{\pico\barn})\\
+\midrule
+\inlinecode{bash}{/GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8/} & \multirow{2}{*}{$\num{18700.0}$} \\
+\quad\inlinecode{bash}{RunIISummer19UL17MiniAOD-106X_mc2017_realistic_v6-v1/MINIAODSIM} & \\
+\inlinecode{bash}{/GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8/} & \multirow{3}{*}{$\num{8640.0}$} \\
+\quad\inlinecode{bash}{RunIISummer19UL17MiniAOD-4cores5k_106X_mc2017_realistic_v6-v1/} \\
+\quad\inlinecode{bash}{MINIAODSIM} \\
+\inlinecode{bash}{/GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8/} & \multirow{2}{*}{$\num{2185.0}$} \\
+\quad\inlinecode{bash}{RunIISummer19UL17MiniAOD-106X_mc2017_realistic_v6-v1/MINIAODSIM} & \\
+\inlinecode{bash}{/GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/} & \multirow{2}{*}{$\num{259.9}$} \\
+\quad\inlinecode{bash}{/RunIISummer19UL17MiniAOD-106X_mc2017_realistic_v6-v1/MINIAODSIM} & \\
+\inlinecode{bash}{/GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/} & \multirow{2}{*}{$\num{85.31}$} \\
+\quad\inlinecode{bash}{RunIISummer19UL17MiniAOD-106X_mc2017_realistic_v6-v1/MINIAODSIM} & \\
+\bottomrule
+\end{tabular}
+\caption{Jeux de données simulées utilisés pour l'analyse 2017UL des événements \Gjets.}
+\label{tab-annexe-datasets-GJets-2017UL_MC}
+\end{table}
