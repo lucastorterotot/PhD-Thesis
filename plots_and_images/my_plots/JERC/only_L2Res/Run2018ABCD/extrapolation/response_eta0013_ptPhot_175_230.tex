@@ -8,10 +8,11 @@
 \fill [white] (1.2, 7.31) rectangle (7.6,7.7);
 \fill [white] (1, 0.4) rectangle (7.85,1.1);
 \fill [white] (0, 1) rectangle (1.15,7.5);
+\fill [white] (5.2,1.35) rectangle (7.2,1.7);
 \clip (0,.4) rectangle (8,7.8) ;
 
 % above txt
-\draw (7.6, 7.5) node [left] {\footnotesize Run 2018 ABCD, \SI{59}{\femto\barn^{-1}} (\SI{13}{\TeV})};
+\draw (7.7, 7.5) node [left] {\footnotesize Run 2018 ABCD, \SI{59}{\femto\barn^{-1}} (\SI{13}{\TeV})};
 
 % X axis
 \foreach \val in {0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3}{
@@ -24,4 +25,8 @@
 \draw (1.25, {1.15+(7.25-1.15)*(\val-0.7)/(1.3-0.7)}) node [left] {\small $\num{\val}$};
 }
 \draw (.25, 7.25) node [left, rotate=90] {\Rbal};
+
+% CMS disclaimer
+\draw (1.1, 7.5) node [right] {\footnotesize CMS Data};
+\draw (1.7, 6.8) node [right] {\emph{Own work}};
 \end{tikzpicture}

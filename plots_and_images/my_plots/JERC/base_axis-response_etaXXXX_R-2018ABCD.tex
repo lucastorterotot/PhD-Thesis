@@ -1,0 +1,27 @@
+% masks
+\fill [white] (1.5,9) rectangle (7,9.7);
+
+% X axis
+\foreach \val in {50,100,200,300,1000,2000}{
+\draw ({1.3+(6.9-1.3)*(ln(\val/50))/(ln(2000/50))}, .85) node {\small $\num{\val}$};
+}
+\draw (7.5, 0.4) node [left] {\normalsize $\pT^{\photon}$ (\SI{}{\GeV})};
+
+% Y axis
+\foreach \val in {0.7,0.8,0.9,1.0,1.1,1.2,1.3}{
+\draw (1, {3.52+(\val-0.7)/(1.3-0.7)*(9.9-3.52)}) node [left] {\footnotesize $\num{\val}$};
+}
+\draw (.25, 10) node [left, rotate=90] {\normalsize Réponse en \pT\ du jet};
+
+% Y ratio
+\foreach \val in {0.90,0.95,1.00,1.05,1.10}{
+\draw (1, {1.35+(\val-0.9)/(1.1-0.9)*(2.78-1.35)}) node [left] {\tiny $\num{\val}$};
+}
+\draw (.25, 2.05) node [rotate=90] {\small Data/MC};
+
+% above txt
+\draw (7.6, 10.1) node [left] {\footnotesize Run 2018 ABCD, \SI{59}{\femto\barn^{-1}} (\SI{13}{\TeV})};
+
+% CMS disclaimer
+\draw (.9, 10.1) node [right] {\footnotesize CMS Data};
+\draw (1.075, 9.5) node [right] {\emph{Own work}};
