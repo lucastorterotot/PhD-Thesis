@@ -6,19 +6,21 @@
 
 2. Get [some usefull scripts](https://gitlab.com/lucastorterotot/scripts), following [installation instructions](https://gitlab.com/lucastorterotot/scripts/blob/master/README.md).
 
-3. Fork this repository and clone it locally:
+3. Get [`CMSTransverseTikZ`](https://gitlab.com/lucastorterotot/cmstransversetikz) for some event displays.
+
+4. Fork this repository and clone it locally:
 ```
 cd ~/Documents/
 git clone YOUR_FORKED_REPO
 cd PhD-Thesis/
 ```
 
-4. Eventually, get mine:
+5. Eventually, get mine:
 ```
 git remote add lucas git@github.com:lucastorterotot/PhD-Thesis.git
 ```
 
-5. Run the provided installation script:
+6. Run the provided installation script:
 ```
 ./install
 ```

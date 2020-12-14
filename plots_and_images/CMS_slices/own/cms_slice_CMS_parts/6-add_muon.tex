@@ -1,18 +1,16 @@
 \begin{tikzpicture}
-\input{\PhDthesisdir/plots_and_images/Event_displays/macro_defs.tex}
-
 \begin{scope}
 \clipSlice
 
 \foreach \rin/\rout/\color in {
-\muonrind/\muonroutd/\muonchcolor,
-\steelryrind/\steelryroutd/\steelrycolor,
-\muonrinc/\muonroutc/\muonchcolor,
-\steelryrinc/\steelryroutc/\steelrycolor,
-\muonrinb/\muonroutb/\muonchcolor,
-\steelryrinb/\steelryroutb/\steelrycolor,
-\muonrina/\muonrouta/\muonchcolor
-%\steelryrina/\steelryrouta/\steelrycolor
+\muonrind/\muonroutd/\MuChcolor,
+\steelryrind/\steelryroutd/\steelcolor,
+\muonrinc/\muonroutc/\MuChcolor,
+\steelryrinc/\steelryroutc/\steelcolor,
+\muonrinb/\muonroutb/\MuChcolor,
+\steelryrinb/\steelryroutb/\steelcolor,
+\muonrina/\muonrouta/\MuChcolor
+%\steelryrina/\steelryrouta/\steelcolor
 }{
 \begin{scope}
 \clipMuCh{\rin}{\rout}
@@ -21,7 +19,7 @@
 \end{scope}
 }
 \foreach \rin/\rout/\color in {
-\Solenrin/\Solenrout/\Solencolor,
+\Solenrin/\Solenrout/\solenoidcolor,
 \HCALrin/\HCALrout/\HCALcolor,
 \ECALrin/\ECALrout/\ECALcolor,
 \trackerrin/\trackerrout/\trackercolor
@@ -54,5 +52,4 @@
 \draw (-1.25,\muonroutd/4) node (leg) [right] {\tiny \hphantom{Legend:}};
 \draw (leg.west) coordinate (tmp1);
 \end{tikzpicture}
-
 

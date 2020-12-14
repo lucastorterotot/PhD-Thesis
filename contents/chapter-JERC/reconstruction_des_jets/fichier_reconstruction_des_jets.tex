@@ -172,8 +172,6 @@ Pour chacune d'entre elles, il est possible de déterminer le paramètre d'impac
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[scale=1.5]
-\input{\PhDthesisdir/plots_and_images/Event_displays/macro_defs.tex}
-
 \def\Bjetangle{30}
 \def\Bhaddronangle{5}
 \def\Bhaddronflight{.75}
@@ -181,8 +179,8 @@ Pour chacune d'entre elles, il est possible de déterminer le paramètre d'impac
 \clip (-145:\Solenrin) rectangle (\Bjetangle:1.8*\Solenrin);
 
 \foreach\jetangle in {120,-145}{
-\printbigjetnolabel{\jetangle}
-\draw (\jetangle:2.5) node {jet} ;
+\printbigjetnolabel{9}{\jetangle}
+\draw (\jetangle:2.75) node {jet} ;
 }
 
 \def\CurrentVertex{(\Bhaddronangle:\Bhaddronflight)}
@@ -191,12 +189,12 @@ Pour chacune d'entre elles, il est possible de déterminer le paramètre d'impac
 
 {
 \def\jetcolor{ltcolorred}
-\printjetnolabel{\Bjetangle}
+\printjetnolabel{9}{\Bjetangle}
 \draw [\jetcolor] (\Bjetangle:2)+(1.5,.75) node {traces déplacées};
 }
 \begin{scope}
 \clip circle (\Solenrin);
-\printantimuonnolabel{\Bjetangle}
+\printantimuonnolabel{7}{\Bjetangle}
 \end{scope}
 
 \draw [\muoncolor] (\Bjetangle:4) +(0,{-2*\baselineskip}) node {lepton chargé};

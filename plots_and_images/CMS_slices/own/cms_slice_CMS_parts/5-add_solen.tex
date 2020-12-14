@@ -1,11 +1,9 @@
 \begin{tikzpicture}
-\input{\PhDthesisdir/plots_and_images/Event_displays/macro_defs.tex}
-
 \begin{scope}
 \clipSlice
 
 \foreach \rin/\rout/\color in {
-\Solenrin/\Solenrout/\Solencolor,
+\Solenrin/\Solenrout/\solenoidcolor,
 \HCALrin/\HCALrout/\HCALcolor,
 \ECALrin/\ECALrout/\ECALcolor,
 \trackerrin/\trackerrout/\trackercolor
@@ -37,5 +35,4 @@
 \draw (-1.25,\muonroutd/4) node (leg) [right] {\tiny \hphantom{Legend:}};
 \draw (leg.west) coordinate (tmp1);
 \end{tikzpicture}
-
 
