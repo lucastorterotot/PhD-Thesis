@@ -20,25 +20,36 @@ $\Wboson+\text{1 jet}$ & \inlinecode{bash}{/W1JetsToLNu}\up{$\S$}\up{1} & $\num{
 $\Wboson+\text{2 jets}$ & \inlinecode{bash}{/W2JetsToLNu}\up{$\S$}\up{2} & $\num{3891.0}$\up{*} \\
 $\Wboson+\text{3 jets}$ & \inlinecode{bash}{/W3JetsToLNu}\up{$\S$}\up{2} & $\num{1153.2}$\up{*} \\
 $\Wboson+\text{4 jets}$ & \inlinecode{bash}{/W4JetsToLNu}\up{$\S$}\up{2,3} & $\num{60.67}$\up{*} \\
+WW & \inlinecode{bash}{/WW_TuneCP5_13TeV-pythia8}\up{1,2} & $\num{118.7}$ (NNLO) \\
+WZ & \inlinecode{bash}{/WZ_TuneCP5_13TeV-pythia8}\up{1,2} & $\num{27.57}$ (LO) \\
+ZZ & \inlinecode{bash}{/ZZ_TuneCP5_13TeV-pythia8}\up{1,2} & $\num{12.14}$ (LO) \\
 VVTo2L2Nu & \inlinecode{bash}{/VVTo2L2Nu_13TeV}\up{$||$}\up{2} & $\num{13.84}$ \\
 WZTo3LNu & \inlinecode{bash}{/WZTo3LNu_TuneCUETP8M1_13TeV}\up{$\P$}\up{1} & $\num{4.43}$ \\
 WZTo2L2Q & \inlinecode{bash}{/WZTo2L2Q_13TeV}\up{$||$}\up{1} & $\num{5.52}$ \\
 ZZTo2L2Q & \inlinecode{bash}{/ZZTo2L2Q_13TeV}\up{$||$}\up{1} & $\num{3.38}$ \\
 ZZTo4L & \inlinecode{bash}{/ZZTo4L_13TeV}\up{$\P$}\up{2} & $\num{1.26}$ \\
+EWK & \inlinecode{bash}{/EWKWMinus2Jets_WToLNu_M-50}\up{$\diamond$}\up{2,3} & $\num{23.24}$ (LO) \\
+ & \inlinecode{bash}{/EWKWPlus2Jets_WToLNu_M-50}\up{$\diamond$}\up{2,3} & $\num{29.59}$ (LO) \\
+ & \inlinecode{bash}{/EWKZ2Jets_ZToLL_M-50}\up{$\diamond$}\up{2,3} & $\num{4.321}$ (LO) \\
+ & \inlinecode{bash}{/EWKZ2Jets_ZToNuNu}\up{$\diamond$}\up{2,3} & $\num{10.66}$ (LO) \\
 $\Wboson\photon$ (canal \ele\mu) & \inlinecode{bash}{/WGToLNuG_01J_5f_TuneCUETP8M1_13TeV}\up{$\P$}\up{2,3,4} & $\num{178.4 }$ \\
 $\Wboson\photon$ (canal \ele\mu) & \inlinecode{bash}{/WGstarToLNuMuMu_012Jets_13TeV-madgraph}\up{1} & $\num{2.793}$ \\
 $\Wboson\photon$ (canal \ele\mu) & \inlinecode{bash}{/WGstarToLNuEE_012Jets_13TeV-madgraph}\up{1} & $\num{3.526}$ \\
 \bottomrule
 \end{tabular}
-\begin{flushleft}
+\begin{flushleft}\footnotesize
 \up{1}\inlinecode{bash}{/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v*/MINIAODSIM} \\
 \up{2}\inlinecode{bash}{/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-ext1-v*/MINIAODSIM} \\
 \up{3}\inlinecode{bash}{/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-ext2-v*/MINIAODSIM} \\
-\up{4}\inlinecode{bash}{/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-ext3-v*/MINIAODSIM} \\
+\up{4}\inlinecode{bash}{/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-ext3-v*/MINIAODSIM}
+
+\begin{multicols}{2}
 \up{$\dagger$}\inlinecode{bash}{_TuneCP5_PSweights_13TeV-powheg-pythia8} \\
 \up{$\ddagger$}\inlinecode{bash}{_13TeV-powheg-pythia8_TuneCUETP8M1} \\
 \up{$\S$}\inlinecode{bash}{_TuneCUETP8M1_13TeV-madgraphMLM-pythia8} \\
 \up{$||$}\inlinecode{bash}{_amcatnloFXFX_madspin_pythia8} \\
 \up{$\P$}\inlinecode{bash}{-amcatnloFXFX-pythia8} \\
-\up{*} Déterminée à partir de la section efficace du jeu inclusif et de la fraction correspondante d'événements de ce type dans ce jeu inclusif.
+\up{$\diamond$}\inlinecode{bash}{_TuneCP5_13TeV-madgraph-pythia8} \\
+\up{*} Déterminée à partir de la section efficace du jeu inclusif.
+\end{multicols}
 \end{flushleft}
