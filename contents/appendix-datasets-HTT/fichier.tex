@@ -1,9 +1,28 @@
 \chapter{Jeux de données -- $\Higgs\to\tau\tau$}\label{annexe-datasets-HTT}
-
 L'analyse est basée sur les données à $\sqrt{s}=\SI{13}{\TeV}$ collectées en 2016, 2017 et 2018 par l'expérience CMS, correspondant à une luminosité intégrée de $\num{35.9}+\num{41.5}+\SI{59.7}{\femto\barn^{-1}}$.
 Seuls les événements certifiés par la collaboration CMS sont considérés. Cette sélection est renseignée dans les fichiers \texttt{JSON} du tableau~\ref{tab-annexe-datasets-HTT-JSON_files}.
-Les jeux de données utilisés pour chacun des états finaux considérés, ainsi que leurs gammes de \emph{runs} et luminosités intégrées respectives, sont donnés dans les tableaux~\ref{tab-annexe-datasets-HTT-2016_data} à~\ref{tab-annexe-datasets-HTT-2018_data}.
-
+Les jeux de données utilisés pour chacun des états finaux considérés, ainsi que leurs gammes de \emph{runs} et luminosités intégrées respectives, sont donnés dans les tableaux~\ref{tab-annexe-datasets-HTT-2016_data}, \ref{tab-annexe-datasets-HTT-2017_data} et~\ref{tab-annexe-datasets-HTT-2018_data}.
+\par
+La modélisation du signal issu du modèle standard,
+\ie\ $\higgs\to\tau\tau$ avec $m_{\higgs}=\SI{125}{\GeV}$,
+est obtenue avec les jeux de données simulées correspondent aux modes de production du boson de Higgs
+$\gluon\gluon\higgs$,
+VBF
+et
+VH ($\Wboson\higgs$, $\Zboson\higgs$ et $\gluon\gluon\Zboson\higgs$).
+Les listes de ces jeux de données simulées utilisés pour les trois années analysées sont données dans les tableaux~\ref{tab-annexe-datasets-HTT-2016_MC_signal_SM}, \ref{tab-annexe-datasets-HTT-2017_MC_signal_SM} et~\ref{tab-annexe-datasets-HTT-2018_MC_signal_SM}.
+\par
+La modélisation du signal issu du MSSM,
+\ie\ $\Phi\to\tau\tau$ avec $\Phi=\Higgs,\HiggsA$,
+est obtenue avec les jeux de données
+$\gluon\gluon\to\Phi\to\tau\tau$ simulé avec \PYTHIA~8.1~\cite{pythia8.1}
+et
+$\gluon\gluon\to\quarkb\quarkb\Phi\to\tau\tau$ simulé avec \AMCATNLO~\cite{amcatnlo} et \PYTHIA\ pour l'hadronisation.
+Les listes de ces jeux de données simulées utilisés pour les trois années analysées sont données dans les tableaux~\ref{tab-annexe-datasets-HTT-2016_MC_signal_MSSM}, \ref{tab-annexe-datasets-HTT-2017_MC_signal_MSSM} et~\ref{tab-annexe-datasets-HTT-2018_MC_signal_MSSM}.
+\par
+Les jeux de données simulées utilisés afin de modéliser le bruit de fond sont listés dans les tableaux~\ref{tab-annexe-datasets-HTT-2016_MC_backgrounds}, \ref{tab-annexe-datasets-HTT-2017_MC_backgrounds} et~\ref{tab-annexe-datasets-HTT-2018_MC_backgrounds}.
+Les jeux de données encapsulées (\emph{embedded}) sont listés dans les tableaux~\ref{tab-annexe-datasets-HTT-2016_embedded}, \ref{tab-annexe-datasets-HTT-2017_embedded} et~\ref{tab-annexe-datasets-HTT-2018_embedded}.
+Ces jeux de données sont utilisés dans une estimation du bruit de fond contenant des paires de leptons tau à partir des données elles-mêmes.
 
 
 \begin{table}[p]
@@ -43,21 +62,59 @@ Année & Fichier de certification \texttt{JSON}\\
 
 \begin{table}[p]
 \centering
-\input{/home/torterotot/Documents/PhD-Thesis/contents/appendix-datasets-HTT/tables/datasets-HTT-2016_MC.tex}
-\caption{Jeux de données simulées utilisés pour l'analyse $\Higgs\to\tau\tau$ en 2016.}
-\label{tab-annexe-datasets-HTT-2016_MC}
+\input{/home/torterotot/Documents/PhD-Thesis/contents/appendix-datasets-HTT/tables/datasets-HTT-2016_MC_signal_SM.tex}
+\caption{Jeux de données simulées utilisés pour modéliser le signal issu du modèle standard dans l'analyse $\Higgs\to\tau\tau$ en 2016.}
+\label{tab-annexe-datasets-HTT-2016_MC_signal_SM}
 \end{table}
 \begin{table}[p]
 \centering
-\input{/home/torterotot/Documents/PhD-Thesis/contents/appendix-datasets-HTT/tables/datasets-HTT-2017_MC.tex}
-\caption{Jeux de données simulées utilisés pour l'analyse $\Higgs\to\tau\tau$ en 2017.}
-\label{tab-annexe-datasets-HTT-2017_MC}
+\input{/home/torterotot/Documents/PhD-Thesis/contents/appendix-datasets-HTT/tables/datasets-HTT-2017_MC_signal_SM.tex}
+\caption{Jeux de données simulées utilisés pour modéliser le signal issu du modèle standard dans l'analyse $\Higgs\to\tau\tau$ en 2017.}
+\label{tab-annexe-datasets-HTT-2017_MC_signal_SM}
 \end{table}
 \begin{table}[p]
 \centering
-\input{/home/torterotot/Documents/PhD-Thesis/contents/appendix-datasets-HTT/tables/datasets-HTT-2018_MC.tex}
-\caption{Jeux de données simulées utilisés pour l'analyse $\Higgs\to\tau\tau$ en 2018.}
-\label{tab-annexe-datasets-HTT-2018_MC}
+\input{/home/torterotot/Documents/PhD-Thesis/contents/appendix-datasets-HTT/tables/datasets-HTT-2018_MC_signal_SM.tex}
+\caption{Jeux de données simulées utilisés pour modéliser le signal issu du modèle standard dans l'analyse $\Higgs\to\tau\tau$ en 2018.}
+\label{tab-annexe-datasets-HTT-2018_MC_signal_SM}
+\end{table}
+
+\begin{table}[p]
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/contents/appendix-datasets-HTT/tables/datasets-HTT-2016_MC_signal_MSSM.tex}
+\caption{Jeux de données simulées utilisés pour modéliser le signal issu du MSSM dans l'analyse $\Higgs\to\tau\tau$ en 2016.}
+\label{tab-annexe-datasets-HTT-2016_MC_signal_MSSM}
+\end{table}
+\begin{table}[p]
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/contents/appendix-datasets-HTT/tables/datasets-HTT-2017_MC_signal_MSSM.tex}
+\caption{Jeux de données simulées utilisés pour modéliser le signal issu du MSSM dans l'analyse $\Higgs\to\tau\tau$ en 2017.}
+\label{tab-annexe-datasets-HTT-2017_MC_signal_MSSM}
+\end{table}
+\begin{table}[p]
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/contents/appendix-datasets-HTT/tables/datasets-HTT-2018_MC_signal_MSSM.tex}
+\caption{Jeux de données simulées utilisés pour modéliser le signal issu du MSSM dans l'analyse $\Higgs\to\tau\tau$ en 2018.}
+\label{tab-annexe-datasets-HTT-2018_MC_signal_MSSM}
+\end{table}
+
+\begin{table}[p]
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/contents/appendix-datasets-HTT/tables/datasets-HTT-2016_MC_backgrounds.tex}
+\caption{Jeux de données simulées utilisés pour modéliser le bruit de fond de l'analyse $\Higgs\to\tau\tau$ en 2016.}
+\label{tab-annexe-datasets-HTT-2016_MC_backgrounds}
+\end{table}
+\begin{table}[p]
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/contents/appendix-datasets-HTT/tables/datasets-HTT-2017_MC_backgrounds.tex}
+\caption{Jeux de données simulées utilisés pour modéliser le bruit de fond de l'analyse $\Higgs\to\tau\tau$ en 2017.}
+\label{tab-annexe-datasets-HTT-2017_MC_backgrounds}
+\end{table}
+\begin{table}[p]
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/contents/appendix-datasets-HTT/tables/datasets-HTT-2018_MC_backgrounds.tex}
+\caption{Jeux de données simulées utilisés pour modéliser le bruit de fond de l'analyse $\Higgs\to\tau\tau$ en 2018.}
+\label{tab-annexe-datasets-HTT-2018_MC_backgrounds}
 \end{table}
 
 \begin{table}[p]
@@ -78,54 +135,3 @@ Année & Fichier de certification \texttt{JSON}\\
 \caption{Jeux de données simulées encapsulées utilisés pour l'analyse $\Higgs\to\tau\tau$ en 2018.}
 \label{tab-annexe-datasets-HTT-2018_embedded}
 \end{table}
-
-%
-%
-%\section{Jeux de données pour l'analyse 2017UL des événements \Gjets}
-%L'analyse est basée sur les données à $\sqrt{s}=\SI{13}{\TeV}$ collectées en 2017 par l'expérience CMS, correspondant à une luminosité intégrée de \SI{41.6}{\femto\barn^{-1}}.
-%Les jeux de données utilisés ainsi que leurs gammes de \emph{runs} et luminosités intégrées sont donnés dans le tableau~\ref{tab-annexe-datasets-GJets-2017UL_data}.
-%Seuls les événements certifiés par la collaboration CMS sont considérés. Cette sélection est renseignée dans le fichier \texttt{JSON}
-%\begin{center}
-%\inlinecode{bash}{Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt}
-%\end{center}
-%se trouvant dans \inlinecode{bash}{Collisions17/13TeV/Legacy_2017/}.
-%Les jeux de données simulées utilisés ainsi que leurs sections efficaces sont donnés dans le tableau~\ref{tab-annexe-datasets-GJets-2017UL_MC}.
-%
-%\begin{table}[p]
-%\centering
-%\begin{tabular}{lcc}
-%\toprule
-%Jeu de données & Gamme de \emph{run} & \Lumi\ (\SI{}{\femto\barn^{-1}})\\
-%\midrule
-%\inlinecode{bash}{/SinglePhoton/Run2017B-09Aug2019_UL2017-v1/MINIAOD} & $\num{297046}-\num{299329}$ & $\num{4.823}$ \\
-%\inlinecode{bash}{/SinglePhoton/Run2017C-09Aug2019_UL2017-v1/MINIAOD} & $\num{299368}-\num{302029}$ & $\num{9.664}$ \\
-%\inlinecode{bash}{/SinglePhoton/Run2017D-09Aug2019_UL2017-v1/MINIAOD} & $\num{302030}-\num{303434}$ & $\num{4.252}$ \\
-%\inlinecode{bash}{/SinglePhoton/Run2017E-09Aug2019_UL2017-v1/MINIAOD} & $\num{303824}-\num{304797}$ & $\num{9.278}$ \\
-%\inlinecode{bash}{/SinglePhoton/Run2017F-09Aug2019_UL2017-v1/MINIAOD} & $\num{305040}-\num{306462}$ & $\num{13.54}$ \\
-%\bottomrule
-%\end{tabular}
-%\caption{Jeux de données utilisés pour l'analyse 2017UL des événements \Gjets.}
-%\label{tab-annexe-datasets-GJets-2017UL_data}
-%
-%\vspace{\baselineskip}
-%
-%\begin{tabular}{lc}
-%\toprule
-%Jeu de données simulées & $\sigma$ (\SI{}{\pico\barn})\\
-%\midrule
-%\inlinecode{bash}{/GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8/} & \multirow{2}{*}{$\num{18700.0}$} \\
-%\quad\inlinecode{bash}{RunIISummer19UL17MiniAOD-106X_mc2017_realistic_v6-v1/MINIAODSIM} & \\
-%\inlinecode{bash}{/GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8/} & \multirow{3}{*}{$\num{8640.0}$} \\
-%\quad\inlinecode{bash}{RunIISummer19UL17MiniAOD-4cores5k_106X_mc2017_realistic_v6-v1/} \\
-%\quad\inlinecode{bash}{MINIAODSIM} \\
-%\inlinecode{bash}{/GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8/} & \multirow{2}{*}{$\num{2185.0}$} \\
-%\quad\inlinecode{bash}{RunIISummer19UL17MiniAOD-106X_mc2017_realistic_v6-v1/MINIAODSIM} & \\
-%\inlinecode{bash}{/GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/} & \multirow{2}{*}{$\num{259.9}$} \\
-%\quad\inlinecode{bash}{/RunIISummer19UL17MiniAOD-106X_mc2017_realistic_v6-v1/MINIAODSIM} & \\
-%\inlinecode{bash}{/GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/} & \multirow{2}{*}{$\num{85.31}$} \\
-%\quad\inlinecode{bash}{RunIISummer19UL17MiniAOD-106X_mc2017_realistic_v6-v1/MINIAODSIM} & \\
-%\bottomrule
-%\end{tabular}
-%\caption{Jeux de données simulées utilisés pour l'analyse 2017UL des événements \Gjets.}
-%\label{tab-annexe-datasets-GJets-2017UL_MC}
-%\end{table}
