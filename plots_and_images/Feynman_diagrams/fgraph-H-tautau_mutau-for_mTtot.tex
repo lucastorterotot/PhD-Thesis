@@ -1,0 +1,21 @@
+\begin{fmffile}{H-tautau_mutau-for_mTtot}\fmfstraight
+\begin{fmfchar*}(50,30)
+  \fmfleft{h}
+  \fmfright{La,NU,Lb}
+  \fmf{dashes, label=$\Hs,, \Hn,, \Ha$, l.side=left,tension=2}{h,v}
+  \fmf{fermion, label=$\antitau$, l.side=left}{t1d,v}
+  \fmf{fermion, label=$\leptau$, l.side=left}{v,t2d}
+  \fmf{phantom}{t1d,La}
+  \fmf{phantom}{t2d,Lb}
+  \fmf{phantom, tension=2}{t2d,m,t1d}
+  \fmffreeze
+  \fmf{plain}{La,t1d}
+  \fmf{plain}{t2d,Lb}
+  \fmf{plain}{m,NU}
+  \fmflabel{$L_2$}{La}
+  \fmflabel{$L_1$}{Lb}
+  \fmflabel{$\sum\neutrino$}{NU}
+  \fmfdot{v}
+  \fmfblob{.2w}{m}
+\end{fmfchar*}
+\end{fmffile}

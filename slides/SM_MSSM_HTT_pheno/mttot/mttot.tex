@@ -1,55 +1,50 @@
 \begin{frame}
 \frametitle{Discriminant variable?}
 
-\vfill
-
-\begin{minipage}[c]{.3\textwidth}
+\begin{minipage}[t]{.45\textwidth}
 \manip \MET\ due to neutrinos.
-\manip No invariant mass!
-\end{minipage}
-\hfill
-\begin{minipage}[c]{.45\textwidth}
-\begin{center}
-\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/fgraph-H-tautau_mutau.tex}
-\end{center}
-\end{minipage}
-\hfill~
+\submanip No invariant mass!
 
-\vfill\pause
+\vspace{\baselineskip}
 
-\begin{minipage}[c]{.55\textwidth}
-\manip For muon and \MET,
-\begin{equation*}
-\mT(\mu,\MET) = \sqrt{2p_T^{(\mu)} \MET (1-\cos\Delta\phi)}
-\end{equation*}
 \begin{center}
-\begin{tikzpicture}
-\def\aangle{30}
-\def\bangle{150}
-\def\aRadius{1.75}
-\def\bRadius{1.25}
-\def\cRadius{.5}
-\draw [-latex, ltcolorred] (0,0) --+ (\aangle:\aRadius) node [above] {$\vpT^{(\mu)}$};
-\draw [-latex, ltcolorblue] (0,0) --+ (\bangle:\bRadius) node [above] {$\vMET$};
-\draw (\aangle:\cRadius) arc (\aangle:{(\aangle+\bangle)/2}:\cRadius) node [above] {$\Delta\phi$}  arc ({(\aangle+\bangle)/2}:\bangle:\cRadius);
-\end{tikzpicture}
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/fgraph-H-tautau_mutau-nu_in_red.tex}
 \end{center}
-\end{minipage}
-\qquad
-\begin{minipage}[c]{.35\textwidth}
-\begin{center}
-\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/fgraph-qq_W_mu_nu.tex}
-\end{center}
-\end{minipage}
-\hfill
 
-\vfill 
+\end{minipage}
+\hfill\pause
+\begin{minipage}[t]{.45\textwidth}
+\manip Consider
+
+\vspace{-\baselineskip}
+
+\begin{center}
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/fgraph-H-tautau_mutau-for_mTtot.tex}
+\end{center}
+
+\vspace{-2\baselineskip}
+
+where
+\begin{itemize}
+\item $L_1 = \mu$;
+\item $L_2=\quarku\antiquarkd\to\tauh$;
+\item $\sum\nu\simeq\MET$;
+\end{itemize}
+with respect to the left side.
+\end{minipage}
 
 \end{frame}
 
 \begin{frame}
 \frametitle{Discriminant variable: \mTtot}
 \manip For $L_1$, $L_2$ and \MET\ system,
+\submanip in the transverse plane (use \MET),
+\submanip for $E_i \gg m_i$ (highly relativistic case),
+
+deriving the \og invariant \fg{} mass would then lead to
+\begin{center}
+the \textbf{total transverse mass}, \mTtot
+\end{center}
 \begin{equation*}
 \boxed{\mTtot = \sqrt{\mT^2(L_1,\MET) + \mT^2(L_2,\MET) + \mT^2(L_1,L_2)}}
 \end{equation*}
