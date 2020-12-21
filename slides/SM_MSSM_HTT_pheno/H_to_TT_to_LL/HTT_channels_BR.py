@@ -10,7 +10,7 @@ fig = lt.ltFigure(name='HTT_channels_pie_chart', height_width_ratio=1, width_fra
 
 # Define what to plot
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
-labels = '$\\tau_\\mathrm{h}\\tau_\\mathrm{h}$', '$\\mu\\tau_\\mathrm{h}$', '$e\\tau_\\mathrm{h}$', '$\\mu\\mu$', '$ee$', '$e\\mu$'
+labels = '$\\tau_\\mathrm{h}\\tau_\\mathrm{h}$', '$\\mu\\tau_\\mathrm{h}$', '$e\\tau_\\mathrm{h}$', '$e\\mu$', '$\\mu\\mu$', '$ee$'
 sizes = [42, 23, 23, 6, 3, 3]
 explode = (0.1, 0.1, 0.1, 0, 0, 0)
 
