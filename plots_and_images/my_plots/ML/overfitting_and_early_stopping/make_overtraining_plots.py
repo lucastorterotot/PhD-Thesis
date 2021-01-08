@@ -40,7 +40,10 @@ with plt.xkcd():
     # Based on "Stove Ownership" from XKCD by Randall Monroe
     # http://xkcd.com/418/
 
-    fig = plt.figure()
+    from matplotlib import patheffects
+    plt.rcParams['path.effects'] = [patheffects.withStroke(linewidth=0)]
+
+    fig = plt.figure(dpi=200)
     ax = fig.add_axes((0.1, 0.1, 0.8, 0.8))
     ax.spines['right'].set_color('none')
     ax.spines['top'].set_color('none')
