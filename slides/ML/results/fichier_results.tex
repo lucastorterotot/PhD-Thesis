@@ -1,0 +1,75 @@
+\begin{frame}{Best model obtained}
+
+\begin{minipage}[c]{.475\textwidth}
+\begin{block}{Model properties}
+\begin{center}
+\begin{tabular}{ll}
+Activation function & SeLU\\
+Loss function & MAPE\\
+Optimizer & Adam\\
+Hidden layers & 3\\
+Neurons per hidden layer & 1000
+\end{tabular}
+\end{center}
+\end{block}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.475\textwidth}
+\begin{center}\vspace{-4pt}
+\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/with_PU_weighted_mH/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/predicted_vs_answers-NN-activation-selu-batch_size-2048-mape-Adam-u-inclusive-3-layers-1000-neurons.png}
+\end{center}\vspace{-5pt}
+\end{minipage}
+
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+\begin{frame}
+
+\vspace{-5pt}
+\manip Compare with \mTtot
+
+\vspace{5pt}
+
+\begin{minipage}[c]{.475\textwidth}
+\begin{center}\vspace{-4pt}
+\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017_2020-11-26-weighted_entries/predicted_vs_answers-mTtot_reco.png}
+\end{center}\vspace{-5pt}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.475\textwidth}
+\begin{center}\vspace{-4pt}
+\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/with_PU_weighted_mH/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/predicted_vs_answers-NN-activation-selu-batch_size-2048-mape-Adam-u-inclusive-3-layers-1000-neurons.png}
+\end{center}\vspace{-5pt}
+\end{minipage}
+
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+\begin{frame}
+
+\vspace{-5pt}
+\manip Compare with \mTtot: relative resolutions, the thinner the better!
+
+\vspace{5pt}
+
+\begin{minipage}[c]{.475\textwidth}
+\begin{center}\vspace{-4pt}
+\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017_2020-11-26-weighted_entries/model_resolution-mTtot_reco.png}
+\end{center}\vspace{-5pt}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.475\textwidth}
+\begin{center}\vspace{-4pt}
+\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/with_PU_weighted_mH/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_resolution-NN-activation-selu-batch_size-2048-mape-Adam-u-inclusive-3-layers-1000-neurons.png}
+\end{center}\vspace{-5pt}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}{Next step?}
+
+\manip Switch from \mTtot\ to a ML-based output
+\manip Improvement on exclusion limits?
+\manip Computing on its way!
+
+\end{frame}

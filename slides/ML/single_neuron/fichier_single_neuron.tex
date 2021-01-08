@@ -1,0 +1,41 @@
+\begin{frame}{Neurons in ML}
+\begin{center}
+\begin{tikzpicture}
+
+\node [draw, thick, circle, minimum size = 3 cm] (N) at (0,0) {};
+
+\foreach \yi/\N in {1.5/1,0.5/2,-1.5/n}{
+\fill (-3.5,\yi) circle(2pt) node [left] {$x_{\N}$};
+\draw [thick, -latex] (-3.5,\yi) -- (N);
+}
+
+\draw (-3,1) node {$w_1$};
+\draw (-3,0.25) node {$w_2$};
+\draw (-3,-1) node {$w_n$};
+
+\foreach \x/\y in {-3.5/-.5}{
+\fill (\x,\y) circle (1pt);
+\fill (\x,\y+.2) circle (1pt);
+\fill (\x,\y-.2) circle (1pt);
+}
+
+\draw [thick, latex-] (N) -- (0,2) node [above] {$b$};
+
+\draw [thick, -latex] (N) -- (2,0) node (output) [right] {Output $\displaystyle = f\left(\sum_{i=1}^n w_ix_i + b\right)$};
+
+\draw (0,0) node {\Large $f$};
+\draw (0,-.5) node {activation};
+\draw (0,-1) node {function};
+
+\end{tikzpicture}
+\end{center}
+
+\manip Parameters: $w_1, w_2, \ldots, w_n, b$
+\manip Equivalent to linear regression for $f=\Id:x\mapsto x$
+\end{frame}
+
+\begin{frame}%{Activation functions}
+\begin{center}\vspace{-6pt}
+\input{\PhDthesisdir/plots_and_images/my_plots/ML/activation_functions/activation_functions-pyplot.pgf}
+\end{center}\vspace{-12pt}
+\end{frame}

@@ -65,30 +65,6 @@
 
 \end{tikzpicture}
 
-$N_L \in \llbracket 2, 10 \rrbracket \cup \set{15}$
-\qquad
-$N_N \in \set{500, 1000, 1500, 2000}$
+\eg\ $N_L =3$ and $N_N =1000$
 \end{center}
-\end{frame}
-
-\begin{frame}
-\manip The \og bottleneck \fg{} variant:
-\submanip Get a smoother reduction from $\sim$ 1k neurons in hidden layers to 1 neuron for the output layer.
-\submanip Set a maximum value for $N_N$ in the 3 last hidden layers: $[1000, 500, 100]$.
-
-\vfill
-\manip Example: neurons per layers with settings $N_L = 4$, $N_N=2000$ gives
-\begin{center}
-\begin{tabular}{rccccc}
-Case & \multicolumn{4}{c}{Hidden layers} & Output layer \\
-without bottleneck & 2000 & 2000 & 2000 & 2000 & 1\\
-with bottleneck & 2000 & 1000 & 500 & 100 & 1
-\end{tabular}
-\end{center}
-\end{frame}
-
-\begin{frame}
-\manip Activation functions:
-\submanip relu for hidden layers;
-\submanip linear for output layer.
 \end{frame}
