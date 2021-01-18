@@ -1,0 +1,40 @@
+{\footnotesize
+\begin{tabular}{|p{2.5cm} p{2.5cm} p{4.5cm} p{4.5cm}|}
+\hline
+HLT Path & L1 Seed & Muon filter to match & Tau filter to match \\
+\hline
+HLT\_IsoMu24\_v
+&
+L1\_SingleMu22
+&
+hltL3crIsoL1sSingleMu22L1f0L2f10QL3f24QL3trkIsoFiltered0p07
+&
+-
+\\
+HLT\_IsoMu27\_v
+&
+L1\_SingleMu22 \textbf{or} L1\_SingleMu25
+&
+hltL3crIsoL1sMu22Or25L1f0L2f10QL3f27QL3trkIsoFiltered0p07
+&
+-
+\\
+HLT\_MediumChargedIsoPFTau180HighPtRelaxedIso\_Trk50\_eta2p1\_v
+&
+L1\_SingleTau80to140er
+&
+-
+&
+hltPFTau180TrackPt50LooseAbsOrRelMediumHighPtRelaxedIsoIso \textbf{and} hltSelectedPFTau180MediumChargedIsolationL1HLTMatched
+\\
+HLT\_IsoMu20\_eta2p1\_LooseChargedIsoPFTau27\_eta2p1\_CrossL1\_v
+&
+L1\_Mu18er2p1\_Tau24er2p1
+&
+hltL3crIsoL1sMu18erTau24erIorMu20erTau24erL1f0L2f10QL3f20QL3trkIsoFiltered0p07hltOverlapFilterIsoMu20LooseChargedIsoPFTau27L1Seeded
+&
+hltSelectedPFTau27LooseChargedIsolationAgainstMuonL1HLTMatchedhltOverlapFilterIsoMu20LooseChargedIsoPFTau27L1Seeded
+\\
+\hline
+\end{tabular}
+}

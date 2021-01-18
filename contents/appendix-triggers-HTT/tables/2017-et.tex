@@ -1,0 +1,48 @@
+{\footnotesize
+\begin{tabular}{|p{2.5cm} p{2.5cm} p{4.5cm} p{4.5cm}|}
+\hline
+HLT Path & L1 Seed & Electron filter to match & Tau filter to match \\
+\hline
+HLT\_Ele27\_WP Tight\_Gsf\_v
+&
+L1\_SingleEGXX \textbf{or} L1\_SingleEGXXer2p1 \textbf{or} L1\_SingleIsoEGXX \textbf{or} L1\_SingleIso EGXXer2p1
+&
+hltEle27WPTightGsfTrackIsoFilter
+&
+-
+\\
+HLT\_Ele32\_WPTight\_Gsf\_v
+&
+L1\_SingleEGXX \textbf{or} L1\_SingleEGXXer2p1 \textbf{or} L1\_SingleIsoEGXX \textbf{or} L1\_SingleIsoEGXXer2p1
+&
+hltEle32WPTightGsfTrackIsoFilter
+&
+-
+\\
+HLT\_Ele35\_WPTight\_Gsf\_v
+&
+L1\_SingleEGXX \textbf{or} L1\_SingleEGXXer2p1 \textbf{or} L1\_SingleIsoEGXX \textbf{or} L1\_SingleIsoEGXXer2p1
+&
+hltEle35noerWPTightGsfTrackIsoFilter
+&
+-
+\\
+HLT\_MediumChargedIsoPFTau180HighPtRelaxedIso\_Trk50\_eta2p1\_v
+&
+L1\_SingleTau80to140er
+&
+-
+&
+hltPFTau180TrackPt50LooseAbsOrRelMediumHighPtRelaxedIsoIso \textbf{and} hltSelectedPFTau180MediumChargedIsolationL1HLTMatched
+\\
+HLT\_Ele24\_eta2p1\_WPTight\_Gsf\_LooseChargedIsoPFTau30\_eta2p1\_CrossL1\_v
+&
+L1\_LooseIsoEG22er2p1\_IsoTau26er2p1\_dR\_Min0p3
+&
+hltEle24erWPTightGsfTrackIsoFilterForTauhltOverlapFilterIsoEle24WPTightGsfLooseIsoPFTau30
+&
+hltSelectedPFTau30LooseChargedIsolationL1HLTMatchedhltOverlapFilterIsoEle24WPTightGsfLooseIsoPFTau30
+\\
+\hline
+\end{tabular}
+}

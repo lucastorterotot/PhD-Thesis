@@ -1,0 +1,74 @@
+{\footnotesize
+\begin{tabular}{|p{2.5cm} p{2.5cm} p{4.5cm} p{4.5cm}|}
+\hline
+HLT Path & L1 Seed & Electron filter to match & Tau filter to match \\
+\hline
+HLT\_Ele25\_eta2p1\_WPTight\_Gsf\_v
+&
+L1\_SingleEG40 \textbf{or} SingleIsoEG24er \textbf{or} L1\_SingleIsoEG22er
+&
+hltEle25erWPTightGsfTrackIsoFilter
+&
+-
+\\
+HLT\_VLooseIsoPFTau120\_Trk50\_eta2p1\_v
+&
+L1\_SingleTau100er
+&
+-
+&
+hltPFTau120TrackPt50LooseAbsOrRelVLooseIso
+\\
+HLT\_VLooseIsoPFTau140\_Trk50\_eta2p1\_v
+&
+L1\_SingleTau100er
+&
+-
+&
+hltPFTau140TrackPt50LooseAbsOrRelVLooseIso
+\\
+\hline
+&
+&
+Run $<$ 276215 and MC
+&
+\\
+HLT\_Ele24\_eta2p1\_WPLoose\_Gsf\_LooseIsoPFTau20\_SingleL1\_v
+&
+L1\_SingleEG40 \textbf{or} SingleIsoEG24er \textbf{or} L1\_SingleIsoEG22er
+&
+hltEle24WPLooseL1SingleIsoEG22erGsfTrackIsoFilterhltOverlapFilterSingleIsoEle24WPLooseGsfLooseIsoPFTau20
+&
+hltPFTau20TrackLooseIsohltOverlapFilterSingleIsoEle24WPLooseGsfLooseIsoPFTau20
+\\
+\hline
+&
+&
+276215 $\leq$ Run $<$ 278270
+&
+\\
+HLT\_Ele24\_eta2p1\_WPLoose\_Gsf\_LooseIsoPFTau20\_v
+&
+L1\_IsoEG22er\_Tau20er\_dEta\_Min0p2
+&
+hltEle24WPLooseL1IsoEG22erTau20erGsfTrackIsoFilterhltOverlapFilterIsoEle24WPLooseGsfLooseIsoPFTau20
+&
+hltPFTau20TrackLooseIsohltOverlapFilterIsoEle24WPLooseGsfLooseIsoPFTau20
+\\
+\hline
+&
+&
+278270 $\leq$ Run
+&
+\\
+HLT\_Ele24\_Eta2p1\_WPLoose\_Gsf\_LooseIsoPFTau30\_v
+&
+L1\_IsoEG22er\_IsoTau26er\_dEta\_Min0p2
+&
+hltEle24WPLooseL1IsoEG22erIsoTau26erGsfTrackIsoFilterhltOverlapFilterIsoEle24WPLooseGsfLooseIsoPFTau30
+&
+hltPFTau30TrackLooseIsohltOverlapFilterIsoEle24WPLooseGsfLooseIsoPFTau30
+\\
+\hline
+\end{tabular}
+}
