@@ -1,1 +1,12 @@
 \subsection{Filtres sur l'énergie transverse manquante}\label{chapter-HTT_analysis-section-MET_filters}
+Les événements des données réelles, simulées et encapsulées doivent passer les filtres listés ci-après, comme le recommande le \emph{POG}\footnote{POG: \emph{Physics Object Group}, groupe responsable d'un objet physique, ici les jets et l'énergie transverse manquante.} JetMET~\cite{MET_filters}:
+\begin{description}
+\item[vertex primaire] (\emph{primary vertex}) ;
+\item[halo du faisceau] (\emph{beam halo}), afin de rejeter les particules issues des interactions avec les reliquats de gaz dans le tube de faisceau ou avec le tube du faisceau lui-même, par exemple ;
+\item[bruit du HCAL] (\emph{HBHE noise}) permet de rejeter les événements pour lesquels un signal du HCAL est potentiellement du bruit de fond dû au matériel (hors bruit de fond des collisions, donc) ;
+\item[bruit du HCAL-iso] (\emph{HBHEiso noise}), similaire au précédant ;
+\item[cellule morte du ECAL] (\emph{ECAL Dead Cell}), pour enlever les événements où une cellule défectueuse du ECAL est dans une région contenant un objet physique d'intérêt ;
+\item[Mauvais muon du \PF] (\emph{Bad PF Muon}), afin de retirer les événements où un muon a pu être mal reconstruit, compromettant le calcul de l'énergie transverse manquante ;
+%\item[] (\emph{ee badSC noise}) ;
+\item[Mauvaise calibration du ECAL] (\emph{ECAL bad calibration update}), pour les années 2017 et 2018 seulement, permet de retirer les événements où une cellule défectueuse du ECAL est dans une région contenant un objet physique d'intérêt.
+\end{description}

@@ -1,1 +1,49 @@
 \subsection{Sélection finale}\label{chapter-HTT_analysis-section-offline_selection}
+\begin{wraptable}{R}{.45\textwidth}
+\centering
+\begin{tabular}{ccc}
+\toprule
+Canal & $L_1$ & $L_2$ \\
+\midrule
+\tauh\tauh & \multicolumn{2}{c}{\tauh, $\pT^{(L_1)}>\pT^{(L_2)}$} \\
+\mu\tauh & \mu & \tauh \\
+\ele\tauh & \ele & \tauh \\
+\ele\mu & \mu & \ele \\
+\bottomrule
+\end{tabular}
+\caption{Particules correspondant à $L_1$ et $L_2$ selon le canal.}
+\label{tab-chapter-HTT_analysis-section-offline_selection-L1L2}
+\end{wraptable}
+La phénoménologie des événements $\Higgs\to\tau\tau$ est décrite dans le chapitre\ifref{chapter-MS-MSSM}{\ref{chapter-MS-MSSM}}{2}.
+Les leptons tau peuvent se désintégrer hadroniquement en tau hadronique (\tauh) ou leptoniquement en électron (\ele) ou en muon (\mu), ces désintégrations s'accompagnent de l'émission de un (cas hadronique) ou deux (cas leptoniques) neutrinos.
+Il existe ainsi six états finaux différents ou canaux pour ces événements dont seulement quatre sont considérés dans l'analyse:
+le canal hadronique (\tauh\tauh),
+les deux canaux semi-leptoniques (\mu\tauh, \ele\tauh)
+et un canal leptonique (\ele\mu).
+\par
+Les produits de désintégration visibles des leptons tau sont notés $L_1$ et $L_2$ et correspondent, selon le canal, à un tau hadronique, un muon ou un électron comme exposé dans le tableau~\ref{tab-chapter-HTT_analysis-section-offline_selection-L1L2}.
+Pour $L_1$ comme $L_2$, une liste de candidats est obtenue à partir des particules reconstruites auxquelles sont appliquées des coupures détaillées dans les sections qui suivent pour chacun des canaux.
+À partir de ces deux listes de candidats, des paires $L_1L_2$ compatibles avec le cas de figure $\Higgs\to\tau\tau\to L_1L_2$ sont formées.
+Une paire $L_1L_2$ est un \emph{dilepton}.
+Un seul des \emph{dileptons} candidats est retenu selon la logique exposée dans la section~\ref{chapter-HTT_analysis-section-offline-dilepton}.
+\par
+Il est nécessaire de s'assurer, à cause de l'utilisation de canaux différents, qu'un événement donné ne peut être sélectionné dans le traitement de plusieurs canaux.
+Pour cela, après avoir sélectionné le \emph{dilepton}, des veto sur la présence de leptons supplémentaires à ceux du \emph{dilepton} sont appliqués.
+Ces vetos sont explicités pour chaque canal dans les sections ci-après.
+
+\subsubsection{Canal \tauh\tauh}\label{chapter-HTT_analysis-section-offline-tt}
+\subsubsection{Canal \mu\tauh}\label{chapter-HTT_analysis-section-offline-mt}
+\subsubsection{Canal \ele\tauh}\label{chapter-HTT_analysis-section-offline-et}
+\subsubsection{Canal \ele\mu}\label{chapter-HTT_analysis-section-offline-em}
+
+
+
+\subsubsection{Sélection du \emph{dilepton}}\label{chapter-HTT_analysis-section-offline-dilepton}
+Il est possible d'obtenir plusieurs candidats \emph{dilepton} après application des coupures précédemment exposées.
+Dans ce cas, une seule et unique paire est conservée à l'aide des étapes de réjection suivantes:
+\begin{enumerate}
+\item préférer une paire avec $L_1$ le plus isolé possible (le tau hadronique avec le plus haut \pT\ pour le canal \tauh\tauh, le muon pour les canaux \muon\tauh\ et \ele\muon, l'électron pour le canal \ele\tauh);
+\item en cas d'égalité, préférer une paire avec $L_1$ de plus haut \pT;
+\item en cas d'égalité, préférer une paire avec $L_1$ le plus isolé possible (le tau hadronique avec le plus bas \pT\ pour le canal \tauh\tauh, le tau hadronique pour les canaux \muon\tauh\ et \ele\tauh, l'électron pour le canal \ele\muon);
+\item en cas d'égalité, préférer une paire avec $L_2$ de plus haut \pT.
+\end{enumerate}
