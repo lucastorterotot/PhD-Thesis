@@ -1,97 +1,12 @@
 \chapter{Recherche d'un boson de Higgs de haute masse}\label{chapter-HTT_analysis}
 
-Citer \fullcite{CMS-PAS-HIG-17-020}
-
-et aussi nouvelle version full runII si possible
-
-
-Citer la thèse de Gaël:\\\fullcite{Gael_thesis}
-
-Citer également la thèse d'Artur?\\\fullcite{Artur_thesis}
-
-
-Études déjà menées au LEP~\cite{Schael:2006cr} et au Tevatron~\cite{Aaltonen:2009vf,Abazov:2011jh}
-
-LHC: aussi avec \quarkb\antiquarkb~\cite{Chatrchyan:2013qga,Khachatryan:2015tra}
-
-ATLAS \mu\mu\ et \tau\tau~\cite{Aad:2012cfr,ATLAS-MSSM-HTT_2018}
-
-CMS \mu\mu~\cite{CMS:2015ooa} \tau\tau~\cite{Chatrchyan:2012vp,CMS-MSSM-HTT_2014,CMS-PAS-HIG-17-020}
-
-object reco:\\
-reconstruction \tauh~\cite{Khachatryan:2015dfa,Sirunyan:2018pgf}\\
-tauID \cite{TauPOG,CMS-DP-2019-033}\\
-For muons selected in the emu and mutau channels additional \textit{Medium muon} requirements as recommended by the Muon POG, are applied.\cite{cmsMediumMuon}\\
-In addition, electrons are required to pass an identification variable based on a Boosted Decision Tree (BDT) discriminator which uses track quality, shower shapes and kinematic quantities as input. The following variables are used as input to the BDT... \cite{cmsElectronMVA}
-
-
-lumi unc.~\cite{LumiTwiki}
-
-systematics EGamma recommendation~\cite{EGammaRunII}.
-
-PuppiMET~\cite{PUPPI} and PFJetsCHs
-
-For the fit we use the implementation of the $CL_S$ method~\cite{CLs_method} provided by \textsc{combine}, the CMS Higgs combination tool based on RooStats \cite{RooStats}.
-
-In the absence of a signal, upper limits on the $\sigma\times\mathcal{B}^{\tau\tau}$ are set using the modified frequentist approach \citep{Junk:1999kv,Read_2002}.
-
-systematic unc. shifts~\cite{BarlowBeeston,BarlowBeeston2}
-
-\section{Introduction}\label{chapter-HTT_analysis-section-introduction}
-
-\section{Sélection d'événements et catégorisation}\label{chapter-HTT_analysis-section-evt_selection}
-\subsection{Données}\label{chapter-HTT_analysis-section-evt_selection-subsec-data}
-\subsection{Simulation}\label{chapter-HTT_analysis-section-evt_selection-subsec-MC}
-\subsection{Catégorisation}\label{chapter-HTT_analysis-section-evt_selection-subsec-categorisation}
-
-\section{Chaîne d'analyse}\label{chapter-HTT_analysis-section-chaine_analyse}
-
-\todo{\tauh\ ID and reco?}
-
-\begin{table}
-\centering
-\begin{tabular}{ccl}
-\toprule
-\inlinecode{python}{gen_match} & Type de particule & Propriétés de l'objet au niveau générateur\\
-\midrule
-1 & électron natif & $\abs{\text{pdgID}} = 11$, $\pT > \SI{8}{\GeV}$, \inlinecode{python}{IsPrompt == True} \\
-2 & muon natif & $\abs{\text{pdgID}} = 13$, $\pT > \SI{8}{\GeV}$, \inlinecode{python}{IsPrompt == True} \\
-3 & $\tau\to\ele$  & $\abs{\text{pdgID}} = 11$, $\pT > \SI{8}{\GeV}$, \\
-  & &  \inlinecode{python}{IsDirectPromptTauDecayProduct == True} \\
-4 & $\tau\to\mu$  & $\abs{\text{pdgID}} = 13$, $\pT > \SI{8}{\GeV}$, \\
-  & & \inlinecode{python}{IsDirectPromptTauDecayProduct == True} \\
-5 & $\tau\to\tauh$ & Tau hadronique généré\\
-6 & Faux \tauh, \tauh\ de l'empilement & Tout objet ne rentrant pas dans les catégories 1 à 5\\
-\bottomrule
-\end{tabular}
-\caption[Valeurs prises par {\rm\texttt{gen\_match}}.]{Valeurs prises par \inlinecode{python}{gen_match}, variable de correspondance des taus hadroniques à l'objet généré dans les événements simulés.}
-\label{tab-chapter-HTT_analysis-gen_match_values}
-\end{table}
-
-\section{Estimation du bruit de fond}\label{chapter-HTT_analysis-section-bg_estimation}
-\subsection{Estimations de bruits de fond à partir de simulations}\label{chapter-HTT_analysis-section-bg_estimation-subsec-MC}
-\subsection{Estimations de bruits de fond à partir de données}\label{chapter-HTT_analysis-section-bg_estimation-subsec-data}
-\subsubsection{Méthode de l'encapsulement ou \emph{embedding}}\label{chapter-HTT_analysis-section-bg_estimation-subsec-data-subsubsec-embedding}
-\subsubsection{Méthode du facteur de faux ou \emph{fake factor}}\label{chapter-HTT_analysis-section-bg_estimation-subsec-data-subsubsec-FF_method}
-
-\section{Incertitudes systématiques}\label{chapter-HTT_analysis-section-systematics}
-\subsection{Incertitudes de normalisation}\label{chapter-HTT_analysis-section-systematics-subsec-normalisation}
-\subsection{Incertitudes de forme}\label{chapter-HTT_analysis-section-systematics-subsec-shape}
-
-\section{Résultats et interprétations}\label{chapter-HTT_analysis-section-results}
-
-in transverse plane,
-with all neutrinos as one single particle,
-with $m\ll E$ for final decays,
-\begin{align}
-m^2 &= E^2 - p^2
-= \left( \sum_{i \in \set{L_1,L_2,\nu}} E_i \right)^2 - \left( \sum_{i \in \set{L_1,L_2,\nu}} \vpT^i \right)^2\\
-&= \left( E_1 + E_2 + \MET \right)^2 - \left( \vpT^{(1)} + \vpT^{(2)} + \vMET \right)^2\\
-&= E_1^2 + E_2^2 + \MET^2 + 2 \left( E_1E_2 + E_1\MET + E_2\MET \right)\\
-&\hphantom{=} - \left( {\vpT^{(1)}}^2 + {\vpT^{(2)}}^2 + {\vMET}^2 \right) - 2 \left( \vpT^{(1)}\cdot\vpT^{(2)} + \vpT^{(1)}\cdot\vMET + \vpT^{(2)}\cdot\vMET \right)\\
-&= 2 \left( \pT^{(1)}\pT^{(2)}(1-\cos\phi_{12}) + \pT^{(1)}\MET(1-\cos\phi_{1m}) + \pT^{(2)}\MET(1-\cos\phi_{2m}) \right)\\
-&= {m_T^{\tau\tau}}^2 + {m_T^{(1)}}^2 + {m_T^{(2)}}^{2} = {m_T^{tot}}^2
-\end{align}
-
-
-\section{Conclusion}\label{chapter-HTT_analysis-section-conclusion}
+\input{\PhDthesisdir/contents/chapter-HTT_analysis/introduction/fichier_introduction.tex}
+\input{\PhDthesisdir/contents/chapter-HTT_analysis/objects/fichier_objects.tex}
+\input{\PhDthesisdir/contents/chapter-HTT_analysis/corrections/fichier_corrections.tex}
+\input{\PhDthesisdir/contents/chapter-HTT_analysis/selection/fichier_selection.tex}
+\input{\PhDthesisdir/contents/chapter-HTT_analysis/categorisation/fichier_categorisation.tex}
+\input{\PhDthesisdir/contents/chapter-HTT_analysis/background_estimation/fichier_background_estimation.tex}
+\input{\PhDthesisdir/contents/chapter-HTT_analysis/systematic_uncertainties/fichier_systematic_uncertainties.tex}
+\input{\PhDthesisdir/contents/chapter-HTT_analysis/signal_extraction/fichier_signal_extraction.tex}
+\input{\PhDthesisdir/contents/chapter-HTT_analysis/results}
+\input{\PhDthesisdir/contents/chapter-HTT_analysis/conclusion/fichier_conclusion.tex}
