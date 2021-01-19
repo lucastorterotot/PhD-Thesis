@@ -1,48 +1,132 @@
 {\footnotesize
-\begin{tabular}{|p{2.5cm} p{2.5cm} p{4.5cm} p{4.5cm}|}
-\hline
+\begin{tabularx}{\textwidth}{llXX}
+\toprule
 HLT Path & L1 Seed & Electron filter to match & Tau filter to match \\
-\hline
-HLT\_Ele27\_WP Tight\_Gsf\_v
+\midrule
+HLT\_Ele27\_
 &
-L1\_SingleEGXX \textbf{or} L1\_SingleEGXXer2p1 \textbf{or} L1\_SingleIsoEGXX \textbf{or} L1\_SingleIso EGXXer2p1
+L1\_SingleEGXX \textbf{ou}
 &
-hltEle27WPTightGsfTrackIsoFilter
-&
--
-\\
-HLT\_Ele32\_WPTight\_Gsf\_v
-&
-L1\_SingleEGXX \textbf{or} L1\_SingleEGXXer2p1 \textbf{or} L1\_SingleIsoEGXX \textbf{or} L1\_SingleIsoEGXXer2p1
-&
-hltEle32WPTightGsfTrackIsoFilter
+hltEle27WPTightGsf
 &
 -
 \\
-HLT\_Ele35\_WPTight\_Gsf\_v
+WPTight\_Gsf\_v
 &
-L1\_SingleEGXX \textbf{or} L1\_SingleEGXXer2p1 \textbf{or} L1\_SingleIsoEGXX \textbf{or} L1\_SingleIsoEGXXer2p1
+L1\_SingleEGXXer2p1 \textbf{ou}
 &
-hltEle35noerWPTightGsfTrackIsoFilter
+TrackIsoFilter
+\\
+&
+L1\_SingleIsoEGXX \textbf{ou}
+\\
+&
+L1\_SingleIsoEGXXer2p1
+\\\hline
+HLT\_Ele32\_
+&
+L1\_SingleEGXX \textbf{ou}
+&
+hltEle32WPTightGsf
 &
 -
 \\
-HLT\_MediumChargedIsoPFTau180HighPtRelaxedIso\_Trk50\_eta2p1\_v
+WPTight\_Gsf\_v
+&
+L1\_SingleEGXXer2p1 \textbf{ou}
+&
+TrackIsoFilter
+\\
+&
+L1\_SingleIsoEGXX \textbf{ou}
+\\
+&
+L1\_SingleIsoEGXXer2p1
+\\\hline
+HLT\_Ele35\_
+&
+L1\_SingleEGXX \textbf{ou}
+&
+hltEle35noerWPTightGsf
+&
+-
+\\
+WPTight\_Gsf\_v
+&
+L1\_SingleEGXXer2p1 \textbf{ou}
+&
+TrackIsoFilter
+\\
+&
+L1\_SingleIsoEGXX \textbf{ou}
+\\
+&
+L1\_SingleIsoEGXXer2p1
+\\\hline
+HLT\_Medium
 &
 L1\_SingleTau80to140er
 &
 -
 &
-hltPFTau180TrackPt50LooseAbsOrRelMediumHighPtRelaxedIsoIso \textbf{and} hltSelectedPFTau180MediumChargedIsolationL1HLTMatched
+hltPFTau180TrackPt50LooseAbs
 \\
-HLT\_Ele24\_eta2p1\_WPTight\_Gsf\_LooseChargedIsoPFTau30\_eta2p1\_CrossL1\_v
+ChargedIsoPFTau
 &
-L1\_LooseIsoEG22er2p1\_IsoTau26er2p1\_dR\_Min0p3
 &
-hltEle24erWPTightGsfTrackIsoFilterForTauhltOverlapFilterIsoEle24WPTightGsfLooseIsoPFTau30
 &
-hltSelectedPFTau30LooseChargedIsolationL1HLTMatchedhltOverlapFilterIsoEle24WPTightGsfLooseIsoPFTau30
+OrRelMediumHighPtRelaxed
 \\
-\hline
-\end{tabular}
+180HighPtRelaxed
+&
+&
+&
+IsoIso \textbf{et} hltSelectedPFTau180
+\\
+Iso\_Trk50\_eta2p1\_v
+&
+&
+&
+MediumChargedIsolationL1
+\\
+&
+&
+&
+HLTMatched
+\\\hline
+HLT\_Ele24\_
+&
+L1\_LooseIsoEG22er2p1
+&
+hltEle24erWPTightGsfTrackIso
+&
+hltSelectedPFTau30Loose
+\\
+eta2p1\_WPTight
+&
+\_IsoTau26er2p1
+&
+FilterForTauhltOverlapFilterIso
+&
+ChargedIsolationL1HLTMatched\!
+\\
+\_Gsf\_LooseCharged
+&
+\_dR\_Min0p3
+&
+Ele24WPTightGsfLooseIso
+&
+hltOverlapFilterIsoEle24WPTight\!
+\\
+IsoPFTau30
+&
+&
+PFTau30
+&
+GsfLooseIsoPFTau30
+\\
+\_eta2p1\_CrossL1\_v
+\\
+\bottomrule
+\end{tabularx}
 }

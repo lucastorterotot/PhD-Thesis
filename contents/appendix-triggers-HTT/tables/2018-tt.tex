@@ -1,38 +1,69 @@
 {\footnotesize
-\begin{tabular}{|p{3cm} p{2.5cm} p{8.9cm}|}
-\hline
+\begin{tabularx}{\textwidth}{llX}
+\toprule
 HLT Path & L1 Seed & Tau filter to match \\
-\hline
-HLT\_MediumChargedIsoPFTau180HighPtRelaxedIso\_Trk50\_eta2p1\_v
+\midrule
+HLT\_MediumCharged
 &
 L1\_SingleTau80to140er
 &
-hltPFTau180TrackPt50LooseAbsOrRelMediumHighPtRelaxedIsoIso \textbf{and} hltSelectedPFTau180MediumChargedIsolationL1HLTMatched
+hltPFTau180TrackPt50LooseAbsOrRelMediumHighPtRelaxedIsoIso\!\!\!
 \\
-HLT\_DoubleMediumChargedIsoPFTau40\_Trk1\_TightID\_eta2p1\_Reg\_v
+IsoPFTau180HighPt
 &
-L1\_DoubleIsoTau*er2p1, * in 28, 30, 32, 33, 34, 35, 36, 38, 70
 &
-hltDoublePFTau40TrackPt1MediumChargedIsolationAndTightOOSCPhotonsDz02Reg
+\textbf{et} hltSelectedPFTau180MediumChargedIsolationL1HLTMatched
 \\
-HLT\_DoubleTightChargedIsoPFTau40\_Trk1\_eta2p1\_Reg\_v
+\multicolumn{2}{l}{RelaxedIso\_Trk50\_eta2p1\_v}
+\\\hline
+HLT\_DoubleMedium
 &
-L1\_DoubleIsoTau*er2p1, * in 28, 30, 32, 33, 34, 35, 36, 38, 70
+L1\_DoubleIsoTau*er2p1
+&
+hltDoublePFTau40TrackPt1MediumChargedIsolationAnd
+\\
+ChargedIsoPFTau40
+&
+&
+TightOOSCPhotonsDz02Reg
+\\
+\multicolumn{2}{l}{\_Trk1\_TightID\_eta2p1\_Reg\_v}
+\\\hline
+HLT\_DoubleTight
+&
+L1\_DoubleIsoTau*er2p1
 &
 hltDoublePFTau40TrackPt1TightChargedIsolationDz02Reg
 \\
-HLT\_DoubleTightChargedIsoPFTau35\_Trk1\_TightID\_eta2p1\_Reg\_v
-&
-L1\_DoubleIsoTau*er2p1, * in 28, 30, 32, 33, 34, 35, 36, 38, 70
-&
-hltDoublePFTau35TrackPt1TightChargedIsolationAndTightOOSCPhotonsDz02Reg
+ChargedIsoPFTau40
 \\
-HLT\_DoubleMediumChargedIsoPFTauHPS35\_Trk1\_eta2p1\_Reg\_v
+\_Trk1\_eta2p1\_Reg\_v
+\\\hline
+HLT\_DoubleTight
 &
-L1\_DoubleIsoTau*er2p1, * in 28, 30, 32, 33, 34, 35, 36, 38, 70
+L1\_DoubleIsoTau*er2p1
+&
+hltDoublePFTau35TrackPt1TightChargedIsolationAnd
+\\
+ChargedIsoPFTau35
+&
+&
+TightOOSCPhotonsDz02Reg
+\\
+\multicolumn{2}{l}{\_Trk1\_TightID\_eta2p1\_Reg\_v}
+\\\hline
+HLT\_DoubleMedium
+&
+L1\_DoubleIsoTau*er2p1
 &
 hltHpsDoublePFTau35TrackPt1MediumChargedIsolationDz02Reg
 \\
-\hline
-\end{tabular}
+\multicolumn{2}{l}{ChargedIsoPFTauHPS35\_Trk1\_eta2p1\_Reg\_v}
+\\
+\bottomrule
+\end{tabularx}
+
+\begin{flushleft}
+\up{*} in 28, 30, 32, 33, 34, 35, 36, 38, 70
+\end{flushleft}
 }

@@ -1,41 +1,48 @@
 {\footnotesize
-\begin{tabular}{|p{3cm} p{2.5cm} p{8.9cm}|}
-\hline
+\begin{tabularx}{\textwidth}{llX}
+\toprule
 HLT Path & L1 Seed & Tau filter to match \\
-\hline
-HLT\_VLooseIsoPFTau120\_Trk50\_eta2p1\_v
+\midrule
+HLT\_VLooseIsoPFTau
 &
 L1\_SingleTau100er
 &
 hltPFTau120TrackPt50LooseAbsOrRelVLooseIso
 \\
+120\_Trk50\_eta2p1\_v
+\\\hline
 HLT\_VLooseIsoPFTau
-140\_Trk50\_eta2p1\_v
 &
 L1\_SingleTau100er
 &
 hltPFTau140TrackPt50LooseAbsOrRelVLooseIso
 \\
+140\_Trk50\_eta2p1\_v
+\\\hline
 HLT\_DoubleMedium
-Iso\_PFTau35\_Trk1
-\_eta2p1\_Reg\_v
 &
-L1\_DoubleIso
-Tau*er,
-* in 26, 27, 28, 30, 32, 39
+L1\_DoubleIsoTau*er,
 &
 hltDoublePFTau35TrackPt1MediumIsolationDz02Reg
 \\
-HLT\_DoubleMedium
-CombinedIsoPFTau
-35Trk1\_eta2p1\_Reg\_v
+Iso\_PFTau35\_Trk1
 &
-L1\_DoubleIso
-Tau*er,
 * in 26, 27, 28, 30, 32, 39
+\\
+\_eta2p1\_Reg\_v
+\\\hline
+HLT\_DoubleMedium
+&
+L1\_DoubleIsoTau*er,
 &
 hltDoublePFTau35TrackPt1MediumCombinedIsolationDz02Reg
 \\
-\hline
-\end{tabular}
+CombinedIsoPFTau
+&
+* in 26, 27, 28, 30, 32, 39
+\\
+35Trk1\_eta2p1\_Reg\_v
+\\
+\bottomrule
+\end{tabularx}
 }

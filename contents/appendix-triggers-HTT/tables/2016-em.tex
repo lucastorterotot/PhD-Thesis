@@ -1,50 +1,119 @@
 {\footnotesize
-\begin{tabular}{|p{2.5cm} p{2.5cm} p{4.5cm} p{4.5cm}|}
-\hline
+\begin{tabularx}{\textwidth}{llXX}
+\toprule
 HLT Path & L1 Seed & Muon filter to match & Electron filter to match \\
-\hline
-&
-&
-Runs B-F and MC
-&
-\\
-HLT\_Mu23\_TrkIsoVVL\_Ele12\_CaloIdL\_TrackIdL\_IsoVL\_v
+\midrule
+\multicolumn{4}{c}{Runs B-F and MC}
+\\\hline
+HLT\_Mu23\_Trk
 &
 L1\_Mu12\_EG10
 &
-hltMu23TrkIsoVVLEle12CaloIdLTrackIdLIsoVLMuonlegL3IsoFiltered23
+hltMu23TrkIsoVVLEle12CaloIdL
 &
-hltMu23TrkIsoVVLEle12CaloIdLTrackIdLIsoVLElectronlegTrackIsoFilter
+hltMu23TrkIsoVVLEle12CaloIdL
 \\
-HLT\_Mu8\_TrkIsoVVL\_Ele23\_CaloIdL\_TrackIdL\_IsoVL\_v
+IsoVVL\_Ele12\_
+&
+&
+TrackIdLIsoVLMuonlegL3
+&
+TrackIdLIsoVLElectronlegTrack
+\\
+CaloIdL\_Track
+&
+&
+IsoFiltered23
+&
+IsoFilter
+\\
+IdL\_IsoVL\_v
+\\\hline
+HLT\_Mu8\_Trk
 &
 L1\_Mu5\_EG15
 &
-hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLMuonlegL3IsoFiltered8
+hltMu8TrkIsoVVLEle23CaloIdL
 &
-hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLElectronlegTrackIsoFilter \\
-\hline
-&
-&
-Runs G-H
-&
+hltMu8TrkIsoVVLEle23CaloIdL
 \\
-HLT\_Mu23\_TrkIsoVVL\_Ele12\_CaloIdL\_TrackIdL\_IsoVL\_DZ\_v
+IsoVVL\_Ele23\_
+&
+&
+TrackIdLIsoVLMuonlegL3
+&
+TrackIdLIsoVLElectronlegTrack
+\\
+CaloIdL\_Track
+&
+&
+IsoFiltered8
+&
+IsoFilter
+\\
+IdL\_IsoVL\_v
+\\
+\midrule
+\multicolumn{4}{c}{Runs G-H}
+\\\hline
+HLT\_Mu23\_Trk
 &
 L1\_Mu12\_EG10
 &
-hltMu23TrkIsoVVLEle12CaloIdLTrackIdLIsoVLMuonlegL3IsoFiltered23 \textbf{and} hltMu23TrkIsoVVLEle12CaloIdLTrackIdLIsoVLDZFilter
+hltMu23TrkIsoVVLEle12CaloIdLTrack
 &
-hltMu23TrkIsoVVLEle12CaloIdLTrackIdLIsoVLElectronlegTrackIsoFilter \textbf{and} hltMu23TrkIsoVVLEle12CaloIdLTrackIdLIsoVLDZFilter
+hltMu23TrkIsoVVLEle12CaloIdLTrack
 \\
-HLT\_Mu8\_TrkIsoVVL\_Ele23\_CaloIdL\_TrackIdL\_IsoVL\_DZ\_v
+IsoVVL\_Ele12\_
+&
+&
+IdLIsoVLMuonlegL3IsoFiltered23 \textbf{et}
+&
+IdLIsoVLElectronlegTrackIsoFilter \textbf{et}
+\\
+CaloIdL\_Track
+&
+&
+hltMu23TrkIsoVVLEle12CaloIdL
+&
+hltMu23TrkIsoVVLEle12CaloIdL
+\\
+IdL\_IsoVL\_DZ\_v
+&
+&
+TrackIdLIsoVLDZFilter
+&
+TrackIdLIsoVLDZFilter
+\\\hline
+HLT\_Mu8\_Trk
 &
 L1\_Mu5\_EG15
 &
-hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLMuonlegL3IsoFiltered8 \textbf{and} hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLDZFilter
+hltMu8TrkIsoVVLEle23CaloIdLTrack
 &
-hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLElectronlegTrackIsoFilter \textbf{and} hltMu8TrkIsoVVLEle23CaloIdLTrackIdLIsoVLDZFilter
+hltMu8TrkIsoVVLEle23CaloIdLTrack
 \\
-\hline
-\end{tabular}
+IsoVVL\_Ele23\_
+&
+&
+IdLIsoVLMuonlegL3IsoFiltered8 \textbf{et}
+&
+IdLIsoVLElectronlegTrackIsoFilter \textbf{et}
+\\
+CaloIdL\_Track
+&
+&
+hltMu8TrkIsoVVLEle23CaloIdL
+&
+hltMu8TrkIsoVVLEle23CaloIdL
+\\
+IdL\_IsoVL\_DZ\_v
+&
+&
+TrackIdLIsoVLDZFilter
+&
+TrackIdLIsoVLDZFilter
+\\
+\bottomrule
+\end{tabularx}
 }
