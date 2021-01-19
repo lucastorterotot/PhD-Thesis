@@ -1,0 +1,65 @@
+\newcommand{\AllSatisfyingFollowing}[2]{Tout #1 respectant les critères listés ci-après est retenu pour jouer le rôle de #2 dans le \emph{dilepton}}
+
+\newcommand{\TauHdz}{la distance $d_z$ entre la trace principale du tau hadronique et le vertex primaire d'interaction vérifie $d_z < \SI{0.2}{\centi\meter}$}
+\newcommand{\Leptondzdxy}{paramètres d'impact $d_z < \SI{0.2}{\centi\meter}$ et $d_{xy} < \SI{0.045}{\centi\meter}$}
+
+\newcommand{\RelIsoBelow}[2]{$I_{#1} < \num{#2} \, \pT^{#1}$}
+
+\newcommand{\MuonIDWP}[2]{point de fonctionnement #1 (\emph{#2}) du \emph{muonID}}
+\newcommand{\MediumMuonID}{\MuonIDWP{moyen}{medium}}
+\newcommand{\LooseMuonID}{\MuonIDWP{relâché}{loose}}
+
+\newcommand{\NinetyNineEleMVA}{point de fonctionnement à \SI{90}{\%} d'efficacité de l'\emph{electron ID MVA}}
+\newcommand{\NinetyNineEleMVAnoIso}{\NinetyNineEleMVA\ sans utilisation des variables d'isolation}
+\newcommand{\CutBasedEleIDVeto}{\emph{cut-based veto ID}}
+
+\newcommand{\TwoProngsFootnote}{\footnote{Un \emph{prong} est un hadron chargé issu directement de la désintégration initiale. Par conservation de la charge, il en faut nécessairement un nombre impair dans un tau hadronique.}}
+
+\newcommand{\NewDecayModeFinding}[1][]{passer le discriminateur \texttt{NewDecayModeFinding} avec les modes de désintégration 5, 6, et 7 (deux \emph{prong}\ifthenelse{\equal{#1}{footnote}}{\TwoProngsFootnote}{}) interdits}
+\newcommand{\PassDeepTau}[3]{#1 (\emph{#2}) du discriminateur \texttt{deepTau #3}}
+
+\newcommand{\HLTpath}{chemin de déclenchement}
+\newcommand{\HLTpaths}{chemins de déclenchement}
+
+\newcommand{\HLTDoubleTau}{\og double \tauh \fg}
+\newcommand{\HLTSingleTau}{\og \tauh\ seul \fg}
+\newcommand{\HLTSingleMu}{\og muon seul \fg}
+\newcommand{\HLTMuTauCross}{\og muon et \tauh \fg}
+\newcommand{\HLTSingleEle}{\og électron seul \fg}
+\newcommand{\HLTEleTauCross}{\og électron et \tauh \fg}
+
+\newcommand{\AtLeastOneOSPair}[1]{L'événement est retenu à condition qu'au moins une paire $L_1L_2=#1$ puisse être construite avec $L_1$ et $L_2$ de charges électriques opposées.}
+\newcommand{\DeltaRPair}[1]{Il est de plus requis que $L_1$ et $L_2$ soient séparés dans le plan $(\eta,\phi)$ tel que $\Delta R > \num{#1}$.}
+\newcommand{\IfMoreOnePair}{Si plus d'une paire possible existe dans l'événement, une seule est retenue selon la logique exposée dans la section~\ref{chapter-HTT_analysis-section-offline-dilepton}.}
+
+\newcommand{\FromPairMatchToHLTObjects}{de la paire sélectionnée doivent correspondre, le cas échéant, aux objets ayant activé un des \HLTpaths\ utilisé pour enregistrer l'événement.
+Les objets considérés pour chacun des \HLTpaths\ sont donnés dans l'annexe~\ifref{annexe-triggers-HTT}{\ref{annexe-triggers-HTT}}{E}.
+La correspondance est établie lorsque la particule reconstruite et l'objet du \HLTpath\ sont séparés de moins de \num{0.5} dans le plan $(\eta,\phi)$, \ie\ $\Delta R < \num{0.5}$.
+Ce critère est appliqué de manière cohérente dans les données réelles, simulées et encapsulées.}
+\newcommand{\HLTregionsDefined}{catégories sont définies pour les événements enregistrés en 2016 (respectivement 2017 et 2018)}
+
+\newcommand{\TransverseMassWjetsFootnote}{\footnote{\TransverseMassWjetsFootnoteTXT}}
+\newcommand{\TransverseMassWjetsFootnoteTXT}{Cette coupure permet de s'assurer que la région de signal soit orthogonale à la région de détermination des facteurs de faux des événements $\Wboson+\text{jets}$. Les facteurs de faux sont abordés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.}
+
+\newcommand{\TransverseMassWjets}[2][]{La masse transverse \mT\ #2 et de l'énergie transverse manquante doit vérifier $\mT < \SI{70}{\GeV}$\ifthenelse{\equal{#1}{footnote}}{\TransverseMassWjetsFootnote}.}
+\renewcommand{\TransverseMassWjets}[2][]{La masse transverse \mT\ #2 et de l'énergie transverse manquante doit vérifier $\mT < \SI{70}{\GeV}$. \TransverseMassWjetsFootnoteTXT}
+
+\newcommand{\LeptonVetoes}{Les vetos de leptons supplémentaires doivent être respectés, \ie\ que l'événement ne contient pas:}
+
+\newcommand{\LeptonVetoesExtra}[6]{#1 tel que $\pT^{#2} > \SI{#3}{\GeV}$, $\abs{\eta^{#2}} < \num{#4}$, passant le #5 et d'isolation \RelIsoBelow{#2}{#6}}
+\newcommand{\LeptonVetoesExtraMuon}{\LeptonVetoesExtra{de muon}{\mu}{10}{2.4}{\MediumMuonID}{0.3}}
+\newcommand{\LeptonVetoesSecondMuon}{\LeptonVetoesExtra{de second muon}{\mu}{10}{2.4}{\MediumMuonID}{0.3}}
+\newcommand{\LeptonVetoesExtraEle}{\LeptonVetoesExtra{d'électron}{\ele}{10}{2.5}{\NinetyNineEleMVA}{0.3}}
+\newcommand{\LeptonVetoesSecondEle}{\LeptonVetoesExtra{de second électron}{\ele}{10}{2.5}{\NinetyNineEleMVA}{0.3}}
+
+\newcommand{\LeptonVetoesPair}[7]{de paire #1 de charges opposées avec $\Delta R > \num{#2}$, tous deux vérifiant $\pT^{#3} > \SI{#4}{\GeV}$, $\abs{\eta^{#3}} < \num{#5}$, passant le #6, de paramètres d'impact $d_z < \SI{0.2}{\centi\meter}$ et $d_{xy} < \SI{0.045}{\centi\meter}$ et d'isolation \RelIsoBelow{#3}{#7}}
+\newcommand{\LeptonVetoesMuonPair}{\LeptonVetoesPair{de muons}{0.15}{\mu}{15}{2.4}{\LooseMuonID}{0.3}}
+\newcommand{\LeptonVetoesElectronPair}{\LeptonVetoesPair{d'électrons}{0.15}{\ele}{15}{2.5}{\CutBasedEleIDVeto}{0.3}}
+
+\newcommand{\LessTwoMissingHitsVertex}{présenter moins de deux points de passage manquants dans le trajectographe}
+\newcommand{\PassConversionVeto}{passer le veto d'électron de conversion}
+
+%%%%%%
+
+\renewcommand{\MuonIDWP}[2]{point de fonctionnement \emph{#2} du \emph{muonID}}
+\renewcommand{\PassDeepTau}[3]{\emph{#2} du discriminateur \texttt{deepTau #3}}
