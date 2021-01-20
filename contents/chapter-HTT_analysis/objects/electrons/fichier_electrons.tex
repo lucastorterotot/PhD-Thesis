@@ -2,26 +2,76 @@
 Les électrons utilisés sont les objets physiques identifiés comme étant des électrons par l'algorithme de \PF~\cite{particle-flow}.
 La sélection des électrons se fait sur la base de critères supplémentaires discutés ci-après.
 
-\subsubsection{Identification}\label{chapter-HTT_analysis-section-objects-muons-ID}
-Les électrons retenus pour l'analyse doivent passer un discriminateur d'identification basé sur un arbre de décision (\emph{Bossted Decision Tree}, BDT).
-Le BDT utilise plusieurs variables afin de fournir l'identification d'électron \og \EleIDMVA \fg~\cite{cmsElectronMVA}:
+\subsubsection{Identification}\label{chapter-HTT_analysis-section-objects-electron-ID}
+\paragraph{\EleIDMVA}
+Les électrons retenus pour l'analyse doivent passer un discriminateur d'identification issu d'une analyse multivariée (\emph{MultiVariate Analysis}, MVA).
+Cette analysée est basée sur un arbre de décision (\emph{Bossted Decision Tree}, BDT) afin de fournir l'identification d'électron \og \EleIDMVA \fg~\cite{cmsElectronMVA}.
+Les variables prises en compte sont:
 \begin{itemize}
+\item l'impulsion transverse de l'électron $\pT^{(\ele)}$;
+\item la pseudo-rapidité du \emph{supercluster}, défini dans la section~\ifref{chapter-LHC-section-evt_reco-subsec-ptc_ID}{\ref{chapter-LHC-section-evt_reco-subsec-ptc_ID}}{4.2} du chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3};
+\item la densité d'énergie issue de l'empilement dans l'événement $\rho$;
+
 \item l'étalement en $\eta$ et en $\phi$ du dépôt d'énergie dans le ECAL, $\sigma_{i\eta i\eta}$ et $\sigma_{i\phi i\phi}$ où $i\eta$ et $i\phi$ correspondent au nombre entier désignant le cristal du calorimètre;
-\item la circularité du dépôt d'énergie, $1- E_{1\times5}/E_{5\times5}$, où $ E_{1\times5}$ et $E_{5\times5}$ correspondent respectivement aux énergies dans une région de $1\times5$ et $5\times5$ cristaux centré sur le cristal contenant le plus d'énergie dans le \emph{supercluster}, défini dans la section~\ifref{chapter-LHC-section-evt_reco-subsec-ptc_ID}{\ref{chapter-LHC-section-evt_reco-subsec-ptc_ID}}{4.2} du chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3};
+\item la circularité du dépôt d'énergie, $1- E_{1\times5}/E_{5\times5}$, où $ E_{1\times5}$ et $E_{5\times5}$ correspondent respectivement aux énergies dans une région de $1\times5$ et $5\times5$ cristaux centré sur le cristal contenant le plus d'énergie dans le \emph{supercluster};
 \item $R_9 = \frac{E_{3\times3}}{E_{SC}}$, où $E_{SC}$ est l'énergie contenue dans le \emph{supercluster};
+\item $H/E_{SC}$ où $H$ est l'énergie hadronique située dans un cône de $\Delta R < \num{0.15}$ autour de l'électron;
+\item $E_{SC}^\text{PS}/E_{SC}^\text{raw}$ le rapport de l'énergie du \emph{supercluster} située dans le \emph{PreShower} sur son énergie totale non corrigée.
+Le \emph{PreShower} est défini dans le chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3};
+\item la largeur du \emph{supercluster}, $\Delta \eta_{SC}$ et $\Delta \phi_{SC}$;
+
 \item le $\chi^2$ de l'ajustement de la trajectoire;
 \item le nombre de \emph{hits} valides utilisés pour l'ajustement de la trajectoire;
 \item le $\chi^2$ de l'ajustement de la trajectoire GSF (\emph{GSFtrack}). Le \emph{Gaussian Sum Filter} est une méthode de traitement du signal~\cite{GSF};
-\item le nombre de \emph{hits} utilisés pour l'ajustement de la trajectoire GSF;
+\item le nombre de \emph{hits} utilisés pour l'ajustement de la trajectoire GSF, $N_\text{lost}^\text{GSF}$;
 \item le nombre attendu de \emph{hits} manquants;
-\item l'ajustement à un vertex de conversion (cas de la conversion $\photon\to\positron\electron$);
+\item la fraction d'énergie perdue par \emph{bremsstrahlung}, $f_\text{brem} = 1-p_\text{out}/p_\text{in}$ où
+$p_\text{in}$ est l'impulsion de l'électron obtenue d'après la courbe de sa trajectoire près du vertex primaire et
+$p_\text{out}$ l'impulsion de l'électron obtenue d'après la courbe de sa trajectoire près de la surface de ECAL;
+
+\item $E_{SC}/p_\text{in}$;
+\item $E_{\PF}/p_\text{in}$ avec $E_{\PF}$ est l'énergie du \emph{supercluster} le plus proche du point d'entrée de l'électron dans le ECAL;
 \item les écarts $\Delta\eta$ et $\Delta\phi$ entre le \emph{supercluster} et la direction de la trace associée à l'électron au niveau du vertex primaire;
 \item l'écart $\Delta\eta$ entre le \emph{supercluster} et la direction de la trace associée à l'électron au niveau de la surface du ECAL;
-\item $H/E$ le rapport de l'énergie hadronique sur l'énergie électromagnétique associées à l'électron;
-\item $E/P$ le rapport de l'énergie du \emph{supercluster} et de l'impulsion de l'électron;
 \item $1/E_{\ele}-1/P_{\ele}$ où $E_{\ele}$ est l'énergie de l'électron et $P_{\ele}$ son impulsion.
+
+\item la probabilité que l'électron soit issu d'une conversion $\photon\to\positron\electron$;
 \end{itemize}
-Le BDT est ainsi entraîné sur des événements $\Zboson/\photon^*$ simulés à l'aide de \MADGRAPH~\cite{madgraph5}.
+\par
+Le BDT est ainsi entraîné sur des événements $\text{Drell-Yann ($\Zboson/\photon^*$)} + \text{jets}$ simulés à l'aide de \MADGRAPH~\cite{madgraph5}.
+L'entraînement se fait à l'aide de \XGBOOST~\cite{xgboost}.
+Le point de fonctionnement à \SI{90}{\%} d'efficacité est défini à partir d'une valeur minimale de sortie du BDT.
+Cette valeur dépend de $\pT^{(\ele)}$ et $\eta^{(\ele)}$ ainsi que de l'année de prise de données.
+
+\paragraph{\CutBasedEleID}
+Un autre critère d'identification est utilisé pour les électrons et consiste en une liste de coupures (\emph{cut}) sur certaines variables.
+Il s'agit du \CutBasedEleID.
+Les valeurs des coupures dépendent du point de fonctionnement.
+Dans l'analyse, seul le point de fonctionnement \og veto \fg{} est utilisé, les coupures associées sont listées dans le tableau~\ref{tab-CutBasedEleIDVeto}.
+Les variables utilisées sont définies précédemment, à l'exception de
+\begin{itemize}
+\item $\abs{\Delta\eta_\text{in}^\text{seed}}$ l'écart en $\eta$ entre le point d'entrée de l'électron dans le ECAL et la position du \emph{supercluster} identifié par l'algorithme de \PF;
+\item $I_\text{rel}^{\Delta\beta}$ l'isolation relative de l'électron obtenue avec la même formule que pour les muons~\eqref{eq-muons-reliso}, à l'exception de la taille du cône valant ici $R_{\ele}=\num{0.3}$.
+\end{itemize}
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+\toprule
+Variable & $\abs{\eta^{(\ele)}} < \num{1.479}$ & $\abs{\eta^{(\ele)}} \geq \num{1.479}$ \\
+\midrule
+$\sigma_{i\eta i\eta}$ & $<\num{0.0126}$ & $<\num{0.0457}$ \\
+$\abs{\Delta\eta_\text{in}^\text{seed}}$ & $<\num{0.00463}$ & $<\num{0.00814}$ \\
+$\abs{\Delta\phi_\text{in}}$ & $<\num{0.148}$ & $<\num{0.19}$ \\
+$H/E_{SC}$ & $<\num{0.05}+\frac{\num{1.16}}{E_{SC} [\SI{}{\GeV}]} + \num{0.0324}\frac{\rho}{E_{SC}}$ & $<\num{0.05}+\frac{\num{2.54}}{E_{SC} [\SI{}{\GeV}]} + \num{0.183}\frac{\rho}{E_{SC}}$ \\
+$I_\text{rel}^{\Delta\beta}$ & $<\num{0.198} + \frac{\num{0.506}}{\pT^{(\ele)} [\SI{}{\GeV}]}$ & $<\num{0.203} + \frac{\num{0.96}}{\pT^{(\ele)} [\SI{}{\GeV}]}$ \\
+$\abs{1/E_{SC}-1/p_\text{in}}$ & $<\SI{0.209}{\GeV^{-1}}$ & $<\SI{0.132}{\GeV^{-1}}$ \\
+$N_\text{lost}^\text{GSF}$ & $\leq\num{2}$ & $\leq\num{3}$ \\
+veto de conversion & passé & passé \\
+\bottomrule
+\end{tabular}
+\caption[Coupures du \CutBasedEleIDVeto.]{Coupures du \CutBasedEleIDVeto\ pour les deux régions en $\eta$ du \emph{supercluster} possibles. Les variables sont détaillées dans le texte.}
+\label{tab-CutBasedEleIDVeto}
+\end{table}
 
 \subsubsection{Isolation}\label{chapter-HTT_analysis-section-objects-electrons-iso}
 Tout comme les muons, des électrons peuvent être produits lors de la désintégration de quarks de saveur lourde.
