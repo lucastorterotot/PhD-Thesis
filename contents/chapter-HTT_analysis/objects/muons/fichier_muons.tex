@@ -1,3 +1,92 @@
 \subsection{Muons}\label{chapter-HTT_analysis-section-objects-muons}
+Les muons utilisés sont les objets physiques identifiés comme étant des muons par l'algorithme de \PF~\cite{particle-flow}.
+La sélection des muons se fait sur la base de critères supplémentaires discutés ci-après.
 
-For muons selected in the emu and mutau channels additional \textit{Medium muon} requirements as recommended by the Muon POG, are applied.\cite{cmsMediumMuon}
+\subsubsection{Identification}\label{chapter-HTT_analysis-section-objects-muons-ID}
+Il est possible de définir un critère de qualité sur l'objet reconstruit devant correspondre à un muon à partir des propriétés des éléments du \PF\ ayant servi à sa reconstruction, exposée dans le chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3}.
+Il s'agit du \muonID~\cite{CMS-MUO-16-001,cmsMediumMuon}.
+Le $\chi^2$ de l'ajustement de la trajectoire ainsi que la fraction des signaux du trajectographe valides associés au muon sont des métriques utilisées pour le \muonID.
+Des plus, un algorithme (\emph{kink finder}) sépare la trajectoire du muon et détermine un $\chi^2$ afin de vérifier si cette trajectoire reconstruite peut en réalité provenir de deux traces réelles distinctes.
+Ce dernier cas de figure peut survenir suite à une déviation du muon par le matériel constituant le détecteur, par exemple.
+\par
+Pour des critères d'identification stricts, il est possible d'utiliser le nombre de points de passage (\emph{hits}) dans les chambres à muons utilisés pour l'ajustement global de la trajectoire du muon, \Nmdhits.
+Le nombre de stations de chambres à muons associées à la trajectoire, \Nms, est aussi exploité.
+Les informations issues du trajectographe sont également utilisées.
+Il s'agit du nombre de \emph{hits} dans la partie à pixels, \Npixelhits, et du nombre total de \emph{hits} dans le trajectographe, \Ntrkhits.
+\par
+Trois niveaux d'exigence ou points de fonctionnement (\emph{Working Point}) sont ainsi définis, de plus en plus exigeants.
+En particulier, le \emph{Medium} \muonID\ est utilisé dans les canaux \mu\tauh, \ele\tauh\ et \ele\mu\ de l'analyse, comme le recommande le \emph{POG}\footnote{POG: \emph{Physics Object Group}, groupe responsable d'un objet physique, ici les muons.} Muons~\cite{cmsMediumMuon}.
+\paragraph{\emph{Loose} \muonID} (exigence lâche)
+\begin{itemize}
+\item le muon est issu du \PF;
+\item le muon est reconstruit comme muon global ou du trajectographe.
+\end{itemize}
+\paragraph{\emph{Medium} \muonID} (exigence moyenne)
+\begin{itemize}
+\item le muon passe le \emph{loose} \muonID;
+\item au moins \SI{80}{\%} des signaux du trajectographe associés au muon sont valides.
+\end{itemize}
+De plus, un des deux ensembles de critères suivants doit être respecté:
+\begin{itemize}
+\item le muon est un muon global;
+\item l'ajustement de la trajectoire vérifie $\chi^2/\Ndof<3$, avec \Ndof\ le nombre de degrés de liberté de l'ajustement;
+\item l'accord entre le muon seul et le muon du trajectographe issus des mêmes éléments de reconstruction que le muon global vérifie $\chi^2<12$;
+\item la compatibilité avec une déviation du muon due au matériel du détecteur (\emph{kink finder}) vérifie $\chi^2<20$;
+\item la compatibilité du segment est supérieure à \num{0.303};
+\end{itemize}
+ou
+\begin{itemize}
+\item le muon est un muon du trajectographe;
+\item la compatibilité du segment est supérieure à \num{0.451}.
+\end{itemize}
+\paragraph{\emph{Tight} \muonID} (exigence stricte)
+\begin{itemize}
+\item le muon est issu du \PF;
+\item le muon est reconstruit comme muon global;
+\item l'ajustement de la trajectoire vérifie $\chi^2/\Ndof<10$;
+\item les chambres à muon vérifient $\Nmdhits>0$ et $\Nms>1$;
+\item le trajectographe vérifie $\Npixelhits>0$ et $\Ntrkhits>5$;
+\item les paramètres d'impact du muon vis-à-vis du vertex primaire principal vérifient $d_{xy} < \SI{2}{\milli\meter}$ et $d_z<\SI{5}{\milli\meter}$.
+\end{itemize}
+
+\subsubsection{Isolation}\label{chapter-HTT_analysis-section-objects-muons-iso}
+Des muons peuvent être produits lors de la désintégration de quarks de saveur lourde.
+Ces désintégrations sont accompagnées de jets, comme exposé dans le chapitre~\ifref{chapter-JERC}{\ref{chapter-JERC}}{4}.
+Afin de réduire la contamination de l'analyse par ces muons, un critère d'isolation est appliqué.
+\par
+L'isolation d'un muon est quantifiée à partir des photons et des hadrons, neutres et chargés, situés dans un cône de rayon $R_\mu=\num{0.4}$ selon
+\begin{equation}
+I^{(\mu)}
+=
+\left.
+\sum_{\hadron^\pm,\text{PV}} \pT^{\hadron^\pm}
++
+\max\left(
+0
+,
+\sum_{\hadron^0}\ET^{\hadron^0}
++
+\sum_{\gamma}\ET^{\gamma}
+- \Delta\beta
+\sum_{\hadron^\pm,\text{PU}} \pT^{\hadron^\pm}
+\right)
+\right|_{\Delta R < R_\mu}
+\label{eq-muons-iso}
+\end{equation}
+où
+$\sum_{\hadron^\pm,\text{PV}} \pT^{\hadron^\pm}$ est la somme scalaire des impulsions transverses des hadrons chargés provenant du vertex primaire principal,
+$\sum_{\hadron^0}\ET^{\hadron^0}$ est la somme des énergies dans le plan transverse de tous les hadrons neutres,
+$\sum_{\gamma}\ET^{\gamma}$ est la somme des énergies dans le plan transverse de tous les photons,
+$\sum_{\hadron^\pm,\text{PU}} \pT^{\hadron^\pm}$  est la somme scalaire des impulsions transverses des hadrons chargés provenant de l'empilement et
+$\Delta\beta$ est une estimation du rapport entre particules neutres et particules chargées créées lors des collisions de protons.
+Le second terme de l'équation~\eqref{eq-muons-iso} permet ainsi d'estimer la contribution des particules neutres à l'isolation.
+La variable d'isolation ainsi construite est basse pour des particules isolées, haute pour des particules non isolées.
+Il est possible de définir l'isolation relative comme étant le rapport entre l'isolation et l'impulsion transverse de la particule,
+\begin{equation}
+I_\text{rel}^{i}
+=
+\frac{1}{\pT^{i}}
+I^{i}
+\mend
+\label{eq-muons-reliso}
+\end{equation}
