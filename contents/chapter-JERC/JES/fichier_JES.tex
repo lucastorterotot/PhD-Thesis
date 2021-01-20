@@ -147,9 +147,9 @@ Un tel jet comporte ainsi une signature similaire à un photon d'un événement 
 Une sélection des photons est appliquée afin de réduire le bruit de fond.
 La collaboration CMS propose des critères d'identification des photons (lâche, moyen et strict) s'appuyant sur diverses propriétés du \og candidat \fg{} photon:
 \begin{itemize}
-\item $H/E$ est le rapport de l'énergie hadronique sur l'énergie électromagnétique associées au photon.
+\item $H/E_{SC}$ est le rapport de l'énergie hadronique dans un cône de $\Delta R < \num{0.15}$ autour du photon sur l'énergie du \emph{supercluster}.
 Un photon est sensé déposer son énergie dans le ECAL et ne laisser aucun signal dans le HCAL.
-Une faible valeur de $H/E$ est donc compatible avec un photon.
+Une faible valeur de $H/E_{SC}$ est donc compatible avec un photon.
 \item $\sigma_{i\eta i\eta}$ est l'étalement en $\eta$ du dépôt d'énergie dans le ECAL.
 Cette observable est reliée à la forme de la gerbe électromagnétique.
 Un seuil maximal sur $\sigma_{i\eta i\eta}$ est imposé pour l'identification des photons.
@@ -167,7 +167,7 @@ avec
 $E_{3\times3}$ la somme des énergies dans les cristaux du ECAL formant un carré de trois cristaux de côté centré sur le cristal contenant le plus d'énergie dans le \emph{supercluster}, défini dans la section~\ifref{chapter-LHC-section-evt_reco-subsec-ptc_ID}{\ref{chapter-LHC-section-evt_reco-subsec-ptc_ID}}{4.2} du chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3}.
 et
 $E_{SC}$
-l'énergie dans le \emph{supercluster}~\cite{photon_ID_2015}.
+l'énergie du \emph{supercluster}~\cite{photon_ID_2015}.
 Dans l'analyse des événements \Gjets, il est demandé que $R_9 > \num{0.90}$.
 \par Les variables d'isolation sont corrigées afin de prendre en compte l'empilement.
 L'isolation corrigée $I^\text{corr}$ s'exprime ainsi en fonction de l'isolation $I$ comme
@@ -207,7 +207,7 @@ Région & Barillet & Bouchon & Barillet & Bouchon & Barillet & Bouchon\\
 Efficacité & \SI{90.08}{\%} & \SI{90.65}{\%} & \SI{80.29}{\%} & \SI{80.08}{\%} & \SI{70.24}{\%} & \SI{70.13}{\%} \\
 Réjection & \SI{86.25}{\%} & \SI{76.72}{\%} & \SI{89.36}{\%} & \SI{81.85}{\%} & \SI{90.97}{\%} & \SI{84.55}{\%} \\
 \midrule
-$H/E$ & \num{0.04596} & \num{0.0590} & \num{0.02197} & \num{0.0326} & \num{0.02148} & \num{0.0321} \\
+$H/E_{SC}$ & \num{0.04596} & \num{0.0590} & \num{0.02197} & \num{0.0326} & \num{0.02148} & \num{0.0321} \\
 $\sigma_{i\eta i\eta}$ & \num{0.0106} & \num{0.0272} & \num{0.01015} & \num{0.0272} & \num{0.00996} & \num{0.0271} \\
 $I_{CH}^\text{corr}$ & \num{1.694} & \num{2.089} & \num{1.141} & \num{1.051} & \num{0.65} & \num{0.517} \\
 \multirow{3}{*}{$I_{NH}^\text{corr} \!\!\!\hphantom{I_{\photon}^\text{corr}} \left\lbrace \begin{matrix} \vphantom{0} \\ \vphantom{0} \\ \vphantom{0} \end{matrix} \right. $} & $\num{24.032}$& $\num{19.722}$& $\num{1.189}$& $\num{2.718}$& $\num{0.317}$& $\num{2.716}$\\
