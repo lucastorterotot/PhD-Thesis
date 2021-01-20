@@ -1,2 +1,15 @@
 \subsection{Jets et \emph{\quarkb-tagging}}\label{chapter-HTT_analysis-section-objects-jets}
-
+Les événements sont répartis en différentes catégories d'après les différents mécanismes de production des bosons de Higgs.
+Cette catégorisation est détaillée dans la section~\ref{chapter-HTT_analysis-section-categorisation}.
+À cette fin, les jets présents dans l'événement sont exploités.
+\par
+Pour réduire la contamination par les jets issus de l'empilement, les hadrons chargés sont soumis à la procédure de \emph{pile-up Charged Hadron Subtraction} (CHS)~\cite{CMS-PAS-JME-14-001} décrite dans le chapitre~\ifref{chapter-JERC}{\ref{chapter-JERC}}{4}.
+Les jets utilisés sont ceux obtenus à partir des particules restantes à l'aide de l'algorithme anti-\kT~\cite{Cacciari_antikT} avec un paramètre $R=\num{0.4}$.
+\par
+Ces jets doivent également passer les critères d'identification discutés dans le chapitre~\ifref{chapter-JERC}{\ref{chapter-JERC}}{4}.
+De plus, afin d'exclure les électrons, muons et taus hadroniques de la liste des jets, il est requis que les jets soient distants du \emph{dilepton} de $\Delta R > \num{0.5}$.
+Le \emph{dilepton} est défini dans la section~\ref{chapter-HTT_analysis-section-selection}.
+Seuls les jets tels que $\pT > \SI{30}{\GeV}$ et $\abs{\eta}<\num{4.7}$ sont retenus.
+\par
+L'identification des jets issus de quarks~\quarkb\ (\quarkb-\emph{tagging}), l'algorithme \textsc{DeepJet}~\cite{DeepJet} est utilisé.
+Les jets tels que $\pT > \SI{20}{\GeV}$ et $\abs{\eta}<\num{2.4} (\num{2.5}))$ en 2016 (2017, 2018) sont considérés comme issus d'un \quarkb\ si leur score est supérieur à \num{0.3093} (2016), \num{0.3033} (2017) ou \num{0.2770} (2018).

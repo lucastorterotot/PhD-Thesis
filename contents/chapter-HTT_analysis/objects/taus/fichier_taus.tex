@@ -1,5 +1,100 @@
-\subsection{Taus}\label{chapter-HTT_analysis-section-objects-taus}
+\subsection{Taus hadroniques}\label{chapter-HTT_analysis-section-objects-taus}
 
-reconstruction \tauh~\cite{Khachatryan:2015dfa,Sirunyan:2018pgf}
-
-tauID \cite{TauPOG,CMS-DP-2019-033}
+\begin{wrapfigure}{R}{.45\textwidth}
+\centering
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/tau_decays/fgraph-tau_to_tauh-3prongs.tex}
+\vspace{\baselineskip}
+\caption{Diagramme de Feynman de désintégration hadronique d'un \leptau.}
+\label{fig-fgraph-tau_to_tauh}
+\end{wrapfigure}
+Lors d'une désintégration hadronique d'un lepton tau, une paire de quarks est émise.
+Il s'en suit donc un processus d'hadronisation, phénomène à l'origine de la formation des jets, ce qui est exposé dans le chapitre~\ifref{chapter-JERC}{\ref{chapter-JERC}}{4}.
+Du lepton tau résulte alors un ensemble de hadrons, comme illustré sur la figure~\ref{fig-fgraph-tau_to_tauh}.
+Ces hadrons, en général trois ou moins, sont éventuellement accompagnés de particules neutres, principalement des \pionnull.
+Ces derniers se désintégrant majoritairement en deux photons.
+L'ensemble de ces particule forme un \og tau hadronique \fg, noté \tauh, et est initialement identifié comme un jet.
+L'identification des taus hadroniques est réalisée par l'algorithme \emph{Hadrons Plus Strips} (HPS)~\cite{Khachatryan:2015dfa,Sirunyan:2018pgf} à partir des jets reconstruits par l'algorithme de \PF\ vérifiant $\pT>\SI{14}{\GeV}$ et $\abs{\eta}<\num{2.5}$.
+\subsubsection{Obtention d'un candidat tau hadronique}
+Les hadrons chargés contenus dans le jet initial tels que $\pT>\SI{0.5}{\GeV}$ et de paramètre d'impact transverse $d_{xy}<\SI{0.1}{\centi\meter}$ vis-à-vis du vertex primaire principal sont utilisés pour former un \tauh.
+\par
+Afin d'identifier les dépôts d'énergie dans le ECAL dus aux \pionnull, les photons et les électrons contenus dans le jet initial sont regroupés en bandes (\emph{strips}).
+La construction d'une bande est un procédé itératif:
+\begin{enumerate}
+\item Une bande est créée à partir de l'électron ou du photon ($\ele/\photon$) de plus haut \pT\ contenu dans le jet initial et n'ayant pas déjà été associé à une bande. La position de cette particule dans le plan $(\eta,\phi)$, ainsi que son \pT, sont associés à la bande.
+\item L'électron ou photon de plus haut \pT\ restant est ajouté à la bande s'il est situé à une distance par rapport à la bande dans le plan $(\eta,\phi)$ telle que
+\begin{align}
+\Delta\eta < f\left(\pT^{(\ele/\photon)}\right) + f\left(\pT^\text{bande}\right) \msep& f(\pT) = \num{0.20} (\pT [\SI{}{\GeV}])^{-\num{0.66}}\\
+\Delta\phi < g\left(\pT^{(\ele/\photon)}\right) + g\left(\pT^\text{bande}\right) \msep& g(\pT) = \num{0.35} (\pT [\SI{}{\GeV}])^{-\num{0.71}}
+\end{align}
+avec $\pT^{(\ele/\photon)}$ l'impulsion transverse de l'électron ou du photon à ajouter à la bande et $\pT^\text{bande}$ l'impulsion transverse associée à la bande avant ajout de l'électron ou du photon.\\
+Si l'ajout se fait, la bande est mise à jour selon
+\begin{align}
+\pT^\text{bande} &= \sum_{\ele/\photon\in\text{bande}}\pT^{(\ele/\photon)}\mend[,]\\
+\eta^\text{bande} &= \frac{1}{\pT^\text{bande}} \sum_{\ele/\photon\in\text{bande}}\pT^{(\ele/\photon)} \eta_{(\ele/\photon)}\mend[,]\\
+\phi^\text{bande} &= \frac{1}{\pT^\text{bande}} \sum_{\ele/\photon\in\text{bande}}\pT^{(\ele/\photon)} \phi_{(\ele/\photon)}\mend[,]
+\end{align}
+ce qui rend la bande dynamique lors de sa construction.
+Les dimensions de la bande sont limitées à $\num{0.05}<\Delta\eta<\num{0.15}$ et $\num{0.05}<\Delta\phi<\num{0.3}$.
+\item L'étape précédente est répétée jusqu'à ce qu'une limite de taille de la bande soit atteinte ou qu'il ne reste plus d'électron ni de photon tels que $\pT>\SI{0.5}{\GeV}$ dans la zone de la bande.
+\item Les éléments associés à la bande sont retirés de la liste des électrons et photons en attente d'association à une bande.
+\item Le procédé reprend à l'étape 1.
+\end{enumerate}
+Toute bande vérifiant $\pT>\SI{2.5}{\GeV}$ est considérée comme un candidat \pionnull.
+\par
+Des candidats \tauh\ compatibles avec un des modes de désintégration hadronique du tau sont ainsi formés à partir de toutes les combinaisons possibles de hadrons chargés et de candidat \pionnull.
+\subsubsection{Modes de désintégration hadronique du tau}
+Les modes de désintégration (\emph{Decay Modes}, DM) considérés dans l'analyse sont ainsi listé dans le tableau~\ref{tab-tauh-DMs}.
+À chaque DM correspond une valeur afin de le désigner, définie comme
+\begin{equation}
+\text{DM} = 5\times(N_{\hadronpm}-1) - N_{\pionnull}
+\end{equation}
+où $N_{\hadronpm}$ est le nombre de hadrons chargés et $N_{\pionnull}$ le nombre de \pionnull\ contenus dans le \tauh.
+Lorsqu'un des hadrons chargés n'est pas reconstruit, il est possible d'obtenir les DM 5, 6 ou 7.
+Ces cas de figure sont largement contaminés par le bruit de fond \og QCD multijet \fg, il sont donc rejetés dans l'analyse.
+\begin{table}[h]
+\centering
+\begin{tabular}{clc}
+\toprule
+Code & Mode de désintégration & \BR{} (\SI{}{\%})\\
+\midrule
+0 & $\leptau\to \hadronminus \antinutau$ & \num{11.51} \\
+1 & $\leptau\to \hadronminus \pionnull \antinutau$ & \num{25.93} \\
+2 & $\leptau\to \hadronminus \pionnull\pionnull \antinutau$ & \num{9.48} \\
+10 & $\leptau\to \hadronminus \hadronminus\hadronplus \antinutau$ & \num{9.80} \\
+11 & $\leptau\to \hadronminus \hadronminus\hadronplus\pionnull\antinutau$ & \num{4.76} \\
+\bottomrule
+\end{tabular}
+\caption[Modes de désintégration du \tau\ considérés.]{Modes de désintégration du \tau\ considérés. La désintégration d'un \leptau\ correspondant au DM, ainsi que le rapport de branchement $\leptau\to\tauh^-$ correspondant~\cite{PDG_booklet_2020} sont également donnés.}
+\label{tab-tauh-DMs}
+\end{table}
+\par
+Certains DM présentent des contraintes supplémentaires sur la masse du \tauh:
+\begin{align*}
+\text{DM 1:} && \SI{0.3}{\GeV} < m_{\tauh} < \num{1.3}\sqrt{\frac{\pT[\SI{}{\GeV}]}{100}} \SI{}{\GeV}\mend[,]\\
+\text{DM 2:} && \SI{0.4}{\GeV} < m_{\tauh} < \num{1.2}\sqrt{\frac{\pT[\SI{}{\GeV}]}{100}} \SI{}{\GeV}\mend[,]\\
+\text{DM 10 et 11:} && \SI{0.8}{\GeV} < m_{\tauh} < \SI{1.5}{\GeV}\mend[,]\\
+\end{align*}
+et, dans le cas du DM 10, les traces des hadrons chargés doivent provenir du même vertex dans la limite de $\Delta z < \SI{0.4}{\centi\meter}$.
+\subsubsection{Sélection d'un candidat \tauh}
+Il est possible d'obtenir plusieurs candidats \tauh\ au sein d'un même jet.
+Des critères de qualité sur les candidats leur sont alors imposés.
+\par
+Par conservation, la somme des charges électriques des hadrons contenus dans le candidat \tauh\ doit valoir $\pm1$.
+Ces hadrons chargés doivent de plus être contenus dans le cône dit \og de signal \fg{} défini et contraint selon
+\begin{equation}
+\Delta R_\text{sig} = \frac{\SI{3}{\GeV}}{\pT^{(\tauh)}}
+\msep
+\num{0.05} < \Delta R_\text{sig} < \num{0.1}
+\mend
+\end{equation}
+Les centres des bandes du candidat \tauh\ doivent également se situer dans ce cône.
+S'il reste plusieurs candidats à ce stade, celui de plus haut \pT\ est retenu.
+Il existe donc au plus un \tauh\ par jet.
+\subsubsection{Mauvaises reconstruction de \tauh}
+Un \tauh\ peut être reconstruit à partir de jets n'étant pas des \tauh, d'électrons ou de muons.
+Afin de réduire la quantité de mauvais \tauh, un réseau de neurones profond convolutionnel (DNN)~\cite{DNN} a été développé à CMS~\cite{CMS-DP-2019-033}.
+Il fournit les discriminateurs
+\texttt{deepTau vs jet},
+\texttt{deepTau anti-electron} et
+\texttt{deepTau anti-muon},
+utilisés dans cette analyse.
