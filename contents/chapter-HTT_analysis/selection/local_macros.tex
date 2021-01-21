@@ -40,8 +40,18 @@ Ce critère est appliqué de manière cohérente dans les données réelles, sim
 \newcommand{\TransverseMassWjetsFootnote}{\footnote{\TransverseMassWjetsFootnoteTXT}}
 \newcommand{\TransverseMassWjetsFootnoteTXT}{Cette coupure permet de s'assurer que la région de signal soit orthogonale à la région de détermination des facteurs de faux des événements $\Wboson+\text{jets}$. Les facteurs de faux sont abordés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.}
 
-\newcommand{\TransverseMassWjets}[2][]{La masse transverse \mT\ #2 et de l'énergie transverse manquante doit vérifier $\mT < \SI{70}{\GeV}$\ifthenelse{\equal{#1}{footnote}}{\TransverseMassWjetsFootnote}.}
-\renewcommand{\TransverseMassWjets}[2][]{La masse transverse \mT\ #2 et de l'énergie transverse manquante doit vérifier $\mT < \SI{70}{\GeV}$. \TransverseMassWjetsFootnoteTXT}
+\newcommand{\TransverseMassWjets}[4][]{La masse transverse #2, définie par
+\begin{equation}
+\mT^{(#3)} = \sqrt{2 \, \pT^{(#3)} \, \MET \, (1-\cos\Delta\phi)} \label{eq-mT_def-#4}
+\end{equation}
+avec $\Delta\phi = \phi^{(#3)} - \phi^{(\MET)}$
+doit vérifier $\mT < \SI{70}{\GeV}$\ifthenelse{\equal{#1}{footnote}}{\TransverseMassWjetsFootnote}.}
+\renewcommand{\TransverseMassWjets}[4][]{La masse transverse #2, définie par
+\begin{equation}
+\mT^{(#3)} = \sqrt{2 \, \pT^{(#3)} \, \MET \, (1-\cos\Delta\phi)}
+\end{equation}
+avec $\Delta\phi = \phi^{(#3)} - \phi^{\MET}$
+doit vérifier $\mT < \SI{70}{\GeV}$. \TransverseMassWjetsFootnoteTXT}
 
 \newcommand{\LeptonVetoes}{Les vetos de leptons supplémentaires doivent être respectés, \ie\ que l'événement ne contient pas:}
 
