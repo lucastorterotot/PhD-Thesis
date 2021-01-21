@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+\def\gwidth{5}
+\def\gheight{\gwidth}
+
+\draw [thick, -latex] (0,0) --+ (0, \gheight + 0.5) node [right] {\mCutForCategories\ (\SI{}{\GeV})};
+
+\fill [ltcolorblue1] (0,0) rectangle (\gwidth, \gheight);
+\fill [ltcolorred1] (0,0) rectangle (\gwidth/2, \gheight/2);
+\draw [ultra thick] (0,0) rectangle (\gwidth, \gheight);
+\draw [thick] (\gwidth/2, 0) --+ (0, \gheight);
+\draw [thick] (0, \gheight/2) --+ (\gwidth/2, 0);
+
+\draw (\gwidth/4, 0) node [below] {$\Nbtag = 0$};
+\draw ({3*\gwidth/4}, 0) node [below] {$\Nbtag \geq 1$};
+
+\draw (0,0) node [left] {\num{0}};
+\draw (0,\gheight/2) node [left] {\num{250}};
+\draw (0,\gheight) node [left] {$\infty$};
+
+\draw (\gwidth/4, \gheight/4) node {\og SM \fg{}};
+\draw (\gwidth/4, {3*\gheight/4}) node {\og BSM \fg{}};
+\draw ({3*\gwidth/4}, \gheight/2) node {\og BSM \fg{}};
+\end{tikzpicture}
