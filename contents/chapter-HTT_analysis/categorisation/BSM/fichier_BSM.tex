@@ -1,2 +1,24 @@
 \subsection{Région \og BSM \fg{}}\label{chapter-HTT_analysis-section-categorisation-BSM}
 Les catégories BSM, introduites dans la référence~\cite{CMS-PAS-HIG-17-020}, sont construites dans le but de chercher une résonance correspondant à un boson de Higgs lourd.
+Les coupures présentées dans cette section sont appliquées en plus des coupures permettant de séparer les régions SM et BSM.
+\par
+Une première catégorisation est basée sur la présence de jets issus de quarks~\quarkb.
+Deux catégories sont ainsi définies:
+\begin{itemize}
+\item \CATnobtag: $\Nbtag =0$;
+\item \CATbtag: $\Nbtag\geq1$.
+\end{itemize}
+Dans le cas des canaux \mu\tauh, \ele\tauh\ et \ele\mu, chacune de ces deux catégories est à nouveau subdivisée.
+\paragraph{Canaux \mu\tauh\ et \ele\tauh}
+Dans ces deux canaux, la masse transverse de $L_1$ (le muon ou l'électron, notés $\ell$) définie par
+\begin{equation}
+\mT^{(\ell)} = \sqrt{2 \, \pT^{(\ell)} \, \MET \, (1-\cos\Delta\phi)} \label{eq-mT_def-ell}
+\end{equation}
+avec $\Delta\phi = \phi^{(\ell)} - \phi^{(\MET)}$
+et utilisée afin de définir deux catégories:
+\begin{itemize}
+\item \CATtightmt: $\mT^{(\ell)} < \SI{40}{\GeV}$;
+\item \CATloosemt: $\SI{40}{\GeV} \leq \mT^{(\ell)} < \SI{70}{\GeV}$;
+\end{itemize}
+la limite haute sur \mT\ pour la catégorie \CATloosemt\ étant appliquée afin de s'assurer que la région de signal soit orthogonale à la région de détermination des facteurs de faux des événements $\Wboson+\text{jets}$. Les facteurs de faux sont abordés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
+\paragraph{Canal \ele\mu}
