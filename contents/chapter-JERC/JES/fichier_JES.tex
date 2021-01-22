@@ -264,12 +264,12 @@ Ces régions sont résumées sur la figure~\ref{fig-hotjets2017UL}.
 Comme expliqué dans la section~\ifref{chapter-LHC-section-CMS-subsec-data_taking}{\ref{chapter-LHC-section-CMS-subsec-data_taking}}{4.7} du chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3}, un événement observé par le détecteur CMS est sauvegardé si un chemin de déclenchement (HLT \emph{path}) est activé.
 Dans cette analyse, seuls les événements dont le photon servant d'objet de référence pour la calibration des jets correspond au photon ayant activé le \HLTpath\ pour cet événement sont retenus.
 Or, plus l'impulsion transverse du photon est faible, plus le nombre d'événements pouvant être sauvegardés est importante, si bien que la chaîne d'acquisition arrive à saturation.
-Pour pallier à cette saturation, il existe différents chemins de déclenchement en fonction de l'impulsion transverse du photon et pour chacun d'entre eux, seule une fraction des événements les déclenchant est effectivement sauvegardée.
+Pour pallier à cette saturation, il existe différents \HLTpaths\ en fonction de l'impulsion transverse du photon et pour chacun d'entre eux, seule une fraction des événements les déclenchant est effectivement sauvegardée.
 Cette fraction est nommée \emph{prescale}.
 À chaque \HLTpath\ correspond ainsi un \emph{prescale}.
 Un intervalle d'impulsion transverse du photon retenu est alors défini pour chaque \HLTpath\ utilisé.
 Cet intervalle permet de se placer au plateau d'efficacité du \HLTpath.
-Les différents chemins de déclenchement, leurs \emph{prescales} et intervalles d'impulsion transverse sont présentés dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}.
+Les différents \HLTpaths, leurs \emph{prescales} et intervalles d'impulsion transverse sont présentés dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}.
 Par exemple, un photon d'impulsion transverse \SI{95}{\GeV} doit avoir déclenché le chemin nommé \inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM}.
 \begin{table}[h]
 \centering
@@ -293,14 +293,14 @@ Par exemple, un photon d'impulsion transverse \SI{95}{\GeV} doit avoir déclench
 \inlinecode{python}{HLT_Photon200} & $[\num{230}, +\infty [$ & \num{1} & \num{1} \\
 \bottomrule
 \end{tabular}
-\caption[Chemins de déclenchement.]{Chemins de déclenchement, intervalles d'impulsion transverse du photon et \emph{prescales} utilisés.}
+\caption[Chemins de déclenchement.]{\HLTpaths, intervalles d'impulsion transverse du photon et \emph{prescales} utilisés.}
 \label{tab-HLT_pT_precales_18_and_17UL}
 \end{table}
 \subsection{Analyse}\label{chapter-JERC-section-JES-subsec-analyse}
 \paragraph{Intervalles de $\pT^{\photon}$}
 L'analyse a pour but de déterminer la correction résiduelle absolue en \pT\ des jets, définie dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals}.
 Pour cela, l'écart à l'unité du rapport moyen des réponses des jets dans les données et les simulations est déterminé dans différents intervalles de $\pT^{\photon}$, listés dans le tableau~\ref{tab-pT_photon_intervalles}.
-Ils sont une subdivision des intervalles définis pour les \HLTpaths\ dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}, ce qui permet de séparer le traitement des événements correspondant à différents chemins de déclenchement.
+Ils sont une subdivision des intervalles définis pour les \HLTpaths\ dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}, ce qui permet de séparer le traitement des événements correspondant à différents \HLTpaths.
 \begin{table}[h]
 \centering
 \begin{tabular}{cccc}
