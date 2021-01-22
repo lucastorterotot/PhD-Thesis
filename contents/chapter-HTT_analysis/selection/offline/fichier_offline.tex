@@ -74,7 +74,7 @@ Les taus hadroniques ne sont considérés comme correspondant aux objets HLT qu'
 \paragraph{Sélection des muons}
 \AllSatisfyingFollowing{muon}{$L_1$}:
 \begin{itemize}
-    \item $\pT^{\mu} > \num{23} \, (\num{25}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018) et corresponde à l'objet HLT du \HLTpath\ \HLTSingleMu{} ou $\num{20 (21)} < \pT^{\mu} \leq \num{23} \, (\num{25}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018) et corresponde à l'objet HLT de type muon du \HLTpath\ \HLTMuTauCross{};
+    \item $\pT^{\mu} > \num{23} \, (\num{25}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018) et correspondre à l'objet HLT du \HLTpath\ \HLTSingleMu{} ou $\num{20} \, (\num{21}) < \pT^{\mu} \leq \num{23} \, (\num{25}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018) et correspondre à l'objet HLT de type muon du \HLTpath\ \HLTMuTauCross{};
     \item $\abs{\eta^{\mu}} < \num{2.1}$;
     \item \Leptondzdxy;
     \item \RelIsoBelow{\mu}{0.15};
@@ -107,7 +107,7 @@ Deux \HLTregionsDefined:
     \item haut \pT: $\pT^{\tauh} > \num{120} \, (\num{180}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018).
         Une combinaison logique \og ou \fg{} des \HLTpaths\ \HLTSingleMu{} et \HLTSingleTau{} est considérée.
 \end{itemize}
-Dans le cas de l'utilisation du \HLTpath\ \HLTSingleTau{}, le tau hadronique doit de plus:
+Dans le cas de l'utilisation du \HLTpath\ \HLTMuTauCross{}, le tau hadronique doit de plus:
 \begin{itemize}
     \item correspondre à l'objet HLT;
     \item $\pT^{\tauh} > \num{25} \, (\num{32}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018).
@@ -126,7 +126,7 @@ Dans le cas de l'utilisation du \HLTpath\ \HLTSingleTau{}, le tau hadronique doi
 \paragraph{Sélection des électrons}
 \AllSatisfyingFollowing{électron}{$L_1$}:
 \begin{itemize}
-    \item $\pT^{\ele} > \SI{26}{\GeV}$ en 2016, \num{28} en 2017 et \num{33} en 2018 et corresponde à l'objet HLT du \HLTpath\ \HLTSingleEle{} ou $\pT^{\ele} > \SI{25}{\GeV}$ et la valeur précédente et corresponde à l'objet HLT de type électron du \HLTpath\ \HLTEleTauCross{};
+    \item $\pT^{\ele} > \SI{26}{\GeV}$ en 2016, \num{28} en 2017 et \num{33} en 2018 et correspondre à l'objet HLT du \HLTpath\ \HLTSingleEle{} ou $\pT^{\ele}$ entre $\SI{25}{\GeV}$ et la valeur précédente et correspondre à l'objet HLT de type électron du \HLTpath\ \HLTEleTauCross{};
     \item $\abs{\eta^{\ele}} < \num{2.1}$;
     \item \Leptondzdxy;
     \item \RelIsoBelow{\ele}{0.15};
@@ -155,11 +155,11 @@ L'électron et le tau hadronique \FromPairMatchToHLTObjects{}
 Deux \HLTregionsDefined:
 \begin{itemize}
     \item bas \pT: $\pT^{\tauh} < \num{120} \, (\num{180}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018).
-        Une combinaison logique \og ou \fg{} des \HLTpaths\ \HLTSingleEle{} et \HLTMuTauCross{} est considérée;
+        Une combinaison logique \og ou \fg{} des \HLTpaths\ \HLTSingleEle{} et \HLTEleTauCross{} est considérée;
     \item haut \pT: $\pT^{\tauh} > \num{120} \, (\num{180}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018).
         Une combinaison logique \og ou \fg{} des \HLTpaths\ \HLTSingleEle{} et \HLTSingleTau{} est considérée.
 \end{itemize}
-Dans le cas de l'utilisation du \HLTpath\ \HLTSingleTau{}, le tau hadronique doit de plus:
+Dans le cas de l'utilisation du \HLTpath\ \HLTEleTauCross{}, le tau hadronique doit de plus:
 \begin{itemize}
     \item correspondre à l'objet HLT;
     \item vérifier $\pT^{\tauh} > \num{25} \, (\num{35}) \usp \SI{}{\GeV}{\GeV}$ en 2016 (2017, 2018);
