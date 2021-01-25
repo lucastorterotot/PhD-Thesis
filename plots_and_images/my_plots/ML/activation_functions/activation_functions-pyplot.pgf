@@ -6882,7 +6882,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=4.468922in,y=1.433924in,,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont SeLU}%
+\pgftext[x=4.468922in,y=1.433924in,,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont SELU}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%

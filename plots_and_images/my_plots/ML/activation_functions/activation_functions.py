@@ -11,7 +11,7 @@ x = np.arange(-5,5.01,0.01)
 linear = lt.ltPlotFct(x, x, label="Linear", color='C0')
 relu = lt.ltPlotFct(x, (x+abs(x))/2, label="ReLU", color='C0')
 elu = lt.ltPlotFct(x, (x+abs(x))/2 + (np.exp(x)-1)*(1-np.sign(x))/2, label="ELU", color='C0')
-selu = lt.ltPlotFct(x, 1.05070098*(x+abs(x))/2 + 1.05070098*1.67326324*(np.exp(x)-1)*(1-np.sign(x))/2, label="SeLU", color='C0')
+selu = lt.ltPlotFct(x, 1.05070098*(x+abs(x))/2 + 1.05070098*1.67326324*(np.exp(x)-1)*(1-np.sign(x))/2, label="SELU", color='C0')
 sigmoid = lt.ltPlotFct(x, 1/(1+np.exp(-x)), label="Sigmoïd", color='C0')
 tanh = lt.ltPlotFct(x, np.tanh(x), label="Tanh", color='C0')
 
