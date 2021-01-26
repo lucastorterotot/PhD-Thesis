@@ -1,0 +1,39 @@
+\begin{fmffile}{H-tautau_mutau_small}\fmfstraight
+\begin{fmfchar*}(50,25)
+  \fmfleft{a,g1,b,c,g2,d}
+  \fmfright{nu1,upq,doq,muout,antinumu,nu2}
+  
+  \fmf{gluon}{g1,g1loop}
+  \fmf{gluon}{g2,g2loop}
+  \fmf{phantom, tension=.2}{g1loop,upq}
+  \fmf{phantom, tension=.2}{g2loop,antinumu}
+  \fmffreeze
+  \fmf{fermion}{g1loop,hloop,g2loop,g1loop}
+  \fmf{fermion}{g2loop,g1loop}
+  \fmf{dashes, label=$\Hn$, l.side=left, tension=1}{hloop,v}
+  \fmf{phantom, tension=.2}{nu1,v,nu2}
+  \fmffreeze
+  
+  \fmf{fermion, label=$\antitau$, l.side=left, tension=4}{t1d,v}
+  \fmf{fermion, label=$\leptau$, l.side=left, tension=4}{v,t2d}
+  \fmf{fermion, tension=3}{nu1,t1d}
+  \fmf{boson, l.side=left, tension=2}{t1d,W1d}
+  \fmf{phantom}{doq,W1d,upq}
+  \fmf{fermion, tension=3}{t2d,nu2}
+  \fmf{boson, tension=2}{t2d,W2d}
+  \fmf{fermion}{antinumu,W2d,muout}
+  \fmffreeze
+  \fmf{plain}{W1d,upq}
+  
+  \fmflabel{\gluon}{g1}
+  \fmflabel{\gluon}{g2}
+  
+  \fmflabel{{\color{ltcolorgray2}$\antinutau$}}{nu1}
+  \fmflabel{{\color{ltcolorgray2}$\nutau$}}{nu2}
+  \fmflabel{{\color{\muoncolor}$\muon$}}{muout}
+  \fmflabel{{\color{ltcolorgray2}$\antinumu$}}{antinumu}
+  \fmflabel{{\color{\tauhcolor}$\tauh$}}{upq}
+  \fmfdot{g1loop,hloop,g2loop,v,t1d,t2d,W2d}
+  \fmfblob{.07w}{W1d}
+\end{fmfchar*}
+\end{fmffile}

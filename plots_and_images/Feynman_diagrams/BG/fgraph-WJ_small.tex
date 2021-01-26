@@ -1,0 +1,27 @@
+\begin{fmffile}{WJ_small}\fmfstraight
+\begin{fmfchar*}(50,25)
+  \fmfleft{a,g1,b,c,g2,d}
+  \fmfright{nu1,upq,doq,muout,antinumu,nu2}
+  
+  
+  \fmf{fermion}{g1,v1,v2,g2}
+  \fmf{phantom, tension=.5}{v1,upq}
+  \fmf{phantom, tension=.5}{v2,antinumu}
+  \fmffreeze
+  
+  \fmf{gluon}{v1,W1d}
+  \fmf{plain}{W1d,upq}
+  
+  \fmf{boson, label=$\Wboson$, l.side=left}{v2,W2d}
+  \fmf{fermion, tension=.5}{antinumu,W2d,muout}
+  
+  \fmflabel{\quark}{g1}
+  \fmflabel{\antiquark}{g2}
+  
+  \fmflabel{{\color{\muoncolor}$\muon$}}{muout}
+  \fmflabel{{\color{ltcolorgray2}$\antinumu$}}{antinumu}
+  \fmflabel{{\color{\jetcolor}jet}}{upq}
+  \fmfdot{v1,v2,W2d}
+  \fmfblob{.07w}{W1d}
+\end{fmfchar*}
+\end{fmffile}

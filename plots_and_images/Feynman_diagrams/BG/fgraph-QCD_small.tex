@@ -1,0 +1,31 @@
+\begin{fmffile}{QCD_small}\fmfstraight
+\begin{fmfchar*}(50,25)
+  \fmfleft{a,g1,b,c,g2,d}
+  \fmfright{nu1,upq,doq,muout,antinumu,nu2}
+  
+  \fmf{gluon}{g1,v3}
+  \fmf{gluon}{g2,v4}
+%  \fmf{gluon}{v1,v2}
+%  \fmf{gluon}{v1,v3}
+%  \fmf{gluon}{v2,v4}
+  \fmf{fermion}{v3,v4,v6,v5,v3}
+  \fmf{phantom}{v5,upq}
+  \fmf{phantom}{v6,antinumu}
+
+  \fmffreeze
+  
+  \fmf{gluon}{v6,v7}
+  \fmf{plain}{v7,antinumu}
+  
+  \fmf{gluon}{v5,v8}
+  \fmf{plain}{v8,upq}
+  
+  \fmflabel{\gluon}{g1}
+  \fmflabel{\gluon}{g2}
+
+  \fmflabel{{\color{\jetcolor}jet}}{upq}
+  \fmflabel{{\color{\jetcolor}jet}}{antinumu}
+  \fmfdot{v3,v4,v5,v6}
+  \fmfblob{.07w}{v7,v8}
+\end{fmfchar*}
+\end{fmffile}
