@@ -92,9 +92,27 @@ S'il reste plusieurs candidats à ce stade, celui de plus haut \pT\ est retenu.
 Il existe donc au plus un \tauh\ par jet.
 \subsubsection{Mauvaises reconstruction de \tauh}
 Un \tauh\ peut être reconstruit à partir de jets n'étant pas des \tauh, d'électrons ou de muons.
-Afin de réduire la quantité de mauvais \tauh, un réseau de neurones profond convolutionnel (DNN)~\cite{DNN} a été développé à CMS~\cite{CMS-DP-2019-033}.
-Il fournit les discriminateurs
+Afin de réduire la quantité de mauvais \tauh\ (\emph{fake} \tauh), un réseau de neurones profond convolutionnel (DNN)~\cite{DNN} a été développé à CMS.
+Il s'agit de l'algorithme \DEEPTAU~\cite{CMS-DP-2019-033} qui fournit les discriminateurs
 \texttt{deepTau vs jet},
 \texttt{deepTau anti-electron} et
-\texttt{deepTau anti-muon},
+\texttt{deepTau anti-muon}
 utilisés dans cette analyse.
+\par
+Les points de fonctionnement utilisés pour chacun de ces discriminateurs dépendent de l'état final, comme présenté dans la section~\ref{chapter-HTT_analysis-section-selection}.
+Les efficacités d'identification de chacun des points de fonctionnement existants sont donnés dans le tableau~\ref{tab-HTT_analysis-section-objects-taus-DEEPTAU_eff}.
+Les taux d'identification de jet, électron ou muon comme étant un \tauh, \ie\ les faux positifs, dépendent de la nature des événements sur lesquels ces discriminateurs sont appliqués et se situent entre \num{e-4} et \num{e-2}.
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccccccc}
+\toprule
+Discriminateur & \emph{VVTight} & \emph{VTight} & \emph{Tight} & \emph{Medium} & \emph{Loose} & \emph{VLoose} & \emph{VVLoose} & \emph{VVVLoose}\\
+\midrule
+\texttt{vs jet} & \num{40} & \num{50} & \num{60} & \num{70} & \num{80} & \num{90} & \num{95} & \num{98} \\
+\texttt{anti-electron} & \num{60} & \num{70} & \num{80} & \num{90} & \num{95} & \num{98} & \num{99} & \num{99.5} \\
+\texttt{anti-muon} & - & - & \num{99.5} & \num{99.8} & \num{99.9} & \num{99.95} & - & - \\
+\bottomrule
+\end{tabular}
+\caption[Efficacités d'identification de l'algorithme \DEEPTAU.]{Efficacités d'identification en \SI{}{\%} de l'algorithme \DEEPTAU\ pour chacun des points de fonctionnement disponibles~\cite{CMS-DP-2019-033,Androsov_deeptau}.}
+\label{tab-HTT_analysis-section-objects-taus-DEEPTAU_eff}
+\end{table}
