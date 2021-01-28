@@ -95,12 +95,18 @@ $\abs{\eta} > \num{2.4}$ & \num{0.1654} \\
 \label{tab-electron-effective_areas}
 \end{wraptable}
 \par
-L'isolation d'un électron est quantifiée à partir des photons et des hadrons, neutres et chargés, situés dans un cône de rayon $R_\ele=\num{0.3}$ selon
+L'isolation d'un électron est quantifiée à partir des particules situées dans un cône de rayon
+\begin{equation}
+\Delta R = \sqrt{\Delta\eta^2+\Delta\phi^2} < R_\ele=\num{0.3}
+\end{equation}
+autour de la direction de l'électron au niveau du vertex primaire principal,
+avec $\Delta\eta$ et $\Delta\phi$ les distances angulaires des particules à l'électron dans les directions $\eta$ et $\phi$,
+selon
 \begin{equation}
 I^{(\ele)}
 =
 \left.
-\sum_{\hadron^\pm,\text{PV}} \pT^{\hadron^\pm}
+\sum_{\text{ch},\text{PV}} \pT^{\text{ch}}
 +
 \max\left(
 0
@@ -114,7 +120,7 @@ I^{(\ele)}
 \label{eq-electrons-iso}
 \end{equation}
 où
-$\sum_{\hadron^\pm,\text{PV}} \pT^{\hadron^\pm}$ est la somme scalaire des impulsions transverses des hadrons chargés provenant du vertex primaire principal,
+$\sum_{\text{ch},\text{PV}} \pT^{\text{ch}}$ est la somme scalaire des impulsions transverses des particules chargées provenant du vertex primaire principal à l'exception de cet électron,
 $\sum_{\hadron^0}\ET^{\hadron^0}$ est la somme des énergies dans le plan transverse de tous les hadrons neutres,
 $\sum_{\gamma}\ET^{\gamma}$ est la somme des énergies dans le plan transverse de tous les photons,
 $\rho$ est la densité d'énergie issue de l'empilement dans l'événement et

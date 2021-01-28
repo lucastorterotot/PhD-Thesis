@@ -54,12 +54,18 @@ Des muons peuvent être produits lors de la désintégration de quarks de saveur
 Ces désintégrations sont accompagnées de jets, comme exposé dans le chapitre~\ifref{chapter-JERC}{\ref{chapter-JERC}}{4}.
 Afin de réduire la contamination de l'analyse par ces muons, un critère d'isolation est appliqué.
 \par
-L'isolation d'un muon est quantifiée à partir des photons et des hadrons, neutres et chargés, situés dans un cône de rayon $R_\mu=\num{0.4}$ selon
+L'isolation d'un muon est quantifiée à partir des particules situées dans un cône de rayon
+\begin{equation}
+\Delta R = \sqrt{\Delta\eta^2+\Delta\phi^2} < R_\mu=\num{0.4}
+\end{equation}
+autour de la direction du muon au niveau du vertex primaire principal,
+avec $\Delta\eta$ et $\Delta\phi$ les distances angulaires des particules au muon dans les directions $\eta$ et $\phi$,
+selon
 \begin{equation}
 I^{(\mu)}
 =
 \left.
-\sum_{\hadron^\pm,\text{PV}} \pT^{\hadron^\pm}
+\sum_{\text{ch},\text{PV}} \pT^{\text{ch}}
 +
 \max\left(
 0
@@ -68,16 +74,16 @@ I^{(\mu)}
 +
 \sum_{\gamma}\ET^{\gamma}
 - \Delta\beta
-\sum_{\hadron^\pm,\text{PU}} \pT^{\hadron^\pm}
+\sum_{\text{ch},\text{PU}} \pT^{\text{ch}}
 \right)
 \right|_{\Delta R < R_\mu}
 \label{eq-muons-iso}
 \end{equation}
 où
-$\sum_{\hadron^\pm,\text{PV}} \pT^{\hadron^\pm}$ est la somme scalaire des impulsions transverses des hadrons chargés provenant du vertex primaire principal,
+$\sum_{\text{ch},\text{PV}} \pT^{\text{ch}}$ est la somme scalaire des impulsions transverses des particules chargées provenant du vertex primaire principal à l'exception de ce muon,
 $\sum_{\hadron^0}\ET^{\hadron^0}$ est la somme des énergies dans le plan transverse de tous les hadrons neutres,
 $\sum_{\gamma}\ET^{\gamma}$ est la somme des énergies dans le plan transverse de tous les photons,
-$\sum_{\hadron^\pm,\text{PU}} \pT^{\hadron^\pm}$  est la somme scalaire des impulsions transverses des hadrons chargés provenant de l'empilement et
+$\sum_{\text{ch},\text{PU}} \pT^{\text{ch}}$ est la somme scalaire des impulsions transverses des particules chargées provenant de l'empilement et
 $\Delta\beta$ est une estimation du rapport entre particules neutres et particules chargées créées lors des collisions de protons.
 Le second terme de l'équation~\eqref{eq-muons-iso} permet ainsi d'estimer la contribution des particules neutres à l'isolation.
 La variable d'isolation ainsi construite est basse pour des particules isolées, haute pour des particules non isolées.
