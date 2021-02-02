@@ -21,4 +21,54 @@ est utilisée afin de définir deux catégories:
 \item \CATloosemt: $\SI{40}{\GeV} \leq \mT^{(\ell)} < \SI{70}{\GeV}$;
 \end{itemize}
 la limite haute sur \mT\ pour la catégorie \CATloosemt\ étant appliquée afin de s'assurer que la région de signal soit orthogonale à la région de détermination des facteurs de faux des événements $\Wboson+\text{jets}$. Les facteurs de faux sont abordés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
+\begin{wrapfigure}{R}{.45\textwidth}
+\centering
+
+\begin{tikzpicture}
+%% base
+\draw [->] (0,0)--(2,0) node [right] {$\bvec_x$};
+\draw [->] (0,0)--(0,2) node [above] {$\bvec_y$};
+
+\def\xMET{-1.5}
+\def\yMET{-1.25}
+\def\xELE{2}
+\def\yELE{3}
+\def\xMU{.5}
+\def\yMU{-2}
+
+\draw [thick, -latex, ltcolorred] (0,0) -- (\xMET,\yMET) coordinate (vMET);
+\draw [ltcolorred] (vMET) node [below] {\vMET};
+\draw [thick, -latex, ltcolorblue] (0,0) -- (\xELE,\yELE) coordinate (vE);
+\draw [ltcolorblue] (vE) node [right] {$\vpT (\ele)$};
+\draw [thick, -latex, ltcolorblue] (0,0) -- (\xMU,\yMU) coordinate (vM);
+\draw [ltcolorblue] (vM) node [right] {$\vpT (\mu)$};
+
+\draw [dashed, -latex] ({-\xELE+-\xMU}, {-\yELE+-\yMU}) -- ({1.25*(\xELE+\xMU)}, {1.25*(\yELE+\yMU)}) node [above] {$\vec{\zeta}$};
+
+\draw [thick, ltcolorgreen, -latex] (0,0) -- ({\xELE+\xMU}, {\yELE+\yMU}) coordinate (vVIS);
+\draw [ltcolorgreen] (vVIS) node [below right] {$p_\zeta^\text{vis}\hat{\zeta}$};
+
+\draw [thick, -latex, ltcolorred4] (0,0) --+ ({180+acos((\xELE+\xMU)/(((\xELE+\xMU)*(\xELE+\xMU)+(\yELE+\yMU)*(\yELE+\yMU))^(0.5)))}:{(\xMET*\xMET+\yMET*\yMET)^(0.5)*cos(180-acos((\xELE+\xMU)/(((\xELE+\xMU)*(\xELE+\xMU)+(\yELE+\yMU)*(\yELE+\yMU))^(0.5)))-acos((\xMET)/((\xMET*\xMET+\yMET*\yMET)^(0.5))))})  coordinate (vMETzeta) ;
+\draw [ltcolorred4] (vMETzeta) node [above] {$p_\zeta^\text{miss}\hat{\zeta}$};
+
+\draw [dotted] (vMET) -- (vMETzeta);
+\draw [dotted] (vE) -- (vVIS);
+\draw [dotted] (vM) -- (vVIS);
+
+\end{tikzpicture}
+\caption{Illustration de la définition de $\hat{\zeta}$~\cite{Jang_thesis}. Le plan de ce schéma est le plan transverse.}
+\label{fig-zeta_illustration}
+\end{wrapfigure}
 \paragraph{Canal \ele\mu}
+La variable \Dzeta\ est définie selon
+\begin{equation}
+\Dzeta = p_\zeta^\text{miss} - \num{0.85} p_\zeta^\text{vis}
+\label{eq-Dzeta_def}
+\end{equation}
+avec
+\begin{equation}
+p_\zeta^\text{miss} = \vMET \cdot \hat{\zeta}
+\msep
+p_\zeta^\text{vis} = \left( \vpT^{\ele} + \vpT^{\mu} \right) \cdot \hat{\zeta}
+\end{equation}
+où $\hat{\zeta}$ est la direction bisectionnelle entre l'électron et le muon dans le plan transverse~\cite{Jang_thesis}, comme illustré sur la figure~\ref{fig-zeta_illustration}.
