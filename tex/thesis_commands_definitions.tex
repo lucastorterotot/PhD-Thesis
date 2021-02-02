@@ -80,6 +80,45 @@
 \newcommand{\HLTSingleEle}{\og électron seul \fg}
 \newcommand{\HLTEleTauCross}{\og électron et \tauh \fg}
 
+\newcommand{\HTTplotsdir}{HTT_no_singleTau_trg}
+\newcommand{\plotHTTcontrol}[5][.45]{%
+\begin{tikzpicture}%
+\clip (0,0) rectangle (7.625,8) ;
+\begin{scope}
+\clip (.55,.55) rectangle (7.625,7.125) ;
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/\HTTplotsdir/control_plots/Run#2_plots_#3/#4/Run#2_#4_#5.pdf}};
+\end{scope}
+
+% channel
+\def\localLA{\tauh}
+\def\localLB{\tauh}
+\ifthenelse{\equal{#4}{mt}}{\def\localLA{\mu}}{}
+\ifthenelse{\equal{#4}{et}}{\def\localLA{\ele}}{}
+\ifthenelse{\equal{#4}{em}}{\def\localLA{\ele}\def\localLB{\mu}}{}
+\draw (1, 7) node [above right] {\scriptsize \localLA\localLB\ inclusif};
+
+% year
+\ifthenelse{\equal{#2}{2016}}{\def\locallumivalue{35.9}}{}
+\ifthenelse{\equal{#2}{2017}}{\def\locallumivalue{41.5}}{}
+\ifthenelse{\equal{#2}{2018}}{\def\locallumivalue{59.7}}{}
+\draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (#2, \SI{13}{\TeV})};
+
+% axis labels
+\def\localxaxislabel{\todo{XXX}}
+\def\localyaxislabel{\todo{YYY}}
+\ifthenelse{\equal{#5}{mt_1_puppi}}{
+  \def\localxaxislabel{$\mT(\localLA,\MET)$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd\mT$ (1/\SI{}{\GeV})}
+}{}
+\draw (7.7, -.1) node [above left] {\footnotesize \localxaxislabel};
+\draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel};
+
+% CMS disclaimer
+\draw (1.85, 6.5) node [above] {\scriptsize CMS Data};
+\draw (1.85, 6.5) node [below, text width=1cm] {\centering\scriptsize \WorkInProgress\par};
+\end{tikzpicture}%
+}
+
 % JERC
 \newcommand{\Rbal}{{\ensuremath{R_{\mathit{bal}}}}}
 \newcommand{\RMPF}{{\ensuremath{R_{\mathit{MPF}}}}}
