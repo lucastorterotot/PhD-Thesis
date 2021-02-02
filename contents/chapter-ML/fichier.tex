@@ -10,9 +10,10 @@
 \item \KERAS~\cite{keras}
 \item \TENSORFLOW~\cite{tensorflow}
 \item \XGB~\cite{xgboost}
-\item \cite{jet_flavor_deep_nn} for an example of nn use in HEP
-\item \cite{Sarle1994NeuralNA}
-\item \cite{BARTSCHI201929}
+\item for an example of nn use in HEP\\
+\fullcite{jet_flavor_deep_nn}
+\item \fullcite{Sarle1994NeuralNA}
+\item \fullcite{BARTSCHI201929}
 \item \SVFIT~\cite{SVFit_Bianchini_2014}
 \end{itemize}}
 
@@ -59,6 +60,28 @@ w\_init\_mode uniform
 early stopping
 
 Changement du mass range (biais aux bords) -> down to 50 GeV
+
+
+\begin{code}{python}
+tf.keras.layers.Dense(
+    units,
+    activation=None,
+    use_bias=True,
+    kernel_initializer="glorot_uniform",
+    bias_initializer="zeros",
+    kernel_regularizer=None,
+    bias_regularizer=None,
+    activity_regularizer=None,
+    kernel_constraint=None,
+    bias_constraint=None,
+    **kwargs
+)
+\end{code}
+
+parameters to optimize = weights and biais
+
+%Glorot :  X. Glorot and Y. Bengio, “Understanding the difficulty of training deep feedforward neural networks”, in Proceedings of the thirteenth international conference on artificial intelligence and statistics, p. 249. 2010.
+
 
 \subsection*{XGB}
 avoid overfitting, max\_depth
