@@ -81,21 +81,22 @@
 \newcommand{\HLTEleTauCross}{\og électron et \tauh \fg}
 
 \newcommand{\HTTplotsdir}{HTT_no_singleTau_trg}
-\newcommand{\plotHTTcontrol}[5][.45]{%
+\newcommand{\plotHTTcontrol}[5][\HTTplotsdir]{%
 \begin{tikzpicture}%
-\clip (0,0) rectangle (7.625,8) ;
+\clip (0,.1) rectangle (7.625,7.7) ;
 \begin{scope}
-\clip (.55,.55) rectangle (7.625,7.125) ;
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/\HTTplotsdir/control_plots/Run#2_plots_#3/#4/Run#2_#4_#5.pdf}};
+\clip (.55,.55) -- (.55,8) -- (1,8) -- (1,7.125) -- (7.625,7.125) -- (7.625,.55) -- cycle ;
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/control_plots/Run#2_plots_#3/#4/Run#2_#4_#5.pdf}};
 \end{scope}
 
 % channel
-\def\localLA{\tauh}
-\def\localLB{\tauh}
-\ifthenelse{\equal{#4}{mt}}{\def\localLA{\mu}}{}
-\ifthenelse{\equal{#4}{et}}{\def\localLA{\ele}}{}
-\ifthenelse{\equal{#4}{em}}{\def\localLA{\ele}\def\localLB{\mu}}{}
-\draw (1, 7) node [above right] {\scriptsize \localLA\localLB\ inclusif};
+\def\localLA{\ensuremath{\tauh^{(1)}}}
+\def\localLB{\ensuremath{\tauh^{(2)}}}
+\def\localchannel{\tauh\tauh}
+\ifthenelse{\equal{#4}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}}{}
+\ifthenelse{\equal{#4}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}}{}
+\ifthenelse{\equal{#4}{em}}{\def\localchannel{\ele\mu}\def\localLA{\ele}\def\localLB{\mu}}{}
+\draw (1, 7) node [above right] {\scriptsize \localchannel\ inclusif};
 
 % year
 \ifthenelse{\equal{#2}{2016}}{\def\locallumivalue{35.9}}{}
@@ -104,13 +105,109 @@
 \draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (#2, \SI{13}{\TeV})};
 
 % axis labels
-\def\localxaxislabel{\todo{XXX}}
-\def\localyaxislabel{\todo{YYY}}
+\def\localxaxislabel{\todo{\inlinecode{bash}{#5}}}
+\def\localyaxislabel{\todo{Y?}}
+\ifthenelse{\equal{#5}{bpt_1}}{
+  \def\localxaxislabel{$\pT (\text{\quarkb-jet principal})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{bpt_2}}{
+  \def\localxaxislabel{$\pT (\text{\quarkb-jet secondaire})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{jpt_1}}{
+  \def\localxaxislabel{$\pT (\text{jet principal})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{jpt_2}}{
+  \def\localxaxislabel{$\pT (\text{jet secondaire})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{jeta_1}}{
+  \def\localxaxislabel{$\eta (\text{jet principal})$}
+  \def\localyaxislabel{Nombre d'événements / $\dd\eta$}
+}{}
+\ifthenelse{\equal{#5}{jeta_2}}{
+  \def\localxaxislabel{$\eta (\text{jet secondaire})$}
+  \def\localyaxislabel{Nombre d'événements / $\dd\eta$}
+}{}
+\ifthenelse{\equal{#5}{nbtag}}{
+  \def\localxaxislabel{Nombre de \quarkb-jets}
+  \def\localyaxislabel{Nombre d'événements}
+}{}
+\ifthenelse{\equal{#5}{njets}}{
+  \def\localxaxislabel{Nombre de jets}
+  \def\localyaxislabel{Nombre d'événements}
+}{}
+\ifthenelse{\equal{#5}{dijetpt}}{
+  \def\localxaxislabel{$\pT (\text{2 jets principaux})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{jdeta}}{
+  \def\localxaxislabel{$\Delta\eta$}
+  \def\localyaxislabel{Nombre d'événements / $\dd(\Delta\eta)$}
+}{}
+\ifthenelse{\equal{#5}{mjj}}{
+  \def\localxaxislabel{$\minv (\text{2 jets principaux})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd m$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{pt_1}}{
+  \def\localxaxislabel{$\pT(\localLA)$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{pt_2}}{
+  \def\localxaxislabel{$\pT(\localLB)$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{eta_1}}{
+  \def\localxaxislabel{$\eta (\localLA)$}
+  \def\localyaxislabel{Nombre d'événements / $\dd\eta$}
+}{}
+\ifthenelse{\equal{#5}{eta_2}}{
+  \def\localxaxislabel{$\eta (\localLB)$}
+  \def\localyaxislabel{Nombre d'événements / $\dd\eta$}
+}{}
 \ifthenelse{\equal{#5}{mt_1_puppi}}{
   \def\localxaxislabel{$\mT(\localLA,\MET)$ (\SI{}{\GeV})}
   \def\localyaxislabel{Nombre d'événements / $\dd\mT$ (1/\SI{}{\GeV})}
 }{}
-\draw (7.7, -.1) node [above left] {\footnotesize \localxaxislabel};
+\ifthenelse{\equal{#5}{mt_2_puppi}}{
+  \def\localxaxislabel{$\mT(\localLB,\MET)$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd\mT$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{mTdileptonMET_puppi}}{
+  \def\localxaxislabel{$\mT(\localLA+\localLB,\MET)$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd\mT$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{pZetaPuppiMissVis}}{
+  \def\localxaxislabel{$\Dzeta$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd\Dzeta$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{pt_tt_puppi}}{
+  \def\localxaxislabel{$\pT (\tau\tau)$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{DiTauDeltaR}}{
+  \def\localxaxislabel{$\Delta R (\localLA,\localLB)$}
+  \def\localyaxislabel{Nombre d'événements / $\dd(\Delta R)$}
+}{}
+\ifthenelse{\equal{#5}{m_sv_puppi}}{
+  \def\localxaxislabel{$m (\tau\tau, \text{\SVFIT})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd m$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{puppimet}}{
+  \def\localxaxislabel{$\MET$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd \MET$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{m_vis}}{
+  \def\localxaxislabel{$m (\tau\tau, \text{visible})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd m$ (1/\SI{}{\GeV})}
+}{}
+\ifthenelse{\equal{#5}{ptvis}}{
+  \def\localxaxislabel{$\pT (\text{\emph{dilepton}})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Nombre d'événements / $\dd \pT$ (1/\SI{}{\GeV})}
+}{}
+\draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel};
 \draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel};
 
 % CMS disclaimer

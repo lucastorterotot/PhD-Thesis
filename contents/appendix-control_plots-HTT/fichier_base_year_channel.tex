@@ -1,0 +1,113 @@
+\def\localLA{\ensuremath{\tauh^{(1)}}}
+\def\localLB{\ensuremath{\tauh^{(2)}}}
+\def\localchannel{\tauh\tauh}
+\ifthenelse{\equal{\lolcalcurrentchannel}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}}{}
+\ifthenelse{\equal{\lolcalcurrentchannel}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}}{}
+\ifthenelse{\equal{\lolcalcurrentchannel}{em}}{\def\localchannel{\ele\mu}\def\localLA{\ele}\def\localLB{\mu}}{}
+
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{Impulsion transverse du \quarkb-jet principal.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{bpt_1}}
+\hfill
+\subcaptionbox{Impulsion transverse du \quarkb-jet secondaire.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{bpt_2}}
+
+\subcaptionbox{Impulsion transverse du jet principal.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{jpt_1}}
+\hfill
+\subcaptionbox{Impulsion transverse du jet secondaire.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{jpt_2}}
+
+\subcaptionbox{Pseudo-rapidité du jet principal.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{jeta_1}}
+\hfill
+\subcaptionbox{Pseudo-rapidité du jet secondaire.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{jeta_2}}
+
+\caption[Distributions de contrôle, \lolcalcurrentyear\ \localchannel, ]{Distributions de contrôle pour le canal \localchannel\ en \lolcalcurrentyear: cinématique des jets.}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{Nombre de \quarkb-jets.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{nbtag}}
+\hfill
+\subcaptionbox{Nombre de jets.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{njets}}
+
+\subcaptionbox{Impulsion transverse du système des deux jets.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{dijetpt}}
+\hfill
+\subcaptionbox{Distance en $\eta$ entre les deux jets.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{jdeta}}
+
+\subcaptionbox{Masse invariante du système des deux jets.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{mjj}}
+
+\caption[Distributions de contrôle, \lolcalcurrentyear\ \localchannel, nombre de jets et système des deux jets principaux.]{Distributions de contrôle pour le canal \localchannel\ en \lolcalcurrentyear: nombre de jets et système des deux jets principaux.}
+\end{figure}
+
+
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{Impulsion transverse du lepton 1 (\localLA).}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{pt_1}}
+\hfill
+\subcaptionbox{Impulsion transverse du lepton 2 (\localLB).}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{pt_2}}
+
+\subcaptionbox{Pseudo-rapidité transverse du lepton 1 (\localLA).}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{eta_1}}
+\hfill
+\subcaptionbox{Pseudo-rapidité transverse du lepton 2 (\localLB).}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{eta_2}}
+
+\caption[Distributions de contrôle, \lolcalcurrentyear\ \localchannel, cinématique des leptons (\localLA, \localLB).]{Distributions de contrôle pour le canal \localchannel\ en \lolcalcurrentyear: cinématique des leptons (\localLA, \localLB).}
+\end{figure}
+
+
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{Masse transverse du lepton 1 (\localLA).}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{mt_1_puppi}}
+\hfill
+\subcaptionbox{Masse transverse du lepton 2 (\localLB).}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{mt_2_puppi}}
+
+\subcaptionbox{Masse transverse du \emph{dilepton}.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{mTdileptonMET_puppi}}
+\hfill
+\subcaptionbox{Valeur de \Dzeta.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{pZetaPuppiMissVis}}
+
+\caption[Distributions de contrôle, \lolcalcurrentyear\ \localchannel, masses transverses et \Dzeta.]{Distributions de contrôle pour le canal \localchannel\ en \lolcalcurrentyear: masses transverses et \Dzeta.}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{Impulsion transverse du système di-\tau.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{pt_tt_puppi}}
+\hfill
+\subcaptionbox{Distance $\Delta R$ entre les leptons (\localLA, \localLB).}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{DiTauDeltaR}}
+
+\subcaptionbox{Masse visible du système di-\tau.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{m_vis}}
+\hfill
+\subcaptionbox{Impulsion transverse du \emph{dilepton}.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{ptvis}}
+
+\subcaptionbox{Masse du système di-\tau\ d'après \SVFIT.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{m_sv_puppi}}
+\hfill
+\subcaptionbox{Énergie transverse manquante.}[.45\textwidth]
+{\plotHTTcontrol{\lolcalcurrentyear}{\EMBFFchoice}{\lolcalcurrentchannel}{puppimet}}
+
+\caption[Distributions de contrôle, \lolcalcurrentyear\ \localchannel, \emph{dilepton} et énergie transverse manquante.]{Distributions de contrôle pour le canal \localchannel\ en \lolcalcurrentyear: \emph{dilepton} et énergie transverse manquante.}
+\end{figure}
