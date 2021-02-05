@@ -20,7 +20,11 @@ est utilisée afin de définir deux catégories:
 \item \CATtightmt: $\mT^{(\ell)} < \SI{40}{\GeV}$;
 \item \CATloosemt: $\SI{40}{\GeV} \leq \mT^{(\ell)} < \SI{70}{\GeV}$;
 \end{itemize}
-la limite haute sur \mT\ pour la catégorie \CATloosemt\ étant appliquée afin de s'assurer que la région de signal soit orthogonale à la région de détermination des facteurs de faux des événements $\Wboson+\text{jets}$. Les facteurs de faux sont abordés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
+la limite haute sur \mT\ pour la catégorie \CATloosemt\ étant appliquée afin de s'assurer que la région de signal soit orthogonale à la région de détermination (DR) des facteurs de faux des événements $\Wboson+\text{jets}$.
+Les facteurs de faux sont abordés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
+La majorité des événements de signal, en particulier pour \Higgs\ et \HiggsA\ de basse masse, se trouve dans la catégorie \CATtightmt.
+La catégorie \CATloosemt\ permet quant à elle d'augmenter l'acceptance du signal pour $m_{\Higgs,\HiggsA} > \SI{700}{\GeV}$.
+La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT} illustre ces coupures sur $\mT^{(\ell)}$ dans le cas du canal \ele\tauh\ pour l'année 2018.
 \begin{wrapfigure}{R}{.45\textwidth}
 \centering
 
@@ -72,3 +76,70 @@ p_\zeta^\text{miss} = \vMET \cdot \hat{\zeta}
 p_\zeta^\text{vis} = \left( \vpT^{\ele} + \vpT^{\mu} \right) \cdot \hat{\zeta}
 \end{equation}
 où $\hat{\zeta}$ est la direction bisectionnelle entre l'électron et le muon dans le plan transverse~\cite{Jang_thesis}, comme illustré sur la figure~\ref{fig-zeta_illustration}.
+Trois catégories sont alors définies:
+\begin{itemize}
+\item \CATlowdz: $-\SI{35}{\GeV} \leq \Dzeta < -\SI{10}{\GeV}$;
+\item \CATmediumdz: $-\SI{10}{\GeV} \leq \Dzeta < \SI{30}{\GeV}$;
+\item \CAThighdz: $\SI{30}{\GeV} \leq \Dzeta$;
+\end{itemize}
+la limite basse sur \Dzeta\ pour la catégorie \CATlowdz\ étant appliquée afin de s'assurer que la région de signal soit orthogonale à la région de contrôle (CR) du bruit de fond \ttbar.
+Ces trois catégories permettent d'obtenir diverses pureté de signal et fractions de bruit de fond \ttbar.
+La majorité des événements de signal se trouve dans la catégorie \CATmediumdz.
+La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-Dz} illustre ces coupures sur \Dzeta.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Catégorisation basée sur $\mT^{(\ell)}$.\label{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT}}[.475\textwidth]
+{\plotHTTcontrolCATmt{2018}{fully_classic}{et}}
+\hfill
+\subcaptionbox{Catégorisation basée sur \Dzeta.\label{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-Dz}}[.475\textwidth]
+{\plotHTTcontrolCATdz{2018}{fully_classic}{em}}
+
+\caption[Illustrations des catégorisations basées sur $\mT^{(\ell)}$ et \Dzeta]{Illustrations des catégorisations basées sur $\mT^{(\ell)}$ et \Dzeta, respectivement sur les événements des canaux \ele\tauh\ et \ele\mu\ de l'année 2018.}
+\label{fig-chapter-HTT_analysis-section-categorisation-BSM-subcats}
+\end{figure}
+\paragraph{Récapitulatif}
+Les catégories BSM correspondant à la région de signal (SR), \ie\ en dehors des régions de détermination (DR) et de contrôle (CR), sont résumées sur la figure~\ref{fig-chapter-HTT_analysis-section-categorisation-BSM-cats_recap} pour les quatre canaux considérés.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\foreach \dx in {0, 6}{
+    
+    \draw (\dx, -3) node {\small\CATlowdz\vphantom{Àq}};
+    \draw (\dx+2, -3) node {\small\CATmediumdz\vphantom{Àq}};
+    \draw (\dx+4, -3) node {\small\CAThighdz\vphantom{Àq}};
+    
+    \draw [thick] (\dx-.925,-3-.425) rectangle  + (1.85,.85); 
+    \draw [thick] (\dx+2-.925,-3-.425) rectangle  + (1.85,.85); 
+    \draw [thick] (\dx+4-.925,-3-.425) rectangle  + (1.85,.85); 
+    
+    \foreach \ddx/\cat in {0/\CATtightmt, 3/\CATloosemt}{
+        \foreach \ddy in {-1, -2}{
+            
+            \draw (\dx+\ddx+.5, \ddy) node {\small\cat\vphantom{Àq}};
+            \draw (\dx+\ddx+.5, \ddy) node {\small\cat\vphantom{Àq}};
+            
+            \draw [thick] (\dx+\ddx-.925,\ddy-.425) rectangle  + (2.85,.85); 
+            \draw [thick] (\dx+\ddx-.925,\ddy-.425) rectangle  + (2.85,.85); 
+            
+        }
+    }
+    
+    \draw [thick] (\dx-.925,-.425) rectangle  + (5.85,.85); 
+}
+
+\draw (-1, 0) node (a) [left] {$\Higgs\to\tau\tau\to\tauh\tauh$};
+\draw (a.west) + (0, -1) node [right] {$\Higgs\to\tau\tau\to\mu\tauh$};
+\draw (a.west) + (0, -2) node [right] {$\Higgs\to\tau\tau\to\ele\tauh$};
+\draw (a.west) + (0, -3) node [right] {$\Higgs\to\tau\tau\to\ele\mu$};
+
+\draw (2, 1) node {\CATnobtag\vphantom{Àq}};
+\draw (8, 1) node {\CATbtag\vphantom{Àq}};
+
+\draw [very thick] (-1.25, .5) -- (11.25, .5) ;
+\draw [very thick] (5, 1.5) -- (5, -3.75) ;
+
+\end{tikzpicture}
+\caption{Catégories BSM pour les quatre canaux considérés.}
+\label{fig-chapter-HTT_analysis-section-categorisation-BSM-cats_recap}
+\end{figure}
