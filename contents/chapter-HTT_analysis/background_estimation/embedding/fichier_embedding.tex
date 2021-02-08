@@ -50,3 +50,17 @@ La reconstruction des événements présentée au chapitre~\ifref{chapter-LHC}{\
 \par
 Les données encapsulées nécessitent ainsi l'utilisation de simulation uniquement pour la paire de leptons taus et leurs désintégrations.
 Tous les autres objets présents sont issus de données réelles.
+L'amélioration de la description des données ainsi obtenue grâce à l'encapsulement est illustrée sur la figure~\ref{fig-embedding_2018mt_puppimet_illustration}, où les distributions de l'énergie transverse manquante dans les données et dans l'estimation du bruit de fond sans et avec cette méthode sont tracées.
+L'accord est sensiblement amélioré pour $\MET < \SI{30}{\GeV}$.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Distribution de \MET\ sans l'encapsulement.}[.475\textwidth]
+{\plotHTTcontrol{2018}{fully_classic}{mt}{puppimet}}
+\hfill
+\subcaptionbox{Distribution de \MET\ avec l'encapsulement.}[.475\textwidth]
+{\plotHTTcontrol{2018}{emb_classic}{mt}{puppimet}}
+
+\caption{Distributions de \MET\ pour le canal \mu\tauh\ en 2018.}
+\label{fig-embedding_2018mt_puppimet_illustration}
+\end{figure}
