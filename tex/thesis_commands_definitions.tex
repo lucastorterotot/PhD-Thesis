@@ -84,7 +84,68 @@
 \newcommand{\HLTSingleEle}{\og électron seul \fg}
 \newcommand{\HLTEleTauCross}{\og électron et \tauh \fg}
 
+\newcommand{\nfpCLlimit}{$CL_S$ à \SI{95}{\%}}
+
 \newcommand{\HTTplotsdir}{HTT_no_singleTau_trg}
+
+\newcommand{\plotHTTModelIndepLimits}[5][\HTTplotsdir]{%
+\begin{tikzpicture}%
+\begin{scope}
+\clip (.7,.55) -- (.7,7.3) -- (1.25,7.3) -- (1.25,7.11) -- (7.6,7.11) -- (7.6,.55) -- cycle ;
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/limits/mssm/mssm_model-independent_#2_#3_#4#5.pdf}};
+\fill [white] (1.5, 6) rectangle (3, 7);
+\end{scope}
+
+\def\localyaxislabelXXH{\todo{?}}
+\ifthenelse{\equal{#3}{ggH}}{
+  \def\localyaxislabelXXH{\ensuremath{\gluon\gluon\phi}}
+}{}
+\ifthenelse{\equal{#3}{bbH}}{
+  \def\localyaxislabelXXH{\ensuremath{\quarkb\antiquarkb\phi}}
+}{}
+
+\def\localxaxislabel{$m_\phi$ (\SI{}{\GeV})}
+\def\localyaxislabel{\nfpCLlimit\ sur $\sigma(\localyaxislabelXXH) \times \BR(\phi\to\tau\tau)$ (\SI{}{\pico\barn})}
+
+\draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
+\draw (0, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
+
+% year
+\draw (7.7, 7) node [above left] {\scriptsize \SI{137}{\femto\barn^{-1}} (Run II, \SI{13}{\TeV})\vphantom{Àq,}};
+
+% CMS disclaimer
+\draw (1.15, 7) node [above right] {\scriptsize CMS Data\vphantom{Àq,}};
+\draw (2.35, 6.75) node [below, text width=1cm] {\centering\scriptsize \WorkInProgress\par};
+\end{tikzpicture}%
+}
+
+\newcommand{\plotHTTModelDepLimits}[3][\HTTplotsdir]{%
+\begin{tikzpicture}%
+\begin{scope}
+\clip (.5,.55) -- (.5,7.11) -- (7.675,7.11) -- (7.675,.55) -- cycle ;
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/limits/#2/mssm_mh125_#2#3.pdf}};
+\end{scope}
+
+\def\localxaxislabelptc{\HiggsA}
+\ifthenelse{\equal{#2}{mssm_vs_sm_CPV}}{
+  \def\localxaxislabelptc{\Higgspm}
+}{}
+
+\def\localxaxislabel{$m_{\localxaxislabelptc}$ (\SI{}{\GeV})}
+\def\localyaxislabel{$\tan\beta$}
+
+\draw (7.5, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
+\draw (0, 6.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
+
+% year
+\draw (7.55, 7) node [above left] {\scriptsize \SI{137}{\femto\barn^{-1}} (Run II, \SI{13}{\TeV})\vphantom{Àq,}};
+
+% CMS disclaimer
+\draw (.8, 7) node [above right] {\scriptsize CMS Data\vphantom{Àq,}};
+\draw (2.35, 7) node [below, text width=1cm] {\centering\scriptsize \WorkInProgress\par};
+\end{tikzpicture}%
+}
+
 \newcommand{\plotHTTcontrol}[5][\HTTplotsdir]{%
 \begin{tikzpicture}%
 \clip (0,.1) rectangle (7.76,7.7) ;
@@ -100,13 +161,13 @@
 \ifthenelse{\equal{#4}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}}{}
 \ifthenelse{\equal{#4}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}}{}
 \ifthenelse{\equal{#4}{em}}{\def\localchannel{\ele\mu}\def\localLA{\ele}\def\localLB{\mu}}{}
-\draw (1, 7) node [above right] {\scriptsize \localchannel\ inclusif};
+\draw (1, 7) node [above right] {\scriptsize \localchannel\ inclusif\vphantom{Àq,}};
 
 % year
 \ifthenelse{\equal{#2}{2016}}{\def\locallumivalue{35.9}}{}
 \ifthenelse{\equal{#2}{2017}}{\def\locallumivalue{41.5}}{}
 \ifthenelse{\equal{#2}{2018}}{\def\locallumivalue{59.7}}{}
-\draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (#2, \SI{13}{\TeV})};
+\draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (#2, \SI{13}{\TeV})\vphantom{Àq,}};
 
 % axis labels
 \def\localxaxislabel{\todo{\inlinecode{bash}{#5}}}
@@ -211,11 +272,11 @@
   \def\localxaxislabel{$\pT (\text{\emph{dilepton}})$ (\SI{}{\GeV})}
   \def\localyaxislabel{Nombre d'événements / $\dd \pT$ (1/\SI{}{\GeV})}
 }{}
-\draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel};
-\draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel};
+\draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
+\draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
 
 % CMS disclaimer
-\draw (1.85, 6.5) node [above] {\scriptsize CMS Data};
+\draw (1.85, 6.5) node [above] {\scriptsize CMS Data\vphantom{Àq,}};
 \draw (1.85, 6.5) node [below, text width=1cm] {\centering\scriptsize \WorkInProgress\par};
 \end{tikzpicture}%
 }
