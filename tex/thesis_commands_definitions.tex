@@ -57,6 +57,10 @@
 \newcommand{\Dzeta}{\ensuremath{D_\zeta}}
 \newcommand{\minv}{\ensuremath{m_{\mathrm{inv}}}}
 \newcommand{\muonID}{\emph{muonID}}
+\newcommand{\Njets}{\ensuremath{N_\text{jets}}}
+\newcommand{\pTHiggs}{\ensuremath{\pT(\Higgs)}}
+\newcommand{\mjj}{\ensuremath{m_\text{jj}}}
+\newcommand{\Detajj}{\ensuremath{\Delta \eta_\text{jj}}}
 \newcommand{\Ndof}{\ensuremath{N_\text{dof}}}
 \newcommand{\Nmdhits}{\ensuremath{N^\text{MD}_\text{hits}}}
 \newcommand{\Nms}{\ensuremath{N_\text{MS}}}
@@ -213,7 +217,7 @@
   \def\localyaxislabel{Nombre d'événements / $\dd(\Delta\eta)$}
 }{}
 \ifthenelse{\equal{#5}{mjj}}{
-  \def\localxaxislabel{$\minv (\text{2 jets principaux})$ (\SI{}{\GeV})}
+  \def\localxaxislabel{$\mjj (\text{2 jets principaux})$ (\SI{}{\GeV})}
   \def\localyaxislabel{Nombre d'événements / $\dd m$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{pt_1}}{
