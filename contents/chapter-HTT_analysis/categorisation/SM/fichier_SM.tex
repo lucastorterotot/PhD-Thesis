@@ -1,4 +1,74 @@
 \subsection{Région \og SM \fg{}}\label{chapter-HTT_analysis-section-categorisation-SM}
 Les catégories SM, introduites dans la référence~\cite{CMS-PAS-HIG-19-010}, sont construites dans le but d'étudier le boson de Higgs du modèle standard, noté ici $\higgs$, avec une masse de \SI{125}{\GeV}.
 Les coupures présentées dans cette section sont appliquées en plus des coupures permettant de séparer les régions SM et BSM.
+\par %AN 2019/177 and 178
+La catégorisation SM est basée sur un réseau de neurones.
+Les réseaux de neurones sont abordés plus en détails dans le chapitre~\ifref{chapter-ML}{\ref{chapter-ML}}{6}.
+Les caractéristiques du réseau utilisé ici sont données à titre informatif.
 \par
+Les variables d'entrée du réseau sont:
+\begin{itemize}
+\item les impulsions transverses des éléments du \emph{dilepton};
+\item les impulsions transverses des deux principaux jets de l'événement;
+\item le nombre de jets \Njets;
+\item le nombre de jets de quarks~\quarkb\ \Nbjets;
+\item la masse invariante du système des deux jets principaux \mjj;
+\item la distance dans le plan $(\eta,\phi)$ entre les deux jets principaux \Detajj;
+\item l'impulsion transverse totale des deux principaux jets de l'événement;
+\item la masse du \emph{dilepton} estimée par \SVFIT, \msv;
+\item la masse invariante du \emph{dilepton}, \mvis;
+\item l'impulsion transverse du \emph{dilepton}, \pTvis.
+\end{itemize}
+\todo{mTdileptonMET for em + MELA output}
+\par
+Le réseau est constitué de deux couches cachées de 200 neurones chacune, complètement connectées.
+Leur fonction d'activation est la tangente hyperbolique.
+Enfin, la couche de sortie du réseau comporte plusieurs neurones.
+Ce réseau fournit donc un vecteur, et non un scalaire, permettant une catégorisation plus poussée qu'une simple discrimination signal ou bruit de fond.
+
+%The task of the neural net is to define regions of the phase space that are dominated by certain
+%processes. The resulting boundaries between the categories, meaning the region where events
+%are assigned similar and therefore low probabilities for two categories, are actually rather de-
+%liberate and depend very much on the training parameters e.g. additional class weights. A
+%variation of the parameters would cause migrations of these events between the categories.
+%Therefore, it is important to use the actual values of the output nodes for further discrimina-
+%tion and to sort events by it. Here we use the value of the largest probability, which was used to
+%assign the category, for further discrimination within the same category. We call this quantity
+%exclusive probability or just the NN score.
+%
+%Minor background processes like electroweak Z production or di-boson events which provide
+%only small event numbers are collected in one category for remaining processes called ”misc”.
+%Individual categories would raise problems to the training due to the small event numbers. In
+%this collection they are at least respected in the training of the neural network such that they
+%can’t migrate to the signal categories without increasing the training loss. Since there are no
+%leptons in the τ h τ h decay channel, the yields of the Z → ll, tt̄, W + jets processes are rather
+%small as well which is the reason that there are no dedicated categories in this channel. Instead
+%these processes are associated with the misc category as well. In summary, the misc category
+%covers Z → ll and W + jets in the eμ channel, di-Boson, single top and EWKZ in the eτ h and
+%μτ h channel and Z → ll, tt̄, W + jets, di-Boson, single top and EWKZ in the τ h τ h channel.
+
+et xxh
+et tt
+et zll
+et misc
+et emb
+et ff
+
+mt xxh
+mt tt
+mt zll
+mt misc
+mt emb
+mt ff
+
+tt xxh
+tt emb
+tt ff
+tt misc
+
+em xxh
+em tt
+em ss
+em misc
+em db
+em emb
