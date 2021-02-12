@@ -54,11 +54,16 @@
 \newcommand{\Wjets}{\ensuremath{\Wboson+\text{jets}}}
 \newcommand{\mT}{\ensuremath{m_{\mathrm{T}}}}
 \newcommand{\mTtot}{\ensuremath{\mT^{\mathrm{tot}}}}
+\newcommand{\msv}{\ensuremath{m_\text{\textsc{SVfit}}}}
+\newcommand{\mtt}{\ensuremath{m_{\tau\tau}}}
+\newcommand{\mvis}{\mtt}
+\newcommand{\pTvis}{\ensuremath{\pT^{(\tau\tau)}}}
+\newcommand{\vpTvis}{\ensuremath{\vpT^{(\tau\tau)}}}
 \newcommand{\Dzeta}{\ensuremath{D_\zeta}}
 \newcommand{\minv}{\ensuremath{m_{\mathrm{inv}}}}
 \newcommand{\muonID}{\emph{muonID}}
 \newcommand{\Njets}{\ensuremath{N_\text{jets}}}
-\newcommand{\pTHiggs}{\ensuremath{\pT(\Higgs)}}
+\newcommand{\Nbjets}{\ensuremath{N_\text{\quarkb-jets}}}
 \newcommand{\mjj}{\ensuremath{m_\text{jj}}}
 \newcommand{\Detajj}{\ensuremath{\Delta \eta_\text{jj}}}
 \newcommand{\Ndof}{\ensuremath{N_\text{dof}}}
@@ -69,8 +74,8 @@
 \newcommand{\EleIDMVA}{\emph{electron ID MVA}}
 \newcommand{\CutBasedEleID}{\emph{cut-based ID}}
 \newcommand{\CutBasedEleIDVeto}{\emph{cut-based veto ID}}
-\newcommand{\Nbtag}{\ensuremath{N_\text{\quarkb-tag}}}
-\newcommand{\mCutForCategories}{\ensuremath{m_{\tau\tau}}}
+\newcommand{\Nbtag}{\Nbjets}
+\newcommand{\mCutForCategories}{\msv}
 \newcommand{\mCutForCategoriesdef}{\mCutForCategories\ est la masse du \emph{dilepton} estimée par \SVFIT~\cite{SVFit_Bianchini_2014}}
 
 \newcommand{\CATnobtag}{\texttt{no-btag}}
@@ -201,11 +206,11 @@
   \def\localyaxislabel{Nombre d'événements / $\dd\eta$}
 }{}
 \ifthenelse{\equal{#5}{nbtag}}{
-  \def\localxaxislabel{Nombre de \quarkb-jets}
+  \def\localxaxislabel{\Nbjets}
   \def\localyaxislabel{Nombre d'événements}
 }{}
 \ifthenelse{\equal{#5}{njets}}{
-  \def\localxaxislabel{Nombre de jets}
+  \def\localxaxislabel{\Njets}
   \def\localyaxislabel{Nombre d'événements}
 }{}
 \ifthenelse{\equal{#5}{dijetpt}}{
@@ -213,8 +218,8 @@
   \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{jdeta}}{
-  \def\localxaxislabel{$\Delta\eta$}
-  \def\localyaxislabel{Nombre d'événements / $\dd(\Delta\eta)$}
+  \def\localxaxislabel{$\Detajj (\text{2 jets principaux})$}
+  \def\localyaxislabel{Nombre d'événements / $\dd(\Detajj)$}
 }{}
 \ifthenelse{\equal{#5}{mjj}}{
   \def\localxaxislabel{$\mjj (\text{2 jets principaux})$ (\SI{}{\GeV})}
@@ -261,7 +266,7 @@
   \def\localyaxislabel{Nombre d'événements / $\dd(\Delta R)$}
 }{}
 \ifthenelse{\equal{#5}{m_sv_puppi}}{
-  \def\localxaxislabel{$m (\tau\tau, \text{\SVFIT})$ (\SI{}{\GeV})}
+  \def\localxaxislabel{$\msv$ (\SI{}{\GeV})}
   \def\localyaxislabel{Nombre d'événements / $\dd m$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{puppimet}}{
@@ -269,11 +274,11 @@
   \def\localyaxislabel{Nombre d'événements / $\dd \MET$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{m_vis}}{
-  \def\localxaxislabel{$m (\tau\tau, \text{visible})$ (\SI{}{\GeV})}
+  \def\localxaxislabel{$\mvis$ (\SI{}{\GeV})}
   \def\localyaxislabel{Nombre d'événements / $\dd m$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{ptvis}}{
-  \def\localxaxislabel{$\pT (\text{\emph{dilepton}})$ (\SI{}{\GeV})}
+  \def\localxaxislabel{$\pTvis$ (\SI{}{\GeV})}
   \def\localyaxislabel{Nombre d'événements / $\dd \pT$ (1/\SI{}{\GeV})}
 }{}
 \draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};

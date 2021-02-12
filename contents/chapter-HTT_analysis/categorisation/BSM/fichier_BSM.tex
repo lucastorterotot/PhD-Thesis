@@ -50,7 +50,7 @@ La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT
 \draw [dashed, -latex] ({-\xELE+-\xMU}, {-\yELE+-\yMU}) -- ({1.25*(\xELE+\xMU)}, {1.25*(\yELE+\yMU)}) node [above] {$\vec{\zeta}$};
 
 \draw [thick, ltcolorgreen, -latex] (0,0) -- ({\xELE+\xMU}, {\yELE+\yMU}) coordinate (vVIS);
-\draw [ltcolorgreen] (vVIS) node [below right] {$p_\zeta^\text{vis}\hat{\zeta}$};
+\draw [ltcolorgreen] (vVIS) node [below right] {$\vpTvis$};
 
 \draw [thick, -latex, ltcolorred4] (0,0) --+ ({180+acos((\xELE+\xMU)/(((\xELE+\xMU)*(\xELE+\xMU)+(\yELE+\yMU)*(\yELE+\yMU))^(0.5)))}:{(\xMET*\xMET+\yMET*\yMET)^(0.5)*cos(180-acos((\xELE+\xMU)/(((\xELE+\xMU)*(\xELE+\xMU)+(\yELE+\yMU)*(\yELE+\yMU))^(0.5)))-acos((\xMET)/((\xMET*\xMET+\yMET*\yMET)^(0.5))))})  coordinate (vMETzeta) ;
 \draw [ltcolorred4] (vMETzeta) node [above] {$p_\zeta^\text{miss}\hat{\zeta}$};
@@ -66,16 +66,22 @@ La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT
 \paragraph{Canal \ele\mu}
 La variable \Dzeta\ est définie selon
 \begin{equation}
-\Dzeta = p_\zeta^\text{miss} - \num{0.85} p_\zeta^\text{vis}
+\Dzeta = p_\zeta^\text{miss} - \num{0.85} p_\zeta^{(\tau\tau)}
 \label{eq-Dzeta_def}
 \end{equation}
 avec
 \begin{equation}
 p_\zeta^\text{miss} = \vMET \cdot \hat{\zeta}
 \msep
-p_\zeta^\text{vis} = \left( \vpT^{\ele} + \vpT^{\mu} \right) \cdot \hat{\zeta}
+p_\zeta^{(\tau\tau)} = \vpTvis \cdot \hat{\zeta}
 \end{equation}
-où $\hat{\zeta}$ est la direction bisectionnelle entre l'électron et le muon dans le plan transverse~\cite{Jang_thesis}, comme illustré sur la figure~\ref{fig-zeta_illustration}.
+où $\hat{\zeta}$ est la direction bisectionnelle entre l'électron et le muon dans le plan transverse~\cite{Jang_thesis}
+et
+\begin{equation}
+\vpTvis = \left( \vpT^{\ele} + \vpT^{\mu} \right)
+\label{eq-pTvis_def}
+\end{equation}
+comme illustré sur la figure~\ref{fig-zeta_illustration}.
 Trois catégories sont alors définies:
 \begin{itemize}
 \item \CATlowdz: $-\SI{35}{\GeV} \leq \Dzeta < -\SI{10}{\GeV}$;
