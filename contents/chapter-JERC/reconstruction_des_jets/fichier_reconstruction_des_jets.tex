@@ -7,7 +7,7 @@ Les photons sont émis par les particules électriquement chargées.
 \par Un processus physique comme celui de la figure~\ref{subfig-fgraph-Z_q_q} produit seulement quelques particules, en l'occurrence deux, et non des ensembles de particules, comme sur la figure~\ref{fig-agglo_hadronique} qui pourrait correspondre à l'état effectivement observé pour le processus de la figure~\ref{subfig-fgraph-Z_q_q}.
 Afin de pouvoir étudier le processus initial, il est nécessaire de définir une observable décrivant les partons à l'origine de ces flux collimés de particules stables.
 \par Cette observable est un \og jet \fg.
-À partir des particules identifiées à l'aide de l'algorithme de \emph{Particle Flow} (\PF) décrit dans la section~\ifref{chapter-LHC-section-evt_reco}{\ref{chapter-LHC-section-evt_reco}}{4} du chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3}, un algorithme de regroupement permet d'obtenir la liste des jets de l'événement.
+À partir des particules identifiées à l'aide de l'algorithme de \emph{Particle Flow} (\PF) décrit dans le chapitre~\refChLHCCMS, un algorithme de regroupement permet d'obtenir la liste des jets de l'événement.
 Il existe plusieurs algorithmes de regroupement dont le principe est décrit dans la section suivante.
 \subsection{Algorithmes de regroupement}\label{chapter-JERC-section-jets_reco-subsec-algo}
 Il existe deux catégories d'algorithmes permettant de regrouper les particules en jets, les algorithmes de cônes et les algorithmes de recombinaison séquentielle.
@@ -15,7 +15,7 @@ Les émissions de partons sont plus importantes pour de basses énergies (limite
 Afin de conserver des prédictions de QCD vérifiables sur des jets réels, les algorithmes de regroupement doivent être insensibles à l'ajout d'une particule de basse énergie ou au partage d'une particule en deux particules d'énergies inférieures. C'est ce que l'on appelle l'insensibilité IRC, pour \emph{InfraRed and Colinear}.
 La plupart des algorithmes de cônes ne sont pas IRC-insensibles, alors que la plupart des algorithmes de recombinaison séquentielle le sont.
 \subsubsection{Les algorithmes de cônes}
-Les algorithmes de cônes regroupent toutes les particules ayant une direction $\vec{p}$ telle que la distance $\Delta R_{pa}$ à la direction de l'axe du cône $\vec{a}$ dans le plan $(\eta,\phi)$, où $\eta$ et $\phi$ sont les coordonnées définies dans la section~\ifref{chapter-LHC-section-CMS-subsec-overview_and_coordinates}{\ref{chapter-LHC-section-CMS-subsec-overview_and_coordinates}}{2.1} du chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3}, est inférieure à une distance de coupure $R_c$, \ie\ si
+Les algorithmes de cônes regroupent toutes les particules ayant une direction $\vec{p}$ telle que la distance $\Delta R_{pa}$ à la direction de l'axe du cône $\vec{a}$ dans le plan $(\eta,\phi)$, où $\eta$ et $\phi$ sont les coordonnées définies dans le chapitre~\refChLHCCMS, est inférieure à une distance de coupure $R_c$, \ie\ si
 \begin{equation}
 \Delta R_{pa} ^2 = (\eta_p - \eta_a)^2 + (\phi_p - \phi_a)^2 < R_c^2
 \mend
@@ -164,7 +164,7 @@ Dans \SI{30}{\%} des cas, la désintégration du quark $b$ se fait avec émissio
 \mend
 \end{equation}
 Le lepton chargé donne une signature caractéristique lors des collisions proton-proton du LHC.
-\par Ces désintégrations font intervenir les modules des coefficients $V_{\quarkc\quarkb}$ ou $V_{\quarku\quarkb}$ de la matrice CKM, introduite dans la section~\ifref{chapter-MS-MSSM-section-formalisme-subsec-EW-quarks}{\ref{chapter-MS-MSSM-section-formalisme-subsec-EW-quarks}}{2.3.4} du chapitre~\ifref{chapter-MS-MSSM}{\ref{chapter-MS-MSSM}}{2}, dont les valeurs sont faibles; elles sont donc fortement supprimées.
+\par Ces désintégrations font intervenir les modules des coefficients $V_{\quarkc\quarkb}$ ou $V_{\quarku\quarkb}$ de la matrice CKM, introduite dans le chapitre~\refChMSSM, dont les valeurs sont faibles; elles sont donc fortement supprimées.
 Les hadrons contenant un quark~\quarkb\ ont ainsi une durée de vie $\tau$ de l'ordre de la picoseconde~\cite{B0s_lifetime,lifetimes_c_b_hadrons} et peuvent voyager sur une distance de l'ordre du millimètre.
 Les traces des particules chargées issues de cette nouvelle désintégration proviennent donc d'un vertex secondaire (SV), différent du vertex primaire (PV).
 Ces traces sont \og déplacées \fg.
@@ -252,7 +252,7 @@ et
 \par Les performances ainsi obtenues pour l'algorithme \DeepCSV\ sont comparées à d'autres algorithmes d'identification de la saveur des jets sur la figure~\ref{fig-chapter-JERC-section-jets_reco-subsec-flavor-bc_tag_roc_curves}.
 Les algorithmes \textsc{cMVAv2} et \DeepCSV\ présentent les meilleures performances en termes d'identification des jets de quark~\quarkb.
 Pour le traitement des jets de quark~\quarkc, l'algorithme \DeepCSV\ propose les meilleures performances.
-Dans les analyses présentées dans ce chapitre et le chapitre~\ifref{chapter-HTT_analysis}{\ref{chapter-HTT_analysis}}{5}, c'est cet algorithme qui est utilisé afin d'identifier les jets issus de quarks~\quarkc\ ou~\quarkb.
+Dans les analyses présentées dans ce chapitre et le chapitre~\refChHTT, c'est cet algorithme qui est utilisé afin d'identifier les jets issus de quarks~\quarkc\ ou~\quarkb.
 \begin{figure}[p]
 \centering
 

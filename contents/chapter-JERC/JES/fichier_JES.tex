@@ -70,7 +70,7 @@ Cette section présente la sélection des événements \Gjets, leur analyse et l
 \paragraph{Données}
 Les jeux de données utilisés pour 2018 et 2017-UL sont basés sur la présence d'un photon dans l'état final.
 Pour chacune de ces années, plusieurs périodes (\emph{runs}) sont considérées, celles des collisions \proton\proton, dont la liste et les luminosités correspondantes sont présentées dans le tableau~\ref{tab-Runs_and_lumis_2018_and_2017UL_GJet}.
-La liste détaillée de ces jeux de données se trouve dans l'annexe~\ifref{annexe-datasets-GJets}{\ref{annexe-datasets-GJets}}{C}.
+La liste détaillée de ces jeux de données se trouve dans l'annexe~\refApJERCdatasets.
 \begin{table}[h]
 \centering
 \begin{tabular}{ccc}
@@ -107,7 +107,7 @@ et
 et une énergie dans le centre de masse de \SI{13}{\TeV}.
 Dans l'état final, la somme scalaire des impulsions transverses des jets, notée HT, appartient à un intervalle, définissant ainsi cinq jeux de données.
 Les sections efficaces des événements simulés ainsi obtenus sont présentées dans le tableau~\ref{tab-MC_xsec_2018_and_2017UL_GJet}.
-La liste détaillée de ces jeux de données simulées se trouve dans l'annexe~\ifref{annexe-datasets-GJets}{\ref{annexe-datasets-GJets}}{C}.
+La liste détaillée de ces jeux de données simulées se trouve dans l'annexe~\refApJERCdatasets.
 \begin{table}[h]
 \centering
 \begin{tabular}{clc}
@@ -164,7 +164,7 @@ R_9 = \frac{E_{3\times3}}{E_{SC}}
 \label{eq-R9_definition}
 \end{equation}
 avec
-$E_{3\times3}$ la somme des énergies dans les cristaux du ECAL formant un carré de trois cristaux de côté centré sur le cristal contenant le plus d'énergie dans le \emph{supercluster}, défini dans la section~\ifref{chapter-LHC-section-evt_reco-subsec-ptc_ID}{\ref{chapter-LHC-section-evt_reco-subsec-ptc_ID}}{4.2} du chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3}.
+$E_{3\times3}$ la somme des énergies dans les cristaux du ECAL formant un carré de trois cristaux de côté centré sur le cristal contenant le plus d'énergie dans le \emph{supercluster}.
 et
 $E_{SC}$
 l'énergie du \emph{supercluster}~\cite{photon_ID_2015}.
@@ -261,7 +261,7 @@ Ces régions sont résumées sur la figure~\ref{fig-hotjets2017UL}.
 %    Non-jet measurements and searches that are not sensitive to jet tails can either use h2hot17_ul17 or ignore these maps for highest acceptance
 %    Please note that for analyses comparing data to simulation or otherwise relying heavily on simulation, it may be necessary to use the filtering also for MC processing for ensuring avoiding any biases due to angular dependencies etc. In these cases the same data-based filter should be used for data and MC. The maps labelled 'mc' (=pythia) or 'hw' (=herwig) in the JECDatabase are for expert studies only. 
 \paragraph{Sélection sur le chemin de déclenchement}
-Comme expliqué dans la section~\ifref{chapter-LHC-section-CMS-subsec-data_taking}{\ref{chapter-LHC-section-CMS-subsec-data_taking}}{4.7} du chapitre~\ifref{chapter-LHC}{\ref{chapter-LHC}}{3}, un événement observé par le détecteur CMS est sauvegardé si un chemin de déclenchement (HLT \emph{path}) est activé.
+Comme expliqué dans le chapitre~\refChLHCCMS, un événement observé par le détecteur CMS est sauvegardé si un chemin de déclenchement (HLT \emph{path}) est activé.
 Dans cette analyse, seuls les événements dont le photon servant d'objet de référence pour la calibration des jets correspond au photon ayant activé le \HLTpath\ pour cet événement sont retenus.
 Or, plus l'impulsion transverse du photon est faible, plus le nombre d'événements pouvant être sauvegardés est importante, si bien que la chaîne d'acquisition arrive à saturation.
 Pour pallier à cette saturation, il existe différents \HLTpaths\ en fonction de l'impulsion transverse du photon et pour chacun d'entre eux, seule une fraction des événements les déclenchant est effectivement sauvegardée.
