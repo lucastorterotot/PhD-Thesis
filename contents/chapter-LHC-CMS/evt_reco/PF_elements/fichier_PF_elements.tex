@@ -45,6 +45,9 @@ Plusieurs raisons existent à cette agglomération:
 \par La construction de ces agglomérats commence par l'identification des cellules des calorimètres mesurant une énergie supérieure à un seuil, défini pour chaque sous-partie des calorimètres.
 Les cellules adjacentes sont ajoutées à l'agglomérat.
 Puis, toute cellule avec au moins un coin en commun avec une cellule déjà dans l'agglomérat et mesurant une énergie supérieure à deux fois le niveau moyen du bruit est ajoutée à l'agglomérat.
+\par
+Afin d'identifier les photons issus du \emph{bremsstrahlung} d'un électron, les dépôts dans le ECAL pouvant correspondre à l'électron et à ces éventuels photons sont regroupés en un \emph{supercluster}.
+Le \emph{supercluster} est ainsi l'ensemble des \emph{clusters} dans le ECAL se situant à proximité de la direction de l'électron~\cite{particle-flow}.
 \par Les photons et les hadrons neutres ne peuvent être reconstruits qu'à l'aide de leurs dépôts dans les calorimètres.
 Des dépôts isolés vis-à-vis des traces de particules chargées sont ainsi une signature claire des particules neutres.
 Cependant, un dépôt de particule neutre situé au même endroit qu'un dépôt de particule chargée est identifié comme un excès d'énergie par rapport à l'énergie déterminée à l'aide du trajectographe.
