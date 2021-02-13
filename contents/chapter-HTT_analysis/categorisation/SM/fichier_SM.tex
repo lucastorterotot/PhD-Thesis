@@ -1,13 +1,14 @@
 \subsection{Région \og SM \fg{}}\label{chapter-HTT_analysis-section-categorisation-SM}
-Les catégories SM, introduites dans la référence~\cite{CMS-PAS-HIG-19-010}, sont construites dans le but d'étudier le boson de Higgs du modèle standard, noté ici $\higgs$, avec une masse de \SI{125}{\GeV}.
-\par %AN 2019/177 and 178
-La catégorisation SM est basée sur un réseau de neurones.
-Les réseaux de neurones sont abordés plus en détails dans le chapitre~\refChML.
-Les caractéristiques du réseau utilisé ici sont données à titre informatif.
-\par
-Les variables d'entrée du réseau sont:
+Les catégories SM, introduites dans les références~\cite{CMS-NOTE-2019-177,CMS-NOTE-2019-178}, sont construites dans le but d'étudier le boson de Higgs du modèle standard \higgs\ de masse \SI{125}{\GeV}.
+Cette catégorisation est faite à l'aide d'un réseau de neurones dont l'objectif est de définir différentes catégories d'événements, chacune contenant un processus physique dominant.
+Le principe des réseaux de neurones est abordé plus en détails dans le chapitre~\refChML.
+Le réseau utilisé est ici décrit succinctement, plus de détails sont disponibles dans la référence~\cite{CMS-NOTE-2019-178}.
+%AN 2019/177 and 178
+\paragraph{Structure du réseau de neurones}
+Les variables d'entrée du réseau les plus importantes sont:
 \begin{itemize}
 \item les impulsions transverses des éléments du \emph{dilepton};
+\item la masse transverse du \emph{dilepton} dans le cas du canal \ele\mu\ ($\mT(\vpT^{(\ele)}+\vpT^{(\mu)},\vMET)$);
 \item les impulsions transverses des deux principaux jets de l'événement;
 \item le nombre de jets \Njets;
 \item le nombre de jets de quarks~\quarkb\ \Nbjets;
@@ -18,23 +19,47 @@ Les variables d'entrée du réseau sont:
 \item la masse invariante du \emph{dilepton}, \mvis;
 \item l'impulsion transverse du \emph{dilepton}, \pTvis.
 \end{itemize}
-\todo{mTdileptonMET for em + MELA output}
-\par
 Le réseau est constitué de deux couches cachées de 200 neurones chacune, complètement connectées.
-Leur fonction d'activation est la tangente hyperbolique.
-Enfin, la couche de sortie du réseau comporte plusieurs neurones.
-Ce réseau fournit donc un vecteur, et non un scalaire, permettant une catégorisation plus poussée qu'une simple discrimination signal ou bruit de fond.
-
-%The task of the neural net is to define regions of the phase space that are dominated by certain
-%processes. The resulting boundaries between the categories, meaning the region where events
-%are assigned similar and therefore low probabilities for two categories, are actually rather de-
-%liberate and depend very much on the training parameters e.g. additional class weights. A
-%variation of the parameters would cause migrations of these events between the categories.
-%Therefore, it is important to use the actual values of the output nodes for further discrimina-
-%tion and to sort events by it. Here we use the value of the largest probability, which was used to
-%assign the category, for further discrimination within the same category. We call this quantity
-%exclusive probability or just the NN score.
-%
+Leur fonction d'activation est la tangente hyperbolique, fonction permettant d'obtenir des réseaux dont la tâche est de réaliser une catégorisation.
+\par
+Afin de permettre une catégorisation plus poussée qu'une simple discrimination signal ou bruit de fond, la couche de sortie du réseau contient autant de neurones que de catégories souhaitées.
+Ce réseau fournit donc un vecteur et non un scalaire.
+La fonction d'activation de ces neurones est la fonction exponentielle normalisée ou \emph{Softmax},
+\begin{equation}
+\mathit{Softmax}(\vec{y})_j = \frac{\exp(z_j)}{\sum_{k=1}^n \exp(z_k)}
+\msep
+j\in\set{1,\ldots,K}
+\mend[,]
+\end{equation}
+chaque composante de ce vecteur correspond donc à la probabilité que l'événement appartienne à la catégorie correspondante.
+\paragraph{Catégories obtenues}
+Les principaux bruits de fond présents dans l'analyse sont présentés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation}.
+Pour chaque canal, en plus d'une catégorie \og signal \fg, une catégorie est définie pour chaque bruit de fond suffisamment présent.
+Pour les bruits de fond ayant une faible contribution ou étant peu différentiables d'autres bruits de fond, une catégorie \CATmisc\ est également définie.
+Les différentes catégories ainsi possibles sont listées dans le tableau~\ref{tab-chapter-HTT_analysis-section-categorisation-SM-cats_recap}.
+La catégorie \CATemb\ doit correspondre aux données encapsulées décrites dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-embedding}.
+La catégorie \CATfake, quant à elle, doit contenir les événements décrits par la méthode des facteurs de faux présentée section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
+Le canal \tauh\tauh\ ne devant pas contenir d'électron ni de muons, les processus $\Zboson\to\ell\ell$ ($\ell\in\set{\ele,\mu}$), \ttbar\ et \Wjets\ contribuent peu au bruit de fond, c'est pourquoi il n'existe pas de catégories leur étant dédiées dans ce canal.
+Ils sont donc associés à la catégorie \CATmisc\ pour le canal \tauh\tauh.
+La catégorie \CATmisc\ couvre ainsi les processus
+$\Zboson\to\ell\ell$, \ttbar, \Wjets, Diboson, \emph{Single-top} et EWK dans le canal \tauh\tauh;
+Diboson, \emph{Single-top} et EWK dans les canaux \mu\tauh\ et \ele\tauh;
+$\Zboson\to\ell\ell$ et \Wjets\ dans le canal \ele\mu.
+\begin{table}[h]
+\centering
+\begin{tabular}{ccccccc}
+\toprule
+Canal & \multicolumn{6}{l}{Catégories possibles}\\
+\midrule
+\tauh\tauh & \CATemb & & & & \CATfake & \CATmisc \\
+\mu\tauh & \CATemb & \CATzll & \CATttbar & & \CATfake & \CATmisc \\
+\ele\tauh & \CATemb & \CATzll & \CATttbar & & \CATfake & \CATmisc \\
+\ele\mu & \CATemb & & \CATttbar & \CATdib & \CATqcd & \CATmisc \\
+\bottomrule
+\end{tabular}
+\caption[Catégories SM pour les quatre canaux considérés.]{Catégories SM pour les quatre canaux considérés.}
+\label{tab-chapter-HTT_analysis-section-categorisation-SM-cats_recap}
+\end{table}
 %Minor background processes like electroweak Z production or di-boson events which provide
 %only small event numbers are collected in one category for remaining processes called ”misc”.
 %Individual categories would raise problems to the training due to the small event numbers. In
@@ -45,29 +70,14 @@ Ce réseau fournit donc un vecteur, et non un scalaire, permettant une catégori
 %these processes are associated with the misc category as well. In summary, the misc category
 %covers Z → ll and W + jets in the eμ channel, di-Boson, single top and EWKZ in the eτ h and
 %μτ h channel and Z → ll, tt̄, W + jets, di-Boson, single top and EWKZ in the τ h τ h channel.
-
-et xxh
-et tt
-et zll
-et misc
-et emb
-et ff
-
-mt xxh
-mt tt
-mt zll
-mt misc
-mt emb
-mt ff
-
-tt xxh
-tt emb
-tt ff
-tt misc
-
-em xxh
-em tt
-em ss
-em misc
-em db
-em emb
+\subsubsection{Variable discriminante}
+\todo{the NN score itself}
+%The task of the neural net is to define regions of the phase space that are dominated by certain
+%processes. The resulting boundaries between the categories, meaning the region where events
+%are assigned similar and therefore low probabilities for two categories, are actually rather de-
+%liberate and depend very much on the training parameters e.g. additional class weights. A
+%variation of the parameters would cause migrations of these events between the categories.
+%Therefore, it is important to use the actual values of the output nodes for further discrimina-
+%tion and to sort events by it. Here we use the value of the largest probability, which was used to
+%assign the category, for further discrimination within the same category. We call this quantity
+%exclusive probability or just the NN score.

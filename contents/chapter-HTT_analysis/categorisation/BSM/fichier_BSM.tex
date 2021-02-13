@@ -1,4 +1,5 @@
-\subsection{Région \og BSM \fg{}}\label{chapter-HTT_analysis-section-categorisation-BSM}
+\subsection{Catégories BSM}\label{chapter-HTT_analysis-section-categorisation-BSM}
+\subsubsection{Définition des catégories}
 Les catégories BSM, introduites dans la référence~\cite{CMS-PAS-HIG-17-020}, sont construites dans le but de chercher une résonance correspondant à un boson de Higgs lourd.
 \par
 Une première catégorisation est basée sur la présence de jets issus de quarks~\quarkb.
@@ -103,7 +104,7 @@ La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-Dz
 \caption[Illustrations des catégorisations basées sur $\mT^{(\ell)}$ et \Dzeta]{Illustrations des catégorisations basées sur $\mT^{(\ell)}$ et \Dzeta, respectivement sur les événements des canaux \ele\tauh\ et \ele\mu\ de l'année 2018.}
 \label{fig-chapter-HTT_analysis-section-categorisation-BSM-subcats}
 \end{figure}
-\paragraph{Récapitulatif}
+\paragraph{Catégories obtenues}
 Les catégories BSM correspondant à la région de signal (SR), \ie\ en dehors des régions de détermination (DR) et de contrôle (CR), sont résumées sur la figure~\ref{fig-chapter-HTT_analysis-section-categorisation-BSM-cats_recap} pour les quatre canaux considérés.
 \begin{figure}[h]
 \centering
@@ -148,3 +149,18 @@ Les catégories BSM correspondant à la région de signal (SR), \ie\ en dehors d
 \caption{Catégories BSM pour les quatre canaux considérés.}
 \label{fig-chapter-HTT_analysis-section-categorisation-BSM-cats_recap}
 \end{figure}
+\subsubsection{Variable discriminante}
+
+
+in transverse plane,
+with all neutrinos as one single particle,
+with $m\ll E$ for final decays,
+\begin{align}
+m^2 &= E^2 - p^2
+= \left( \sum_{i \in \set{L_1,L_2,\nu}} E_i \right)^2 - \left( \sum_{i \in \set{L_1,L_2,\nu}} \vpT^i \right)^2\\
+&= \left( E_1 + E_2 + \MET \right)^2 - \left( \vpT^{(1)} + \vpT^{(2)} + \vMET \right)^2\\
+&= E_1^2 + E_2^2 + \MET^2 + 2 \left( E_1E_2 + E_1\MET + E_2\MET \right)\\
+&\hphantom{=} - \left( {\vpT^{(1)}}^2 + {\vpT^{(2)}}^2 + {\vMET}^2 \right) - 2 \left( \vpT^{(1)}\cdot\vpT^{(2)} + \vpT^{(1)}\cdot\vMET + \vpT^{(2)}\cdot\vMET \right)\\
+&= 2 \left( \pT^{(1)}\pT^{(2)}(1-\cos\phi_{12}) + \pT^{(1)}\MET(1-\cos\phi_{1m}) + \pT^{(2)}\MET(1-\cos\phi_{2m}) \right)\\
+&= {m_T^{\tau\tau}}^2 + {m_T^{(1)}}^2 + {m_T^{(2)}}^{2} = {m_T^{tot}}^2
+\end{align}
