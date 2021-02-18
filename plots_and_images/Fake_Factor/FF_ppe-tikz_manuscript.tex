@@ -1,0 +1,59 @@
+\begin{tikzpicture}
+\def\RegionW{3}
+\def\RegionH{2.5}
+
+\fill [ltcolorgray2] (0,0) rectangle + (\RegionW,\RegionH);
+\fill [ltcolorred2] (\RegionW,0) rectangle + (\RegionW,\RegionH);
+\fill [ltcolormagenta2] (2*\RegionW,0) rectangle + (\RegionW,\RegionH);
+\fill [ltcolorviolet2] (3*\RegionW,0) rectangle + (\RegionW,\RegionH);
+
+\fill [ltcolorgray1] (0,\RegionH) rectangle + (\RegionW,\RegionH);
+\fill [ltcolorred1] (\RegionW,\RegionH) rectangle + (\RegionW,\RegionH);
+\fill [ltcolormagenta1] (2*\RegionW,\RegionH) rectangle + (\RegionW,\RegionH);
+\fill [ltcolorviolet1] (3*\RegionW,\RegionH) rectangle + (\RegionW,\RegionH);
+
+\draw [ultra thick, -latex] (0.875*\RegionW, \RegionH-\RegionW/6) --+ (0,\RegionW/3);
+
+%\draw (1.5*\RegionW, \RegionH) node [above] (FFW) {\Large $\FF_\Wboson$};
+%\draw (2.5*\RegionW, \RegionH) node [above] (FFQ) {\Large $\FF_Q$};
+%\draw (3.5*\RegionW, \RegionH) node [above] (FFT) {\Large $\FF_\quarkt$};
+
+\foreach \value/\DeterminationRegion/\nodecoord in {1.5/\Wboson/FFW, 2.5/Q/FFQ, 3.5/\quarkt/FFT}{
+\draw (\value*\RegionW, \RegionH) node (\nodecoord) {\large $\displaystyle \FF_{\DeterminationRegion}=\frac{n_\text{iso}^{\DeterminationRegion}}{n_\text{anti-iso}^{\DeterminationRegion}}$};
+}
+
+\draw [ultra thick] (1*\RegionW,1.4*\RegionH)  to [out=0,in=90, out looseness = 1.5, in looseness = 1] (5*\RegionW/4,8*\RegionH/7);
+\draw [ultra thick] (2*\RegionW,1.4*\RegionH)  to [out=0,in=90, out looseness = 1.5, in looseness = 1] (9*\RegionW/4,8*\RegionH/7);
+
+\draw [ultra thick, latex-] (.9*\RegionW,1.4*\RegionH) -- (3*\RegionW,1.4*\RegionH)  to [out=0,in=90, out looseness = 1.5, in looseness = 1] (13*\RegionW/4,8*\RegionH/7);
+
+\draw [thick, -latex] (-\RegionW/5,0) -- (4*\RegionW,0) --+ (\RegionW/5,0) node [right] {Région};
+\draw [thick, -latex] (0,-\RegionW/5) -- (0,2*\RegionH) --+ (0,\RegionW/5) node [above] {Isolation du \tauh};
+
+\draw (-0*\RegionW, 1.5*\RegionH) node [above, rotate=90] {isolé};
+
+\draw (-0*\RegionW, .5*\RegionH) node [above, rotate=90] {anti-isolé};
+
+\draw (.45*\RegionW, .675*\RegionH) node {\small fractions des};
+\draw (.45*\RegionW, .525*\RegionH) node {\small processus};
+\draw (\RegionW, .6*\RegionH) node [left] {$\mathrm{f}_i$};
+
+\draw (.45*\RegionW, .275*\RegionH) node {\small quantité};
+\draw (.45*\RegionW, .125*\RegionH) node {\small d'événements};
+\draw (\RegionW, .2*\RegionH) node [left] {$n_\text{AR}$};
+
+
+\draw (.5*\RegionW, 1.65*\RegionH) node {$n_\text{AR}\cdot\sum_i f_i \cdot \FF_i$\ };
+\draw (.5*\RegionW, 1.4*\RegionH) node {$=n_{j\to\tauh}$};
+
+\draw (.5*\RegionW, 2*\RegionH) node [below] {\textbf{SR}};
+\draw (.5*\RegionW, 1*\RegionH) node [below] {\textbf{AR}};
+
+% $\Wboson+\text{jets}$, QCD multijet, $\ttbar+\text{jets}$
+
+\draw (0.5*\RegionW, 0) node [below] {AR \& SR} ;
+\draw (1.5*\RegionW, 0) node [below] {DR \Wjets} ;
+\draw (2.5*\RegionW, 0) node [below] {DR QCD} ;
+\draw (3.5*\RegionW, 0) node [below] {DR \ttbar} ;
+
+\end{tikzpicture}
