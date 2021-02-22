@@ -1,3 +1,127 @@
 \section{Corrections}\label{chapter-HTT_analysis-section-corrections}
+Dans le but d'améliorer la description des données réelles par les données simulées et encapsulées, des corrections sont appliquées à ces dernières.
+Ces corrections, présentées ci-après, sont obtenues à partir d'analyses annexes.
+%\subsection{Pondérations} % weights and event scale factors
+\paragraph{Repondération de l'empilement (\emph{Pileup reweighting})}
+Les données simulées sont générées avec un réglage donné de luminosité instantanée, relié à la quantité d'empilement obtenu.
+Or, la production de ces jeux de données est souvent faite avant la mesure de ces observables dans les données réelles.
+Afin de corriger la différence sur le profil d'empilement obtenu, un poids est appliqué aux événements simulés afin que ce profil soit cohérent avec celui des données réelles.
+\paragraph{Facteurs d'échelle des \HLTpaths\ des \tauh\ (\emph{\tauh\ trigger scale factors})}
+L'efficacité des \HLTpaths\ est mesurée à partir d'une méthode \og balise et sonde \fg{}  (\emph{tag and probe}).
+La balise (\emph{tag}) est un \tauh\ respectant les critères de sélection utilisés dans l'analyse et correspondant au \tauh\ ayant activé le \HLTpath.
+La sonde (\emph{probe}) est tout \tauh\ respectant les critères de sélection utilisés dans l'analyse, à l'exception du \tauh\ \emph{tag}.
+L'efficacité $\epsilon$ du \HLTpath\ est alors
+\begin{equation}
+\epsilon = \frac{N_\text{pass}}{N_\text{total}}
+\end{equation}
+où
+$N_\text{pass}$ est le nombre de \emph{probe} correspondant au \tauh\ ayant activé au moins un des \HLTpaths\ \HLTSingleTau\ utilisé
+et
+$N_\text{total}$ le nombre total de \emph{probe}.
+Le facteur d'échelle correctif $SF$ à appliquer aux événements simulés est ainsi
+\begin{equation}
+SF = \frac{\epsilon(\text{données réelles})}{\epsilon(\text{données simulées})}
+\mend
+\end{equation}
+Dans le cas des données encapsulé, le dénominateur est l'efficacité obtenue avec les \tauh\ simulés.
+Les efficacités et le facteur d'échelle sont déterminés en fonction des propriétés cinématiques du \tauh\ ($\pT, \eta, \phi$).
+L'efficacité des \HLTpaths\ \HLTDoubleTau\ est obtenue comme étant le produit des efficacité de chacun des deux \tauh.
+\par
+L'efficacité combinée des \HLTpaths\ \HLTSingleTau\ et \HLTSingleMu\ dans le canal \mu\tauh (\HLTSingleEle\ dans le canal \ele\tauh) est obtenue selon
+\begin{equation}
+\epsilon = \epsilon(1\tauh) + \epsilon(1\ell) - \epsilon(1\tauh) \times \epsilon(1\ell)
+\end{equation}
+où $\ell$ correspond au muon (à l'électron).
+Dans le cas du canal \tauh\tauh, la présence de deux \tauh\ impose une formule plus complexe pour déterminer l'efficacité combinée des \HLTpaths\ \HLTSingleTau\ et \HLTDoubleTau\,
+\begin{align}
+\epsilon &= \epsilon(2\tauh) + \epsilon(\tauh1) + \epsilon(\tauh2)
+\nonumber\\ & \hphantom{=}
+- \epsilon(2\tauh + \tauh1) - \epsilon(2\tauh + \tauh1) - \epsilon(\tauh1+\tauh2)
+\nonumber\\ & \hphantom{=}
++ \epsilon(2\tauh + \tauh1 + \tauh2)
+\end{align}
+où $2\tauh$ signifie \HLTDoubleTau,
+$\tauh1$ \HLTSingleTau\ appliqué au \tauh\ de plus haut \pT\ et
+$\tauh2$ \HLTSingleTau\ appliqué à l'autre \tauh.
+\paragraph{Facteurs d'échelle d'identification des \tauh\ (\emph{\tauh\ ID scale factors})}
 
+\paragraph{Facteurs d'échelle des muons (\emph{scale factors})} trg, trk ID iso EMB
+
+\paragraph{Facteurs d'échelle des électrons (\emph{scale factors})} trg, trk ID iso EMB
+
+\paragraph{Taux de mauvaise identification $\ell\to\tauh$ (\emph{lepton to hadronic tau fake rate})}
+
+\paragraph{Efficacité du \quarkb-\emph{tagging}}
+
+%\subsection{Correction d'énergie}
+\begin{wrapfigure}{R}{5cm}
+\centering
+\input{/home/torterotot/Documents/PhD-Thesis/plots_and_images/Feynman_diagrams/H_production/fgraph-gg_loop_hHA.tex}\vspace{\baselineskip}
+\caption[Production de boson de Higgs du MSSM par fusion de gluons.]{Diagramme de Feynman de production de boson de Higgs dans le cadre du MSSM par fusion de gluons (\gluon\gluon\Higgs).}
+\label{fig-chapter-HTT_analysis-section-corrections-fgraph-gg_loop_hHA}
+\end{wrapfigure}
+\paragraph{Repondération de l'impulsion transverse des événements de signal $\gluon\gluon\to\Phi$}
+De larges gammes de valeurs de $m_{\HiggsA}$ et de $\tan\beta$, paramètres introduits dans le chapitre~\refChMSSM, sont utilisées dans cette analyse.
+Au premier ordre non nul (LO, \emph{Leading Order}), les propriétés cinématiques du signal ne dépendent que de la masse du boson de Higgs considérée, ce qui est couvert par la variété des jeux de données utilisés, listés dans l'annexe~\refApHTTdatasets.
+Cependant, à l'ordre supérieur (NLO, \emph{Next-to Leading Order}), ce n'est plus vrai dans le cas de la production du Higgs par fusion de gluons, illustrée figure~\ref{fig-chapter-HTT_analysis-section-corrections-fgraph-gg_loop_hHA}.
+La boucle fermionique, en l'occurrence de quarks, introduit une dépendance en $\tan\beta$ affectant l'impulsion du boson de Higgs, et donc des leptons taus issus de sa désintégration.
+\par
+Le signal par fusion de gluons est obtenu au NLO selon les méthodes introduites dans les références~\cite{Bagnaschi:2015qta,Bagnaschi:2015bop}.
+La section efficace prédite pour le signal dans le cadre du MSSM s'exprime en fonction de celles prédites dans les modèles à deux doublets de Higgs (2HDM) selon
+\begin{align}
+\sigma_\text{MSSM} &=
+\left(\frac{y_{\quarkt,\text{MSSM}}}{y_{\quarkt,\text{2HDM}}}\right)^2 \sigma_{\quarkt,\text{2HDM}}(Q_{\quarkt})
++
+\left(\frac{y_{\quarkb,\text{MSSM}}}{y_{\quarkb,\text{2HDM}}}\right)^2 \sigma_{\quarkb,\text{2HDM}}(Q_{\quarkb})
+\nonumber\\&\hphantom{=}
++
+\left(\frac{y_{\quarkt,\text{MSSM}}}{y_{\quarkt,\text{2HDM}}}\frac{y_{\quarkb,\text{MSSM}}}{y_{\quarkb,\text{2HDM}}}\right)
+\left[ \sigma_{\quarkt+\quarkb,\text{2HDM}}(Q_{\quarkt\quarkb}) - \sigma_{\quarkt,\text{2HDM}}(Q_{\quarkt\quarkb}) - \sigma_{\quarkb,\text{2HDM}}(Q_{\quarkt\quarkb}) \right]
+\label{eq-2HDM_to_MSSM_xsec}
+\end{align}
+où $\sigma$ peut correspondre à la section efficace inclusive ou différentielle,
+$y_{\quarkt}$ et $y_{\quarkb}$ sont les constantes de couplage de Yukawa pour les quarks~\quarkt\ et~\quarkb\ introduites dans le chapitre~\refChMSSM,
+$Q$ l'échelle d'énergie~\cite{Bagnaschi:2015qta,Bagnaschi:2015bop}.
+Les trois termes de cette formule correspondent aux contributions du quark~\quarkt, du quark~\quarkb\ et de leur interférence.
+Les valeurs de $y_{\quarkt}$ et $y_{\quarkb}$ dépendent de $m_{\HiggsA}$ et $\tan\beta$ et sont définies pour chacun des bosons de Higgs (\higgs, \Higgs, \HiggsA).
+Pour chaque point de masse $m_{\HiggsA}$, neuf contributions sont alors déterminées à l'aide de \POWHEG~\cite{Alioli:2010xd},
+correspondant à chacun de ces termes pour chaque boson de Higgs.
+\par
+À l'aide du module \texttt{gg\_H\_2HDM} de \POWHEG~\cite{Alioli:2010xd}, la section efficace $\sigma_\text{2HMD}$ pour chaque boson de Higgs dans un modèle général à deux doublets (2HDM) est déterminée.
+Les valeurs des paramètres $\alpha$ et $\tan\beta$, introduits dans le chapitre~\refChMSSM, sont fixées à $\pi/4$ et 15.
+Les événements utilisés dans l'analyse sont alors pondérés selon les distributions en \pT\ des bosons de Higgs de manière à correspondre à celles obtenues dans le cas du modèle général 2HDM.
+Le signal complet est obtenu par somme à partir de l'équation~\eqref{eq-2HDM_to_MSSM_xsec}.
+
+
+
+\paragraph{Énergie des \tauh} genuine and $\ell\to\tauh$ EMB
+
+\paragraph{Trace et énergie des électrons} EMB
+
+\paragraph{Recul de \MET} Z, W and Higgs samples
+
+\paragraph{Impulsion et masse du \Zboson\ (\emph{DY \pT-mass reweighting})} DY samples
+
+\paragraph{Impulsion du quark~\quarkt\ (\emph{top \pT\ reweighting})} \ttbar
+
+%EE noise
+%
+%\tuah\ trg eff
+%
+%\tauh\ misid eff
+%
+%\tauh\ ES
+%
+%$\ell\to\tauh$ eff
+%
+%$\ell\to\tauh$ ES
+%
+%jet energy
+%
+%
+%DY mass and pT rw
+%
+%top pT rw
+%
+%\tauh\ trk eff in EMB
 
