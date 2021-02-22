@@ -1,19 +1,4 @@
 \subsection{Sélection finale}\label{chapter-HTT_analysis-section-offline_selection}
-\begin{wraptable}{R}{.33\textwidth}
-    \centering
-    \begin{tabularx}{.9\linewidth}{cYY}
-        \toprule
-        Canal & $L_1$ & $L_2$ \\
-        \midrule
-        \tauh\tauh & \multicolumn{2}{c}{\tauh, $\pT^{(L_1)}>\pT^{(L_2)}$} \\
-        \mu\tauh & \mu & \tauh \\
-        \ele\tauh & \ele & \tauh \\
-        \ele\mu & \mu & \ele \\
-        \bottomrule
-    \end{tabularx}
-    \caption{Particules correspondant à $L_1$ et $L_2$ selon le canal.}
-    \label{tab-chapter-HTT_analysis-section-offline_selection-L1L2}
-\end{wraptable}
 La phénoménologie des événements $\Higgs\to\tau\tau$ est décrite dans le chapitre~\refChMSSM.
 Les leptons tau peuvent se désintégrer hadroniquement en tau hadronique (\tauh) ou leptoniquement en électron (\ele) ou en muon (\mu), ces désintégrations s'accompagnent de l'émission de un (cas hadronique) ou deux (cas leptoniques) neutrinos.
 Il existe ainsi six états finaux différents ou canaux pour ces événements dont seulement quatre sont considérés dans l'analyse:
@@ -21,7 +6,9 @@ le canal hadronique (\tauh\tauh),
 les deux canaux semi-leptoniques (\mu\tauh, \ele\tauh)
 et un canal leptonique (\ele\mu).
 \par
-Les produits de désintégration visibles des leptons tau sont notés $L_1$ et $L_2$ et correspondent, selon le canal, à un tau hadronique, un muon ou un électron comme exposé dans le tableau~\ref{tab-chapter-HTT_analysis-section-offline_selection-L1L2}.
+Les produits de désintégration visibles des leptons tau sont notés $L_1$ et $L_2$.
+La correspondance de $L_1$ et $L_2$ aux taus hadroniques, muons ou électrons suit l'ordre de notation du canal, par exemple $\mu\tauh=L_1L_2$.
+Dans le cas d'un canal symétrique (\tauh\tauh, \mu\mu, \ele\ele), $\pT^{(L_1)}>\pT^{(L_2)}$.
 Pour $L_1$ comme $L_2$, une liste de candidats est obtenue à partir des particules reconstruites auxquelles sont appliquées des coupures détaillées dans les sections qui suivent pour chacun des canaux.
 À partir de ces deux listes de candidats, des paires $L_1L_2$ compatibles avec le cas de figure $\Higgs\to\tau\tau\to L_1L_2$ sont formées.
 Une paire $L_1L_2$ est un \emph{dilepton}.
@@ -216,8 +203,8 @@ L'électron et le muon \FromPairMatchToHLTObjects{}
 Il est possible d'obtenir plusieurs candidats \emph{dilepton} après application des coupures précédemment exposées.
 Dans ce cas, une seule et unique paire est conservée à l'aide des étapes de réjection suivantes:
 \begin{enumerate}
-    \item préférer une paire avec $L_1$ le plus isolé possible (le tau hadronique avec le plus haut \pT\ pour le canal \tauh\tauh, le muon pour les canaux \mu\tauh\ et \ele\mu, l'électron pour le canal \ele\tauh);
-    \item en cas d'égalité, préférer une paire avec $L_1$ de plus haut \pT;
-    \item en cas d'égalité, préférer une paire avec $L_1$ le plus isolé possible (le tau hadronique avec le plus bas \pT\ pour le canal \tauh\tauh, le tau hadronique pour les canaux \mu\tauh\ et \ele\tauh, l'électron pour le canal \ele\mu);
-    \item en cas d'égalité, préférer une paire avec $L_2$ de plus haut \pT.
+    \item préférer une paire avec $L_1$ le plus isolé possible ($L_2$ pour le canal \ele\mu);
+    \item en cas d'égalité, préférer une paire avec $L_1$ de plus haut \pT ($L_2$ pour le canal \ele\mu);
+    \item en cas d'égalité, préférer une paire avec $L_2$ le plus isolé possible ($L_1$ pour le canal \ele\mu);
+    \item en cas d'égalité, préférer une paire avec $L_2$ de plus haut \pT ($L_1$ pour le canal \ele\mu).
 \end{enumerate}
