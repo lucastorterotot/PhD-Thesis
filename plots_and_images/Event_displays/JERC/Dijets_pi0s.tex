@@ -3,24 +3,28 @@
 
 \drawCMS
 
-{\def\tauhcolor{\jetcolor}
-\printtauhdeposit{-135}}
+{
+\def\tauhcolor{\jetcolor}
+\printtauhdeposit{9}{-135}
+}
 
 \foreach \angle in {-132, -138}{
 \printphotondeposit{\angle-1}
 \printphotondeposit{\angle+1}
 }
 
-{\def\tauhcolor{\jetcolor}
-\printtauhnolabel{9}{-135}}
-\printjetlabel{9}{-135}
+{
+\def\tauhcolor{\jetcolor}
+\printtauhnolabel{9}{-135}
+}
+\printjetlabel[$\text{jet}\to\photon$]{9}{-140}
 
 \foreach \angle in {-132, -138}{
 \printphotonnolabel{\angle-1}
 \printphotonnolabel{\angle+1}
 }
 
-\printjetdeposit{45}
+\printjetdeposit{9}{45}
 \printjetnolabel{9}{45}
 \printjetlabel{9}{35}
 \end{tikzpicture}
