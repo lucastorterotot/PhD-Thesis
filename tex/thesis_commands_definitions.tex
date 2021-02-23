@@ -138,15 +138,15 @@
 \begin{tikzpicture}%
 \begin{scope}
 \clip (.7,.55) -- (.7,7.3) -- (1.25,7.3) -- (1.25,7.11) -- (7.6,7.11) -- (7.6,.55) -- cycle ;
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/limits/mssm/mssm_model-independent_#2_#3_#4#5.pdf}};
-\fill [white] (1.5, 6) rectangle (3, 7);
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/limits/#2/mssm_model-independent_#3_#4#5.pdf}};
+\fill [white] (1.5, 6) rectangle (3.6, 7);
 \end{scope}
 
 \def\localyaxislabelXXH{\todo{?}}
-\ifthenelse{\equal{#3}{ggH}}{
+\ifthenelse{\equal{#4}{ggH}}{
   \def\localyaxislabelXXH{\ensuremath{\gluon\gluon\phi}}
 }{}
-\ifthenelse{\equal{#3}{bbH}}{
+\ifthenelse{\equal{#4}{bbH}}{
   \def\localyaxislabelXXH{\ensuremath{\quarkb\antiquarkb\phi}}
 }{}
 
@@ -157,7 +157,11 @@
 \draw (0, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
 
 % year
-\draw (7.7, 7) node [above left] {\scriptsize \SI{137}{\femto\barn^{-1}} (Run II, \SI{13}{\TeV})\vphantom{Àq,}};
+\def\locallumivalue{137}\def\localera{Run II}
+\ifthenelse{\equal{#3}{2016}}{\def\locallumivalue{35.9}\def\localera{2016}}{}
+\ifthenelse{\equal{#3}{2017}}{\def\locallumivalue{41.5}\def\localera{2017}}{}
+\ifthenelse{\equal{#3}{2018}}{\def\locallumivalue{59.7}\def\localera{2018}}{}
+\draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (\localera, \SI{13}{\TeV})\vphantom{Àq,}};
 
 % CMS disclaimer
 \draw (1.15, 7) node [above right] {\scriptsize CMS Data\vphantom{Àq,}};
