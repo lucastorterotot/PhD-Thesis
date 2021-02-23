@@ -44,19 +44,28 @@ où $2\tauh$ signifie \HLTDoubleTau,
 $\tauh1$ \HLTSingleTau\ appliqué au \tauh\ de plus haut \pT\ et
 $\tauh2$ \HLTSingleTau\ appliqué à l'autre \tauh.
 \paragraph{Facteurs d'échelle d'identification des \tauh\ (\emph{\tauh\ ID scale factors})}
+L'efficacité d'identification des \tauh\ n'est pas la même dans les données réelles et simulées~\cite{TauPOG}.
+Ces facteurs sont déterminés par le \POG\ tau à partir d'événements Drell-Yann dans le canal \mu\tauh.
+Ils sont de plus donnés séparément pour les données simulées et encapsulées.
+\paragraph{Taux de mauvaise identification $\mu\to\tauh$ (\emph{$\mu\to\tauh$ fake rate})}
+Il est possible que des muons soient identifiés à tort comme des \tauh.
+Il s'agit alors de mauvais \tauh\ ou \og \ftauhs \fg{}.
+L'efficacité de la réjection de ces \ftauhs\ diffère entre données réelles et simulées~\cite{TauPOG}.
+Un facteur d'échelle à appliquer aux simulations est fournit par le \POG\ tau en fonction de la pseudorapidité et du DM du \ftauh.
+\paragraph{Taux de mauvaise identification $\ele\to\tauh$ (\emph{$\ele\to\tauh$ fake rate})}
+Il est également possible que des électrons soient identifiés à tort comme des \tauh.
+À l'instar des muons, un autres facteur d'échelle à appliquer aux simulations est fournit par le \POG\ tau en fonction de la pseudorapidité et du DM du \ftauh.
 
 \paragraph{Facteurs d'échelle des muons (\emph{scale factors})} trg, trk ID iso EMB
 
 \paragraph{Facteurs d'échelle des électrons (\emph{scale factors})} trg, trk ID iso EMB
-
-\paragraph{Taux de mauvaise identification $\ell\to\tauh$ (\emph{lepton to hadronic tau fake rate})}
 
 \paragraph{Efficacité du \quarkb-\emph{tagging}}
 
 %\subsection{Correction d'énergie}
 \begin{wrapfigure}{R}{5cm}
 \centering
-\input{/home/torterotot/Documents/PhD-Thesis/plots_and_images/Feynman_diagrams/H_production/fgraph-gg_loop_hHA.tex}\vspace{\baselineskip}
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/H_production/fgraph-gg_loop_hHA.tex}\vspace{\baselineskip}
 \caption[Production de boson de Higgs du MSSM par fusion de gluons.]{Diagramme de Feynman de production de boson de Higgs dans le cadre du MSSM par fusion de gluons (\gluon\gluon\Higgs).}
 \label{fig-chapter-HTT_analysis-section-corrections-fgraph-gg_loop_hHA}
 \end{wrapfigure}
@@ -111,11 +120,63 @@ Ces corrections sont déterminées dans une région de contrôle $\Zboson\to\mu\
 
 
 
-\paragraph{Énergie des \tauh} genuine and $\ell\to\tauh$ EMB
+\paragraph{Énergie des \tauh\ (\emph{\tauh\ energy scale})}
+L'énergie mesurée des \tauh\ peut différer entre les \tauh\ réels et simulés, ainsi que selon le DM du \tauh~\cite{TauPOG}.
+Le \POG\ tau fournit les corrections à appliquer aux \tauh\ simulés, elles sont données dans le tableau~\ref{tab-chapter-HTT_analysis-section-corrections-tauES}.
+Ces corrections sont obtenues à partir d'événements du canal \mu\tauh, par exploitation de la masse du \tauh\ et de la masse visible du système \mu\tauh.
+Elles sont dépendantes de l'année, du DM et du type de données, simulées ou encapsulées.
+Les données encapsulées sont présentées dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-embedding}.
+\begin{table}[h]
+\centering
+\subcaptionbox{Pour les données simulées.\label{tab-chapter-HTT_analysis-section-corrections-tauES-MC}}[0.45\textwidth]
+{\begin{tabular}{lccc}
+\toprule
+DM & 2016 & 2017 & 2018\\
+\midrule
+0 & $\num{-0.6}\pm\num{1.0}$ & $\num{0.7}\pm\num{0.8}$ & $\num{-1.3}\pm\num{1.1}$ \\
+1 & $\num{-0.5}\pm\num{0.9}$ & $\num{-0.2}\pm\num{0.8}$ & $\num{-0.5}\pm\num{0.9}$ \\
+10 & $\num{0.0}\pm\num{1.1}$ & $\num{0.1}\pm\num{0.9}$ & $\num{-1.2}\pm\num{0.8}$ \\
+11 & $\num{0.1}\pm\num{1.0}$ & $\num{-0.5}\pm\num{1.6}$ & $\num{0.1}\pm\num{1.0}$ \\
+\bottomrule
+\end{tabular}}
+\qquad
+\subcaptionbox{Pour les données encapsulées.\label{tab-chapter-HTT_analysis-section-corrections-tauES-EMB}}[0.45\textwidth]
+{\begin{tabular}{lccc}
+\toprule
+DM & 2016 & 2017 & 2018\\
+\midrule
+0 & $\num{-0.2}\pm\num{0.5}$ & $\num{0.0}\pm\num{0.4}$ & $\num{-0.3}\pm\num{0.4}$ \\
+1 & $\num{-0.2}\pm\num{0.3}$ & $\num{-1.2}\pm\num{0.5}$ & $\num{-0.6}\pm\num{0.4}$ \\
+10 & $\num{-1.3}\pm\num{0.5}$ & $\num{-0.8}\pm\num{0.5}$ & $\num{-0.7}\pm\num{0.3}$ \\
+11 & $\num{-1.3}\pm\num{0.5}$ & $\num{-0.8}\pm\num{0.5}$ & $\num{-0.7}\pm\num{0.3}$ \\
+\bottomrule
+\end{tabular}}
+\caption[Corrections à l'énergie des taus hadroniques.]{Corrections à l'énergie des taus hadroniques en \SI{}{\%} avec incertitude pour les trois années du Run~II.}
+\label{tab-chapter-HTT_analysis-section-corrections-tauES}
+\end{table}
+\paragraph{Énergie des muons identifiés comme \tauh\ (\emph{$\mu\to\tauh$ energy scale})}
+Il est possible que des muons soient identifiés à tort comme des \tauh.
+Il s'agit alors de mauvais \tauh\ ou \og \ftauhs \fg{}.
+À l'instar des vrais \tauh\ discutés dans le paragraphe précédent, l'énergie mesurée de ces \ftauhs\ peut différer entre les données réelles et simulées.
+Dans ce cas, le quadrivecteur du \ftauh\ est directement corrigé selon le DM du \tauh\ identifié.
+Cette correction, généralement inférieure au pourcent, est appliquée uniquement aux DMs 0 et 1 et pour des \tauh\ correspondant au niveau généré à un muon.
+La quantité de muons identifiés comme des \tauh\ avec un DM plus élevé, en particulier les DMs 10 et 11, est négligeable, c'est pourquoi aucune correction n'est prévu dans ce cas.
+\paragraph{Énergie des électrons identifiés comme \tauh\ (\emph{$\ele\to\tauh$ energy scale})}
+Toute comme les muons, les électrons peuvent être identifiés à tort comme des \tauh.
+La correction correspondante est similaire au cas des muons, mais peut être de l'ordre de \SI{5}{\%} selon le DM et la pseudorapidité.
+
 
 \paragraph{Trace et énergie des électrons} EMB
 
-\paragraph{Recul de \MET} Z, W and Higgs samples
+\paragraph{Recul de \MET\ (\emph{MET recoil corrections})}
+La modélisation de \MET\ dans les jeux de données simulées de production du boson de Higgs, de Drell-Yann (boson \Zboson) et de \Wjets\ ne correspond pas aux observations dans les données réelles.
+Des corrections sur $\vec{U}$, défini comme la différence entre \MET\ et la comme des impulsions des neutrinos provenant de la désintégration du boson de Higgs, \Zboson\ ou \Wboson, \ie
+\begin{equation}
+\vec{U} = \vMET - \sum_{\nu_i \leftarrow \higgs,\Zboson,\Wboson} \vpT^{(\nu_i)}
+\mend[,]
+\end{equation}
+sont appliquées pour corriger cet effet.
+
 
 
 \paragraph{Impulsion du quark~\quarkt\ (\emph{top \pT\ reweighting})} \ttbar
