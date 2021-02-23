@@ -61,13 +61,28 @@ $\tauh2$ \HLTSingleTau\ appliqué à l'autre \tauh.
 \label{fig-chapter-HTT_analysis-section-corrections-fgraph-gg_loop_hHA}
 \end{wrapfigure}
 \paragraph{Repondération de l'impulsion transverse du boson de Higgs}
-De larges gammes de valeurs de $m_{\HiggsA}$ et de $\tan\beta$, paramètres introduits dans le chapitre~\refChMSSM, sont utilisées dans cette analyse.
-Au premier ordre non nul (LO, \emph{Leading Order}), les propriétés cinématiques du signal ne dépendent que de la masse du boson de Higgs considérée, ce qui est couvert par la variété des jeux de données utilisés, listés dans l'annexe~\refApHTTdatasets.
-Cependant, à l'ordre supérieur (NLO, \emph{Next-to Leading Order}), ce n'est plus vrai dans le cas de la production du Higgs par fusion de gluons, illustrée figure~\ref{fig-chapter-HTT_analysis-section-corrections-fgraph-gg_loop_hHA}.
-La boucle fermionique, en l'occurrence de quarks, introduit une dépendance en $\tan\beta$ affectant l'impulsion du boson de Higgs, et donc des leptons taus issus de sa désintégration.
+Cette correction concerne les événements où un boson de Higgs est produit par fusion de gluons, comme illustré figure~\ref{fig-chapter-HTT_analysis-section-corrections-fgraph-gg_loop_hHA}.
+La boucle du diagramme, fermionique, comporte des contributions provenant des quarks.
+Au premier ordre non nul (LO, \emph{Leading Order}), les propriétés cinématiques du signal ne dépendent que de la masse du boson de Higgs, ce qui est couvert par la variété des jeux de données utilisés, listés dans l'annexe~\refApHTTdatasets.
+Cependant, à l'ordre supérieur (NLO, \emph{Next-to Leading Order}), l'impulsion du boson de Higgs dépend également du contenu en quarks de la boucle.
+Dans le cadre du MSSM, les contributions dominantes sont celles des quarks~\quarkt\ et~\quarkb.
+Or, les fractions relatives de ces contributions dépendent des valeurs de $m_{\HiggsA}$ et de $\tan\beta$, paramètres introduits dans le chapitre~\refChMSSM, dont de larges gammes sont utilisées dans cette analyse.
+Afin de minimiser la quantité de données simulées à produire, il a été choisi d'utiliser une simulation de référence à corriger pour rendre compte de cette dépendance en $m_{\HiggsA}$ et de $\tan\beta$ selon les méthodes introduites dans les références~\cite{Bagnaschi:2015qta,Bagnaschi:2015bop}.
 \par
-Le signal par fusion de gluons est obtenu au NLO selon les méthodes introduites dans les références~\cite{Bagnaschi:2015qta,Bagnaschi:2015bop}.
-La section efficace prédite pour le signal dans le cadre du MSSM s'exprime en fonction de celles prédites dans les modèles à deux doublets de Higgs (2HDM) selon
+D'une part, une simulation de référence par point de masse ($m_{\HiggsA}$) est réalisée.
+La génération de ces événements est faite au NLO à l'aide du module \texttt{gg\_H\_2HDM} de \POWHEG~\cite{Alioli:2010xd},
+les gerbes partoniques, l'hadronisation et l'évenement sous-jacent sont simulés par \PYTHIA~\cite{pythia8.2} et
+la modélisation du détecteur est traitée par \GEANTfour~\cite{geant4_2003,geant4_2006,geant4_2016}.
+Cette simulation se fait dans le cadre d'un modèle général à deux doublets de Higgs (2HDM), dont le MSSM est un cas particulier comme exposé dans le chapitre~\refChMSSM.
+\POWHEG\ permet alors d'obtenir, pour chacun des trois bosons de Higgs considérés (\higgs, \Higgs, \HiggsA), les contributions des quarks~\quarkt et~\quarkb\ ainsi que de leur interférence.
+Neuf contributions au signal sont donc considérées.
+En principe, toutes valeurs des paramètres $\alpha$ et $\tan\beta$ peuvent être utilisées.
+En pratique, pour éviter d'obtenir un terme d'interférence presque nul menant à de faibles statistiques, ces paramètres sont fixés à $\alpha=\pi/4$ et $\tan\beta=15$.
+\par
+D'autre part, des simulations annexes sont réalisées pour différentes valeurs de $m_{\HiggsA}$ et de $\tan\beta$, également avec le  module \texttt{gg\_H\_2HDM} de \POWHEG, mais uniquement au niveau générateur \ie\ sans propagation dans le détecteur.
+Pour chaque valeurs de $m_{\HiggsA}$ et $\tan\beta$, les distributions en \pT\ des neuf contributions considérées sont pondérées dans la simulation de référence de manière à correspondre à celles obtenues dans la simulation annexe correspondante.
+\par
+Le signal complet du MSSM est obtenu à partir des contributions individuelles dans le 2HDM utilisé ($\alpha=\pi/4$, $\tan\beta=15$) selon
 \begin{align}
 \sigma_\text{MSSM} &=
 \left(\frac{y_{\quarkt,\text{MSSM}}}{y_{\quarkt,\text{2HDM}}}\right)^2 \sigma_{\quarkt,\text{2HDM}}(Q_{\quarkt})
@@ -79,18 +94,14 @@ La section efficace prédite pour le signal dans le cadre du MSSM s'exprime en f
 \left[ \sigma_{\quarkt+\quarkb,\text{2HDM}}(Q_{\quarkt\quarkb}) - \sigma_{\quarkt,\text{2HDM}}(Q_{\quarkt\quarkb}) - \sigma_{\quarkb,\text{2HDM}}(Q_{\quarkt\quarkb}) \right]
 \label{eq-2HDM_to_MSSM_xsec}
 \end{align}
-où $\sigma$ peut correspondre à la section efficace inclusive ou différentielle,
+où $\sigma$ peut correspondre à la section efficace inclusive ou différentielle selon une variable donnée,
 $y_{\quarkt}$ et $y_{\quarkb}$ sont les constantes de couplage de Yukawa pour les quarks~\quarkt\ et~\quarkb\ introduites dans le chapitre~\refChMSSM,
 $Q$ l'échelle d'énergie~\cite{Bagnaschi:2015qta,Bagnaschi:2015bop}.
 Les trois termes de cette formule correspondent aux contributions du quark~\quarkt, du quark~\quarkb\ et de leur interférence.
 Les valeurs de $y_{\quarkt}$ et $y_{\quarkb}$ dépendent de $m_{\HiggsA}$ et $\tan\beta$ et sont définies pour chacun des bosons de Higgs (\higgs, \Higgs, \HiggsA).
-Pour chaque point de masse $m_{\HiggsA}$, neuf contributions sont alors déterminées à l'aide de \POWHEG~\cite{Alioli:2010xd},
-correspondant à chacun de ces termes pour chaque boson de Higgs.
-\par
-À l'aide du module \texttt{gg\_H\_2HDM} de \POWHEG~\cite{Alioli:2010xd}, la section efficace $\sigma_\text{2HMD}$ pour chaque boson de Higgs dans un modèle général à deux doublets (2HDM) est déterminée.
-Les valeurs des paramètres $\alpha$ et $\tan\beta$, introduits dans le chapitre~\refChMSSM, sont fixées à $\pi/4$ et 15.
-Les événements utilisés dans l'analyse sont alors pondérés selon les distributions en \pT\ des bosons de Higgs de manière à correspondre à celles obtenues dans le cas du modèle général 2HDM.
-Le signal complet est obtenu par somme à partir de l'équation~\eqref{eq-2HDM_to_MSSM_xsec}.
+
+
+
 %\paragraph{Impulsion et masse du \Zboson\ (\emph{DY \pT-mass reweighting})} DY samples
 \paragraph{Repondération de l'impulsion transverse et de la masse du boson \Zboson\ (\emph{DY \pT-mass reweighting})}
 Les impulsions transverses ainsi que la masse invariante des leptons issus de la désintégration du boson \Zboson\ sont corrigées
