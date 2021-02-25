@@ -34,7 +34,7 @@ j\in\set{1,\ldots,K}
 chaque composante de ce vecteur correspond donc à la probabilité que l'événement appartienne à la catégorie correspondante.
 \paragraph{Catégories obtenues}
 Les principaux bruits de fond présents dans l'analyse sont présentés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation}.
-Pour chaque canal, en plus d'une catégorie \og signal \fg, une catégorie est définie pour chaque bruit de fond suffisamment présent.
+Pour chaque canal, en plus d'une catégorie \og signal \fg{} notée \CATxxh, une catégorie est définie pour chaque bruit de fond suffisamment présent.
 Pour les bruits de fond ayant une faible contribution ou étant peu différentiables d'autres bruits de fond, une catégorie \CATmisc\ est également définie.
 Les différentes catégories ainsi possibles sont listées dans le tableau~\ref{tab-chapter-HTT_analysis-section-categorisation-SM-cats_recap}.
 La catégorie \CATemb\ doit correspondre aux données encapsulées décrites dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-embedding}.
@@ -48,14 +48,14 @@ $\Zboson\to\ell\ell$ et \Wjets\ dans le canal \ele\mu.
 Les processus EWK $\Zboson\to LL$ et EWK $\Zboson\to \nu\nu$, introduits dans l'annexe~\refApHTTdatasets, sont également associés à la catégorie \CATmisc\ dans les canaux \tauh\tauh, \mu\tauh\ et \ele\tauh.
 \begin{table}[h]
 \centering
-\begin{tabular}{ccccccc}
+\begin{tabular}{cccccccc}
 \toprule
-Canal & \multicolumn{6}{l}{Catégories possibles}\\
+Canal & \multicolumn{7}{l}{Catégories possibles}\\
 \midrule
-\tauh\tauh & \CATemb & & & & \CATfake & \CATmisc \\
-\mu\tauh & \CATemb & \CATzll & \CATttbar & & \CATfake & \CATmisc \\
-\ele\tauh & \CATemb & \CATzll & \CATttbar & & \CATfake & \CATmisc \\
-\ele\mu & \CATemb & & \CATttbar & \CATdib & \CATqcd & \CATmisc \\
+\tauh\tauh & \CATxxh & \CATemb & & & & \CATfake & \CATmisc \\
+\mu\tauh & \CATxxh & \CATemb & \CATzll & \CATttbar & & \CATfake & \CATmisc \\
+\ele\tauh & \CATxxh & \CATemb & \CATzll & \CATttbar & & \CATfake & \CATmisc \\
+\ele\mu & \CATxxh & \CATemb & & \CATttbar & \CATdib & \CATqcd & \CATmisc \\
 \bottomrule
 \end{tabular}
 \caption[Catégories SM pour les quatre canaux considérés.]{Catégories SM pour les quatre canaux considérés.}
