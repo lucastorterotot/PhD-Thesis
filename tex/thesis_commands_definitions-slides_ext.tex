@@ -1,149 +1,9 @@
-% homedir
-\ifdefined\homedir \else {%
-\IfFileExists{/home/lucas/texmf/tex/latex/ltstyle/ltstyle.sty}{\def\homedir{/home/lucas}}{}%
-\IfFileExists{/home/torterotot/texmf/tex/latex/ltstyle/ltstyle.sty}{\def\homedir{/home/torterotot}}{}%
-} \fi
-
-% General
-\def\Hs{\higgs}
-\def\Hn{\Higgs}
-\def\Ha{\HiggsA}
-\def\Hp{\Higgsplus}
-\def\Hm{\Higgsminus}
-\def\Hu{\Higgsup}
-\def\Hd{\Higgsdo}
-
-\newcommand {\Lone}{Level-1\xspace} % Level-1 or L1 ?
-\newcommand {\Ltwo}{Level-2\xspace}
-\newcommand {\Lthree}{Level-3\xspace}
-
-\newcommand{\Lcal}{\ensuremath{\mathcal{L}}}
-
-\newcommand{\POG}{\emph{POG}}
-\newcommand{\PAG}{\emph{PAG}}
-
-\def\DeepCSV{\textsc{DeepCSV}}
-
-\newcommand{\SVFIT}{\textsc{SVfit}}
-
-\def\BR{\ensuremath{\mathcal{BR}}}
-
-\newcommand{\HLTpath}{chemin de déclenchement}
-\newcommand{\HLTpaths}{chemins de déclenchement}
-\newcommand{\HLTPATH}{Chemin de déclenchement}
-\newcommand{\HLTPATHS}{Chemins de déclenchement}
-
-\newcommand{\fakefactor}{facteur de faux}
-\newcommand{\fakefactors}{facteurs de faux}
-\newcommand{\Fakefactor}{Facteur de faux}
-\newcommand{\Fakefactors}{Facteurs de faux}
-
-\newcommand{\refChMSSM}{\ifref{chapter-MS-MSSM}{\ref{chapter-MS-MSSM}}{2}}
-\newcommand{\refChLHCCMS}{\ifref{chapter-LHC}{\ref{chapter-LHC}}{3}}
-\newcommand{\refChJERC}{\ifref{chapter-JERC}{\ref{chapter-JERC}}{4}}
-\newcommand{\refChHTT}{\ifref{chapter-HTT_analysis}{\ref{chapter-HTT_analysis}}{5}}
-\newcommand{\refChML}{\ifref{chapter-ML}{\ref{chapter-ML}}{6}}
-
-\newcommand{\refApMath}{\ifref{annexe-maths}{\ref{annexe-maths}}{A}}
-\newcommand{\refApFmf}{\ifref{annexe-fmf}{\ref{annexe-fmf}}{B}}
-\newcommand{\refApJERCdatasets}{\ifref{annexe-datasets-GJets}{\ref{annexe-datasets-GJets}}{C}}
-\newcommand{\refApHTTdatasets}{\ifref{annexe-datasets-HTT}{\ref{annexe-datasets-HTT}}{D}}
-\newcommand{\refApHTTtrg}{\ifref{annexe-triggers-HTT}{\ref{annexe-triggers-HTT}}{E}}
-\newcommand{\refApHTTctrlplots}{\ifref{annexe-control_plots-HTT}{\ref{annexe-control_plots-HTT}}{F}}
-
-% Parties du détecteur
-\newcommand{\CMSBarrel}{\emph{Barrel}}
-\newcommand{\CMSEndcap}{\emph{Endcap}}
-\newcommand{\CMSForward}{\emph{Forward}}
-
-\newcommand{\CMSbarrel}{\emph{barrel}}
-\newcommand{\CMSendcap}{\emph{endcap}}
-\newcommand{\CMSforward}{\emph{forward}}
-
-\newcommand{\CMSBarrels}{\emph{Barrels}}
-\newcommand{\CMSEndcaps}{\emph{Endcaps}}
-\newcommand{\CMSForwards}{\emph{Forwards}}
-
-\newcommand{\CMSbarrels}{\emph{barrels}}
-\newcommand{\CMSendcaps}{\emph{endcaps}}
-\newcommand{\CMSforwards}{\emph{forwards}}
-
-% HTT
-\newcommand{\DEEPTAU}{\textsc{DeepTau}}
-\newcommand{\ttbar}{\quarkt\antiquarkt}
-\newcommand{\Wjet}{\ensuremath{\Wboson+\text{jet}}}
-\newcommand{\Wjets}{\ensuremath{\Wboson+\text{jets}}}
-\newcommand{\mT}{\ensuremath{m_{\mathrm{T}}}}
-\newcommand{\mTtot}{\ensuremath{\mT^{\mathrm{tot}}}}
-\newcommand{\msv}{\ensuremath{m_\SVFIT}}
-\newcommand{\mlmass}{\ensuremath{m_\mathrm{ML}}}
-\newcommand{\mml}{\mlmass}
-\newcommand{\mtt}{\ensuremath{m_{\tau\tau}}}
-\newcommand{\mvis}{\mtt}
-\newcommand{\pTvis}{\ensuremath{\pT^{(\tau\tau)}}}
-\newcommand{\vpTvis}{\ensuremath{\vpT^{(\tau\tau)}}}
-\newcommand{\Dzeta}{\ensuremath{D_\zeta}}
-\newcommand{\minv}{\ensuremath{m_{\mathrm{inv}}}}
-\newcommand{\muonID}{\emph{muonID}}
-\newcommand{\Njets}{\ensuremath{N_\textrm{jets}}}
-\newcommand{\Nbjets}{\ensuremath{N_\textrm{\quarkb-jets}}}
-\newcommand{\Nprebjets}{\ensuremath{N_\textrm{pre \quarkb-jets}}}
-\newcommand{\mjj}{\ensuremath{m_\mathrm{jj}}}
-\newcommand{\Detajj}{\ensuremath{\Delta \eta_\mathrm{jj}}}
-\newcommand{\Ndof}{\ensuremath{N_\textrm{dof}}}
-\newcommand{\Nmdhits}{\ensuremath{N^\textrm{MD}_\textrm{hits}}}
-\newcommand{\Nms}{\ensuremath{N_\textrm{MS}}}
-\newcommand{\Npixelhits}{\ensuremath{N^\textrm{pixel}_\textrm{hits}}}
-\newcommand{\Ntrkhits}{\ensuremath{N^\textrm{tracker}_\textrm{hits}}}
-\newcommand{\EleIDMVA}{\emph{electron ID MVA}}
-\newcommand{\CutBasedEleID}{\emph{cut-based ID}}
-\newcommand{\CutBasedEleIDVeto}{\emph{cut-based veto ID}}
-\newcommand{\Nbtag}{\Nbjets}
-\newcommand{\mCutForCategories}{\msv}
-\newcommand{\mCutForCategoriesdef}{\mCutForCategories\ est la masse du \emph{dilepton} estimée par \SVFIT~\cite{SVFit_Bianchini_2014}}
-
-\newcommand{\ftauh}{\text{\emph{fake}~\tauh}}
-\newcommand{\ftauhs}{\text{\emph{fakes}~\tauh}}
-
-\newcommand{\FF}{\ensuremath{\mathrm{FF}}}
-
-\newcommand{\CATnobtag}{\texttt{no-btag}}
-\newcommand{\CATbtag}{\texttt{btag}}
-\newcommand{\CATlowdz}{\texttt{low-}\Dzeta}
-\newcommand{\CATmediumdz}{\texttt{medium-}\Dzeta}
-\newcommand{\CAThighdz}{\texttt{high-}\Dzeta}
-\newcommand{\CATtightmt}{\texttt{tight-}\mT}
-\newcommand{\CATloosemt}{\texttt{loose-}\mT}
-
-\newcommand{\NNscore}{\ensuremath{\mathrm{NN}_{\mathrm{score}}}}
-
-\newcommand{\CATxxh}{\texttt{xxh}}
-\newcommand{\CATemb}{\texttt{emb}}
-\newcommand{\CATzll}{\texttt{zll}}
-\newcommand{\CATttbar}{\texttt{ttbar}}
-\newcommand{\CATdib}{\texttt{diboson}}
-\newcommand{\CATfake}{\texttt{fake}}
-\newcommand{\CATqcd}{\texttt{qcd}}
-\newcommand{\CATmisc}{\texttt{misc}}
-
-\newcommand{\CATttbarctrl}{CR \ttbar}
-
-\newcommand{\HLTDoubleTau}{\og double \tauh \fg}
-\newcommand{\HLTSingleTau}{\og \tauh\ seul \fg}
-\newcommand{\HLTSingleMu}{\og muon seul \fg}
-\newcommand{\HLTMuTauCross}{\og muon et \tauh \fg}
-\newcommand{\HLTSingleEle}{\og électron seul \fg}
-\newcommand{\HLTEleTauCross}{\og électron et \tauh \fg}
-
-\newcommand{\nfpCLlimit}{$CL_S$ à \SI{95}{\%}}
-
-\newcommand{\HTTplotsdir}{HTT_v1}
-
-\newcommand{\plotHTTModelIndepLimits}[5][\HTTplotsdir]{%
-\begin{tikzpicture}%
+\renewcommand{\nfpCLlimit}{\SI{95}{\%} $CL_S$}
+\renewcommand{\plotHTTModelIndepLimits}[5][\HTTplotsdir]{%
+\begin{tikzpicture}[scale=0.95]%
 \begin{scope}
 \clip (.7,.55) -- (.7,7.3) -- (1.25,7.3) -- (1.25,7.11) -- (7.6,7.11) -- (7.6,.55) -- cycle ;
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/limits/#2/mssm_model-independent_#3_#4#5.pdf}};
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.4575cm]{\PhDthesisdir/plots_and_images/my_plots/#1/limits/#2/mssm_model-independent_#3_#4#5.pdf}};
 \fill [white] (1.5, 6) rectangle (3.6, 7);
 \end{scope}
 
@@ -156,7 +16,7 @@
 }{}
 
 \def\localxaxislabel{$m_\phi$ (\SI{}{\GeV})}
-\def\localyaxislabel{\nfpCLlimit\ sur $\sigma(\localyaxislabelXXH) \times \BR(\phi\to\tau\tau)$ (\SI{}{\pico\barn})}
+\def\localyaxislabel{\nfpCLlimit\ on $\sigma(\localyaxislabelXXH) \times \BR(\phi\to\tau\tau)$ (\SI{}{\pico\barn})}
 
 \draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
 \draw (0, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
@@ -174,7 +34,7 @@
 \end{tikzpicture}%
 }
 
-\newcommand{\plotHTTModelDepLimits}[3][\HTTplotsdir]{%
+\renewcommand{\plotHTTModelDepLimits}[3][\HTTplotsdir]{%
 \begin{tikzpicture}%
 \begin{scope}
 \clip (.5,.55) -- (.5,7.11) -- (7.675,7.11) -- (7.675,.55) -- cycle ;
@@ -201,16 +61,16 @@
 \end{tikzpicture}%
 }
 
-\newcommand{\plotHTTcontrol}[5][\HTTplotsdir]{%
-\begin{tikzpicture}%
+\renewcommand{\plotHTTcontrol}[5][\HTTplotsdir]{%
+\begin{tikzpicture}[scale=0.95]%
 \clip (0,.1) rectangle (7.76,7.7) ;
 \begin{scope}
 \clip (.45,.55) -- (.45,3) -- (.42,8) -- (1,8) -- (1,7.1) -- (7.76,7.1) -- (7.76,.55) -- cycle ;
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/control_plots/Run#2_plots_#3/#4/Run#2_#4_#5.pdf}};
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.4575cm]{\PhDthesisdir/plots_and_images/my_plots/#1/control_plots/Run#2_plots_#3/#4/Run#2_#4_#5.pdf}};
 \end{scope}
 
 % cuts
-\def\localcat{inclusif}
+\def\localcat{inclusive}
 \ifthenelse{\equal{#3}{emb_ff_high_ml_mass}}{\def\localcat{$\mml>\SI{250}{\GeV}$}}{}
 \ifthenelse{\equal{#3}{emb_ff_high_m_sv_puppi}}{\def\localcat{$\msv>\SI{250}{\GeV}$}}{}
 
@@ -233,112 +93,112 @@
 \def\localxaxislabel{\todo{\inlinecode{bash}{#5}}}
 \def\localyaxislabel{\todo{Y?}}
 \ifthenelse{\equal{#5}{bpt_1}}{
-  \def\localxaxislabel{$\pT (\text{\quarkb-jet principal})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+  \def\localxaxislabel{$\pT (\text{leading \quarkb-jet})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{bpt_2}}{
-  \def\localxaxislabel{$\pT (\text{\quarkb-jet secondaire})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+  \def\localxaxislabel{$\pT (\text{trailing \quarkb-jet})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{jpt_1}}{
-  \def\localxaxislabel{$\pT (\text{jet principal})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+  \def\localxaxislabel{$\pT (\text{leading jet})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{jpt_2}}{
-  \def\localxaxislabel{$\pT (\text{jet secondaire})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+  \def\localxaxislabel{$\pT (\text{trailing jet})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{jeta_1}}{
-  \def\localxaxislabel{$\eta (\text{jet principal})$}
-  \def\localyaxislabel{Nombre d'événements / $\dd\eta$}
+  \def\localxaxislabel{$\eta (\text{leading jet})$}
+  \def\localyaxislabel{Events / $\dd\eta$}
 }{}
 \ifthenelse{\equal{#5}{jeta_2}}{
-  \def\localxaxislabel{$\eta (\text{jet secondaire})$}
-  \def\localyaxislabel{Nombre d'événements / $\dd\eta$}
+  \def\localxaxislabel{$\eta (\text{trailing jet})$}
+  \def\localyaxislabel{Events / $\dd\eta$}
 }{}
 \ifthenelse{\equal{#5}{nbtag}}{
   \def\localxaxislabel{\Nbjets}
-  \def\localyaxislabel{Nombre d'événements}
+  \def\localyaxislabel{Events}
 }{}
 \ifthenelse{\equal{#5}{njets}}{
   \def\localxaxislabel{\Njets}
-  \def\localyaxislabel{Nombre d'événements}
+  \def\localyaxislabel{Events}
 }{}
 \ifthenelse{\equal{#5}{dijetpt}}{
-  \def\localxaxislabel{$\pT (\text{2 jets principaux})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+  \def\localxaxislabel{$\pT (\text{2 leading jets})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{jdeta}}{
-  \def\localxaxislabel{$\Detajj (\text{2 jets principaux})$}
-  \def\localyaxislabel{Nombre d'événements / $\dd(\Detajj)$}
+  \def\localxaxislabel{$\Detajj (\text{2 leading jets})$}
+  \def\localyaxislabel{Events / $\dd(\Detajj)$}
 }{}
 \ifthenelse{\equal{#5}{mjj}}{
-  \def\localxaxislabel{$\mjj (\text{2 jets principaux})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd m$ (1/\SI{}{\GeV})}
+  \def\localxaxislabel{$\mjj (\text{2 leading jets})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd m$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{pt_1}}{
   \def\localxaxislabel{$\pT(\localLA)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{pt_2}}{
   \def\localxaxislabel{$\pT(\localLB)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{eta_1}}{
   \def\localxaxislabel{$\eta (\localLA)$}
-  \def\localyaxislabel{Nombre d'événements / $\dd\eta$}
+  \def\localyaxislabel{Events / $\dd\eta$}
 }{}
 \ifthenelse{\equal{#5}{eta_2}}{
   \def\localxaxislabel{$\eta (\localLB)$}
-  \def\localyaxislabel{Nombre d'événements / $\dd\eta$}
+  \def\localyaxislabel{Events / $\dd\eta$}
 }{}
 \ifthenelse{\equal{#5}{mt_1_puppi}}{
   \def\localxaxislabel{$\mT(\localLA,\MET)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd\mT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd\mT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{mt_2_puppi}}{
   \def\localxaxislabel{$\mT(\localLB,\MET)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd\mT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd\mT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{mTdileptonMET_puppi}}{
   \def\localxaxislabel{$\mT(\localLA+\localLB,\MET)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd\mT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd\mT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{pZetaPuppiMissVis}}{
   \def\localxaxislabel{$\Dzeta$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd\Dzeta$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd\Dzeta$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{pt_tt_puppi}}{
   \def\localxaxislabel{$\pT (\tau\tau)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd\pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{DiTauDeltaR}}{
   \def\localxaxislabel{$\Delta R (\localLA,\localLB)$}
-  \def\localyaxislabel{Nombre d'événements / $\dd(\Delta R)$}
+  \def\localyaxislabel{Events / $\dd(\Delta R)$}
 }{}
 \ifthenelse{\equal{#5}{m_sv_puppi}}{
   \def\localxaxislabel{$\msv$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd m$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd m$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{puppimet}}{
   \def\localxaxislabel{$\MET$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd \MET$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd \MET$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{m_vis}}{
   \def\localxaxislabel{$\mvis$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd m$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd m$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{ptvis}}{
   \def\localxaxislabel{$\pTvis$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd \pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd \pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{ml_mass}}{
   \def\localxaxislabel{$\mlmass$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd m$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd m$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{mt_tot_puppi}}{
   \def\localxaxislabel{$\mTtot$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd m$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{Events / $\dd m$ (1/\SI{}{\GeV})}
 }{}
 \draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
 \draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
@@ -349,12 +209,12 @@
 \end{tikzpicture}%
 }
 
-\newcommand{\plotHTTshapes}[8][\HTTplotsdir]{%
-\begin{tikzpicture}%
+\renewcommand{\plotHTTshapes}[8][\HTTplotsdir]{%
+\begin{tikzpicture}[scale=0.95]%
 \clip (0,.1) rectangle (7.76,7.7) ;
 \begin{scope}
 \clip (.5,.55) -- (.43,5) -- (.43,5.55) -- (.5,5.55) -- (.5,5.65) -- (.43,5.65) -- (.45,8) -- (1.1,8) -- (1.1,7.1) -- (7.76,7.1) -- (7.76,.55) -- cycle ;
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/#2-#3/#4/cmb/#4_#5_#6_#7#8.pdf}};
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.4575cm]{\PhDthesisdir/plots_and_images/my_plots/#1/#2-#3/#4/cmb/#4_#5_#6_#7#8.pdf}};
 \end{scope}
 
 % year
@@ -462,7 +322,7 @@
 
 % axis labels
 \def\localxaxislabel{\localvar\ifthenelse{\equal{\localvar}{\localBSMvar}}{ (\SI{}{\GeV})}{}}
-\def\localyaxislabel{Nombre d'événements / $\dd\localvar$\ifthenelse{\equal{\localvar}{\localBSMvar}}{ (1/\SI{}{\GeV})}{}}
+\def\localyaxislabel{Events / $\dd\localvar$\ifthenelse{\equal{\localvar}{\localBSMvar}}{ (1/\SI{}{\GeV})}{}}
 
 
 \draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
@@ -474,7 +334,7 @@
 \end{tikzpicture}%
 }
 
-\newcommand{\plotHTTcontrolCATmt}[4][\HTTplotsdir]{%
+\renewcommand{\plotHTTcontrolCATmt}[4][\HTTplotsdir]{%
 \begin{tikzpicture}%
 \node[anchor=south west] at (0,0) {\plotHTTcontrol[#1]{#2}{#3}{#4}{mt_1_puppi}};
 
@@ -489,7 +349,7 @@
 \end{tikzpicture}%
 }
 
-\newcommand{\plotHTTcontrolCATdz}[4][\HTTplotsdir]{%
+\renewcommand{\plotHTTcontrolCATdz}[4][\HTTplotsdir]{%
 \begin{tikzpicture}%
 \node[anchor=south west] at (0,0) {\plotHTTcontrol[#1]{#2}{#3}{#4}{pZetaPuppiMissVis}};
 
@@ -504,25 +364,3 @@
 \draw ({1.25 + (115+200)/(200+200)*(7.68-1.25)}, 5.6) node [below] {\tiny \CAThighdz};
 \end{tikzpicture}%
 }
-
-% JERC
-\newcommand{\Rbal}{{\ensuremath{R_{\mathit{bal}}}}}
-\newcommand{\RMPF}{{\ensuremath{R_{\mathit{MPF}}}}}
-\newcommand{\kT}{{\ensuremath{k_{\mathrm{T}}}}}
-
-\newcommand{\ptcl}{{\text{\rm ptcl}}}
-\newcommand{\reco}{{\text{\rm reco}}}
-\newcommand{\cali}{{\text{\rm corr}}}
-
-\newcommand{\Gjet}{$\photon+\text{jet}$}
-\newcommand{\Gjets}{$\photon+\text{jets}$}
-\newcommand{\Zjet}{$\Zboson+\text{jet}$}
-\newcommand{\Zjets}{$\Zboson+\text{jets}$}
-\newcommand{\Zeejet}{$\Zboson(\to\antielectron\electron)+\text{jet}$}
-\newcommand{\Zeejets}{$\Zboson(\to\antielectron\electron)+\text{jets}$}
-\newcommand{\Zmmjet}{$\Zboson(\to\antimuon\muon)+\text{jet}$}
-\newcommand{\Zmmjets}{$\Zboson(\to\antimuon\muon)+\text{jets}$}
-
-% CMS disclaimers
-\newcommand{\OwnWork}{\emph{Own work}}
-\newcommand{\WorkInProgress}{\emph{Work in progress}}
