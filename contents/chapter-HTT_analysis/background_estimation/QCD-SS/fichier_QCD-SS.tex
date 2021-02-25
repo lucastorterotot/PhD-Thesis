@@ -1,18 +1,57 @@
 \subsection{Estimation du bruit de fond QCD dans le canal \ele\mu}\label{chapter-HTT_analysis-section-bg_estimation-QCD-SS}
-
-%In the eμ channel, the QCD background is estimated by inverting the charge requirement on
-%the selected electron-muon pair. This way, a control region enriched in QCD events is cre-
-%ated. Correction factors for the extrapolation of the QCD background from the region where
-%the electron-muon pair has same-sign charges to the signal region where the electron and the
-%muon candidate are of opposite charge are determined in the control region where the muon
-%candidate fails the isolation requirement of the baseline selection but still passes I rel < 0.5.
-%Non-QCD background processes are subtracted from the data in the same-sign region using
-%their estimates from simulation. The OS/SS extrapolation factors, depend on the p T of the se-
-%lected electron candidate, the p T of the selected muon candidate, the number of jets in the event
-%and the distance between the electron and the muon candidate measured in the η-φ plane.
-%The following detailed explanation of the method closely follows the description in
-%
-%A. Loeliger, C. Caillol, A. Mallampalli, J. Madhusudanan, S. Dasu, T. Bose, D. Kim, T.
-%Mitchell, Y. Maravin, A. Mohammadi, K. Kaadze, S. Duric, I. Ojalvo, S. Higginbotham, D.
-%Marlow, “Measurement of the higgs boson production and decay to a pair of tau leptons
-%on the full run 2 data set using a cut-based approach”, CMS Note 2019/109 (2019).
+Dans le cas du canal \ele\mu, le bruit de fond QCD contribue à la sélection des événements lorsqu'au moins un jet est identifié à tort comme un électron ou un muon.
+Une estimation de cette contribution est réalisée à partir des données réelles en suivant le principe de la méthode \og ABCD \fg.
+\begin{wrapfigure}{R}{7.25cm}
+\centering
+\begin{tikzpicture}[scale=.8]
+\draw (-2,0)--(2,0);
+\draw (0,-2)--(0,2);
+\draw (-1,1) node {A = SR};
+\draw (1,1) node {C};
+\draw (-1,-1) node {B = AR};
+\draw (1,-1) node {D};
+\draw (-2,1) node [left] {OS};
+\draw (-2,-1) node [left] {SS};
+\draw (-2,2) node [above left] {\mu:};
+\draw (-1,2) node [above] {isolé\vphantom{\mu:}};
+\draw (1,2) node [above] {anti-isolé\vphantom{\mu:}};
+\end{tikzpicture}
+\caption{Définition schématique des régions A, B, C et D pour l'estimation du bruit de fond QCD.}
+\label{fig-ABCD_regions_schem}
+\end{wrapfigure}
+\par
+Quatre régions pouvant se résumer schématiquement comme illustré sur la figure~\ref{fig-ABCD_regions_schem} sont définies:
+\begin{description}
+\item[A] région de signal (SR), définie dans la section~\ref{chapter-HTT_analysis-section-selection};
+\item[B] définie comme la SR mais avec les charges électriques de l'électron et du muon de même signe (SS, \emph{Same Signs}) et non de signes opposés (OS, \emph{Opposite Signs}) comme dans la SR;
+\item[C] définie comme la SR mais avec un muon \og anti-isolé \fg{}, \ie\ que la coupure sur son isolation est inversée, $\num{0.2}\leq I_\text{rel}^{(\mu)} < \num{0.5}$ au lieu de $I_\text{rel}^{(\mu)} < \num{0.2}$;
+\item[D] définie comme la SR mais avec muon anti-isolé et SS.
+\end{description}
+Les hypothèses d'application de cette méthode sont:
+\begin{itemize}
+\item la forme de la distribution de la variable $v$ issue du bruit de fond QCD est identique dans la région A à déterminer et dans la région B connue;
+\item le rapport du nombre d'événements entre A et B est le même qu'entre C et D.
+\end{itemize}
+La région B est ainsi également nommée région d'application (AR, \emph{Application Region}) du facteur $C/D$.
+Les contributions des bruits de fond autres que QCD aux régions B, C et D sont soustraits à partir de données simulées.
+\par
+La méthode ABCD permet alors d'obtenir le bruit de fond QCD dans la région de signal A selon ce qui s'assimile à un produit en croix,
+\begin{equation}
+A = B \times \frac{C}{D} \Leftrightarrow h_v^\text{A} = h_v^\text{B} \times \frac{\int h_v^\text{C}}{\int h_v^\text{D}}
+\end{equation}
+où $h_v^\text{X}$ correspond à la distribution de la variable $v$ dans la région X et $\int h_v^\text{X}$ à son intégrale, \ie\ la quantité d'événements (indépendante de $v$).
+\par
+Afin d'augmenter la quantité d'événements exploités, et donc de réduire l'incertitude statistique, la coupure sur \Dzeta\ n'est pas appliquée dans les régions C et D.
+Un facteur $C/D$ global donne une estimation trop peu précise~\cite{CMS-PAS-HIG-18-032} car l'hypothèse d'indépendance de la forme de la distribution n'est pas vérifiée.
+Afin de corriger cet effet, le facteur $C/D$ est déterminé en fonction de:
+\begin{itemize}
+\item la distance entre l'électron et le muon dans le plan $(\eta,\phi)$, $\Delta R$;
+\item le nombre de jets \Njets;
+\item l'impulsion transverse de l'électron, $\pT^{(\ele)}$;
+\item l'impulsion transverse du muon, $\pT^{(\mu)}$;
+\end{itemize}
+La dépendance en $\Delta R$ est majoritairement due à la contribution \quarkb\antiquarkb\ au bruit de fond QCD.
+Elle est modélisée par un polynôme de degré 2.
+\par
+Pour corriger le biais introduit par le changement de critère d'isolation du muon, le facteur $C/D$ est également déterminé dans le cas d'un électron anti-isolé ($\num{0.15}\leq I_\text{rel}^{(\ele)} < \num{0.5}$ au lieu de $I_\text{rel}^{(\ele)} < \num{0.15}$) et d'un muon isolé et pour électron et muon anti-isolés.
+Le rapport de ces facteurs donne la correction relative au passage des muons isolés à anti-isolés.
