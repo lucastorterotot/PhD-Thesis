@@ -165,9 +165,11 @@ Le \fakefactor\ $\FF_t$ est mesuré séparément pour:
 \end{itemize}
 sans séparation en \Nprebjets, la majorité des événements \ttbar\ vérifiant $\Nprebjets\geq1$.
 \subsubsection{Corrections résiduelles}
-Afin de valider les \fakefactors\ obtenus, ces derniers sont appliqués aux DRs.
-Les distributions de diverses variables, observées et prédites par les \fakefactors, doivent correspondre les unes aux autres.
-Les écarts résiduels entre observations et prédictions sont corrigées pour les variables listées page~\pageref{eq-FF_CQ_def} qui n'ont pas encore été utilisées pour paramétriser les \fakefactors.
+Afin de valider les \fakefactors\ obtenus, ces derniers sont appliqués aux DRs pour les événements avec les mêmes points de fonctionnement de l'algorithme \DEEPTAU.
+Les prédictions obtenues par les \fakefactors\ doivent alors correspondre aux observations brutes, \ie\ sans leur application.
+Les écarts résiduels donnent la correction à appliquer, paramétrisée en fonction des variables listées page~\pageref{eq-FF_CQ_def}.
+%Les distributions de diverses variables, observées et prédites par les \fakefactors, doivent correspondre les unes aux autres.
+%Les écarts résiduels entre observations et prédictions sont corrigées pour les variables listées page~\pageref{eq-FF_CQ_def} qui n'ont pas encore été utilisées pour paramétriser les \fakefactors.
 %\MET\ et $\pT^{(\ell)}$ observées et prédites par les \fakefactors\ doivent correspondre les unes aux autres.
 %Les différences résiduelles sont alors corrigées.
 %\par
@@ -177,19 +179,18 @@ Les écarts résiduels entre observations et prédictions sont corrigées pour l
 %Un ajustement polynomial est réalisé dans les cas $\Nprebjets=0$ et $\Nprebjets\geq1$ pour $\FF_W$ et dans le cas général ($\Nprebjets\geq0$) pour $\FF_t$.
 %\par
 %Une fois les  valeurs de \MET\ corrigées, les distributions de $\pT^{(\ell)}$ le sont également pour $\FF_W$ et $\FF_t$.
-
-\todo{see also CMS-PAS-HIG-19-010,CMS-PAS-HIG-17-020 for full info}
-\cite{CMS-PAS-HIG-19-010,CMS-PAS-HIG-17-020}
-
-\begin{figure}
+\par
+L'amélioration de la description des données ainsi obtenue grâce aux \fakefactors\ est visible sur la figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-2018et_mT1_illustration}, où les distributions de la masse transverse de l'électron dans le canal \ele\tauh\ dans les données et dans l'estimation du bruit de fond sans et avec cette méthode sont tracées à titre d'illustration.
+Outre un meilleur accord entre observations et estimation du bruit de fond, l'incertitude statistique est également réduite.
+\begin{figure}[h]
 \centering
 
-\subcaptionbox{bla}[.475\textwidth]
+\subcaptionbox{Sans \fakefactors.}[.475\textwidth]
 {\plotHTTcontrol{2018}{emb_classic}{et}{mt_1_puppi}}
 \hfill
-\subcaptionbox{bla}[.475\textwidth]
+\subcaptionbox{Avec \fakefactors.}[.475\textwidth]
 {\plotHTTcontrol{2018}{emb_ff}{et}{mt_1_puppi}}
 
-\caption{bla}
+\caption{Distributions de la masse transverse de l'électron pour le canal \mu\tauh\ en 2018.}
 \label{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-2018et_mT1_illustration}
 \end{figure}
