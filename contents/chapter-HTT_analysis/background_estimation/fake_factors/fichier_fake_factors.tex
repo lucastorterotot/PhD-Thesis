@@ -33,27 +33,6 @@ Le \fakefactor\ \FF\ est déterminé de manière indépendante pour chaque canal
 \item de l'impulsion transverse du jet le plus proche du \tauh, $\pT^{(\text{jet})}$;
 \item du nombre de jets tels que $\abs{\eta^{(\text{jet})}}<\num{2.4}$ et $\pT^{(\text{jet})}>\SI{20}{\GeV}$, \Nprebjets.
 \end{itemize}
-Des corrections résiduelles sont apportées aux \fakefactors\ en fonction:
-\begin{itemize}
-\item du nombre de jets tels que $\abs{\eta^{(\text{jet})}}<\num{4.7}$ et $\pT^{(\text{jet})}>\SI{30}{\GeV}$, \Njets;
-\item du nombre de jets \Nprebjets\ issus de quarks~\quarkb, \Nbjets;
-\item de l'impulsion transverse du lepton $\ell\in\set{\ele,\mu}$ pour les canaux semi-leptoniques, $\pT^{(\ell)}$;
-\item de la masse transverse du lepton $\ell\in\set{\ele,\mu}$ pour les canaux semi-leptoniques, $\mT^{(\ell)}$;
-\item de la quantité d'énergie transverse manquante alignée avec le \tauh\ pour les événements QCD, $C_Q$,
-\begin{equation}
-C_Q = \frac{\MET}{\pT^{(\tauh)}} \cos(\Delta\phi(\vMET, \vpT^{(\tauh)}))
-\mend[;]
-\label{eq-FF_CQ_def}
-\end{equation}
-\item de la quantité d'énergie transverse manquante alignée avec le \tauh\ pour les événements \Wjets, $C_W$,
-\begin{equation}
-C_W = \frac{\norm{\vMET + \vpT^{(\ell)}}}{\pT^{(\tauh)}} \cos(\Delta\phi(\vMET + \vpT^{(\ell)}, \vpT^{(\tauh)}))
-\mend[,]
-\label{eq-FF_CW_def}
-\end{equation}
-dont la définition est semblable à celle de $C_Q$ mais où $\vMET$ est remplacé par $\vMET + \vpT^{(\ell)}$ afin de prendre en compte la contribution à \MET\ du neutrino issu de la désintégration du boson \Wboson.
-Il est ici considéré comme dos-à-dos avec $\ell$, ce qui n'est strictement vrai que pour un \Wboson\ au repos.
-\end{itemize}
 \par
 Une région d'application du \fakefactor\ (AR, \emph{Application Region}) est définie de manière similaire à la région de signal (SR, \emph{Signal Region}), seul le critère d'isolation des \tauh\ passe de \og isolé \fg{}  à \og anti-isolé \fg.
 La AR est ainsi riche en \ftauhs.
@@ -64,8 +43,10 @@ n_{j\to\tauh} = n_\text{AR} \cdot \FF
 \end{equation}
 l'hypothèse étant l'universalité, \ie\ que le \fakefactor\ mesuré dans la CR est supposé identique à celui de la AR.
 \subsubsection{Prise en compte des différentes sources de \ftauhs}
-La composition des jets n'est pas la même dans les différentes sources de \ftauhs\ (QCD, \Wjets, \ttbar).
+La composition des jets n'est pas la même selon le processus physique dont proviennent les \ftauhs.
 Il existe donc différentes probabilités pour un jet de donner un \ftauh.
+Dans le cas du canal \tauh\tauh, seul le bruit de fond QCD est traité par les \fakefactors.
+Pour les canaux semi-leptoniques, trois sources de \ftauhs\ sont considérées, QCD, \Wjets\ et \ttbar.
 Pour chacune de ces sources, un \fakefactor\ est alors déterminé, selon l'équation~\eqref{eq-chapter-HTT_analysis-section-bg_estimation-FF_method-FF_def_global}, à partir d'une région de détermination (DR, \emph{Determination Region}) dédiée, définie ci-après.
 Du fait de la séparation de la CR en plusieurs DR, l'universalité n'est alors plus complètement garantie.
 Des corrections résiduelles sont appliquées afin de corriger le biais introduit par la séparation en DR.
@@ -79,8 +60,12 @@ f_i = \frac{n_\text{AR}^i}{\sum_j n_\text{AR}^{j}}
 i,j \in \set{\text{QCD, \Wjets, \ttbar}}
 \mend
 \end{equation}
-Les fractions $f_i$ sont déterminées à partir de simulations et dépendent de la masse transverse du muon ou de l'électron dans les canaux \mu\tauh\ et \ele\tauh.
-Dans le cas du canal \tauh\tauh, seul le bruit de fond QCD est traité par les \fakefactors.
+Les fractions $f_i$ sont déterminées à partir de simulations et dépendent:
+\begin{itemize}
+\item de la masse transverse du lepton $\ell\in\set{\ele,\mu}$, $\mT^{(\ell)}$;
+\item du nombre de jets \Nprebjets\ identifiés comme issus de quarks~\quarkb, \Nbjets;
+\item de la masse transverse totale, définie page~\pageref{eq-def_mTtot}, \mTtot.
+\end{itemize}
 La figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-ppe} résume ainsi le principe de la méthode.
 \begin{figure}[h]
 \centering
@@ -167,7 +152,26 @@ sans séparation en \Nprebjets, la majorité des événements \ttbar\ vérifiant
 \subsubsection{Corrections résiduelles}
 Afin de valider les \fakefactors\ obtenus, ces derniers sont appliqués aux DRs pour les événements avec les mêmes points de fonctionnement de l'algorithme \DEEPTAU.
 Les prédictions obtenues par les \fakefactors\ doivent alors correspondre aux observations brutes, \ie\ sans leur application.
-Les écarts résiduels donnent la correction à appliquer, paramétrisée en fonction des variables listées page~\pageref{eq-FF_CQ_def}.
+Les écarts résiduels donnent la correction à appliquer, paramétrisée en fonction:
+\begin{itemize}
+\item du nombre de jets \Nprebjets\ identifiés comme issus de quarks~\quarkb, \Nbjets;
+\item de l'impulsion transverse du lepton $\ell\in\set{\ele,\mu}$ pour les canaux semi-leptoniques, $\pT^{(\ell)}$;
+\item de l'isolation du lepton $\ell\in\set{\ele,\mu}$ pour les canaux semi-leptoniques, $I^{(\ell)}$;
+\item de la quantité d'énergie transverse manquante alignée avec le \tauh\ pour les événements QCD, $C_Q$,
+\begin{equation}
+C_Q = \frac{\MET}{\pT^{(\tauh)}} \cos(\Delta\phi(\vMET, \vpT^{(\tauh)}))
+\mend[;]
+\label{eq-FF_CQ_def}
+\end{equation}
+\item de la quantité d'énergie transverse manquante alignée avec le \tauh\ pour les événements \Wjets, $C_W$,
+\begin{equation}
+C_W = \frac{\norm{\vMET + \vpT^{(\ell)}}}{\pT^{(\tauh)}} \cos(\Delta\phi(\vMET + \vpT^{(\ell)}, \vpT^{(\tauh)}))
+\mend[,]
+\label{eq-FF_CW_def}
+\end{equation}
+dont la définition est semblable à celle de $C_Q$ mais où $\vMET$ est remplacé par $\vMET + \vpT^{(\ell)}$ afin de prendre en compte la contribution à \MET\ du neutrino issu de la désintégration du boson \Wboson.
+Il est ici considéré comme dos-à-dos avec $\ell$, ce qui n'est strictement vrai que pour un \Wboson\ au repos.
+\end{itemize}
 %Les distributions de diverses variables, observées et prédites par les \fakefactors, doivent correspondre les unes aux autres.
 %Les écarts résiduels entre observations et prédictions sont corrigées pour les variables listées page~\pageref{eq-FF_CQ_def} qui n'ont pas encore été utilisées pour paramétriser les \fakefactors.
 %\MET\ et $\pT^{(\ell)}$ observées et prédites par les \fakefactors\ doivent correspondre les unes aux autres.
