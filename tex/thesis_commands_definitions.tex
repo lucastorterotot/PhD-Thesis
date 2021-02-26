@@ -324,6 +324,10 @@
   \def\localxaxislabel{$\MET$ (\SI{}{\GeV})}
   \def\localyaxislabel{Nombre d'événements / $\dd \MET$ (1/\SI{}{\GeV})}
 }{}
+\ifthenelse{\equal{#5}{puppimetphi}}{
+  \def\localxaxislabel{$\phi(\MET)$}
+  \def\localyaxislabel{Nombre d'événements / $\dd \phi$}
+}{}
 \ifthenelse{\equal{#5}{m_vis}}{
   \def\localxaxislabel{$\mvis$ (\SI{}{\GeV})}
   \def\localyaxislabel{Nombre d'événements / $\dd m$ (1/\SI{}{\GeV})}
