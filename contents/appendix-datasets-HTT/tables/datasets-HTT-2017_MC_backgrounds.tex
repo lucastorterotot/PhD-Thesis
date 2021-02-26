@@ -2,51 +2,64 @@
 \toprule
 Processus & Jeu de données simulées & $\sigma$ (\SI{}{\pico\barn})\\
 \midrule
-\ttbar & \inlinecode{bash}{/TTTo2L2Nu}\up{$\dagger$}\up{1} & $\num{88.29}$ \\
- & \inlinecode{bash}{/TTToHadronic}\up{$\dagger$}\up{2} & $\num{377.96}$ \\
- & \inlinecode{bash}{/TTToSemiLeptonic}\up{$\dagger$}\up{2} & $\num{365.35}$ \\
-\emph{Single top} & \inlinecode{bash}{/ST_tW_antitop_5f_inclusiveDecays}\up{$\dagger$}\up{2} & $\num{35.85}$ \\
- & \inlinecode{bash}{/ST_tW_top_5f_inclusiveDecays}\up{$\dagger$}\up{2} & $\num{35.85}$ \\
- & \inlinecode{bash}{/ST_t-channel_top_4f_inclusiveDecays}\up{$\ddagger$}\up{2} & $\num{136.02}$ \\
- & \inlinecode{bash}{/ST_t-channel_antitop_4f_inclusiveDecays}\up{$\ddagger$}\up{2} & $\num{80.95}$ \\
-$\Zboson \to LL$ & \inlinecode{bash}{/DYJetsToLL_M-50}\up{$\S$}\up{2,3} & $\num{6077.22}$ (NNLO) \\
-$\Zboson+\text{1 jet}$ & \inlinecode{bash}{/DY1JetsToLL_M-50}\up{$\S$}\up{2,3} & $\num{977.1}$\up{*} \\
-$\Zboson+\text{2 jets}$ & \inlinecode{bash}{/DY2JetsToLL_M-50}\up{$\S$}\up{2,3} & $\num{347.3}$\up{*} \\
-$\Zboson+\text{3 jets}$ & \inlinecode{bash}{/DY3JetsToLL_M-50}\up{$\S$}\up{2,3} & $\num{126.1}$\up{*} \\
-$\Zboson+\text{4 jets}$ & \inlinecode{bash}{/DY4JetsToLL_M-50}\up{$\S$}\up{2} & $\num{71.67}$\up{*} \\
-$\Zboson \to LL$ (basse masse) & \inlinecode{bash}{/DYJetsToLL_M-10to50}\up{$\S$}\up{2,3} & $\num{21658.0}$ (NLO) \\
-$\Wboson+\text{jets}$ & \inlinecode{bash}{/WJetsToLNu}\up{$\S$}\up{2,3} & $\num{61526.7}$ (NNLO) \\
-$\Wboson+\text{1 jet}$ & \inlinecode{bash}{/W1JetsToLNu}\up{$\S$}\up{2} & $\num{9370.5}$\up{*} \\
-$\Wboson+\text{2 jets}$ & \inlinecode{bash}{/W2JetsToLNu}\up{$\S$}\up{2} & $\num{3170.9}$\up{*} \\
-$\Wboson+\text{3 jets}$ & \inlinecode{bash}{/W3JetsToLNu}\up{$\S$}\up{2} & $\num{1132.5}$\up{*} \\
-$\Wboson+\text{4 jets}$ & \inlinecode{bash}{/W4JetsToLNu}\up{$\S$}\up{2} & $\num{631.5}$\up{*} \\
-WW & \inlinecode{bash}{/WW_TuneCP5_13TeV-pythia8}\up{2} & $\num{118.7}$ (NNLO) \\
-WZ & \inlinecode{bash}{/WZ_TuneCP5_13TeV-pythia8}\up{2} & $\num{27.57}$ (LO) \\
-ZZ & \inlinecode{bash}{/ZZ_TuneCP5_13TeV-pythia8}\up{2} & $\num{12.14}$ (LO) \\
-VVTo2L2Nu & \inlinecode{bash}{/VVTo2L2Nu_13TeV}\up{$||$}\up{2} & $\num{13.84}$ \\
-WZTo3LNu & \inlinecode{bash}{/WZTo3LNu_TuneCP5_13TeV}\up{$\P$}\up{2} & $\num{4.43}$ \\
-WZTo2L2Q & \inlinecode{bash}{/WZTo2L2Q_13TeV}\up{$||$}\up{2} & $\num{5.52}$ \\
-ZZTo2L2Q & \inlinecode{bash}{/ZZTo2L2Q_13TeV}\up{$||$}\up{2} & $\num{3.38}$ \\
-ZZTo4L & \inlinecode{bash}{/ZZTo4L_TuneCP5_13TeV}\up{$\P$}\up{2} & $\num{1.26}$ \\
-EWK \Wbosonminus & \inlinecode{bash}{/EWKWMinus2Jets_WToLNu_M-50}\up{$\diamond$}\up{2} & $\num{23.24}$ (LO) \\
-EWK \Wbosonplus & \inlinecode{bash}{/EWKWPlus2Jets_WToLNu_M-50}\up{$\diamond$}\up{2} & $\num{29.59}$ (LO) \\
-EWK $\Zboson\to LL$ & \inlinecode{bash}{/EWKZ2Jets_ZToLL_M-50}\up{$\diamond$}\up{2} & $\num{4.321}$ (LO) \\
-EWK $\Zboson\to \nu\nu$ & \inlinecode{bash}{/EWKZ2Jets_ZToNuNu}\up{$\diamond$}\up{2} & $\num{10.66}$ (LO) \\
-$\Wboson \photon$ (canal \ele\mu) & \inlinecode{bash}{/WGToLNuG}\up{$\S$}\up{2} & $\num{464.4}$ (LO) \\
+%$\Zboson \to LL$ (basse masse) & \inlinecode{bash}{/DYJetsToLL_M-10to50}\up{$\dagger$}\up{1,2} & $\num{21658.0}$ (NLO) \\
+$\Zboson \to LL$ (basse masse) & \inlinecode{bash}{/DYJetsToLL_M-10to50}\up{$\dagger$}\up{2} & $\num{21658.0}$ (NLO) \\
+$\Zboson \to LL$ & \inlinecode{bash}{/DYJetsToLL_M-50}\up{$\dagger$}\up{3,4} & $\num{6077.22}$ (NNLO) \\
+$\Zboson+\text{1 jet}$ & \inlinecode{bash}{/DY1JetsToLL_M-50}\up{$\dagger$}\up{5,8} & $\num{977.1}$\up{*} \\
+$\Zboson+\text{2 jets}$ & \inlinecode{bash}{/DY2JetsToLL_M-50}\up{$\dagger$}\up{1,6} & $\num{347.3}$\up{*} \\
+$\Zboson+\text{3 jets}$ & \inlinecode{bash}{/DY3JetsToLL_M-50}\up{$\dagger$}\up{1,2} & $\num{126.1}$\up{*} \\
+$\Zboson+\text{4 jets}$ & \inlinecode{bash}{/DY4JetsToLL_M-50}\up{$\dagger$}\up{7} & $\num{71.67}$\up{*} \\
+EWK $\Zboson\to LL$ & \inlinecode{bash}{/EWKZ2Jets_ZToLL_M-50}\up{$\ddagger$}\up{5} & $\num{4.321}$ (LO) \\
+EWK $\Zboson\to \nu\nu$ & \inlinecode{bash}{/EWKZ2Jets_ZToNuNu}\up{$\ddagger$}\up{5} & $\num{10.66}$ (LO) \\
+\ttbar & \inlinecode{bash}{/TTTo2L2Nu}\up{$\S$}\up{5} & $\num{88.29}$ \\
+\ttbar & \inlinecode{bash}{/TTToHadronic}\up{$\S$}\up{5} & $\num{377.96}$ \\
+\ttbar & \inlinecode{bash}{/TTToSemiLeptonic}\up{$\S$}\up{5} & $\num{365.35}$ \\
+VVTo2L2Nu & \inlinecode{bash}{/VVTo2L2Nu_13TeV}\up{$||$}\up{1} & $\num{13.84}$ \\
+%WW & \inlinecode{bash}{/WW_TuneCP5_13TeV-pythia8}\up{1} & $\num{118.7}$ (NNLO) \\
+%WWTo1L1Nu2Q & \inlinecode{bash}{/WWTo1L1Nu2Q_13TeV}\up{$||$}\up{1} & $\num{49.997}$ \\
+%WWTo2L2Nu & \inlinecode{bash}{/WWTo2L2Nu_NNPDF31}\up{$\S$}\up{1} & $\num{1.0}$ \\
+%WZ & \inlinecode{bash}{/WZ_TuneCP5_13TeV-pythia8}\up{1} & $\num{27.57}$ (LO) \\
+%WZTo1L1Nu2Q & \inlinecode{bash}{/WZTo1L1Nu2Q_13TeV}\up{1} & $\num{10.71}$ \\
+%WZTo1L3Nu & \inlinecode{bash}{/WZTo1L3Nu_13TeV}\up{$||$}\inlinecode{bash}{_v2}\up{1} & $\num{3.05}$ \\
+WZTo2L2Q & \inlinecode{bash}{/WZTo2L2Q_13TeV}\up{$||$}\up{1} & $\num{5.52}$ \\
+WZTo3LNu & \inlinecode{bash}{/WZTo3LNu}\up{$\P$}\up{5} & $\num{4.43}$ \\
+%ZZ & \inlinecode{bash}{/ZZ_TuneCP5_13TeV-pythia8}\up{5} & $\num{12.14}$ (LO) \\
+%ZZTo2L2Nu & \inlinecode{bash}{/ZZTo2L2Nu_13TeV_powheg_pythia8}\up{1} & $\num{1.0}$ \\
+ZZTo2L2Q & \inlinecode{bash}{/ZZTo2L2Q_13TeV}\up{$||$}\up{1} & $\num{3.38}$ \\
+%ZZTo2Q2Nu & \inlinecode{bash}{/ZZTo2Q2Nu_TuneCP5_13TeV}\up{$||$}\up{1} & $\num{1.0}$ \\
+%ZZTo4L & \inlinecode{bash}{/ZZTo4L}\up{$\P$}\up{1,2,5} & $\num{1.26}$ \\
+ZZTo4L & \inlinecode{bash}{/ZZTo4L}\up{$\P$}\up{1} & $\num{1.26}$ \\
+\emph{Single top} & \inlinecode{bash}{/ST_t-channel_antitop_4f_inclusiveDecays}\up{$\diamond$}\up{1} & $\num{80.95}$ \\
+\emph{Single top} & \inlinecode{bash}{/ST_t-channel_top_4f_inclusiveDecays}\up{$\diamond$}\up{5} & $\num{136.02}$ \\
+\emph{Single top} & \inlinecode{bash}{/ST_tW_antitop_5f_inclusiveDecays}\up{$\S$}\up{1} & $\num{35.85}$ \\
+\emph{Single top} & \inlinecode{bash}{/ST_tW_top_5f_inclusiveDecays}\up{$\S$}\up{1} & $\num{35.85}$ \\
+$\Wboson+\text{jets}$ & \inlinecode{bash}{/WJetsToLNu}\up{$\dagger$}\up{1,2} & $\num{61526.7}$ (NNLO) \\
+$\Wboson+\text{1 jet}$ & \inlinecode{bash}{/W1JetsToLNu}\up{$\dagger$}\up{1} & $\num{9370.5}$\up{*} \\
+$\Wboson+\text{2 jets}$ & \inlinecode{bash}{/W2JetsToLNu}\up{$\dagger$}\up{1} & $\num{3170.9}$\up{*} \\
+$\Wboson+\text{3 jets}$ & \inlinecode{bash}{/W3JetsToLNu}\up{$\dagger$}\up{1} & $\num{1132.5}$\up{*} \\
+$\Wboson+\text{4 jets}$ & \inlinecode{bash}{/W4JetsToLNu}\up{$\dagger$}\up{8} & $\num{631.5}$\up{*} \\
+EWK \Wbosonminus & \inlinecode{bash}{/EWKWMinus2Jets_WToLNu_M-50}\up{$\ddagger$}\up{5} & $\num{23.24}$ (LO) \\
+EWK \Wbosonplus & \inlinecode{bash}{/EWKWPlus2Jets_WToLNu_M-50}\up{$\ddagger$}\up{5} & $\num{29.59}$ (LO) \\
+$\Wboson \photon$ (canal \ele\mu) & \inlinecode{bash}{/WGToLNuG}\up{$\dagger$}\up{1} & $\num{464.4}$ (LO) \\
 \bottomrule
 \end{tabular}
 \begin{flushleft}\footnotesize
-\up{1}\inlinecode{bash}{/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017newpmx_realistic_v14-v*/MINIAODSIM} \\
-\up{2}\inlinecode{bash}{/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v*/MINIAODSIM} \\
-\up{3}\inlinecode{bash}{/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-ext1-v*/MINIAODSIM}
+\up{1}\inlinecode{bash}{/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v*/MINIAODSIM} \\
+\up{2}\inlinecode{bash}{/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14_ext1-v*/MINIAODSIM} \\
+\up{3}\inlinecode{bash}{/RunIIFall17MiniAODv2-PU2017RECOSIMstep_12Apr2018_94X_mc2017_realistic_v14-v*/MINIAODSIM} \\
+\up{4}\inlinecode{bash}{/RunIIFall17MiniAODv2-PU2017RECOSIMstep_12Apr2018_94X_mc2017_realistic_v14_ext1-v*/MINIAODSIM} \\
+\up{5}\inlinecode{bash}{/RunIIFall17MiniAODv2-PU2017_12Apr2018_new_pmx_94X_mc2017_realistic_v14-v*/MINIAODSIM} \\
+\up{6}\inlinecode{bash}{/RunIIFall17MiniAODv2-PU2017_12Apr2018_new_pmx_94X_mc2017_realistic_v14_ext1-v*/MINIAODSIM} \\
+\up{7}\inlinecode{bash}{/RunIIFall17MiniAODv2-PU2017_12Apr2018_v2_94X_mc2017_realistic_v14-v*/MINIAODSIM} \\
+\up{8}\inlinecode{bash}{/RunIIFall17MiniAODv2-PU2017_12Apr2018_v3_94X_mc2017_realistic_v14_ext1-v*/MINIAODSIM}
 
 \begin{multicols}{2}
-\up{$\dagger$}\inlinecode{bash}{_TuneCP5_13TeV-powheg-pythia8} \\
-\up{$\ddagger$}\inlinecode{bash}{_TuneCP5_13TeV-powhegV2-madspin-pythia8} \\
-\up{$\S$}\inlinecode{bash}{_TuneCP5_13TeV-madgraphMLM-pythia8} \\
+\up{$\dagger$}\inlinecode{bash}{_TuneCP5_13TeV-madgraphMLM-pythia8} \\
+\up{$\ddagger$}\inlinecode{bash}{_TuneCP5_13TeV-madgraph-pythia8} \\
+\up{$\S$}\inlinecode{bash}{_TuneCP5_13TeV-powheg-pythia8} \\
 \up{$||$}\inlinecode{bash}{_amcatnloFXFX_madspin_pythia8} \\
-\up{$\P$}\inlinecode{bash}{-amcatnloFXFX-pythia8} \\
-\up{$\diamond$}\inlinecode{bash}{_TuneCP5_13TeV-madgraph-pythia8} \\
+\up{$\P$}\inlinecode{bash}{_TuneCP5_13TeV-amcatnloFXFX-pythia8} \\
+\up{$\diamond$}\inlinecode{bash}{_TuneCP5_13TeV-powhegV2-madspin-pythia8} \\
 \up{*} Déterminée à partir de la section efficace du jeu inclusif.
 \end{multicols}
 \end{flushleft}

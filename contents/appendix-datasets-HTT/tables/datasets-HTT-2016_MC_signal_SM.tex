@@ -2,25 +2,32 @@
 \toprule
 Processus & Jeu de données simulées & $\sigma\times\BR$ (\SI{}{\pico\barn})\\
 \midrule
-$\gluon\gluon\to\higgs\to\tau\tau$ & \inlinecode{bash}{/GluGluHToTauTau_M125_13TeV_powheg_pythia8}\up{1,2,3} & $\num{3.00}$ (N3LO) \\
-VBF $\higgs\to\tau\tau$ & \inlinecode{bash}{/VBFHToTauTau_M125_13TeV_powheg_pythia8}\up{1,2,3} & $\num{0.237}$ (NNLO) \\
-$\Wbosonplus\higgs\to\tau\tau$ & \inlinecode{bash}{/WplusHToTauTau_M125_13TeV_powheg_pythia8}\up{1} & $\num{0.0527}$ (NNLO) \\
-$\Wbosonminus\higgs\to\tau\tau$ & \inlinecode{bash}{/WminusHToTauTau_M125_13TeV_powheg_pythia8}\up{1} & $\num{0.0334}$ (NNLO) \\
-$\Zboson\higgs\to\tau\tau$ & \inlinecode{bash}{/ZHToTauTau_M125_13TeV_powheg_pythia8}\up{1} & $\num{0.0477}$ (NNLO) \\
-$\gluon\gluon\Zboson\higgs\to LL\tau\tau$ & \inlinecode{bash}{/ggZH_HToTauTau_ZToLL_M125_13TeV_powheg_pythia8}\up{1} & $\num{0.0008}$ (NNLO) \\
-$\gluon\gluon\Zboson\higgs\to\nu\nu\tau\tau$ & \inlinecode{bash}{/ggZH_HToTauTau_ZToNuNu_M125_13TeV_powheg_pythia8}\up{1} & $\num{0.0015}$ (NNLO) \\
-$\gluon\gluon\Zboson\higgs\to\quark\quark\tau\tau$ & \inlinecode{bash}{/ggZH_HToTauTau_ZToQQ_M125_13TeV_powheg_pythia8}\up{1} & $\num{0.0054}$ (NNLO) \\
-%$\ttbar\higgs\to\tau\tau$ & \inlinecode{bash}{?}\up{1}& $\num{0.0318}$ (NLO) \\
-%$\gluon\gluon\to\higgs\to\Wboson\Wboson$ &\inlinecode{bash}{/GluGluHToWWTo2L2Nu_M125_13TeV_powheg2_JHUGenV714_pythia8}\up{1} & $\num{1.09}$ (N3LO) \\
-%VBF $\higgs\to\Wboson\Wboson$ & \inlinecode{bash}{/VBFHToWWTo2L2Nu_M125_13TeV_powheg2_JHUGenV714_pythia8}\up{1} & $\num{0.0850}$ (NNLO) \\
-%$\Wbosonminus\higgs\to\Wboson\Wboson$ & \inlinecode{bash}{/HWminusJ_HToWW_M125_13TeV_powheg_pythia8}\up{1} & $\num{0.114}$ (NLO) \\
-%$\Wbosonplus\higgs\to\Wboson\Wboson$ & \inlinecode{bash}{/HWplusJ_HToWW_M125_13TeV_powheg_pythia8}\up{1} & $\num{0.18}$ (NLO) \\
-%$\Zboson\higgs\to\Wboson\Wboson$ & \inlinecode{bash}{/HZJ_HToWW_M125_13TeV_powheg_jhugen714_pythia8_TuneCP5}\up{1} & $\num{0.163}$ (NLO) \\
-%$\gluon\gluon\Zboson\higgs\to\Wboson\Wboson$ & \inlinecode{bash}{/GluGluZH_HToWW_M125_13TeV_powheg_pythia8_TuneCP5}\up{1} & $\num{0.0262}$ (NLO) \\
+$\gluon\gluon\to\higgs\to\tau\tau$ & \inlinecode{bash}{/GluGluHToTauTau_M125_13TeV}\up{$\dagger$}\up{1,2,3} & $\num{3.00}$ (N3LO) \\
+VBF $\higgs\to\tau\tau$ & \inlinecode{bash}{/VBFHToTauTau_M125_13TeV}\up{$\dagger$}\up{1,2,3} & $\num{0.237}$ (NNLO) \\
+$\Wbosonplus\higgs\to\tau\tau$ & \inlinecode{bash}{/WplusHToTauTau_M125_13TeV}\up{$\dagger$}\up{1} & $\num{0.0527}$ (NNLO) \\
+$\Wbosonminus\higgs\to\tau\tau$ & \inlinecode{bash}{/WminusHToTauTau_M125_13TeV}\up{$\dagger$}\up{1} & $\num{0.0334}$ (NNLO) \\
+$\Zboson\higgs\to\tau\tau$ & \inlinecode{bash}{/ZHToTauTau_M125_13TeV}\up{$\dagger$}\up{1} & $\num{0.0477}$ (NNLO) \\
+$\gluon\gluon\Zboson\higgs\to\quark\quark\tau\tau$ & \inlinecode{bash}{/ggZH_HToTauTau_ZToQQ_M125_13TeV}\up{$\dagger$}\up{1} & $\num{0.0054}$ (NNLO) \\
+$\gluon\gluon\Zboson\higgs\to\nu\nu\tau\tau$ & \inlinecode{bash}{/ggZH_HToTauTau_ZToNuNu_M125_13TeV}\up{$\dagger$}\up{1} & $\num{0.0015}$ (NNLO) \\
+$\gluon\gluon\Zboson\higgs\to LL\tau\tau$ & \inlinecode{bash}{/ggZH_HToTauTau_ZToLL_M125_13TeV}\up{$\dagger$}\up{1} & $\num{0.0008}$ (NNLO) \\
+$\gluon\gluon\to\higgs\to\Wboson\Wboson$ &\inlinecode{bash}{/GluGluHToWWTo2L2Nu_M125_13TeV}\up{$\ddagger$}\up{1} & $\num{1.09}$ (N3LO) \\
+VBF $\higgs\to\Wboson\Wboson$ & \inlinecode{bash}{/VBFHToWWTo2L2Nu_M125_13TeV}\up{$\ddagger$}\up{1} & $\num{0.0850}$ (NNLO) \\
+$\Wbosonplus\higgs\to\Wboson\Wboson$ & \inlinecode{bash}{/HWplusJ_HToWW_M125_13TeV}\up{$\dagger$}\up{1} & $\num{0.18}$ (NLO) \\
+$\Wbosonminus\higgs\to\Wboson\Wboson$ & \inlinecode{bash}{/HWminusJ_HToWW_M125_13TeV}\up{$\dagger$}\up{1} & $\num{0.114}$ (NLO) \\
+$\Zboson\higgs\to\Wboson\Wboson$ & \inlinecode{bash}{/HZJ_HToWW_M125_13TeV}\up{$\dagger$}\up{1} & $\num{0.163}$ (NLO) \\
+$\gluon\gluon\Zboson\higgs\to\Wboson\Wboson$ & \inlinecode{bash}{/GluGluZH_HToWW_M125_13TeV}\up{$\dagger$}\up{1} & $\num{0.0262}$ (NLO) \\
+$\ttbar\higgs\to\tau\tau$ & \inlinecode{bash}{/ttHJetToTT_M125_13TeV}\up{$||$}\up{4}& $\num{0.0318}$ (NLO) \\
 \bottomrule
 \end{tabular}
 \begin{flushleft}\footnotesize
 \up{1}\inlinecode{bash}{/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v*/MINIAODSIM} \\
-\up{2}\inlinecode{bash}{/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-ext1-v*/MINIAODSIM} \\
-\up{3}\inlinecode{bash}{/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-ext2-v*/MINIAODSIM}
+\up{2}\inlinecode{bash}{/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3_ext1-v*/MINIAODSIM} \\
+\up{3}\inlinecode{bash}{/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3_ext2-v*/MINIAODSIM} \\
+\up{4}\inlinecode{bash}{/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3_ext4-v*/MINIAODSIM}
+
+\begin{multicols}{2}
+\up{$\dagger$}\inlinecode{bash}{_powheg_pythia8} \\
+\up{$\ddagger$}\inlinecode{bash}{_powheg_JHUgenv628_pythia8} \\
+\up{$||$}\inlinecode{bash}{_amcatnloFXFX_madspin_pythia8}
+\end{multicols}
 \end{flushleft}
