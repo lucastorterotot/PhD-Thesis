@@ -94,18 +94,69 @@ Les catégories BSM correspondant à la région de signal (SR), \ie\ en dehors d
 \label{fig-chapter-HTT_analysis-section-categorisation-BSM-cats_recap}
 \end{figure}
 \subsubsection{Variable discriminante}
+La masse invariante permet d'estimer mathématiquement, par un calcul de physique relativiste, la masse d'une particule à partir des propriétés cinématiques de chacun des ses produits de désintégration.
+Cette observable est donc un choix pertinent de variable discriminante.
+Elle est ainsi utilisée, par exemple, dans l'analyse $\higgs\to\Zboson\Zboson\to4\ell$~\cite{CMS-PAS-HIG-13-002}.
+\par
+Cependant, dans l'analyse $\Higgs\to\tau\tau$, l'état final comporte deux à quatre neutrinos issus des désintégrations des leptons \tau.
+La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau} illustre le cas du canal \mu\tauh\ dans lequel trois neutrinos sont ainsi présents.
+Or, les neutrinos sont invisibles dans le détecteur CMS.
+Il est donc impossible de déterminer la masse invariante.
+\begin{figure}[h]
+\centering
 
+\subcaptionbox{Événement réel.\label{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau}}[.45\textwidth]
+{\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/fgraph-H-tautau_mutau.tex}}
+\hfill
+\subcaptionbox{Événement approximé.\label{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau-for_mTtot}}[.45\textwidth]
+{\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/fgraph-H-tautau_mutau-for_mTtot.tex}}
 
-in transverse plane,
-with all neutrinos as one single particle,
-with $m\ll E$ for final decays,
+\caption{Diagrammes de Feynman d'un événement $\Higgs\to\tau\tau\to\mu\tauh$, avec trois neutrinos dans l'état final.}
+\label{fig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau-for_mTtot}
+\end{figure}
+\par
+Toutefois, l'énergie transverse manquante, introduite dans le chapitre~\refChLHCCMS, correspond à la somme des impulsions transverses de toutes les particules invisibles de l'événement.
+Alors, sauf défaut du détecteur menant à une mauvaise reconstruction des particules visibles,
+\begin{equation}
+\vMET = \sum_{\nu_i} \vpT^{(\nu_i)}
+\end{equation}
+où la somme se fait sur tous les neutrinos de l'événement dont ceux de l'état final du processus $\Higgs\to\tau\tau$.
+\par
+Ainsi, il est possible de considérer le système à trois corps suivant:
+\begin{itemize}
+\item $L_1$ la partie visible de la désintégration d'un des leptons \tau, par exemple le muon de la figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau};
+\item $L_2$ la partie visible de la désintégration de l'autre lepton \tau, par exemple le tau hadronique résultant de $\Wbosonplus\to\quarku\antiquarkd$ sur la figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau};
+\item $\sum\nu\simeq\MET$ l'ensemble des neutrinos issus des désintégrations des leptons \tau, eux-mêmes issus de la désintégration du boson de Higgs, dont une estimation des propriétés cinématiques dans le plan transverse est donnée par l'énergie transverse manquante \vMET;
+\end{itemize}
+comme illustré figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau-for_mTtot}.
+En se restreignant donc au plan transverse car \MET\ est utilisée,
+pour des particules relativistes ($m\ll E$),
+le calcul de la \og masse invariante \fg{} de ce système à trois corps donne
 \begin{align}
 m^2 &= E^2 - p^2
-= \left( \sum_{i \in \set{L_1,L_2,\nu}} E_i \right)^2 - \left( \sum_{i \in \set{L_1,L_2,\nu}} \vpT^i \right)^2\\
-&= \left( E_1 + E_2 + \MET \right)^2 - \left( \vpT^{(1)} + \vpT^{(2)} + \vMET \right)^2\\
-&= E_1^2 + E_2^2 + \MET^2 + 2 \left( E_1E_2 + E_1\MET + E_2\MET \right)\\
-&\hphantom{=} - \left( {\vpT^{(1)}}^2 + {\vpT^{(2)}}^2 + {\vMET}^2 \right) - 2 \left( \vpT^{(1)}\cdot\vpT^{(2)} + \vpT^{(1)}\cdot\vMET + \vpT^{(2)}\cdot\vMET \right)\\
-&= 2 \left( \pT^{(1)}\pT^{(2)}(1-\cos\phi_{12}) + \pT^{(1)}\MET(1-\cos\phi_{1m}) + \pT^{(2)}\MET(1-\cos\phi_{2m}) \right)\\
-&= {m_T^{\tau\tau}}^2 + {m_T^{(1)}}^2 + {m_T^{(2)}}^{2} = {m_T^{tot}}^2
-\label{eq-def_mTtot}
+= \left( \sum_{i \in \set{L_1,L_2,\sum\nu}} E_i \right)^2 - \left( \sum_{i \in \set{L_1,L_2,\sum\nu}} \vpT^i \right)^2
+\nonumber\\
+&= \left( E_{L_1} + E_{L_2} + \MET \right)^2 - \left( \vpT^{(L_1)} + \vpT^{(L_2)} + \vMET \right)^2
+\nonumber\\
+&= E_{L_1}^2 + E_{L_2}^2 + \MET^2 + 2 \left( E_{L_1}E_{L_2} + E_{L_1}\MET + E_{L_2}\MET \right)
+\nonumber\\
+&\hphantom{=} - \left( {\vpT^{(L_1)}}^2 + {\vpT^{(L_2)}}^2 + {\vMET}^2 \right) - 2 \left( \vpT^{(L_1)}\cdot\vpT^{(L_2)} + \vpT^{(L_1)}\cdot\vMET + \vpT^{(L_2)}\cdot\vMET \right)
+\nonumber\\
+&= 2 \Big[ \pT^{(L_1)}\pT^{(L_2)}(1-\cos\Delta\phi_{L_1,L_2})
+\nonumber\\
+&\hphantom{=2(} \quad + \pT^{(L_1)}\MET(1-\cos\Delta\phi_{L_1,\MET}) + \pT^{(L_2)}\MET(1-\cos\Delta\phi_{L_2,\MET}) \Big]
+\nonumber\\
+&= {\mT^{(L_1,L_2)}}^2 + {\mT^{(L_1,\MET)}}^2 + {\mT^{(L_2,\MET)}}^{2} = {\mTtot}^2
+\mend
 \end{align}
+\par
+La variable discriminante utilisée dans les catégories BSM est ainsi \mTtot, définie telle que
+\begin{equation}
+\mTtot = \sqrt{{\mT^{(L_1,L_2)}}^2 + {\mT^{(L_1,\MET)}}^2 + {\mT^{(L_2,\MET)}}^{2}}
+\label{eq-def_mTtot}
+\end{equation}
+avec
+\begin{equation}
+\mT^{(A,B)} = \sqrt{2 \, \pT^{(A)} \, \pT^{(B)} \, (1-\cos\Delta\phi_{A,B})}
+\mend
+\end{equation}
