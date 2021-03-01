@@ -93,3 +93,29 @@ Cette variable est dénommée \og score \fg{} et notée \NNscore.
 %tion and to sort events by it. Here we use the value of the largest probability, which was used to
 %assign the category, for further discrimination within the same category. We call this quantity
 %exclusive probability or just the NN score.
+\par
+À titre d'illustration, les distributions obtenues pour le canal \ele\mu\ en 2017 sont représentées en figure~\ref{fig-NNscore_distribs_exemple}.
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{Catégorie \CATxxh.}[.475\textwidth]
+{\plotHTTshapes[HTT_v2]{mt_tot}{mssm_vs_sm_h125}{2017}{em}{1}{prefit_linear_nosignal}}
+\hfill
+\subcaptionbox{Catégorie \CATemb.}[.475\textwidth]
+{\plotHTTshapes[HTT_v2]{mt_tot}{mssm_vs_sm_h125}{2017}{em}{20}{prefit_linear_nosignal}}
+
+\subcaptionbox{Catégorie \CATttbar.}[.475\textwidth]
+{\plotHTTshapes[HTT_v2]{mt_tot}{mssm_vs_sm_h125}{2017}{em}{13}{prefit_linear_nosignal}}
+\hfill
+\subcaptionbox{Catégorie \CATdib.}[.475\textwidth]
+{\plotHTTshapes[HTT_v2]{mt_tot}{mssm_vs_sm_h125}{2017}{em}{19}{prefit_linear_nosignal}}
+
+\subcaptionbox{Catégorie \CATqcd.}[.475\textwidth]
+{\plotHTTshapes[HTT_v2]{mt_tot}{mssm_vs_sm_h125}{2017}{em}{14}{prefit_linear_nosignal}}
+\hfill
+\subcaptionbox{Catégorie \CATmisc.}[.475\textwidth]
+{\plotHTTshapes[HTT_v2]{mt_tot}{mssm_vs_sm_h125}{2017}{em}{16}{prefit_linear_nosignal}}
+
+\caption[Distributions de \NNscore\ en 2017 dans le canal \ele\mu.]{Distributions de \NNscore\ en 2017 dans le canal \ele\mu.}
+\label{fig-NNscore_distribs_exemple}
+\end{figure}

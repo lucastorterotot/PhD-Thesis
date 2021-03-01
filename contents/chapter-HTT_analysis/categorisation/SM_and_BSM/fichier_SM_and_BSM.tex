@@ -9,13 +9,26 @@ L'utilisation combinée des catégories \CATsm\ et \CATbsm\ rend alors l'analyse
 \label{fig-chapter-HTT_analysis-section-categorisation-SM_BSM_diagram}
 \end{wrapfigure}
 \par
-Cette catégorisation combinée est une innovation importante et non triviale par rapport à la catégorisation classique \og BSM uniquement \fg{} utilisée dans les précédentes analyses $\Higgs\to\tau\tau$ dans le cadre du MSSM~\cite{CMS-PAS-HIG-13-021,CMS-PAS-HIG-14-029,CMS-PAS-HIG-17-020}.
+Cette catégorisation combinée est une innovation importante et non triviale par rapport à la catégorisation classique \og \CATbsm\ uniquement \fg{} utilisée dans les précédentes analyses $\Higgs\to\tau\tau$ dans le cadre du MSSM~\cite{CMS-PAS-HIG-13-021,CMS-PAS-HIG-14-029,CMS-PAS-HIG-17-020}.
 En effet, les propriétés de \higgs\ sont modifiées dans le MSSM par rapport au modèle standard, comme exposé dans le chapitre~\refChMSSM.
 La modélisation de \higgs\ dans le cadre du MSSM est décrite dans la section~\ref{chapter-HTT_analysis-section-signal_extraction}.
 La complémentarité de la recherche du signal de \Higgs\ et \HiggsA\ avec le test des propriétés de \higgs\ permet donc d'obtenir de plus fortes contraintes sur les modèles testés, comme cela a déjà été constaté dans des travaux récents~\cite{Artur_thesis}.
 \par
-Afin d'éviter tout recouvrement entre les catégories SM et BSM lors de leur utilisation combinée, deux régions sont définies, chacune utilisant les catégories correspondantes.
-La région SM concerne les événements ne comportant pas de jets issus de quark~\quarkb\ ($\Nbtag=0$) et tels que $\mCutForCategories < \SI{250}{\GeV}$ où
+Afin d'éviter tout recouvrement entre les catégories \CATsm\ et \CATbsm\ lors de leur utilisation combinée, deux régions sont définies, chacune utilisant les catégories correspondantes.
+La région \CATsm\ concerne les événements ne comportant pas de jets issus de quark~\quarkb\ ($\Nbtag=0$) et tels que $\mCutForCategories < \SI{250}{\GeV}$ où
 \mCutForCategoriesdef.
-La région BSM, quant à elle, concerne les événements contenant des jets issus de quark~\quarkb\ ($\Nbtag\geq1$) ou tels que $\mCutForCategories \geq \SI{250}{\GeV}$.
+La région \CATbsm, quant à elle, concerne les événements contenant des jets issus de quark~\quarkb\ ($\Nbtag\geq1$) ou tels que $\mCutForCategories \geq \SI{250}{\GeV}$.
 Les deux régions ainsi obtenues ne se recouvrent pas et peuvent se résumer selon le schéma de la figure~\ref{fig-chapter-HTT_analysis-section-categorisation-SM_BSM_diagram}.
+\par
+À titre d'illustration, les distributions obtenues avec et sans les coupures de séparation des catégories \CATsm\ pour la catégorie \CATnobtag\ du canal \tauh\tauh\ en 2017 sont représentées en figure~\ref{fig-mTtot_distribs_exemple-SM_sep}.
+\begin{figure}[h]
+\centering
+\subcaptionbox{Sans coupure sur $(\mCutForCategories, \Nbtag)$.}[.475\textwidth]
+{\plotHTTshapes[HTT_v2]{mt_tot}{mssm_classic}{2017}{tt}{32}{prefit_linear_nosignal}}
+\hfill
+\subcaptionbox{Avec coupure sur $(\mCutForCategories, \Nbtag)$.}[.475\textwidth]
+{\plotHTTshapes[HTT_v2]{mt_tot}{mssm_vs_sm_h125}{2017}{tt}{32}{prefit_linear_nosignal}}
+
+\caption[Distributions de \mTtot\ pour le canal \tauh\tauh\ en 2017 dans la catégorie \CATnobtag.]{Distributions de \mTtot\ pour le canal \tauh\tauh\ en 2017 dans la catégorie \CATnobtag. Afin de combiner les catégories \CATbsm\ avec les catégories \CATsm\ présentées section~\ref{chapter-HTT_analysis-section-categorisation-SM}, des coupures sont appliquées sur $(\mCutForCategories, \Nbtag)$ telles que $\mCutForCategories \geq \SI{250}{\GeV}$ ou $\Nbtag\geq1$. Ici, seule la sélection sur \mCutForCategories\ joue donc un rôle.}
+\label{fig-mTtot_distribs_exemple-SM_sep}
+\end{figure}
