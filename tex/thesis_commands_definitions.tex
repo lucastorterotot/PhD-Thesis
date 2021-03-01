@@ -128,6 +128,9 @@
 
 \newcommand{\CATttbarctrl}{CR \ttbar}
 
+\newcommand{\CATbsm}{\texttt{BSM}}
+\newcommand{\CATsm}{\texttt{SM}}
+
 \newcommand{\HLTDoubleTau}{\og double \tauh \fg}
 \newcommand{\HLTSingleTau}{\og \tauh\ seul \fg}
 \newcommand{\HLTSingleMu}{\og muon seul \fg}
@@ -353,12 +356,15 @@
 \end{tikzpicture}%
 }
 
-\newcommand{\plotHTTshapes}[8][\HTTplotsdir]{%
+\newcommand{\plotHTTshapes}[7][\HTTplotsdir]{%
 \begin{tikzpicture}%
 \clip (0,.1) rectangle (7.76,7.7) ;
 \begin{scope}
+\clip (.5,.55) -- (.43,5) -- (.45,8) -- (1.1,8) -- (1.1,7.1) -- (7.76,7.1) -- (7.76,.55) -- cycle ;
+\ifthenelse{\equal{#6}{2}\or\equal{#6}{32}\or\equal{#6}{33}\or\equal{#6}{34}\or\equal{#6}{35}\or\equal{#6}{36}\or\equal{#6}{37}}{
 \clip (.5,.55) -- (.43,5) -- (.43,5.55) -- (.5,5.55) -- (.5,5.65) -- (.43,5.65) -- (.45,8) -- (1.1,8) -- (1.1,7.1) -- (7.76,7.1) -- (7.76,.55) -- cycle ;
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/#2-#3/#4/cmb/#4_#5_#6_#7#8.pdf}};
+}{}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/#2-#3/#4/cmb/#4_#5_#6_#7.pdf}};
 \end{scope}
 
 % year
@@ -374,6 +380,10 @@
 %\ifthenelse{\equal{#1}{HTT_v1}}{\def\localSMvar{\msv}}{}
 \def\localcat{inclusif}
 \def\localvar{\localBSMvar}
+\def\localBSM{}
+\def\localSM{}
+\ifthenelse{\equal{#3}{mssm_vs_sm_h125}}{\def\localBSM{\CATbsm\ }\def\localSM{\CATsm\ }}{}
+\def\localSMBSM{}
 
 \ifthenelse{\equal{#6}{1}}{
   \def\localcat{\CATxxh}
@@ -382,6 +392,7 @@
 \ifthenelse{\equal{#6}{2}}{
   \def\localcat{\CATttbarctrl}
   \def\localvar{\localBSMvar}
+  \def\localSMBSM{\localBSM}
 }{}
 \ifthenelse{\equal{#6}{13}}{
   \def\localcat{\CATttbar}
@@ -420,6 +431,7 @@
       \def\localcat{\CATnobtag\ \CAThighdz}
     }{}
   \def\localvar{\localBSMvar}
+  \def\localSMBSM{\localBSM}
 }{}
 \ifthenelse{\equal{#6}{33}}{
   \def\localcat{\CATnobtag\ \CATloosemt}
@@ -427,10 +439,12 @@
       \def\localcat{\CATnobtag\ \CATmediumdz}
     }{}
   \def\localvar{\localBSMvar}
+  \def\localSMBSM{\localBSM}
 }{}
 \ifthenelse{\equal{#6}{34}}{
   \def\localcat{\CATnobtag\ \CATlowdz}
   \def\localvar{\localBSMvar}
+  \def\localSMBSM{\localBSM}
 }{}
 \ifthenelse{\equal{#6}{35}}{
   \def\localcat{\CATbtag\ \CATtightmt}
@@ -441,6 +455,7 @@
       \def\localcat{\CATbtag\ \CAThighdz}
     }{}
   \def\localvar{\localBSMvar}
+  \def\localSMBSM{\localBSM}
 }{}
 \ifthenelse{\equal{#6}{36}}{
   \def\localcat{\CATbtag\ \CATloosemt}
@@ -448,10 +463,12 @@
       \def\localcat{\CATbtag\ \CATmediumdz}
     }{}
   \def\localvar{\localBSMvar}
+  \def\localSMBSM{\localBSM}
 }{}
 \ifthenelse{\equal{#6}{37}}{
   \def\localcat{\CATbtag\ \CATlowdz}
   \def\localvar{\localBSMvar}
+  \def\localSMBSM{\localBSM}
 }{}
 
 % channel
@@ -462,7 +479,7 @@
 \ifthenelse{\equal{#5}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}}{}
 \ifthenelse{\equal{#5}{em}}{\def\localchannel{\ele\mu}\def\localLA{\ele}\def\localLB{\mu}}{}
 
-\draw (1, 7) node [above right] {\scriptsize \localchannel, \localcat\vphantom{Àq,}};
+\draw (1, 7) node [above right] {\scriptsize \localchannel, \localSMBSM\localcat\vphantom{Àq,}};
 
 % axis labels
 \def\localxaxislabel{\localvar\ifthenelse{\equal{\localvar}{\localBSMvar}}{ (\SI{}{\GeV})}{}}
@@ -473,8 +490,23 @@
 \draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
 
 % CMS disclaimer
-\draw (1.95, 7.05) node [below] {\scriptsize CMS Data\vphantom{Àq,}};
-\draw (3.25, 7.05) node [below, text width=1.5cm] {\centering\scriptsize \WorkInProgress\par};
+\def\localCMSdisclaimerAX{1.95}
+\def\localCMSdisclaimerAY{7.05}
+\def\localCMSdisclaimerBX{3.35}
+\def\localCMSdisclaimerBY{7.05}
+\ifthenelse{\equal{#5}{em}}{ % em
+  \ifthenelse{\equal{#6}{20}\or\equal{#6}{19}\or\equal{#6}{14}}{ % EMB, diboson, qcd
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.6}
+  }{}
+  \ifthenelse{\equal{#6}{13}}{ % ttbar
+    \def\localCMSdisclaimerAX{6.5}
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.6}
+  }{}
+}{}
+\draw (\localCMSdisclaimerAX, \localCMSdisclaimerAY) node [below] {\scriptsize CMS Data\vphantom{Àq,}};
+\draw (\localCMSdisclaimerBX, \localCMSdisclaimerBY) node [below, text width=1.5cm] {\centering\scriptsize \WorkInProgress\par};
 \end{tikzpicture}%
 }
 
