@@ -1,20 +1,50 @@
 \subsection{Incertitudes de normalisation}\label{chapter-HTT_analysis-section-systematics-normalization}
-
+Les incertitudes listées ci-après impliquent des variations de normalisation des distributions des variables discriminantes.
 \paragraph{Luminosité}
-lumi unc.~\cite{LumiTwiki}
-
+L'incertitude sur la luminosité enregistrée est de:
+\begin{itemize}
+\item \SI{2.5}{\%} en 2016~\cite{CMS-PAS-LUM-17-001};
+\item \SI{2.3}{\%} en 2017~\cite{CMS-PAS-LUM-17-004};
+\item \SI{2.5}{\%} en 2018~\cite{CMS-PAS-LUM-18-002}.
+\end{itemize}
+Elle est donnée par le \POG\ Lumi.
+Plus de détails sont disponibles dans la référence~\cite{LumiTwiki}.
 \paragraph{Pondération du \emph{prefiring}}
-
-\paragraph{Taux de mauvaise identification $\mu\to\tauh$ (\emph{$\mu\to\tauh$ fake rate})}
-
-\paragraph{Taux de mauvaise identification $\ele\to\tauh$ (\emph{$\ele\to\tauh$ fake rate})}
-
+Les variations hautes et basses dues à cet effet introduit dans la section~\ref{chapter-HTT_analysis-section-corrections} sont données par le \POG\ L1~DPG.
+Elles concernent tous les jeux de données simulées des années 2016 et 2017.
+L'incertitude obtenue est de l'ordre de \SI{1}{\%}.
+Les années et les canaux sont corrélés.
+\paragraph{Taux de mauvaise identification $\ell\to\tauh$ (\emph{$\ell\to\tauh$ fake rate})}
+L'incertitude, fournie par le \POG\ tau, dépend de la pseudorapidité $\eta$ du lepton $\ell$.
+Elle est décorrélée entre les différentes parties du détecteur.
+L'effet sur la forme des distributions est négligeable face à l'effet de normalisation, c'est pourquoi cette incertitude est traitée comme un normalisation.
+Les années sont non corrélées.
 \paragraph{Efficacité d'identification des muons et des électrons (\emph{muon/electron ID efficiency})}
-
+Une incertitude estimée à \SI{2}{\%} sur le facteur d'échelle introduit dans la section~\ref{chapter-HTT_analysis-section-corrections} est considérée.
+Elle est appliquée à tous les processus estimés à partir de données simulées ou encapsulées, corrélées à \SI{50}{\%}.
+Les années sont corrélées.
 \paragraph{Efficacité du \quarkb-\emph{tagging} (\emph{Btag efficiency})}
-
+Les facteurs d'échelle fournis par le \POG\ BTV~\cite{BTV} comportent des incertitudes dépendantes de la région du détecteur.
+L'efficacité d'identification et le taux de positifs donnent ainsi deux paramètres de nuisance, dont l'effet de forme est négligeable face à l'effet de normalisation.
+Les années sont non corrélées.
 \paragraph{Bruits de fond simulés}
-
-\paragraph{Bruits de fond estimés par les \fakefactors}
-
+Les incertitudes de normalisation sur les bruits de fond simulés sont:
+\begin{itemize}
+\item \SI{2}{\%} sur les processus $\Zboson\to\ell\ell$, due à l'incertitude sur la section efficace Drell-Yan~\cite{CMSxsec}, corrélée entre les années;
+\item \SI{4}{\%} sur les processus \Wjets, due à l'incertitude sur leurs sections efficaces~\cite{CMSxsec}, corrélée entre les années;
+\item \SI{5}{\%} sur les processus Diboson et \emph{Single top}, due à l'incertitude sur leurs sections efficaces~\cite{CMSxsec}, corrélée entre les années;
+\item l'extrapolation sur l'acceptation des simulations dans la CR \ttbar, prise à \SI{1}{\%};
+\item \SI{4}{\%} (\SI{2}{\%} par muon) dans les données encapsulées pour rendre compte de l'efficacité du \HLTpath\ \HLTDoubleMu, corrélée entre les canaux et décorrélée entre les années;
+\item lorsque le boson de Higgs du modèle standard \higgs\ est considéré comme faisant partie des bruits de fond, les incertitudes sur les sections efficaces de sa production recommandées dans la référence~\cite{Higgs_xsec_book_4} sont appliquées;
+\end{itemize}
 \paragraph{Incertitudes théoriques}
+Pour les limites dépendantes d'un modèle dans le plan $(m_{\HiggsA},\tan\beta)$,
+les incertitudes théoriques sur la section efficace de production des bosons de Higgs du MSSM sont inclues.
+Elles sont fournies par le groupe LHC Higgs~\cite{MSSMneutralHiggsTwiki}.
+\par
+Dans le cas du processus $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$, l'incertitude sur l'acceptation en fonction de \Nbjets\ est estimée en faisant varier le paramètre \inlinecode{bash}{hdamp} du générateur de \POWHEG\ par des facteurs $\frac{1}{2}$ et $2$.
+Une incertitude sur la QCD est également considérée afin de rendre compte des termes au-delà du NLO non traités.
+Elle est estimée en faisant varier les échelles de renormalisation ($\mu_R$) et de refactorisation ($\mu_F$) par des facteurs $\frac{1}{2}$ et $2$ indépendamment tout en conservant $\frac{1}{2}\leq\frac{\mu_R}{\mu_F}\leq2$.
+L'incertitude sur l'acceptation du signal dans les catégories \CATbtag\ ainsi obtenue est de l'ordre de \num{1} à \SI{6}{\%} selon le point de masse.
+Enfin, des incertitudes sur les PDFs, introduites dans le chapitre~\refChLHCCMS, sont prises en comptes.
+Elles sont de l'ordre de \num{1} à \SI{2}{\%}.

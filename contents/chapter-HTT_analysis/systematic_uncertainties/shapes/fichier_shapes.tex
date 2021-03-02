@@ -1,39 +1,103 @@
 \subsection{Incertitudes de forme}\label{chapter-HTT_analysis-section-systematics-shapes}
-
+Les incertitudes listées ci-après impliquent des variations de formes des distributions des variables discriminantes.
 \paragraph{Efficacité des \HLTpaths\ des \tauh\ (\emph{\tauh\ trigger efficiency})}
-
+Cette incertitude est déterminée à partir des facteurs d'échelle définis section~\ref{chapter-HTT_analysis-section-corrections}.
+Des paramètres de nuisance sont définis pour chaque \HLTpath\ et différents DM (0, 1 et 2, 10, 11).
+L'efficacité du \HLTpath\ \HLTDoubleTau\ est de plus déterminée pour les impulsions transverses supérieures et inférieures à \SI{100}{\GeV} afin que l'ajustement réalisé section~\ref{chapter-HTT_analysis-section-signal_extraction} ait plus de liberté vis-à-vis des régions à bas et haut \pT.
+Dans le cas du \HLTpath\ \HLTSingleTau, le manque de statistiques mène à ne définir qu'un seul paramètre de nuisance commun à tous les DMs.
+\par
+Tous les processus déterminés par simulation ou encapsulation sont concernés.
+Une corrélation de \SI{50}{\%} entre données simulées et encapsulées est utilisée, l'encapsulement étant un hybride entre données réelles et simulées.
+Les différents canaux sont non corrélés, tous comme les années entre elles (2016, 2017, 2018).
 \paragraph{Efficacité des \HLTpaths\ des muons et des électrons (\emph{lepton trigger efficiency})}
-
+L'incertitude sur l'efficacité des \HLTpaths\ des muons et des électrons est de \SI{2}{\%} par lepton.
+Il s'agit en première approximation d'une incertitude de normalisation, traitée ici comme une incertitude de forme car elle ne concerne que les événements où un \HLTpath\ basé sur ces leptons est utilisé.
+\par
+Tous les processus déterminés par simulation ou encapsulation sont concernés.
+Simulations et encapsulations sont non corrélées.
+Les différents canaux et années sont non corrélés, car différents \HLTpaths\ et sélections sont utilisés.
 \paragraph{Efficacité d'identification des \tauh\ (\emph{\tauh\ ID efficiency})}
-
-\paragraph{Efficacité du trajectographe pour \tauh\ des données encapsulées (\emph{embedded \tauh\ tracking efficiency})}
-
-\paragraph{Efficacité du \quarkb-\emph{tagging} (\emph{Btag efficiency})}
-
+L'incertitude sur l'efficacité d'identification des \tauh\ est donnée par le \POG\ tau~\cite{TauPOG}
+en fonction de l'impulsion transverse du \tauh\ et de son DM.
+À chaque DM correspond un paramètre de nuisance, corrélé entre les différents canaux (\tauh\tauh, \mu\tauh, \ele\tauh) et non corrélé entre les années.
+Afin de rendre compte des différents points de fonctionnement des discriminateurs anti-lepton, une incertitude supplémentaire de \SI{3}{\%} par \tauh\ est appliquée de manière non corrélée entre les canaux.
+Dans le cas des données encapsulées, la même procédure est suivie mais une corrélation de \SI{50}{\%} avec les données simulées est utilisée.
+\paragraph{Efficacité du trajectographe pour les \tauh\ des données encapsulées (\emph{embedded \tauh\ tracking efficiency})}
+L'incertitude sur cette efficacité,
+corrélée entre les canaux,
+corrélée à \SI{50}{\%} entre les années et
+décorrélée entre les DMs 0, 1, 2 et 10, 11, 
+est fournie par le \POG\ tau.
 \paragraph{Repondération de l'impulsion transverse et de la masse du boson \Zboson\ (\emph{DY \pT-mass reweighting})}
-
+L'incertitude est déterminée à partir de la variation entre zéro et deux fois la correction correspondante, introduite dans la section~\ref{chapter-HTT_analysis-section-corrections}.
+La variation à $1\sigma$ utilisée comme incertitude est prise comme étant \SI{10}{\%} de cette variation sur les événements $\Zboson\to\ell\ell$ dans tous les canaux.
+Les années 2017 et 2018 sont corrélées, car les mêmes réglages de simulation sont utilisés (CP5~\cite{tunes_2019}).
+L'année 2016 est décorrélée.
 \paragraph{Repondération de l'impulsion transverse du quark~\quarkt\ (\emph{top \pT\ reweighting})}
-
+L'incertitude considérée est la variation entre zéro et deux fois la correction correspondante, introduite dans la section~\ref{chapter-HTT_analysis-section-corrections}.
+Les différentes années sont corrélées.
 \paragraph{Recul de \MET\ (\emph{MET recoil correction uncertainty})}
-
+Les processus physiques concernés par la correction de recul de \MET,
+\ie\ ceux de production de bosons de Higgs, de Drell-Yan (boson \Zboson) et de \Wjets,
+la réponse en énergie des hadrons est modifiée selon l'incertitude déterminée sur cette correction.
+Les différentes années sont non corrélées.
 \paragraph{\MET\ non regroupée (\emph{MET unclustered uncertainty})}
-
+L'algorithme de \PF\ introduit dans le chapitre~\refChLHCCMS\ peut fournir des objets physiques candidats n'étant pas identifiés comme des muons, électrons, photons, hadrons ou jets.
+Il s'agit par exemple de particules de très bas \pT.
+Les signaux dans le détecteur correspondant sous toutefois utilisés dans le calcul de \MET, il s'agit de l'énergie transverse manquante non regroupée (\emph{MET unclustered}).
+L'incertitude sur cette observable est appliquée à toutes les données simulées non concernées par la correction de recul de \MET\ comme le recommande le \POG\ JetMET~\cite{MET_corrections}.
+Les différentes années sont non corrélées.
 \paragraph{Énergie des jets (\emph{jet energy scale})}
-
+Comme proposé par le \POG\ JetMET, au lieu d'une seule source d'incertitude globale, 11 paramètres de nuisance sont considérés.
+Certains d'entre-eux sont corrélés entre les années.
+Pour les processus physiques non concernés par la correction de recul de \MET, \ie\ \ttbar, Diboson et \emph{Single top}, la variation en énergie des jets est propagés à \MET, ainsi qu'aux variable en dépendant comme \mTtot.
 \paragraph{Résolution sur l'énergie des jets (\emph{jet energy resolution})}
-
+L'incertitude sur la résolution en énergie des jets donnée par le module fourni par la collaboration CMS~\cite{JetResolution} est appliquée aux jeux de données simulées.
+Comme pour l'incertitude sur l'énergie des jets, la propagation à \MET\ est effectuée pour les processus physiques non concernés par la correction de recul de \MET.
+Cette incertitude est non corrélée entre les années.
 \paragraph{Énergie des \tauh\ (\emph{\tauh\ energy scale})}
-
-\paragraph{Énergie des muons identifiés comme \tauh\ (\emph{$\mu\to\tauh$ energy scale})}
-
-\paragraph{Énergie des électrons identifiés comme \tauh\ (\emph{$\ele\to\tauh$ energy scale})}
-
+Une incertitude de forme est appliquée et dépend du DM du \tauh\ ainsi que du type de données, simulées ou encapsulées.
+La valeur de l'incertitude est donnée dans le tableau~\ref{tab-chapter-HTT_analysis-section-corrections-tauES}, section~\ref{chapter-HTT_analysis-section-corrections}.
+Un paramètre de nuisance par DM est obtenu.
+\par
+Dans les données encapsulées, les événements hybrides peuvent présenter des \tauh\ contenant des dépôts dans les calorimètres provenant du muon initial.
+Une corrélation de \SI{50}{\%} entre données simulées et encapsulées est alors appliquée.
+Les années ne sont pas corrélées, comme le suggère le \POG\ tau~\cite{TauPOG}.
+\paragraph{Énergie des leptons identifiés comme \tauh\ (\emph{$\ell\to\tauh$ energy scale})}
+Une variation sur l'impulsion transverse des leptons identifiés à tort comme des \tauh\ est appliquée.
+Elle est de l'ordre de \SI{1}{\%} pour les muons.
+Pour les électrons, elle dépend de l'année et de la région du détecteur et peut aller de \num{0.5} à \SI{6.6}{\%}.
+Les années sont non corrélées.
 \paragraph{Contamination \ttbar\ dans les données encapsulées}
-
+Une partie du bruit de fond \ttbar\ est couvert par les données encapsulées.
+Il s'agit des événements contenant une paire de leptons \tau\ issus de la désintégration des quarks~\quarkt.
+L'incertitude haute (basse) sur cette contamination est obtenue en ajoutant (soustrayant) \SI{10}{\%} de la fractions d'événements simulés \ttbar\ contenant une paire de leptons \tau\ aux événements encapsulés.
+Cette incertitude est corrélée entre les canaux mais pas entre les années, car le \HLTpath\ de sélection de la paire de muons pour les données encapsulées change d'une année à l'autre.
 \paragraph{Bruits de fond estimés par les \fakefactors}
-
+Différentes sources d'incertitudes sont considérées selon le canal.
+Dans le canal \tauh\tauh, ces incertitudes sont:
+\begin{itemize}
+\item statistique sur la mesure de $\FF_Q$, déterminée pour chaque région de \Njets\ et $\pT^{(\text{jet})}$, non corrélée entre les années;
+\item statistique sur les corrections résiduelles de $\FF_Q$, déterminée pour chaque région de \Njets, non corrélée entre les années;
+\item systématique sur l'extrapolation OS/SS de $\FF_Q$, l'incertitude haute (basse) est obtenue en appliquant deux (zéro) fois la correction, corrélée entre les années;
+\item systématique sur l'utilisation dans ce canal de $\FF_Q$ comme \FF\ global, \ie\ appliqué aussi aux événements \Wjets\ et \ttbar. L'incertitude est de \SI{20}{\%} pour les événements \Wjets\ et \SI{40}{\%} pour \ttbar, corrélée entre les années.
+\end{itemize}
+Dans les canaux \mu\tauh\ et \ele\tauh, ces incertitudes sont:
+\begin{itemize}
+\item statistiques sur les mesures des $\FF_i$, déterminées pour chaque région de \Njets\ et $\pT^{(\text{jet})}$, non corrélées entre les années ni entre elles;
+\item statistiques sur les corrections résiduelles des $\FF_i$, déterminées pour chaque région de \Njets, non corrélées entre les années ni entre elles;
+\item systématique sur l'extrapolation OS/SS de $\FF_Q$, l'incertitude haute (basse) est obtenue en appliquant deux (zéro) fois la correction, corrélée entre les années;
+\item systématique sur l'extrapolation isolé/anti-isolé de $\FF_Q$, corrélée entre les années;
+\item systématique sur l'extrapolation de $\mT^{(\ell)}>\SI{70}{\GeV}$ à $\mT^{(\ell)}<\SI{70}{\GeV}$ de $\FF_W$, l'incertitude haute (basse) est obtenue en appliquant deux (zéro) fois la correction, corrélée entre les années;
+\item systématique sur la détermination de $\FF_t$ à partir de données simulées, obtenue à partir de la différence entre $\FF_W$ déterminé avec des données réelles et simulées, corrélée entre les années.
+\end{itemize}
 \paragraph{Estimation du bruit de fond QCD}
-
+Cette estimation utilisée dans le canal \ele\mu\ comporte dix sources d'incertitudes, dues aux facteurs d'extrapolations des ajustement à des polynômes d'ordre 2.
+Elles sont non corrélées entre les années.
 \paragraph{Incertitudes de segmentation (\emph{bin-by-bin uncertainties})}
-
+Les incertitudes de forme dues à la statistique des bruits de fond suite à l'utilisation conjointe des données simulées, encapsulées et réelles dans leur estimation sont prises en compte par la fonction \inlinecode{bash}{autoMCstats} de \COMBINE, l'outil de combination statistique de la collaboration CMS basé sur \ROOSTATS~\cite{RooStats}.
 \paragraph{Incertitudes théoriques}
+Dans le cas du processus $\gluon\gluon\to\Phi\to\tau\tau$, en particulier dans les cas de basse masse,
+les variations du paramètre \inlinecode{bash}{hdamp} du générateur de \POWHEG\ ainsi que
+celles de $\mu_R/\mu_F$ sont utilisées afin d'obtenir l'incertitude sur la distribution en \pT\ de chacune des contributions
+au signal NLO de production de bosons de Higgs par fusion de gluon, dont l'estimation est présentée dans la section~\ref{chapter-HTT_analysis-section-corrections}.
