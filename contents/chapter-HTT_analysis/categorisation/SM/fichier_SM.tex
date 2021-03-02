@@ -35,7 +35,13 @@ j\in\set{1,\ldots,K}
 chaque composante de ce vecteur correspond donc à la probabilité que l'événement appartienne à la catégorie correspondante.
 \paragraph{Catégories obtenues}
 Les principaux bruits de fond présents dans l'analyse sont présentés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation}.
-Pour chaque canal, en plus d'une catégorie \og signal \fg{} notée \CATxxh, une catégorie est définie pour chaque bruit de fond suffisamment présent.
+Pour chaque canal, deux catégories de signal existent visant chacune certains modes de production du boson de Higgs:
+\begin{itemize}
+\item \texttt{ggh}: production par fusion de gluons;
+\item \texttt{qqh}: production par fusion de bosons vecteurs (VBF) et en association avec un boson (VH).
+\end{itemize}
+Ces modes de production sont introduits dans le chapitre~\refChMSSM.
+\par
 Pour les bruits de fond ayant une faible contribution ou étant peu différentiables d'autres bruits de fond, une catégorie \CATmisc\ est également définie.
 Les différentes catégories ainsi possibles sont listées dans le tableau~\ref{tab-chapter-HTT_analysis-section-categorisation-SM-cats_recap}.
 La catégorie \CATemb\ doit correspondre aux données encapsulées décrites dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-embedding}.
@@ -49,17 +55,17 @@ $\Zboson\to\ell\ell$ et \Wjets\ dans le canal \ele\mu.
 Les processus EWK $\Zboson\to LL$ et EWK $\Zboson\to \nu\nu$, introduits dans l'annexe~\refApHTTdatasets, sont également associés à la catégorie \CATmisc\ dans les canaux \tauh\tauh, \mu\tauh\ et \ele\tauh.
 \begin{table}[h]
 \centering
-\begin{tabular}{cccccccc}
+\begin{tabular}{ccccccc}
 \toprule
-Canal & \multicolumn{7}{l}{Catégories possibles}\\
+Canal & \multicolumn{6}{l}{Catégories de bruit de fond possibles}\\
 \midrule
-\tauh\tauh & \CATxxh & \CATemb & & & & \CATfake & \CATmisc \\
-\mu\tauh & \CATxxh & \CATemb & \CATzll & \CATttbar & & \CATfake & \CATmisc \\
-\ele\tauh & \CATxxh & \CATemb & \CATzll & \CATttbar & & \CATfake & \CATmisc \\
-\ele\mu & \CATxxh & \CATemb & & \CATttbar & \CATdib & \CATqcd & \CATmisc \\
+\tauh\tauh & \CATemb & & & & \CATfake & \CATmisc \\
+\mu\tauh & \CATemb & \CATzll & \CATttbar & & \CATfake & \CATmisc \\
+\ele\tauh & \CATemb & \CATzll & \CATttbar & & \CATfake & \CATmisc \\
+\ele\mu & \CATemb & & \CATttbar & \CATdib & \CATqcd & \CATmisc \\
 \bottomrule
 \end{tabular}
-\caption[Catégories \CATsm\ pour les quatre canaux considérés.]{Catégories \CATsm\ pour les quatre canaux considérés.}
+\caption{Catégories \CATsm\ de bruit de fond pour les quatre canaux considérés.}
 \label{tab-chapter-HTT_analysis-section-categorisation-SM-cats_recap}
 \end{table}
 %Minor background processes like electroweak Z production or di-boson events which provide
@@ -82,8 +88,25 @@ Or, ces événements frontaliers sont ceux dont la probabilité d'appartenir à 
 Il est donc pertinent d'utiliser les valeurs de sortie du réseau pour définir une variable discriminante.
 Le choix fait est d'utiliser la plus grande probabilité parmi celles données par le réseau, \ie\ la probabilité d'appartenir à la catégorie dans laquelle le réseau estime que cet événement fait partie.
 Cette variable est dénommée \og score \fg{} et notée \NNscore.
+\begin{wrapfigure}{R}{.475\textwidth}
+\centering
+\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2019-177/fig67.png}
+\caption[Réduction à une dimension de la catégorie \CATxxh.]{Réduction à une dimension de la catégorie \CATxxh~\cite{CMS-NOTE-2019-177}.}
+\label{fig-67-CMS-NOTE-2019-177}
+\end{wrapfigure}
 \par
-\todo{\CATxxh\ case}
+Des événements de signal peuvent être difficilement classés dans une unique catégorie de signal, \texttt{ggh} ou \texttt{qqh}.
+Dans ce cas, leurs scores sont bas pour ces catégories et ils pourraient être catégorisés comme bruit de fond par le réseau de neurones.
+Afin de conserver autant que possible de tels événements hors des catégories de bruit de fond,
+la solution trouvée~\cite{CMS-NOTE-2019-177} est de créer une catégorie globale $\CATxxh=\texttt{ggh} + \texttt{qqh}$.
+Le score dans cette catégorie \CATxxh\ est alors bidimensionnel, chaque dimension correspondant à un des deux scores des catégories \texttt{ggh} et \texttt{qqh}.
+Pour obtenir un histogramme à une dimension, une réduction est réalisée tel qu'illustré figure~\ref{fig-67-CMS-NOTE-2019-177}.
+La segmentation est à peu près uniforme en fonction du score \texttt{ggh}.
+Aux bas scores \texttt{qqh}, elle est plus large à cause des larges contributions du bruit de fond ainsi que de la quantité réduite d'événements.
+Aux hauts scores \texttt{qqh}, elle est plus fine car le signal y est fortement présent.
+L'indice du \NNscore\ 2D ainsi obtenu est utilisé comme variable discriminante dans la catégorie \CATxxh.
+Comme pour toutes les autres distributions, une resegmentation automatique est réalisée afin de s'assurer que chaque segment contienne au moins dix événements de bruit de fond.
+C'est pourquoi les distributions peuvent montrer des segmentations variables, en particulier moins fines que celles initialement définies.
 %The task of the neural net is to define regions of the phase space that are dominated by certain
 %processes. The resulting boundaries between the categories, meaning the region where events
 %are assigned similar and therefore low probabilities for two categories, are actually rather de-
