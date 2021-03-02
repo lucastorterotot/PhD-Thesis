@@ -1,7 +1,145 @@
 \subsection{Modèle de vraisemblance}\label{chapter-HTT_analysis-section-signal_extraction-likelihood}
+% AN 2013 171, p. 31
+La fonction de vraisemblance \LKH\ à maximiser est définie par
+le produit des probabilités poissoniennes $\Poisson (n_i | \nu_i(\mu,\theta))$ d'observer $n_i$ événements dans chaque segment $i$ de l'histogramme de la variable discriminante utilisée
+selon
+\begin{equation}
+\LKH
+=
+\prod_i \Poisson(n_i | \nu_i(\mu,\theta))
+\cdot
+\prod_j \Constraint(\theta_j, \tilde{\theta}_j)
+\msep
+\Poisson(n_i | \nu_i(\mu,\theta))
+=
+\frac{\nu_i^{n_i}}{{n_i}!}\eexp{-\nu_i}
+\end{equation}
+où
+\begin{itemize}
+\item $\nu_i$ est le nombre d'événements attendus dans ce segment dans l'hypothèse \hypSB;
+\item $\mu$ est le modificateur d'intensité du signal (\emph{signal strength modifier}).
+Il représente la fréquence du signal, indéterminée, par rapport à une section efficace de référence, par exemple la section efficace de production du boson de Higgs \higgs;
+\item $\theta$ est un paramètre de nuisance correspondant à une source d'incertitude présentée section~\ref{chapter-HTT_analysis-section-systematics}.
+Les variations de ces paramètres changent la quantité d'événements de signal $s_i$ et de bruit de fond $b_i$ attendus dans le segment $i$;
+\item $j$ est un indice courant sur les différentes contraintes \Constraint\ connues sur les paramètres de nuisance.
+Chacune de ces contraintes représente la probabilité que ce paramètre prenne la valeur $\theta_j$, sachant que la meilleure estimation de ce dernier est $\tilde{\theta}_j$, obtenue par des mesures annexes.
+\end{itemize}
+La forme de la contrainte \Constraint\ dépend du type d'incertitude et est discutée ci-après.
+\subsubsection{Incertitudes de normalisation}
+%Les contraintes sur les incertitudes de normalisation sont modélisées par des fonctions de densité de probabilité log-normale ou Gamma.
+%\par
+Les contraintes sur les incertitudes correspondant à des facteurs multiplicatifs sur la quantité d'événements de signal ou de bruit de fond, par exemple les facteurs d'échelle, sont représentées par des fonctions de densité de probabilité log-normales,
+\begin{equation}
+\eval{\Constraint(\theta, \tilde{\theta})}_{\text{facteurs}}
+=
+\frac{1}{\sqrt{2\pi}\ln\kappa}\,\frac{1}{\theta}\,\exp(-\frac{(\ln(\theta/\tilde{\theta})^2}{2(\ln\kappa)^2})
+\end{equation}
+où $\kappa$ vaut $1+x$ avec $x$ l'incertitude relative sur l'observable contrainte.
+Par exemple, pour une incertitude de \SI{10}{\%}, $\kappa=\num{1.10}$.
+\par
+Les contraintes sur les incertitudes d'origine statistique, par exemple les quantités d'événements observés dans les régions de contrôle, sont représentées par des fonctions de densité de probabilité Gamma,
+\begin{equation}
+\eval{\Constraint(\theta, \tilde{\theta})}_{\text{stat}}
+=
+\frac{1}{\kappa \, \tilde{\theta}!} \left(\frac{\theta}{\kappa}\right)^{\tilde{\theta}} \exp(-\frac{\theta}{\kappa})
+\end{equation}
+où $\kappa$ est le rapport attendu entre $\theta$ et $\tilde{\theta}$.
+La valeur de $\kappa$ a sa propre incertitude, généralement traitée comme une contrainte log-normale supplémentaire.
+\subsubsection{Incertitudes de forme}
+Les incertitudes systématiques de forme sur les distributions des variables discriminantes du signal ainsi que du bruit de fond sont traitées par la technique du \og morphing vertical \fg.
+Pour chaque source d'incertitude, une distribution centrale (ou nominale) ainsi que celles correspondant à des variations de $\pm1\sigma$ de l'incertitude sont déterminées.
+Un paramètre de nuisance $\lambda$ est ajouté au modèle de vraisemblance afin d'interpoler entre ces différentes distributions.
+\par
+Les effets de plusieurs incertitudes de forme sont additifs.
+Soient
+$h_0$ la distribution centrale,
+$h_j^+$ ($h_j^-$) la distribution correspondant à une variation de $+1\sigma$ ($-1\sigma$) de l'incertitude $j$ et
+$\lambda_j$ le paramètre de nuisance ainsi obtenu.
+Le modèle de distribution est donné par
+\begin{equation}
+h(\vec{\lambda}) = h_0 + \sum_j \left( a(\lambda_j)h_j^+ + b(\lambda_j) h_0 + c(\lambda_j)h_j^- \right)
+\label{eq-h_interpolation}
+\end{equation}
+avec
+\begin{equation}
+a = \left\lbrace
+\begin{aligned}
+\lambda(\lambda+1)/2 &\msep \abs{\lambda}\leq1 \mend[,] \\
+0 &\msep \lambda<-1 \mend[,] \\
+\lambda &\msep \lambda>+1 \mend[,]
+\end{aligned}
+\right.
+\qquad
+b = \left\lbrace
+\begin{aligned}
+-\lambda^2 &\msep \abs{\lambda}\leq1 \mend[,] \\
+-(\abs{\lambda}-1) &\msep \abs{\lambda}>1 \mend[,] 
+\end{aligned}
+\right.
+\qquad
+c = \left\lbrace
+\begin{aligned}
+\lambda(\lambda-1)/2 &\msep \abs{\lambda}\leq1 \mend[,] \\
+\abs{\lambda} &\msep \lambda<-1 \mend[,] \\
+0 &\msep \lambda>+1 \mend
+\end{aligned}
+\right.
+\end{equation}
+L'interpolation~\eqref{eq-h_interpolation} est réalisée lors de la maximisation de la fonction de vraisemblance.
+\subsubsection{Incertitudes statistiques}
+L'incertitude statistique dans les distributions des variables discriminantes et prise en compte par la méthode de Barlow-Beeston~\cite{BarlowBeeston,BarlowBeeston2}.
+La quantité d'événements dans chaque segment peut varier dans l'incertitude statistique type, ce qui revient à créer une incertitude de forme.
+\par
+Afin de réduire la quantité de paramètres de nuisance, et donc le temps de calcul, la procédure suivante est suivie dans chaque segment:
+\begin{enumerate}
+\item Les processus $i$ contenant $x_i$ événements et une incertitude statistique $e_i$ tels que $e_i/x_i$ est supérieur à une valeur choisie sont sélectionnés.
+\item L'incertitude totale $e_\text{tot}$ sur l'ensemble de ces processus est déterminée selon
+\begin{equation}
+e_\text{tot}^2 = \sum_{j\in\set{i}} e_j^2
+\mend
+\end{equation}
+\item Les processus $i$ sont classés par valeur croissante de $e_i^2/e_\text{tot}^2$.
+\item Dans l'ordre des processus obtenu, les incertitudes statistiques sont supprimées tant que la somme des carrés des incertitudes supprimées est inférieure à une valeur $r_\text{sub}$ choisie.
+\item Les incertitudes restantes sont multipliées par un facteur
+\begin{equation}
+\sqrt{\frac{1}{1-r_\text{sub}/e_\text{tot}^2}}
+\mend[,]
+\end{equation}
+ce qui permet de conserver une incertitude totale constante.
+\end{enumerate}
+Il s'agit donc de regrouper les incertitudes.
+\par
+Lors de ma thèse, j'ai observé que l'incertitude totale pouvait varier lors de cette procédure, comme cela est illustré sur la figure~\ref{fig-BBB_issue_2017_mt}.
+Dans le dernier segment, il apparaît clairement sur le rapport données sur bruit de fond que l'incertitude totale sur le bruit de fond est modifiée par le regroupement.
+Il s'agissait d'un bug que j'ai identifié et corrigé~\cite{BBB_PR} dans le code de \COMBINE.
+En suivant ce code, les processus $i$ peuvent être classés dans quatre groupes:
+\begin{enumerate}
+\item dont l'incertitude statistique est supprimée et tels que $e_i < x_i$;
+\item dont l'incertitude statistique n'est pas supprimée et tels que $e_i < x_i$;
+\item dont l'incertitude statistique est supprimée et tels que $e_i \geq x_i$;
+\item dont l'incertitude statistique n'est pas supprimée et tels que $e_i \geq x_i$.
+\end{enumerate}
+À l'étape 4, les incertitudes des processus des groupes 1 et 3 sont fixées à 0.
+À l'étape 5, les incertitudes des processus des groupes 1 et 2 sont renormalisées.
+Seul le groupe 2 est affecté en pratique, le groupe 1 ayant une incertitude de 0.
+Or, la valeur de $e_\text{tot}^2$ est calculée à partir des groupes 1 et 2 (avant modification des incertitudes).
+
+probleme groupe 3
+
+fixé en les faisant tomber dans le groupe 4
 
 
-\subsubsection{Traitement des incertitudes systématiques}\label{chapter-HTT_analysis-section-signal_extraction-likelihood-syst_uncs}
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Sans regroupement.}[.45\textwidth]
+{\LARGE\includegraphics[width=.45\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/BBB_issue/prefit_plots_mt_inclusive-no_merging.tex}}
+\hfill
+\subcaptionbox{Avec regroupement.}[.45\textwidth]
+{\LARGE\includegraphics[width=.45\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/BBB_issue/prefit_plots_mt_inclusive-do_merging.tex}}
+
+\caption[Distributions de \mTtot\ avec et sans regroupement des incertitudes.]{Distributions de \mTtot\ avec et sans regroupement des incertitudes pour le canal \mu\tauh\ en 2017. Le tracé des données s'arrête à \SI{130}{\GeV}, avant la zone où le signal est attendu.}
+\label{fig-BBB_issue_2017_mt}
+\end{figure}
 
 
-systematic unc. shifts~\cite{BarlowBeeston,BarlowBeeston2}
