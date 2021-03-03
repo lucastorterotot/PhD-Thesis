@@ -1,12 +1,34 @@
-\subsection{Limites indépendantes du modèle et scans de \emph{likelihood}}\label{chapter-HTT_analysis-section-signal_extraction-model_indep_and_likelihood}
-
-
-En l'absence de signal, des limites hautes sont déterminées sur la section efficace $\sigma$ de production des bosons de Higgs neutres du MSSM, multipliée par le rapport de branchement \BR\ à la désintégration en paire de leptons \tau.
-
-In the absence of a signal, upper limits on the $\sigma\times\mathcal{B}^{\tau\tau}$ are set using the modified frequentist approach \citep{Junk:1999kv,Read_2002}.
-
-Il s'agit de la valeur maximale de $\sigma\times\BR$ au-delà de laquelle un signal aurait été observé.
-Pour cela, un ajustement segmenté de vraisemblance (\emph{binned Likelihood fit}) est réalisé sur les catégories présentées section~\ref{chapter-HTT_analysis-section-categorisation}.
+\subsection{Limites indépendantes du modèle}\label{chapter-HTT_analysis-section-signal_extraction-model_indep_and_likelihood}
+En l'absence de signal, des limites hautes sont déterminées sur la section efficace $\sigma$ de production des bosons de Higgs neutres du MSSM \Higgs\ et \HiggsA, multipliée par le rapport de branchement \BR\ à la désintégration en paire de leptons \tau.
+Il s'agit donc de la valeur maximale de $\sigma\times\BR$ au-delà de laquelle un signal aurait été considéré comme observé.
 \par
-L'ajustement est réalisé à partir de la méthode $CL_S$~\cite{CLs_method} implémentée dans \COMBINE, l'outil de combination statistique de la collaboration CMS basé sur \ROOSTATS~\cite{RooStats}.
-
+La limite d'exclusion à \SI{95}{\%} de confiance sur $\sigma\times\BR$ est déterminée à partir de la valeur de $\mu$ telle que $CL_S = \num{0.05}$.
+Elle est déterminée pour les modes de production:
+\begin{itemize}
+\item $\gluon\gluon\to\Phi\to\tau\tau$;
+\item $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$.
+\end{itemize}
+Lorsque les limites sont déterminées pour l'un, aucune hypothèse n'est faite sur l'autre, en particulier sur sa normalisation.
+\par
+Dans le cas du processus $\gluon\gluon\to\Phi\to\tau\tau$, les contributions à la boucle fermionique des quarks~\quarkt, \quarkb\ et de leur interférence sont fixées à celles attendues dans le modèle standard.
+Aucune modification due à $\tan\beta$ n'est donc considérée.
+\par
+En plus des bruits de fond usuels
+$\Zboson\to\tau\tau$,
+$\Zboson\to\ell\ell$,
+\Wjets,
+\ttbar,
+Diboson, \emph{Single top}
+et
+QCD,
+la contribution de boson de Higgs du modèle standard \higgs\ dans ses désintégrations
+$\higgs\to\tau\tau$
+et
+$\higgs\to\Wboson\Wboson$
+est également considérée comme un bruit de fond.
+Le signal du MSSM est ainsi constitué des processus
+$\gluon\gluon\to\Phi\to\tau\tau$
+et
+$\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$
+avec les coupages du modèle standard aux quarks~\quarkt\ et~\quarkb\
+et $m_\Phi\in[60, \num{3500}]\usp\SI{}{\GeV}$.
