@@ -1,13 +1,12 @@
 \section{Extraction du signal}\label{chapter-HTT_analysis-section-signal_extraction}
 % AN 2013 171
-Des limites hautes sont déterminées sur la section efficace $\sigma$ de production des bosons de Higgs neutres du MSSM \Higgs\ et \HiggsA, multipliée par le rapport de branchement \BR\ à la désintégration en paire de leptons \tau.
-Il s'agit donc de la valeur maximale de $\sigma\times\BR$ au-delà de laquelle un signal aurait été considéré comme observé.
-Pour cela, un ajustement segmenté de maximum de vraisemblance (\emph{binned Likelihood fit}) est réalisé sur les catégories présentées section~\ref{chapter-HTT_analysis-section-categorisation} pour deux hypothèses:
+Afin de déterminer si un signal est présent ou non compte-tenu des observations,
+un ajustement segmenté de maximum de vraisemblance (\emph{binned maximum likelihood fit}) est réalisé sur les catégories présentées section~\ref{chapter-HTT_analysis-section-categorisation} pour deux hypothèses:
 \begin{itemize}
-\item aucun signal, notée \hypB;
+\item aucun signal, \ie\ uniquement des bruits de fond, notée \hypB;
 \item présence d'un signal en plus des bruits de fond, notée \hypSB.
 \end{itemize}
-L'ajustement est réalisé dans chaque cas par une approche fréquentiste modifiée connue sous le nom de méthode $CL_S$~\cite{Junk:1999kv,CLs_method,Read_2002}, implémentée dans \COMBINE, l'outil de combination statistique de la collaboration CMS basé sur \ROOSTATS~\cite{RooStats}.
+Le test statistique de ces deux hypothèse est fait par une approche fréquentiste modifiée connue sous le nom de méthode $CL_S$~\cite{Junk:1999kv,CLs_method,Read_2002}, implémentée dans \COMBINE, l'outil de combination statistique de la collaboration CMS basé sur \ROOSTATS~\cite{RooStats}.
 \par
 Le modèle de vraisemblance utilisé est détaillé dans la section~\ref{chapter-HTT_analysis-section-signal_extraction-likelihood}.
 La méthode $CL_S$ est présentée dans la section~\ref{chapter-HTT_analysis-section-signal_extraction-CLS}.
