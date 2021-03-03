@@ -125,11 +125,11 @@ Dans le code initial,
 pour chaque segment des distributions dans chaque catégorie,
 les processus $i$ peuvent être classés dans cinq groupes:
 \begin{description}
-\item[Z] $x_i = 0$ et $e_i = 0$ (processus non présent dans le segment) ou $e_i/x_i$ inférieur à \inlinecode{cpp}{AddThreshold}, non traités par la procédure de regroupement;
-\item[A] incertitude à supprimer et $0 < e_i < x_i$;
-\item[B] incertitude à conserver et $0 < e_i < x_i$;
-\item[C] incertitude à supprimer et $0 < x_i \leq e_i$;
-\item[D] incertitude à conserver et $0 < x_i \leq e_i$.
+\item[groupe Z] $x_i = 0$ et $e_i = 0$ (processus non présent dans le segment) ou $e_i/x_i$ inférieur à \inlinecode{cpp}{AddThreshold}, non traités par la procédure de regroupement;
+\item[groupe A] incertitude à supprimer et $0 < e_i < x_i$;
+\item[groupe B] incertitude à conserver et $0 < e_i < x_i$;
+\item[groupe C] incertitude à supprimer et $0 < x_i \leq e_i$;
+\item[groupe D] incertitude à conserver et $0 < x_i \leq e_i$.
 \end{description}
 Les processus tels que $0 < e_i < x_i$ (groupes A et B)
 possèdent un attribut \inlinecode{cpp}{can_expand = true}
