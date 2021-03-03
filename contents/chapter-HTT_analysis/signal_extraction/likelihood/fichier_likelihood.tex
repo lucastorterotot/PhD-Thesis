@@ -87,48 +87,27 @@ c = \left\lbrace
 \end{equation}
 L'interpolation~\eqref{eq-h_interpolation} est réalisée lors de la maximisation de la fonction de vraisemblance.
 \subsubsection{Incertitudes statistiques}
+\paragraph{Principe}
 L'incertitude statistique dans les distributions des variables discriminantes et prise en compte par la méthode de Barlow-Beeston~\cite{BarlowBeeston,BarlowBeeston2}.
 La quantité d'événements dans chaque segment peut varier dans l'incertitude statistique type, ce qui revient à créer une incertitude de forme.
 \par
 Afin de réduire la quantité de paramètres de nuisance, et donc le temps de calcul, la procédure suivante est suivie dans chaque segment:
 \begin{enumerate}
-\item Les processus $i$ contenant $x_i$ événements et une incertitude statistique $e_i$ tels que $e_i/x_i$ est supérieur à une valeur choisie sont sélectionnés.
+\item Les processus $i$ contenant $x_i$ événements et une incertitude statistique $e_i$ tels que $e_i/x_i$ est supérieur à une valeur \inlinecode{cpp}{AddThreshold} choisie sont sélectionnés.
 \item L'incertitude totale $e_\text{tot}$ sur l'ensemble de ces processus est déterminée selon
 \begin{equation}
 e_\text{tot}^2 = \sum_{j\in\set{i}} e_j^2
 \mend
 \end{equation}
 \item Les processus $i$ sont classés par valeur croissante de $e_i^2/e_\text{tot}^2$.
-\item Dans l'ordre des processus obtenu, les incertitudes statistiques sont supprimées tant que la somme des carrés des incertitudes supprimées est inférieure à une valeur $r_\text{sub}$ choisie.
-\item Les incertitudes restantes sont multipliées par un facteur
-\begin{equation}
-\sqrt{\frac{1}{1-r_\text{sub}/e_\text{tot}^2}}
-\mend[,]
-\end{equation}
-ce qui permet de conserver une incertitude totale constante.
+\item Dans l'ordre des processus obtenu, les incertitudes statistiques sont supprimées tant que la somme des carrés des incertitudes supprimées est inférieure à une fraction de l'incertitude totale au carré \inlinecode{cpp}{merge_threshold} choisie.
+\item Les incertitudes restantes sont multipliées par un facteur permettant de conserver une incertitude totale constante.
 \end{enumerate}
 Il s'agit donc de regrouper les incertitudes.
-\par
+\paragraph{Contribution personnelle}
 Lors de ma thèse, j'ai observé que l'incertitude totale pouvait varier lors de cette procédure, comme cela est illustré sur la figure~\ref{fig-BBB_issue_2017_mt}.
 Dans le dernier segment, il apparaît clairement sur le rapport données sur bruit de fond que l'incertitude totale sur le bruit de fond est modifiée par le regroupement.
 Il s'agissait d'un bug que j'ai identifié et corrigé~\cite{BBB_PR} dans le code de \COMBINE.
-En suivant ce code, les processus $i$ peuvent être classés dans quatre groupes:
-\begin{enumerate}
-\item dont l'incertitude statistique est supprimée et tels que $e_i < x_i$;
-\item dont l'incertitude statistique n'est pas supprimée et tels que $e_i < x_i$;
-\item dont l'incertitude statistique est supprimée et tels que $e_i \geq x_i$;
-\item dont l'incertitude statistique n'est pas supprimée et tels que $e_i \geq x_i$.
-\end{enumerate}
-À l'étape 4, les incertitudes des processus des groupes 1 et 3 sont fixées à 0.
-À l'étape 5, les incertitudes des processus des groupes 1 et 2 sont renormalisées.
-Seul le groupe 2 est affecté en pratique, le groupe 1 ayant une incertitude de 0.
-Or, la valeur de $e_\text{tot}^2$ est calculée à partir des groupes 1 et 2 (avant modification des incertitudes).
-
-probleme groupe 3
-
-fixé en les faisant tomber dans le groupe 4
-
-
 \begin{figure}[h]
 \centering
 
@@ -141,5 +120,98 @@ fixé en les faisant tomber dans le groupe 4
 \caption[Distributions de \mTtot\ avec et sans regroupement des incertitudes.]{Distributions de \mTtot\ avec et sans regroupement des incertitudes pour le canal \mu\tauh\ en 2017. Le tracé des données s'arrête à \SI{130}{\GeV}, avant la zone où le signal est attendu.}
 \label{fig-BBB_issue_2017_mt}
 \end{figure}
-
-
+\par
+Dans le code initial,
+pour chaque segment des distributions dans chaque catégorie,
+les processus $i$ peuvent être classés dans cinq groupes:
+\begin{description}
+\item[Z] $x_i = 0$ et $e_i = 0$ (processus non présent dans le segment) ou $e_i/x_i$ inférieur à \inlinecode{cpp}{AddThreshold}, non traités par la procédure de regroupement;
+\item[A] incertitude à supprimer et $0 < e_i < x_i$;
+\item[B] incertitude à conserver et $0 < e_i < x_i$;
+\item[C] incertitude à supprimer et $0 < x_i \leq e_i$;
+\item[D] incertitude à conserver et $0 < x_i \leq e_i$.
+\end{description}
+Les processus tels que $0 < e_i < x_i$ (groupes A et B)
+possèdent un attribut \inlinecode{cpp}{can_expand = true}
+et sont ceux dont l'incertitude statistique est renormalisée (\emph{expand}) à l'étape 5 par un facteur
+\begin{equation}
+\text{\inlinecode{cpp}{expand = std::sqrt(1. / (1. - (removed / tot_bbb_added)))}}
+\Leftrightarrow
+E = \sqrt{\frac{1}{1-\frac{R}{T}}}
+\end{equation}
+avec
+\begin{equation}
+R = \text{\inlinecode{cpp}{removed}} = \sum_{i\in{\set{\text{A},\text{C}}}} e_i^2
+\msep
+T = \text{\inlinecode{cpp}{tot_bbb_added}} = \sum_{i\in{\set{\text{A},\text{B}}}} e_i^2
+\mend
+\end{equation}
+\par
+Ainsi, l'incertitude totale après regroupement s'exprime en fonction des incertitudes de chaque processus $i$ avant regroupement selon
+\begin{align}
+e_\text{tot,après} ^2
+&=
+\sum_{i\in{\set{\text{A}}}} (E\times 0\times e_i)^2
++
+\sum_{i\in{\set{\text{B}}}} (E\times e_i)^2
++
+\sum_{i\in{\set{\text{C}}}} (0\times e_i)^2
++
+\sum_{i\in{\set{\text{D},\text{Z}}}} (e_i)^2
+\nonumber\\&
+=
+E^2 \sum_{i\in{\set{\text{B}}}} e_i^2
++
+\sum_{i\in{\set{\text{D},\text{Z}}}} e_i^2
+\mend
+\end{align}
+Or,
+\begin{equation}
+E^2
+=
+\frac{1}{1-\frac{R}{T}}
+=
+\frac{T}{T-R}
+=
+\frac{\sum_{i\in{\set{\text{A},\text{B}}}} e_i^2}{\sum_{i\in{\set{\text{A},\text{B}}}} e_i^2-\sum_{i\in{\set{\text{A},\text{C}}}} e_i^2}
+=
+\frac{\sum_{i\in{\set{\text{A},\text{B}}}} e_i^2}{\sum_{i\in{\set{\text{B}}}} e_i^2-\sum_{i\in{\set{\text{C}}}} e_i^2}
+\end{equation}
+soit
+\begin{equation}
+e_\text{tot,après} ^2
+=
+\frac{\sum_{i\in{\set{\text{A},\text{B}}}} e_i^2}{\sum_{i\in{\set{\text{B}}}} e_i^2-\sum_{i\in{\set{\text{C}}}} e_i^2}
+\times
+\sum_{i\in{\set{\text{B}}}} e_i^2
++
+\sum_{i\in{\set{\text{D},\text{Z}}}} e_i^2
+\label{eq-e_tot_after_with_C}
+\end{equation}
+ce qui est différent de l'erreur initiale dans le cas général.
+Cette formule a été testée numériquement, ce qui a permis de confirmer la bonne compréhension du code initial.
+\par
+Le problème vient du traitement du groupe C, \ie\ des processus dont l'incertitude est supprimée mais dont la quantité d'événement est inférieure à celle-ci.
+En effet, ils ne sont pas pris en compte dans le calcul de $T$.
+Le correctif proposé~\cite{BBB_PR} est de refuser le cas du groupe C et de rediriger ces processus dans le groupe D.
+Alors, le groupe C étant forcément un ensemble vide, l'équation~\eqref{eq-e_tot_after_with_C} se réécrit
+\begin{equation}
+e_\text{tot,après} ^2
+=
+\frac{\sum_{i\in{\set{\text{A},\text{B}}}} e_i^2}{\sum_{i\in{\set{\text{B}}}} e_i^2}
+\times
+\sum_{i\in{\set{\text{B}}}} e_i^2
++
+\sum_{i\in{\set{\text{D},\text{Z}}}} e_i^2
+=
+\sum_{i\in{\set{\text{A},\text{B}}}} e_i^2
++
+\sum_{i\in{\set{\text{D},\text{Z}}}} e_i^2
+=
+e_\text{tot,avant} ^2
+\mend[,]
+\end{equation}
+l'incertitude totale est donc bien conservée.
+\par
+Dans le cas d'étude de la figure~\ref{fig-BBB_issue_2017_mt}, ce correctif introduit six paramètres de nuisance supplémentaires, ce qui reste raisonnable en terme de charge computationnelle.
+En effet, les processus devant entrer dans le groupe C sont peu nombreux.
