@@ -1,5 +1,48 @@
 \subsection{Méthode $CL_S$}\label{chapter-HTT_analysis-section-signal_extraction-CLS}
-
-
-
-Further details about the CL s method are given in \cite{CMS-NOTE-2011-005}.
+\subsubsection{Approche fréquentiste classique}
+Afin de déterminer quantitativement quelle hypothèse, entre \hypB\ et \hypSB, est la plus compatible avec les résultats de l'analyse, il faut réaliser un test statistique.
+Plusieurs tests existent, celui utilisé pour les expériences du LHC est le profil du rapport de vraisemblance (\emph{profile likelihood ratio}),
+\begin{equation}
+q_{\mu} = -2 \ln(\frac{\LKH(\text{données} |  \mu, \hat{\theta}_{\mu})}{\LKH(\text{données} |  \hat{\mu}, \hat{\theta}_{\hat{\mu}})})
+\msep
+0 \leq \hat{\mu} \leq \mu
+\end{equation}
+où
+\og données \fg{} réfère aux quantités d'événements $n_i$ dans chaque segments des distributions des variables discriminantes dans chaque catégorie,
+$\hat{\theta}_x$ est l'ensemble des paramètres de nuisance maximisant \LKH\ pour $\mu=x$.
+L'ensemble $(\hat{\mu},\hat{\theta}_{\hat{\mu}}$ donne le maximum global de \LKH.
+La contrainte $0 \leq \hat{\mu}$ impose une fréquence du signal positive, \ie\ que $\mu$ a une interprétation physique.
+De plus, $\hat{\mu} \leq \mu$ interdit de rejeter $\mu$ plus petit que $\hat{\mu}$, valeur la plus probable du modificateur d'intensité du signal.
+Lorsqu'une valeur de $\mu$ est rejetée, toutes les valeurs plus élevées le sont donc également.
+\par
+Les grandes valeurs de $q_{\mu}$ correspondent ainsi aux cas où la valeur de $\mu$ est incompatible avec les données.
+À l'inverse, lorsque $q_{\mu}\simeq0$, les données sont compatibles avec $\mu$ dans le cadre de l'hypothèse \hypSB.
+La probabilité d'obtenir une valeur de $q_{\mu}$ plus élevée que celle observée $q_{\mu}^\text{obs}$,
+\ie\ de réaliser une observation moins compatible avec l'hypothèse \hypSB\ que celle effectivement réalisée,
+est définie par
+\begin{equation}
+CL_{\hypSB} = \int_{q_{\mu}^\text{obs}}^{+\infty} f (q_\mu | \mu, \hat{\theta}_\mu) \dd{q_\mu}
+\end{equation}
+où $f$ est la fonction de densité de probabilité pour $q_{\mu}$, obtenue en tirant au sort de nombreuses combinaisons des valeurs des paramètres de nuisance et de $\mu$.
+\par
+Une valeur de $\mu$ est ainsi considérée exclue avec un niveau de confiance $\alpha$ tel que
+$\alpha = 1 - CL_{\hypSB}$.
+Un niveau de confiance de \SI{95}{\%} est généralement utilisé.
+Toutefois, en prenant $\mu\simeq0$, cette approche mène statistiquement \SI{5}{\%} des analyses de physique à exclure la présence d'un signal.
+Pour éviter ce cas de figure, une approche fréquentiste modifiée est utilisée.
+\subsubsection{Approche fréquentiste modifiée}
+Cette méthode est introduite pour traiter le cas d'un signal très faible par rapport au bruit de fond~\cite{Junk:1999kv,CLs_method,Read_2002}.
+En plus de $CL_{\hypSB}$ définie précédemment,
+la probabilité de réaliser une observation moins compatible avec l'hypothèse \hypB\ que celle effectivement réalisée, définie comme
+\begin{equation}
+CL_{\hypB} = \int_{q_{\mu}^\text{obs}}^{+\infty} f (q_\mu | 0, \hat{\theta}_0) \dd{q_\mu}
+\end{equation}
+est déterminée.
+%\par
+La quantité $CL_S$ est le rapport
+\begin{equation}
+CL_S = \frac{CL_{\hypSB}}{CL_{\hypB}}
+\mend
+\end{equation}
+Dans l'approche fréquentiste modifiée, l'exclusion à \SI{95}{\%} de confiance est obtenue lorsque $CL_S \leq \num{0.05}$.
+Plus de détails sur la méthode $CL_S$ sont disponibles dans la référence~\cite{CMS-NOTE-2011-005}.

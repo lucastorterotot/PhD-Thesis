@@ -4,7 +4,7 @@ La fonction de vraisemblance \LKH\ à maximiser est définie par
 le produit des probabilités poissoniennes $\Poisson (n_i | \nu_i(\mu,\theta))$ d'observer $n_i$ événements dans chaque segment $i$ de l'histogramme de la variable discriminante utilisée
 selon
 \begin{equation}
-\LKH
+\LKH(n_i | \mu,\theta)
 =
 \prod_i \Poisson(n_i | \nu_i(\mu,\theta))
 \cdot
@@ -16,7 +16,7 @@ selon
 \end{equation}
 où
 \begin{itemize}
-\item $\nu_i$ est le nombre d'événements attendus dans ce segment dans l'hypothèse \hypSB;
+\item $\nu_i$ est le nombre d'événements attendus dans ce segment dans l'hypothèse \hypSB\footnote{Lorsque $\mu=0$, $\nu_i$ correspond au nombre d'événements attendus dans l'hypothèse \hypB.};
 \item $\mu$ est le modificateur d'intensité du signal (\emph{signal strength modifier}).
 Il représente la fréquence du signal, indéterminée, par rapport à une section efficace de référence, par exemple la section efficace de production du boson de Higgs \higgs;
 \item $\theta$ est un paramètre de nuisance correspondant à une source d'incertitude présentée section~\ref{chapter-HTT_analysis-section-systematics}.
