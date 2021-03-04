@@ -66,7 +66,20 @@ Les fractions $f_i$ sont déterminées à partir de simulations et dépendent:
 \item du nombre de jets \Nprebjets\ identifiés comme issus de quarks~\quarkb, \Nbjets;
 \item de la masse transverse totale, définie page~\pageref{eq-def_mTtot}, \mTtot.
 \end{itemize}
-La figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-ppe} résume ainsi le principe de la méthode.
+La figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-fractions} présente ces fractions en fonction de \mTtot\ pour $\mT^{(\mu)} < \SI{40}{\GeV}$ et $\Nbjets\in\set{0,\geq1}$ pour le canal \mu\tauh\ en 2018.
+La méthode des \fakefactors\ est résumée figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-ppe}.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Pour $\Nbjets=0$ et $\mT^{(\mu)} < \SI{40}{\GeV}$}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_fraction_tightmt_nbjets0_mt_2018_os_rebinning.tex}}
+\hfill
+\subcaptionbox{Pour $\Nbjets\geq1$ et $\mT^{(\mu)} < \SI{40}{\GeV}$}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_fraction_tightmt_nbjets1_mt_2018_os_rebinning.tex}}
+
+\caption[Fractions des sources de \ftauhs\ dans le canal \mu\tauh\ en 2018.]{Fractions des sources de \ftauhs\ dans le canal \mu\tauh\ en 2018~\cite{CMS-NOTE-2020-218}.}
+\label{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-fractions}
+\end{figure}
 \begin{figure}[h]
 \centering
 \input{\PhDthesisdir/plots_and_images/Fake_Factor/FF_ppe-tikz_manuscript.tex}
@@ -74,6 +87,11 @@ La figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-ppe} ré
 \label{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-ppe}
 \end{figure}
 \subsubsection{Régions de détermination}
+\begin{wrapfigure}{R}{0.45\textwidth}
+\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_fit_jet_pt_high_1jet_pt_2_ff_qcd_mt_2018.tex}
+\caption[Ajustement de $\FF_Q$ dans le canal \mu\tauh\ en 2018.]{Ajustement de $\FF_Q$ dans le canal \mu\tauh\ en 2018~\cite{CMS-NOTE-2020-218}.}
+\label{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-FFQ_fit}
+\end{wrapfigure}
 \paragraph{QCD}
 La DR QCD est définie de la même manière que la SR à l'exception du critère sur les charges électriques des éléments du \emph{dilepton}.
 En effet, ceux-ci doivent être de charges opposées (OS, \emph{Opposite Signs}) dans la SR car les bosons de Higgs recherchés étant neutres, la charge globale du \emph{dilepton} doit, par conservation, être nulle.
@@ -110,6 +128,7 @@ et inférieure à \num{0.5} pour $\pT^{(\tauh)}\in[140, 200]\usp\SI{}{\GeV}$,
 la valeur mesurée est utilisée sur l'intervalle $[140, \infty[\usp\SI{}{\GeV}$;
 \item sinon, la valeur obtenue par l'ajustement est utilisée.
 \end{itemize}
+L'ajustement obtenu pour $\FF_Q$ sur le canal \mu\tauh\ en 2018 est illustré figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-FFQ_fit} pour $\Nprebjets=0$ et $\num{1.5} \leq \pT^{(\text{jet})}/\pT^{(\tauh)}$.
 \paragraph{\Wjets}
 La DR \Wjets\ ne concerne que les canaux semi-leptoniques.
 Elle est définie de la même manière que la SR à l'exception de la coupure sur la masse transverse du lepton qui doit ici être supérieure à \SI{70}{\GeV}, alors qu'elle est inférieure à cette même valeur dans la SR.
@@ -133,6 +152,8 @@ Pour ces six catégories, la dépendance en $\pT^{(\tauh)}$ de $\FF_Q$ est modé
 \par
 Dans cette DR également, peu d'événements sont disponibles pour $\pT^{(\tauh)}\geq\SI{140}{\GeV}$.
 La même logique que pour $\FF_Q$, détaillée précédemment, est suivie sur la valeur de $\FF_W$ à utiliser.
+L'ajustement obtenu pour $\FF_W$ sur le canal \mu\tauh\ en 2018 est illustré figure~\ref{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-WJ} pour $\Nprebjets\geq1$ et $\num{1.25} \leq \pT^{(\text{jet})}/\pT^{(\tauh)} < \num{1.5}$.
+Il y apparaît l'effet du traitement de la région à haut $\pT^{(\tauh)}$.
 \paragraph{\ttbar}
 La DR \ttbar\ ne concerne que les canaux semi-leptoniques.
 Il n'est pas possible de définir une DR issue des données suffisamment pure pour mesurer $\FF_t$.
@@ -149,6 +170,19 @@ Le \fakefactor\ $\FF_t$ est mesuré séparément pour:
 \item $\num{1.5} \leq \pT^{(\text{jet})}/\pT^{(\tauh)}$;
 \end{itemize}
 sans séparation en \Nprebjets, la majorité des événements \ttbar\ vérifiant $\Nprebjets\geq1$.
+L'ajustement obtenu pour $\FF_t$ sur le canal \mu\tauh\ en 2018 est illustré figure~\ref{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-ttbar} pour $\pT^{(\text{jet})}/\pT^{(\tauh)} < \num{1.25}$.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Ajustement de $\FF_W$.\label{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-WJ}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_fit_jet_pt_med_1jet_pt_2_ff_wjets_mt_2018.tex}}
+\hfill
+\subcaptionbox{Ajustement de $\FF_t$.\label{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-ttbar}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_fit_jet_pt_low_inclusive_pt_2_ff_ttbar_mc_mt_2018.tex}}
+
+\caption[Ajustements de $\FF_W$ et $\FF_t$ dans le canal \mu\tauh\ en 2018.]{Ajustements de $\FF_W$ et $\FF_t$ dans le canal \mu\tauh\ en 2018~\cite{CMS-NOTE-2020-218}.}
+\label{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-WJ-ttbar}
+\end{figure}
 \subsubsection{Corrections résiduelles}
 Afin de valider les \fakefactors\ obtenus, ces derniers sont appliqués aux DRs pour les événements avec les mêmes points de fonctionnement de l'algorithme \DEEPTAU.
 Les prédictions obtenues par les \fakefactors\ doivent alors correspondre aux observations brutes, \ie\ sans leur application.
@@ -183,7 +217,19 @@ Il est ici considéré comme dos-à-dos avec $\ell$, ce qui n'est strictement vr
 %Un ajustement polynomial est réalisé dans les cas $\Nprebjets=0$ et $\Nprebjets\geq1$ pour $\FF_W$ et dans le cas général ($\Nprebjets\geq0$) pour $\FF_t$.
 %\par
 %Une fois les  valeurs de \MET\ corrigées, les distributions de $\pT^{(\ell)}$ le sont également pour $\FF_W$ et $\FF_t$.
-\bigskip
+Deux de ces corrections résiduelles obtenues sur le canal \mu\tauh\ en 2018 sont illustrées sur la figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-closure}.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{En fonction de $I_\mathrm{rel}^{(\mu)}$ pour $\FF_Q$.\label{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-closure-Q}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_closure_iso_inclusive_closure_qcd_alt_mt_2018.tex}}
+\hfill
+\subcaptionbox{En fonction de $C_W$ pour $\FF_W$\label{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-closure-W}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_closure_met_1jet_closure_wjets_mt_2018.tex}}
+
+\caption[Corrections résiduelles des \fakefactors\ dans le canal \mu\tauh\ en 2018.]{Corrections résiduelles des \fakefactors\ dans le canal \mu\tauh\ en 2018~\cite{CMS-NOTE-2020-218}.}
+\label{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-closure}
+\end{figure}
 \par
 L'amélioration de la description des données ainsi obtenue grâce aux \fakefactors\ est visible sur la figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-2018et_mT1_illustration}, où les distributions de la masse transverse de l'électron dans le canal \ele\tauh\ dans les données et dans l'estimation du bruit de fond sans et avec cette méthode sont tracées à titre d'illustration.
 Outre un meilleur accord entre observations et estimation du bruit de fond, l'incertitude statistique est également réduite.
