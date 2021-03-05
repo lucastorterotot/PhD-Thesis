@@ -5,17 +5,17 @@ Pour cela, la conception du détecteur repose sur:
 \begin{itemize}
 \item un système de détection des muons de haute performance;
 \item le meilleur calorimètre électromagnétique possible compatible avec le point précédent;
-\item un système de trajectographie central;
+\item un système de trajectographie central entièrement basé sur des détecteurs au silicium;
 \item un calorimètre hadronique avec une résolution suffisante et une bonne herméticité.
 \end{itemize}
-Son design généraliste permet de l'utiliser pour de nombreuses autres analyses de physique, comme des mesures de précision, la recherche d'une nouvelle physique ou encore les collisions d'ions lourds.
+Son design généraliste permet de nombreuses autres analyses de physique, comme des mesures de précision, la recherche d'une nouvelle physique ou encore les collisions d'ions lourds.
 \begin{figure}[b]
 \centering
 \includegraphics[width=\textwidth]{\PhDthesisdir/plots_and_images/CMS_slices/from_CMS_document_13631-v4/cms_160312_06-FR.tex}
-\caption[Vue éclatée du détecteur CMS.]{Vue éclatée du détecteur CMS~\cite{CMS_document_13631-v4}.}
+\caption[Vue ouverte du détecteur CMS.]{Vue ouverte du détecteur CMS~\cite{CMS_document_13631-v4}.}
 \label{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-vue_eclatee_CMS}
 \end{figure}
-\par La figure~\ref{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-vue_eclatee_CMS} présente une vue éclatée du détecteur CMS.
+\par La figure~\ref{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-vue_eclatee_CMS} présente une vue ouverte du détecteur CMS.
 Il possède une forme cylindrique de \SI{28.7}{\meter} de long et \SI{15}{\meter} de diamètre pour un poids total de \num{14000} tonnes.
 Il est structuré en couches concentriques, chacune ayant un rôle spécifique détaillé dans les sections qui suivent.
 À partir du centre du détecteur, lieu des collisions, se trouvent dans l'ordre
@@ -24,29 +24,36 @@ le calorimètre électronique~\cite{CERN-LHCC-97-033},
 le calorimètre hadronique~\cite{CERN-LHCC-97-031},
 le solénoïde~\cite{CERN-LHCC-97-010} donnant son \og S \fg{} à CMS et
 les chambres à muons~\cite{CERN-LHCC-97-032} donnant son \og M \fg{} à CMS, encastrées dans la culasse d'acier.
-Des calorimètres avancés se trouvent aux extrémité du détecteur le long de l'axe du faisceau.
+Des calorimètres \og \CMSforwards \fg{} se trouvent aux extrémité du détecteur, le long de l'axe du faisceau.
 Le détecteur propose ainsi une couverture d'un angle solide de presque $4\pi\usp\SI{}{\steradian}$, \ie\ de presque toutes les directions, ce qui est capital afin de reconstruire les collisions.
 \par Le détecteur peut de plus être divisé en trois grandes parties de par sa forme cylindrique.
-La première, centrale, est le \og barillet \fg, dans laquelle les sous-parties ont une géométrie cylindrique.
+La première, centrale, est le \og \CMSbarrel \fg, dans laquelle les sous-parties ont une géométrie cylindrique.
 Les parties sensibles du détecteur y sont orientées vers l'axe du faisceau.
-Aux deux extrémités du détecteur se trouvent les \og bouchons \fg, dont l'orientation des parties sensibles du détecteur se fait dans le plan transverse au faisceau.
+Aux deux extrémités du détecteur se trouvent les \og \CMSendcaps \fg, dont l'orientation des parties sensibles du détecteur se fait dans le plan transverse au faisceau.
 Ces orientations différentes sont bien visibles sur la figure~\ref{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-vue_eclatee_CMS}.
-\par L'acronyme CMS signifie ainsi \emph{Compact Muon Solenoïd}, \ie\ Solénoïde Compact à Muons.
-Son qualificatif de \og compact \fg{} se comprend par comparaison à d'autres détecteurs de physique des particules, comme son homologue au LHC, ATLAS.
-Ce détecteur est également cylindrique et fait \SI{40}{\meter} de long pour \SI{22}{\meter} de diamètre, soit un volume trois fois plus grand que celui de CMS.
-Pourtant, ATLAS ne pèse \og que \fg{} \num{7000} tonnes, deux fois moins que CMS.
-Il n'y a en effet que peu d'espace vide dans le volume occupé par le détecteur CMS.
+\par L'acronyme CMS signifie \emph{Compact Muon Solenoïd}, \ie\ Solénoïde Compact à Muons.
+La structure du détecteur, conçue à partir de celle du solénoïde, mène en effet à un design compact pour le système à muons (chambres à muons et culasse d'acier), d'où le qualificatif~\cite{cms_letter_intent}.
 \par La géométrie cylindrique du détecteur pousse à définir un système de coordonnées également cylindriques en complément d'un repère cartésien.
 Le schéma de la figure~\ref{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-CMS_3D_phi_theta_defs} illustre la définition de ces systèmes de coordonnées.
 L'origine $O$ des repères est le centre du détecteur où les protons entrent en collision.
-L'axe \axis{x} pointe vers le centre du LHC, l'axe \axis{y} vers le haut ($\vec{g}\cdot\bvec_y<0$) et l'axe \axis{z} est aligné avec le faisceau tel que $(\bvec_x, \bvec_y, \bvec_z)$ forme un trièdre direct.
+Le vecteur de base $\bvec_x$ pointe vers le centre du LHC,
+$\bvec_y$ vers le haut ($\vec{g}\cdot\bvec_y<0$) et
+$\bvec_z$ est colinéaire au tube de faisceau.
+Le trièdre $(\bvec_x, \bvec_y, \bvec_z)$ est direct.
+Le plan \plane{x}{y} est nommé \og plan transverse \fg, il est orthogonal aux faisceaux.
 Le système de coordonnées cylindriques est défini par la distance à l'origine et deux angles $\theta\in[0,\pi]$ et $\phi\in[-\pi,\pi]$.
-L'angle entre les plans $(\bvec_x, \bvec_z)$ et $(\vec{a}, \bvec_z)$ est $\phi$, défini dans le plan $(\bvec_x,\bvec_y)$ à partir de l'axe \axis{x}.
-L'angle entre les directions $\vec{a}$ et $\bvec_z$ est $\theta$.
+L'angle entre le vecteur $\vec{a}$ à caractériser et $\bvec_z$ est $\theta$.
+L'angle entre $\vec{a}$ et $\bvec_x$ dans le plan transverse est $\phi$.
 \begin{figure}[h]
 \centering
 \input{\PhDthesisdir/plots_and_images/CMS_slices/own/CMS_3D_phi_theta_defs.tex}
-\caption[Système de coordonnées du détecteur CMS.]{Système de coordonnées du détecteur CMS. L'axe \axis{x} pointe vers le centre du LHC, l'axe \axis{y} vers le haut ($\vec{g}\cdot\bvec_y<0$) et l'axe \axis{z} est aligné avec le faisceau tel que $(\bvec_x, \bvec_y, \bvec_z)$ forme un trièdre direct. L'angle entre les plans $(\bvec_x, \bvec_z)$ et $(\vec{a}, \bvec_z)$ est $\phi$, défini dans le plan $(\bvec_x,\bvec_y)$ à partir de l'axe \axis{x}. L'angle entre les directions $\vec{a}$ et $\bvec_z$ est $\theta$.}
+\caption[Système de coordonnées du détecteur CMS.]{Système de coordonnées du détecteur CMS.
+Le vecteur de base $\bvec_x$ pointe vers le centre du LHC,
+$\bvec_y$ vers le haut ($\vec{g}\cdot\bvec_y<0$) et
+$\bvec_z$ est colinéaire au tube de faisceau.
+Le trièdre $(\bvec_x, \bvec_y, \bvec_z)$ est direct.
+L'angle entre le vecteur $\vec{a}$ à caractériser et $\bvec_z$ est $\theta$.
+L'angle entre $\vec{a}$ et $\bvec_x$ dans le plan transverse est $\phi$.}
 \label{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-CMS_3D_phi_theta_defs}
 \end{figure}
 \par L'angle $\theta$ n'est généralement pas utilisé directement et est remplacé par la \og pseudo-rapidité \fg{} $\eta$ définie comme
@@ -72,7 +79,7 @@ La figure~\ref{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-CMS-e
 \end{figure}
 \par Du fait de la structure des protons discutée dans la section~\ref{chapter-LHC-section-LHC-subsec-pp_collisions}, lors de la collision, l'impulsion totale selon l'axe des faisceaux est inconnue.
 Seule l'impulsion totale dans le plan transverse, \ie\ le plan \plane{x}{y}, est nulle.
-C'est pourquoi des variables relatives au plan transverse sont définies, en particulier l'impulsion transverse \vpT, sa norme \pT\ et l'énergie transverse \ET,
+C'est pourquoi des variables relatives au plan transverse sont définies, en particulier l'impulsion transverse \vpT, sa norme \pT\ et l'\og énergie transverse \fg{} \ET,
 \begin{equation}
 \vpT = p_x\bvec_x + p_y\bvec_y
 \msep

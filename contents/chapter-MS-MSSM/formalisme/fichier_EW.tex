@@ -54,7 +54,13 @@ En revanche, la symétrie $CP$ change une particule de chiralité gauche en une 
 L'étude des désintégrations des kaons a toutefois montré que l'interaction faible viole également la symétrie $CP$~\cite{Fitch_Cronin_CP_violation}, ce qui a pu être expliquée théoriquement en postulant l'existence d'une troisième génération de quarks~\cite{CKM_KM} observée depuis.
 \par L'introduction de la symétrie $SU(2)_L$ amène un nouveau nombre quantique, l'\og isospin faible \fg, noté $I$. Il se comporte mathématiquement comme le spin des particules, d'où son nom \emph{iso}spin.
 Les fermions de chiralité gauche sont rassemblés en doublet d'isospin faible $I=\frac{1}{2}$, les fermions de chiralité droite en singlets d'isospin faible $I=0$. Ces derniers sont ainsi invariants sous les transformations de $SU(2)_L$, ce qui se traduit physiquement par une insensibilité à l'interaction faible.
-\par Mis à part les neutrinos qui n'existent, dans le cadre actuel du modèle standard, qu'avec une chiralité gauche\footnote{Il n'y a à ce jour aucune raison pour les neutrinos de chiralité droite de ne pas exister. Cependant, ils n'interagissent pas avec la matière dans le cadre du modèle standard. Ainsi, il est possible de les retirer du modèle tout en conservant une description cohérente du comportement des particules.}, les fermions peuvent être de chiralité droite ou gauche, ce qui mène aux représentations du tableau~\ref{tab-chapter-MS-MSSM-section-formalisme-subsec-EW-rzpt_fermions_chiralite_isospin}.
+\par
+Les fermions peuvent être de chiralité droite ou gauche.
+Dans le cadre actuel du modèle standard, les neutrinos existent toutefois uniquement avec une chiralité gauche.
+Il n'y a à ce jour aucune raison pour les neutrinos de chiralité droite de ne pas exister.
+Cependant, ils n'interagissent pas, par construction, avec la matière dans le cadre du modèle standard.
+Ainsi, il est possible de les retirer du modèle tout en conservant une description cohérente du comportement des particules.
+Cela mène aux représentations du tableau~\ref{tab-chapter-MS-MSSM-section-formalisme-subsec-EW-rzpt_fermions_chiralite_isospin}.
 \begin{table}[h]
 \centering
 \begin{tabular}{ccccc}
@@ -78,7 +84,10 @@ Sous une transformation de $SU(2)$, les spineurs se transforment selon
 \bar{\psi} \to \bar{\psi}\eexp{-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)}
 \label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-spineur}
 \end{equation}
-où $\bm{\alpha}\in\mathbb{R}^3$ et $\bm{\tau}$ est un vecteur dont les composantes $\tau_i$ sont les générateurs de $SU(2)$\footnote{Les générateurs de $SU(2)$ sont des matrices $2\times2$ s'identifiant aux matrices de Pauli $\sigma_i$ définies dans l'annexe~\refApMath. Toutefois, ces générateurs agissent dans le cas de $SU(2)_L$ sur les doublets d'isospin faible alors que les matrices de Pauli agissent sur le spin d'un fermion. Afin d'éviter les confusions, la notation $\tau$ est utilisée.}.
+où $\bm{\alpha}\in\mathbb{R}^3$ et $\bm{\tau}$ est un vecteur dont les composantes $\tau_i$ sont les générateurs de $SU(2)$.
+Ces générateurs sont des matrices $2\times2$ s'identifiant aux matrices de Pauli $\sigma_i$ définies dans l'annexe~\refApMath.
+Toutefois, ces générateurs agissent dans le cas de $SU(2)_L$ sur les doublets d'isospin faible alors que les matrices de Pauli agissent sur le spin d'un fermion.
+Afin d'éviter les confusions, la notation $\tau$ est utilisée.
 L'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-spineur} est l'analogue directe de l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-QED-tr_jauge-spineur}.
 \par Afin de simplifier les calculs qui suivent, seules les transformations infinitésimales sont considérées. En effet, $SU(2)$ est un groupe non abélien. Cela signifie deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que soient appliqués $a$ puis $b$ ou $b$ puis $a$, \ie\ $ab-ba\neq0$. Ainsi, des termes supplémentaires apparaissent, ou plutôt ne se simplifient pas entre eux. Les transformations précédentes sous leurs formes infinitésimales, \ie\ au premier ordre en $\bm{\alpha}$, s'expriment
 \begin{equation}

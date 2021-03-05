@@ -32,13 +32,13 @@ V & 2032-2034 & \SI{14}{\TeV} & \\
 Les protons sont obtenus par ionisation de dihydrogène, directement issu d'une bouteille.
 Ils sont alors progressivement accélérés à travers différentes installations du CERN, illustrées sur la figure~\ref{fig-chapter-LHC-section-CERN-CERN_Accelerator-Complex}, menant les protons à des niveaux d'énergie de plus en plus hauts avant de pouvoir être injectés dans le LHC~\cite{LHC_paper3}:
 \begin{itemize}
-\item l'accélérateur linéaire 2 (LINAC~2)\footnote{Le LINAC~2 est remplacé pour le Run~III du LHC par le LINAC~4.} permet d'accélérer les protons à une énergie de \SI{50}{\MeV};
+\item l'accélérateur linéaire 2 (LINAC~2), remplacé pour le Run~III du LHC par le LINAC~4, permet d'accélérer les protons à une énergie de \SI{50}{\MeV};
 \item le \emph{Booster}, premier élément circulaire, amène les protons à \SI{1.4}{\GeV};
 \item le PS permet d'atteindre \SI{25}{\GeV};
 \item le SPS, dernier élément avant le LHC, accélère les protons jusqu'à \SI{450}{\GeV}.
 \end{itemize}
-Le LHC accélère alors les protons jusqu'à \SI{6.5}{\TeV} lors du Run~II et ira jusqu'à \SI{7}{\TeV} lors du Run~III, permettant de réaliser des collisions avec une énergie dans le centre de masse, $\sqrt{s}$\footnote{L'énergie dans le centre de masse est souvent notée $\sqrt{s}$, $s$ étant une des variables de Mandelstam.}, de \num{13} et \SI{14}{\TeV}, respectivement.
-\par Le gain en énergie des particules, \ie\ l'accélération colinéaire au faisceau, se fait dans le LHC à l'aide de 16 cavités radiofréquences, 8 par faisceau.
+Le LHC accélère alors les protons jusqu'à \SI{6.5}{\TeV} lors du Run~II et ira jusqu'à \SI{7}{\TeV} lors du Run~III, permettant de réaliser des collisions avec une énergie dans le centre de masse, $\sqrt{s}$, de \num{13} et \SI{14}{\TeV}, respectivement.
+\par Les particules sont accélérée grâce à 16 cavités radiofréquences, 8 par faisceau.
 Ces cavités créent un champ électrique oscillant.
 Cette technique présente l'avantage d'accélérer les particules différemment selon leurs positions respectives, ce qui permet de les conserver en plusieurs paquets dont l'intérêt est développé dans la section suivante.
 \par Afin de maintenir les particules dans le tube circulaire du LHC, leur trajectoire est courbée, \ie\ qu'une accélération orthogonale au faisceau est appliquée.
@@ -53,13 +53,13 @@ Cette courbure s'obtient grâce à un champ magnétique de \SI{8.33}{\tesla} gé
 \label{fig-proton_mer_quarks_fmf}
 \end{wrapfigure}
 Les protons ne sont pas des particules fondamentales, ils possèdent une sous-structure.
-En tant que baryons, les protons sont donc des hadrons dont la composition moyenne est de trois quarks, en l'occurrence deux \emph{up} et un \emph{down}.
+En tant que baryons, les protons sont donc des hadrons dont la composition moyenne est de trois quarks dits \og de valence \fg{}, en l'occurrence deux \emph{up} et un \emph{down}.
 Cependant, ces quarks échangent des gluons virtuels par l'intermédiaire de l'interaction forte.
 Ces gluons peuvent se matérialiser en paires \quark\antiquark, comme illustré sur la figure~\ref{fig-proton_mer_quarks_fmf}.
-Au sein des protons, d'autres partons que les trois quarks~\quarku, \quarku\ et~\quarkd\ dits \og de valence \fg{} peuvent donc être présents.
+Au sein des protons, d'autres partons que les trois quarks~\quarku, \quarku\ et~\quarkd\ de valence peuvent donc être présents.
 Ces particules additionnelles forment la \og mer \fg{} dans laquelle se trouvent ainsi des gluons, des antiquarks et des quarks de saveurs lourdes.
 \par Chacun des constituants du proton porte une fraction $x$ de l'énergie totale du proton.
-La probabilité pour qu'un parton $i$ du proton porte une fraction $x_i$ de l'énergie peut être décrite à l'aide des fonctions de densité partoniques (PDF, \emph{Parton Distribution Functions}).
+La probabilité pour qu'un parton $i$ du proton porte une fraction $x_i$ de l'énergie peut être décrite à l'aide des fonctions de distribution partoniques (PDF, \emph{Parton Distribution Functions}).
 Ces fonctions sont obtenues par ajustement des données expérimentales~\cite{Gao_2018,Ball_2015} et sont représentées sur la figure~\ref{fig-proton_PDFs}.
 Les partons de la mer portent généralement une faible fraction de l'énergie.
 La fraction d'énergie la plus probable portée par un quark de valence est de \num{10} à \SI{20}{\%} selon l'échelle d'énergie.
@@ -72,24 +72,25 @@ Dans le cas du proton, les quarks de valence~\quarku\ portent environ deux fois 
 \hfill
 \subcaptionbox{Pour $\mu^2 = \SI{e4}{\GeV^2}$.\label{subfig-proton_PDF_10000_GeV2}}[.45\textwidth]
 {\input{\PhDthesisdir/plots_and_images/from_PDG_booklet_2020/parton_pdf_10000_GeV2.tex}}
-\caption[Fonctions de densité partoniques.]{Fonctions de densité partoniques (PDF, \emph{Parton Distribution Functions}) à différentes échelles d'énergie $\mu$ obtenues au NNLO NNPDF3.0~\cite{NNPDF30} avec $\alpha_s(m_{\Zboson}^2)=\num{0.118}$~\cite{PDG_booklet_2020}. Les bandes tracées correspondent aux PDF $f$, avec incertitude, multipliées la fraction d'impulsion $x$, où $f$ peut être les quarks~\quarku\ et~\quarkd\ de valence ($\quarku_v$, $\quarkd_v$) ou les gluons (\gluon), quarks et antiquarks de la mer (\antiquarku, \antiquarkd, $\quarks\simeq\antiquarks$, $\quarkc=\antiquarkc$, $\quarkb=\antiquarkb$).}
+\caption[Fonctions de distribution partoniques.]{Fonctions de distribution partoniques (PDF, \emph{Parton Distribution Functions}) à différentes échelles d'énergie $\mu$ obtenues au NNLO NNPDF3.0~\cite{NNPDF30} avec $\alpha_s(m_{\Zboson}^2)=\num{0.118}$~\cite{PDG_booklet_2020}. Les bandes tracées correspondent aux PDF $f$, avec incertitude, multipliées la fraction d'impulsion $x$, où $f$ peut être les quarks~\quarku\ et~\quarkd\ de valence ($\quarku_v$, $\quarkd_v$) ou les gluons (\gluon), quarks et antiquarks de la mer (\antiquarku, \antiquarkd, $\quarks\simeq\antiquarks$, $\quarkc=\antiquarkc$, $\quarkb=\antiquarkb$).}
 \label{fig-proton_PDFs}
 \end{figure}
-\par Lorsque deux protons entrent en collision, se sont donc des constituants de ces protons qui interagissent.
-Or, le constituant du premier proton ne porte pas forcément une fraction d'énergie $x$ identique à celle que porte le constituant du second proton.
-Ainsi, bien que les impulsions des deux protons soient opposées l'une à l'autre, \ie\ que le référentiel du centre de masse des protons coïncide avec le référentiel du détecteur, ceci n'est pas vrai pour les partons impliqués dans la collision.
+\par Lorsque deux protons entrent en collision, se sont en fait des constituants de ces protons qui interagissent.
+Or, le constituant du premier proton n'a aucune raison de porter une fraction d'énergie $x$ identique à celle que porte le constituant du second proton.
+Ainsi, bien que les impulsions des deux protons soient opposées, \ie\ que le référentiel du centre de masse des protons coïncide avec le référentiel du détecteur, cela n'est pas vrai pour les partons impliqués dans la collision.
 Lors des collisions de protons, seule l'impulsion totale dans le plan transverse aux faisceaux est donc nulle et l'impulsion selon l'axe des faisceaux est inconnue.
 De plus, l'énergie dans le centre de masse des protons n'est pas totalement utilisée dans la collision.
+\todo{parler des fragments qui continuent tout droit}
 Une collision de partons à \SI{13}{\TeV} est ainsi peu probable au LHC, toutefois ces collisions de protons permettent de balayer une large gamme d'énergies effectives de collision, ce qui est favorable aux recherches de nouvelles particules.
 \subsubsection{Faisceaux et paquets de protons}
 La dimension spatiale des protons, de l'ordre du femtomètre (\SI{e-15}{\meter}) ne permet pas de les faire se collisionner un à un de manière efficace.
 Au LHC, deux faisceaux de protons sont ainsi accélérés, chacun dans un sens.
-Afin de ne pas avoir des collisions en permanence, ce qui rendrait impossible une exploitation des signaux dans les détecteurs, les protons des faisceaux sont regroupés par paquets.
-Ces paquets sont espacés temporellement de \SI{25}{\nano\second} lors du Run~II, laissant aux instruments de détection un laps de temps suffisant afin de distinguer deux collisions successives.
+Les protons y sont regroupés par paquets espacés temporellement de \SI{25}{\nano\second} lors du Run~II.
 \par La formation et le maintient de ces paquets est rendue possible par l'utilisation des cavités radiofréquence.
 Elles produisent un champ électrique dont la norme est plus importante au niveau des queues des paquets qu'à leurs têtes.
-Alors, les protons \og en queue de peloton \fg{} sont plus accélérés que les protons en tête et ils les rattrapent.
-\par Dans chacun des deux faisceaux du LHC, 2808 paquets sont ainsi formés.
+Alors, les protons \og en queue de peloton \fg{} sont plus accélérés que les protons en tête et les rattrapent.
+\par
+Chacun des faisceaux du LHC est formé de 2808 paquets.
 Avant les premières collisions, un paquet comporte \num{1.15e11} protons.
 Les paquets font environ \SI{30}{\centi\meter} de long.
 Lorsqu'ils circulent dans le LHC, leur diamètre est de l'ordre du millimètre mais au niveau des points de collisions, un ensemble de champs magnétiques réduit ce diamètre à \SI{16}{\micro\meter}.
@@ -98,9 +99,10 @@ Il s'agit de collisions dans lesquelles les constituants des protons interagisse
 Les faisceaux du LHC sont stables une dizaine d'heures, pendant lesquelles des collisions surviennent 40 millions de fois par seconde.
 La luminosité permet de rendre compte de la quantité de collisions réalisées.
 \subsection{Luminosité, nombre d'événements et statistiques}\label{chapter-LHC-section-LHC-subsec-lumi}
-La quantité d'événements par unité de temps $\dd{N}_i$ d'un processus physique $i$ de section efficace $\sigma_i$ s'exprime
+La quantité d'événements $\dd{N}_i$ issus d'un processus physique $i$ de section efficace $\sigma_i$ pendant une durée $\dd{t}$ s'exprime
 \begin{equation}
 \dd{N}_i = \lumi_\text{inst} \sigma_i \dd{t}
+\label{eq-dN_fct_L_sigma_dt}
 \end{equation}
 où $\lumi_\text{inst}$ est la luminosité instantanée du dispositif expérimental, exprimée par unité de surface et de temps.
 La luminosité instantanée est donc une densité de flux, d'où son nom.
@@ -108,7 +110,7 @@ La luminosité instantanée est donc une densité de flux, d'où son nom.
 \begin{equation}
 \lumi_\text{inst}
 = \frac{\gamma\nu n_p N_p^2}{4\pi\epsilon_n\beta^*}
-= \frac{\nu n_p N_p^2}{4\pi\sigma_x\sigma_y}
+= \frac{\nu n_p N_p^2}{4\pi\ell_x\ell_y}
 \end{equation}
 où
 $\gamma$ est le boost de Lorentz des paquets de protons,
@@ -117,20 +119,24 @@ $n_p$ le nombre de paquets,
 $N_p$ le nombre de protons par paquet,
 $\epsilon_n$ l'émittance transverse, qui permet de mesurer le parallélisme des faisceaux,
 $\beta^*$ la fonction d'amplitude mesurant la distance entre le point de croisement des faisceaux et le lieu où un faisceau est deux fois plus large,
-$\sigma_x$ et $\sigma_y$ les dimensions transverses du faisceau au point d'interaction.
+$\ell_x$ et $\ell_y$ les dimensions transverses du faisceau au point d'interaction.
 La luminosité instantanée est donc favorisée par une faible largeur du faisceau au niveau des points d'interactions.
-\par La luminosité intégrée ou \og totale \fg, \lumi, s'obtient par intégration temporelle de $\lumi_\text{inst}$.
-La luminosité intégrée s'exprime donc par unité de surface.
-Elle permet de quantifier statistiquement le nombre d'événements $N_i$ d'un processus physique $i$ de section efficace $\sigma_i$ par
+\par
+La luminosité intégrée ou \og totale \fg, \lumi, s'obtient par intégration temporelle de $\lumi_\text{inst}$.
+Elle s'exprime donc par unité de surface vu l'équation~\eqref{eq-dN_fct_L_sigma_dt}.
+Le nombre d'événements $N_i$ produits durant une période donnée par un processus physique $i$ de section efficace $\sigma_i$ est donc
 \begin{equation}
 N_i = \lumi \sigma_i
 \mend
 \end{equation}
 \par Certaines expériences de physique des particules se ramènent donc à des expériences de comptage où les données sont traitées statistiquement.
-Dans le cas des recherches de nouvelles particules, l'écart type entre les observations effectives d'une part et attendues dans l'hypothèse où aucun phénomène nouveau n'est présent d'autre part est quantifié en termes de nombre de déviation standard.
-Il est peu probable d'obtenir un grand écart type uniquement à cause de fluctuations statistiques.
-Il est ainsi considéré qu'un phénomène, par exemple une nouvelle particule, est observé à partir d'un écart type de cinq déviations standards ou plus, ce qui correspond à une probabilité de réaliser cette observation uniquement à cause de fluctuations d'une sur deux millions.
-\par Pour un même effet, une incertitude moindre donne un écart type plus important.
+Dans le cas des recherches de nouvelles particules, l'écart entre les observations effectives d'une part et attendues dans l'hypothèse où aucun phénomène nouveau n'est présent d'autre part est quantifié en termes de nombre de déviations standards.
+En l'absence de nouvelle physique, une déviation serait due à des fluctuations statistiques.
+Il est alors peu probable d'obtenir une grande déviation.
+Il est ainsi considéré qu'un phénomène, par exemple une nouvelle particule, est observé à partir de cinq déviations standards ($5\sigma$) ou plus, ce qui correspond à une probabilité de réaliser cette observation uniquement à cause de fluctuations d'une sur deux millions.
+\par
+Les incertitudes jouent un rôle majeur dans la quantification du nombre de déviations standards observées.
+Il est important de bien les déterminer et de les minimiser autant que possible.
 L'incertitude systématique peut être réduite en concevant des expériences les plus précises possibles.
 L'incertitude statistique relative peut être réduite en augmentant le nombre d'événements correspondant au phénomène étudié.
 Les conditions favorables aux découvertes sont donc celles où la luminosité ou la section efficace du processus étudié sont importants.
@@ -144,7 +150,7 @@ En effet pour le Run~II du LHC, la luminosité totale des collisions de protons 
 \mend[,]
 \end{equation}
 son expression en \SI{}{\meter^{-2}} n'est donc pas pratique à cause du facteur \num{e43}.
-\par Pendant le Run~II, les bonnes performances du détecteur CMS lui ont permis d'enregistrer \SI{92.39}{\%} de la luminosité délivrée par le LHC\footnote{\SI{92.22}{\%} en 2016, \SI{90.34}{\%} en 2017 et \SI{93.83}{\%} en 2018.}~\cite{CMS-PAS-LUM-17-001,CMS-PAS-LUM-17-004,CMS-PAS-LUM-18-002}.
+\par Pendant le Run~II, les bonnes performances du détecteur CMS lui ont permis d'enregistrer \SI{92.39}{\%} de la luminosité délivrée par le LHC (\SI{92.22}{\%} en 2016, \SI{90.34}{\%} en 2017 et \SI{93.83}{\%} en 2018) \cite{CMS-PAS-LUM-17-001,CMS-PAS-LUM-17-004,CMS-PAS-LUM-18-002}.
 Les projets de développements futurs du LHC s'orientent dans un premier temps vers une augmentation de la luminosité, il s'agit du \og HL-LHC \fg{} (LHC Haute Luminosité).
 Les performances actuelles du détecteur devront être encore améliorées d'ici-là et la collaboration y travaille d'ores et déjà.
 \begin{figure}[p]
@@ -186,15 +192,15 @@ Plusieurs collisions de protons peuvent avoir lieu lors d'un même  croisement d
 Le nombre d'interactions d'empilement synchrone moyen dépend des conditions du LHC.
 Les figures~\ref{subfig-CMS_PU_profile_16}, \ref{subfig-CMS_PU_profile_17} et~\ref{subfig-CMS_PU_profile_18} présentent ces distributions pour les trois années du Run~II.
 \par À chaque collision correspond un vertex, lieu effectif de la rencontre entre les deux protons.
-Pour chacun des vertex de l'événement, la somme des impulsions transverses au carré des traces provenant de ce vertex est calculée.
+Pour chacun des vertex de l'événement, la somme des impulsions transverses (\pT) au carré des traces de particules chargées détectées en provenance de ce vertex est calculée.
 Le vertex principal est choisi comme étant le vertex présentant la plus grande valeur de cette somme.
 Les autres vertex sont considérés comme des vertex d'empilement et sont en général peu intéressants dans les analyses expérimentales.
 \par Toutefois, les particules provenant des vertex d'empilement laissent elles aussi des signaux dans le détecteur, en plus des signaux d'intérêts.
-Par conséquent, la reconstruction et l'identification des particules issues du vertex principal est perturbée.
+Par conséquent, elles viennent perturber la mesure des phénomènes se produisant au vertex principal.
 \subsubsection{L'empilement asynchrone}
-L'empilement asynchrone est dû aux temps de réponses des composants du détecteur.
+L'empilement asynchrone est dû au temps de réponse des composants du détecteur.
 Des croisements de paquets ont en effet lieu toutes les \SI{25}{\nano\second} au LHC.
-Or, des composants peuvent présenter ponctuellement un temps de réponse supérieur, selon les signaux qu'ils doivent traiter.
+Or, le détecteur peut présenter ponctuellement un temps de réponse supérieur, selon les signaux qu'il doit traiter.
 Les signaux de sortie du détecteur pour un événement donné peuvent donc être superposés avec ceux de l'événement suivant, ou précédant selon le point de vue.
 \subsection{Les expériences du LHC}\label{chapter-LHC-section-LHC-subsec-experiments}
 Il existe sept expériences au LHC.
@@ -203,7 +209,7 @@ Parmi elles, quatre sont de \og grandes expériences \fg{} et se situent chacune
 \item[ALICE]\cite{alice_paper}, \emph{A Large Ion Collider Experiment}, est une expérience conçue pour étudier le déconfinement des quarks et des gluons à l'aide de collisions d'ions lourds. Ces études permettent de mieux comprendre le fonctionnement de la chromodynamique quantique ou QCD. Elle est installée au point~2 et réutilise l'aimant octogonal rouge très caractéristique de l'expérience L3 du LEP.
 \item[ATLAS]\cite{atlas_paper}, \emph{A Toroidal LHC ApparatuS}, est une expérience généraliste avec un éventail d'études très large, allant des mesures de précision des paramètres du modèle standard à la recherche de nouvelle physique. Ce détecteur se trouve au point~1 du LHC.
 \item[CMS]\cite{cms_paper}, \emph{Compact Muon Solenoid}, est également une expérience généraliste dont les objectifs sont similaires à ceux d'ATLAS. Les détecteurs d'ATLAS et de CMS étant conçus différemment, ces deux expériences peuvent valider leurs résultats de manière indépendante. Le détecteur CMS est installé au point~5 du LHC, à l'exact opposé d'ATLAS.
-\item[LHCb]\cite{lhcb_paper}, \emph{Large Hadron Collider beauty}, se concentre sur l'étude de la violation de la symétrie $CP$ avec le quark~\quarkb, qui lui donne son nom. Cette expérience réalise également des mesures de précision de certains paramètres du modèle standard. L'expérience LHCb se situe au point~8.
+\item[LHCb]\cite{lhcb_paper}, \emph{Large Hadron Collider beauty}, se concentre sur l'étude de la violation de la symétrie $CP$ dans le secteur du quark~\quarkb. Cette expérience réalise également des mesures de précision de certains paramètres du modèle standard. L'expérience LHCb se situe au point~8.
 \end{description}
 \par Les trois autres expériences du LHC sont LHCf, TOTEM et MoEDAL.
 L'expérience LHCf (\emph{Large Hadron Collider forward})~\cite{lhcf_paper}, installée à \SI{140}{\meter} de part et d'autre du détecteur ATLAS, observe les particules issues des collisions et presque alignées avec le faisceau du LHC afin de simuler des rayons cosmiques.

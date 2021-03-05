@@ -202,7 +202,7 @@ Les coupures correspondant aux différents critères d'identification des photon
 \toprule
 Critère & \multicolumn{2}{c}{Lâche} & \multicolumn{2}{c}{Moyen} & \multicolumn{2}{c}{Strict} \\
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
-Région & Barillet & Bouchon & Barillet & Bouchon & Barillet & Bouchon\\
+Région & \CMSBarrel & \CMSEndcap & \CMSBarrel & \CMSEndcap & \CMSBarrel & \CMSEndcap\\
 \midrule
 Efficacité & \SI{90.08}{\%} & \SI{90.65}{\%} & \SI{80.29}{\%} & \SI{80.08}{\%} & \SI{70.24}{\%} & \SI{70.13}{\%} \\
 Réjection & \SI{86.25}{\%} & \SI{76.72}{\%} & \SI{89.36}{\%} & \SI{81.85}{\%} & \SI{90.97}{\%} & \SI{84.55}{\%} \\
@@ -217,17 +217,17 @@ $I_{CH}^\text{corr}$ & \num{1.694} & \num{2.089} & \num{1.141} & \num{1.051} & \
 & $+ \num{0.004017} \, \pT$ & $+ \num{0.0037} \, \pT$ & $+ \num{0.004017} \, \pT$ & $+ \num{0.0037} \, \pT$ & $+ \num{0.004017} \, \pT$ & $+ \num{0.0037} \, \pT$ \\
 \bottomrule
 \end{tabularx}
-\caption[Coupures utilisées pour l'identification des photons.]{Valeurs maximales des observables considérées pour l'identification des photons selon le critère utilisé et la région du détecteur dans laquelle se trouve le candidat photon (barillet pour $\abs{\eta} < \num{1.479}$, bouchon sinon).}
+\caption[Coupures utilisées pour l'identification des photons.]{Valeurs maximales des observables considérées pour l'identification des photons selon le critère utilisé et la région du détecteur dans laquelle se trouve le candidat photon (\CMSbarrel\ pour $\abs{\eta} < \num{1.479}$, \CMSendcap\ sinon).}
 \label{tab-CutBasedPhotonIdentificationRun2}
 \end{table}
 \par Le critère d'identification des photons retenu dans l'analyse est le critère strict.
-Seuls les photons situés dans le barillet sont utilisés car ils présentent la meilleure résolution.
-%La figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, page~\pageref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, montre en effet que ces photons possèdent une résolution relative en énergie de l'ordre de \SI{1}{\%}, contre environ \SI{2.5}{\%} pour les photons des bouchons.
-Une coupure sur leur pseudo-rapidité est donc appliquée telle que $\abs{\eta} < \num{1.3}$, excluant également les bords du barillet proches des bouchons.
-\par Une étude interne a montré que l'utilisation des photons des bouchons ($\abs{\eta} > \num{1.479}$) permettrait de rajouter près de \SI{30}{\%} d'événements dans les données et de réduire ainsi les incertitudes statistiques.
+Seuls les photons situés dans le \CMSbarrel\ sont utilisés car ils présentent la meilleure résolution.
+%La figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, page~\pageref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, montre en effet que ces photons possèdent une résolution relative en énergie de l'ordre de \SI{1}{\%}, contre environ \SI{2.5}{\%} pour les photons des \CMSendcaps.
+Une coupure sur leur pseudo-rapidité est donc appliquée telle que $\abs{\eta} < \num{1.3}$, excluant également les bords du \CMSbarrel\ proches des \CMSendcaps.
+\par Une étude interne a montré que l'utilisation des photons des \CMSendcaps\ ($\abs{\eta} > \num{1.479}$) permettrait de rajouter près de \SI{30}{\%} d'événements dans les données et de réduire ainsi les incertitudes statistiques.
 Les corrections résiduelles obtenues pourraient alors être plus précises.
-Toutefois, la résolution en énergie des photons, représentée en fonction de $\abs{\eta}$ sur la figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution} en page~\pageref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, est de l'ordre de \SI{1}{\%} dans le barillet contre \SI{2.5}{\%} dans les bouchons.
-Cette différence sur la résolution en énergie de l'objet de référence rend délicate la combinaison des photons du barillet et des bouchons dans cette analyse.
+Toutefois, la résolution en énergie des photons, représentée en fonction de $\abs{\eta}$ sur la figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution} en page~\pageref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, est de l'ordre de \SI{1}{\%} dans le \CMSbarrel\ contre \SI{2.5}{\%} dans les \CMSendcaps.
+Cette différence sur la résolution en énergie de l'objet de référence rend délicate la combinaison des photons du \CMSbarrel\ et des \CMSendcaps\ dans cette analyse.
 Des travaux sont actuellement menés dans cette direction.
 \paragraph{Sélection sur les jets}
 Les événements présentant un unique photon sélectionné d'après les critères précédents sont retenus.
@@ -240,7 +240,7 @@ Il est de plus requis que ce jet soit d'impulsion transverse supérieure à \SI{
 \par Si un second jet d'impulsion transverse supérieure à \SI{10}{\GeV} et à \SI{30}{\%} de $\pT^{\photon}$ est présent, l'événement est rejeté.
 L'événement est également rejeté si un lepton (électron ou muon) isolé, en pratique hors des jets, est présent.
 \par Il a été observé que des régions des calorimètres produisent des signaux menant à des reconstructions biaisées de jets.
-De plus, un système de lecture expérimental \og SiPM \fg{} a été installé dans le bouchon du HCAL~\cite{SiPM_CMS_conf}.
+De plus, un système de lecture expérimental \og SiPM \fg{} a été installé dans le \CMSendcap\ du HCAL~\cite{SiPM_CMS_conf}.
 Il en résulte des calibrations qui ne sont pas optimales dans les régions correspondantes du détecteur.
 Afin d'éviter ces effets, tout événement est rejeté s'il comporte, dans ces régions des calorimètres, un jet utilisé dans l'analyse.
 Ces régions sont résumées sur la figure~\ref{fig-hotjets2017UL}.
