@@ -1,61 +1,92 @@
 \section{Introduction}\label{chapter-HTT_analysis-section-introduction}
-
-Citer \fullcite{CMS-PAS-HIG-17-020}
-
-et aussi nouvelle version full runII si possible
-
-+ HIG-14-029, HIG-13-021
-
-
-Citer la thèse de Gaël:\\\fullcite{Gael_thesis}
-
-Citer également la thèse d'Artur?\\\fullcite{Artur_thesis}
-
-
-Études déjà menées au LEP~\cite{Schael:2006cr} et au Tevatron~\cite{Aaltonen:2009vf,Abazov:2011jh}
-
-LHC: \cite{CMS-PAS-HIG-13-021,CMS-PAS-HIG-14-029,CMS-PAS-HIG-17-020}
-
-aussi avec \quarkb\antiquarkb~\cite{Chatrchyan:2013qga,Khachatryan:2015tra}
-
-ATLAS \mu\mu\ et \tau\tau~\cite{Aad:2012cfr,ATLAS-MSSM-HTT_2018,ATLAS-MSSM-HTT_2020}
-
-CMS \mu\mu~\cite{CMS:2015ooa} \tau\tau~\cite{Chatrchyan:2012vp,CMS-MSSM-HTT_2014,CMS-PAS-HIG-17-020}
-
-
-données réelles, simulées et encapsulées  -> appendix
-seulement quatre canaux, pas six
-$L_1$, $L_2$
-
-what were my tasks?
-
-début thèse et HEPPY avec Gael (citer these), cross-checks. À cette occasion, bug de Combine.
-
-	
-Artur Il Darovic Gottmann
-12:26
-Homework concerning the bbH and ggH samples?
-12:28
-
-
-
-
-1) Monitor the production ---> ask in case there are invalid samples
-2) Process the new samples
-3) Rederive the ggH weights based on input POWHEG samples
-4) Update the signal modelling for new samples in CombineHarvester
-rwolf profile image	
-Roger Wolf
-12:32
-And on the experimental side I recall:
-newes FF's
-MET tail correction and uncertainty
-Are these the only items left before wrapping up or am I missing anything in addition?
-
-\todo{évoquer aussi les données encapsulées (car évoquées dans corrections)}\\
-on utilise différents types de données:
-réelles
-encapsulées, décrites section
-simulées
-
-AN + CADI line ?
+Dans le chapitre~\refChMSSM,
+il a été montré que le modèle standard (SM, \emph{Standard Model}) souffre de lacunes quant à l'explication à apporter à certaines observations.
+Certaines peuvent être comblées par des modèles allant au-delà (BSM, \emph{Beyond Standard Model}) comme l'extension supersymétrique minimale du modèle standard ou \og MSSM \fg.
+Une des conséquences du MSSM est l'existence de cinq bosons de Higgs, dont trois neutres, \higgs, \Higgs\ et \HiggsA.
+L'un d'entre-eux doit correspondre au boson découvert en 2012 et interprété comme étant le boson de Higgs du \SM~\cite{ATLAS_Higgs_discovery,CMS_Higgs_discovery,CMS_Higgs_discovery_2013,ATLAS-CMS-Higgs_combined_1,ATLAS-CMS-Higgs_combined_2}.
+L'existence des deux bosons de Higgs neutres supplémentaires peut être testée expérimentalement avec des accélérateurs de particules,
+comme cela a été fait au LEP~\cite{Schael:2006cr}.
+Ces bosons se désintègrent préférentiellement en paire de quarks~\quarkb\ ou de leptons~\tau.
+Bien que le rapport de branchement (\BR) de ces bosons aux \quarkb\ soit 5 à 10 fois supérieur que celui aux \tau,
+ces derniers proposent une meilleure accessibilité expérimentale dans les collisionneurs hadroniques comme le Tevatron,
+ou ces désintégrations en \tau\ ont été étudiées~\cite{Aaltonen:2009vf,Abazov:2011jh}.
+\par
+L'expérience CMS installée au LHC et présentée dans le chapitre~\refChLHCCMS\ permet elle aussi de tester expérimentalement le MSSM, dans des conditions de collision inédites.
+La recherche de bosons de Higgs supplémentaires se désintégrant en paire de \tau\ a été menée dans les collisions de protons avec une énergie dans le centre de masse de $\sqrt{s}=\num{7}$ et $\SI{8}{\TeV}$ (Run~I) \cite{Chatrchyan:2012vp,CMS-MSSM-HTT_2014,CMS-PAS-HIG-13-021,CMS-PAS-HIG-14-029} ainsi qu'avec les données récoltées en 2016 avec une énergie de $\sqrt{s}=\SI{13}{\TeV}$ \cite{CMS-PAS-HIG-17-020}.
+Plusieurs thèses portent sur l'analyse des événements où un boson de Higgs se désintègre en paire de \tau~\cite{Gael_thesis,Artur_thesis}.
+La désintégration en paire de \quarkb\ est également exploitée~\cite{Chatrchyan:2013qga,Khachatryan:2015tra},
+ainsi que celle en paire de muons~\cite{CMS:2015ooa}.
+L'expérience ATLAS mène des recherches similaires~\cite{Aad:2012cfr,ATLAS-MSSM-HTT_2018,ATLAS-MSSM-HTT_2020}.
+\par
+Ce chapitre présente la
+recherche de bosons de Higgs supplémentaires de haute masse se désintégrant en paire de \tau\
+avec les données récoltées par l'expérience CMS
+lors du Run~II du LHC (années 2016, 2017 et 2018),
+correspondant à une luminosité intégrée de \SI{137}{\femto\barn^{-1}} ($\num{35.9}+\num{41.5}+\SI{59.7}{\femto\barn^{-1}}$)
+à une énergie dans le centre de masse de $\sqrt{s}=\SI{13}{\TeV}$.
+Sur les six canaux de désintégration de la paire de leptons \tau\ introduits dans le chapitre~\refChMSSM,
+les quatre présentant les plus grands \BR\ sont considérés dans l'analyse.
+Il s'agit des canaux
+hadronique (\tauh\tauh),
+semi-leptoniques (\mu\tauh, \ele\tauh)
+et
+leptonique asymétrique (\ele\mu).
+Les canaux leptoniques symétriques (\mu\mu, \ele\ele) ne sont pas exploités.
+\par
+Dans les données réelles, les particules doivent forcément être reconstruites à partir des signaux qu'elles produisent dans le détecteur.
+Dans le cas des données simulées, la réponse du détecteur aux particules est modélisée.
+À partir des signaux réels comme simulés, des objets physiques sont reconstruits comme exposé dans le chapitre~\refChLHCCMS.
+Leur sélection est présentée dans la section~\ref{chapter-HTT_analysis-section-objects}.
+Les simulations n'étant pas exemptées de défauts, des corrections leurs sont appliquées.
+Elles sont déterminées à l'aide d'analyses annexes et listées dans la section~\ref{chapter-HTT_analysis-section-corrections}.
+Les objets reconstruits et corrigés permettent de sélectionner les événements d'intérêt pour l'analyse selon la procédure explicitée en section~\ref{chapter-HTT_analysis-section-selection}.
+Des processus physiques différents de ceux du signal recherché passent cette sélection et constituent le bruit de fond.
+Afin d'interpréter les observations, il est nécessaire de modéliser ce bruit de fond.
+Cette modélisation est présentée section~\ref{chapter-HTT_analysis-section-bg_estimation}.
+En plus de l'utilisation de données simulées, des techniques basées sur les données réelles sont exploitées.
+Des données dites \og encapsulées \fg{} (\emph{embedded}) sont ainsi produites selon la procédure exposée section~\ref{chapter-HTT_analysis-section-bg_estimation-embedding} et décrivent les événements contenant une vraie paire de leptons \tau.
+Une estimation du bruit de fond dû aux jets identifiés à tort comme des taus hadroniques (\ftauhs) est quant à elle obtenue grâce à la méthode des facteurs de faux (\emph{fake factors}) introduite section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
+Les événements sont par la suite catégorisés afin d'augmenter la sensibilité de l'analyse.
+Les catégories utilisées sont présentées en section~\ref{chapter-HTT_analysis-section-categorisation}.
+Les sources d'incertitudes systématiques sont données section~\ref{chapter-HTT_analysis-section-systematics}.
+Leur prise en compte dans l'extraction du signal ainsi que la modélisation de celui-ci sont exposée dans la section~\ref{chapter-HTT_analysis-section-signal_extraction}.
+Enfin, les résultats obtenus sont disponibles section~\ref{chapter-HTT_analysis-section-results}.
+Certains sont indépendants de tout modèle, d'autres sont obtenus dans le cadre de scénarios spécifiques au MSSM~\cite{Bagnaschi_2019}.
+\par
+Une note d'analyse (CMS AN 2020/218) \cite{CMS-NOTE-2020-218} est déjà disponible pour les membres de la collaboration et un article est en préparation~\cite{HIG-21-001}.
+Ces travaux sont réalisés au sein d'une équipe regroupant:
+\begin{itemize}
+\item l'Institut de Physique des 2 Infinis (IP2I) de l'Université Claude Bernard de Lyon, mon laboratoire de rattachement;
+\item l'\emph{Institut für Experimentelle Teilchenphysik} (ETP) du \emph{Karlsruher Institut für Technologie} (KIT) de Karlsruhe;
+\item le \emph{Deutsches Elektronen-Synchrotron} (DESY) de Hambourg;
+\item l'\emph{Imperial College} de Londres;
+\item l'\emph{Institut für Hochenergiephysik} (HEPHY)
+% de l'\emph{Österreichische Akademie der Wissenschaften}
+ de Vienne;
+\item le \emph{Tata Institute of Fundamental Research} de Bombay.
+\end{itemize}
+\par
+En début de thèse, j'ai travaillé sur les données de l'année 2017 en équipe avec Gaël \textsc{Touquet} qui a exploité le canal \tauh\tauh\ dans sa thèse~\cite{Gael_thesis}.
+Je me suis concentré sur les  canaux semi-leptoniques et plus particulièrement le canal \mu\tauh.
+La présence de \tauh\ dans nos canaux respectifs nous a mené à de travailler en étroite collaboration.
+Les événements étaient analysés à l'aide d'un code basé sur \HEPPY~\cite{heppy},
+indépendant de celui utilisé par les autres instituts listés précédemment,
+ce qui a permis à l'ensemble des acteurs de cette analyse de valider la bonne implémentation des différentes corrections et sélections détaillées dans ce chapitre.
+À cette occasion, j'ai découvert une erreur dans le code de \COMBINE.
+Cette erreur a été comprise et corrigée.
+Le correctif~\cite{BBB_PR} a été transmis à la collaboration CMS qui l'a pris en compte.
+\par
+J'ai par la suite travaillé directement avec le groupe de Karlsruhe dans le cadre de l'analyse du Run~II.
+J'ai implémenté le traitement du scénario avec violation de la symétrie $CP$.
+J'ai de plus participé au traitement des jeux de données utilisés, listés dans l'annexe~\refApHTTdatasets.
+Il s'agissait de s'assurer du bon déroulement de plusieurs milliers de tâches informatiques et du regroupement de leurs résultats.
+Enfin, j'ai activement participé à la rédaction de la note d'analyse CMS correspondante~\cite{CMS-NOTE-2020-218}.
+%Homework concerning the bbH and ggH samples
+%1) Monitor the production ---> ask in case there are invalid samples
+%2) Process the new samples
+%3) Rederive the ggH weights based on input POWHEG samples
+%4) Update the signal modelling for new samples in CombineHarvester
+%And on the experimental side I recall:
+%newes FF's
+%MET tail correction and uncertainty
+%Are these the only items left before wrapping up or am I missing anything in addition?
