@@ -173,6 +173,7 @@ Nevents = []
 N_iters = {}
 Utimes = {}
 Stimes = {}
+Ctimes = {}
 WCtimes= {}
 Dtimes = {}
 
@@ -182,6 +183,7 @@ for info in times:
         Scripts.append(s)
         Utimes[s] = {}
         Stimes[s] = {}
+        Ctimes[s] = {}
         WCtimes[s] = {}
         Dtimes[s] = {}
         N_iters[s] = {}
@@ -190,11 +192,13 @@ for info in times:
     if N not in Utimes[s]:
         Utimes[s][N] = 0
         Stimes[s][N] = 0
+        Ctimes[s][N] = 0
         WCtimes[s][N] = 0
         N_iters[s][N] = 0
         Dtimes[s][N]  = de - ds
     Utimes[s][N] += ut
     Stimes[s][N] += st
+    Ctimes[s][N] += ut + st
     WCtimes[s][N] += wt
     N_iters[s][N] += 1
 
@@ -213,16 +217,28 @@ for s in Scripts:
 fig.addgraph(
     'graph1',
     x_label='Number of events',
-    y_label='Time spent / Number of events (s)', show_legend=True, legend_on_side=False,
+    y_label='Time spent / Number of events (ms)', show_legend=True, legend_on_side=False,
     x_ticks_step = 2,
     x_scaling = 'log', y_scaling = 'log',
+    y_min = 1, y_max = 3e3,
 )
 
 plots = {}
-for s in Scripts:
-    plots[s] = lt.ltPlotPts(Nevents, [Dtimes[s][N]/N for N in Nevents], label=s, color=colors[s])
-    fig.addplot(plots[s], 'graph1')
+stats = {
+    #"U+S CPU time" : Ctimes,
+    "User CPU time" : Utimes,
+    #"System CPU time" : Stimes,
+    #"Wall Clock time" : WCtimes,
+    #"Real time" : Dtimes
+}
 
+i = 0
+for d in stats :
+    for s in Scripts:
+        k = "{} {}".format(s, d)
+        plots[k] = lt.ltPlotFct(Nevents, [1e3 * stats[d][s][N]/N for N in Nevents], label=k, color="C{}".format(i))
+        fig.addplot(plots[k], 'graph1')
+        i += 1
 
 # Sauvegarder la figure
 fig.save()
