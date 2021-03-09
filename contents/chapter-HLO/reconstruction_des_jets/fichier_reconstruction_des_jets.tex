@@ -1,0 +1,287 @@
+\section{Reconstruction des jets}\label{chapter-HLO-section-jets_reco}
+Les partons ne peuvent donc pas être directement observés dans le détecteur.
+Leur signature expérimentale est un flux collimé de particules stables composé de hadrons, de leptons et de photons.
+La présence de hadrons s'explique directement par le processus d'hadronisation décrit dans la section précédente.
+Les leptons proviennent de la désintégration, par interaction faible, des hadrons de saveur lourde, ou plus précisément des quarks de deuxième et troisième génération composant ces hadrons lourds.
+Les photons sont émis par les particules électriquement chargées.
+\par Un processus physique comme celui de la figure~\ref{subfig-fgraph-Z_q_q} produit seulement quelques particules, en l'occurrence deux, et non des ensembles de particules, comme sur la figure~\ref{fig-agglo_hadronique} qui pourrait correspondre à l'état effectivement observé pour le processus de la figure~\ref{subfig-fgraph-Z_q_q}.
+Afin de pouvoir étudier le processus initial, il est nécessaire de définir une observable décrivant les partons à l'origine de ces flux collimés de particules stables.
+\par Cette observable est un \og jet \fg.
+À partir des particules identifiées à l'aide de l'algorithme de \emph{Particle Flow} (\PF) décrit dans le chapitre~\refChLHCCMS, un algorithme de regroupement permet d'obtenir la liste des jets de l'événement.
+Il existe plusieurs algorithmes de regroupement dont le principe est décrit dans la section suivante.
+\subsection{Algorithmes de regroupement}\label{chapter-HLO-section-jets_reco-subsec-algo}
+Il existe deux catégories d'algorithmes permettant de regrouper les particules en jets, les algorithmes de cônes et les algorithmes de recombinaison séquentielle.
+Les émissions de partons sont plus importantes pour de basses énergies (limite infrarouge) ou pour un parton émis colinéaire au parton initial (limite colinéaire), comme discuté dans la section~\ref{chapter-HLO-section-jets}.
+Afin de conserver des prédictions de QCD vérifiables sur des jets réels, les algorithmes de regroupement doivent être insensibles à l'ajout d'une particule de basse énergie ou au partage d'une particule en deux particules d'énergies inférieures. C'est ce que l'on appelle l'insensibilité IRC, pour \emph{InfraRed and Colinear}.
+La plupart des algorithmes de cônes ne sont pas IRC-insensibles, alors que la plupart des algorithmes de recombinaison séquentielle le sont.
+\subsubsection{Les algorithmes de cônes}
+Les algorithmes de cônes regroupent toutes les particules ayant une direction $\vec{p}$ telle que la distance $\Delta R_{pa}$ à la direction de l'axe du cône $\vec{a}$ dans le plan $(\eta,\phi)$, où $\eta$ et $\phi$ sont les coordonnées définies dans le chapitre~\refChLHCCMS, est inférieure à une distance de coupure $R_c$, \ie\ si
+\begin{equation}
+\Delta R_{pa} ^2 = (\eta_p - \eta_a)^2 + (\phi_p - \phi_a)^2 < R_c^2
+\mend
+\end{equation}
+Alors, la direction $\vec{a}$ du cône est redéfinie comme étant la direction moyenne de toutes les particules rassemblées dans ce cône. Ce processus est itéré jusqu'à la stabilisation des cônes.
+Enfin, les cônes sont séparés en cas de superposition, une particule ne pouvant appartenir qu'à un seul jet.
+\par L'algorithme \emph{Seedless Infrared Safe Cone} ou \textsc{SISCone}~\cite{SISCone} est un exemple d'algorithme de cônes IRC-insensible.
+Dans un premier temps, tous les cônes stables possibles sont reconstruits.
+Ces cônes sont alors fusionnés, les cônes ayant l'impulsion transverse la plus grande absorbant des cônes d'impulsion transverse moindre dont ils contiennent déjà une fraction des constituants.
+Un exemple de reconstruction de jets à l'aide de l'algorithme \textsc{SISCone} est présenté sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-algo-examples}.
+\subsubsection{Les algorithmes de recombinaison séquentielle}
+Les algorithmes de recombinaison séquentielle commencent par considérer que chaque particule forme un pseudo-jet d'une seule particule~\cite{Cacciari:2011ma}.
+Puis, à l'aide d'une métrique donnée, la paire de jets les plus proches entre eux fusionne en un seul jet tant que la distance entre eux est en-deçà d'une valeur seuil. Les jets fusionnés donnent la liste des jets de l'événement. Il est également possible de fixer le nombre de jets à déterminer et non la valeur seuil de la distance entre les jets à fusionner.
+\par Plusieurs métriques de distance peuvent être définies, chacune correspondant à un algorithme de recombinaison séquentielle proposant des regroupements différents.
+\begin{description}
+%\item[Algorithme de Durham~\cite{???}] La distance $d_{ij}$ entre deux jets $i$ et $j$ est
+%\begin{equation}
+%d_{ij} = 2 \, \min(E_i^2, E_j^2) \, \frac{1-\cos\theta_{ij}}{Q^2}
+%\end{equation}
+%où $E_x$ est l'énergie du jet $x$, $\theta_{ij}$ l'angle entre les directions des deux jets et $Q$ l'énergie dans le centre de masse de la collision.
+%Cet algorithme a l'avantage de regrouper les particules très fidèlement vis-à-vis de la gerbe hadronique, mais les jets obtenus possèdent une géométrie spatiale irrégulière, comme cela se voit sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-algo-examples}.
+\item[Algorithme \kT~\cite{Catani_kT_algo}] La distance $d_{ij}$ entre deux jets $i$ et $j$ est
+\begin{equation}
+d_{ij} = \min({\pT}_i^2, {\pT}_j^2) \, \frac{\Delta R_{ij}^2}{R^2}
+\mend[,]
+\end{equation}
+où
+\begin{equation}
+\Delta R_{ij}^2 = (\eta_i-\eta_j)^2 + (\phi_i-\phi_j)^2
+\label{eq-DRij_jets_def}
+\end{equation}
+avec $\eta_x$ la pseudo-rapidité,
+$\phi_x$ l'angle azimutal et
+${\pT}_x$ l'impulsion transverse du jet $x$ et
+$R$ un paramètre libre.
+Cet algorithme a l'avantage de regrouper les particules très fidèlement vis-à-vis de la gerbe hadronique, mais les jets obtenus possèdent une géométrie spatiale irrégulière, comme cela se voit sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-algo-examples}.
+\item[Algorithme de Cambridge/Aachen~\cite{Dokshitzer_1997,wobisch1999hadronization}] La distance $d_{ij}$ entre deux jets $i$ et $j$ est
+\begin{equation}
+d_{ij} = \frac{\Delta R_{ij}^2}{R^2}
+\mend[,]
+\end{equation}
+où $\Delta R_{ij}^2$ est défini par l'équation~\eqref{eq-DRij_jets_def}
+et $R$ est un paramètre libre. Le regroupement des jets est ainsi uniquement basé sur l'écart angulaire.
+\item[Algorithme anti-\kT~\cite{Cacciari_antikT}] La distance $d_{ij}$ entre deux jets $i$ et $j$ est
+\begin{equation}
+d_{ij} = \min\left(\frac{1}{{\pT}_i^2}, \frac{1}{{\pT}_j^2}\right) \, \frac{\Delta R_{ij}^2}{R^2}
+\mend[,]
+\end{equation}
+où $\Delta R_{ij}^2$ est défini par l'équation~\eqref{eq-DRij_jets_def},
+${\pT}_x$ l'impulsion transverse du jet $x$ et $R$ un paramètre libre.
+Le regroupement des particules se fait ainsi autour de celles de plus hautes énergies.
+Cet algorithme propose un regroupement des particules moins fidèle à la gerbe hadronique, mais produit des jets de forme régulière, comme cela se voit sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-algo-examples}.
+\end{description}
+\begin{figure}[h]
+\centering
+\includegraphics[width=.8\textwidth]{\PhDthesisdir/plots_and_images/from_Cacciari_antikT/forme_des_jets.png}
+\caption[Formes des jets reconstruits à partir de différents algorithmes.]{Formes des jets reconstruits à partir de différents algorithmes pour un même événement~\cite{Cacciari_antikT}. En haut à gauche, \kT; en haut à droite, C/A; en bas à gauche, \textsc{SISCone}; en bas à droite, anti-\kT. L'algorithme anti-\kT\ permet d'obtenir des jets de forme régulière, conique.}
+\label{fig-chapter-HLO-section-jets_reco-subsec-algo-examples}
+\end{figure}
+\par Le temps de calcul de ces algorithmes est un enjeu majeur au LHC.
+Leurs temps d'exécution sont représentés en fonction du nombre d'interactions d'empilement sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-algo-perfs}.
+L'algorithme anti-\kT\ se place parmi les algorithmes les plus rapides.
+Dans les conditions des collisions proton-proton du LHC, il permet le traitement d'un événement en moins d'une milliseconde.
+C'est cet algorithme de regroupement qui est utilisé dans le cadre de l'expérience CMS.
+Sur la figure~\ref{fig-Jet_PF_Composition_RunII} sont illustrées les compositions des jets reconstruits lors des trois années du Run~II. L'écart entre données et simulations n'excède généralement pas \SI{2}{\%}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=.7\textwidth]{\PhDthesisdir/plots_and_images/from_towards_jetography/temps_de_calcul.png}
+\caption[Temps de recombinaison d'un événement dijet.]{Temps de recombinaison d'un événement dijet simulé de \SI{50}{\GeV} contenant $N$ interactions d'empilement pour différents algorithmes de reconstruction des jets~\cite{towards_jetography}.}
+\label{fig-chapter-HLO-section-jets_reco-subsec-algo-perfs}
+\end{figure}
+\begin{figure}[h]
+\centering
+\subcaptionbox{Année 2016.\label{subfig-Jet_PF_Composition_2016}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-DP-2020-019/Jet_PF_Composition_2016.png}}
+\hfill
+\subcaptionbox{Année 2017.\label{subfig-Jet_PF_Composition_2017}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-DP-2020-019/Jet_PF_Composition_2017.png}}
+\hfill
+\subcaptionbox{Année 2018.\label{subfig-Jet_PF_Composition_2018}}[.3\textwidth]
+{\includegraphics[width=.3\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-DP-2020-019/Jet_PF_Composition_2018.png}}
+\caption[Compositions des jets reconstruits lors du Run~II.]{Composition des jets reconstruits à l'aide de l'algorithme anti-\kT\ lors du Run~II~\cite{CMS-DP-2020-019} en fonction de l'impulsion transverse du jet. La partie \emph{Charged pileup (overlaid)} en brun correspond à la fraction du jet retirée par la procédure CHS décrite section~\ref{chapter-HLO-section-CMS-subsec-PU}.}
+\label{fig-Jet_PF_Composition_RunII}
+\end{figure}
+\subsection{Identification des jets dans CMS}\label{chapter-HLO-section-jets_reco-subsec-jetID}
+Les jets ainsi reconstruits à l'aide des algorithmes de recombinaison sont en fait des \og candidats \fg{} jets.
+À l'instar des particules individuelles, des critères d'identification leur sont appliqués afin de rejeter le bruit de fond et s'assurer de la qualité des jets utilisés dans les analyses.
+\par Ces critères reposent sur les caractéristiques des candidats jets comme la fraction d'énergie provenant de leurs constituants neutres ou encore le nombre de ces constituants.
+Ces critères dépendent des années de prise de données et de la pseudo-rapidité du jet, \ie\ de la région du détecteur dans laquelle il se trouve.
+\par Les critères utilisés pour les années 2016, 2017, 2018, 2017-UL et 2018-UL, listés page~\pageref{tab-chapter-HLO-section-jets_reco-subsec-jetID-2017UL}, permettent d'obtenir une efficacité d'identification des jets supérieure à \SI{99}{\%} dans chacune des régions en $\eta$ du détecteur.
+La dénomination \og UL \fg{} signifie \emph{Ultra-Legacy} et correspond à une réinterprétation des données récoltées une fois que la collaboration peut prendre plus de recul sur l'obtention de celles-ci.
+La réjection du bruit de fond est supérieure à \SI{98}{\%} pour $\abs{\eta}\leq\num{3.0}$ et supérieure à \SI{36}{\%} pour $\abs{\eta}>\num{3.0}$.
+\begin{table}[p]
+\centering
+\input{\PhDthesisdir/contents/chapter-HLO/reconstruction_des_jets/JetIDs/2016.tex}
+\caption[Critères d'identification des jets pour l'année 2016.]{Critères d'identification des jets à CMS pour l'analyse des données de 2016.}
+\label{tab-chapter-HLO-section-jets_reco-subsec-jetID-2016}
+\end{table}
+\begin{table}[p]
+\centering
+\input{\PhDthesisdir/contents/chapter-HLO/reconstruction_des_jets/JetIDs/2017.tex}
+\caption[Critères d'identification des jets pour l'année 2017.]{Critères d'identification des jets à CMS pour l'analyse des données de 2017.}
+\label{tab-chapter-HLO-section-jets_reco-subsec-jetID-2017}
+\end{table}
+\begin{table}[p]
+\centering
+\input{\PhDthesisdir/contents/chapter-HLO/reconstruction_des_jets/JetIDs/2018.tex}
+\caption[Critères d'identification des jets pour l'année 2018.]{Critères d'identification des jets à CMS pour l'analyse des données de 2018.}
+\label{tab-chapter-HLO-section-jets_reco-subsec-jetID-2018}
+\end{table}
+\begin{table}[p]
+\centering
+\input{\PhDthesisdir/contents/chapter-HLO/reconstruction_des_jets/JetIDs/2017UL.tex}
+\caption[Critères d'identification des jets pour les années 2017-UL et 2018-UL.]{Critères d'identification des jets à CMS pour l'analyse des données de 2017-UL et 2018-UL.}
+\label{tab-chapter-HLO-section-jets_reco-subsec-jetID-2017UL}
+\end{table}
+\subsection{Saveur des jets}\label{chapter-HLO-section-jets_reco-subsec-flavor}
+Pour étudier la physique du processus initial, la connaissance du parton à l'origine d'un jet ainsi identifié dans le détecteur est une information de choix.
+Il est impossible de connaître avec certitude cette particule, mais sa nature influe directement sur certaines propriétés des jets, permettant de l'estimer.
+\subsubsection{Saveur de la particule initiale et caractéristiques des jets}
+\paragraph{Le quark~\quarkt} possède une durée de vie trop courte pour participer à l'hadronisation. Il se désintègre alors par interaction faible en un autre quark, très majoritairement un quark~\quarkb, et un boson \Wboson. Le nouveau quark issu de cette désintégration forme alors un jet.
+\par Les autres quarks, \quarkd, \quarku, \quarks, \quarkc\ et~\quarkb, sont plus stables que le top et participent à l'hadronisation.
+Ils se retrouvent alors confinés au sein des hadrons formés.
+\paragraph{Le quark~\quarkb} ne forme pas de hadron stable et se désintègre en quark~\quarkc\ ou~\quarku\ par interaction faible.
+Dans \SI{70}{\%} des cas, cette désintégration se fait avec émission d'une nouvelle paire de quarks $\quark\antiquark$ selon
+\begin{equation}
+\quarkb \to \quarkc\,\quark_d\antiquark_d
+\msep
+\antiquarkb \to \antiquarkc\,\quark_u\antiquark_u
+\msep
+\quarkb \to \quarku\,\quark_d\antiquark_d
+\msep
+\antiquarkb \to \antiquarku\,\quark_u\antiquark_u
+\mend[,]
+\end{equation}
+où $q_d$ et $q_u$ désignent respectivement des quarks d'isospin faible bas et haut.
+Le nombre de constituants du jet, ainsi que le nombre de traces déplacées, est alors plus important.
+Dans \SI{30}{\%} des cas, la désintégration du quark $b$ se fait avec émission d'une paire de leptons, un électriquement chargé et le neutrino associé, \ie
+\begin{equation}
+\quarkb \to \quarkc\,\lepton^-\antineutrino_\ell
+\msep
+\antiquarkb \to \antiquarkc\,\lepton^+\neutrino_\ell
+\msep
+\quarkb \to \quarku\,\lepton^-\antineutrino_\ell
+\msep
+\antiquarkb \to \antiquarku\,\lepton^+\neutrino_\ell
+\mend
+\end{equation}
+Le lepton chargé donne une signature caractéristique lors des collisions proton-proton du LHC.
+\par Ces désintégrations font intervenir les modules des coefficients $V_{\quarkc\quarkb}$ ou $V_{\quarku\quarkb}$ de la matrice CKM, introduite dans le chapitre~\refChMSSM, dont les valeurs sont faibles; elles sont donc fortement supprimées.
+Les hadrons contenant un quark~\quarkb\ ont ainsi une durée de vie $\tau$ de l'ordre de la picoseconde~\cite{B0s_lifetime,lifetimes_c_b_hadrons} et peuvent voyager sur une distance de l'ordre du millimètre.
+Les traces des particules chargées issues de cette nouvelle désintégration proviennent donc d'un vertex secondaire (SV), différent du vertex primaire (PV).
+Ces traces sont \og déplacées \fg.
+Pour chacune d'entre elles, il est possible de déterminer le paramètre d'impact (IP) au vertex primaire, dont la valeur est typiquement plus grande que pour des traces provenant du vertex primaire, comme cela est illustré sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-flavor-SV_scheme}.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.5]
+\def\Bjetangle{30}
+\def\Bhaddronangle{5}
+\def\Bhaddronflight{.75}
+
+\clip (-145:\Solenrin) rectangle (\Bjetangle:1.8*\Solenrin);
+
+\foreach\jetangle in {120,-145}{
+\printbigjetnolabel{9}{\jetangle}
+\draw (\jetangle:2.75) node {jet} ;
+}
+
+\def\CurrentVertex{(\Bhaddronangle:\Bhaddronflight)}
+
+\draw [thick, dotted] (0,0) -- \CurrentVertex ;
+
+{
+\def\jetcolor{ltcolorred}
+\printjetnolabel{9}{\Bjetangle}
+\draw [\jetcolor] (\Bjetangle:2)+(1.5,.75) node {traces déplacées};
+}
+\begin{scope}
+\clip circle (\Solenrin);
+\printantimuonnolabel{7}{\Bjetangle}
+\end{scope}
+
+\draw [\muoncolor] (\Bjetangle:4) +(0,{-2*\baselineskip}) node {lepton chargé};
+
+\draw (\Bjetangle:4) + (-.125,-.5) circle (1.125);
+\draw [-latex] (\Bjetangle:4) + (-.125,-1.625) --+ (-.125,-2) node [below] {jet de saveur lourde};
+
+\draw (0,0) node [left] {PV} ;
+\draw \CurrentVertex node [below right] {SV} ;
+
+\fill (0,0) circle (2pt);
+\fill \CurrentVertex circle (2pt);
+
+\draw [dashed] \CurrentVertex --+ (\Bjetangle:-.8);
+
+\draw [red, latex-latex] (0,0)--+ (-90+\Bjetangle:{\Bhaddronflight*sin(\Bjetangle-\Bhaddronangle)}) node [below right] {IP};
+\end{tikzpicture}
+\caption[Trois jets, dont un de saveur lourde.]{Trois jets, dont un de saveur lourde. Les particules composant ce jet proviennent d'un vertex secondaire (SV), différent du vertex primaire (PV) où a lieu la collision entre les protons et la formation du hadron lourd à l'origine du SV. Le paramètre d'impact (IP) est également indiqué. Réalisé à l'aide de CMSTransverseTikZ~\cite{CMSTransverseTikZ}.}
+\label{fig-chapter-HLO-section-jets_reco-subsec-flavor-SV_scheme}
+\end{figure}
+\paragraph{Le quark~\quarkc} suit le même schéma que le quark~\quarkb. Cependant, la désintégration du quark~\quarkc\ en quark~\quarks\ selon
+\begin{equation}
+\quarkc \to \quarks\,\quark_u\antiquark_u
+\msep
+\antiquarkc \to \antiquarks\,\quark_d\antiquark_d
+\msep
+\quarkc \to \quarks\,\lepton^+\neutrino_\ell
+\msep
+\antiquarkc \to \antiquarks\,\lepton^-\antineutrino_\ell
+\mend[,]
+\end{equation}
+fait intervenir le module du coefficient $V_{\quarkc\quarks}$ de la matrice CKM, proche de 1.
+Les hadrons contenant un quark~\quarkc\ ont ainsi une durée de vie $\tau$ de inférieure à la picoseconde~\cite{lifetimes_c_b_hadrons} et il est plus difficile d'identifier les jets issus de quarks~\quarkc\ que ceux issus de quarks~\quarkb.
+\paragraph{Les quarks~\quarkd, \quarku\ et~\quarks} forment des hadrons étant:
+\begin{itemize}
+\item très instables, par exemple les \pionnull, dont seuls les produits de désintégration sont observés;
+\item faiblement instables, par exemple les \Kaonplus\ et les \Kaonnull, qui se propagent généralement jusque dans les parties sensibles du détecteur et peuvent donc être directement observés;
+\item stables, par exemple les protons, qui sont directement observés dans le détecteur.
+\end{itemize}
+Dans tous les cas, les traces des particules chargées observées proviennent du PV, lieu de formation du quark initial.
+Le phénomène décrit précédemment pour les quarks~\quarkb\ et~\quarkc\ n'est donc pas observable.
+Les jets issus de ces trois types de quarks, les plus légers, sont ainsi regroupés sous la dénomination de \og jets légers \fg.
+\paragraph{Les gluons} portent une charge de couleur plus importante que les quarks.
+Les quarks portent en effet une couleur, les antiquarks une anticouleur et les gluons portent une couleur et une anticouleur.
+Les jets initiés par des gluons comportement typiquement plus de particules électriquement chargées et sont moins collimés que les jets légers~\cite{CMS-PAS-JME-13-002}.
+\subsubsection{Identification de la saveur des jets}
+Les jets présentent ainsi des propriétés caractéristiques, selon qu'il s'agisse de jets légers (quarks~\quarkd, \quarku\ ou~\quarks), de jets lourds (quarks~\quarkc\ ou~\quarkb) ou de jets issus d'un gluon.
+En utilisant ces propriétés, des algorithmes d'identification de la saveur des jets ont été mis au point par la collaboration CMS~\cite{jet_btag_CSV_RunI}.
+Les avancées récentes dans le domaine du \emph{Deep Learning}, appliquées à l'identification des jets~\cite{jet_flavor_deep_nn}, ont permis l'amélioration de ces algorithmes. L'algorithme \DeepCSV~\cite{Sirunyan_heavy_flavor_jets_2018} a ainsi été développé.
+\par Les variables utilisées dans cet algorithme sont décrites dans la référence~\cite{Sirunyan_heavy_flavor_jets_2018}.
+Elles sont traitées par un réseau de neurones profond de quatre couches cachées de 100 nœuds connectés les uns aux autres.
+Ce réseau est entraîné sur un ensemble d'événements simulés \ttbar, présentant de nombreux jets de quarks~\quarkb, et multijet à l'aide des librairies
+\KERAS~\cite{keras}
+et
+\TENSORFLOW~\cite{tensorflow}.
+\par Les performances ainsi obtenues pour l'algorithme \DeepCSV\ sont comparées à d'autres algorithmes d'identification de la saveur des jets sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-flavor-bc_tag_roc_curves}.
+Les algorithmes \textsc{cMVAv2} et \DeepCSV\ présentent les meilleures performances en termes d'identification des jets de quark~\quarkb.
+Pour le traitement des jets de quark~\quarkc, l'algorithme \DeepCSV\ propose les meilleures performances.
+Dans les analyses présentées dans ce chapitre et le chapitre~\refChHTT, c'est cet algorithme qui est utilisé afin d'identifier les jets issus de quarks~\quarkc\ ou~\quarkb.
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{Probabilité de mauvaise identification en tant que jet de quark~\quarkb\ de jets de gluon ou quarks légers (traits pleins) ou de jets de quark~\quarkc\ (pointillés) en fonction de l'efficacité d'identification des jets de quark~\quarkb.\label{subfig-chapter-HLO-section-jets_reco-subsec-flavor-b_or_mis}}[.75\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_Sirunyan_heavy_flavor_jets_2018/b_or_mis.png}}
+
+\vspace{\baselineskip}
+
+\subcaptionbox{Probabilité de mauvaise identification en tant que jet de quark~\quarkc\ de jets de gluon ou quarks légers en fonction de l'efficacité d'identification des jets de quark~\quarkc.\label{subfig-chapter-HLO-section-jets_reco-subsec-flavor-c_or_mis}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_Sirunyan_heavy_flavor_jets_2018/c_or_mis.png}}
+\hfill
+\subcaptionbox{Probabilité de mauvaise identification en tant que jet de quark~\quarkb\ de jets de quark~\quarkc en fonction de l'efficacité d'identification des jets de quark~\quarkc.\label{subfig-chapter-HLO-section-jets_reco-subsec-flavor-c_or_b}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_Sirunyan_heavy_flavor_jets_2018/c_or_b.png}}
+
+\caption[Performances des algorithmes d'identification de la saveur des jets.]{Comparaison des performances des algorithmes d'identification de la saveur des jets~\cite{Sirunyan_heavy_flavor_jets_2018}.}
+\label{fig-chapter-HLO-section-jets_reco-subsec-flavor-bc_tag_roc_curves}
+\end{figure}
+\par La discrimination entre jet léger et jet initié par un gluon peut être réalisée à l'aide d'une fonction de vraisemblance~\cite{CMS-PAS-JME-13-002} renvoyant un score entre 0 et 1 pour chaque jet, correspondant à la probabilité que ce jet soit issu d'un quark. La densité de probabilité de cette fonction, selon qu'il s'agisse de jets initiés par des gluons ou des quarks, est représentée sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-flavor-qgl_likelihood}.
+\begin{figure}[p]
+\centering
+\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-PAS-JME-13-002/qgl.pdf}
+\caption[Performances de la discrimation quark-gluon pour la saveur des jets.]{Densité de probabilité de la fonction de vraisemblance utilisée pour discriminer les jets issus de gluons de ceux issus de quarks~\cite{CMS-PAS-JME-13-002}. En rouge, pour les jets issus de gluons. En bleu, pour des jets issus de quarks.}
+\label{fig-chapter-HLO-section-jets_reco-subsec-flavor-qgl_likelihood}
+\end{figure}
+%Sirunyan_heavy_flavor_jets_2018 53
+%Cacciari_pu_sub_jet_area_2008 54
+%Sarle1994NeuralNA 55
+%keras 57
+%tensorflow 58
+%\emph{The efficiency for the tagging of b jets and the mistagging rate for light-flavour jets has been measured in both data and simulation. The efficiency and mistagging rate of the simulation is corrected through the application of efficiency and mistagging scale factors. The values of these factors and a description of the methods used to determine them can be found in Ref.~\cite{Sirunyan_heavy_flavor_jets_2018}.}

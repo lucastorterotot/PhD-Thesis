@@ -1,0 +1,61 @@
+\section{Énergie transverse manquante}\label{chapter-HLO-section-MET}
+\subsection{Énergie transverse manquante brute}
+L'énergie transverse manquante (MET, \emph{Missing Transverse Momentum}) est estimée dans un premier temps à partir des particules reconstruites par l'algorithme de \PF.
+Il s'agit alors de la MET \og brute \fg{} (\emph{raw MET}), corrigée ensuite des effets de reconstruction de l'événement.
+C'est en particulier le cas lors de la calibration en énergie des jets abordée section~\ref{chapter-HLO-section-CMS}.
+\subsubsection{MET brute issue de l'algorithme \PF}
+Des particules neutres interagissant peu avec le détecteur, en particulier les neutrinos, peuvent être produites lors des collisions et se propager sans laisser de signal dans le détecteur, les rendant ainsi invisibles.
+Toutefois, lorsque de telles particules sont produites en association avec des particules détectées, leur présence peut être déduite du déséquilibre dans le moment total des particules de l'événement~\cite{CMS-PAS-JME-17-001}.
+\par Les collisions de protons, dont la phénoménologie est discutée chapitre~\refChLHCCMS, présentent une impulsion totale dans le plan transverse nulle dans l'état initial.
+Par conservation, l'impulsion totale dans le plan transverse est nulle dans l'état final.
+La somme des impulsions transverses des particules invisibles doit donc compenser celle des particules reconstruites, \ie
+\begin{equation}
+\sum_{\substack{\text{toutes les}\\\text{particules}}} \vpT = \vec{0}
+\Leftrightarrow
+\sum_{\substack{\text{particules}\\\text{invisibles}}} \vpT + \sum_{\substack{\text{particules}\\\text{reconstruites}}} \vpT = \vec{0}
+\Leftrightarrow
+\sum_{\substack{\text{particules}\\\text{invisibles}}} \vpT = -\sum_{\substack{\text{particules}\\\text{reconstruites}}} \vpT \mend
+\end{equation}
+\par L'énergie transverse manquante (MET, \emph{Missing Transverse Momentum}) est ainsi définie comme
+\begin{equation}
+\vMET = -\sum_{\substack{\text{particules}\\\text{reconstruites}}} \vpT
+\msep
+\MET = \abs{\vMET}
+\mend[,]
+\end{equation}
+et représente l'impulsion transverse totale des particules invisibles.
+C'est cette définition de la MET qui est utilisée dans ce chapitre.
+\subsubsection{MET brute issue de l'algorithme \textsc{Puppi}}
+La MET peut également être estimée par l'algorithme \textsc{Puppi}~\cite{PUPPI}.
+La \og PuppiMET \fg{} ainsi obtenue est moins sensible à l'empilement que la MET issue de l'algorithme de \PF\ (PF MET), introduite au chapitre~\refChLHCCMS.
+Le principe de \textsc{Puppi} est d'associer un poids à chaque particule, lié à la probabilité que celle-ci proviennent de l'empilement au lieu du vertex primaire principal.
+
+\todo{a bit more on puppimet, see ref.~\cite{PUPPI}}
+
+C'est cette définition de la MET qu'utilise l'analyse présentée dans le chapitre~\refChMSSM.
+\subsection{Corrections de l'énergie transverse manquante}
+\todo{typeI, type II MET}
+\paragraph{Énergie des jets}
+La correction en énergie des jets, abordée dans les sections suivante, doit être propagée à \MET.
+Cette propagation est faite selon
+\begin{equation}
+\vMET(\text{corr.}) = \vMET(\text{non corr.}) - \sum_\text{jets} \left( \vpT^\text{corr.} - \vpT^\text{non corr.} \right)
+\end{equation}
+où
+\og non corr. \fg{} correspond aux observables avant correction
+et
+\og corr. \fg{} après correction.
+\paragraph{Recul de \MET\ (\emph{MET recoil corrections})}
+La modélisation de \MET\ dans certains jeux de données simulées (production du boson de Higgs, Drell-Yan (boson \Zboson) et \Wjets) ne correspond pas aux observations dans les données réelles.
+Des corrections sur $\vec{U}$, défini comme la différence entre \MET\ et la somme des impulsions des neutrinos provenant de la désintégration du boson de Higgs, \Zboson\ ou \Wboson, \ie
+\begin{equation}
+\vec{U} = \vMET - \sum_{\nu_i \leftarrow \higgs,\Zboson,\Wboson} \vpT^{(\nu_i)}
+\mend[,]
+\end{equation}
+sont appliquées pour corriger cet effet.
+\par
+Les composantes colinéaire $U_1$ et orthogonale $U_2$ du vecteur $\vec{U}$ à l'impulsion du boson sont déterminées dans des événements $\Zboson\to\mu\mu$ dans lesquels il n'y a pas de neutrino provenant de la désintégration du \Zboson, ce qui permet de mesurer précisément son impulsion.
+L'écart à zéro de $U_1$ ainsi que la résolution sur $U_1$ et $U_2$ sont ainsi déterminés dans les données réelles et simulées.
+Les données simulées sont alors corrigées afin de faire correspondre en moyenne ces valeurs à celles observées dans les données réelles.
+Ces moyennes sont déterminées sur des intervalles d'impulsion du \Zboson\ ($[\num{0}, \num{10}[$, $[\num{10}, \num{20}[$, $[\num{20}, \num{30}[$, $[\num{30}, \num{50}[$ et $>\SI{50}{\GeV}$) et du nombre de jets ($\Njets\in\set{0, 1, \geq2}$).
+\todo{done by DESY group}

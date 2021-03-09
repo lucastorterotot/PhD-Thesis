@@ -1,8 +1,0 @@
-\subsection{Énergie transverse manquante}\label{chapter-HTT_analysis-section-objects-MET}
-L'énergie transverse manquante (MET) est reconstruite à l'aide de l'algorithme \textsc{Puppi}~\cite{PUPPI}.
-La \og PuppiMET \fg{} ainsi obtenue est moins sensible à l'empilement que la MET issue de l'algorithme de \PF\ (PF MET), introduite au chapitre~\refChLHCCMS.
-Le principe de \textsc{Puppi} est d'associer un poids à chaque particule, lié à la probabilité que celle-ci proviennent de l'empilement au lieu du vertex primaire principal.
-La correction en énergie des jets, présentée dans le chapitre~\refChJERC, est également propagée à PuppiMET selon
-\begin{equation}
-\text{Puppi}\vMET(\text{corr.}) = \text{Puppi}\vMET(\text{non corr.}) - \sum_\text{jets} \left( \vpT^\text{corr.} - \vpT^\text{non corr.} \right) \mend
-\end{equation}

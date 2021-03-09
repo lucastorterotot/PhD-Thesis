@@ -1,4 +1,4 @@
-\subsection{Identification et reconstruction des particules}\label{chapter-LHC-section-evt_reco-subsec-ptc_ID}
+\subsection{Reconstruction et identification des particules}\label{chapter-LHC-section-evt_reco-subsec-ptc_ID}
 Des éléments d'identification du \PF\ dans différents sous-détecteurs sont généralement dus à une même particule.
 La reconstruction des particules se fait alors par association de ces éléments.
 L'association des éléments dus à une particule est uniquement limitée par la granularité des sous-détecteurs et par le nombre de particules par unité d'angle solide~\cite{particle-flow}.
@@ -8,9 +8,10 @@ Afin de limiter les temps de calcul, seules les paires d'éléments les plus pro
 Des conditions supplémentaires sont requises afin d'associer deux éléments et sont détaillées dans les sections suivantes.
 Lorsque deux éléments sont associés, une distance est définie par l'algorithme afin de quantifier la qualité de cette association.
 Des \og blocs \fg{} du \PF\ sont ainsi obtenus par association des éléments de reconstruction.
-Selon le contenu de ce bloc, un type de  particule est reconstruit.
+Selon le contenu de ce bloc, un objet physique est reconstruit, dont l'identification en tant que particule d'un type donné dépend de critères spécifiques.
 Ces différents types de particules sont détaillés dans les sections qui suivent.
 \subsubsection{Muons}
+\paragraph{Reconstruction de l'objet physique}
 Les muons sont reconstruits à partir des éléments d'identifications que sont les muons globaux, seuls et du trajectographe définis dans la section~\ref{chapter-LHC-section-evt_reco-subsec-PF_elements-subsubsec-tracks}.
 \par Tout d'abord, les muons globaux isolés, \ie\ sans autre activité dans le voisinage de la trajectoire correspondante, sont sélectionnés~\cite{particle-flow}.
 Les traces additionnelles et les dépôts d'énergie dans les calorimètres se situant dans un cône de rayon $\Delta R$ inférieur à \num{0.3} dans le plan $(\eta,\phi)$, où
@@ -29,7 +30,102 @@ Les muons du trajectographe sont également retenus s'ils contiennent au moins 1
 et inférieure à \SI{7}{\%} dans le \CMSbarrel\ jusqu'à $\pT=\SI{1}{\TeV}$~\cite{CMS-MUO-16-001}.
 L'efficacité de reconstruction est de \SI{95}{\%} et le taux d'identification de hadrons en tant que muons inférieur à \SI{1}{\%}.
 Les éléments d'identification du \PF\ utilisés pour reconstruire les muons sont retirés dans la suite du processus de reconstruction de l'événement.
+\paragraph{Isolation des muons}
+L'isolation permet de quantifier la présence de particules autour du muon.
+Des muons peuvent par exemple être produits lors de la désintégration de quarks de saveur lourde.
+Ces désintégrations sont accompagnées de jets, comme exposé dans le chapitre~\refChHLO.
+Ces muons font donc partie du jet et ne sont pas issus de la collision initiale.
+\par
+L'isolation d'un muon est quantifiée à partir des particules situées dans un cône de rayon
+\begin{equation}
+\Delta R = \sqrt{\Delta\eta^2+\Delta\phi^2} < R_\mu=\num{0.4}
+\end{equation}
+autour de la direction du muon au niveau du vertex primaire principal,
+avec $\Delta\eta$ et $\Delta\phi$ les distances angulaires des particules au muon dans les directions $\eta$ et $\phi$,
+selon
+\begin{equation}
+I^{(\mu)}
+=
+\left.
+\sum_{\text{ch},\text{PV}} \pT^{\text{ch}}
++
+\max\left(
+0
+,
+\sum_{\hadron^0}\ET^{\hadron^0}
++
+\sum_{\gamma}\ET^{\gamma}
+- \Delta\beta
+\sum_{\text{ch},\text{PU}} \pT^{\text{ch}}
+\right)
+\right|_{\Delta R < R_\mu}
+\label{eq-muons-iso}
+\end{equation}
+où
+$\sum_{\text{ch},\text{PV}} \pT^{\text{ch}}$ est la somme scalaire des impulsions transverses des particules chargées provenant du vertex primaire principal à l'exception de ce muon,
+$\sum_{\hadron^0}\ET^{\hadron^0}$ est la somme des énergies dans le plan transverse de tous les hadrons neutres,
+$\sum_{\gamma}\ET^{\gamma}$ est la somme des énergies dans le plan transverse de tous les photons,
+$\sum_{\text{ch},\text{PU}} \pT^{\text{ch}}$ est la somme scalaire des impulsions transverses des particules chargées provenant de l'empilement et
+$\Delta\beta$ est une estimation du rapport entre particules neutres et particules chargées créées lors des collisions de protons.
+Le second terme de l'équation~\eqref{eq-muons-iso} permet ainsi d'estimer la contribution des particules neutres à l'isolation.
+La variable d'isolation ainsi construite est basse pour des particules isolées, haute pour des particules non isolées.
+Il est possible de définir l'isolation relative comme étant le rapport entre l'isolation et l'impulsion transverse de la particule,
+\begin{equation}
+I_\text{rel}^{i}
+=
+\frac{1}{\pT^{i}}
+I^{i}
+\mend
+\label{eq-muons-reliso}
+\end{equation}
+\paragraph{Identification des muons}
+Il est possible de définir un critère de qualité sur l'objet reconstruit devant correspondre à un muon à partir des propriétés des éléments du \PF\ ayant servi à sa reconstruction.
+Il s'agit du \muonID~\cite{CMS-MUO-16-001,cmsMediumMuon}.
+Le $\chi^2$ de l'ajustement de la trajectoire ainsi que la fraction des signaux du trajectographe valides associés au muon sont des métriques utilisées pour le \muonID.
+Des plus, un algorithme (\emph{kink finder}) sépare la trajectoire du muon et détermine un $\chi^2$ afin de vérifier si cette trajectoire reconstruite peut en réalité provenir de deux traces réelles distinctes.
+Ce dernier cas de figure peut survenir suite à une déviation du muon par le matériel constituant le détecteur, par exemple.
+\par
+Pour des critères d'identification stricts, il est possible d'utiliser le nombre de points de passage (\emph{hits}) dans les chambres à muons utilisés pour l'ajustement global de la trajectoire du muon, \Nmdhits.
+Le nombre de stations de chambres à muons associées à la trajectoire, \Nms, est aussi exploité.
+Les informations issues du trajectographe sont également utilisées.
+Il s'agit du nombre de \emph{hits} dans la partie à pixels, \Npixelhits, et du nombre total de \emph{hits} dans le trajectographe, \Ntrkhits.
+\par
+Trois niveaux d'exigence ou points de fonctionnement (\emph{Working Point}) sont ainsi définis, de plus en plus exigeants.
+En particulier, le \emph{Medium} \muonID\ est utilisé dans l'analyse présentée chapitre~\refChHTT, comme le recommande le \POG\ (\emph{Physics Object Group}, groupe responsable d'un objet physique) Muons~\cite{cmsMediumMuon}.
+\subparagraph{\emph{Loose} \muonID} (exigence lâche)
+\begin{itemize}
+\item le muon est issu du \PF;
+\item le muon est reconstruit comme muon global ou du trajectographe.
+\end{itemize}
+\subparagraph{\emph{Medium} \muonID} (exigence moyenne)
+\begin{itemize}
+\item le muon passe le \emph{loose} \muonID;
+\item au moins \SI{80}{\%} des signaux du trajectographe associés au muon sont valides.
+\end{itemize}
+De plus, un des deux ensembles de critères suivants doit être respecté:
+\begin{itemize}
+\item le muon est un muon global;
+\item l'ajustement de la trajectoire vérifie $\chi^2/\Ndof<3$, avec \Ndof\ le nombre de degrés de liberté de l'ajustement;
+\item l'accord entre le muon seul et le muon du trajectographe issus des mêmes éléments de reconstruction que le muon global vérifie $\chi^2<12$;
+\item la compatibilité avec une déviation du muon due au matériel du détecteur (\emph{kink finder}) vérifie $\chi^2<20$;
+\item la compatibilité du segment est supérieure à \num{0.303};
+\end{itemize}
+ou
+\begin{itemize}
+\item le muon est un muon du trajectographe;
+\item la compatibilité du segment est supérieure à \num{0.451}.
+\end{itemize}
+\subparagraph{\emph{Tight} \muonID} (exigence stricte)
+\begin{itemize}
+\item le muon est issu du \PF;
+\item le muon est reconstruit comme muon global;
+\item l'ajustement de la trajectoire vérifie $\chi^2/\Ndof<10$;
+\item les chambres à muon vérifient $\Nmdhits>0$ et $\Nms>1$;
+\item le trajectographe vérifie $\Npixelhits>0$ et $\Ntrkhits>5$;
+\item les paramètres d'impact du muon vis-à-vis du vertex primaire principal vérifient $d_{xy} < \SI{2}{\milli\meter}$ et $d_z<\SI{5}{\milli\meter}$.
+\end{itemize}
 \subsubsection{Électrons et photons isolés}
+\paragraph{Reconstruction de l'objet physique}
 L'identification des électrons et des photons isolés se base sur les éléments d'identification du \PF\ provenant du trajectographe et du ECAL.
 De par la présence de la matière du trajectographe, les électrons émettent des photons par \emph{bremsstrahlung} et les photons se convertissent en paires $\antielectron\electron$, ces électrons étant également sujets au \emph{bremsstrahlung}, etc.
 C'est pour cela qu'électrons et photons isolés sont traités de manières similaires pour leur reconstruction.
@@ -40,9 +136,204 @@ Les traces identifiées comme celles de conversions de photons et les dépôts d
 \par Les électrons et photons isolés sont alors obtenus en soumettant aux candidats définis précédemment des critères d'identification, prenant en compte jusqu'à 14 variables~\cite{particle-flow}.
 Les définitions exactes de ces critères varient d'une année à l'autre en fonction des performances du détecteur et plusieurs niveaux d'exigence existent.
 Les éléments d'identification du \PF\ utilisés pour reconstruire les électrons et photons isolés sont retirés dans la suite du processus de reconstruction de l'événement.
+\begin{wraptable}{R}{.33\textwidth}
+\centering
+\begin{tabular}{cc}
+\toprule
+Région & $\mathcal{E_A}$ \\
+\midrule
+$\abs{\eta} \leq \num{1.0}$ & \num{0.1440} \\
+$\num{1.0} < \abs{\eta} \leq \num{1.479}$ & \num{0.1562} \\
+$\num{1.479} < \abs{\eta} \leq \num{2.0}$ & \num{0.1032} \\
+$\num{2.0} < \abs{\eta} \leq \num{2.2}$ & \num{0.0859}  \\
+$\num{2.2} < \abs{\eta} \leq \num{2.3}$ & \num{0.1116} \\
+$\num{2.3} < \abs{\eta} \leq \num{2.4}$ & \num{0.1321} \\
+$\abs{\eta} > \num{2.4}$ & \num{0.1654} \\
+\bottomrule
+\end{tabular}
+\caption[Aires effectives de correction de l'isolation de l'électron.]{Valeurs de l'aire effective $\mathcal{E_A}$ utilisée pour corriger la contribution de l'empilement aux isolations des électrons vis-à-vis des autres particules.}
+\label{tab-electron-effective_areas}
+\end{wraptable}
+\paragraph{Isolation des électrons}
+L'isolation des électrons est définie de manière similaire à celle des muons.
+Elle est quantifiée à partir des particules situées dans un cône de rayon
+\begin{equation}
+\Delta R = \sqrt{\Delta\eta^2+\Delta\phi^2} < R_\ele=\num{0.3}
+\end{equation}
+autour de la direction de l'électron au niveau du vertex primaire principal,
+avec $\Delta\eta$ et $\Delta\phi$ les distances angulaires des particules à l'électron dans les directions $\eta$ et $\phi$,
+selon
+\begin{equation}
+I^{(\ele)}
+=
+\left.
+\sum_{\text{ch},\text{PV}} \pT^{\text{ch}}
++
+\max\left(
+0
+,
+\sum_{\hadron^0}\ET^{\hadron^0}
++
+\sum_{\gamma}\ET^{\gamma}
+- \rho \times \mathcal{E_A}
+\right)
+\right|_{\Delta R < R_\ele}
+\label{eq-electrons-iso}
+\end{equation}
+où
+$\sum_{\text{ch},\text{PV}} \pT^{\text{ch}}$ est la somme scalaire des impulsions transverses des particules chargées provenant du vertex primaire principal à l'exception de cet électron,
+$\sum_{\hadron^0}\ET^{\hadron^0}$ est la somme des énergies dans le plan transverse de tous les hadrons neutres,
+$\sum_{\gamma}\ET^{\gamma}$ est la somme des énergies dans le plan transverse de tous les photons,
+$\rho$ est la densité d'énergie issue de l'empilement dans l'événement et
+$\mathcal{E_A}$ est l'aire effective, \ie\ la fraction de l'espace $(\eta,\phi)$ correspondant à la zone d'isolation à corriger pour l'empilement.
+Les valeurs des aires effectives utilisées sont présentées dans le tableau~\ref{tab-electron-effective_areas}.
+\paragraph{Identification des électrons}
+Deux critères d'identification des électrons existent.
+Le premier est issu d'une analyse multivariée (\emph{MultiVariate Analysis}, MVA), le second est obtenu à partir de coupures (\emph{cuts}) sur certaines variables.
+\subparagraph{\EleIDMVA}
+Ce critère est basé sur un arbre de décision (\emph{Bossted Decision Tree}, BDT) \cite{cmsElectronMVA}.
+Les variables prises en compte sont:
+\begin{itemize}
+\item l'impulsion transverse de l'électron $\pT^{(\ele)}$;
+\item la pseudo-rapidité du \emph{supercluster};
+\item la densité d'énergie issue de l'empilement dans l'événement $\rho$;
+
+\item l'étalement en $\eta$ et en $\phi$ du dépôt d'énergie dans le ECAL, $\sigma_{i\eta i\eta}$ et $\sigma_{i\phi i\phi}$ où $i\eta$ et $i\phi$ correspondent au nombre entier désignant le cristal du calorimètre;
+\item la circularité du dépôt d'énergie, $1- E_{1\times5}/E_{5\times5}$, où $ E_{1\times5}$ et $E_{5\times5}$ correspondent respectivement aux énergies dans une région de $1\times5$ et $5\times5$ cristaux centré sur le cristal contenant le plus d'énergie dans le \emph{supercluster};
+\item $R_9 = \frac{E_{3\times3}}{E_{SC}}$, où $E_{SC}$ est l'énergie contenue dans le \emph{supercluster};
+\item $H/E_{SC}$ où $H$ est l'énergie hadronique située dans un cône de $\Delta R < \num{0.15}$ autour de l'électron;
+\item $E_{SC}^\text{PS}/E_{SC}^\text{raw}$ le rapport de l'énergie du \emph{supercluster} située dans le \emph{PreShower} sur son énergie totale non corrigée.
+\item la largeur du \emph{supercluster}, $\Delta \eta_{SC}$ et $\Delta \phi_{SC}$;
+
+\item le $\chi^2$ de l'ajustement de la trajectoire;
+\item le nombre de \emph{hits} valides utilisés pour l'ajustement de la trajectoire;
+\item le $\chi^2$ de l'ajustement de la trajectoire GSF (\emph{GSFtrack}). Le \emph{Gaussian Sum Filter} est une méthode de traitement du signal~\cite{GSF};
+\item le nombre de \emph{hits} utilisés pour l'ajustement de la trajectoire GSF, $N_\text{lost}^\text{GSF}$;
+\item le nombre attendu de \emph{hits} manquants;
+\item la fraction d'énergie perdue par \emph{bremsstrahlung}, $f_\text{brem} = 1-p_\text{out}/p_\text{in}$ où
+$p_\text{in}$ est l'impulsion de l'électron obtenue d'après la courbe de sa trajectoire près du vertex primaire et
+$p_\text{out}$ l'impulsion de l'électron obtenue d'après la courbe de sa trajectoire près de la surface de ECAL;
+
+\item $E_{SC}/p_\text{in}$;
+\item $E_{\PF}/p_\text{in}$ avec $E_{\PF}$ est l'énergie du \emph{supercluster} le plus proche du point d'entrée de l'électron dans le ECAL;
+\item les écarts $\Delta\eta$ et $\Delta\phi$ entre le \emph{supercluster} et la direction de la trace associée à l'électron au niveau du vertex primaire;
+\item l'écart $\Delta\eta$ entre le \emph{supercluster} et la direction de la trace associée à l'électron au niveau de la surface du ECAL;
+\item $1/E_{\ele}-1/P_{\ele}$ où $E_{\ele}$ est l'énergie de l'électron et $P_{\ele}$ son impulsion.
+
+\item la probabilité que l'électron soit issu d'une conversion $\photon\to\positron\electron$;
+\end{itemize}
+\par
+Le BDT est ainsi entraîné sur des événements $\text{Drell-Yan ($\Zboson/\photon^*$)} + \text{jets}$ simulés à l'aide de \MADGRAPH~\cite{madgraph5}.
+L'entraînement se fait à l'aide de \XGBOOST~\cite{xgboost}.
+Le point de fonctionnement à \SI{90}{\%} d'efficacité est défini à partir d'une valeur minimale de sortie du BDT.
+Cette valeur dépend de $\pT^{(\ele)}$ et $\eta^{(\ele)}$ ainsi que de l'année de prise de données.
+\subparagraph{\CutBasedEleID}
+Ce critère d'identification consiste en une liste de coupures (\emph{cut}) sur certaines variables.
+Les valeurs de ces coupures dépendent du point de fonctionnement.
+Dans l'analyse présentée chapitre~\refChHTT, seul le point de fonctionnement \og veto \fg{} est utilisé, les coupures associées sont listées dans le tableau~\ref{tab-CutBasedEleIDVeto}.
+Les variables utilisées sont définies précédemment, à l'exception de
+\begin{itemize}
+\item $\abs{\Delta\eta_\text{in}^\text{seed}}$ l'écart en $\eta$ entre le point d'entrée de l'électron dans le ECAL et la position du \emph{supercluster} identifié par l'algorithme de \PF;
+\item $I_\text{rel}^{\Delta\beta}$ l'isolation relative de l'électron obtenue avec la même formule que pour les muons~\eqref{eq-muons-reliso}, à l'exception de la taille du cône valant ici $R_{\ele}=\num{0.3}$.
+\end{itemize}
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+\toprule
+Variable & $\abs{\eta^{(\ele)}} < \num{1.479}$ & $\abs{\eta^{(\ele)}} \geq \num{1.479}$ \\
+\midrule
+$\sigma_{i\eta i\eta}$ & $<\num{0.0126}$ & $<\num{0.0457}$ \\
+$\abs{\Delta\eta_\text{in}^\text{seed}}$ & $<\num{0.00463}$ & $<\num{0.00814}$ \\
+$\abs{\Delta\phi_\text{in}}$ & $<\num{0.148}$ & $<\num{0.19}$ \\
+$H/E_{SC}$ & $<\num{0.05}+\frac{\num{1.16}}{E_{SC} [\SI{}{\GeV}]} + \num{0.0324}\frac{\rho}{E_{SC}}$ & $<\num{0.05}+\frac{\num{2.54}}{E_{SC} [\SI{}{\GeV}]} + \num{0.183}\frac{\rho}{E_{SC}}$ \\
+$I_\text{rel}^{\Delta\beta}$ & $<\num{0.198} + \frac{\num{0.506}}{\pT^{(\ele)} [\SI{}{\GeV}]}$ & $<\num{0.203} + \frac{\num{0.96}}{\pT^{(\ele)} [\SI{}{\GeV}]}$ \\
+$\abs{1/E_{SC}-1/p_\text{in}}$ & $<\SI{0.209}{\GeV^{-1}}$ & $<\SI{0.132}{\GeV^{-1}}$ \\
+$N_\text{lost}^\text{GSF}$ & $\leq\num{2}$ & $\leq\num{3}$ \\
+veto de conversion & passé & passé \\
+\bottomrule
+\end{tabular}
+\caption[Coupures du \CutBasedEleIDVeto.]{Coupures du \CutBasedEleIDVeto\ pour les deux régions en $\eta$ du \emph{supercluster} possibles. Les variables sont détaillées dans le texte.}
+\label{tab-CutBasedEleIDVeto}
+\end{table}
+\paragraph{Isolation des photons}
+L'isolation des photons est définie séparément vis-à-vis
+des hadrons chargés,
+des hadrons neutres et
+des autres photons
+selon le même principe que l'isolation des électrons équation~\eqref{eq-electrons-iso}, certains termes étant donc nul suivant l'isolation déterminée.
+Les aires effectives correspondantes sont données dans le tableau~\ref{tab-photon-effective_areas}.
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+\toprule
+Région & Hadrons chargés & Hadrons neutres & Photons \\
+\midrule
+$\abs{\eta} \leq \num{1.0}$ & \num{0.0112} & \num{0.0668} & \num{0.1113} \\
+$\num{1.0} < \abs{\eta} \leq \num{1.479}$ & \num{0.0108} & \num{0.1054} & \num{0.0953} \\
+$\num{1.479} < \abs{\eta} \leq \num{2.0}$ & \num{0.0106} & \num{0.0786} & \num{0.0619} \\
+$\num{2.0} < \abs{\eta} \leq \num{2.2}$ & \num{0.01002} & \num{0.0233} & \num{0.0837} \\
+$\num{2.2} < \abs{\eta} \leq \num{2.3}$ & \num{0.0098} & \num{0.0078} & \num{0.1070} \\
+$\num{2.3} < \abs{\eta} \leq \num{2.4}$ & \num{0.0089} & \num{0.0028} & \num{0.1212} \\
+$\abs{\eta} > \num{2.4}$ & \num{0.0087} & \num{0.0137} & \num{0.1466} \\
+\bottomrule
+\end{tabular}
+\caption[Aires effectives de correction de l'isolation du photon.]{Valeurs de l'aire effective $\mathcal{E_A}$ utilisée pour corriger la contribution de l'empilement aux isolations des photons vis-à-vis des autres particules.}
+\label{tab-photon-effective_areas}
+\end{table}
+
+\paragraph{Identification des photons}
+À l'instar du \CutBasedEleID,
+la collaboration CMS propose des critères d'identification des photons (lâche, moyen et strict) à partir de coupures sur diverses propriétés du \og candidat \fg{} photon:
+\begin{itemize}
+\item $H/E_{SC}$ est le rapport de l'énergie hadronique dans un cône de $\Delta R < \num{0.15}$ autour du photon sur l'énergie du \emph{supercluster}.
+Un photon est sensé déposer son énergie dans le ECAL et ne laisser aucun signal dans le HCAL.
+Une faible valeur de $H/E_{SC}$ est donc compatible avec un photon.
+\item $\sigma_{i\eta i\eta}$ est l'étalement en $\eta$ du dépôt d'énergie dans le ECAL.
+Cette observable est reliée à la forme de la gerbe électromagnétique.
+Un seuil maximal sur $\sigma_{i\eta i\eta}$ est imposé pour l'identification des photons.
+\item $I_{CH}^\text{rel}$ est l'isolation relative vis-à-vis des hadrons chargés.
+\item $I_{NH^\text{rel}}$ est l'isolation relative vis-à-vis des hadrons neutres.
+\item $I_{\photon}^\text{rel}$ est l'isolation relative vis-à-vis des photons.
+\end{itemize}
+À cet ensemble de variables dont une valeur maximale est admise pour l'identification des photons s'ajoute $R_9$, définie comme
+\begin{equation}
+R_9 = \frac{E_{3\times3}}{E_{SC}}
+\label{eq-R9_definition}
+\end{equation}
+avec
+$E_{3\times3}$ la somme des énergies dans les cristaux du ECAL formant un carré de trois cristaux de côté centré sur le cristal contenant le plus d'énergie dans le \emph{supercluster}
+et
+$E_{SC}$
+l'énergie du \emph{supercluster}~\cite{photon_ID_2015}.
+\par 
+Les coupures correspondant aux différents critères d'identification des photons ainsi que leurs efficacités d'identification et de réjection sont résumées dans le tableau~\ref{tab-CutBasedPhotonIdentificationRun2}.
+\begin{table}[h]
+\centering\small
+\begin{tabularx}{\textwidth}{Xcccccc}
+\toprule
+Critère & \multicolumn{2}{c}{Lâche} & \multicolumn{2}{c}{Moyen} & \multicolumn{2}{c}{Strict} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Région & \CMSBarrel & \CMSEndcap & \CMSBarrel & \CMSEndcap & \CMSBarrel & \CMSEndcap\\
+\midrule
+Efficacité & \SI{90.08}{\%} & \SI{90.65}{\%} & \SI{80.29}{\%} & \SI{80.08}{\%} & \SI{70.24}{\%} & \SI{70.13}{\%} \\
+Réjection & \SI{86.25}{\%} & \SI{76.72}{\%} & \SI{89.36}{\%} & \SI{81.85}{\%} & \SI{90.97}{\%} & \SI{84.55}{\%} \\
+\midrule
+$H/E_{SC}$ & \num{0.04596} & \num{0.0590} & \num{0.02197} & \num{0.0326} & \num{0.02148} & \num{0.0321} \\
+$\sigma_{i\eta i\eta}$ & \num{0.0106} & \num{0.0272} & \num{0.01015} & \num{0.0272} & \num{0.00996} & \num{0.0271} \\
+$I_{CH}^\text{rel}$ & \num{1.694} & \num{2.089} & \num{1.141} & \num{1.051} & \num{0.65} & \num{0.517} \\
+\multirow{3}{*}{$I_{NH}^\text{rel} \!\!\!\hphantom{I_{\photon}^\text{rel}} \left\lbrace \begin{matrix} \vphantom{0} \\ \vphantom{0} \\ \vphantom{0} \end{matrix} \right. $} & $\num{24.032}$& $\num{19.722}$& $\num{1.189}$& $\num{2.718}$& $\num{0.317}$& $\num{2.716}$\\
+& $+ \num{0.01512} \, \pT$& $+ \num{0.011} \, \pT$& $+ \num{0.01512} \, \pT$& $+ \num{0.0117} \, \pT$& $+ \num{0.01512} \, \pT$& $+ \num{0.0117} \, \pT$ \\
+& $+ \num{2.259} \pT^{\!2} \! / 10^5$ & $+ \num{2.3} \pT^{\!2} \! / 10^5$ & $+ \num{2.259} \pT^{\!2} \! / 10^5$ & $+ \num{2.3} \pT^{\!2} \! / 10^5$ & $+ \num{2.259} \pT^{\!2} \! / 10^5$ & $+ \num{2.3} \pT^{\!2} \! / 10^5$ \\
+\multirow{2}{*}{$I_{\photon}^\text{rel} \!\!\!\hphantom{I_{NH}^\text{rel}} \left\lbrace \begin{matrix} \vphantom{0} \\ \vphantom{0} \end{matrix} \right. $} & $\num{2.876}$ & $\num{4.162}$ & $\num{2.08}$ & $\num{3.867}$ & $\num{2.044}$ & $\num{3.032}$ \\
+& $+ \num{0.004017} \, \pT$ & $+ \num{0.0037} \, \pT$ & $+ \num{0.004017} \, \pT$ & $+ \num{0.0037} \, \pT$ & $+ \num{0.004017} \, \pT$ & $+ \num{0.0037} \, \pT$ \\
+\bottomrule
+\end{tabularx}
+\caption[Coupures utilisées pour l'identification des photons.]{Valeurs maximales des observables considérées pour l'identification des photons selon le critère utilisé et la région du détecteur dans laquelle se trouve le candidat photon (\CMSbarrel\ pour $\abs{\eta} < \num{1.479}$, \CMSendcap\ sinon).}
+\label{tab-CutBasedPhotonIdentificationRun2}
+\end{table}
 \subsubsection{Hadrons et photons non isolés}
 Les muons, électrons et photons isolés ayant été reconstruits, seuls les hadrons et les photons non isolés issus de la formation des jets et de l'hadronisation restent à être reconstruits.
-La formation des jets ainsi que l'hadronisation sont détaillées dans le chapitre~\refChJERC.
+La formation des jets ainsi que l'hadronisation sont détaillées dans le chapitre~\refChHLO.
 Ces particules sont généralement détectées comme des hadrons chargés (\pionpm, \Kaonpm, protons), des hadrons neutres (\Kaonlong, neutrons), des photons non isolés (désintégrations des \pionnull) et plus rarement comme des muons (désintégrations de hadrons lourds).
 \par Dans la région d'acceptance du trajectographe ($\abs{\eta}<\num{2.5}$), les photons non isolés et les hadrons neutres sont reconstruits respectivement à partir des dépôts d'énergie dans les ECAL et HCAL non associés à une trace.
 Une priorité est donnée aux photons dans la mesure où \SI{25}{\%} de l'énergie des jets est portée par ces particules alors que seulement \SI{3}{\%} de l'énergie des jets est déposée dans le ECAL par les hadrons neutres.
