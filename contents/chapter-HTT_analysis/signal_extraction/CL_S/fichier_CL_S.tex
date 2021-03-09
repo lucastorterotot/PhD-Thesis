@@ -1,4 +1,4 @@
-\subsection{Méthode $CL_S$}\label{chapter-HTT_analysis-section-signal_extraction-CLS}
+\subsection{Méthode \CLS}\label{chapter-HTT_analysis-section-signal_extraction-CLS}
 \subsubsection{Approche fréquentiste classique}
 Afin de déterminer quantitativement quelle hypothèse, entre \hypB\ et \hypSB, est la plus compatible avec les résultats de l'analyse, il faut réaliser un test statistique.
 Plusieurs tests existent, celui utilisé pour les expériences du LHC est le profil du rapport de vraisemblance (\emph{profile likelihood ratio}),
@@ -21,28 +21,28 @@ La probabilité d'obtenir une valeur de $q_{\mu}$ plus élevée que celle observ
 \ie\ de réaliser une observation moins compatible avec l'hypothèse \hypSB\ que celle effectivement réalisée,
 est définie par
 \begin{equation}
-CL_{\hypSB} = \int_{q_{\mu}^\text{obs}}^{+\infty} f (q_\mu | \mu, \hat{\theta}_\mu) \dd{q_\mu}
+\CLSB = \int_{q_{\mu}^\text{obs}}^{+\infty} f (q_\mu | \mu, \hat{\theta}_\mu) \dd{q_\mu}
 \end{equation}
 où $f$ est la fonction de densité de probabilité pour $q_{\mu}$, obtenue en tirant au sort de nombreuses combinaisons des valeurs des paramètres de nuisance et de $\mu$.
 \par
 Une valeur de $\mu$ est ainsi considérée exclue avec un niveau de confiance $\alpha$ tel que
-$\alpha = 1 - CL_{\hypSB}$.
+$\alpha = 1 - \CLSB$.
 Un niveau de confiance de \SI{95}{\%} est généralement utilisé.
 Toutefois, en prenant $\mu\simeq0$, cette approche mène statistiquement \SI{5}{\%} des analyses de physique à exclure la présence d'un signal.
 Pour éviter ce cas de figure, une approche fréquentiste modifiée est utilisée.
 \subsubsection{Approche fréquentiste modifiée}
 Cette méthode est introduite pour traiter le cas d'un signal très faible par rapport au bruit de fond~\cite{Junk:1999kv,CLs_method,Read_2002}.
-En plus de $CL_{\hypSB}$ définie précédemment,
+En plus de \CLSB\ définie précédemment,
 la probabilité de réaliser une observation moins compatible avec l'hypothèse \hypB\ que celle effectivement réalisée, définie comme
 \begin{equation}
-CL_{\hypB} = \int_{q_{\mu}^\text{obs}}^{+\infty} f (q_\mu | 0, \hat{\theta}_0) \dd{q_\mu}
+\CLB = \int_{q_{\mu}^\text{obs}}^{+\infty} f (q_\mu | 0, \hat{\theta}_0) \dd{q_\mu}
 \end{equation}
 est déterminée.
 %\par
-La quantité $CL_S$ est le rapport
+La quantité \CLS\ est le rapport
 \begin{equation}
-CL_S = \frac{CL_{\hypSB}}{CL_{\hypB}}
+\CLS = \frac{\CLSB}{\CLB}
 \mend
 \end{equation}
-Dans l'approche fréquentiste modifiée, l'exclusion à \SI{95}{\%} de confiance est obtenue lorsque $CL_S \leq \num{0.05}$.
-Plus de détails sur la méthode $CL_S$ sont disponibles dans la référence~\cite{CMS-NOTE-2011-005}.
+Dans l'approche fréquentiste modifiée, l'exclusion à \SI{95}{\%} de confiance est obtenue lorsque $\CLS \leq \num{0.05}$.
+Plus de détails sur la méthode \CLS\ sont disponibles dans la référence~\cite{CMS-NOTE-2011-005}.
