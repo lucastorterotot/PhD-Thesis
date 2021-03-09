@@ -33,6 +33,18 @@ Aux deux extrémités du détecteur se trouvent les \og \CMSendcaps \fg, dont l'
 Ces orientations différentes sont bien visibles sur la figure~\ref{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-vue_eclatee_CMS}.
 \par L'acronyme CMS signifie \emph{Compact Muon Solenoïd}, \ie\ Solénoïde Compact à Muons.
 La structure du détecteur, conçue à partir de celle du solénoïde, mène en effet à un design compact pour le système à muons (chambres à muons et culasse d'acier), d'où le qualificatif~\cite{cms_letter_intent}.
+\begin{wrapfigure}{R}{.45\textwidth}
+\centering
+\input{\PhDthesisdir/plots_and_images/CMS_slices/own/CMS_3D_phi_theta_defs.tex}
+\caption[Système de coordonnées du détecteur CMS.]{Système de coordonnées du détecteur CMS.
+Le vecteur de base $\bvec_x$ pointe vers le centre du LHC,
+$\bvec_y$ vers le haut ($\vec{g}\cdot\bvec_y<0$) et
+$\bvec_z$ est colinéaire au tube de faisceau.
+Le trièdre $(\bvec_x, \bvec_y, \bvec_z)$ est direct.
+L'angle entre le vecteur $\vec{a}$ à caractériser et $\bvec_z$ est $\theta$.
+L'angle entre $\vec{a}$ et $\bvec_x$ dans le plan transverse est $\phi$.}
+\label{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-CMS_3D_phi_theta_defs}
+\end{wrapfigure}
 \par La géométrie cylindrique du détecteur pousse à définir un système de coordonnées également cylindriques en complément d'un repère cartésien.
 Le schéma de la figure~\ref{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-CMS_3D_phi_theta_defs} illustre la définition de ces systèmes de coordonnées.
 L'origine $O$ des repères est le centre du détecteur où les protons entrent en collision.
@@ -44,18 +56,6 @@ Le plan \plane{x}{y} est nommé \og plan transverse \fg, il est orthogonal aux f
 Le système de coordonnées cylindriques est défini par la distance à l'origine et deux angles $\theta\in[0,\pi]$ et $\phi\in[-\pi,\pi]$.
 L'angle entre le vecteur $\vec{a}$ à caractériser et $\bvec_z$ est $\theta$.
 L'angle entre $\vec{a}$ et $\bvec_x$ dans le plan transverse est $\phi$.
-\begin{figure}[h]
-\centering
-\input{\PhDthesisdir/plots_and_images/CMS_slices/own/CMS_3D_phi_theta_defs.tex}
-\caption[Système de coordonnées du détecteur CMS.]{Système de coordonnées du détecteur CMS.
-Le vecteur de base $\bvec_x$ pointe vers le centre du LHC,
-$\bvec_y$ vers le haut ($\vec{g}\cdot\bvec_y<0$) et
-$\bvec_z$ est colinéaire au tube de faisceau.
-Le trièdre $(\bvec_x, \bvec_y, \bvec_z)$ est direct.
-L'angle entre le vecteur $\vec{a}$ à caractériser et $\bvec_z$ est $\theta$.
-L'angle entre $\vec{a}$ et $\bvec_x$ dans le plan transverse est $\phi$.}
-\label{fig-chapter-LHC-section-CMS-subsec-overview_and_coordinates-CMS_3D_phi_theta_defs}
-\end{figure}
 \par L'angle $\theta$ n'est généralement pas utilisé directement et est remplacé par la \og pseudo-rapidité \fg{} $\eta$ définie comme
 \begin{equation}
 \eta = - \ln(\tan(\frac{\theta}{2}))
