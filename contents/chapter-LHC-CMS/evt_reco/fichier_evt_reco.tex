@@ -1,15 +1,20 @@
 \section{Reconstruction des événements}\label{chapter-LHC-section-evt_reco}
-L'analyse des événements à partir des signaux bruts issus du détecteur n'est pas aisée, qu'il s'agisse de données ou de simulations.
+L'analyse des événements à partir des signaux bruts issus du détecteur n'est pas aisée, qu'il s'agisse de données réelles ou de simulées.
 Une interprétation de ces signaux en termes de particules physiques donne un point de départ beaucoup plus accessible.
-En effet, ces signaux sont comme des \og symptômes \fg{} du passage des particules dans le détecteur.
-La reconstruction des événements consiste donc en un \og diagnostic \fg{} de l'événement.
-\par Les signaux caractéristiques des différents types de particules dans le plan transverse du détecteur CMS sont illustrées sur la figure~\ref{fig-chapter-LHC-section-evt_reco-cms_slice}.
+%En effet, ces signaux sont comme des \og symptômes \fg{} du passage des particules dans le détecteur.
+%La reconstruction des événements consiste donc en un \og diagnostic \fg{} de l'événement.
+Pour y parvenir, un algorithme de reconstruction est utilisé.
+Son rôle est de déterminer quelles particules sont issues de la collision étant donnés les signaux dans le détecteur.
+Cette reconstruction est réalisée de manière identique dans les données réelles et simulées.
+\par
+Les signaux caractéristiques des différents types de particules dans le plan transverse du détecteur CMS sont illustrées sur la figure~\ref{fig-chapter-LHC-section-evt_reco-cms_slice}.
 Dans toute la suite de ce manuscrit, les schémas des événements dans le détecteur utilisent la même présentation que sur la figure~\ref{fig-chapter-LHC-section-evt_reco-cms_slice}, en particulier pour les couleurs des sous-détecteurs et des particules.
 Il s'agit de la conséquence directe de la description du détecteur de la section~\ref{chapter-LHC-section-CMS}.
 La plupart des particules laissent des signaux dans plusieurs sous-détecteurs.
 Pour une particule donnée, ces signaux doivent donc présenter une corrélation.
 \par La reconstruction des événements se fait ainsi en combinant les informations issues des différents sous-détecteurs.
-Un algorithme spécialement développé afin d'optimiser cette combinaison, l'algorithme de \emph{Particle Flow} (\PF)~\cite{particle-flow,Dordevic_particle_flow}, a pour rôle de réaliser cette reconstruction. Dans un premier temps, l'algorithme \PF\ reconstruit les éléments d'identification des particules à partir des signaux de chaque sous-détecteur.
+Un algorithme spécialement développé afin d'optimiser cette combinaison, l'algorithme de reconstruction du flux de particules (\PF, \emph{Particle Flow})~\cite{particle-flow,Dordevic_particle_flow}, a pour rôle de réaliser cette reconstruction.
+Dans un premier temps, l'algorithme \PF\ reconstruit les éléments d'identification des particules à partir des signaux de chaque sous-détecteur.
 Dans un second temps, ces éléments d'identification sont combinés afin de reconstruire les particules de l'événement.
 Les sections~\ref{chapter-LHC-section-evt_reco-subsec-PF_elements} et~\ref{chapter-LHC-section-evt_reco-subsec-ptc_ID} présentent ces deux étapes.
 \begin{figure}[h]

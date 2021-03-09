@@ -1,35 +1,26 @@
-\subsection{Reconstruction et identification des particules}\label{chapter-LHC-section-evt_reco-subsec-ptc_ID}
-Des éléments d'identification du \PF\ dans différents sous-détecteurs sont généralement dus à une même particule.
+\subsection{Identification et reconstruction des particules}\label{chapter-LHC-section-evt_reco-subsec-ptc_ID}
+Une seule particule donne généralement lieu à plusieurs éléments d'identification du \PF\ dans différents sous-détecteurs.
 La reconstruction des particules se fait alors par association de ces éléments.
-L'association des éléments dus à une particule est uniquement limitée par la granularité des sous-détecteurs et par le nombre de particules par unité d'angle solide~\cite{particle-flow}.
-De même, l'association de tous les éléments dus à une seule particule est limitée par la quantité de matière traversée en amont des calorimètres ou, le cas échéant, des chambres à muons, pouvant dévier la particule~\cite{moliere_scat_1,moliere_scat_2}.
+L'association des éléments dus à une particule est limitée par~\cite{particle-flow}:
+\begin{itemize}
+\item la granularité des sous-détecteurs;
+\item le nombre de particules par unité d'angle solide;
+\item la quantité de matière traversée par les particules en amont des calorimètres ou, le cas échéant, des chambres à muons, pouvant dévier la particule~\cite{moliere_scat_1,moliere_scat_2}.
+\end{itemize}
 \par Un algorithme teste les paires d'éléments de reconstruction possibles.
-Afin de limiter les temps de calcul, seules les paires d'éléments les plus proches entre eux dans le plan $(\eta,\phi)$ sont considérées.
+Afin de limiter les temps de calcul, seules les paires d'éléments les plus proches entre eux selon un arbre de recherche multidimentionnel~\cite{bentley} sont considérées.
 Des conditions supplémentaires sont requises afin d'associer deux éléments et sont détaillées dans les sections suivantes.
 Lorsque deux éléments sont associés, une distance est définie par l'algorithme afin de quantifier la qualité de cette association.
 Des \og blocs \fg{} du \PF\ sont ainsi obtenus par association des éléments de reconstruction.
 Selon le contenu de ce bloc, un objet physique est reconstruit, dont l'identification en tant que particule d'un type donné dépend de critères spécifiques.
 Ces différents types de particules sont détaillés dans les sections qui suivent.
+%\par
+%Une trace est reliée à un dépôt dans les calorimètres si l'extrapolation de la trajectoire mène à la position de ce dépôt.
+%Only the closest track-to-cluster links are kept.
+%Calorimeter cluster-to-cluster links are sought between HCAL clusters and ECAL clusters by checking whether one cluster’s position is within another’s envelope.
+%Charged-particle tracks may also be linked together through a common secondary vertex, for nuclear-interaction reconstruction.
+%Finally, a link between a track in the central tracker and information in the muon detector is established to form global and tracker muons.
 \subsubsection{Muons}
-\paragraph{Reconstruction de l'objet physique}
-Les muons sont reconstruits à partir des éléments d'identifications que sont les muons globaux, seuls et du trajectographe définis dans la section~\ref{chapter-LHC-section-evt_reco-subsec-PF_elements-subsubsec-tracks}.
-\par Tout d'abord, les muons globaux isolés, \ie\ sans autre activité dans le voisinage de la trajectoire correspondante, sont sélectionnés~\cite{particle-flow}.
-Les traces additionnelles et les dépôts d'énergie dans les calorimètres se situant dans un cône de rayon $\Delta R$ inférieur à \num{0.3} dans le plan $(\eta,\phi)$, où
-\begin{equation}
-\Delta R_{ij}^2 = (\eta_i-\eta_j)^2 + (\phi_i-\phi_j)^2
-\mend[,]
-\end{equation}
-sont également associés au muon global.
-Il est requis que la somme des impulsions transverses et des énergies de ces traces et dépôts n'excède pas \SI{10}{\%} de l'impulsion transverse du muon global.
-Ce critère est suffisant pour rejeter les hadrons réussissant à traverser le HCAL.
-Ensuite, les muons globaux non isolés sont sélectionnés à l'aide d'un critère d'identification strict (\emph{Tight} \muonID)~\cite{CMS-MUO-16-001} auquel la présence d'au moins trois segments de trace compatibles est requise.
-\par Les muons non identifiés à ce stade peuvent l'être en utilisant les muons seuls et les muons du trajectographe.
-Les muons seuls présentant un grand nombre de signaux dans les chambres à muons, au moins 23 dans les DT (pour un maximum possible de 32) ou 15 dans les CSC (pour un maximum possible de 24), et dont l'ajustement de la trace à ces signaux est de bonne qualité sont ainsi retenus.
-Les muons du trajectographe sont également retenus s'ils contiennent au moins 13 points de passage dans le trajectographe et que les agglomérats dans les calorimètres sont compatibles avec la traduction de la trace correspondante en tant que muon.
-\par La résolution sur l'impulsion transverse des muons reconstruits est de \SI{1}{\%} dans le \CMSbarrel\ et \SI{3}{\%} dans les \CMSendcaps\ pour les muons d'impulsion transverse inférieure à \SI{100}{\GeV}
-et inférieure à \SI{7}{\%} dans le \CMSbarrel\ jusqu'à $\pT=\SI{1}{\TeV}$~\cite{CMS-MUO-16-001}.
-L'efficacité de reconstruction est de \SI{95}{\%} et le taux d'identification de hadrons en tant que muons inférieur à \SI{1}{\%}.
-Les éléments d'identification du \PF\ utilisés pour reconstruire les muons sont retirés dans la suite du processus de reconstruction de l'événement.
 \paragraph{Isolation des muons}
 L'isolation permet de quantifier la présence de particules autour du muon.
 Des muons peuvent par exemple être produits lors de la désintégration de quarks de saveur lourde.
@@ -38,10 +29,9 @@ Ces muons font donc partie du jet et ne sont pas issus de la collision initiale.
 \par
 L'isolation d'un muon est quantifiée à partir des particules situées dans un cône de rayon
 \begin{equation}
-\Delta R = \sqrt{\Delta\eta^2+\Delta\phi^2} < R_\mu=\num{0.4}
+\Delta R < R_\mu=\num{0.4}
 \end{equation}
 autour de la direction du muon au niveau du vertex primaire principal,
-avec $\Delta\eta$ et $\Delta\phi$ les distances angulaires des particules au muon dans les directions $\eta$ et $\phi$,
 selon
 \begin{equation}
 I^{(\mu)}
@@ -78,7 +68,7 @@ I^{i}
 \mend
 \label{eq-muons-reliso}
 \end{equation}
-\paragraph{Identification des muons}
+\paragraph{Critères d'identification des muons}
 Il est possible de définir un critère de qualité sur l'objet reconstruit devant correspondre à un muon à partir des propriétés des éléments du \PF\ ayant servi à sa reconstruction.
 Il s'agit du \muonID~\cite{CMS-MUO-16-001,cmsMediumMuon}.
 Le $\chi^2$ de l'ajustement de la trajectoire ainsi que la fraction des signaux du trajectographe valides associés au muon sont des métriques utilisées pour le \muonID.
@@ -124,18 +114,26 @@ ou
 \item le trajectographe vérifie $\Npixelhits>0$ et $\Ntrkhits>5$;
 \item les paramètres d'impact du muon vis-à-vis du vertex primaire principal vérifient $d_{xy} < \SI{2}{\milli\meter}$ et $d_z<\SI{5}{\milli\meter}$.
 \end{itemize}
+\paragraph{Reconstruction des muons}
+Les muons sont reconstruits à partir des éléments d'identifications que sont les muons globaux, seuls et du trajectographe définis dans la section~\ref{chapter-LHC-section-evt_reco-subsec-PF_elements-subsubsec-tracks}.
+\par Tout d'abord, les muons globaux isolés, \ie\ sans autre activité dans le voisinage de la trajectoire correspondante, sont sélectionnés~\cite{particle-flow}.
+Les traces additionnelles et les dépôts d'énergie dans les calorimètres se situant dans un cône de rayon $\Delta R$ inférieur à \num{0.3} dans le plan $(\eta,\phi)$, où
+\begin{equation}
+\Delta R_{ij} = \sqrt{(\eta_i-\eta_j)^2 + (\phi_i-\phi_j)^2}
+\mend[,]
+\end{equation}
+sont également associés au muon global.
+Il est requis que l'isolation relative du muon global soit inférieure à \num{0.1}.
+Ce critère est suffisant pour rejeter les hadrons dont la gerbe de désintégration traverse le HCAL.
+Ensuite, les muons globaux non isolés sont sélectionnés à l'aide du critère d'identification strict (\emph{Tight} \muonID).
+\par Les muons non identifiés à ce stade peuvent l'être en utilisant les muons seuls et les muons du trajectographe.
+Les muons seuls présentant un grand nombre de signaux dans les chambres à muons, au moins 23 dans les DT (pour un maximum possible de 32) ou 15 dans les CSC (pour un maximum possible de 24), et dont l'ajustement de la trace à ces signaux est de bonne qualité sont ainsi retenus.
+Les muons du trajectographe sont également retenus s'ils contiennent au moins 13 points de passage dans le trajectographe et que les agglomérats dans les calorimètres sont compatibles avec la traduction de la trace correspondante en tant que muon.
+\par La résolution sur l'impulsion transverse des muons reconstruits est de \SI{1}{\%} dans le \CMSbarrel\ et \SI{3}{\%} dans les \CMSendcaps\ pour les muons d'impulsion transverse inférieure à \SI{100}{\GeV}
+et inférieure à \SI{7}{\%} dans le \CMSbarrel\ jusqu'à $\pT=\SI{1}{\TeV}$~\cite{CMS-MUO-16-001}.
+L'efficacité de reconstruction est de \SI{95}{\%} et le taux d'identification de hadrons en tant que muons inférieur à \SI{1}{\%}.
+Les éléments d'identification du \PF\ utilisés pour reconstruire les muons sont retirés dans la suite du processus de reconstruction de l'événement.
 \subsubsection{Électrons et photons isolés}
-\paragraph{Reconstruction de l'objet physique}
-L'identification des électrons et des photons isolés se base sur les éléments d'identification du \PF\ provenant du trajectographe et du ECAL.
-De par la présence de la matière du trajectographe, les électrons émettent des photons par \emph{bremsstrahlung} et les photons se convertissent en paires $\antielectron\electron$, ces électrons étant également sujets au \emph{bremsstrahlung}, etc.
-C'est pour cela qu'électrons et photons isolés sont traités de manières similaires pour leur reconstruction.
-\par Un candidat électron est défini lorsqu'une trace du trajectographe, extrapolée jusqu'au ECAL, est associée à un dépôt d'énergie, si ce dépôt n'est pas lui-même relié à trois autres traces ou plus.
-Les candidats photons isolés correspondent aux dépôts du ECAL avec une énergie transverse supérieure à \SI{10}{\GeV} n'étant pas associés à une trace.
-Pour tous ces candidats, la somme des énergies mesurées dans les cellules du HCAL se situant dans un cône de rayon $\Delta R$ inférieur à \num{0.15} dans le plan $(\eta,\phi)$ ne doit pas correspondre à plus de \SI{10}{\%} de l'énergie du dépôt du ECAL.
-Les traces identifiées comme celles de conversions de photons et les dépôts du ECAL associés sont de plus rattachées au candidat initial.
-\par Les électrons et photons isolés sont alors obtenus en soumettant aux candidats définis précédemment des critères d'identification, prenant en compte jusqu'à 14 variables~\cite{particle-flow}.
-Les définitions exactes de ces critères varient d'une année à l'autre en fonction des performances du détecteur et plusieurs niveaux d'exigence existent.
-Les éléments d'identification du \PF\ utilisés pour reconstruire les électrons et photons isolés sont retirés dans la suite du processus de reconstruction de l'événement.
 \begin{wraptable}{R}{.33\textwidth}
 \centering
 \begin{tabular}{cc}
@@ -158,10 +156,9 @@ $\abs{\eta} > \num{2.4}$ & \num{0.1654} \\
 L'isolation des électrons est définie de manière similaire à celle des muons.
 Elle est quantifiée à partir des particules situées dans un cône de rayon
 \begin{equation}
-\Delta R = \sqrt{\Delta\eta^2+\Delta\phi^2} < R_\ele=\num{0.3}
+\Delta R< R_\ele=\num{0.3}
 \end{equation}
 autour de la direction de l'électron au niveau du vertex primaire principal,
-avec $\Delta\eta$ et $\Delta\phi$ les distances angulaires des particules à l'électron dans les directions $\eta$ et $\phi$,
 selon
 \begin{equation}
 I^{(\ele)}
@@ -187,11 +184,11 @@ $\sum_{\gamma}\ET^{\gamma}$ est la somme des énergies dans le plan transverse d
 $\rho$ est la densité d'énergie issue de l'empilement dans l'événement et
 $\mathcal{E_A}$ est l'aire effective, \ie\ la fraction de l'espace $(\eta,\phi)$ correspondant à la zone d'isolation à corriger pour l'empilement.
 Les valeurs des aires effectives utilisées sont présentées dans le tableau~\ref{tab-electron-effective_areas}.
-\paragraph{Identification des électrons}
+\paragraph{Critères d'identification des électrons}
 Deux critères d'identification des électrons existent.
-Le premier est issu d'une analyse multivariée (\emph{MultiVariate Analysis}, MVA), le second est obtenu à partir de coupures (\emph{cuts}) sur certaines variables.
+Le premier est issu d'une analyse multivariée (MVA, \emph{MultiVariate Analysis}), le second est obtenu à partir de coupures (\emph{cuts}) sur certaines variables.
 \subparagraph{\EleIDMVA}
-Ce critère est basé sur un arbre de décision (\emph{Bossted Decision Tree}, BDT) \cite{cmsElectronMVA}.
+Ce critère est basé sur un arbre de décision (BDT, \emph{Bossted Decision Tree}) \cite{cmsElectronMVA}.
 Les variables prises en compte sont:
 \begin{itemize}
 \item l'impulsion transverse de l'électron $\pT^{(\ele)}$;
@@ -280,8 +277,7 @@ $\abs{\eta} > \num{2.4}$ & \num{0.0087} & \num{0.0137} & \num{0.1466} \\
 \caption[Aires effectives de correction de l'isolation du photon.]{Valeurs de l'aire effective $\mathcal{E_A}$ utilisée pour corriger la contribution de l'empilement aux isolations des photons vis-à-vis des autres particules.}
 \label{tab-photon-effective_areas}
 \end{table}
-
-\paragraph{Identification des photons}
+\paragraph{Critères d'identification des photons}
 À l'instar du \CutBasedEleID,
 la collaboration CMS propose des critères d'identification des photons (lâche, moyen et strict) à partir de coupures sur diverses propriétés du \og candidat \fg{} photon:
 \begin{itemize}
@@ -331,8 +327,19 @@ $I_{CH}^\text{rel}$ & \num{1.694} & \num{2.089} & \num{1.141} & \num{1.051} & \n
 \caption[Coupures utilisées pour l'identification des photons.]{Valeurs maximales des observables considérées pour l'identification des photons selon le critère utilisé et la région du détecteur dans laquelle se trouve le candidat photon (\CMSbarrel\ pour $\abs{\eta} < \num{1.479}$, \CMSendcap\ sinon).}
 \label{tab-CutBasedPhotonIdentificationRun2}
 \end{table}
+\paragraph{Reconstruction des électrons et des photons}
+L'identification des électrons et des photons isolés se base sur les éléments d'identification du \PF\ provenant du trajectographe et du ECAL.
+De par la présence de la matière du trajectographe, les électrons émettent des photons par \emph{bremsstrahlung} et les photons se convertissent en paires $\antielectron\electron$, ces électrons étant également sujets au \emph{bremsstrahlung}, etc.
+C'est pour cela qu'électrons et photons isolés sont traités de manières similaires pour leur reconstruction.
+\par Un candidat électron est défini lorsqu'une trace du trajectographe, extrapolée jusqu'au ECAL, est associée à un dépôt d'énergie, si ce dépôt n'est pas lui-même relié à trois autres traces ou plus.
+Les candidats photons isolés correspondent aux dépôts du ECAL avec une énergie transverse supérieure à \SI{10}{\GeV} n'étant pas associés à une trace.
+Pour tous ces candidats, la somme des énergies mesurées dans les cellules du HCAL se situant dans un cône de rayon $\Delta R$ inférieur à \num{0.15} dans le plan $(\eta,\phi)$ ne doit pas correspondre à plus de \SI{10}{\%} de l'énergie du dépôt du ECAL.
+Les traces identifiées comme celles de conversions de photons et les dépôts du ECAL associés sont de plus rattachées au candidat initial.
+\par Les électrons et photons isolés sont alors obtenus en soumettant aux candidats définis précédemment des critères d'identification, prenant en compte jusqu'à 14 variables~\cite{particle-flow}.
+Les définitions exactes de ces critères varient d'une année à l'autre en fonction des performances du détecteur et plusieurs niveaux d'exigence existent.
+Les éléments d'identification du \PF\ utilisés pour reconstruire les électrons et photons isolés sont retirés dans la suite du processus de reconstruction de l'événement.
 \subsubsection{Hadrons et photons non isolés}
-Les muons, électrons et photons isolés ayant été reconstruits, seuls les hadrons et les photons non isolés issus de la formation des jets et de l'hadronisation restent à être reconstruits.
+Les muons, électrons et photons isolés ayant été identifiés et reconstruits, seuls les hadrons et les photons non isolés issus de la formation des jets et de l'hadronisation sont encore à être reconstruits.
 La formation des jets ainsi que l'hadronisation sont détaillées dans le chapitre~\refChHLO.
 Ces particules sont généralement détectées comme des hadrons chargés (\pionpm, \Kaonpm, protons), des hadrons neutres (\Kaonlong, neutrons), des photons non isolés (désintégrations des \pionnull) et plus rarement comme des muons (désintégrations de hadrons lourds).
 \par Dans la région d'acceptance du trajectographe ($\abs{\eta}<\num{2.5}$), les photons non isolés et les hadrons neutres sont reconstruits respectivement à partir des dépôts d'énergie dans les ECAL et HCAL non associés à une trace.
@@ -342,7 +349,7 @@ Près de \SI{25}{\%} de l'énergie des jets est ainsi déposée dans le ECAL et 
 Les autres dépôts du ECAL sont considérés comme dus à des photons.
 \par Les hadrons chargés sont identifiés à partir des agglomérats restant dans le HCAL, associés aux traces dans le trajectographe non utilisées pour l'identification des particules précédentes.
 Ces traces peuvent elles-mêmes être reliées à un agglomérat résiduel du ECAL.
-Pour chaque bloc du \PF\ ainsi construit, l'énergie dans les calorimètres est comparée à la somme des moments des traces.
+Pour chaque bloc du \PF\ ainsi construit, l'énergie dans les calorimètres est comparée à la somme des impulsions des traces.
 Si un excès est observé avec les calorimètres, il est interprété comme la présence d'une particule neutre supplémentaire.
 Si cet excès est inférieur à l'énergie dans le ECAL et plus grand que \SI{500}{\MeV}, alors la particule neutre est considérée comme étant un photon d'énergie égale à cet excès.
 Sinon, l'énergie dans le ECAL donne un photon et si la partie de l'excès dans le HCAL est supérieure à \SI{1}{\GeV}, un hadron neutre est également considéré.

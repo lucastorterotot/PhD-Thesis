@@ -1,12 +1,17 @@
 \section{Énergie transverse manquante}\label{chapter-HLO-section-MET}
-\subsection{Énergie transverse manquante brute}
+\subsection{Énergie transverse manquante brute}\label{chapter-HLO-section-MET-raw}
 L'énergie transverse manquante (MET, \emph{Missing Transverse Momentum}) est estimée dans un premier temps à partir des particules reconstruites par l'algorithme de \PF.
-Il s'agit alors de la MET \og brute \fg{} (\emph{raw MET}), corrigée ensuite des effets de reconstruction de l'événement.
-C'est en particulier le cas lors de la calibration en énergie des jets abordée section~\ref{chapter-HLO-section-CMS}.
+Il s'agit de la MET \og brute \fg, corrigée ensuite des effets de reconstruction de l'événement comme exposé dans la section~\ref{chapter-HLO-section-MET-corr}.
 \subsubsection{MET brute issue de l'algorithme \PF}
-Des particules neutres interagissant peu avec le détecteur, en particulier les neutrinos, peuvent être produites lors des collisions et se propager sans laisser de signal dans le détecteur, les rendant ainsi invisibles.
+Des neutrinos peuvent être produits lors des collisions.
+Or, ces particules se propagent sans laisser de signal dans le détecteur, elles sont donc invisibles.
 Toutefois, lorsque de telles particules sont produites en association avec des particules détectées, leur présence peut être déduite du déséquilibre dans le moment total des particules de l'événement~\cite{CMS-PAS-JME-17-001}.
-\par Les collisions de protons, dont la phénoménologie est discutée chapitre~\refChLHCCMS, présentent une impulsion totale dans le plan transverse nulle dans l'état initial.
+\par
+La phénoménologie des collisions de protons est discutée chapitre~\refChLHCCMS.
+Dans l'état initial,
+la composante longitudinale de l'impulsion est inconnue
+et
+l'impulsion totale dans le plan transverse est nulle.
 Par conservation, l'impulsion totale dans le plan transverse est nulle dans l'état final.
 La somme des impulsions transverses des particules invisibles doit donc compenser celle des particules reconstruites, \ie
 \begin{equation}
@@ -19,8 +24,6 @@ La somme des impulsions transverses des particules invisibles doit donc compense
 \par L'énergie transverse manquante (MET, \emph{Missing Transverse Momentum}) est ainsi définie comme
 \begin{equation}
 \vMET = -\sum_{\substack{\text{particules}\\\text{reconstruites}}} \vpT
-\msep
-\MET = \abs{\vMET}
 \mend[,]
 \end{equation}
 et représente l'impulsion transverse totale des particules invisibles.
@@ -33,7 +36,7 @@ Le principe de \textsc{Puppi} est d'associer un poids à chaque particule, lié 
 \todo{a bit more on puppimet, see ref.~\cite{PUPPI}}
 
 C'est cette définition de la MET qu'utilise l'analyse présentée dans le chapitre~\refChMSSM.
-\subsection{Corrections de l'énergie transverse manquante}
+\subsection{Corrections de l'énergie transverse manquante}\label{chapter-HLO-section-MET-corr}
 \todo{typeI, type II MET}
 \paragraph{Énergie des jets}
 La correction en énergie des jets, abordée dans les sections suivante, doit être propagée à \MET.

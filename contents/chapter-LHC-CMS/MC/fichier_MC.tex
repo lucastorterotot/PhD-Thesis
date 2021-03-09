@@ -1,4 +1,4 @@
-\section{Événements simulés}\label{chapter-LHC-section-MC}
+\section{Simulation d'événements}\label{chapter-LHC-section-MC}
 La simulation d'événements permet de comparer les résultats expérimentaux aux prédictions théoriques.
 Elle se déroule en deux temps.
 \par Premièrement, les processus physiques prédits par le modèle théorique à tester sont simulés.
@@ -18,13 +18,14 @@ Le nombre de constituants différents en jeu ainsi que leurs modes d'interaction
 \caption[Représentation d'une collision de protons.]{Représentation d'une collision de protons~\cite{event_generator_HEP}.}
 \label{fig-event_generator_HEP-2-Figure1-1}
 \end{figure}
-\par La description analytique des ces événements est réalisée grâce à la théorie des perturbations.
+\par La description analytique de l'interaction entre les constituants des protons lors des collisions est réalisée grâce à la théorie des perturbations.
 À l'aide des règles de Feynman présentées dans l'annexe~\refApFmf, il est possible de calculer l'\og élément de matrice \fg{} permettant de décrire le passage d'un état initial à un état final.
-Les événements sont alors générés à un ordre perturbatif donné.
+Les événements sont alors générés à un ordre perturbatif donné à l'aide de
+\MADGRAPH~\cite{madgraph5}
+ou
+\PYTHIA~\cite{pythia6.4,pythia8.2}
+par exemple.
 La plupart des processus sont ainsi disponibles à l'ordre dominant (LO, \emph{Leading Order}).
-Leur génération peut se faire par des générateurs~\cite{CAVENDISH-HEP-10-21}, comme
-\MADGRAPH~\cite{madgraph5} et
-\PYTHIA~\cite{pythia6.4,pythia8.2}.
 Dans certains cas, les ordres supérieurs (NLO, \emph{Next-to-Leading Order}, NNLO, \emph{Next-to-Next-to-Leading Order}, etc.) sont également disponibles grâce à des générateurs NLO tels que
 \POWHEG~\cite{Alioli:2010xd} et
 \MCATNLO~\cite{MCATNLO}.
@@ -35,8 +36,8 @@ Il s'agit de la formation de la gerbe partonique et de l'hadronisation, détaill
 Des générateurs comme
 \PYTHIA~\cite{pythia6.4,pythia8.2} et
 \HERWIG~\cite{herwig}
-permettent de simuler le processus initial ainsi que ces étapes ultérieures.
-\par Enfin, lors d'une collision de protons et plus généralement de hadrons, plusieurs interactions entre les constituants des hadrons peuvent survenir.
+permettent de simuler ces étapes ultérieures.
+\par Lors d'une collision de protons et plus généralement de hadrons, plusieurs interactions entre les constituants des hadrons peuvent survenir.
 L'interaction emportant la plus grande fraction de l'énergie des hadrons est l'\og interaction dure \fg{}.
 Les autres interactions constituent l'événement sous-jacent.
 \subsection{Simulation du détecteur}\label{chapter-LHC-section-MC-subsec-detector_sim}
@@ -47,5 +48,5 @@ La modélisation du détecteur permet de simuler les déviations des particules 
 Alors, la modélisation de l'électronique et du système de déclenchement donnent une simulation de la réponse complète du détecteur à l'événement physique généré.
 \par Cette simulation du détecteur est basée sur le logiciel
 \GEANTfour~\cite{geant4_2003,geant4_2006,geant4_2016}.
-La modélisation du câblage interne du détecteur permet d'obtenir des résultats fidèles à la réalité.
+La modélisation complète et précise du détecteur (câblage interne, système de refroidissement, éléments de structure, etc.) permet d'obtenir des résultats fidèles à la réalité.
 Les signaux simulés du détecteur ainsi obtenus sont alors traités, comme dans le cas des données réelles, par l'algorithme de \emph{Particle Flow}, abordé dans la section suivante, permettant de reconstruire l'événement physique à partir des signaux du détecteur.
