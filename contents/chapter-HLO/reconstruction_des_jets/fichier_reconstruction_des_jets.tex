@@ -26,6 +26,12 @@ Enfin, les cônes sont séparés en cas de superposition, une particule ne pouva
 Dans un premier temps, tous les cônes stables possibles sont reconstruits.
 Ces cônes sont alors fusionnés, les cônes ayant l'impulsion transverse la plus grande absorbant des cônes d'impulsion transverse moindre dont ils contiennent déjà une fraction des constituants.
 Un exemple de reconstruction de jets à l'aide de l'algorithme \textsc{SISCone} est présenté sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-algo-examples}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=.8\textwidth]{\PhDthesisdir/plots_and_images/from_Cacciari_antikT/forme_des_jets.png}
+\caption[Formes des jets reconstruits à partir de différents algorithmes.]{Formes des jets reconstruits à partir de différents algorithmes pour un même événement~\cite{Cacciari_antikT}. En haut à gauche, \kT; en haut à droite, C/A; en bas à gauche, \textsc{SISCone}; en bas à droite, anti-\kT. L'algorithme anti-\kT\ permet d'obtenir des jets de forme régulière, conique.}
+\label{fig-chapter-HLO-section-jets_reco-subsec-algo-examples}
+\end{figure}
 \subsubsection{Les algorithmes de recombinaison séquentielle}
 Les algorithmes de recombinaison séquentielle commencent par considérer que chaque particule forme un pseudo-jet d'une seule particule~\cite{Cacciari:2011ma}.
 Puis, à l'aide d'une métrique donnée, la paire de jets les plus proches entre eux fusionne en un seul jet tant que la distance entre eux est en-deçà d'une valeur seuil. Les jets fusionnés donnent la liste des jets de l'événement. Il est également possible de fixer le nombre de jets à déterminer et non la valeur seuil de la distance entre les jets à fusionner.
@@ -69,12 +75,6 @@ ${\pT}_x$ l'impulsion transverse du jet $x$ et $R$ un paramètre libre.
 Le regroupement des particules se fait ainsi autour de celles de plus hautes énergies.
 Cet algorithme propose un regroupement des particules moins fidèle à la gerbe hadronique, mais produit des jets de forme régulière, comme cela se voit sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-algo-examples}.
 \end{description}
-\begin{figure}[h]
-\centering
-\includegraphics[width=.8\textwidth]{\PhDthesisdir/plots_and_images/from_Cacciari_antikT/forme_des_jets.png}
-\caption[Formes des jets reconstruits à partir de différents algorithmes.]{Formes des jets reconstruits à partir de différents algorithmes pour un même événement~\cite{Cacciari_antikT}. En haut à gauche, \kT; en haut à droite, C/A; en bas à gauche, \textsc{SISCone}; en bas à droite, anti-\kT. L'algorithme anti-\kT\ permet d'obtenir des jets de forme régulière, conique.}
-\label{fig-chapter-HLO-section-jets_reco-subsec-algo-examples}
-\end{figure}
 \par Le temps de calcul de ces algorithmes est un enjeu majeur au LHC.
 Leurs temps d'exécution sont représentés en fonction du nombre d'interactions d'empilement sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-algo-perfs}.
 L'algorithme anti-\kT\ se place parmi les algorithmes les plus rapides.
@@ -251,10 +251,6 @@ Ce réseau est entraîné sur un ensemble d'événements simulés \ttbar, prése
 \KERAS~\cite{keras}
 et
 \TENSORFLOW~\cite{tensorflow}.
-\par Les performances ainsi obtenues pour l'algorithme \DeepCSV\ sont comparées à d'autres algorithmes d'identification de la saveur des jets sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-flavor-bc_tag_roc_curves}.
-Les algorithmes \textsc{cMVAv2} et \DeepCSV\ présentent les meilleures performances en termes d'identification des jets de quark~\quarkb\ (\quarkb-\emph{tagging}).
-Pour le traitement des jets de quark~\quarkc, l'algorithme \DeepCSV\ propose les meilleures performances.
-Dans les analyses présentées dans ce chapitre et le chapitre~\refChHTT, c'est cet algorithme qui est utilisé afin d'identifier les jets issus de quarks~\quarkc\ ou~\quarkb.
 \begin{figure}[p]
 \centering
 
@@ -272,13 +268,17 @@ Dans les analyses présentées dans ce chapitre et le chapitre~\refChHTT, c'est 
 \caption[Performances des algorithmes d'identification de la saveur des jets.]{Comparaison des performances des algorithmes d'identification de la saveur des jets~\cite{Sirunyan_heavy_flavor_jets_2018}.}
 \label{fig-chapter-HLO-section-jets_reco-subsec-flavor-bc_tag_roc_curves}
 \end{figure}
-\par La discrimination entre jet léger et jet initié par un gluon peut être réalisée à l'aide d'une fonction de vraisemblance~\cite{CMS-PAS-JME-13-002} renvoyant un score entre 0 et 1 pour chaque jet, correspondant à la probabilité que ce jet soit issu d'un quark. La densité de probabilité de cette fonction, selon qu'il s'agisse de jets initiés par des gluons ou des quarks, est représentée sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-flavor-qgl_likelihood}.
 \begin{figure}[p]
 \centering
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-PAS-JME-13-002/qgl.pdf}
 \caption[Performances de la discrimation quark-gluon pour la saveur des jets.]{Densité de probabilité de la fonction de vraisemblance utilisée pour discriminer les jets issus de gluons de ceux issus de quarks~\cite{CMS-PAS-JME-13-002}. En rouge, pour les jets issus de gluons. En bleu, pour des jets issus de quarks.}
 \label{fig-chapter-HLO-section-jets_reco-subsec-flavor-qgl_likelihood}
 \end{figure}
+\par Les performances ainsi obtenues pour l'algorithme \DeepCSV\ sont comparées à d'autres algorithmes d'identification de la saveur des jets sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-flavor-bc_tag_roc_curves}.
+Les algorithmes \textsc{cMVAv2} et \DeepCSV\ présentent les meilleures performances en termes d'identification des jets de quark~\quarkb\ (\quarkb-\emph{tagging}).
+Pour le traitement des jets de quark~\quarkc, l'algorithme \DeepCSV\ propose les meilleures performances.
+Dans les analyses présentées dans ce chapitre et le chapitre~\refChHTT, c'est cet algorithme qui est utilisé afin d'identifier les jets issus de quarks~\quarkc\ ou~\quarkb.
+\par La discrimination entre jet léger et jet initié par un gluon peut être réalisée à l'aide d'une fonction de vraisemblance~\cite{CMS-PAS-JME-13-002} renvoyant un score entre 0 et 1 pour chaque jet, correspondant à la probabilité que ce jet soit issu d'un quark. La densité de probabilité de cette fonction, selon qu'il s'agisse de jets initiés par des gluons ou des quarks, est représentée sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-flavor-qgl_likelihood}.
 %Sirunyan_heavy_flavor_jets_2018 53
 %Cacciari_pu_sub_jet_area_2008 54
 %Sarle1994NeuralNA 55
