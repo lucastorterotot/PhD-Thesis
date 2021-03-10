@@ -1,0 +1,44 @@
+\section{Discussions}\label{chapter-ML-section-discussion}
+
+\subsection{Mass range}
+
+\subsection{PU effect}
+also show PU effect (see fig 2 and 3 from report 2020-11-20, update with new models and samples)
+
+\subsection{Reco effects}
+show trained/tested on gen tau, gen tau decays, reco tau decays (=real), see fig 3 from report 2021-01-11
+
+the model understand the physics, now it has to deal with the reco resolution and fakes.
+
+\subsection{Fakes}
+
+\subsection{channel splitting}
+not relevant (fig3 report  2021-01-21)
+
+\subsection{Boundaries effects}
+use the custom loss with boundaries cuts (basically all the report 2021-02-04)
+
+Follow report from 2021-02-04 but for section 3 : We saw that predictions come out too low, which already is a motivation to put larger weights on higher masses, i.e. to weight by truth. Choosing sqrt(truth) is of course just a guess then
+
+extend up to 1TeV using the tails
+
+
+\subsection{Final model}
+
+\DEEPTAU
+
+1 TeV
+
+all inputs
+
+activation softplus
+
+loss mapesqrt\_b
+
+opti Adam
+
+glorot uniform
+
+3 layers of 1000 neurons
+
+show reponses and 2d histo

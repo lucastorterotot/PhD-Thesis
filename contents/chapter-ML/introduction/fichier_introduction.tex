@@ -1,25 +1,54 @@
 \section{Introduction}\label{chapter-ML-section-intro}
 
-explosion ces dernières années de l'IA
+AI = exploding for last years
 
-Siri, voiture autonome, AlphaGO, ...
+Siri, autonomus cars, AlphaGO, ...
+
+AI > Machine Learning > Deep Learning
+
+principle of ML: get a program mapping inputs to outputs
+
+classification vs regression tasks
+
+in HEP: \cite{jet_flavor_deep_nn} and the one used for the SM categories in the analysis!
+
+Also cite Gaël thesis:\\\fullcite{Gael_thesis}
+
+and Mortiz's:\\\fullcite{scham_moritz_2020_21993}
+
+and Tanja's:\\\fullcite{kopf_tanja_2019_21500}
 
 \emph{The Elements of statistical learning} : Trees have one aspect that prevents them from bering the ideal tool for predictive learning, namely inaccuracy.
---> they work great t=with the date used to create them, but they are not flexible when it comes to classifying new samples.
+--> they work great with the data used to create them, but they are not flexible when it comes to classifying new samples...
 
-IA > ML > DL
+\manip \textbf{Aim:} reconstruction of di-\tau\ mass.
+\submanip Already done in:\\
+\fullcite{BARTSCHI201929}
 
-utilisation en HEP (\cite{jet_flavor_deep_nn,BARTSCHI201929,Gael_thesis})
+\fullcite{Baldi_2015}
 
-cas de la masse di-\tau~\cite{BARTSCHI201929}, aller plus loin:
-au lieu de 80 à 300 GeV par pas de 5, de 50 à 800 par pas de 1
+\manip \textbf{BUT}
+\submanip CMS simulated at phase-0 with Delphes $\rightarrow$ we used CMS Fast Simulation (\FASTSIM).
+\submanip No Pile-Up $\rightarrow$ we added it using the 2017 PU profile.
+\submanip $m_{\higgs}\in [ 80 \isp 300 ] \SI{}{\GeV}$ per steps of \SI{5}{\GeV} $\rightarrow$ we do from 50 to 800 per steps of 1.
+\submanip \num{270000} training events $\rightarrow$ we have \num{2180992} ($\times8$).
+\submanip \num{100000} testing events $\rightarrow$ we have \num{311504} ($\times3$).
 
-deux modèles, \XGB\ et un DNN, présentés dans la section...
+Try both \XGB\ and DNN and compare, then apply to MSSM HTT analysis
 
-application aux événements HTT section ...
+\remarque{To cite:
+\begin{itemize}
+\item \DELPHES~3.4.2~\cite{Delphes,Delphes_additions}?
+\item CMS Fast Simulation (\FASTSIM)~\cite{FastSim_2011,FastSim_2014,FastSim_2017_1,FastSim_2017_2}
+\item \PYTHIA~8.235~\cite{pythia8.2}
+\item \FASTJET~\cite{Cacciari:2011ma,Cacciari:2006} % Fast Jet
+\item \KERAS~\cite{keras}
+\item \TENSORFLOW~\cite{tensorflow}
+\item \XGB~\cite{xgboost}
+\item for an example of nn use in HEP\\
+\fullcite{jet_flavor_deep_nn}
+\item \fullcite{Sarle1994NeuralNA}
+\item \fullcite{BARTSCHI201929}
+\item \SVFIT~\cite{SVFit_Bianchini_2014}
+\end{itemize}}
 
-Mais dans la vraie vie, empilement : prise en compte section ...
-
-Et ajout de variables supplémentaires pour prendre en compte PU section ...
-
-Enfin, l'apport de ces techniques à l'analyse présentée dans le chapitre ... en section ...
