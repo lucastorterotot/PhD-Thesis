@@ -25,17 +25,6 @@ Les facteurs de faux sont abordés dans la section~\ref{chapter-HTT_analysis-sec
 La majorité des événements de signal, en particulier pour \Higgs\ et \HiggsA\ de basse masse, se trouve dans la catégorie \CATtightmt.
 La catégorie \CATloosemt\ permet quant à elle d'augmenter l'acceptance du signal pour $m_{\Higgs,\HiggsA} > \SI{700}{\GeV}$.
 La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT} illustre ces coupures sur $\mT^{(\ell)}$ dans le cas du canal \ele\tauh\ pour l'année 2018.
-\paragraph{Canal \ele\mu}
-Trois catégories sont définies selon la valeur de \Dzeta\ définie page~\pageref{eq-Dzeta_def}:
-\begin{itemize}
-\item \CATlowdz: $-\SI{35}{\GeV} \leq \Dzeta < -\SI{10}{\GeV}$;
-\item \CATmediumdz: $-\SI{10}{\GeV} \leq \Dzeta < \SI{30}{\GeV}$;
-\item \CAThighdz: $\SI{30}{\GeV} \leq \Dzeta$;
-\end{itemize}
-la limite basse sur \Dzeta\ pour la catégorie \CATlowdz\ étant appliquée afin de s'assurer que la région de signal soit orthogonale à la région de contrôle (CR) du bruit de fond \ttbar.
-Ces trois catégories permettent d'obtenir diverses pureté de signal et fractions de bruit de fond \ttbar.
-La majorité des événements de signal se trouve dans la catégorie \CATmediumdz.
-La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-Dz} illustre ces coupures sur \Dzeta.
 \begin{figure}[h]
 \centering
 
@@ -48,6 +37,17 @@ La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-Dz
 \caption[Illustrations des catégorisations basées sur $\mT^{(\ell)}$ et \Dzeta]{Illustrations des catégorisations basées sur $\mT^{(\ell)}$ et \Dzeta, respectivement sur les événements des canaux \ele\tauh\ et \ele\mu\ de l'année 2018.}
 \label{fig-chapter-HTT_analysis-section-categorisation-BSM-subcats}
 \end{figure}
+\paragraph{Canal \ele\mu}
+Trois catégories sont définies selon la valeur de \Dzeta\ définie page~\pageref{eq-Dzeta_def}:
+\begin{itemize}
+\item \CATlowdz: $-\SI{35}{\GeV} \leq \Dzeta < -\SI{10}{\GeV}$;
+\item \CATmediumdz: $-\SI{10}{\GeV} \leq \Dzeta < \SI{30}{\GeV}$;
+\item \CAThighdz: $\SI{30}{\GeV} \leq \Dzeta$;
+\end{itemize}
+la limite basse sur \Dzeta\ pour la catégorie \CATlowdz\ étant appliquée afin de s'assurer que la région de signal soit orthogonale à la région de contrôle (CR) du bruit de fond \ttbar.
+Ces trois catégories permettent d'obtenir diverses pureté de signal et fractions de bruit de fond \ttbar.
+La majorité des événements de signal se trouve dans la catégorie \CATmediumdz.
+La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-Dz} illustre ces coupures sur \Dzeta.
 \paragraph{Catégories obtenues}
 Les catégories \CATbsm\ correspondant à la région de signal (SR), \ie\ en dehors des régions de détermination (DR) et de contrôle (CR), sont résumées sur la figure~\ref{fig-chapter-HTT_analysis-section-categorisation-BSM-cats_recap} pour les quatre canaux considérés.
 \begin{figure}[h]
@@ -98,12 +98,13 @@ La masse invariante permet d'estimer mathématiquement, par un calcul de physiqu
 Cette observable est donc un choix pertinent de variable discriminante.
 Elle est ainsi utilisée, par exemple, dans l'analyse $\higgs\to\Zboson\Zboson\to4\ell$~\cite{CMS-PAS-HIG-13-002}.
 \par
-Cependant, dans l'analyse $\Higgs\to\tau\tau$, l'état final comporte deux à quatre neutrinos issus des désintégrations des leptons \tau.
+Cependant, dans l'analyse $\Higgs\to\tau\tau$, l'état final comporte deux à quatre neutrinos issus des désintégrations des leptons tau.
 La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau} illustre le cas du canal \mu\tauh\ dans lequel trois neutrinos sont ainsi présents.
 Or, les neutrinos sont invisibles dans le détecteur CMS.
 Il est donc impossible de déterminer la masse invariante.
 \begin{figure}[h]
 \centering
+\vspace{\baselineskip}
 
 \subcaptionbox{Événement réel.\label{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau}}[.45\textwidth]
 {\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/fgraph-H-tautau_mutau.tex}}
@@ -124,8 +125,8 @@ où la somme se fait sur tous les neutrinos de l'événement dont ceux de l'éta
 \par
 Ainsi, il est possible de considérer le système à trois corps suivant:
 \begin{itemize}
-\item $L_1$ la partie visible de la désintégration d'un des leptons \tau, par exemple le muon de la figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau};
-\item $L_2$ la partie visible de la désintégration de l'autre lepton \tau, par exemple le tau hadronique résultant de $\Wbosonplus\to\quarku\antiquarkd$ sur la figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau};
+\item $L_1$ la partie visible de la désintégration d'un des leptons tau, par exemple le muon de la figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau};
+\item $L_2$ la partie visible de la désintégration de l'autre lepton tau, par exemple le \tauh résultant de $\Wbosonplus\to\quarku\antiquarkd$ sur la figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau};
 \item $\sum\nu\simeq\MET$ l'ensemble des neutrinos issus des désintégrations des leptons \tau, eux-mêmes issus de la désintégration du boson de Higgs, dont une estimation des propriétés cinématiques dans le plan transverse est donnée par l'énergie transverse manquante \vMET;
 \end{itemize}
 comme illustré figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau-for_mTtot}.

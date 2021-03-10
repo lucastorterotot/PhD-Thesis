@@ -49,9 +49,12 @@ Les contraintes sur les incertitudes d'origine statistique, par exemple les quan
 \begin{equation}
 \eval{\Constraint(\theta, \tilde{\theta})}_{\text{stat}}
 =
-\frac{1}{\kappa \, \tilde{\theta}!} \left(\frac{\theta}{\kappa}\right)^{\tilde{\theta}} \exp(-\frac{\theta}{\kappa})
+\frac{1}{\kappa \, \Gamma(\tilde{\theta}+1)} \left(\frac{\theta}{\kappa}\right)^{\tilde{\theta}} \exp(-\frac{\theta}{\kappa})
 \end{equation}
-où $\kappa$ est le rapport attendu entre $\theta$ et $\tilde{\theta}$.
+avec
+$\Gamma$ la fonction gamma
+et
+$\kappa$ le rapport attendu entre $\theta$ et $\tilde{\theta}$.
 La valeur de $\kappa$ a sa propre incertitude, généralement traitée comme une contrainte log-normale supplémentaire.
 \subsubsection{Incertitudes de forme}
 Les incertitudes systématiques de forme sur les distributions des variables discriminantes du signal ainsi que du bruit de fond sont traitées par la technique du \og morphing vertical \fg.

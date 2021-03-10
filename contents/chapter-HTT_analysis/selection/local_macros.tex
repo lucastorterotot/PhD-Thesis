@@ -1,6 +1,6 @@
-\newcommand{\AllSatisfyingFollowing}[2]{Tout #1 respectant les critères listés ci-après est retenu pour jouer le rôle de #2 dans le \emph{dilepton}}
+\newcommand{\AllSatisfyingFollowing}[2]{Tout #1{} respectant les critères listés ci-après est retenu pour jouer le rôle de #2 dans le \emph{dilepton}}
 
-\newcommand{\TauHdz}{la distance $d_z$ entre la trace principale du tau hadronique et le vertex primaire d'interaction vérifie $d_z < \SI{0.2}{\centi\meter}$}
+\newcommand{\TauHdz}{$d_z < \SI{0.2}{\centi\meter}$ avec $d_z$ la distance entre la trace principale du \tauh\ et le vertex primaire d'interaction}
 \newcommand{\Leptondzdxy}{paramètres d'impact $d_z < \SI{0.2}{\centi\meter}$ et $d_{xy} < \SI{0.045}{\centi\meter}$}
 
 \newcommand{\RelIsoBelow}[2]{$I_{#1} < \num{#2} \, \pT^{#1}$}
@@ -12,7 +12,7 @@
 \newcommand{\NinetyNineEleMVA}{point de fonctionnement à \SI{90}{\%} d'efficacité de l'\EleIDMVA}
 \newcommand{\NinetyNineEleMVAnoIso}{\NinetyNineEleMVA\ sans utilisation des variables d'isolation}
 
-\newcommand{\NewDecayModeFinding}[1][]{passer le discriminateur \texttt{NewDecayModeFinding} avec les modes de désintégration 5, 6, et 7 interdits}
+\newcommand{\NewDecayModeFinding}[1][]{passer le discriminateur \texttt{NewDecayModeFinding} (modes de désintégration 5, 6, et 7 interdits)}
 \newcommand{\PassDeepTau}[3]{#1 (\emph{#2}) du discriminateur \texttt{deepTau #3}}
 
 \newcommand{\AtLeastOneOSPair}[1]{L'événement est retenu à condition qu'au moins une paire $L_1L_2=#1$ puisse être construite avec $L_1$ et $L_2$ de charges électriques opposées.}
@@ -36,9 +36,9 @@ doit vérifier $\mT < \SI{70}{\GeV}$. \TransverseMassWjetsInfosTXT}
 
 \newcommand{\DzetaEleMU}{
 
-\begin{wrapfigure}{R}{.45\textwidth}
+\begin{wrapfigure}[17]{R}{.45\textwidth}
 \centering
-
+\vspace{-2\baselineskip}
 \begin{tikzpicture}
 %% base
 \draw [->] (0,0)--(2,0) node [right] {$\bvec_x$};

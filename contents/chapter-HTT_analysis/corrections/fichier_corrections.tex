@@ -3,7 +3,7 @@ Dans le but d'améliorer la description des données réelles par les données s
 Elles sont obtenues à partir d'analyses annexes.
 Les corrections appliquées au particules individuelles (muons, électrons) sont présentées dans le chapitre~\refChLHCCMS,
 celles appliquées aux objets physiques de haut niveau (MET, jets et taus hadroniques) dans le chapitre~\refChHLO.
-%\subsection{Pondérations} % weights and event scale factors
+\subsection{Pondérations dues aux collisions}
 \paragraph{Pondération de l'empilement (\emph{Pileup reweighting})}
 Les données simulées sont générées avec un réglage donné de luminosité instantanée, relié à la quantité d'empilement obtenu.
 Or, la production de ces jeux de données est souvent faite avant la mesure de ces observables dans les données réelles.
@@ -16,6 +16,7 @@ De plus, cette efficacité dépend de la topologie des événements.
 En l'occurrence, les événements avec des jets de hautes valeurs de $\eta$ sont particulièrement touchés par cet effet.
 Une pondération est alors appliquée afin de corriger cet effet.
 Selon la topologie de l'événement, il peut être de \num{1.0} ou descendre à des valeurs de l'ordre de \num{0.95}.
+\subsection{Efficacité des \HLTpaths}
 \paragraph{Efficacité des \HLTpaths\ des \tauh\ (\emph{\tauh\ trigger scale factors})}
 L'efficacité des \HLTpaths\ est mesurée à partir d'une méthode \og balise et sonde \fg{}  (\emph{tag and probe}).
 La balise (\emph{tag}) est un \tauh\ respectant les critères de sélection utilisés dans l'analyse et correspondant au \tauh\ ayant activé le \HLTpath.
@@ -56,7 +57,7 @@ $\tauh2$ \HLTSingleTau\ appliqué à l'autre \tauh.
 \paragraph{Efficacité des \HLTpaths\ des muons et des électrons (\emph{lepton trigger scale factors})}
 De manière similaire au cas des \tauh, l'efficacité des \HLTpaths\ des leptons (muons et électrons) est déterminée dans les données réelles et simulées en fonction de l'impulsion transverse et de la pseudorapidité du lepton.
 Cette démarche est réalisée pour les \HLTpaths\ \HLTSingleMu, \HLTSingleEle, \HLTMuTauCross\ et \HLTEleTauCross.
-%\subsection{Correction d'énergie}
+\subsection{Impulsions des particules}
 \begin{wrapfigure}{R}{5cm}
 \vspace{\baselineskip}
 \centering
@@ -107,7 +108,6 @@ Les valeurs de $y_{\quarkt}$ et $y_{\quarkb}$ dépendent de $m_{\HiggsA}$ et $\t
 Les impulsions transverses ainsi que la masse invariante des leptons issus de la désintégration du boson \Zboson\ sont corrigées
 dans les événements simulés Drell-Yan.
 Ces corrections sont déterminées dans une région de contrôle $\Zboson\to\mu\mu$ et n'introduisent pas de modification du nombre total d'événements.
-\todo{done by DESY group}
 \paragraph{Repondération de l'impulsion transverse du quark~\quarkt\ (\emph{top \pT\ reweighting})}
 La modélisation du bruit de fond \ttbar\ est corrigée afin que les données simulées au NLO correspondent au NNLO.
 Pour cela, la distribution en \pT\ des quarks~\quarkt\ est pondérée.

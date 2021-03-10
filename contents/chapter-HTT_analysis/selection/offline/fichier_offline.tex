@@ -1,13 +1,14 @@
-\subsection{Sélection finale}\label{chapter-HTT_analysis-section-offline_selection}
+\subsection{Obtention du \emph{dilepton}}\label{chapter-HTT_analysis-section-offline_selection}
 La phénoménologie des événements $\Higgs\to\tau\tau$ est décrite dans le chapitre~\refChMSSM.
-Les leptons tau peuvent se désintégrer hadroniquement en tau hadronique (\tauh) ou leptoniquement en électron (\ele) ou en muon (\mu), ces désintégrations s'accompagnent de l'émission de un (cas hadronique) ou deux (cas leptoniques) neutrinos.
+Les leptons tau peuvent se désintégrer hadroniquement en tau hadronique (\tauh) ou leptoniquement en électron (\ele) ou en muon (\mu).
+Ces désintégrations s'accompagnent de l'émission de un (cas hadronique) ou deux (cas leptoniques) neutrinos.
 Il existe ainsi six états finaux différents ou canaux pour ces événements dont seulement quatre sont considérés dans l'analyse:
 le canal hadronique (\tauh\tauh),
 les deux canaux semi-leptoniques (\mu\tauh, \ele\tauh)
 et un canal leptonique (\ele\mu).
 \par
 Les produits de désintégration visibles des leptons tau sont notés $L_1$ et $L_2$.
-La correspondance de $L_1$ et $L_2$ aux taus hadroniques, muons ou électrons suit l'ordre de notation du canal, par exemple $\mu\tauh=L_1L_2$.
+La correspondance de $L_1$ et $L_2$ aux \tauh, muons ou électrons suit l'ordre de notation du canal, par exemple $\mu\tauh=L_1L_2$.
 Dans le cas d'un canal symétrique (\tauh\tauh, \mu\mu, \ele\ele), $\pT^{(L_1)}>\pT^{(L_2)}$.
 Pour $L_1$ comme $L_2$, une liste de candidats est obtenue à partir des particules reconstruites auxquelles sont appliquées des coupures détaillées dans les sections qui suivent pour chacun des canaux.
 À partir de ces deux listes de candidats, des paires $L_1L_2$ compatibles avec le cas de figure $\Higgs\to\tau\tau\to L_1L_2$ sont formées.
@@ -18,10 +19,12 @@ Il est nécessaire de s'assurer, à cause de l'utilisation de canaux différents
 Pour cela, après avoir sélectionné le \emph{dilepton}, des vetos sur la présence de leptons supplémentaires à ceux du \emph{dilepton} sont appliqués.
 Ces vetos sont explicités pour chaque canal dans les sections ci-après et sont au moins aussi lâches que les coupures de sélection les plus lâches des leptons de signal, \ie\ ceux utilisés pour les \emph{dileptons}, de tous les canaux.
 Ainsi, si un lepton est sélectionné dans un canal pour former un \emph{dilepton}, alors il déclenche forcément le veto correspondant dans les autres canaux.
+\par
+La sélection des candidats $L_1$ et $L_2$, la construction des \emph{dileptons} et la sélection d'un seul d'entre eux constitue ainsi la sélection finale des événements à analyser.
 
 \subsubsection{Canal \tauh\tauh}\label{chapter-HTT_analysis-section-offline-tt}
 \paragraph{Sélection des taus hadroniques}
-\AllSatisfyingFollowing{tau hadronique}{$L_1$ ou $L_2$}:
+\AllSatisfyingFollowing{\tauh}{$L_1$ ou $L_2$}:
 \begin{itemize}
     \item $\pT^{\tauh} > \SI{40}{\GeV}$;
     \item $\abs{\eta^{\tauh}} < \num{2.1}$;
@@ -39,7 +42,7 @@ Ainsi, si un lepton est sélectionné dans un canal pour former un \emph{dilepto
 \DeltaRPair{0.5}
 \IfMoreOnePair
 \paragraph{Correspondance du \emph{dilepton} avec les \HLTpaths}
-Les deux taus hadroniques \FromPairMatchToHLTObjects{}
+Les deux \tauh\ \FromPairMatchToHLTObjects{}
 Trois \HLTregionsDefined:
 \begin{itemize}
     \item bas \pT: $\pT^{\tauh 1} < \num{120} \, (\num{180}) \usp \SI{}{\GeV}$, $\pT^{\tauh 2} < \num{120} \, (\num{180}) \usp \SI{}{\GeV}$.
@@ -49,7 +52,7 @@ Trois \HLTregionsDefined:
     \item haut \pT: $\pT^{\tauh 1} > \num{120} \, (\num{180}) \usp \SI{}{\GeV}$, $\pT^{\tauh 2} > \num{120} \, (\num{180}) \usp \SI{}{\GeV}$.
         Une combinaison logique \og ou \fg{} des \HLTpaths\ \HLTSingleTau{} et \HLTDoubleTau{} est considérée pour $L_1$ et $L_2$.
 \end{itemize}
-Les taus hadroniques ne sont considérés comme correspondant aux objets HLT qu'à condition que leurs impulsions soient supérieure d'au moins \SI{5}{\GeV} au seuil d'activation du \HLTpath.
+Les \tauh\ ne sont considérés comme correspondant aux objets HLT qu'à condition que leurs impulsions soient supérieure d'au moins \SI{5}{\GeV} au seuil d'activation du \HLTpath.
 \paragraph{Vétos de leptons supplémentaires}
 \LeptonVetoes
 \begin{itemize}
@@ -68,7 +71,7 @@ Les taus hadroniques ne sont considérés comme correspondant aux objets HLT qu'
     \item passer le \MediumMuonID.
 \end{itemize}
 \paragraph{Sélection des taus hadroniques}
-\AllSatisfyingFollowing{tau hadronique}{$L_2$}:
+\AllSatisfyingFollowing{\tauh}{$L_2$}:
 \begin{itemize}
     \item $\pT^{\tauh} > \SI{30}{\GeV}$;
     \item $\abs{\eta^{\tauh}} < \num{2.3}$;
@@ -86,7 +89,7 @@ Les taus hadroniques ne sont considérés comme correspondant aux objets HLT qu'
 \DeltaRPair{0.5}
 \IfMoreOnePair
 \paragraph{Correspondance du \emph{dilepton} avec les \HLTpaths}
-Le muon et le tau hadronique \FromPairMatchToHLTObjects{}
+Le muon et le \tauh\ \FromPairMatchToHLTObjects{}
 Deux \HLTregionsDefined:
 \begin{itemize}
     \item bas \pT: $\pT^{\tauh} < \num{120} \, (\num{180}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018).
@@ -94,7 +97,7 @@ Deux \HLTregionsDefined:
     \item haut \pT: $\pT^{\tauh} > \num{120} \, (\num{180}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018).
         Une combinaison logique \og ou \fg{} des \HLTpaths\ \HLTSingleMu{} et \HLTSingleTau{} est considérée.
 \end{itemize}
-Dans le cas de l'utilisation du \HLTpath\ \HLTMuTauCross{}, le tau hadronique doit de plus:
+Dans le cas de l'utilisation du \HLTpath\ \HLTMuTauCross{}, le \tauh\ doit de plus:
 \begin{itemize}
     \item correspondre à l'objet HLT;
     \item $\pT^{\tauh} > \num{25} \, (\num{32}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018).
@@ -109,6 +112,7 @@ Dans le cas de l'utilisation du \HLTpath\ \HLTMuTauCross{}, le tau hadronique do
     \item \LeptonVetoesMuonPair.
 \end{itemize}
 
+\newpage
 \subsubsection{Canal \ele\tauh}\label{chapter-HTT_analysis-section-offline-et}
 \paragraph{Sélection des électrons}
 \AllSatisfyingFollowing{électron}{$L_1$}:
@@ -120,7 +124,7 @@ Dans le cas de l'utilisation du \HLTpath\ \HLTMuTauCross{}, le tau hadronique do
     \item passer le \NinetyNineEleMVA.
 \end{itemize}
 \paragraph{Sélection des taus hadroniques}
-\AllSatisfyingFollowing{tau hadronique}{$L_2$}:
+\AllSatisfyingFollowing{\tauh}{$L_2$}:
 \begin{itemize}
     \item $\pT^{\tauh} > \SI{30}{\GeV}$,
     \item $\abs{\eta^{\tauh}} < \num{2.3}$,
@@ -138,7 +142,7 @@ Dans le cas de l'utilisation du \HLTpath\ \HLTMuTauCross{}, le tau hadronique do
 \DeltaRPair{0.5}
 \IfMoreOnePair
 \paragraph{Correspondance du \emph{dilepton} avec les \HLTpaths}
-L'électron et le tau hadronique \FromPairMatchToHLTObjects{}
+L'électron et le \tauh\ \FromPairMatchToHLTObjects{}
 Deux \HLTregionsDefined:
 \begin{itemize}
     \item bas \pT: $\pT^{\tauh} < \num{120} \, (\num{180}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018).
@@ -146,7 +150,7 @@ Deux \HLTregionsDefined:
     \item haut \pT: $\pT^{\tauh} > \num{120} \, (\num{180}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018).
         Une combinaison logique \og ou \fg{} des \HLTpaths\ \HLTSingleEle{} et \HLTSingleTau{} est considérée.
 \end{itemize}
-Dans le cas de l'utilisation du \HLTpath\ \HLTEleTauCross{}, le tau hadronique doit de plus:
+Dans le cas de l'utilisation du \HLTpath\ \HLTEleTauCross{}, le \tauh\ doit de plus:
 \begin{itemize}
     \item correspondre à l'objet HLT;
     \item vérifier $\pT^{\tauh} > \num{25} \, (\num{35}) \usp \SI{}{\GeV}{\GeV}$ en 2016 (2017, 2018);
@@ -204,7 +208,7 @@ Il est possible d'obtenir plusieurs candidats \emph{dilepton} après application
 Dans ce cas, une seule et unique paire est conservée à l'aide des étapes de réjection suivantes:
 \begin{enumerate}
     \item préférer une paire avec $L_1$ le plus isolé possible ($L_2$ pour le canal \ele\mu);
-    \item en cas d'égalité, préférer une paire avec $L_1$ de plus haut \pT ($L_2$ pour le canal \ele\mu);
+    \item en cas d'égalité, préférer une paire avec $L_1$ de plus haut \pT\ ($L_2$ pour le canal \ele\mu);
     \item en cas d'égalité, préférer une paire avec $L_2$ le plus isolé possible ($L_1$ pour le canal \ele\mu);
-    \item en cas d'égalité, préférer une paire avec $L_2$ de plus haut \pT ($L_1$ pour le canal \ele\mu).
+    \item en cas d'égalité, préférer une paire avec $L_2$ de plus haut \pT\ ($L_1$ pour le canal \ele\mu).
 \end{enumerate}
