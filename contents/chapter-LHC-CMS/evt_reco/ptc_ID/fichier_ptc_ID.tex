@@ -185,6 +185,8 @@ Deux critères d'identification des électrons existent.
 Le premier est issu d'une analyse multivariée (MVA, \emph{MultiVariate Analysis}), le second est obtenu à partir de coupures (\emph{cuts}) sur certaines variables.
 \subparagraph{\EleIDMVA}
 Ce critère est basé sur un arbre de décision (BDT, \emph{Bossted Decision Tree}) \cite{cmsElectronMVA}.
+Le BDT est entraîné sur des événements $\text{Drell-Yan ($\Zboson/\photon^*$)} + \text{jets}$ simulés à l'aide de \MADGRAPH~\cite{madgraph5}.
+L'entraînement se fait à l'aide de \XGBOOST~\cite{xgboost}.
 Les variables prises en compte sont:
 \begin{itemize}
 \item l'impulsion transverse de l'électron $\pT^{(\ele)}$;
@@ -216,8 +218,6 @@ $p_\text{out}$ l'impulsion de l'électron obtenue d'après la courbe de sa traje
 \item la probabilité que l'électron soit issu d'une conversion $\photon\to\positron\electron$;
 \end{itemize}
 \par
-Le BDT est ainsi entraîné sur des événements $\text{Drell-Yan ($\Zboson/\photon^*$)} + \text{jets}$ simulés à l'aide de \MADGRAPH~\cite{madgraph5}.
-L'entraînement se fait à l'aide de \XGBOOST~\cite{xgboost}.
 Le point de fonctionnement à \SI{90}{\%} d'efficacité est défini à partir d'une valeur minimale de sortie du BDT.
 Cette valeur dépend de $\pT^{(\ele)}$ et $\eta^{(\ele)}$ ainsi que de l'année de prise de données.
 \subparagraph{\CutBasedEleID}
@@ -324,8 +324,9 @@ $I_{CH}^\text{rel}$ & \num{1.694} & \num{2.089} & \num{1.141} & \num{1.051} & \n
 \label{tab-CutBasedPhotonIdentificationRun2}
 \end{table}
 \paragraph{Reconstruction des électrons et des photons}
-L'identification des électrons et des photons isolés se base sur les éléments d'identification du \PF\ provenant du trajectographe et du ECAL.
-De par la présence de la matière du trajectographe, les électrons émettent des photons par \emph{bremsstrahlung} et les photons se convertissent en paires $\antielectron\electron$, ces électrons étant également sujets au \emph{bremsstrahlung}, etc.
+L'identification des électrons et des photons isolés se base sur les éléments d'identification du \PF\ du trajectographe et du ECAL.
+Lors de leur traversée du trajectographe, les électrons émettent des photons par \emph{bremsstrahlung}.
+De plus, les photons se convertissent en paires $\antielectron\electron$, ces électrons étant également sujets au \emph{bremsstrahlung}, etc.
 C'est pour cela qu'électrons et photons isolés sont traités de manières similaires pour leur reconstruction.
 \par Un candidat électron est défini lorsqu'une trace du trajectographe, extrapolée jusqu'au ECAL, est associée à un dépôt d'énergie, si ce dépôt n'est pas lui-même relié à trois autres traces ou plus.
 Les candidats photons isolés correspondent aux dépôts du ECAL avec une énergie transverse supérieure à \SI{10}{\GeV} n'étant pas associés à une trace.

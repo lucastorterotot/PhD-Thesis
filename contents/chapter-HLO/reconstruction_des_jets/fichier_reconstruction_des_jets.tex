@@ -252,7 +252,7 @@ Ce réseau est entraîné sur un ensemble d'événements simulés \ttbar, prése
 et
 \TENSORFLOW~\cite{tensorflow}.
 \par Les performances ainsi obtenues pour l'algorithme \DeepCSV\ sont comparées à d'autres algorithmes d'identification de la saveur des jets sur la figure~\ref{fig-chapter-HLO-section-jets_reco-subsec-flavor-bc_tag_roc_curves}.
-Les algorithmes \textsc{cMVAv2} et \DeepCSV\ présentent les meilleures performances en termes d'identification des jets de quark~\quarkb.
+Les algorithmes \textsc{cMVAv2} et \DeepCSV\ présentent les meilleures performances en termes d'identification des jets de quark~\quarkb\ (\quarkb-\emph{tagging}).
 Pour le traitement des jets de quark~\quarkc, l'algorithme \DeepCSV\ propose les meilleures performances.
 Dans les analyses présentées dans ce chapitre et le chapitre~\refChHTT, c'est cet algorithme qui est utilisé afin d'identifier les jets issus de quarks~\quarkc\ ou~\quarkb.
 \begin{figure}[p]
@@ -285,3 +285,22 @@ Dans les analyses présentées dans ce chapitre et le chapitre~\refChHTT, c'est 
 %keras 57
 %tensorflow 58
 %\emph{The efficiency for the tagging of b jets and the mistagging rate for light-flavour jets has been measured in both data and simulation. The efficiency and mistagging rate of the simulation is corrected through the application of efficiency and mistagging scale factors. The values of these factors and a description of the methods used to determine them can be found in Ref.~\cite{Sirunyan_heavy_flavor_jets_2018}.}
+\subsubsection{Correction de l'efficacité du \quarkb-\emph{tagging}}
+%\paragraph{\todo{move?} Efficacité du \quarkb-\emph{tagging} (\emph{Btag efficiency})}
+Le \POG\ BTV fournit des facteurs correctifs $SF$ à l'efficacité du \quarkb-\emph{tagging} en fonction de la saveur du jet au niveau généré, des propriété cinématiques du jet et du point de fonctionnement du discriminateur de \quarkb-\emph{tagging} utilisé~\cite{BTV}.
+Plus de détails sur l'obtention de ces facteurs sont disponibles dans la référence~\cite{Sirunyan_heavy_flavor_jets_2018}.
+Le taux de mauvaise identification est également corrigé.
+\par
+Pour cela, une méthode de promotion-relégation (\emph{promote-demote}) est utilisée.
+Une fraction des jets tagués~\quarkb, \ie\ identifiés comme issus d'un quark~\quarkb, est relégué à l'état de jet non tagué~\quarkb\ et
+une fraction des jets non tagués~\quarkb\ est promue à l'état de jet tagué~\quarkb.
+Un jet peut être promu si son facteur correctif $SF$ est supérieur à 1.
+Sinon, il peut être relégué.
+La probabilité d'être promu ou relégué s'exprime
+\begin{equation}
+P(\text{promu}) = \frac{SF-1}{\frac{1}{\epsilon}-1}, SF > 1
+\msep
+P(\text{relégué}) = 1 - SF, SF < 1
+\mend[,]
+\end{equation}
+avec $\epsilon$ l'efficacité du \quarkb-\emph{tagging}.

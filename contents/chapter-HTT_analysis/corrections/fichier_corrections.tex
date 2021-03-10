@@ -56,32 +56,6 @@ $\tauh2$ \HLTSingleTau\ appliqué à l'autre \tauh.
 \paragraph{Efficacité des \HLTpaths\ des muons et des électrons (\emph{lepton trigger scale factors})}
 De manière similaire au cas des \tauh, l'efficacité des \HLTpaths\ des leptons (muons et électrons) est déterminée dans les données réelles et simulées en fonction de l'impulsion transverse et de la pseudorapidité du lepton.
 Cette démarche est réalisée pour les \HLTpaths\ \HLTSingleMu, \HLTSingleEle, \HLTMuTauCross\ et \HLTEleTauCross.
-\paragraph{\todo{move?} Efficacité d'identification et isolation des muons et des électrons (\emph{muon/electron ID/iso efficiency})}
-L'efficacité de l'identification des muons et des électrons ainsi que la mesure de leur isolation peut différer entre données réelles et simulées.
-Des facteurs correctifs sont déterminés par le groupe \Higgs\tau\tau.
-Ils sont appliqués individuellement à chaque muon et électron utilisé dans l'analyse et dépendent de l'année ainsi que de la nature des données, simulées ou encapsulées.
-\paragraph{Efficacité du trajectographe (\emph{tracking efficiency})}
-L'efficacité de la reconstruction des traces des particules n'est pas la même selon la nature des données, réelles ou simulées, comme l'ont constaté les \POG s EGamma et \emph{tracking} dans le cas des électrons et des muons.
-Le cas des muons a une incidence sur les \tauh\ des données encapsulées.
-Des facteurs d'échelle, que ces \POG s fournissent, sont appliqués afin de corriger cet effet.
-\paragraph{\todo{move?} Efficacité du \quarkb-\emph{tagging} (\emph{Btag efficiency})}
-Le \POG\ BTV fournit des facteurs correctifs $SF$ à l'efficacité du \quarkb-\emph{tagging} en fonction de la saveur du jet au niveau généré, des propriété cinématiques du jet et du point de fonctionnement du discriminateur de \quarkb-\emph{tagging} utilisé~\cite{BTV}.
-Plus de détails sur l'obtention de ces facteurs sont disponibles dans la référence~\cite{Sirunyan_heavy_flavor_jets_2018}.
-Le taux de mauvaise identification est également corrigé.
-\par
-Pour cela, une méthode de promotion-relégation (\emph{promote-demote}) est utilisée.
-Une fraction des jets tagués~\quarkb, \ie\ identifiés comme issus d'un quark~\quarkb, est relégué à l'état de jet non tagué~\quarkb\ et
-une fraction des jets non tagués~\quarkb\ est promue à l'état de jet tagué~\quarkb.
-Un jet peut être promu si son facteur correctif $SF$ est supérieur à 1.
-Sinon, il peut être relégué.
-La probabilité d'être promu ou relégué s'exprime
-\begin{equation}
-P(\text{promu}) = \frac{SF-1}{\frac{1}{\epsilon}-1}, SF > 1
-\msep
-P(\text{relégué}) = 1 - SF, SF < 1
-\mend[,]
-\end{equation}
-avec $\epsilon$ l'efficacité du \quarkb-\emph{tagging}.
 %\subsection{Correction d'énergie}
 \begin{wrapfigure}{R}{5cm}
 \vspace{\baselineskip}
@@ -147,18 +121,3 @@ Le poids total à appliquer aux événements \ttbar\ contenant deux quarks~\quar
 \omega(\text{total}) = \sqrt{\omega(1) \times \omega(2)}
 \mend
 \end{equation}
-\paragraph{\todo{move?} Énergie des électrons (\emph{electron energy scale})}
-La mesure de l'énergie des électrons dans les données simulées est corrigée selon les recommandations du \POG\ EGamma (électrons et photons)~\cite{EGammaPOG}, résumées dans le tableau~\ref{tab-chapter-HTT_analysis-section-corrections-eleES}.
-\begin{table}[h]
-\centering
-\begin{tabular}{lccc}
-\toprule
-Région du détecteur & 2016 & 2017 & 2018\\
-\midrule
-\CMSBarrel\ ($\abs{\eta}<\num{1.479}$) & $\num{-0.24}\pm\num{0.5}$ & $\num{-0.07}\pm\num{0.5}$ & $\num{-0.33}\pm\num{0.5}$ \\
-\CMSEndcaps\ ($\abs{\eta}>\num{1.479}$) & $\num{-0.70}\pm\num{1.25}$ & $\num{-1.13}\pm\num{1.25}$ & $\num{-0.56}\pm\num{1.25}$ \\
-\bottomrule
-\end{tabular}
-\caption[Corrections à l'énergie des électrons.]{Corrections à l'énergie des électrons en \SI{}{\%} avec incertitude pour les trois années du Run~II.}
-\label{tab-chapter-HTT_analysis-section-corrections-eleES}
-\end{table}

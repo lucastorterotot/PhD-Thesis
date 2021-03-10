@@ -2,10 +2,10 @@
 \subsubsection{Traces des particules chargées et vertex}\label{chapter-LHC-section-evt_reco-subsec-PF_elements-subsubsec-tracks}
 \paragraph{Traces des particules chargées}
 Les particules chargées laissent des traces de leur passage dans le trajectographe et, dans le cas des muons, dans les chambres à muons.
-La structure du trajectographe présentée en section~\ref{chapter-LHC-section-CMS-subsec-tracker} ne donne pas de traces continues mais des points de passage de ces particules.
+Le trajectographe, présenté section~\ref{chapter-LHC-section-CMS-subsec-tracker}, ne donne pas de traces continues mais des points de passage de ces particules.
 \par
 Les traces des particules sont reconstruites à partir de ces points de passage à l'aide d'une méthode itérative~\cite{particle-flow,track_reco}.
-Un détecteur de traces par combinaison basé sur un filtre de Kalman (KF) reconstruit les traces selon la procédure suivante:
+Un détecteur de traces par combinaison basé sur un filtre de Kalman (KF) \cite{Kalman_filter} reconstruit les traces selon la procédure suivante:
 \begin{enumerate}
 \item Une trajectoire initiale est générée à partir d'un ajustement à quelques points de passages.
 Cette trajectoire doit être compatible avec celle d'une particule chargée.
@@ -20,11 +20,11 @@ Les points de passage associés à une trace acceptée sont retirés de la liste
 \end{enumerate}
 Cette procédure est alors répétée en utilisant des critères de plus en plus précis afin d'augmenter l'efficacité de la reconstruction des traces.
 Le taux de mauvaise reconstruction est quant à lui réduit en appliquant des critères de qualité sur les traces reconstruites.
-Plus de détails sont disponibles dans la référence~\cite{particle-flow}.
+%Plus de détails sont disponibles dans la référence~\cite{particle-flow}.
 \subparagraph{Cas des électrons}
 La reconstruction des électrons de haute énergie et isolés vis-à-vis des autres particules est naturellement basée sur les données du ECAL.
 La position et la valeur du dépôt d'énergie sont utilisés afin de déterminer les points de passage attendus dans le trajectographe pour l'électron (ou le positron).
-Cependant, à cause de l'épaisseur du trajectographe, les électrons émettent avant de parvenir au ECAL une fraction non négligeable de leur énergie par \emph{bremsstrahlung}, \ie\ sous forme de photons.
+Cependant, à cause de l'épaisseur du trajectographe, les électrons émettent avant de parvenir au ECAL une fraction de leur énergie par \emph{bremsstrahlung}, \ie\ sous forme de photons.
 Les performances de reconstruction des électrons dépendent ainsi fortement de la capacité à identifier ces photons et mesurer leurs énergies.
 Les dépôts d'énergie dans le ECAL (\emph{clusters}) dus l'électron et aux photons potentiellement issus du \emph{bremsstrahlung} sont regroupés en un \emph{supercluster}.
 Le \emph{supercluster} est construit à partir des dépôts du ECAL se situant dans une fenêtre fine en $\eta$ et plus large en $\phi$ afin de prendre en compte la courbure de la trajectoire de l'électron due au champ magnétique.
@@ -104,4 +104,4 @@ Cependant, un dépôt de particule neutre situé au même endroit qu'un dépôt 
 Une bonne calibration de la réponse des calorimètres aux photons et aux hadrons est donc cruciale pour la bonne reconstruction des particules neutres.
 Cette calibration a été réalisé dans un premier temps avant les premières collisions à l'aide de faisceaux de test.
 Une fois les collisions commencées, les données issues des celles-ci sont exploitées afin de calibrer plus finement les calorimètres.
-Plus de détails sont disponibles dans la section~3.5 de la référence~\cite{particle-flow}.
+%Plus de détails sont disponibles dans la section~3.5 de la référence~\cite{particle-flow}.

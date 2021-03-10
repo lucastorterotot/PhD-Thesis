@@ -1,6 +1,6 @@
 \section{Simulation d'événements}\label{chapter-LHC-section-MC}
 La simulation d'événements permet de comparer les résultats expérimentaux aux prédictions théoriques.
-Elle se déroule en deux temps.
+Elle se déroule en plusieurs étapes.
 \par Premièrement, les processus physiques prédits par le modèle théorique à tester sont simulés.
 La nature probabiliste des ces processus mène à utiliser un générateur d'événements Monte-Carlo.
 Cette étape est détaillée en section~\ref{chapter-LHC-section-MC-subsec-evt_gen}.
@@ -8,6 +8,10 @@ Les particules issues des collisions sont alors obtenues ainsi que toute l'histo
 \par Deuxièmement, la propagation de ces particules dans le détecteur, leurs interactions avec ses différents composants et les signaux qui en résultent sont également simulés.
 Cette simulation du détecteur est l'objet de la section~\ref{chapter-LHC-section-MC-subsec-detector_sim}.
 Cette méthode permet d'obtenir une estimation des signaux devant être observés avec le détecteur si le modèle testé est le modèle décrivant effectivement l'Univers.
+\par
+La reconstruction des événements telle que décrite dans la section précédente peut alors avoir lieu.
+Toutefois, des écarts résiduels existent entre les estimations obtenues par simulation et la réalité.
+Des analyses dédiées permettent d'obtenir les corrections à appliquer aux données simulées afin de réduire ces écarts.
 \subsection{Génération d'événements}\label{chapter-LHC-section-MC-subsec-evt_gen}
 Lorsque deux protons entrent en collision, ce sont leurs constituants respectifs interagissent.
 Ces constituants portent une fraction $x$ de l'énergie totale du proton, comme expliqué dans la section~\ref{chapter-LHC-section-LHC-subsec-pp_collisions}.
@@ -49,4 +53,35 @@ Alors, la modélisation de l'électronique et du système de déclenchement donn
 \par Cette simulation du détecteur est basée sur le logiciel
 \GEANTfour~\cite{geant4_2003,geant4_2006,geant4_2016}.
 La modélisation complète et précise du détecteur (câblage interne, système de refroidissement, éléments de structure, etc.) permet d'obtenir des résultats fidèles à la réalité.
-Les signaux simulés du détecteur ainsi obtenus sont alors traités, comme dans le cas des données réelles, par l'algorithme de \emph{Particle Flow}, abordé dans la section suivante, permettant de reconstruire l'événement physique à partir des signaux du détecteur.
+Les signaux simulés du détecteur ainsi obtenus sont alors traités, comme dans le cas des données réelles, par l'algorithme de \emph{Particle Flow}, abordé dans la section précédente, permettant de reconstruire l'événement physique à partir des signaux du détecteur.
+\subsection{Corrections apportées aux simulations}
+Des écarts résiduels entre les données simulées et la réalité qu'elles doivent décrire existent et sont mesurés par des analysés dédiées.
+Ces analyses fournissent alors des corrections à appliquer aux simulations.
+Il existe également des données hybrides, dont les événements sont construits à partir de données réelles et simulées.
+Il s'agit des données dites \og encapsulées \fg{} (\emph{embedded}) présentées dans le chapitre~\refChHTT, pour lesquelles certaines de ces corrections peuvent être différentes de celles à appliquer aux données \SI{100}{\%} simulées.
+\par
+Les corrections données ci-après sont indépendantes de l'analyse menée et portent sur les particules individuelles.
+Les corrections à apporter aux objets de haut niveau sont présentées dans le chapitre~\refChHLO.
+\paragraph{Efficacité d'identification et isolation des muons et des électrons (\emph{muon/electron ID/iso efficiency})}
+%L'efficacité de l'identification des muons et des électrons ainsi que la mesure de leur isolation peut différer entre données réelles et simulées.
+Des facteurs correctifs sont déterminés par le groupe \Higgs\tau\tau.
+Ils sont appliqués individuellement à chaque muon et électron utilisé dans les analyses et dépendent de l'année ainsi que de la nature des données, simulées ou encapsulées.
+\paragraph{Efficacité du trajectographe (\emph{tracking efficiency})}
+L'efficacité de la reconstruction des traces des particules n'est pas la même selon la nature des données, réelles ou simulées, comme l'ont constaté les \POG s EGamma (électrons et photons) et \emph{tracking} dans le cas des électrons et des muons.
+%Le cas des muons a une incidence sur les \tauh\ des données encapsulées.
+Des facteurs d'échelle, que ces \POG s fournissent, sont appliqués afin de corriger cet effet.
+\paragraph{Énergie des électrons (\emph{electron energy scale})}
+La mesure de l'énergie des électrons dans les données simulées est corrigée selon les recommandations du \POG\ EGamma~\cite{EGammaPOG}, résumées dans le tableau~\ref{tab-chapter-HTT_analysis-section-corrections-eleES}.
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Région du détecteur & 2016 & 2017 & 2018\\
+\midrule
+\CMSBarrel\ ($\abs{\eta}<\num{1.479}$) & $\num{-0.24}\pm\num{0.5}$ & $\num{-0.07}\pm\num{0.5}$ & $\num{-0.33}\pm\num{0.5}$ \\
+\CMSEndcaps\ ($\abs{\eta}>\num{1.479}$) & $\num{-0.70}\pm\num{1.25}$ & $\num{-1.13}\pm\num{1.25}$ & $\num{-0.56}\pm\num{1.25}$ \\
+\bottomrule
+\end{tabular}
+\caption[Corrections à l'énergie des électrons.]{Corrections à l'énergie des électrons en \SI{}{\%} avec incertitude pour les trois années du Run~II.}
+\label{tab-chapter-HTT_analysis-section-corrections-eleES}
+\end{table}
