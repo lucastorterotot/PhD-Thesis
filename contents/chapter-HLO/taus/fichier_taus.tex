@@ -13,8 +13,8 @@ Du lepton tau résulte alors un ensemble de hadrons, comme illustré sur la figu
 Ces hadrons, en général trois ou moins, sont éventuellement accompagnés de particules neutres, principalement des \pionnull.
 Ces derniers se désintégrant majoritairement en deux photons.
 L'ensemble de ces particule forme un \og tau hadronique \fg, noté \tauh, et est initialement identifié comme un jet.
-\subsection{Obtention de candidats tau hadronique}
-L'identification des taus hadroniques est réalisée par l'algorithme \emph{Hadrons Plus Strips} (HPS)~\cite{Khachatryan:2015dfa,Sirunyan:2018pgf} à partir des jets reconstruits par l'algorithme de \PF\ vérifiant $\pT>\SI{14}{\GeV}$ et $\abs{\eta}<\num{2.5}$.
+\subsection{Obtention de candidats}
+L'identification des \tauh\ est réalisée par l'algorithme \emph{Hadrons Plus Strips} (HPS)~\cite{Khachatryan:2015dfa,Sirunyan:2018pgf} à partir des jets reconstruits par l'algorithme de \PF\ vérifiant $\pT>\SI{14}{\GeV}$ et $\abs{\eta}<\num{2.5}$.
 Les hadrons chargés contenus dans le jet initial tels que $\pT>\SI{0.5}{\GeV}$ et de paramètre d'impact transverse $d_{xy}<\SI{0.1}{\centi\meter}$ vis-à-vis du vertex primaire principal sont utilisés pour former des candidats \tauh.
 \par
 Afin d'identifier les dépôts d'énergie dans le ECAL dus aux \pionnull, les photons et les électrons contenus dans le jet initial sont regroupés en bandes (\emph{strips}).
@@ -42,8 +42,9 @@ Les dimensions de la bande sont limitées à $\num{0.05}<\Delta\eta<\num{0.15}$ 
 Toute bande vérifiant $\pT>\SI{2.5}{\GeV}$ est considérée comme un candidat \pionnull.
 \par
 Des candidats \tauh\ compatibles avec un des modes de désintégration hadronique du tau sont ainsi formés à partir de toutes les combinaisons possibles de hadrons chargés et de candidats \pionnull.
-\subsection{Modes de désintégration hadronique du tau}
+\subsection{Modes de désintégration}
 Les modes de désintégration (\emph{Decay Modes}, DM) principaux et physiquement possibles sont listés dans le tableau~\ref{tab-tauh-DMs}.
+Une liste exhaustive est disponible dans la référence~\cite{PDG_booklet_2020}.
 À chaque DM correspond une valeur afin de le désigner, définie comme
 \begin{equation}
 \text{DM} = 5\times(N_{\hadronpm}-1) + N_{\pionnull}
@@ -75,7 +76,7 @@ Certains DM présentent des contraintes supplémentaires sur la masse du \tauh:
 \text{DM 10 et 11:} && \SI{0.8}{\GeV} < m_{\tauh} < \SI{1.5}{\GeV}\mend[,]\\
 \end{align*}
 et, dans le cas du DM 10, les traces des hadrons chargés doivent provenir du même vertex dans la limite de $\Delta z < \SI{0.4}{\centi\meter}$.
-\subsection{Sélection d'un candidat \tauh}
+\subsection{Sélection d'un candidat}
 Il est possible d'obtenir plusieurs candidats \tauh\ au sein d'un même jet.
 Des critères de qualité sur les candidats leur sont alors imposés.
 \par
@@ -90,7 +91,7 @@ Ces hadrons chargés doivent de plus être contenus dans le cône dit \og de sig
 Les centres des bandes du candidat \tauh\ doivent également se situer dans ce cône.
 S'il reste plusieurs candidats à ce stade, celui de plus haut \pT\ est retenu.
 Il existe donc au plus un \tauh\ par jet.
-\subsection{Mauvaises reconstruction de \tauh}
+\subsection{Mauvaises reconstruction}
 Un \tauh\ peut être reconstruit à partir de jets n'étant pas des \tauh, d'électrons ou de muons.
 Afin de réduire la quantité de mauvais \tauh\ (\ftauh), un réseau de neurones profond convolutionnel (DNN)~\cite{DNN} a été développé à CMS.
 Il s'agit de l'algorithme \DEEPTAU~\cite{CMS-DP-2019-033} qui fournit les discriminateurs
@@ -115,7 +116,7 @@ Discriminateur & \emph{VVTight} & \emph{VTight} & \emph{Tight} & \emph{Medium} &
 \caption[Efficacités d'identification de l'algorithme \DEEPTAU.]{Efficacités d'identification en \SI{}{\%} de l'algorithme \DEEPTAU\ pour chacun des points de fonctionnement disponibles~\cite{CMS-DP-2019-033,Androsov_deeptau}.}
 \label{tab-HLO-section-taus-DEEPTAU_eff}
 \end{table}
-\subsection{Corrections apportées aux \tauh}
+\subsection{Corrections}
 Des corrections sont appliquées aux \tauh\ afin que la description des données réelles par les données simulées et encapsulées soit meilleure.
 Les données encapsulées sont présentées dans le chapitre~\refChHTT.
 \paragraph{Efficacité d'identification et isolation des \tauh\ (\emph{\tauh\ ID/iso scale factors})}
