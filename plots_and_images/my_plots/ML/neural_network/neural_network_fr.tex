@@ -1,0 +1,64 @@
+\def\drawN{}
+\renewcommand{\drawN}[2][c]{
+\node [draw, circle] (#1) at (#2) {};
+}
+\def\linkN#1#2{
+\draw [-latex] (#1) -- (#2);
+}
+\begin{tikzpicture}
+
+\foreach \y in {0,1,2,-2}{
+\foreach \x in {1,2,...,5}{
+\drawN[\x\y]{\x,\y}
+}
+}
+
+\foreach \yi/\N in {1.5/1,0.5/2,-1.5/n}{
+\fill (-.5,\yi) circle(2pt) node [left] {$x_{\N}$};
+\foreach \y in {0,1,2,-2}{
+\draw [-latex] (-.5,\yi) -- (1\y);
+}
+}
+
+\drawN[No]{6.5,0}
+
+\draw [-latex] (No) --+ (.5,0) node [right] {$y=F(\vec{x})$};
+
+\foreach \ya in {0,1,2,-2}{
+\foreach \yb in {0,1,2,-2}{
+\linkN{5\ya}{No}
+\foreach \xa/\xb in {1/2,2/3,3/4,4/5}{
+\linkN{\xa\ya}{\xb\yb}
+}
+}
+}
+
+\fill[white] (2.33,-2.5) rectangle (4.66,2.5);
+
+\foreach \x/\y in {-.5/-.5,1/-1,2/-1,5/-1}{
+\fill (\x,\y) circle (1pt);
+\fill (\x,\y+.2) circle (1pt);
+\fill (\x,\y-.2) circle (1pt);
+}
+
+\foreach \y in {0,1,2,-2}{
+\fill (3.5,\y) circle (1pt);
+\fill (3.5+.2,\y) circle (1pt);
+\fill (3.5-.2,\y) circle (1pt);
+}
+
+\foreach \x in {.25,5.75}{
+\draw [thick, dotted, CERNblue] (\x,-2.5) -- (\x,2.5);
+}
+
+\draw [CERNblue] (-.65, 2.5) node {Couche d'entrée\vphantom{Àq}};
+\draw [CERNblue] (3, 2.5) node {Couches cachées\vphantom{Àq}};
+\draw [CERNblue] (7.5, 2.5) node {Couche de sortie\vphantom{Àq}};
+
+\draw [thick, ltcolorred, latex-latex] (.25,-2.25) -- (5.75,-2.25);
+\draw [ltcolorred] (3, -2.5) node {$N_L$\vphantom{Àq}};
+
+\draw [thick, ltcolorred, latex-latex] (4.5,-2.125) -- (4.5,2.125);
+\draw [ltcolorred] (4.5, 0) node [left] {$N_N$\vphantom{Àq}};
+
+\end{tikzpicture}
