@@ -197,23 +197,23 @@ Les variables prises en compte sont:
 \item la circularité du dépôt d'énergie, $1- E_{1\times5}/E_{5\times5}$, où $ E_{1\times5}$ et $E_{5\times5}$ correspondent respectivement aux énergies dans une région de $1\times5$ et $5\times5$ cristaux centré sur le cristal contenant le plus d'énergie dans le \emph{supercluster};
 \item $R_9 = \frac{E_{3\times3}}{E_{SC}}$, où $E_{SC}$ est l'énergie contenue dans le \emph{supercluster};
 \item $H/E_{SC}$ où $H$ est l'énergie hadronique située dans un cône de $\Delta R < \num{0.15}$ autour de l'électron;
-\item $E_{SC}^\text{PS}/E_{SC}^\text{raw}$ le rapport de l'énergie du \emph{supercluster} située dans le \emph{PreShower} sur son énergie totale non corrigée.
+\item $E_{SC}^\text{PS}/E_{SC}^\text{raw}$ le rapport de l'énergie du \emph{supercluster} située dans le \emph{PreShower} sur son énergie totale non corrigée;
 \item la largeur du \emph{supercluster}, $\Delta \eta_{SC}$ et $\Delta \phi_{SC}$;
 
 \item le $\chi^2$ de l'ajustement de la trajectoire;
 \item le nombre de \emph{hits} valides utilisés pour l'ajustement de la trajectoire;
 \item le $\chi^2$ de l'ajustement de la trajectoire GSF (\emph{GSFtrack});%. Le \emph{Gaussian Sum Filter} est une méthode de traitement du signal~\cite{GSF};
-\item le nombre de \emph{hits} utilisés pour l'ajustement de la trajectoire GSF, $N_\text{lost}^\text{GSF}$;
-\item le nombre attendu de \emph{hits} manquants;
+\item le nombre de \emph{hits} utilisés pour l'ajustement de la trajectoire GSF, $N^\text{GSF}$;
+\item le nombre attendu de \emph{hits} manquants, $N_\text{lost}^\text{GSF}$;
 \item la fraction d'énergie perdue par \emph{bremsstrahlung}, $f_\text{brem} = 1-p_\text{out}/p_\text{in}$ où
 $p_\text{in}$ est l'impulsion de l'électron obtenue d'après la courbe de sa trajectoire près du vertex primaire et
 $p_\text{out}$ l'impulsion de l'électron obtenue d'après la courbe de sa trajectoire près de la surface de ECAL;
 
 \item $E_{SC}/p_\text{in}$;
 \item $E_{\PF}/p_\text{in}$ avec $E_{\PF}$ est l'énergie du \emph{supercluster} le plus proche du point d'entrée de l'électron dans le ECAL;
-\item les écarts $\Delta\eta$ et $\Delta\phi$ entre le \emph{supercluster} et la direction de la trace associée à l'électron au niveau du vertex primaire;
-\item l'écart $\Delta\eta$ entre le \emph{supercluster} et la direction de la trace associée à l'électron au niveau de la surface du ECAL;
-\item $1/E_{\ele}-1/P_{\ele}$ où $E_{\ele}$ est l'énergie de l'électron et $P_{\ele}$ son impulsion.
+\item les écarts $\Delta\eta_\text{in}$ et $\Delta\phi_\text{in}$ entre le \emph{supercluster} et la direction de la trace associée à l'électron au niveau du vertex primaire;
+\item l'écart $\Delta\eta_\text{out}$ entre le \emph{supercluster} et la direction de la trace associée à l'électron au niveau de la surface du ECAL;
+\item $1/E_{\ele}-1/p_{\ele}$ où $E_{\ele}$ est l'énergie de l'électron et $p_{\ele}$ son impulsion;
 
 \item la probabilité que l'électron soit issu d'une conversion $\photon\to\positron\electron$;
 \end{itemize}
@@ -279,15 +279,14 @@ la collaboration CMS propose des critères d'identification des photons (lâche,
 \par
 Les variables exploitées sont:
 \begin{itemize}
-\item $H/E_{SC}$ est le rapport de l'énergie hadronique dans un cône de $\Delta R < \num{0.15}$ autour du photon sur l'énergie du \emph{supercluster}.
-Un photon est sensé déposer son énergie dans le ECAL et ne laisser aucun signal dans le HCAL.
-Une faible valeur de $H/E_{SC}$ est donc compatible avec un photon.
-\item $\sigma_{i\eta i\eta}$ est l'étalement en $\eta$ du dépôt d'énergie dans le ECAL.
-Cette observable est reliée à la forme de la gerbe électromagnétique.
-Un seuil maximal sur $\sigma_{i\eta i\eta}$ est imposé pour l'identification des photons.
-\item $I_{CH}^\text{rel}$ est l'isolation relative vis-à-vis des hadrons chargés.
-\item $I_{NH^\text{rel}}$ est l'isolation relative vis-à-vis des hadrons neutres.
-\item $I_{\photon}^\text{rel}$ est l'isolation relative vis-à-vis des photons.
+\item $H/E_{SC}$ où $H$ est l'énergie hadronique située dans un cône de $\Delta R < \num{0.15}$ autour du photon et $E_{SC}$ l'énergie contenue dans le \emph{supercluster};
+%\item $H/E_{SC}$ le rapport de l'énergie hadronique dans un cône de $\Delta R < \num{0.15}$ autour du photon sur l'énergie du \emph{supercluster}.
+%Un photon est sensé déposer son énergie dans le ECAL et ne laisser aucun signal dans le HCAL.
+%Une faible valeur de $H/E_{SC}$ est donc compatible avec un photon.
+\item $\sigma_{i\eta i\eta}$ l'étalement en $\eta$ du dépôt d'énergie dans le ECAL;
+\item $I_{CH}^\text{rel}$ l'isolation relative vis-à-vis des hadrons chargés;
+\item $I_{NH}^\text{rel}$ l'isolation relative vis-à-vis des hadrons neutres;
+\item $I_{\photon}^\text{rel}$ l'isolation relative vis-à-vis des photons.
 \end{itemize}
 À cet ensemble de variables dont une valeur maximale est admise pour l'identification des photons s'ajoute $R_9$, définie comme
 \begin{equation}

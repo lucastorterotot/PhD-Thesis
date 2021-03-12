@@ -26,10 +26,10 @@ La reconstruction des électrons de haute énergie et isolés vis-à-vis des aut
 La position et la valeur du dépôt d'énergie sont utilisés afin de déterminer les points de passage attendus dans le trajectographe pour l'électron (ou le positron).
 Cependant, à cause de l'épaisseur du trajectographe, les électrons émettent avant de parvenir au ECAL une fraction de leur énergie par \emph{bremsstrahlung}, \ie\ sous forme de photons.
 Les performances de reconstruction des électrons dépendent ainsi fortement de la capacité à identifier ces photons et mesurer leurs énergies.
-Les dépôts d'énergie dans le ECAL (\emph{clusters}) dus l'électron et aux photons potentiellement issus du \emph{bremsstrahlung} sont regroupés en un \emph{supercluster}.
+Les dépôts d'énergie dans le ECAL (\emph{clusters}) dus à l'électron et aux photons potentiellement issus du \emph{bremsstrahlung} sont regroupés en un \emph{supercluster}.
 Le \emph{supercluster} est construit à partir des dépôts du ECAL se situant dans une fenêtre fine en $\eta$ et plus large en $\phi$ afin de prendre en compte la courbure de la trajectoire de l'électron due au champ magnétique.
 \par
-Dans le cas des électrons contenus dans les jets, en revanche, un biais apparaît à cause des autres particules du jet située à proximité de l'électron.
+Dans le cas des électrons contenus dans les jets, en revanche, un biais apparaît à cause des autres particules du jet situées à proximité de l'électron.
 Cet effet mène à un fort taux de mauvaise reconstruction.
 L'identification des électrons à partir du ECAL est ainsi limitée aux cas d'électrons isolés des autres particules.
 Afin de reconstruire les électrons exclus par cette limitation, une approche basée sur les données du trajectographe a été développée~\cite{particle-flow}.
@@ -40,8 +40,8 @@ De plus, l'extrapolation de cette trace jusqu'à la surface du ECAL permet de lu
 L'énergie contenue dans le dépôt doit alors être compatible avec celle déterminée à partir de la trace.
 \par
 Plus l'électron émet de l'énergie par \emph{bremsstrahlung}, moins l'ajustement de la trace correspondante est de qualité, car cet ajustement ne prend pas en compte la perte d'énergie au cours de la propagation de l'électron.
-Les traces correspondant à cette situation sur sélectionnées à partir du nombre de points de passage associés et du $\chi^2$ de l'ajustement.
-Elles sont réajustées à partir d'un filtre de somme de gaussiennes (GSF, \emph{Gaussian Sum Filter}) \cite{GSF} utilisant cinq paramètres, plus adapté que le KF pour ces électrons.
+Les traces correspondant à cette situation sont sélectionnées à partir du nombre de points de passage associés et du $\chi^2$ de l'ajustement.
+Elles sont réajustées à partir d'un filtre de somme de gaussiennes (GSF, \emph{Gaussian Sum Filter}) \cite{GSF} utilisant cinq paramètres, plus adapté que le KF pour ces électrons~\cite{particle-flow}.
 Un critère d'identification basé sur un arbre de décision (BDT, \emph{Bossted Decision Tree}) est appliqué sur cet ajustement, il est détaillé dans la section~\ref{chapter-LHC-section-evt_reco-subsec-ptc_ID}.
 \subparagraph{Cas des muons}
 %Les chambres à muons permettent d'identifier ces particules avec une grande efficacité.
