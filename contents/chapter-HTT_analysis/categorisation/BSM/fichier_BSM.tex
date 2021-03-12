@@ -12,29 +12,29 @@ Dans le cas des canaux \mu\tauh, \ele\tauh\ et \ele\mu, chacune de ces deux cat�
 \paragraph{Canaux \mu\tauh\ et \ele\tauh}
 Dans ces deux canaux, la masse transverse de $L_1$ (le muon ou l'électron, notés $\ell$) définie par
 \begin{equation}
-\mT^{(\ell)} = \sqrt{2 \, \pT^{(\ell)} \, \MET \, (1-\cos\Delta\phi)} \label{eq-mT_def-ell}
+\mT^{\ell} = \sqrt{2 \, \pT^{\ell} \, \MET \, (1-\cos\Delta\phi)} \label{eq-mT_def-ell}
 \end{equation}
-avec $\Delta\phi = \phi^{(\ell)} - \phi^{(\MET)}$
+avec $\Delta\phi = \phi^{\ell} - \phi^{\MET}$
 est utilisée afin de définir deux catégories:
 \begin{itemize}
-\item \CATtightmt: $\mT^{(\ell)} < \SI{40}{\GeV}$;
-\item \CATloosemt: $\SI{40}{\GeV} \leq \mT^{(\ell)} < \SI{70}{\GeV}$;
+\item \CATtightmt: $\mT^{\ell} < \SI{40}{\GeV}$;
+\item \CATloosemt: $\SI{40}{\GeV} \leq \mT^{\ell} < \SI{70}{\GeV}$;
 \end{itemize}
 la limite haute sur \mT\ pour la catégorie \CATloosemt\ étant appliquée afin de s'assurer que la région de signal soit orthogonale à la région de détermination (DR) des facteurs de faux des événements $\Wboson+\text{jets}$.
 Les facteurs de faux sont abordés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
 La majorité des événements de signal, en particulier pour \Higgs\ et \HiggsA\ de basse masse, se trouve dans la catégorie \CATtightmt.
 La catégorie \CATloosemt\ permet quant à elle d'augmenter l'acceptance du signal pour $m_{\Higgs,\HiggsA} > \SI{700}{\GeV}$.
-La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT} illustre ces coupures sur $\mT^{(\ell)}$ dans le cas du canal \ele\tauh\ pour l'année 2018.
+La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT} illustre ces coupures sur $\mT^{\ell}$ dans le cas du canal \ele\tauh\ pour l'année 2018.
 \begin{figure}[h]
 \centering
 
-\subcaptionbox{Catégorisation basée sur $\mT^{(\ell)}$.\label{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT}}[.475\textwidth]
+\subcaptionbox{Catégorisation basée sur $\mT^{\ell}$.\label{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT}}[.475\textwidth]
 {\plotHTTcontrolCATmt{2018}{emb_ff}{et}}
 \hfill
 \subcaptionbox{Catégorisation basée sur \Dzeta.\label{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-Dz}}[.475\textwidth]
 {\plotHTTcontrolCATdz{2018}{emb_ff}{em}}
 
-\caption[Illustrations des catégorisations basées sur $\mT^{(\ell)}$ et \Dzeta]{Illustrations des catégorisations basées sur $\mT^{(\ell)}$ et \Dzeta, respectivement sur les événements des canaux \ele\tauh\ et \ele\mu\ de l'année 2018.}
+\caption[Illustrations des catégorisations basées sur $\mT^{\ell}$ et \Dzeta]{Illustrations des catégorisations basées sur $\mT^{\ell}$ et \Dzeta, respectivement sur les événements des canaux \ele\tauh\ et \ele\mu\ de l'année 2018.}
 \label{fig-chapter-HTT_analysis-section-categorisation-BSM-subcats}
 \end{figure}
 \paragraph{Canal \ele\mu}
@@ -119,7 +119,7 @@ Il est donc impossible de déterminer la masse invariante.
 Toutefois, l'énergie transverse manquante, introduite dans le chapitre~\refChHLO, correspond à la somme des impulsions transverses de toutes les particules invisibles de l'événement.
 Alors, sauf défaut du détecteur menant à une mauvaise reconstruction des particules visibles,
 \begin{equation}
-\vMET = \sum_{\nu_i} \vpT^{(\nu_i)}
+\vMET = \sum_{\nu_i} \vpT^{\nu_i}
 \end{equation}
 où la somme se fait sur tous les neutrinos de l'événement dont ceux de l'état final du processus $\Higgs\to\tau\tau$.
 \par
@@ -137,15 +137,15 @@ le calcul de la \og masse invariante \fg{} de ce système à trois corps donne
 m^2 &= E^2 - p^2
 = \left( \sum_{i \in \set{L_1,L_2,\sum\nu}} E_i \right)^2 - \left( \sum_{i \in \set{L_1,L_2,\sum\nu}} \vpT^i \right)^2
 \nonumber\\
-&= \left( E_{L_1} + E_{L_2} + \MET \right)^2 - \left( \vpT^{(L_1)} + \vpT^{(L_2)} + \vMET \right)^2
+&= \left( E_{L_1} + E_{L_2} + \MET \right)^2 - \left( \vpT^{L_1} + \vpT^{L_2} + \vMET \right)^2
 \nonumber\\
 &= E_{L_1}^2 + E_{L_2}^2 + \MET^2 + 2 \left( E_{L_1}E_{L_2} + E_{L_1}\MET + E_{L_2}\MET \right)
 \nonumber\\
-&\hphantom{=} - \left( {\vpT^{(L_1)}}^2 + {\vpT^{(L_2)}}^2 + {\vMET}^2 \right) - 2 \left( \vpT^{(L_1)}\cdot\vpT^{(L_2)} + \vpT^{(L_1)}\cdot\vMET + \vpT^{(L_2)}\cdot\vMET \right)
+&\hphantom{=} - \left( {\vpT^{L_1}}^2 + {\vpT^{L_2}}^2 + {\vMET}^2 \right) - 2 \left( \vpT^{L_1}\cdot\vpT^{L_2} + \vpT^{L_1}\cdot\vMET + \vpT^{L_2}\cdot\vMET \right)
 \nonumber\\
-&= 2 \Big[ \pT^{(L_1)}\pT^{(L_2)}(1-\cos\Delta\phi_{L_1,L_2})
+&= 2 \Big[ \pT^{L_1}\pT^{L_2}(1-\cos\Delta\phi^{(L_1,L_2)})
 \nonumber\\
-&\hphantom{=2(} \quad + \pT^{(L_1)}\MET(1-\cos\Delta\phi_{L_1,\MET}) + \pT^{(L_2)}\MET(1-\cos\Delta\phi_{L_2,\MET}) \Big]
+&\hphantom{=2(} \quad + \pT^{L_1}\MET(1-\cos\Delta\phi^{(L_1,\MET)}) + \pT^{L_2}\MET(1-\cos\Delta\phi^{(L_2,\MET)}) \Big]
 \nonumber\\
 &= {\mT^{(L_1,L_2)}}^2 + {\mT^{(L_1,\MET)}}^2 + {\mT^{(L_2,\MET)}}^{2} = {\mTtot}^2
 \mend
@@ -158,7 +158,7 @@ La variable discriminante utilisée dans les catégories \CATbsm\ est ainsi \mTt
 \end{equation}
 avec
 \begin{equation}
-\mT^{(A,B)} = \sqrt{2 \, \pT^{(A)} \, \pT^{(B)} \, (1-\cos\Delta\phi_{A,B})}
+\mT^{(A,B)} = \sqrt{2 \, \pT^{A} \, \pT^{B} \, (1-\cos\Delta\phi^{(A,B)})}
 \mend
 \end{equation}
 \par

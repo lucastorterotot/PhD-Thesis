@@ -31,7 +31,7 @@ autour de la direction du muon au niveau du vertex primaire principal,
 avec $\Delta\eta$ et $\Delta\phi$ les distances angulaires des particules au muon dans les directions $\eta$ et $\phi$,
 selon
 \begin{equation}
-I^{(\mu)}
+I^{\mu}
 =
 \left.
 \sum_{\text{ch},\text{PV}} \pT^{\text{ch}}
@@ -66,11 +66,11 @@ I^{i}
 \label{eq-muons-reliso}
 \end{equation}
 \par
-Dans le cas où un objet physique est considéré à tort comme étant un muon, par exemple un hadron chargé présentant un \emph{punch-through}, le dépôt de ce hadron chargé dans le HCAL mène à une valeur de $I^{(\mu)}$ plus élevée.
+Dans le cas où un objet physique est considéré à tort comme étant un muon, par exemple un hadron chargé présentant un \emph{punch-through}, le dépôt de ce hadron chargé dans le HCAL mène à une valeur de $I^{\mu}$ plus élevée.
 De plus, des muons peuvent par exemple être produits lors de la désintégration de quarks de saveur lourde.
 Ces désintégrations sont accompagnées de jets, comme exposé dans le chapitre~\refChHLO.
 Ces muons font donc partie du jet et ne sont pas issus de la collision initiale.
-La présence du jet mène également à de plus hautes valeurs de $I^{(\mu)}$.
+La présence du jet mène également à de plus hautes valeurs de $I^{\mu}$.
 L'isolation permet donc de rejeter de tels muons (mal identifiés ou issus de jets).
 \paragraph{Critères d'identification des muons}
 Il est possible de définir un critère de qualité sur l'objet reconstruit devant correspondre à un muon à partir des propriétés des éléments d'identification du \PF.
@@ -160,7 +160,7 @@ Elle est quantifiée à partir des particules situées dans un cône de rayon
 autour de la direction de l'électron au niveau du vertex primaire principal,
 selon
 \begin{equation}
-I^{(\ele)}
+I^{\ele}
 =
 \left.
 \sum_{\text{ch},\text{PV}} \pT^{\text{ch}}
@@ -192,7 +192,7 @@ Le BDT est entraîné sur des événements $\text{Drell-Yan ($\Zboson/\photon^*$
 L'entraînement se fait à l'aide de \XGBOOST~\cite{xgboost}.
 Les variables prises en compte sont:
 \begin{itemize}
-\item l'impulsion transverse de l'électron $\pT^{(\ele)}$;
+\item l'impulsion transverse de l'électron $\pT^{\ele}$;
 \item la pseudo-rapidité du \emph{supercluster};
 \item la densité d'énergie issue de l'empilement dans l'événement $\rho$;
 
@@ -222,7 +222,7 @@ $p_\text{out}$ l'impulsion de l'électron obtenue d'après la courbe de sa traje
 \end{itemize}
 \par
 Le point de fonctionnement à \SI{90}{\%} d'efficacité est défini à partir d'une valeur minimale de sortie du BDT.
-Cette valeur dépend de $\pT^{(\ele)}$ et $\eta^{(\ele)}$ ainsi que de l'année de prise de données.
+Cette valeur dépend de $\pT^{\ele}$ et $\eta^{\ele}$ ainsi que de l'année de prise de données.
 \subparagraph{\CutBasedEleID}
 Ce critère d'identification consiste en une liste de coupures (\emph{cut}) sur certaines variables.
 Les valeurs de ces coupures dépendent du point de fonctionnement.
@@ -236,13 +236,13 @@ Les variables utilisées sont définies précédemment, à l'exception de:
 \centering
 \begin{tabular}{ccc}
 \toprule
-Variable & $\abs{\eta^{(\ele)}} < \num{1.479}$ & $\abs{\eta^{(\ele)}} \geq \num{1.479}$ \\
+Variable & $\abs{\eta^{\ele}} < \num{1.479}$ & $\abs{\eta^{\ele}} \geq \num{1.479}$ \\
 \midrule
 $\sigma_{i\eta i\eta}$ & $<\num{0.0126}$ & $<\num{0.0457}$ \\
 $\abs{\Delta\eta_\text{in}^\text{seed}}$ & $<\num{0.00463}$ & $<\num{0.00814}$ \\
 $\abs{\Delta\phi_\text{in}}$ & $<\num{0.148}$ & $<\num{0.19}$ \\
 $H/E_{SC}$ & $<\num{0.05}+\frac{\num{1.16}}{E_{SC} [\SI{}{\GeV}]} + \num{0.0324}\frac{\rho}{E_{SC}}$ & $<\num{0.05}+\frac{\num{2.54}}{E_{SC} [\SI{}{\GeV}]} + \num{0.183}\frac{\rho}{E_{SC}}$ \\
-$I_\text{rel}^{\Delta\beta}$ & $<\num{0.198} + \frac{\num{0.506}}{\pT^{(\ele)} [\SI{}{\GeV}]}$ & $<\num{0.203} + \frac{\num{0.96}}{\pT^{(\ele)} [\SI{}{\GeV}]}$ \\
+$I_\text{rel}^{\Delta\beta}$ & $<\num{0.198} + \frac{\num{0.506}}{\pT^{\ele} [\SI{}{\GeV}]}$ & $<\num{0.203} + \frac{\num{0.96}}{\pT^{\ele} [\SI{}{\GeV}]}$ \\
 $\abs{1/E_{SC}-1/p_\text{in}}$ & $<\SI{0.209}{\GeV^{-1}}$ & $<\SI{0.132}{\GeV^{-1}}$ \\
 $N_\text{lost}^\text{GSF}$ & $\leq\num{2}$ & $\leq\num{3}$ \\
 veto de conversion & passé & passé \\
@@ -287,9 +287,9 @@ Les variables exploitées sont:
 %Un photon est sensé déposer son énergie dans le ECAL et ne laisser aucun signal dans le HCAL.
 %Une faible valeur de $H/E_{SC}$ est donc compatible avec un photon.
 \item $\sigma_{i\eta i\eta}$ l'étalement en $\eta$ du dépôt d'énergie dans le ECAL;
-\item $I_{CH}^\text{rel}$ l'isolation relative vis-à-vis des hadrons chargés;
-\item $I_{NH}^\text{rel}$ l'isolation relative vis-à-vis des hadrons neutres;
-\item $I_{\photon}^\text{rel}$ l'isolation relative vis-à-vis des photons.
+\item $I^{/CH}_\text{rel}$ l'isolation relative vis-à-vis des hadrons chargés;
+\item $I^{/NH}_\text{rel}$ l'isolation relative vis-à-vis des hadrons neutres;
+\item $I^{/\photon}_\text{rel}$ l'isolation relative vis-à-vis des photons.
 \end{itemize}
 Les coupures correspondant aux différents critères d'identification des photons ainsi que leurs efficacités d'identification et de réjection sont résumées dans le tableau~\ref{tab-CutBasedPhotonIdentificationRun2}.
 \begin{table}[h]
@@ -305,11 +305,11 @@ Réjection & \SI{86.25}{\%} & \SI{76.72}{\%} & \SI{89.36}{\%} & \SI{81.85}{\%} &
 \midrule
 $H/E_{SC}$ & \num{0.04596} & \num{0.0590} & \num{0.02197} & \num{0.0326} & \num{0.02148} & \num{0.0321} \\
 $\sigma_{i\eta i\eta}$ & \num{0.0106} & \num{0.0272} & \num{0.01015} & \num{0.0272} & \num{0.00996} & \num{0.0271} \\
-$I_{CH}^\text{rel}$ & \num{1.694} & \num{2.089} & \num{1.141} & \num{1.051} & \num{0.65} & \num{0.517} \\
-\multirow{3}{*}{$I_{NH}^\text{rel} \!\!\!\hphantom{I_{\photon}^\text{rel}} \left\lbrace \begin{matrix} \vphantom{0} \\ \vphantom{0} \\ \vphantom{0} \end{matrix} \right. $} & $\num{24.032}$& $\num{19.722}$& $\num{1.189}$& $\num{2.718}$& $\num{0.317}$& $\num{2.716}$\\
+$I^{/CH}_\text{rel}$ & \num{1.694} & \num{2.089} & \num{1.141} & \num{1.051} & \num{0.65} & \num{0.517} \\
+\multirow{3}{*}{$I^{/NH}_\text{rel} \!\!\!\hphantom{I^{/\photon}_\text{rel}} \left\lbrace \begin{matrix} \vphantom{0} \\ \vphantom{0} \\ \vphantom{0} \end{matrix} \right. $} & $\num{24.032}$& $\num{19.722}$& $\num{1.189}$& $\num{2.718}$& $\num{0.317}$& $\num{2.716}$\\
 & $+ \num{0.01512} \, \pT$& $+ \num{0.011} \, \pT$& $+ \num{0.01512} \, \pT$& $+ \num{0.0117} \, \pT$& $+ \num{0.01512} \, \pT$& $+ \num{0.0117} \, \pT$ \\
 & $+ \num{2.259} \pT^{\!2} \! / 10^5$ & $+ \num{2.3} \pT^{\!2} \! / 10^5$ & $+ \num{2.259} \pT^{\!2} \! / 10^5$ & $+ \num{2.3} \pT^{\!2} \! / 10^5$ & $+ \num{2.259} \pT^{\!2} \! / 10^5$ & $+ \num{2.3} \pT^{\!2} \! / 10^5$ \\
-\multirow{2}{*}{$I_{\photon}^\text{rel} \!\!\!\hphantom{I_{NH}^\text{rel}} \left\lbrace \begin{matrix} \vphantom{0} \\ \vphantom{0} \end{matrix} \right. $} & $\num{2.876}$ & $\num{4.162}$ & $\num{2.08}$ & $\num{3.867}$ & $\num{2.044}$ & $\num{3.032}$ \\
+\multirow{2}{*}{$I^{/\photon}_\text{rel} \!\!\!\hphantom{I^{/NH}_\text{rel}} \left\lbrace \begin{matrix} \vphantom{0} \\ \vphantom{0} \end{matrix} \right. $} & $\num{2.876}$ & $\num{4.162}$ & $\num{2.08}$ & $\num{3.867}$ & $\num{2.044}$ & $\num{3.032}$ \\
 & $+ \num{0.004017} \, \pT$ & $+ \num{0.0037} \, \pT$ & $+ \num{0.004017} \, \pT$ & $+ \num{0.0037} \, \pT$ & $+ \num{0.004017} \, \pT$ & $+ \num{0.0037} \, \pT$ \\
 \bottomrule
 \end{tabularx}

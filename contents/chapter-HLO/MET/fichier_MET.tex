@@ -31,7 +31,7 @@ La somme des impulsions transverses des particules invisibles doit compenser cel
 \end{equation}
 \par La MET brute issue de l'algorithme de \PF\ est ainsi définie comme
 \begin{equation}
-\vMET(\text{brute}, \text{\PF}) = -\sum_{i\in\set{\text{particules}}} \vpT^{(i)}
+\vMET(\text{brute}, \text{\PF}) = -\sum_{i\in\set{\text{particules}}} \vpT^{i}
 \mend[,]
 \end{equation}
 où les particules sont celles reconstruites par l'algorithme de \PF,
@@ -55,7 +55,7 @@ et
 Plus de détails dans la détermination de $w_i$ sont disponibles dans les références~\cite{CMS-PAS-JME-17-001,PUPPI}.
 \par La MET brute issue de l'algorithme \PUPPI\ est définie comme
 \begin{equation}
-\vMET(\text{brute}, \text{\PUPPI}) = -\sum_{i\in\set{\text{particules}}} w_i\,\vpT^{(i)}
+\vMET(\text{brute}, \text{\PUPPI}) = -\sum_{i\in\set{\text{particules}}} w_i\,\vpT^{i}
 \mend
 \end{equation}
 \subsection{Corrections de l'énergie transverse manquante}\label{chapter-HLO-section-MET-corr}
@@ -73,7 +73,7 @@ et
 La modélisation de \MET\ dans certains jeux de données simulées (production du boson de Higgs, Drell-Yan (boson \Zboson) et \Wjets) ne correspond pas aux observations dans les données réelles.
 Des corrections sur $\vec{U}$, défini comme la différence entre \MET\ et la somme des impulsions des neutrinos provenant de la désintégration du boson de Higgs, \Zboson\ ou \Wboson, \ie
 \begin{equation}
-\vec{U} = \vMET - \sum_{\nu_i \leftarrow \higgs,\Zboson,\Wboson} \vpT^{(\nu_i)}
+\vec{U} = \vMET - \sum_{\nu_i \leftarrow \higgs,\Zboson,\Wboson} \vpT^{\nu_i}
 \mend[,]
 \end{equation}
 sont appliquées pour corriger cet effet.

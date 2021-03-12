@@ -609,7 +609,7 @@
 \newcommand{\TauHdz}{$d_z < \SI{0.2}{\centi\meter}$ avec $d_z$ la distance entre la trace principale du \tauh\ et le vertex primaire d'interaction}
 \newcommand{\Leptondzdxy}{paramètres d'impact $d_z < \SI{0.2}{\centi\meter}$ et $d_{xy} < \SI{0.045}{\centi\meter}$}
 
-\newcommand{\RelIsoBelow}[2]{$I^{(#1)} < \num{#2} \, \pT^{(#1)}$}
+\newcommand{\RelIsoBelow}[2]{$I^{#1} < \num{#2} \, \pT^{#1}$}
 
 \newcommand{\MuonIDWP}[2]{point de fonctionnement #1 (\emph{#2}) du \muonID}
 \newcommand{\MediumMuonID}{\MuonIDWP{moyen}{medium}}
@@ -635,9 +635,9 @@ Ce critère est appliqué de manière cohérente dans les données réelles, sim
 
 \newcommand{\TransverseMassWjets}[4][]{La masse transverse #2, définie par
 \begin{equation}
-\mT^{(#3)} = \sqrt{2 \, \pT^{(#3)} \, \MET \, (1-\cos\Delta\phi)}
+\mT^{#3} = \sqrt{2 \, \pT^{#3} \, \MET \, (1-\cos\Delta\phi)}
 \end{equation}
-avec $\Delta\phi = \phi^{(#3)} - \phi^{(\MET)}$
+avec $\Delta\phi = \phi^{#3} - \phi^{\MET}$
 doit vérifier $\mT < \SI{70}{\GeV}$. \TransverseMassWjetsInfosTXT}
 
 \newcommand{\DzetaEleMU}{
@@ -695,7 +695,7 @@ p_\zeta^{(\tau\tau)} = \vpTvis \cdot \hat{\zeta}
 où $\hat{\zeta}$ est la direction bisectionnelle entre l'électron et le muon dans le plan transverse~\cite{Jang_thesis}
 et
 \begin{equation}
-\vpTvis = \left( \vpT^{(\ele)} + \vpT^{(\mu)} \right)
+\vpTvis = \left( \vpT^{\ele} + \vpT^{\mu} \right)
 \label{eq-pTvis_def}
 \end{equation}
 comme illustré sur la figure~\ref{fig-zeta_illustration}.
@@ -703,13 +703,13 @@ Il est requis que $\Dzeta \geq \num{-35}$ afin de s'assurer que la région de si
 
 \newcommand{\LeptonVetoes}{Les vetos de leptons supplémentaires doivent être respectés, \ie\ que l'événement ne contient pas:}
 
-\newcommand{\LeptonVetoesExtra}[6]{#1 tel que $\pT^{(#2)} > \SI{#3}{\GeV}$, $\abs{\eta^{(#2)}} < \num{#4}$, passant le #5 et d'isolation \RelIsoBelow{#2}{#6}}
+\newcommand{\LeptonVetoesExtra}[6]{#1 tel que $\pT^{#2} > \SI{#3}{\GeV}$, $\abs{\eta^{#2}} < \num{#4}$, passant le #5 et d'isolation \RelIsoBelow{#2}{#6}}
 \newcommand{\LeptonVetoesExtraMuon}{\LeptonVetoesExtra{de muon}{\mu}{10}{2.4}{\MediumMuonID}{0.3}}
 \newcommand{\LeptonVetoesSecondMuon}{\LeptonVetoesExtra{de second muon}{\mu}{10}{2.4}{\MediumMuonID}{0.3}}
 \newcommand{\LeptonVetoesExtraEle}{\LeptonVetoesExtra{d'électron}{\ele}{10}{2.5}{\NinetyNineEleMVA}{0.3}}
 \newcommand{\LeptonVetoesSecondEle}{\LeptonVetoesExtra{de second électron}{\ele}{10}{2.5}{\NinetyNineEleMVA}{0.3}}
 
-\newcommand{\LeptonVetoesPair}[7]{de paire #1 de charges opposées avec $\Delta R > \num{#2}$, tous deux vérifiant $\pT^{(#3)} > \SI{#4}{\GeV}$, $\abs{\eta^{(#3)}} < \num{#5}$, passant le #6, de paramètres d'impact $d_z < \SI{0.2}{\centi\meter}$ et $d_{xy} < \SI{0.045}{\centi\meter}$ et d'isolation \RelIsoBelow{#3}{#7}}
+\newcommand{\LeptonVetoesPair}[7]{de paire #1 de charges opposées avec $\Delta R > \num{#2}$, tous deux vérifiant $\pT^{#3} > \SI{#4}{\GeV}$, $\abs{\eta^{#3}} < \num{#5}$, passant le #6, de paramètres d'impact $d_z < \SI{0.2}{\centi\meter}$ et $d_{xy} < \SI{0.045}{\centi\meter}$ et d'isolation \RelIsoBelow{#3}{#7}}
 \newcommand{\LeptonVetoesMuonPair}{\LeptonVetoesPair{de muons}{0.15}{\mu}{15}{2.4}{\LooseMuonID}{0.3}}
 \newcommand{\LeptonVetoesElectronPair}{\LeptonVetoesPair{d'électrons}{0.15}{\ele}{15}{2.5}{\CutBasedEleIDVeto}{0.3}}
 

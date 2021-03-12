@@ -29,9 +29,9 @@ où
 \end{itemize}
 Le \fakefactor\ \FF\ est déterminé de manière indépendante pour chaque canal (\tauh\tauh, \mu\tauh, \ele\tauh), chaque année (2016, 2017, 2018) et dépend:
 \begin{itemize}
-\item de l'impulsion transverse de l'objet physique identifié comme un \tauh, $\pT^{(\tauh)}$;
-\item de l'impulsion transverse du jet le plus proche du \tauh, $\pT^{(\text{jet})}$;
-\item du nombre de jets tels que $\abs{\eta^{(\text{jet})}}<\num{2.4}$ et $\pT^{(\text{jet})}>\SI{20}{\GeV}$, \Nprebjets.
+\item de l'impulsion transverse de l'objet physique identifié comme un \tauh, $\pT^{\tauh}$;
+\item de l'impulsion transverse du jet le plus proche du \tauh, $\pT^\text{jet}$;
+\item du nombre de jets tels que $\abs{\eta^\text{jet}}<\num{2.4}$ et $\pT^\text{jet}>\SI{20}{\GeV}$, \Nprebjets.
 \end{itemize}
 \par
 Une région d'application du \fakefactor\ (AR, \emph{Application Region}) est définie de manière similaire à la région de signal (SR, \emph{Signal Region}), seul le critère d'isolation des \tauh\ passe de \og isolé \fg{}  à \og anti-isolé \fg.
@@ -62,19 +62,19 @@ i,j \in \set{\text{QCD, \Wjets, \ttbar}}
 \end{equation}
 Les fractions $f_i$ sont déterminées à partir de simulations et dépendent:
 \begin{itemize}
-\item de la masse transverse du lepton $\ell\in\set{\ele,\mu}$, $\mT^{(\ell)}$;
+\item de la masse transverse du lepton $\ell\in\set{\ele,\mu}$, $\mT^{\ell}$;
 \item du nombre de jets \Nprebjets\ identifiés comme issus de quarks~\quarkb, \Nbjets;
 \item de la masse transverse totale, définie page~\pageref{eq-def_mTtot}, \mTtot.
 \end{itemize}
-La figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-fractions} présente ces fractions en fonction de \mTtot\ pour $\mT^{(\mu)} < \SI{40}{\GeV}$ et $\Nbjets\in\set{0,\geq1}$ pour le canal \mu\tauh\ en 2018.
+La figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-fractions} présente ces fractions en fonction de \mTtot\ pour $\mT^{\mu} < \SI{40}{\GeV}$ et $\Nbjets\in\set{0,\geq1}$ pour le canal \mu\tauh\ en 2018.
 La méthode des \fakefactors\ est résumée figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-ppe}.
 \begin{figure}[h]
 \centering
 
-\subcaptionbox{Pour $\Nbjets=0$ et $\mT^{(\mu)} < \SI{40}{\GeV}$}[.45\textwidth]
+\subcaptionbox{Pour $\Nbjets=0$ et $\mT^{\mu} < \SI{40}{\GeV}$}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_fraction_tightmt_nbjets0_mt_2018_os_rebinning.tex}}
 \hfill
-\subcaptionbox{Pour $\Nbjets\geq1$ et $\mT^{(\mu)} < \SI{40}{\GeV}$}[.45\textwidth]
+\subcaptionbox{Pour $\Nbjets\geq1$ et $\mT^{\mu} < \SI{40}{\GeV}$}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_fraction_tightmt_nbjets1_mt_2018_os_rebinning.tex}}
 
 \caption[Fractions des sources de \ftauhs\ dans le canal \mu\tauh\ en 2018.]{Fractions des sources de \ftauhs\ dans le canal \mu\tauh\ en 2018~\cite{CMS-NOTE-2020-218}.}
@@ -91,7 +91,7 @@ La méthode des \fakefactors\ est résumée figure~\ref{fig-chapter-HTT_analysis
 La DR QCD est définie de la même manière que la SR à l'exception du critère sur les charges électriques des éléments du \emph{dilepton}.
 En effet, ceux-ci doivent être de charges opposées (OS, \emph{Opposite Signs}) dans la SR car les bosons de Higgs recherchés étant neutres, la charge globale du \emph{dilepton} doit, par conservation, être nulle.
 Pour la DR QCD, ces charges doivent être de même signe (SS, \emph{Same Sign}).
-Dans le cas des canaux $\ell\tauh$, il est de plus requis que $I_\text{rel}^{(\ell)} > \num{0.05}$ afin de réduire les contribution de processus donnant des électrons ou des muons sans objet physique pertinent pour les \fakefactors.
+Dans le cas des canaux $\ell\tauh$, il est de plus requis que $I_\text{rel}^{\ell} > \num{0.05}$ afin de réduire les contribution de processus donnant des électrons ou des muons sans objet physique pertinent pour les \fakefactors.
 Les contributions d'autres processus à la DR est soustraite grâce à l'utilisation de données simulées.
 Pour le canal \tauh\tauh, le \fakefactor\ $\FF_Q$ est déterminé uniquement pour le premier \tauh\ (de plus haut \pT).
 \par
@@ -102,28 +102,28 @@ Le \fakefactor\ $\FF_Q$ est mesuré séparément pour:
 \end{itemize}
 et dans chacun de ces deux cas pour
 \begin{itemize}
-\item $\pT^{(\text{jet})}/\pT^{(\tauh)} < \num{1.25}$;
-\item $\num{1.25} \leq \pT^{(\text{jet})}/\pT^{(\tauh)} < \num{1.5}$;
-\item $\num{1.5} \leq \pT^{(\text{jet})}/\pT^{(\tauh)}$.
+\item $\pT^\text{jet}/\pT^{\tauh} < \num{1.25}$;
+\item $\num{1.25} \leq \pT^\text{jet}/\pT^{\tauh} < \num{1.5}$;
+\item $\num{1.5} \leq \pT^\text{jet}/\pT^{\tauh}$.
 \end{itemize}
-Pour ces six catégories, la dépendance en $\pT^{(\tauh)}$ de $\FF_Q$ est modélisée polynôme de degré 3 ajusté aux mesures pour $\pT^{(\tauh)}<\SI{200}{\GeV}$.
+Pour ces six catégories, la dépendance en $\pT^{\tauh}$ de $\FF_Q$ est modélisée polynôme de degré 3 ajusté aux mesures pour $\pT^{\tauh}<\SI{200}{\GeV}$.
 \par
-Dans le cas du canal \tauh\tauh, peu d'événements sont disponibles pour $\pT^{(\tauh)}\geq\SI{200}{\GeV}$.
-Le \fakefactor\ $\FF_Q$ est ainsi fixé à la valeur mesurée pour $\pT^{(\text{jet})}/\pT^{(\tauh)} \geq \num{1.5}$ et à la valeur à \SI{200}{\GeV} du polynôme pour $\pT^{(\text{jet})}/\pT^{(\tauh)} < \num{1.5}$.
-Pour les canaux $\ell\tauh$, la situation est similaire à partir de $\pT^{(\tauh)}\geq\SI{140}{\GeV}$.
-La valeur utilisée à haut $\pT^{(\tauh)}$ suit la logique suivante:
+Dans le cas du canal \tauh\tauh, peu d'événements sont disponibles pour $\pT^{\tauh}\geq\SI{200}{\GeV}$.
+Le \fakefactor\ $\FF_Q$ est ainsi fixé à la valeur mesurée pour $\pT^\text{jet}/\pT^{\tauh} \geq \num{1.5}$ et à la valeur à \SI{200}{\GeV} du polynôme pour $\pT^\text{jet}/\pT^{\tauh} < \num{1.5}$.
+Pour les canaux $\ell\tauh$, la situation est similaire à partir de $\pT^{\tauh}\geq\SI{140}{\GeV}$.
+La valeur utilisée à haut $\pT^{\tauh}$ suit la logique suivante:
 \begin{itemize}
-\item si l'erreur relative sur $\FF_Q$ pour $\pT^{(\tauh)}\geq\SI{200}{\GeV}$ est inférieure à \num{0.5}:
+\item si l'erreur relative sur $\FF_Q$ pour $\pT^{\tauh}\geq\SI{200}{\GeV}$ est inférieure à \num{0.5}:
 \begin{itemize}
-\item si l'erreur relative sur $\FF_Q$ pour $\pT^{(\tauh)}\in[140, 200]\usp\SI{}{\GeV}$ est inférieure à \num{0.5}, les valeurs mesurées sont utilisées sur les intervalles $[140, 200]\usp\SI{}{\GeV}$ et $[200, \infty[\usp\SI{}{\GeV}$,
-\item si l'erreur relative sur $\FF_Q$ pour $\pT^{(\tauh)}\in[140, 200]\usp\SI{}{\GeV}$ est supérieure à \num{0.5}, la valeur mesurée est utilisée sur l'intervalle $[200, \infty[\usp\SI{}{\GeV}$;
+\item si l'erreur relative sur $\FF_Q$ pour $\pT^{\tauh}\in[140, 200]\usp\SI{}{\GeV}$ est inférieure à \num{0.5}, les valeurs mesurées sont utilisées sur les intervalles $[140, 200]\usp\SI{}{\GeV}$ et $[200, \infty[\usp\SI{}{\GeV}$,
+\item si l'erreur relative sur $\FF_Q$ pour $\pT^{\tauh}\in[140, 200]\usp\SI{}{\GeV}$ est supérieure à \num{0.5}, la valeur mesurée est utilisée sur l'intervalle $[200, \infty[\usp\SI{}{\GeV}$;
 \end{itemize}
-\item si l'erreur relative sur $\FF_Q$ pour $\pT^{(\tauh)}\geq\SI{200}{\GeV}$ est supérieure à \num{0.5}
-et inférieure à \num{0.5} pour $\pT^{(\tauh)}\in[140, 200]\usp\SI{}{\GeV}$,
+\item si l'erreur relative sur $\FF_Q$ pour $\pT^{\tauh}\geq\SI{200}{\GeV}$ est supérieure à \num{0.5}
+et inférieure à \num{0.5} pour $\pT^{\tauh}\in[140, 200]\usp\SI{}{\GeV}$,
 la valeur mesurée est utilisée sur l'intervalle $[140, \infty[\usp\SI{}{\GeV}$;
 \item sinon, la valeur obtenue par l'ajustement est utilisée.
 \end{itemize}
-L'ajustement obtenu pour $\FF_Q$ sur le canal \mu\tauh\ en 2018 est illustré figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-FFQ_fit} pour $\Nprebjets=0$ et $\num{1.5} \leq \pT^{(\text{jet})}/\pT^{(\tauh)}$.
+L'ajustement obtenu pour $\FF_Q$ sur le canal \mu\tauh\ en 2018 est illustré figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-FFQ_fit} pour $\Nprebjets=0$ et $\num{1.5} \leq \pT^\text{jet}/\pT^{\tauh}$.
 \begin{figure}[h]
 \centering
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_fit_jet_pt_high_1jet_pt_2_ff_qcd_mt_2018.tex}
@@ -145,16 +145,16 @@ Le \fakefactor\ $\FF_W$ est mesuré séparément pour:
 \end{itemize}
 et dans chacun de ces deux cas pour
 \begin{itemize}
-\item $\pT^{(\text{jet})}/\pT^{(\tauh)} < \num{1.25}$;
-\item $\num{1.25} \leq \pT^{(\text{jet})}/\pT^{(\tauh)} < \num{1.5}$;
-\item $\num{1.5} \leq \pT^{(\text{jet})}/\pT^{(\tauh)}$.
+\item $\pT^{\text{jet})}/\pT^{\tauh} < \num{1.25}$;
+\item $\num{1.25} \leq \pT^\text{jet}/\pT^{\tauh} < \num{1.5}$;
+\item $\num{1.5} \leq \pT^\text{jet}/\pT^{\tauh}$.
 \end{itemize}
-Pour ces six catégories, la dépendance en $\pT^{(\tauh)}$ de $\FF_Q$ est modélisée polynôme de degré 3 ajusté aux mesures pour $\pT^{(\tauh)}<\SI{140}{\GeV}$.
+Pour ces six catégories, la dépendance en $\pT^{\tauh}$ de $\FF_Q$ est modélisée polynôme de degré 3 ajusté aux mesures pour $\pT^{\tauh}<\SI{140}{\GeV}$.
 \par
-Dans cette DR également, peu d'événements sont disponibles pour $\pT^{(\tauh)}\geq\SI{140}{\GeV}$.
+Dans cette DR également, peu d'événements sont disponibles pour $\pT^{\tauh}\geq\SI{140}{\GeV}$.
 La même logique que pour $\FF_Q$, détaillée précédemment, est suivie sur la valeur de $\FF_W$ à utiliser.
-L'ajustement obtenu pour $\FF_W$ sur le canal \mu\tauh\ en 2018 est illustré figure~\ref{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-WJ} pour $\Nprebjets\geq1$ et $\num{1.25} \leq \pT^{(\text{jet})}/\pT^{(\tauh)} < \num{1.5}$.
-Il y apparaît l'effet du traitement de la région à haut $\pT^{(\tauh)}$.
+L'ajustement obtenu pour $\FF_W$ sur le canal \mu\tauh\ en 2018 est illustré figure~\ref{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-WJ} pour $\Nprebjets\geq1$ et $\num{1.25} \leq \pT^\text{jet}/\pT^{\tauh} < \num{1.5}$.
+Il y apparaît l'effet du traitement de la région à haut $\pT^{\tauh}$.
 \paragraph{\ttbar}
 La DR \ttbar\ ne concerne que les canaux semi-leptoniques.
 Il n'est pas possible de définir une DR issue des données suffisamment pure pour mesurer $\FF_t$.
@@ -166,12 +166,12 @@ La contribution \ttbar\ étant faible par rapport aux autres bruits de fond rend
 \par
 Le \fakefactor\ $\FF_t$ est mesuré séparément pour:
 \begin{itemize}
-\item $\pT^{(\text{jet})}/\pT^{(\tauh)} < \num{1.25}$;
-\item $\num{1.25} \leq \pT^{(\text{jet})}/\pT^{(\tauh)} < \num{1.5}$;
-\item $\num{1.5} \leq \pT^{(\text{jet})}/\pT^{(\tauh)}$;
+\item $\pT^\text{jet}/\pT^{\tauh} < \num{1.25}$;
+\item $\num{1.25} \leq \pT^\text{jet}/\pT^{\tauh} < \num{1.5}$;
+\item $\num{1.5} \leq \pT^\text{jet}/\pT^{\tauh}$;
 \end{itemize}
 sans séparation en \Nprebjets, la majorité des événements \ttbar\ vérifiant $\Nprebjets\geq1$.
-L'ajustement obtenu pour $\FF_t$ sur le canal \mu\tauh\ en 2018 est illustré figure~\ref{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-ttbar} pour $\pT^{(\text{jet})}/\pT^{(\tauh)} < \num{1.25}$.
+L'ajustement obtenu pour $\FF_t$ sur le canal \mu\tauh\ en 2018 est illustré figure~\ref{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-ttbar} pour $\pT^\text{jet}/\pT^{\tauh} < \num{1.25}$.
 \begin{figure}[h]
 \centering
 
@@ -190,26 +190,26 @@ Les prédictions obtenues par les \fakefactors\ doivent alors correspondre aux o
 Les écarts résiduels donnent la correction à appliquer, paramétrisée en fonction:
 \begin{itemize}
 \item du nombre de jets \Nprebjets\ identifiés comme issus de quarks~\quarkb, \Nbjets;
-\item de l'impulsion transverse du lepton $\ell\in\set{\ele,\mu}$ pour les canaux semi-leptoniques, $\pT^{(\ell)}$;
-\item de l'isolation du lepton $\ell\in\set{\ele,\mu}$ pour les canaux semi-leptoniques, $I^{(\ell)}$;
+\item de l'impulsion transverse du lepton $\ell\in\set{\ele,\mu}$ pour les canaux semi-leptoniques, $\pT^{\ell}$;
+\item de l'isolation du lepton $\ell\in\set{\ele,\mu}$ pour les canaux semi-leptoniques, $I^{\ell}$;
 \item de la quantité d'énergie transverse manquante alignée avec le \tauh\ pour les événements QCD, $C_Q$,
 \begin{equation}
-C_Q = \frac{\MET}{\pT^{(\tauh)}} \cos(\Delta\phi(\vMET, \vpT^{(\tauh)}))
+C_Q = \frac{\MET}{\pT^{\tauh}} \cos(\Delta\phi(\vMET, \vpT^{\tauh}))
 \mend[;]
 \label{eq-FF_CQ_def}
 \end{equation}
 \item de la quantité d'énergie transverse manquante alignée avec le \tauh\ pour les événements \Wjets, $C_W$,
 \begin{equation}
-C_W = \frac{\norm{\vMET + \vpT^{(\ell)}}}{\pT^{(\tauh)}} \cos(\Delta\phi(\vMET + \vpT^{(\ell)}, \vpT^{(\tauh)}))
+C_W = \frac{\norm{\vMET + \vpT^{\ell}}}{\pT^{\tauh}} \cos(\Delta\phi(\vMET + \vpT^{\ell}, \vpT^{\tauh}))
 \mend[,]
 \label{eq-FF_CW_def}
 \end{equation}
-dont la définition est semblable à celle de $C_Q$ mais où $\vMET$ est remplacé par $\vMET + \vpT^{(\ell)}$ afin de prendre en compte la contribution à \MET\ du neutrino issu de la désintégration du boson \Wboson.
+dont la définition est semblable à celle de $C_Q$ mais où $\vMET$ est remplacé par $\vMET + \vpT^{\ell}$ afin de prendre en compte la contribution à \MET\ du neutrino issu de la désintégration du boson \Wboson.
 Il est ici considéré comme dos-à-dos avec $\ell$, ce qui n'est strictement vrai que pour un \Wboson\ au repos.
 \end{itemize}
 %Les distributions de diverses variables, observées et prédites par les \fakefactors, doivent correspondre les unes aux autres.
 %Les écarts résiduels entre observations et prédictions sont corrigées pour les variables listées page~\pageref{eq-FF_CQ_def} qui n'ont pas encore été utilisées pour paramétriser les \fakefactors.
-%\MET\ et $\pT^{(\ell)}$ observées et prédites par les \fakefactors\ doivent correspondre les unes aux autres.
+%\MET\ et $\pT^{\ell}$ observées et prédites par les \fakefactors\ doivent correspondre les unes aux autres.
 %Les différences résiduelles sont alors corrigées.
 %\par
 %Les valeurs de \MET\ utilisées pour $\FF_Q$ sont corrigées en fonction de $C_Q$, définie équation~\eqref{eq-FF_CQ_def}.
@@ -217,7 +217,7 @@ Il est ici considéré comme dos-à-dos avec $\ell$, ce qui n'est strictement vr
 %Dans le cas de $\FF_W$ et $\FF_t$, les  valeurs de \MET\ utilisées sont corrigées en fonction de $C_W$, définie équation~\eqref{eq-FF_CW_def}.
 %Un ajustement polynomial est réalisé dans les cas $\Nprebjets=0$ et $\Nprebjets\geq1$ pour $\FF_W$ et dans le cas général ($\Nprebjets\geq0$) pour $\FF_t$.
 %\par
-%Une fois les  valeurs de \MET\ corrigées, les distributions de $\pT^{(\ell)}$ le sont également pour $\FF_W$ et $\FF_t$.
+%Une fois les  valeurs de \MET\ corrigées, les distributions de $\pT^{\ell}$ le sont également pour $\FF_W$ et $\FF_t$.
 Deux de ces corrections résiduelles obtenues sur le canal \mu\tauh\ en 2018 sont illustrées sur la figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-closure}.
 \begin{figure}[h]
 \centering
