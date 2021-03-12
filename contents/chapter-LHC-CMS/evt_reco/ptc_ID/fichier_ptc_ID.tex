@@ -202,7 +202,7 @@ Les variables prises en compte sont:
 
 \item le $\chi^2$ de l'ajustement de la trajectoire;
 \item le nombre de \emph{hits} valides utilisés pour l'ajustement de la trajectoire;
-\item le $\chi^2$ de l'ajustement de la trajectoire GSF (\emph{GSFtrack}). Le \emph{Gaussian Sum Filter} est une méthode de traitement du signal~\cite{GSF};
+\item le $\chi^2$ de l'ajustement de la trajectoire GSF (\emph{GSFtrack});%. Le \emph{Gaussian Sum Filter} est une méthode de traitement du signal~\cite{GSF};
 \item le nombre de \emph{hits} utilisés pour l'ajustement de la trajectoire GSF, $N_\text{lost}^\text{GSF}$;
 \item le nombre attendu de \emph{hits} manquants;
 \item la fraction d'énergie perdue par \emph{bremsstrahlung}, $f_\text{brem} = 1-p_\text{out}/p_\text{in}$ où
@@ -224,7 +224,7 @@ Cette valeur dépend de $\pT^{(\ele)}$ et $\eta^{(\ele)}$ ainsi que de l'année 
 Ce critère d'identification consiste en une liste de coupures (\emph{cut}) sur certaines variables.
 Les valeurs de ces coupures dépendent du point de fonctionnement.
 Dans l'analyse présentée chapitre~\refChHTT, seul le point de fonctionnement \og veto \fg{} est utilisé, les coupures associées sont listées dans le tableau~\ref{tab-CutBasedEleIDVeto}.
-Les variables utilisées sont définies précédemment, à l'exception de
+Les variables utilisées sont définies précédemment, à l'exception de:
 \begin{itemize}
 \item $\abs{\Delta\eta_\text{in}^\text{seed}}$ l'écart en $\eta$ entre le point d'entrée de l'électron dans le ECAL et la position du \emph{supercluster} identifié par l'algorithme de \PF;
 \item $I_\text{rel}^{\Delta\beta}$ l'isolation relative de l'électron obtenue avec la même formule que pour les muons~\eqref{eq-muons-reliso}, à l'exception de la taille du cône valant ici $R_{\ele}=\num{0.3}$.
@@ -253,7 +253,7 @@ L'isolation des photons est définie séparément vis-à-vis
 des hadrons chargés,
 des hadrons neutres et
 des autres photons
-selon le même principe que l'isolation des électrons équation~\eqref{eq-electrons-iso}, certains termes étant donc nul suivant l'isolation déterminée.
+selon le même principe que l'isolation des électrons équation~\eqref{eq-electrons-iso}, certains termes étant nuls suivant l'isolation déterminée.
 Les aires effectives correspondantes sont données dans le tableau~\ref{tab-photon-effective_areas}.
 \begin{table}[h]
 \centering
@@ -275,7 +275,9 @@ $\abs{\eta} > \num{2.4}$ & \num{0.0087} & \num{0.0137} & \num{0.1466} \\
 \end{table}
 \paragraph{Critères d'identification des photons}
 À l'instar du \CutBasedEleID,
-la collaboration CMS propose des critères d'identification des photons (lâche, moyen et strict) à partir de coupures sur diverses propriétés du \og candidat \fg{} photon:
+la collaboration CMS propose des critères d'identification des photons (lâche, moyen et strict) à partir de coupures sur diverses propriétés du \og candidat \fg{} photon.
+\par
+Les variables exploitées sont:
 \begin{itemize}
 \item $H/E_{SC}$ est le rapport de l'énergie hadronique dans un cône de $\Delta R < \num{0.15}$ autour du photon sur l'énergie du \emph{supercluster}.
 Un photon est sensé déposer son énergie dans le ECAL et ne laisser aucun signal dans le HCAL.
