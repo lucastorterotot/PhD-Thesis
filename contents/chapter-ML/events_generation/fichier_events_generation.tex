@@ -51,8 +51,6 @@ L'empilement est modélisé par superposition du signal $\higgsML\to\tau\tau$ à
 Il s'agit d'événements pouvant contenir des interactions dures, mais n'activant pas de \HLTpath.
 La quantité d'empilement ajoutée à l'événement $\higgsML\to\tau\tau$ suit le profil de l'année 2017.
 \subsection{Sélection des événements}\label{chapter-ML-section-evt_gen-selection}
-En plus des canaux listés ci-dessus, nous avons également sélectionné des événements des canaux \mu\mu\ et \ele\ele,
-selon les procédures présentées ci-après.
 \subsubsection{Canaux \tauh\tauh, \mu\tauh, \ele\tauh\ et \ele\mu}
 La sélection des événements se fait comme exposé dans le chapitre~\refChHTT\ pour l'année 2017 et les canaux
 \tauh\tauh, \mu\tauh, \ele\tauh\ et \ele\mu\ y étant exploités,
@@ -107,19 +105,34 @@ selon les procédures présentées ci-après.
     \item \LeptonVetoesSecondMuon;
     \item \LeptonVetoesSecondEle, l'électron devant \PassConversionVeto\ et \LessTwoMissingHitsVertex.
 \end{itemize}
+\subsection{Événements obtenus et pondération}
+Plus de 22 millions d'événements ont été générés.
+Environ 3 millions sont sélectionnés selon les critères présentés précédemment.
+La distribution de $m_{\higgsML}$ dans ces événements sélectionnés est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-raw-all_events}.
+Quelques événements présentent des valeurs de $m_{\higgsML}$ au-delà de \SI{800}{\GeV}, cet effet est dû à la largeur de cette particule.
+À haute masse, la durée de vie est réduite.
+Alors, l'incertitude sur la masse augmente, comme l'indique le principe d'incertitude de Heisenberg.
+Cet effet n'est pas présent à basse masse.
+Les événements retenus dans la suite sont ceux où la masse effective de \higgsML\ se situe bien entre \num{50} et \SI{800}{\GeV}.
+\par
+Ces événements sont de plus séparés en trois groupes selon les proportions suivantes:
+\begin{itemize}
+\item \SI{70}{\%} pour l'entraînement. Ce sont ces événements que les modèles pourront exploiter afin d'apprendre à prédire correctement $m_{\higgsML}$;
+\item \SI{20}{\%} pour la validation. Ces événements permettent de vérifier qu'il n'y a pas de surentraînement, \ie\ que le modèle ne se spécialise pas vis-à-vis du jeu d'entraînement;
+\item \SI{10}{\%} pour les tests. Ces événements ne sont pas utilisés lors des entraînements et permettent donc de tester les modèles sur des données inédites. Sauf contre-indication, les figures sont toutes obtenues avec ce groupe d'événements.
+\end{itemize}
+\par
+Afin de réaliser un entraînement équitable entre les différentes valeurs de $m_{\higgsML}$, un poids est associé à chaque événement de manière à ce que la distribution pondérée de $m_{\higgsML}$ soit plate.
+La distribution pondérée de $m_{\higgsML}$ sur les événements utilisés pour l'entraînement des modèles est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-weighted-is_train}.
+\begin{figure}[h]
+\centering
 
+\subcaptionbox{Distribution brute sur tous les événements.\label{subfig-distribution-inclusive-Higgs_mass_gen-raw-all_events}}[0.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau/distribution-inclusive-Higgs_mass_gen-raw-all_events.pdf}}
+\hfill
+\subcaptionbox{Distribution pondérée pour les événements d'entraînement.\label{subfig-distribution-inclusive-Higgs_mass_gen-weighted-is_train}}[0.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau/distribution-inclusive-Higgs_mass_gen-weighted-is_train.pdf}}
 
-about the same as in the analysis (\pT\ cuts, \DEEPTAU, ...)
-
-+ \ele\ele\ and \mu\mu\ channels as well!
-
-
-mass distribution obtained
-
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau/distribution-inclusive-Higgs_mass_gen-raw-all_events.pdf}
-
-weights per steps of 2 GeV
-
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau/distribution-inclusive-Higgs_mass_gen-weighted-is_train.pdf}
-
-70/20/10 \% fraction for train/valid/test
+\caption[Distributions de la masse générée de \higgsML.]{Distributions de la masse générée de \higgsML.}
+\label{fig-distribution-inclusive-Higgs_mass_gen-raw-all_events}
+\end{figure}
