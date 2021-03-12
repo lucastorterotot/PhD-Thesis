@@ -1,9 +1,11 @@
-\section{Models and hyperparameters tuning}\label{chapter-ML-section-hyperparameters}
+\section{Sélection d'un modèle}\label{chapter-ML-section-hyperparameters}
 
-\subsection{Selection using classic hyperparams}
 no customized loss yet.
 
 hard to get one single score to determine which model is the best: use mse, mae, mape, median diff, $\pm$ 1 or 2 $\sigma$ width ... low, medium, high and full mass regions as well.
+
+
+\subsection{Variables d'entrée}
 
 Model inputs : DNN not that sensible but XGB is better when having all of them, then use all inputs (give list) and not a subset of them.
 
@@ -15,6 +17,9 @@ Model inputs : DNN not that sensible but XGB is better when having all of them, 
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/XGB_inputs-full_mape.pdf}
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/XGB_inputs-full_1sig_width.pdf}
 
+
+\subsection{Type de modèle}
+
 DNN vs XGB: use DNN!
 
 
@@ -22,6 +27,8 @@ DNN vs XGB: use DNN!
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB-full_mae.pdf}
 
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB-full_mape.pdf}
+
+\subsection{Fonction de coût}
 
 loss: when using a given loss, the corresponding models are of course better when using the loss as score.
 
@@ -35,6 +42,8 @@ loss: when using a given loss, the corresponding models are of course better whe
 
 use mape loss, gives the better results
 
+\subsection{Initialisation des poids et optimisation}
+
 optimizer: Adam
 
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_optimizer-full_mape.pdf}
@@ -43,6 +52,7 @@ w init mode Glorot Uniform
 
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_w_init_mode-full_mape.pdf}
 
+\subsection{Structure}
 which structure ?
 
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-full_mape.pdf}
@@ -69,6 +79,8 @@ and in the medium mass region we have
 %\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_all-medium_mape.pdf}
 
 3x1000 is the best compromise we found
+
+\subsection{Fonction d'activation}
 
 activation = softplus
 
