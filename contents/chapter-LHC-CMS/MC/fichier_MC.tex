@@ -13,16 +13,7 @@ La reconstruction des événements telle que décrite dans la section précéden
 Toutefois, des écarts résiduels existent entre les estimations obtenues par simulation et la réalité.
 Des analyses dédiées permettent d'obtenir les corrections à appliquer aux données simulées afin de réduire ces écarts.
 \subsection{Génération d'événements}\label{chapter-LHC-section-MC-subsec-evt_gen}
-Lorsque deux protons entrent en collision, ce sont leurs constituants respectifs interagissent.
-Ces constituants portent une fraction $x$ de l'énergie totale du proton, comme expliqué dans la section~\ref{chapter-LHC-section-LHC-subsec-pp_collisions}.
-Le nombre de constituants différents en jeu ainsi que leurs modes d'interactions peuvent donner une structure de l'événement complexe, comme illustré sur la figure~\ref{fig-event_generator_HEP-2-Figure1-1}.
-\begin{figure}[h]
-\centering
-\includegraphics[width=15cm]{\PhDthesisdir/plots_and_images/from_event_generator_HEP/2-Figure1-1.tex}
-\caption[Représentation d'une collision de protons.]{Représentation d'une collision de protons~\cite{event_generator_HEP}.}
-\label{fig-event_generator_HEP-2-Figure1-1}
-\end{figure}
-\par La description analytique de l'interaction entre les constituants des protons lors des collisions est réalisée grâce à la théorie des perturbations.
+La description analytique de l'interaction entre les constituants des protons lors des collisions est réalisée grâce à la théorie des perturbations.
 À l'aide des règles de Feynman présentées dans l'annexe~\refApFmf, il est possible de calculer l'\og élément de matrice \fg{} permettant de décrire le passage d'un état initial à un état final.
 Les événements sont alors générés à un ordre perturbatif donné à l'aide de
 \MADGRAPH~\cite{madgraph5}
@@ -41,9 +32,15 @@ Des générateurs comme
 \PYTHIA~\cite{pythia6.4,pythia8.2} et
 \HERWIG~\cite{herwig}
 permettent de simuler ces étapes ultérieures.
-\par Lors d'une collision de protons et plus généralement de hadrons, plusieurs interactions entre les constituants des hadrons peuvent survenir.
+\par Lors d'une collision de protons et plus généralement de hadrons, plusieurs interactions entre les constituants des hadrons peuvent survenir, comme illustré sur la figure~\ref{fig-event_generator_HEP-2-Figure1-1}.
 L'interaction emportant la plus grande fraction de l'énergie des hadrons est l'\og interaction dure \fg{}.
 Les autres interactions constituent l'événement sous-jacent.
+\begin{figure}[h]
+\centering
+\includegraphics[width=15cm]{\PhDthesisdir/plots_and_images/from_event_generator_HEP/2-Figure1-1.tex}
+\caption[Représentation d'une collision de protons.]{Représentation d'une collision de protons~\cite{event_generator_HEP}.}
+\label{fig-event_generator_HEP-2-Figure1-1}
+\end{figure}
 \subsection{Simulation du détecteur}\label{chapter-LHC-section-MC-subsec-detector_sim}
 Une fois simulée la physique de l'événement, indépendante du détecteur utilisé, il faut simuler la réponse du détecteur à cet événement.
 La propagation des particules est alors simulée en prenant en compte la présence du champ magnétique courbant les trajectoires des particules chargées.

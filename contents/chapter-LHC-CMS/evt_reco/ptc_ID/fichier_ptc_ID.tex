@@ -10,9 +10,9 @@ L'association des éléments dus à une particule est limitée par~\cite{particl
 \par Un algorithme teste les paires d'éléments de reconstruction possibles.
 Afin de limiter les temps de calcul, seules les paires d'éléments les plus proches entre eux selon un arbre de recherche multidimentionnel~\cite{bentley} sont considérées.
 Des conditions supplémentaires sont requises afin d'associer deux éléments et sont détaillées dans les sections suivantes.
-Lorsque deux éléments sont associés, une distance est définie par l'algorithme afin de quantifier la qualité de cette association.
-Des \og blocs \fg{} du \PF\ sont ainsi obtenus par association des éléments de reconstruction.
-Selon le contenu de ce bloc, un objet physique est reconstruit, dont l'identification en tant que particule d'un type donné dépend de critères spécifiques.
+La distance définie par l'arbre de recherche multidimentionnel permet de quantifier la qualité de cette association.
+Une association d'élément constitue un \og bloc \fg{} du \PF.
+Les blocs servent de base à la reconstruction des objets physiques, dont l'identification en tant que particule d'un type donné dépend de critères spécifiques.
 Ces différents types de particules sont détaillés dans les sections qui suivent.
 %\par
 %Une trace est reliée à un dépôt dans les calorimètres si l'extrapolation de la trajectoire mène à la position de ce dépôt.
@@ -22,12 +22,8 @@ Ces différents types de particules sont détaillés dans les sections qui suive
 %Finally, a link between a track in the central tracker and information in the muon detector is established to form global and tracker muons.
 \subsubsection{Muons}
 \paragraph{Isolation des muons}
-L'isolation permet de quantifier la présence de particules autour du muon.
-Des muons peuvent par exemple être produits lors de la désintégration de quarks de saveur lourde.
-Ces désintégrations sont accompagnées de jets, comme exposé dans le chapitre~\refChHLO.
-Ces muons font donc partie du jet et ne sont pas issus de la collision initiale.
-\par
-L'isolation d'un muon est quantifiée à partir des particules situées dans un cône de rayon
+L'isolation permet de quantifier la présence d'activité autour de l'objet physique considéré comme un muon.
+Elle est définie à partir des autres particules reconstruites situées dans un cône de rayon
 \begin{equation}
 \Delta R = \sqrt{\Delta\eta^2+\Delta\phi^2} < R_\mu=\num{0.4}
 \end{equation}
@@ -69,6 +65,13 @@ I^{i}
 \mend
 \label{eq-muons-reliso}
 \end{equation}
+\par
+Dans le cas où un objet physique est considéré à tort comme étant un muon, par exemple un hadron chargé présentant un \emph{punch-through}, le dépôt de ce hadron chargé dans le HCAL mène à une valeur de $I^{(\mu)}$ plus élevée.
+De plus, des muons peuvent par exemple être produits lors de la désintégration de quarks de saveur lourde.
+Ces désintégrations sont accompagnées de jets, comme exposé dans le chapitre~\refChHLO.
+Ces muons font donc partie du jet et ne sont pas issus de la collision initiale.
+La présence du jet mène également à de plus hautes valeurs de $I^{(\mu)}$.
+L'isolation permet donc de rejeter de tels muons (mal identifiés ou issus de jets).
 \paragraph{Critères d'identification des muons}
 Il est possible de définir un critère de qualité sur l'objet reconstruit devant correspondre à un muon à partir des propriétés des éléments d'identification du \PF.
 Il s'agit du \muonID~\cite{CMS-MUO-16-001,cmsMediumMuon}.
@@ -288,17 +291,6 @@ Les variables exploitées sont:
 \item $I_{NH}^\text{rel}$ l'isolation relative vis-à-vis des hadrons neutres;
 \item $I_{\photon}^\text{rel}$ l'isolation relative vis-à-vis des photons.
 \end{itemize}
-À cet ensemble de variables dont une valeur maximale est admise pour l'identification des photons s'ajoute $R_9$, définie comme
-\begin{equation}
-R_9 = \frac{E_{3\times3}}{E_{SC}}
-\label{eq-R9_definition}
-\end{equation}
-avec
-$E_{3\times3}$ la somme des énergies dans les cristaux du ECAL formant un carré de trois cristaux de côté centré sur le cristal contenant le plus d'énergie dans le \emph{supercluster}
-et
-$E_{SC}$
-l'énergie du \emph{supercluster}~\cite{photon_ID_2015}.
-\par 
 Les coupures correspondant aux différents critères d'identification des photons ainsi que leurs efficacités d'identification et de réjection sont résumées dans le tableau~\ref{tab-CutBasedPhotonIdentificationRun2}.
 \begin{table}[h]
 \centering\small
@@ -338,8 +330,8 @@ Les traces identifiées comme celles de conversions de photons et les dépôts d
 Les éléments d'identification du \PF\ utilisés pour reconstruire les électrons et photons isolés sont retirés dans la suite du processus de reconstruction de l'événement.
 \subsubsection{Hadrons et photons non isolés}
 Les muons, électrons et photons isolés ayant été identifiés et reconstruits, seuls les hadrons et les photons non isolés issus de la formation des jets et de l'hadronisation sont encore à être reconstruits.
-La formation des jets ainsi que l'hadronisation sont détaillées dans le chapitre~\refChHLO.
 Ces particules sont généralement détectées comme des hadrons chargés (\pionpm, \Kaonpm, protons), des hadrons neutres (\Kaonlong, neutrons), des photons non isolés (désintégrations des \pionnull) et plus rarement comme des muons (désintégrations de hadrons lourds).
+La formation des jets ainsi que l'hadronisation sont détaillées dans le chapitre~\refChHLO.
 \par Dans la région d'acceptance du trajectographe ($\abs{\eta}<\num{2.5}$), les photons non isolés et les hadrons neutres sont reconstruits respectivement à partir des dépôts d'énergie dans les ECAL et HCAL non associés à une trace.
 Une priorité est donnée aux photons dans la mesure où \SI{25}{\%} de l'énergie des jets est portée par ces particules alors que seulement \SI{3}{\%} de l'énergie des jets est déposée dans le ECAL par les hadrons neutres.
 Au-delà de l'acceptance du trajectographe, il n'est pas possible de faire la distinction entre hadrons neutres et chargés.
