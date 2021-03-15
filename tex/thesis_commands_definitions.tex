@@ -107,8 +107,8 @@
 \newcommand{\Wjets}{\ensuremath{\Wboson+\text{jets}}}
 \newcommand{\mT}{\ensuremath{m_{\mathrm{T}}}}
 \newcommand{\mTtot}{\ensuremath{\mT^{\mathrm{tot}}}}
-\newcommand{\msv}{\ensuremath{m_\SVFIT}}
-\newcommand{\mlmass}{\ensuremath{m_\mathrm{ML}}}
+\newcommand{\msv}{\ensuremath{m_{\SVFIT}}}
+\newcommand{\mlmass}{\ensuremath{m_{\mathrm{ML}}}}
 \newcommand{\mml}{\mlmass}
 \newcommand{\mtt}{\ensuremath{m_{\tau\tau}}}
 \newcommand{\mvis}{\mtt}
@@ -117,16 +117,16 @@
 \newcommand{\Dzeta}{\ensuremath{D_\zeta}}
 \newcommand{\minv}{\ensuremath{m_{\mathrm{inv}}}}
 \newcommand{\muonID}{\emph{muonID}}
-\newcommand{\Njets}{\ensuremath{N_\textrm{jets}}}
-\newcommand{\Nbjets}{\ensuremath{N_\textrm{\quarkb-jets}}}
-\newcommand{\Nprebjets}{\ensuremath{N_\textrm{pre \quarkb-jets}}}
-\newcommand{\mjj}{\ensuremath{m_\mathrm{jj}}}
-\newcommand{\Detajj}{\ensuremath{\Delta \eta_\mathrm{jj}}}
-\newcommand{\Ndof}{\ensuremath{N_\textrm{dof}}}
-\newcommand{\Nmdhits}{\ensuremath{N^\textrm{MD}_\textrm{hits}}}
-\newcommand{\Nms}{\ensuremath{N_\textrm{MS}}}
-\newcommand{\Npixelhits}{\ensuremath{N^\textrm{pixel}_\textrm{hits}}}
-\newcommand{\Ntrkhits}{\ensuremath{N^\textrm{tracker}_\textrm{hits}}}
+\newcommand{\Njets}{\ensuremath{N_{\textrm{jets}}}}
+\newcommand{\Nbjets}{\ensuremath{N_{\textrm{\quarkb-jets}}}}
+\newcommand{\Nprebjets}{\ensuremath{N_{\textrm{pre \quarkb-jets}}}}
+\newcommand{\mjj}{\ensuremath{m_{\mathrm{jj}}}}
+\newcommand{\Detajj}{\ensuremath{\Delta \eta_{\mathrm{jj}}}}
+\newcommand{\Ndof}{\ensuremath{N_{\textrm{dof}}}}
+\newcommand{\Nmdhits}{\ensuremath{N^{\textrm{MD}}_{\textrm{hits}}}}
+\newcommand{\Nms}{\ensuremath{N_{\textrm{MS}}}}
+\newcommand{\Npixelhits}{\ensuremath{N^{\textrm{pixel}}_{\textrm{hits}}}}
+\newcommand{\Ntrkhits}{\ensuremath{N^{\textrm{tracker}}_{\textrm{hits}}}}
 \newcommand{\EleIDMVA}{\emph{electron ID MVA}}
 \newcommand{\CutBasedEleID}{\emph{cut-based ID}}
 \newcommand{\CutBasedEleIDVeto}{\emph{cut-based veto ID}}
@@ -173,15 +173,12 @@
 
 \newcommand{\nfpCLlimit}{\CLS\ à \SI{95}{\%}}
 
+\newcommand{\Neventsaxis}{Nombre d'événements}
+\newcommand{\InclusiveSTR}{inclusif}
+
 \newcommand{\HTTplotsdir}{HTT_v2}
 
-\newcommand{\plotHTTModelIndepLimits}[5][\HTTplotsdir]{%
-\begin{tikzpicture}%
-\begin{scope}
-\clip (.7,.55) -- (.7,7.3) -- (1.25,7.3) -- (1.25,7.11) -- (7.6,7.11) -- (7.6,.55) -- cycle ;
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/limits/#2/mssm_model-independent_#3_#4#5.pdf}};
-\fill [white] (1.5, 6) rectangle (3.6, 7);
-\end{scope}
+\newcommand{\GETplotHTTModelIndepLimitsINFOS}[5][\HTTplotsdir]{%
 
 \def\localyaxislabelXXH{\todo{?}}
 \ifthenelse{\equal{#4}{ggH}}{
@@ -194,20 +191,44 @@
 \def\localxaxislabel{$m_\phi$ (\SI{}{\GeV})}
 \def\localyaxislabel{\nfpCLlimit\ sur $\sigma(\localyaxislabelXXH) \times \BR(\phi\to\tau\tau)$ (\SI{}{\pico\barn})}
 
-\draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
-\draw (0, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
-
 % year
 \def\locallumivalue{137}\def\localera{Run II}
 \ifthenelse{\equal{#3}{2016}}{\def\locallumivalue{35.9}\def\localera{2016}}{}
 \ifthenelse{\equal{#3}{2017}}{\def\locallumivalue{41.5}\def\localera{2017}}{}
 \ifthenelse{\equal{#3}{2018}}{\def\locallumivalue{59.7}\def\localera{2018}}{}
+
+}
+
+\newcommand{\plotHTTModelIndepLimits}[5][\HTTplotsdir]{%
+\begin{tikzpicture}%
+\begin{scope}
+\clip (.7,.55) -- (.7,7.3) -- (1.25,7.3) -- (1.25,7.11) -- (7.6,7.11) -- (7.6,.55) -- cycle ;
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/limits/#2/mssm_model-independent_#3_#4#5.pdf}};
+\fill [white] (1.5, 6) rectangle (3.6, 7);
+\end{scope}
+
+\GETplotHTTModelIndepLimitsINFOS[#1]{#2}{#3}{#4}{#5}
+
+\draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
+\draw (0, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
 \draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (\localera, \SI{13}{\TeV})\vphantom{Àq,}};
 
 % CMS disclaimer
 \draw (1.15, 7) node [above right] {\scriptsize CMS Data\vphantom{Àq,}};
 \draw (2.35, 6.75) node [below, text width=1cm] {\centering\scriptsize \WorkInProgress\par};
 \end{tikzpicture}%
+}
+
+\newcommand{\GETplotHTTModelDepLimitsINFOS}[3][\HTTplotsdir]{%
+
+\def\localxaxislabelptc{\HiggsA}
+\ifthenelse{\equal{#2}{mssm_vs_sm_CPV}}{
+  \def\localxaxislabelptc{\Higgspm}
+}{}
+
+\def\localxaxislabel{$m_{\localxaxislabelptc}$ (\SI{}{\GeV})}
+\def\localyaxislabel{$\tan\beta$}
+
 }
 
 \newcommand{\plotHTTModelDepLimits}[3][\HTTplotsdir]{%
@@ -217,13 +238,7 @@
 \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/limits/#2/mssm_mh125_#2#3.pdf}};
 \end{scope}
 
-\def\localxaxislabelptc{\HiggsA}
-\ifthenelse{\equal{#2}{mssm_vs_sm_CPV}}{
-  \def\localxaxislabelptc{\Higgspm}
-}{}
-
-\def\localxaxislabel{$m_{\localxaxislabelptc}$ (\SI{}{\GeV})}
-\def\localyaxislabel{$\tan\beta$}
+\GETplotHTTModelDepLimitsINFOS[#1]{#2}{#3}
 
 \draw (7.5, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
 \draw (0, 6.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
@@ -237,16 +252,10 @@
 \end{tikzpicture}%
 }
 
-\newcommand{\plotHTTcontrol}[5][\HTTplotsdir]{%
-\begin{tikzpicture}%
-\clip (0,.1) rectangle (7.76,7.7) ;
-\begin{scope}
-\clip (.45,.55) -- (.45,3) -- (.42,8) -- (1,8) -- (1,7.1) -- (7.76,7.1) -- (7.76,.55) -- cycle ;
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/control_plots/Run#2_plots_#3/#4/Run#2_#4_#5.pdf}};
-\end{scope}
+\newcommand{\GETplotHTTcontrolINFO}[5][\HTTplotsdir]{%
 
 % cuts
-\def\localcat{inclusif}
+\def\localcat{\InclusiveSTR{}}
 \ifthenelse{\equal{#3}{emb_ff_high_ml_mass}}{\def\localcat{$\mml>\SI{250}{\GeV}$}}{}
 \ifthenelse{\equal{#3}{emb_ff_high_m_sv_puppi}}{\def\localcat{$\msv>\SI{250}{\GeV}$}}{}
 
@@ -257,154 +266,170 @@
 \ifthenelse{\equal{#4}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}}{}
 \ifthenelse{\equal{#4}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}}{}
 \ifthenelse{\equal{#4}{em}}{\def\localchannel{\ele\mu}\def\localLA{\ele}\def\localLB{\mu}}{}
-\draw (1, 7) node [above right] {\scriptsize \localchannel, \localcat\vphantom{Àq,}};
 
 % year
 \ifthenelse{\equal{#2}{2016}}{\def\locallumivalue{35.9}}{}
 \ifthenelse{\equal{#2}{2017}}{\def\locallumivalue{41.5}}{}
 \ifthenelse{\equal{#2}{2018}}{\def\locallumivalue{59.7}}{}
-\draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (#2, \SI{13}{\TeV})\vphantom{Àq,}};
 
 % axis labels
 \def\localxaxislabel{\todo{\inlinecode{bash}{#5}}}
 \def\localyaxislabel{\todo{Y?}}
 \ifthenelse{\equal{#5}{bpt_1}}{
   \def\localxaxislabel{$\pT (\text{\quarkb-jet principal})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{bpt_2}}{
   \def\localxaxislabel{$\pT (\text{\quarkb-jet secondaire})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{jpt_1}}{
   \def\localxaxislabel{$\pT (\text{jet principal})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{jpt_2}}{
   \def\localxaxislabel{$\pT (\text{jet secondaire})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{jeta_1}}{
   \def\localxaxislabel{$\eta (\text{jet principal})$}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\eta$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\eta$}
 }{}
 \ifthenelse{\equal{#5}{jeta_2}}{
   \def\localxaxislabel{$\eta (\text{jet secondaire})$}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\eta$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\eta$}
 }{}
 \ifthenelse{\equal{#5}{nbtag}}{
   \def\localxaxislabel{\Nbjets}
-  \def\localyaxislabel{Nombre d'événements}
+  \def\localyaxislabel{\Neventsaxis}
 }{}
 \ifthenelse{\equal{#5}{njets}}{
   \def\localxaxislabel{\Njets}
-  \def\localyaxislabel{Nombre d'événements}
+  \def\localyaxislabel{\Neventsaxis}
 }{}
 \ifthenelse{\equal{#5}{dijetpt}}{
   \def\localxaxislabel{$\pT (\text{2 jets principaux})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{jdeta}}{
   \def\localxaxislabel{$\Detajj (\text{2 jets principaux})$}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\Detajj$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\Detajj$}
 }{}
 \ifthenelse{\equal{#5}{mjj}}{
   \def\localxaxislabel{$\mjj (\text{2 jets principaux})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~m$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~m$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{pt_1}}{
   \def\localxaxislabel{$\pT(\localLA)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{pt_2}}{
   \def\localxaxislabel{$\pT(\localLB)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{eta_1}}{
   \def\localxaxislabel{$\eta (\localLA)$}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\eta$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\eta$}
 }{}
 \ifthenelse{\equal{#5}{eta_2}}{
   \def\localxaxislabel{$\eta (\localLB)$}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\eta$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\eta$}
 }{}
 \ifthenelse{\equal{#5}{mt_1_puppi}}{
   \def\localxaxislabel{$\mT(\localLA,\MET)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\mT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\mT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{mt_2_puppi}}{
   \def\localxaxislabel{$\mT(\localLB,\MET)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\mT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\mT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{mTdileptonMET_puppi}}{
   \def\localxaxislabel{$\mT(\localLA+\localLB,\MET)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\mT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\mT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{pZetaPuppiMissVis}}{
   \def\localxaxislabel{$\Dzeta$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\Dzeta$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\Dzeta$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{pt_tt_puppi}}{
   \def\localxaxislabel{$\pT (\tau\tau)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{DiTauDeltaR}}{
   \def\localxaxislabel{$\Delta R (\localLA,\localLB)$}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\Delta R$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\Delta R$}
 }{}
 \ifthenelse{\equal{#5}{m_sv_puppi}}{
   \def\localxaxislabel{$\msv$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~m$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~m$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{puppimet}}{
   \def\localxaxislabel{$\MET$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\MET$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\MET$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{puppimetphi}}{
   \def\localxaxislabel{$\phi(\MET)$}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\phi$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\phi$}
 }{}
 \ifthenelse{\equal{#5}{m_vis}}{
   \def\localxaxislabel{$\mvis$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~m$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~m$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{ptvis}}{
   \def\localxaxislabel{$\pTvis$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~\pT$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{ml_mass}}{
   \def\localxaxislabel{$\mlmass$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~m$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~m$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{mt_tot_puppi}}{
   \def\localxaxislabel{$\mTtot$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Nombre d'événements / $\dd~m$ (1/\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~m$ (1/\SI{}{\GeV})}
 }{}
+
+}
+
+\newcommand{\plotHTTcontrol}[5][\HTTplotsdir]{%
+\begin{tikzpicture}%
+\clip (0,.1) rectangle (7.76,7.7) ;
+\begin{scope}
+\clip (.45,.55) -- (.45,3) -- (.42,8) -- (1,8) -- (1,7.1) -- (7.76,7.1) -- (7.76,.55) -- cycle ;
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/control_plots/Run#2_plots_#3/#4/Run#2_#4_#5.pdf}};
+\end{scope}
+
+\GETplotHTTcontrolINFO[#1]{#2}{#3}{#4}{#5}
+
+% channel & cat
+\draw (1, 7) node [above right] {\scriptsize \localchannel, \localcat\vphantom{Àq,}};
+
+% year & lumi
+\draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (#2, \SI{13}{\TeV})\vphantom{Àq,}};
+
+% axis labels
 \draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
 \draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
 
 % CMS disclaimer
-\draw (1.85, 6.5) node [above] {\scriptsize CMS Data\vphantom{Àq,}};
-\draw (1.85, 6.5) node [below, text width=1cm] {\centering\scriptsize \WorkInProgress\par};
+\draw (1.85, 7.05) node [below] {\scriptsize CMS Data\vphantom{Àq,}};
+\draw (1.85, 7.05) node [below, text width=1cm] {\centering\scriptsize \WorkInProgress\par};
 \end{tikzpicture}%
 }
 
-\newcommand{\plotHTTshapes}[7][\HTTplotsdir]{%
-\begin{tikzpicture}%
-\clip (0,.1) rectangle (7.76,7.7) ;
-\begin{scope}
-\clip (.5,.55) -- (.43,5) -- (.45,8) -- (1.1,8) -- (1.1,7.1) -- (7.76,7.1) -- (7.76,.55) -- cycle ;
-\ifthenelse{\equal{#6}{2}\or\equal{#6}{32}\or\equal{#6}{33}\or\equal{#6}{34}\or\equal{#6}{35}\or\equal{#6}{36}\or\equal{#6}{37}}{
-\clip (.5,.55) -- (.43,5) -- (.43,5.55) -- (.5,5.55) -- (.5,5.65) -- (.43,5.65) -- (.45,8) -- (1.1,8) -- (1.1,7.1) -- (7.76,7.1) -- (7.76,.55) -- cycle ;
-}{}
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/#2-#3/#4/cmb/#4_#5_#6_#7.pdf}};
-\end{scope}
+\newcommand{\GETplotHTTshapesINFO}[7][\HTTplotsdir]{%
 
 % year
 \ifthenelse{\equal{#4}{2016}}{\def\locallumivalue{35.9}}{}
 \ifthenelse{\equal{#4}{2017}}{\def\locallumivalue{41.5}}{}
 \ifthenelse{\equal{#4}{2018}}{\def\locallumivalue{59.7}}{}
-\draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (#4, \SI{13}{\TeV})\vphantom{Àq,}};
+
+% channel
+\def\localLA{\ensuremath{\tauh^{(1)}}}
+\def\localLB{\ensuremath{\tauh^{(2)}}}
+\def\localchannel{\tauh\tauh}
+\ifthenelse{\equal{#5}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}}{}
+\ifthenelse{\equal{#5}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}}{}
+\ifthenelse{\equal{#5}{em}}{\def\localchannel{\ele\mu}\def\localLA{\ele}\def\localLB{\mu}}{}
 
 % category and variable
 \def\localBSMvar{\mTtot}
@@ -412,7 +437,7 @@
 \def\localSMvar{\NNscore}
 \def\localSMvarBD{\text{Indice du \NNscore\ 2D}}
 %\ifthenelse{\equal{#1}{HTT_v1}}{\def\localSMvar{\msv}}{}
-\def\localcat{inclusif}
+\def\localcat{\InclusiveSTR{}}
 \def\localvar{\localBSMvar}
 \def\localBSM{}
 \def\localSM{}
@@ -505,38 +530,128 @@
   \def\localSMBSM{\localBSM}
 }{}
 
-% channel
-\def\localLA{\ensuremath{\tauh^{(1)}}}
-\def\localLB{\ensuremath{\tauh^{(2)}}}
-\def\localchannel{\tauh\tauh}
-\ifthenelse{\equal{#5}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}}{}
-\ifthenelse{\equal{#5}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}}{}
-\ifthenelse{\equal{#5}{em}}{\def\localchannel{\ele\mu}\def\localLA{\ele}\def\localLB{\mu}}{}
+\ifthenelse{\equal{#3}{cut_based_sm}}{
+\def\localSMvar{\msv}
+\ifthenelse{\equal{#2}{m_ml}}{\def\localSMvar{\mml}}{}
+\def\localBSMvar{\localSMvar}
+\def\localvar{\localSMvar}
 
-\draw (1, 7) node [above right] {\scriptsize \localchannel, \localSMBSM\localcat\vphantom{Àq,}};
+\def\localcat{\todo{???}}
+
+\def\localBSM{}
+\def\localSM{}
+\def\localSMBSM{}
+
+\ifthenelse{\equal{#5}{tt}}{
+  \ifthenelse{\equal{#6}{10}}{
+    \def\localcat{$\Njets=0, \Delta R < \num{3.2}$}
+  }{}
+  \ifthenelse{\equal{#6}{11}}{
+    \def\localcat{$\Njets=1, \num{2.5} \leq \Delta R < \num{3.2}, \pT(\tau\tau) < \num{100}$}
+  }{}
+  \ifthenelse{\equal{#6}{12}}{
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \pT(\tau\tau) < \num{100}$}
+  }{}
+  \ifthenelse{\equal{#6}{13}}{
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \pT(\tau\tau) \geq \num{100}$}
+  }{}
+  \ifthenelse{\equal{#6}{14}}{
+    \def\localcat{$\Njets\geq2, \Delta R < \num{2.5}, \mjj>\num{350}, \Detajj\geq4$}
+  }{}
+  \ifthenelse{\equal{#6}{15}}{
+    \def\localcat{$\Njets\geq2, \Delta R < \num{2.5}, \mjj>\num{350}, \Detajj<4$}
+  }{}
+  \ifthenelse{\equal{#6}{16}}{
+    \def\localcat{$\Njets\geq2, \Delta R < \num{2.5}, \mjj<\num{350}$}
+  }{}
+  \ifthenelse{\equal{#6}{17}}{
+    \def\localcat{$\binom{\Njets\geq2, \Delta R \geq \num{2.5}}{\Njets<2, \Delta R \geq \num{3.2}}$}
+  }{}
+}{}
+
+\ifthenelse{\equal{#5}{mt}\or\equal{#5}{et}}{
+  \ifthenelse{\equal{#6}{10}}{
+    \def\localcat{$\Njets=0, \mT^{\localLA} < 40$}
+  }{}
+  \ifthenelse{\equal{#6}{11}}{
+    \def\localcat{$\Njets=0, 40 < \mT^{\localLA} < 70$}
+  }{}
+  \ifthenelse{\equal{#6}{12}}{
+    \def\localcat{$\Njets\geq1, \Delta R \geq \num{2.5}$}
+  }{}
+  \ifthenelse{\equal{#6}{13}}{
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \pT(\tau\tau) < \num{120}$}
+  }{}
+  \ifthenelse{\equal{#6}{14}}{
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \num{120} < \pT(\tau\tau) < \num{200}$}
+  }{}
+  \ifthenelse{\equal{#6}{15}}{
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \pT(\tau\tau) > \num{200}$}
+  }{}
+  \ifthenelse{\equal{#6}{16}}{
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \mjj < \num{350}$}
+  }{}
+  \ifthenelse{\equal{#6}{17}}{
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \num{350} < \mjj < \num{1000}$}
+  }{}
+  \ifthenelse{\equal{#6}{18}}{
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \mjj > \num{1000}$}
+  }{}
+}{}
+
+\ifthenelse{\equal{#5}{em}}{
+  \ifthenelse{\equal{#6}{10}}{
+    \def\localcat{$\Njets=0, -35 < \Dzeta < -10, \pT(\tau\tau) > 10$}
+  }{}
+  \ifthenelse{\equal{#6}{11}}{
+    \def\localcat{$\Njets=0, -35 < \Dzeta < -10, \pT(\tau\tau) < 10$}
+  }{}
+  \ifthenelse{\equal{#6}{12}}{
+    \def\localcat{$\Njets=0, \Dzeta > -10, \pT(\tau\tau) > 10$}
+  }{}
+  \ifthenelse{\equal{#6}{13}}{
+    \def\localcat{$\Njets=0, \Dzeta > -10, \pT(\tau\tau) < 10$}
+  }{}
+  \ifthenelse{\equal{#6}{14}}{
+    \def\localcat{$\Njets=1, \num{120} < \pT(\tau\tau) < \num{200}$}
+  }{}
+  \ifthenelse{\equal{#6}{15}}{
+    \def\localcat{$\Njets=1, \num{40} < \pT(\tau\tau) < \num{120}$}
+  }{}
+  \ifthenelse{\equal{#6}{16}}{
+    \def\localcat{$\Njets=1, \pT(\tau\tau) > \num{200}$}
+  }{}
+  \ifthenelse{\equal{#6}{17}}{
+    \def\localcat{$\Njets=1, \pT(\tau\tau) < \num{40}$}
+  }{}
+  \ifthenelse{\equal{#6}{18}}{
+    \def\localcat{$\Njets\geq2, \mjj > \num{350}$}
+  }{}
+  \ifthenelse{\equal{#6}{19}}{
+    \def\localcat{$\Njets\geq2, \mjj < \num{350}$}
+  }{}
+}{}
+
+}{}
 
 % axis labels
 \def\localxaxislabel{\localvar\ifthenelse{\equal{\localvar}{\localBSMvar}}{ (\SI{}{\GeV})}{}}
-\def\localyaxislabel{Nombre d'événements / $\dd~\localvar$\ifthenelse{\equal{\localvar}{\localBSMvar}}{ (1/\SI{}{\GeV})}{}}
-
-
-\draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
-\draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
+\def\localyaxislabel{\Neventsaxis\ / $\dd~\localvar$\ifthenelse{\equal{\localvar}{\localBSMvar}}{ (1/\SI{}{\GeV})}{}}
 
 % CMS disclaimer
-\def\localCMSdisclaimerAX{1.95}
+\def\localCMSdisclaimerAX{1.85}
 \def\localCMSdisclaimerAY{7.05}
-\def\localCMSdisclaimerBX{3.35}
+\def\localCMSdisclaimerBX{3.25}
 \def\localCMSdisclaimerBY{7.05}
 \ifthenelse{\equal{#5}{em}}{ % em
   \ifthenelse{\equal{#6}{20}\or\equal{#6}{19}\or\equal{#6}{14}}{ % EMB, diboson, qcd
     \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
-    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.6}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
   }{}
   \ifthenelse{\equal{#6}{13}}{ % ttbar
     \def\localCMSdisclaimerAX{6.5}
     \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
-    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.6}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
   }{}
 }{}
 \ifthenelse{\equal{#7}{prefit}}{
@@ -545,6 +660,68 @@
   \def\localCMSdisclaimerBX{6.5}
   \def\localCMSdisclaimerBY{6}
 }{}
+\ifthenelse{\equal{#3}{cut_based_sm}}{
+\def\localCMSdisclaimerAX{1.85}
+\def\localCMSdisclaimerAY{7.05}
+\def\localCMSdisclaimerBX{3.25}
+\def\localCMSdisclaimerBY{7.05}
+  \ifthenelse{\equal{#5}{tt}}{
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
+    \ifthenelse{\equal{#6}{10}}{
+    \def\localCMSdisclaimerAX{6.5}
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
+    }{}
+    \ifthenelse{\equal{#6}{17}}{
+    \def\localCMSdisclaimerAX{4.1}
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX+2.4}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY}
+    }{}
+  }{}
+  \ifthenelse{\equal{#5}{mt}}{
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
+  }{}
+  \ifthenelse{\equal{#5}{et}}{
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
+    \ifthenelse{\equal{#6}{11}\or\equal{#6}{12}}{
+    \def\localCMSdisclaimerAX{6.5}
+    }{}
+  }{}
+  \ifthenelse{\equal{#5}{em}}{
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
+  }{}
+}{}
+
+}
+
+\newcommand{\plotHTTshapes}[7][\HTTplotsdir]{%
+\begin{tikzpicture}%
+\clip (0,.1) rectangle (7.76,7.7) ;
+\begin{scope}
+\clip (.5,.55) -- (.43,5) -- (.45,8) -- (1.1,8) -- (1.1,7.1) -- (7.76,7.1) -- (7.76,.55) -- cycle ;
+\ifthenelse{\equal{#6}{2}\or\equal{#6}{32}\or\equal{#6}{33}\or\equal{#6}{34}\or\equal{#6}{35}\or\equal{#6}{36}\or\equal{#6}{37}}{
+\clip (.5,.55) -- (.43,5) -- (.43,5.55) -- (.5,5.55) -- (.5,5.65) -- (.43,5.65) -- (.45,8) -- (1.1,8) -- (1.1,7.1) -- (7.76,7.1) -- (7.76,.55) -- cycle ;
+}{}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/#2-#3/#4/cmb/#4_#5_#6_#7.pdf}};
+\end{scope}
+
+\GETplotHTTshapesINFO[#1]{#2}{#3}{#4}{#5}{#6}{#7}
+
+% year and lumi
+\draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (#4, \SI{13}{\TeV})\vphantom{Àq,}};
+
+% channel and cats
+\draw (1, 7) node [above right] {\scriptsize \localchannel, \localSMBSM\localcat\vphantom{Àq,}};
+
+% axis labels
+\draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
+\draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
+
+% CMS disclaimer
 \draw (\localCMSdisclaimerAX, \localCMSdisclaimerAY) node [below] {\scriptsize CMS Data\vphantom{Àq,}};
 \draw (\localCMSdisclaimerBX, \localCMSdisclaimerBY) node [below, text width=1.5cm] {\centering\scriptsize \WorkInProgress\par};
 \end{tikzpicture}%

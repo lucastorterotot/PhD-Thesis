@@ -1,4 +1,8 @@
 \renewcommand{\nfpCLlimit}{\SI{95}{\%} \CLS}
+
+\renewcommand{\Neventsaxis}{Events}
+\renewcommand{\InclusiveSTR}{inclusive}
+
 \renewcommand{\plotHTTModelIndepLimits}[5][\HTTplotsdir]{%
 \begin{tikzpicture}[scale=0.95]%
 \begin{scope}
@@ -7,25 +11,10 @@
 \fill [white] (1.5, 6) rectangle (3.6, 7);
 \end{scope}
 
-\def\localyaxislabelXXH{\todo{?}}
-\ifthenelse{\equal{#4}{ggH}}{
-  \def\localyaxislabelXXH{\ensuremath{\gluon\gluon\phi}}
-}{}
-\ifthenelse{\equal{#4}{bbH}}{
-  \def\localyaxislabelXXH{\ensuremath{\quarkb\antiquarkb\phi}}
-}{}
-
-\def\localxaxislabel{$m_\phi$ (\SI{}{\GeV})}
-\def\localyaxislabel{\nfpCLlimit\ on $\sigma(\localyaxislabelXXH) \times \BR(\phi\to\tau\tau)$ (\SI{}{\pico\barn})}
+\GETplotHTTModelIndepLimitsINFOS[#1]{#2}{#3}{#4}{#5}
 
 \draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
 \draw (0, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
-
-% year
-\def\locallumivalue{137}\def\localera{Run II}
-\ifthenelse{\equal{#3}{2016}}{\def\locallumivalue{35.9}\def\localera{2016}}{}
-\ifthenelse{\equal{#3}{2017}}{\def\locallumivalue{41.5}\def\localera{2017}}{}
-\ifthenelse{\equal{#3}{2018}}{\def\locallumivalue{59.7}\def\localera{2018}}{}
 \draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (\localera, \SI{13}{\TeV})\vphantom{Àq,}};
 
 % CMS disclaimer
@@ -41,13 +30,7 @@
 \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/limits/#2/mssm_mh125_#2#3.pdf}};
 \end{scope}
 
-\def\localxaxislabelptc{\HiggsA}
-\ifthenelse{\equal{#2}{mssm_vs_sm_CPV}}{
-  \def\localxaxislabelptc{\Higgspm}
-}{}
-
-\def\localxaxislabel{$m_{\localxaxislabelptc}$ (\SI{}{\GeV})}
-\def\localyaxislabel{$\tan\beta$}
+\GETplotHTTModelDepLimitsINFOS[#1]{#2}{#3}
 
 \draw (7.5, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
 \draw (0, 6.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
@@ -69,141 +52,15 @@
 \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.4575cm]{\PhDthesisdir/plots_and_images/my_plots/#1/control_plots/Run#2_plots_#3/#4/Run#2_#4_#5.pdf}};
 \end{scope}
 
-% cuts
-\def\localcat{inclusive}
-\ifthenelse{\equal{#3}{emb_ff_high_ml_mass}}{\def\localcat{$\mml>\SI{250}{\GeV}$}}{}
-\ifthenelse{\equal{#3}{emb_ff_high_m_sv_puppi}}{\def\localcat{$\msv>\SI{250}{\GeV}$}}{}
+\GETplotHTTcontrolINFO[#1]{#2}{#3}{#4}{#5}
 
-% channel
-\def\localLA{\ensuremath{\tauh^{(1)}}}
-\def\localLB{\ensuremath{\tauh^{(2)}}}
-\def\localchannel{\tauh\tauh}
-\ifthenelse{\equal{#4}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}}{}
-\ifthenelse{\equal{#4}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}}{}
-\ifthenelse{\equal{#4}{em}}{\def\localchannel{\ele\mu}\def\localLA{\ele}\def\localLB{\mu}}{}
+% channel & cat
 \draw (1, 7) node [above right] {\scriptsize \localchannel, \localcat\vphantom{Àq,}};
 
-% year
-\ifthenelse{\equal{#2}{2016}}{\def\locallumivalue{35.9}}{}
-\ifthenelse{\equal{#2}{2017}}{\def\locallumivalue{41.5}}{}
-\ifthenelse{\equal{#2}{2018}}{\def\locallumivalue{59.7}}{}
+% year & lumi
 \draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (#2, \SI{13}{\TeV})\vphantom{Àq,}};
 
 % axis labels
-\def\localxaxislabel{\todo{\inlinecode{bash}{#5}}}
-\def\localyaxislabel{\todo{Y?}}
-\ifthenelse{\equal{#5}{bpt_1}}{
-  \def\localxaxislabel{$\pT (\text{leading \quarkb-jet})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{bpt_2}}{
-  \def\localxaxislabel{$\pT (\text{trailing \quarkb-jet})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{jpt_1}}{
-  \def\localxaxislabel{$\pT (\text{leading jet})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{jpt_2}}{
-  \def\localxaxislabel{$\pT (\text{trailing jet})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{jeta_1}}{
-  \def\localxaxislabel{$\eta (\text{leading jet})$}
-  \def\localyaxislabel{Events / $\dd\eta$}
-}{}
-\ifthenelse{\equal{#5}{jeta_2}}{
-  \def\localxaxislabel{$\eta (\text{trailing jet})$}
-  \def\localyaxislabel{Events / $\dd\eta$}
-}{}
-\ifthenelse{\equal{#5}{nbtag}}{
-  \def\localxaxislabel{\Nbjets}
-  \def\localyaxislabel{Events}
-}{}
-\ifthenelse{\equal{#5}{njets}}{
-  \def\localxaxislabel{\Njets}
-  \def\localyaxislabel{Events}
-}{}
-\ifthenelse{\equal{#5}{dijetpt}}{
-  \def\localxaxislabel{$\pT (\text{2 leading jets})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{jdeta}}{
-  \def\localxaxislabel{$\Detajj (\text{2 leading jets})$}
-  \def\localyaxislabel{Events / $\dd(\Detajj)$}
-}{}
-\ifthenelse{\equal{#5}{mjj}}{
-  \def\localxaxislabel{$\mjj (\text{2 leading jets})$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd m$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{pt_1}}{
-  \def\localxaxislabel{$\pT(\localLA)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{pt_2}}{
-  \def\localxaxislabel{$\pT(\localLB)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{eta_1}}{
-  \def\localxaxislabel{$\eta (\localLA)$}
-  \def\localyaxislabel{Events / $\dd\eta$}
-}{}
-\ifthenelse{\equal{#5}{eta_2}}{
-  \def\localxaxislabel{$\eta (\localLB)$}
-  \def\localyaxislabel{Events / $\dd\eta$}
-}{}
-\ifthenelse{\equal{#5}{mt_1_puppi}}{
-  \def\localxaxislabel{$\mT(\localLA,\MET)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd\mT$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{mt_2_puppi}}{
-  \def\localxaxislabel{$\mT(\localLB,\MET)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd\mT$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{mTdileptonMET_puppi}}{
-  \def\localxaxislabel{$\mT(\localLA+\localLB,\MET)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd\mT$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{pZetaPuppiMissVis}}{
-  \def\localxaxislabel{$\Dzeta$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd\Dzeta$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{pt_tt_puppi}}{
-  \def\localxaxislabel{$\pT (\tau\tau)$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd\pT$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{DiTauDeltaR}}{
-  \def\localxaxislabel{$\Delta R (\localLA,\localLB)$}
-  \def\localyaxislabel{Events / $\dd(\Delta R)$}
-}{}
-\ifthenelse{\equal{#5}{m_sv_puppi}}{
-  \def\localxaxislabel{$\msv$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd m$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{puppimet}}{
-  \def\localxaxislabel{$\MET$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd \MET$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{puppimetphi}}{
-  \def\localxaxislabel{$\phi(\MET)$}
-  \def\localyaxislabel{Events / $\dd \phi$}
-}{}
-\ifthenelse{\equal{#5}{m_vis}}{
-  \def\localxaxislabel{$\mvis$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd m$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{ptvis}}{
-  \def\localxaxislabel{$\pTvis$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd \pT$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{ml_mass}}{
-  \def\localxaxislabel{$\mlmass$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd m$ (1/\SI{}{\GeV})}
-}{}
-\ifthenelse{\equal{#5}{mt_tot_puppi}}{
-  \def\localxaxislabel{$\mTtot$ (\SI{}{\GeV})}
-  \def\localyaxislabel{Events / $\dd m$ (1/\SI{}{\GeV})}
-}{}
 \draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
 \draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
 
@@ -213,158 +70,28 @@
 \end{tikzpicture}%
 }
 
-\renewcommand{\plotHTTshapes}[8][\HTTplotsdir]{%
+\renewcommand{\plotHTTshapes}[7][\HTTplotsdir]{%
 \begin{tikzpicture}[scale=0.95]%
 \clip (0,.1) rectangle (7.76,7.7) ;
 \begin{scope}
 \clip (.5,.55) -- (.43,5) -- (.43,5.55) -- (.5,5.55) -- (.5,5.65) -- (.43,5.65) -- (.45,8) -- (1.1,8) -- (1.1,7.1) -- (7.76,7.1) -- (7.76,.55) -- cycle ;
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.4575cm]{\PhDthesisdir/plots_and_images/my_plots/#1/#2-#3/#4/cmb/#4_#5_#6_#7#8.pdf}};
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.4575cm]{\PhDthesisdir/plots_and_images/my_plots/#1/#2-#3/#4/cmb/#4_#5_#6_#7.pdf}};
 \end{scope}
 
-% year
-\ifthenelse{\equal{#4}{2016}}{\def\locallumivalue{35.9}}{}
-\ifthenelse{\equal{#4}{2017}}{\def\locallumivalue{41.5}}{}
-\ifthenelse{\equal{#4}{2018}}{\def\locallumivalue{59.7}}{}
+\GETplotHTTshapesINFO[#1]{#2}{#3}{#4}{#5}{#6}{#7}
+
+% year and lumi
 \draw (7.7, 7) node [above left] {\scriptsize \SI{\locallumivalue}{\femto\barn^{-1}} (#4, \SI{13}{\TeV})\vphantom{Àq,}};
 
-% category and variable
-\def\localBSMvar{\mTtot}
-\ifthenelse{\equal{#2}{m_ml}}{\def\localBSMvar{\mml}}{}
-\def\localSMvar{\NNscore}
-%\ifthenelse{\equal{#1}{HTT_v1}}{\def\localSMvar{\msv}}{}
-\def\localcat{inclusif}
-\def\localvar{\localBSMvar}
-
-\ifthenelse{\equal{#6}{1}}{
-  \def\localcat{\CATxxh}
-  \def\localvar{\localSMvar}
-}{}
-\ifthenelse{\equal{#6}{2}}{
-  \def\localcat{\CATttbarctrl}
-  \def\localvar{\localBSMvar}
-}{}
-\ifthenelse{\equal{#6}{13}}{
-  \def\localcat{\CATttbar}
-  \def\localvar{\localSMvar}
-}{}
-\ifthenelse{\equal{#6}{14}}{
-  \def\localcat{\CATqcd}
-  \def\localvar{\localSMvar}
-}{}
-\ifthenelse{\equal{#6}{15}}{
-  \def\localcat{\CATzll}
-  \def\localvar{\localSMvar}
-}{}
-\ifthenelse{\equal{#6}{16}}{
-  \def\localcat{\CATmisc}
-  \def\localvar{\localSMvar}
-}{}
-\ifthenelse{\equal{#6}{19}}{
-  \def\localcat{\CATdib}
-  \def\localvar{\localSMvar}
-}{}
-\ifthenelse{\equal{#6}{20}}{
-  \def\localcat{\CATemb}
-  \def\localvar{\localSMvar}
-}{}
-\ifthenelse{\equal{#6}{21}}{
-  \def\localcat{\CATfake}
-  \def\localvar{\localSMvar}
-}{}
-\ifthenelse{\equal{#6}{32}}{
-  \def\localcat{\CATnobtag\ \CATtightmt}
-    \ifthenelse{\equal{#5}{tt}}{
-      \def\localcat{\CATnobtag}
-    }{}
-    \ifthenelse{\equal{#5}{em}}{
-      \def\localcat{\CATnobtag\ \CAThighdz}
-    }{}
-  \def\localvar{\localBSMvar}
-}{}
-\ifthenelse{\equal{#6}{33}}{
-  \def\localcat{\CATnobtag\ \CATloosemt}
-    \ifthenelse{\equal{#5}{em}}{
-      \def\localcat{\CATnobtag\ \CATmediumdz}
-    }{}
-  \def\localvar{\localBSMvar}
-}{}
-\ifthenelse{\equal{#6}{34}}{
-  \def\localcat{\CATnobtag\ \CATlowdz}
-  \def\localvar{\localBSMvar}
-}{}
-\ifthenelse{\equal{#6}{35}}{
-  \def\localcat{\CATbtag\ \CATtightmt}
-    \ifthenelse{\equal{#5}{tt}}{
-      \def\localcat{\CATbtag}
-    }{}
-    \ifthenelse{\equal{#5}{em}}{
-      \def\localcat{\CATbtag\ \CAThighdz}
-    }{}
-  \def\localvar{\localBSMvar}
-}{}
-\ifthenelse{\equal{#6}{36}}{
-  \def\localcat{\CATbtag\ \CATloosemt}
-    \ifthenelse{\equal{#5}{em}}{
-      \def\localcat{\CATbtag\ \CATmediumdz}
-    }{}
-  \def\localvar{\localBSMvar}
-}{}
-\ifthenelse{\equal{#6}{37}}{
-  \def\localcat{\CATbtag\ \CATlowdz}
-  \def\localvar{\localBSMvar}
-}{}
-
-% channel
-\def\localLA{\ensuremath{\tauh^{(1)}}}
-\def\localLB{\ensuremath{\tauh^{(2)}}}
-\def\localchannel{\tauh\tauh}
-\ifthenelse{\equal{#5}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}}{}
-\ifthenelse{\equal{#5}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}}{}
-\ifthenelse{\equal{#5}{em}}{\def\localchannel{\ele\mu}\def\localLA{\ele}\def\localLB{\mu}}{}
-
-\draw (1, 7) node [above right] {\scriptsize \localchannel, \localcat\vphantom{Àq,}};
+% channel and cats
+\draw (1, 7) node [above right] {\scriptsize \localchannel, \localSMBSM\localcat\vphantom{Àq,}};
 
 % axis labels
-\def\localxaxislabel{\localvar\ifthenelse{\equal{\localvar}{\localBSMvar}}{ (\SI{}{\GeV})}{}}
-\def\localyaxislabel{Events / $\dd\localvar$\ifthenelse{\equal{\localvar}{\localBSMvar}}{ (1/\SI{}{\GeV})}{}}
-
-
 \draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
 \draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
 
 % CMS disclaimer
-\draw (1.95, 7.05) node [below] {\scriptsize CMS Data\vphantom{Àq,}};
-\draw (3.25, 7.05) node [below, text width=1.5cm] {\centering\scriptsize \WorkInProgress\par};
-\end{tikzpicture}%
-}
-
-\renewcommand{\plotHTTcontrolCATmt}[4][\HTTplotsdir]{%
-\begin{tikzpicture}%
-\node[anchor=south west] at (0,0) {\plotHTTcontrol[#1]{#2}{#3}{#4}{mt_1_puppi}};
-
-\foreach \x in {40, 70}{
- \draw [thick, dashed] ({1.25 + (\x-0)/(160-0)*(7.68-1.25)}, 2.8) --+ (0, 5.6-2.8);
- \draw [thick, dashed] ({1.25 + (\x-0)/(160-0)*(7.68-1.25)}, 0.95) --+ (0, 2.2-0.95);
-}
-
-\draw ({1.25 + (20-0)/(160-0)*(7.68-1.25)}, 5.6) node [below] {\tiny \CATtightmt};
-\draw ({1.25 + (55-0)/(160-0)*(7.68-1.25)}, 5.6) node [below] {\tiny \CATloosemt};
-\draw ({1.25 + (115-0)/(160-0)*(7.68-1.25)}, 5.6) node [below] {\tiny DR \Wjets};
-\end{tikzpicture}%
-}
-
-\renewcommand{\plotHTTcontrolCATdz}[4][\HTTplotsdir]{%
-\begin{tikzpicture}%
-\node[anchor=south west] at (0,0) {\plotHTTcontrol[#1]{#2}{#3}{#4}{pZetaPuppiMissVis}};
-
-\foreach \x in {-35, -10, 30}{
- \draw [thick, dashed] ({1.25 + (\x+200)/(200+200)*(7.68-1.25)}, 2.8) --+ (0, 5.6-2.8);
- \draw [thick, dashed] ({1.25 + (\x+200)/(200+200)*(7.68-1.25)}, 0.95) --+ (0, 2.2-0.95);
-}
-
-\draw ({1.25 + (-117.5+200)/(200+200)*(7.68-1.25)}, 5.6) node [below] {\tiny CR \ttbar};
-\draw ({1.25 + (-22.5+200)/(200+200)*(7.68-1.25)}, 5.6) node [left, rotate=90] {\tiny \CATlowdz};
-\draw ({1.25 + (20+200)/(200+200)*(7.68-1.25)}, 5.6) node [left, rotate=90] {\tiny \CATmediumdz};
-\draw ({1.25 + (115+200)/(200+200)*(7.68-1.25)}, 5.6) node [below] {\tiny \CAThighdz};
+\draw (\localCMSdisclaimerAX, \localCMSdisclaimerAY) node [below] {\scriptsize CMS Data\vphantom{Àq,}};
+\draw (\localCMSdisclaimerBX, \localCMSdisclaimerBY) node [below, text width=1.5cm] {\centering\scriptsize \WorkInProgress\par};
 \end{tikzpicture}%
 }
