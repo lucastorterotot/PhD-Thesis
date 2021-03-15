@@ -1,0 +1,57 @@
+\subsection{Énergie transverse manquante}\label{chapter-CMS-section-MET}
+Des neutrinos peuvent être produits lors des collisions.
+Or, ces particules se propagent sans laisser de signal dans le détecteur, elles sont donc invisibles.
+Toutefois, lorsque de telles particules sont produites en association avec des particules détectées, leur présence peut être déduite du déséquilibre dans l'impulsion totale des particules de l'événement~\cite{CMS-PAS-JME-17-001}.
+\par
+La phénoménologie des collisions de protons est discutée dans la section~\ref{chapter-LHC-section-LHC-subsec-pp_collisions}.
+Dans l'état initial,
+la composante longitudinale de l'impulsion est inconnue
+et
+l'impulsion totale dans le plan transverse est nulle.
+Par conservation, l'impulsion totale dans le plan transverse est nulle dans l'état final.
+Les neutrinos n'étant pas détectés, leurs impulsions transverses sont manquantes dans le bilan de l'état final.
+L'observable définie afin de quantifier ce manque est
+l'énergie transverse manquante (MET, \emph{Missing Transverse Energy}).
+Bien que son nom mentionne une énergie, il s'agit bien d'une impulsion.
+\par
+%La MET peut être déterminée à partir de l'algorithme de \PF\ (PF MET)
+%ou
+%par l'algorithme \PUPPI\ (\PUPPI\ MET).
+\paragraph{MET issue de l'algorithme de \PF}
+La somme des impulsions transverses des particules invisibles doit compenser celle des particules reconstruites, \ie
+\begin{equation}
+\sum_{\substack{\text{toutes les}\\\text{particules}}} \vpT = \vec{0}
+\Leftrightarrow
+\sum_{\substack{\text{particules}\\\text{invisibles}}} \vpT + \sum_{\substack{\text{particules}\\\text{reconstruites}}} \vpT = \vec{0}
+\Leftrightarrow
+\sum_{\substack{\text{particules}\\\text{invisibles}}} \vpT = -\sum_{\substack{\text{particules}\\\text{reconstruites}}} \vpT \mend
+\end{equation}
+\par La MET issue de l'algorithme de \PF\ est ainsi définie comme
+\begin{equation}
+\vMET(\text{\PF}) = -\sum_{i\in\set{\text{particules}}} \vpT^{i}
+\mend[,]
+\end{equation}
+où les particules sont celles reconstruites par l'algorithme de \PF,
+et représente l'impulsion transverse totale des particules invisibles.
+Cette définition, simple, est toutefois sensible aux particules issues de l'empilement.
+Afin de réduire l'effet de l'empilement, l'algorithme \PUPPI\ a été développé.
+\paragraph{MET issue de l'algorithme \PUPPI}
+La MET peut également être estimée par l'algorithme \PUPPI\ (\emph{PileUp Per Particle Identification}) \cite{PUPPI}.
+La \og \PUPPI MET \fg{} obtenue est moins sensible à l'empilement (\emph{pileup}) que la MET issue de l'algorithme de \PF\ (PF MET).
+L'algorithme \PUPPI\ exploite en effet des informations sur:
+\begin{itemize}
+\item l'environnement de chaque particule identifiée par l'algorithme de \PF\;
+\item les propriétés de l'empilement dans l'événement;
+\item les données issues du trajectographe;
+\end{itemize}
+afin d'associer un poids $w_i$ à chaque particule $i$, lié à la probabilité que celle-ci proviennent de l'empilement au lieu du vertex primaire principal.
+Ce poids varie entre
+\num{0} pour des particules issues de l'empilement
+et
+\num{1} pour des particules provenant du vertex primaire principal.
+Plus de détails dans la détermination de $w_i$ sont disponibles dans les références~\cite{CMS-PAS-JME-17-001,PUPPI}.
+\par La MET issue de l'algorithme \PUPPI\ est définie comme
+\begin{equation}
+\vMET(\text{\PUPPI}) = -\sum_{i\in\set{\text{particules}}} w_i\,\vpT^{i}
+\mend
+\end{equation}

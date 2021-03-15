@@ -1,0 +1,234 @@
+\subsection{Formation des jets}\label{chapter-MSSM-formation_jets}
+Lorsqu'un parton (quark ou gluon) est issu d'une collision de particules, il possède une haute énergie et émet alors, par interaction forte, d'autres partons.
+Par conservation, l'énergie portée par chaque parton ainsi obtenu diminue et par conséquent, $\alpha_s$ augmente.
+\par Tant que l'échelle d'énergie est suffisamment grande pour que $\alpha_s \ll 1$, ce qui correspond à des énergies supérieures à la centaine de \SI{}{\MeV}, il est possible de réaliser des calculs perturbatifs.
+L'émission de partons créé la \og gerbe partonique \fg, sujet de la prochaine section.
+\par Au fur et à mesure des émissions, l'échelle en énergie diminue et en deçà d'une centaine de \SI{}{\MeV}, il n'est plus possible de réaliser des calculs perturbatifs car $\alpha_s$ augmente.
+Des modèles paramétriques sont alors utilisés pour caractériser le phénomène d'\og hadronisation \fg, abordés ensuite.
+
+\subsubsection{Gerbe partonique}\label{chapter-MSSM-formation_jets-subsec-gerbe-partonique}
+%\fullcite{Unorthodox_Introduction_QCD}
+Lorsqu'un parton est issu d'une collision au LHC, il se trouve dans un premier temps dans le régime de liberté asymptotique. Il émet alors d'autres partons. Ainsi, pour un événement $\Zboson\to\quark\antiquark$ comme celui de la figure~\ref{subfig-fgraph-Z_q_q} avec deux quarks dans l'état final, il est possible d'obtenir par émission d'un gluon un état $\quark\antiquark\gluon$ comme ceux illustrés sur les figures~\ref{subfig-fgraph-Z_qg_q} et~\ref{subfig-fgraph-Z_q_qg}, par exemple.
+\begin{figure}[h]
+\centering\vspace{\baselineskip}
+\subcaptionbox{\label{subfig-fgraph-Z_q_q}}[.3\textwidth]
+{\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/gerbe_partonique/fgraph-Z_q_q.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{\label{subfig-fgraph-Z_qg_q}}[.3\textwidth]
+{\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/gerbe_partonique/fgraph-Z_qg_q.tex}\vspace{\baselineskip}}
+\hfill
+\subcaptionbox{\label{subfig-fgraph-Z_q_qg}}[.3\textwidth]
+{\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/gerbe_partonique/fgraph-Z_q_qg.tex}\vspace{\baselineskip}}
+\caption[Un boson \Zboson\ se désintègre en paire quark-antiquark.]{Un boson \Zboson\ se désintègre en paire quark-antiquark. Dans les cas des figures~\ref{subfig-fgraph-Z_qg_q} et~\ref{subfig-fgraph-Z_q_qg}, un gluon supplémentaire est émis.}
+\label{fig-fgraph-Z_q_q_xg}
+\end{figure}
+\par Il est légitime de se demander quelle est la probabilité d'obtenir un état $\quark\antiquark\gluon$ à partir d'un état $\quark\antiquark$.
+Des calculs de section efficace permettent d'obtenir~\cite{salam2010elements}, pour un état initialement à $X$ partons dont un parton $i$ émet un parton $j$,
+\begin{equation}
+\dd{\sigma_{X+j}} \simeq \sigma_{X} \sum_{i\in\set{X}} \frac{\alpha_s}{2\pi} \frac{\dd{\theta^2}}{\theta^2} \dd{z} P_{ij}(z)
+\end{equation}
+où $\theta$ est l'angle entre le parton émis $j$ et le parton émetteur $i$. La grandeur $P_{ij}(z)$ est la probabilité qu'un parton de type $i$ émette un parton de type $j$ emportant une fraction $z$ de l'énergie initiale de $i$, qui s'exprime
+\begin{align}
+P_{\quark\quark}(z) &= C_F \frac{1+z^2}{1-z} \msep&
+P_{\quark\gluon}(z) &= C_F \frac{1+(1-z)^2}{z} \mend[,]
+\\
+P_{\gluon\gluon}(z) &= C_A \frac{z^4 + 1 + (1-z)^4}{z(1-z)} \msep&
+P_{\gluon\quark}(z) &= T_R (z^2+(1-z)^2) \mend[,]
+\end{align}
+et $P_{\gluon\antiquark}(z) = P_{\gluon\quark}(z)$,
+avec
+$C_F=\frac{4}{3}$,
+$C_A = 3$ et
+$T_R=\frac{1}{2}$.
+La probabilité d'émettre un parton supplémentaire diverge dans deux cas:
+\begin{itemize}
+\item le parton émis a une énergie faible devant celle du parton émetteur, c'est la limite infrarouge;
+\item l'angle entre le parton émis et le parton émetteur est petit, c'est la limite colinéaire.
+\end{itemize}
+\par Les nouveaux partons ainsi émis et les partons initiaux continuent chacun ce processus jusqu'à ce que le phénomène de confinement de couleur réapparaisse. Pour un unique parton directement issu de la collision ayant lieu au vertex primaire (PV), une gerbe partonique est formée, \ie\ un ensemble collimé de partons, comme illustré sur la figure~\ref{fig-parton_shower}.
+Ce sont ces particules qui vont participer au phénomène d'hadronisation dû au confinement de couleur.
+\begin{figure}[h]
+\centering
+\subcaptionbox{Deux quarks sont initialement produits, ce qui correspond au diagramme de la figure~\ref{subfig-fgraph-Z_q_q}.\label{subfig-parton_shower-qq}}[.3\textwidth]
+{\begin{tikzpicture}
+\input{\PhDthesisdir/plots_and_images/partonic_shower_tikz/qq.tex}
+\end{tikzpicture}}
+\hfill
+\subcaptionbox{Un des quarks peut émettre un gluon, ce qui correspond au diagramme de la figure~\ref{subfig-fgraph-Z_q_qg}.\label{subfig-parton_shower-qqg}}[.3\textwidth]
+{\begin{tikzpicture}
+\input{\PhDthesisdir/plots_and_images/partonic_shower_tikz/qq.tex}
+\input{\PhDthesisdir/plots_and_images/partonic_shower_tikz/qqg.tex}
+\end{tikzpicture}}
+\hfill
+\subcaptionbox{Le processus est réitéré, donnant un ensemble de particules colorées.\label{subfig-parton_shower-qqNg}}[.3\textwidth]
+{\begin{tikzpicture}
+\input{\PhDthesisdir/plots_and_images/partonic_shower_tikz/qq.tex}
+\input{\PhDthesisdir/plots_and_images/partonic_shower_tikz/qqg.tex}
+\input{\PhDthesisdir/plots_and_images/partonic_shower_tikz/qqNg.tex}
+\end{tikzpicture}}
+
+\caption[Formation de deux gerbes partoniques.]{Formation de deux gerbes partoniques à partir d'une paire de quarks formée au vertex primaire (PV).}
+\label{fig-parton_shower}
+\end{figure}
+
+\subsubsection{Hadronisation}\label{chapter-MSSM-formation_jets-subsec-hadronisation}
+Lorsque des partons en émettent d'autres, la conservation de l'énergie implique que chaque particule, individuellement, possède une énergie de plus en plus petite.
+Or $\alpha_s$ augmente lorsque l'échelle d'énergie diminue et en-deçà de quelques centaines de \SI{}{\MeV}, $\alpha_s$ diverge.
+Le phénomène de confinement de couleur réapparaît et la gerbe partonique subit le phénomène d'hadronisation.
+Un flux collimé de hadrons, particules de charge de couleur nulle composées de partons, est alors obtenu.
+Certains de ces hadrons peuvent comporter des quarks de deuxième ou troisième génération. Ils sont alors instables et peuvent être amenés à se désintégrer, auquel cas ce sont leurs produits de désintégration qui sont observés dans le détecteur.
+\par Le phénomène d'hadronisation ayant lieu lorsque $\alpha_s\gg1$, il n'est pas possible de réaliser des calculs perturbatifs. Afin de décrire ce phénomène, il faut avoir recours à des modèles paramétriques. Deux d'entre eux sont décrits ci-après,
+le modèle des cordes de Lund~\cite{Andersson_parton_fragmentation}
+et
+le modèle d'agglomération hadronique~\cite{Winter_2004}.
+\paragraph{Modèle des cordes de Lund}\label{chapter-MSSM-formation_jets-subsec-hadronisation-subsubsec-Lund}
+Dans le modèle des cordes de Lund~\cite{Andersson_parton_fragmentation}, les quarks sont reliés en paires $\quark\antiquark$ par des \og cordes \fg{} de couleur, de tension $\kappa \simeq \SI{1}{\GeV.\femto\meter^{-1}}$, comme sur la figure~\ref{subfig-Lund2}. Les gluons sont décrits comme des nœuds des cordes de couleur.
+\begin{figure}[h]
+\centering
+\subcaptionbox{Les deux quarks issus de la collision se séparent à grande vitesse.\label{subfig-Lund1}}[.3\textwidth]
+{\input{\PhDthesisdir/plots_and_images/Lund_tikz/Lund_1.tex}}
+\hfill
+\subcaptionbox{Une \og corde \fg{} de flux de couleur se forme entre les deux quarks.\label{subfig-Lund2}}[.3\textwidth]
+{\input{\PhDthesisdir/plots_and_images/Lund_tikz/Lund_2.tex}}
+\hfill
+\subcaptionbox{L'énergie potentielle de la corde est suffisamment grande pour former de nouvelles paires de quarks.\label{subfig-Lund3}}[.3\textwidth]
+{\input{\PhDthesisdir/plots_and_images/Lund_tikz/Lund_3.tex}}
+
+\vspace{\baselineskip}
+
+\subcaptionbox{Le processus se répète tant qu'il y a suffisamment d'énergie pour générer une paire de quarks.\label{subfig-Lund4}}[.45\textwidth]
+{\input{\PhDthesisdir/plots_and_images/Lund_tikz/Lund_4.tex}}
+\hfill
+\subcaptionbox{Des hadrons non colorés sont formés se forment à partir des quarks de basse énergie.\label{subfig-Lund5}}[.45\textwidth]
+{\input{\PhDthesisdir/plots_and_images/Lund_tikz/Lund_5.tex}}
+
+\caption[Formation de jets dans le cadre du modèle des cordes de Lund.]{Processus de formation de deux jets dans le cadre du modèle des cordes de Lund.}
+\label{fig-Lund}
+\end{figure}
+\par Lorsque deux charges colorées s'éloignent, l'énergie potentielle augmente.
+Une fois que l'énergie potentielle est suffisamment grande, une nouvelle paire $\quark'\antiquark'$ est créée (fig.~\ref{subfig-Lund3}), avec une probabilité proportionnelle à $\exp(-\frac{\pi}{\kappa} m_{\quark'})$; la probabilité d'obtenir des quarks lourds par ce processus est donc très faible.
+Le partage de l'énergie entre les paires de quarks est régie par une fonction de partition dont les paramètres sont estimés expérimentalement.
+\paragraph{Modèle d'agglomération hadronique}\label{chapter-MSSM-formation_jets-subsec-hadronisation-subsubsec-agglo_hadronique}
+\begin{wrapfigure}{R}{8cm}
+\centering
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/QCD/fgraph-QCD_clustering_fragmentation.tex}
+\caption[Formation de jets dans le cadre du modèle d'agglomération hadronique.]{Schématisation de l'hadronisation dans le cadre du modèle d'agglomération hadronique.}
+\label{fig-agglo_hadronique}
+\end{wrapfigure}
+L'agglomération hadronique~\cite{Winter_2004} repose sur l'hypothèse de conservation des nombres quantiques ainsi que de l'énergie-impulsion entre les partons issus de la gerbe hadronique et les hadrons obtenus après hadronisation.
+\par Dans un premier temps, les gluons de la gerbe partonique se désintègrent en paires $\quark\antiquark$. Les partons, uniquement des quarks à ce stade donc, se rassemblent dans un second temps en agglomérats de charge de couleur nulle, c'est le \og pré-confinement \fg.
+Deux cas de figurent se présentent alors:
+\begin{itemize}
+\item la masse de l'agrégat est proche de celle d'un hadron, l'agrégat produit ce hadron;
+\item la masse de l'agrégat n'est pas proche de celle d'un hadron et son énergie est supérieure à un seuil $Q_0$, cet agrégat se désintègre en agrégats plus petits et forme plusieurs hadrons.
+\end{itemize}
+Ce processus est illustré sur la figure~\ref{fig-agglo_hadronique}.
+
+\subsubsection{Parton initial et caractéristiques du jet}
+Selon le parton à l'origine du jet, ce dernier présente certaines caractéristiques, discutées ci-après.
+Le parton n'est pas visible expérimentalement, mais les caractéristiques du jet obtenu permettent d'en estimer la saveur, comme exposé au chapitre~\refChLHCCMS.
+\paragraph{Le quark~\quarkt} possède une durée de vie trop courte pour participer à l'hadronisation. Il se désintègre alors par interaction faible en un autre quark, très majoritairement un quark~\quarkb, et un boson \Wboson. Le nouveau quark issu de cette désintégration forme alors un jet.
+\par Les autres quarks, \quarkd, \quarku, \quarks, \quarkc\ et~\quarkb, sont plus stables que le top et participent à l'hadronisation.
+Ils se retrouvent donc confinés au sein des hadrons formés, éventuellement instables.
+\paragraph{Le quark~\quarkb} ne forme pas de hadron stable et se désintègre en quark~\quarkc\ ou~\quarku\ par interaction faible.
+Dans \SI{70}{\%} des cas, cette désintégration se fait avec émission d'une nouvelle paire de quarks $\quark\antiquark$ selon
+\begin{equation}
+\quarkb \to \quarkc\,\quark_d\antiquark_d
+\msep
+\antiquarkb \to \antiquarkc\,\quark_u\antiquark_u
+\msep
+\quarkb \to \quarku\,\quark_d\antiquark_d
+\msep
+\antiquarkb \to \antiquarku\,\quark_u\antiquark_u
+\mend[,]
+\end{equation}
+où $q_d$ et $q_u$ désignent respectivement des quarks d'isospin faible bas et haut.
+Le nombre de constituants du jet, ainsi que le nombre de traces déplacées, est alors plus important.
+Dans \SI{30}{\%} des cas, la désintégration du quark $b$ se fait avec émission d'une paire de leptons, un électriquement chargé et le neutrino associé, \ie
+\begin{equation}
+\quarkb \to \quarkc\,\lepton^-\antineutrino_\ell
+\msep
+\antiquarkb \to \antiquarkc\,\lepton^+\neutrino_\ell
+\msep
+\quarkb \to \quarku\,\lepton^-\antineutrino_\ell
+\msep
+\antiquarkb \to \antiquarku\,\lepton^+\neutrino_\ell
+\mend
+\end{equation}
+Le lepton chargé donne une signature caractéristique lors des collisions proton-proton du LHC.
+\par Ces désintégrations font intervenir les modules des coefficients $V_{\quarkc\quarkb}$ ou $V_{\quarku\quarkb}$ de la matrice CKM, introduite dans la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW-quarks}, dont les valeurs sont faibles; elles sont donc fortement supprimées.
+Les hadrons contenant un quark~\quarkb\ ont ainsi une durée de vie $\tau$ de l'ordre de la picoseconde~\cite{B0s_lifetime,lifetimes_c_b_hadrons} et peuvent voyager sur une distance de l'ordre du millimètre.
+Les traces des particules chargées issues de cette nouvelle désintégration proviennent donc d'un vertex secondaire (SV), différent du vertex primaire (PV).
+Ces traces sont \og déplacées \fg.
+Pour chacune d'entre elles, il est possible de déterminer le paramètre d'impact (IP) au vertex primaire, dont la valeur est typiquement plus grande que pour des traces provenant du vertex primaire, comme cela est illustré sur la figure~\ref{fig-chapter-CMS-section-jets_reco-subsec-flavor-SV_scheme}.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.5]
+\def\Bjetangle{30}
+\def\Bhaddronangle{5}
+\def\Bhaddronflight{.75}
+
+\clip (-145:\Solenrin) rectangle (\Bjetangle:1.8*\Solenrin);
+
+\foreach\jetangle in {120,-145}{
+\printbigjetnolabel{9}{\jetangle}
+\draw (\jetangle:2.75) node {jet} ;
+}
+
+\def\CurrentVertex{(\Bhaddronangle:\Bhaddronflight)}
+
+\draw [thick, dotted] (0,0) -- \CurrentVertex ;
+
+{
+\def\jetcolor{ltcolorred}
+\printjetnolabel{9}{\Bjetangle}
+\draw [\jetcolor] (\Bjetangle:2)+(1.5,.75) node {traces déplacées};
+}
+\begin{scope}
+\clip circle (\Solenrin);
+\printantimuonnolabel{7}{\Bjetangle}
+\end{scope}
+
+\draw [\muoncolor] (\Bjetangle:4) +(0,{-2*\baselineskip}) node {lepton chargé};
+
+\draw (\Bjetangle:4) + (-.125,-.5) circle (1.125);
+\draw [-latex] (\Bjetangle:4) + (-.125,-1.625) --+ (-.125,-2) node [below] {jet de saveur lourde};
+
+\draw (0,0) node [left] {PV} ;
+\draw \CurrentVertex node [below right] {SV} ;
+
+\fill (0,0) circle (2pt);
+\fill \CurrentVertex circle (2pt);
+
+\draw [dashed] \CurrentVertex --+ (\Bjetangle:-.8);
+
+\draw [red, latex-latex] (0,0)--+ (-90+\Bjetangle:{\Bhaddronflight*sin(\Bjetangle-\Bhaddronangle)}) node [below right] {IP};
+\end{tikzpicture}
+\caption[Trois jets, dont un de saveur lourde.]{Trois jets, dont un de saveur lourde. Les particules composant ce jet proviennent d'un vertex secondaire (SV), différent du vertex primaire (PV) où a lieu la collision entre les protons et la formation du hadron lourd à l'origine du SV. Le paramètre d'impact (IP) est également indiqué. Réalisé à l'aide de CMSTransverseTikZ~\cite{CMSTransverseTikZ}.}
+\label{fig-chapter-CMS-section-jets_reco-subsec-flavor-SV_scheme}
+\end{figure}
+\paragraph{Le quark~\quarkc} suit le même schéma que le quark~\quarkb. Cependant, la désintégration du quark~\quarkc\ en quark~\quarks\ selon
+\begin{equation}
+\quarkc \to \quarks\,\quark_u\antiquark_u
+\msep
+\antiquarkc \to \antiquarks\,\quark_d\antiquark_d
+\msep
+\quarkc \to \quarks\,\lepton^+\neutrino_\ell
+\msep
+\antiquarkc \to \antiquarks\,\lepton^-\antineutrino_\ell
+\mend[,]
+\end{equation}
+fait intervenir le module du coefficient $V_{\quarkc\quarks}$ de la matrice CKM, proche de 1.
+Les hadrons contenant un quark~\quarkc\ ont ainsi une durée de vie $\tau$ de inférieure à la picoseconde~\cite{lifetimes_c_b_hadrons} et il est plus difficile d'identifier les jets issus de quarks~\quarkc\ que ceux issus de quarks~\quarkb.
+\paragraph{Les quarks~\quarkd, \quarku\ et~\quarks} forment des hadrons étant:
+\begin{itemize}
+\item très instables, par exemple les \pionnull, dont seuls les produits de désintégration sont observés;
+\item faiblement instables, par exemple les \Kaonplus\ et les \Kaonnull, qui se propagent généralement jusque dans les parties sensibles du détecteur et peuvent donc être directement observés;
+\item stables, par exemple les protons, qui sont directement observés dans le détecteur.
+\end{itemize}
+Dans tous les cas, les traces des particules chargées observées proviennent du PV, lieu de formation du quark initial.
+Le phénomène décrit précédemment pour les quarks~\quarkb\ et~\quarkc\ n'est donc pas observable.
+Les jets issus de ces trois types de quarks, les plus légers, sont ainsi regroupés sous la dénomination de \og jets légers \fg.
+\paragraph{Les gluons} portent une charge de couleur plus importante que les quarks.
+Les quarks portent en effet une couleur, les antiquarks une anticouleur et les gluons portent une couleur et une anticouleur.
+Les jets initiés par des gluons comportement typiquement plus de particules électriquement chargées et sont moins collimés que les jets légers~\cite{CMS-PAS-JME-13-002}.

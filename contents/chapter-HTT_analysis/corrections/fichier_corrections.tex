@@ -1,21 +1,8 @@
 \section{Corrections}\label{chapter-HTT_analysis-section-corrections}
 Dans le but d'améliorer la description des données réelles par les données simulées et encapsulées, des corrections sont appliquées à ces dernières.
 Elles sont obtenues à partir d'analyses annexes.
-Les corrections appliquées au particules individuelles (muons, électrons) sont présentées dans le chapitre~\refChLHCCMS,
-celles appliquées aux objets physiques de haut niveau (MET, jets et taus hadroniques) dans le chapitre~\refChHLO.
-\subsection{Pondérations dues aux collisions}
-\paragraph{Pondération de l'empilement (\emph{Pileup reweighting})}
-Les données simulées sont générées avec un réglage donné de luminosité instantanée, relié à la quantité d'empilement obtenu.
-Or, la production de ces jeux de données est souvent faite avant la mesure de ces observables dans les données réelles.
-Afin de corriger la différence sur le profil d'empilement obtenu, un poids est appliqué aux événements simulés afin que ce profil soit cohérent avec celui des données réelles.
-\paragraph{Pondération du \emph{prefiring}}
-En 2016 et 2017, le niveau L1 du système de déclenchement de CMS présentait un défaut.
-Dans la partie à haute $\eta$ du ECAL, des objets physique responsables du déclenchement du L1 étaient associés à l'événement précédent.
-Seul un événement sur trois consécutifs pouvant être enregistré, l'efficacité de la prise de données est moindre qu'attendue.
-De plus, cette efficacité dépend de la topologie des événements.
-En l'occurrence, les événements avec des jets de hautes valeurs de $\eta$ sont particulièrement touchés par cet effet.
-Une pondération est alors appliquée afin de corriger cet effet.
-Selon la topologie de l'événement, il peut être de \num{1.0} ou descendre à des valeurs de l'ordre de \num{0.95}.
+Les corrections usuelles sont présentées dans le chapitre~\refChLHCCMS.
+Des corrections spécifiques à cette analyse sont également appliquées.
 \subsection{Efficacité des \HLTpaths}
 \paragraph{Efficacité des \HLTpaths\ des \tauh\ (\emph{\tauh\ trigger scale factors})}
 L'efficacité des \HLTpaths\ est mesurée à partir d'une méthode \og balise et sonde \fg{}  (\emph{tag and probe}).
@@ -104,20 +91,3 @@ $y_{\quarkt}$ et $y_{\quarkb}$ sont les constantes de couplage de Yukawa pour le
 $Q$ l'échelle d'énergie~\cite{Bagnaschi:2015qta,Bagnaschi:2015bop}.
 Les trois termes de cette formule correspondent aux contributions du quark~\quarkt, du quark~\quarkb\ et de leur interférence.
 Les valeurs de $y_{\quarkt}$ et $y_{\quarkb}$ dépendent de $m_{\HiggsA}$ et $\tan\beta$ et sont définies pour chacun des bosons de Higgs (\higgs, \Higgs, \HiggsA).
-\paragraph{Repondération de l'impulsion transverse et de la masse du boson \Zboson\ (\emph{DY \pT-mass reweighting})}
-Les impulsions transverses ainsi que la masse invariante des leptons issus de la désintégration du boson \Zboson\ sont corrigées
-dans les événements simulés Drell-Yan.
-Ces corrections sont déterminées dans une région de contrôle $\Zboson\to\mu\mu$ et n'introduisent pas de modification du nombre total d'événements.
-\paragraph{Repondération de l'impulsion transverse du quark~\quarkt\ (\emph{top \pT\ reweighting})}
-La modélisation du bruit de fond \ttbar\ est corrigée afin que les données simulées au NLO correspondent au NNLO.
-Pour cela, la distribution en \pT\ des quarks~\quarkt\ est pondérée.
-La pondération à appliquer à un quark~\quarkt, déterminée par le groupe \quarkt\antiquarkt\Higgs\ s'exprime en fonction de l'impulsion transverse du quark~\quarkt\ en \SI{}{\GeV} selon
-\begin{equation}
-\omega = \exp(\num{0.088} - \num{8.7e-4}\times\pT + \num{9.2e-7}\times\pT^2)
-\mend
-\end{equation}
-Le poids total à appliquer aux événements \ttbar\ contenant deux quarks~\quarkt\ est alors
-\begin{equation}
-\omega(\text{total}) = \sqrt{\omega(1) \times \omega(2)}
-\mend
-\end{equation}
