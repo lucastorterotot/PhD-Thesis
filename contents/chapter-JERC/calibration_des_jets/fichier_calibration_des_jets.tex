@@ -171,9 +171,8 @@ Des corrections résiduelles à appliquer aux données réelles sont ainsi déte
 \label{eq-chapter-JERC-section-CMS-subsec-residuals-Cres_def}
 \end{equation}
 \par Le principe est d'estimer la réponse du jet en s'appuyant sur un objet de référence pouvant être un boson \Zboson\ (événements \Zjets), un photon (événements \Gjets) ou un autre jet (événements dijet et multijet).
-Deux méthodes existent et sont utilisées de manière complémentaire:
-\begin{description}
-\item[la méthode équilibrée] estime que l'objet de référence et le jet sont équilibrés (\emph{balanced}) au niveau particule, \ie\ d'impulsion transverse totale nulle, soit
+Deux méthodes existent et sont utilisées de manière complémentaire.
+\paragraph{La méthode équilibrée} estime que l'objet de référence et le jet sont équilibrés (\emph{balanced}) au niveau particule, \ie\ d'impulsion transverse totale nulle, soit
 \begin{equation}
 \vpT_\ptcl^\text{réf} + \vpT_\ptcl^\text{jet} = \vec{0}
 \mend
@@ -199,7 +198,7 @@ La réponse d'un jet définie par~\eqref{eq-def_R_jet} permet alors de faire app
 \label{eq-chapter-JERC-section-CMS-subsec-residuals-Rbal_def}
 \mend
 \end{equation}
-\item[la méthode \og MPF \fg] (\emph{MET Projection Fraction}) prend en compte l'ensemble de l'activité hadronique de l'événement et considère l'impulsion de recul vis-à-vis de l'objet de référence, \ie
+\paragraph{La méthode \og MPF \fg} (\emph{MET Projection Fraction}) prend en compte l'ensemble de l'activité hadronique de l'événement et considère l'impulsion de recul vis-à-vis de l'objet de référence, \ie
 \begin{equation}
 \vpT_\ptcl^\text{réf} + \vpT_\ptcl^\text{recul} = \vec{0}
 \mend
@@ -238,7 +237,8 @@ ce qui permet de définir \RMPF\ comme
 \RMPF (\pT, \eta) = 1 + \frac{\vpT^\text{réf}\cdot\vMET}{\abs{\vpT^\text{réf}}^2}
 \mend
 \end{equation}
-\end{description}
+\par
+Ces deux réponses, équilibrée et MPF, sont exploitées afin de déterminer les corrections résiduelles décrites ci-après.
 \subsubsection{Correction résiduelle relative en $\eta$}\label{chapter-JERC-section-CMS-subsec-residuals_eta}
 La première correction résiduelle s'exprime en fonction de $\eta$.
 Elle est obtenue à partir de la comparaison données-simulations sur une sélection d'événements dijet.
