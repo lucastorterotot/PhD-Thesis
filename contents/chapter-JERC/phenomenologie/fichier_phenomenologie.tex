@@ -1,6 +1,6 @@
 \section{Phénoménologie des événements \Gjets}\label{chapter-JERC-section-pheno-GJets}
 Les événements \Gjets\ peuvent être utilisés afin d'obtenir la correction résiduelle absolue en \pT\ des jets, introduite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals_pT}, ainsi que la résolution en énergie des jets. Les analyses correspondantes sont abordées dans les sections~\ref{chapter-JERC-section-JES} et~\ref{chapter-JERC-section-JER}.
-\subsection{Principe des événements \Gjets\ et réponse balancée}
+\subsection{Principe des événements \Gjets\ et réponse équilibrée}
 L'état final d'un événement \Gjets\ comporte un jet à calibrer d'une part et un photon utilisé comme objet de référence d'autre part.
 Sur la figure~\ref{fig-chapter-JERC-section-pheno-GJets-photon_resolution}, la résolution sur les photons est inférieure à \SI{4}{\%} et de l'ordre du pourcent dans le \CMSbarrel. Dans le cas des jets, sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}, la résolution minimale est de \SI{5}{\%}.
 L'utilisation de photons comme objet de référence est donc justifiée.
@@ -12,7 +12,7 @@ L'utilisation de photons comme objet de référence est donc justifiée.
 \end{figure}
 \par Des diagrammes de Feynman correspondant à des événements \Gjets\ sont présentés sur la figure~\ref{fig-fgraph-gamma_plus_jets}.
 Ces événements ne comportent pas de neutrino issu de l'interaction dure, il n'y a donc pas d'énergie transverse manquante due à la physique de ces événements.
-L'impulsion transverse étant nulle dans l'état initial, par conservation, elle est nulle dans l'état final. Le photon et le jet sont donc balancés, \ie
+L'impulsion transverse étant nulle dans l'état initial, par conservation, elle est nulle dans l'état final. Le photon et le jet sont donc équilibrés, \ie
 \begin{equation}
 \vpT_\ptcl^{\photon} + \vpT_\ptcl^\text{jet} = \vec{0}
 \Rightarrow
@@ -34,7 +34,7 @@ L'impulsion transverse étant nulle dans l'état initial, par conservation, elle
 \end{figure}
 \par L'impulsion transverse du jet doit donc être égale à celle du photon, objet de référence.
 La bonne résolution en énergie sur les photons permet de considérer que leur impulsion transverse au niveau reconstruit est égale à leur impulsion transverse au niveau particule.
-Ainsi, la méthode de la balance introduite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals} permet de définir
+Ainsi, la méthode équilibrée introduite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals} permet de définir
 \begin{equation}
 \Rbal = \frac{\pT_\reco^\text{jet}}{\pT^{\photon}}
 \mend[,]
@@ -54,7 +54,7 @@ Cette méthode est performante pour les événements à un photon et un jet dont
 \subsection{Activité additionnelle des jets et réponse MPF}\label{chapter-JERC-section-pheno-GJets-subsec-effets_radiatifs}
 Une activité additionnelle des jets peut survenir et altérer la topologie des événements \Gjets.
 Un photon peut être émis dans l'état initial (ISR, \emph{Initial State Radiation}) ou dans l'état final (FSR, \emph{Final State Radiation}), ce qui correspond aux diagrammes de Feynman des figures~\ref{subfig-fgraph-gq_qGamma_S-ISR_2photons} et~\ref{subfig-fgraph-gq_qGamma_S-FSR_2photons}.
-Un système composé d'un des photons et du jet n'est donc pas balancé dans ce cas.
+Un système composé d'un des photons et du jet n'est donc pas équilibré dans ce cas.
 Il est possible de supprimer ce biais en imposant la présence d'un seul photon dans l'événement.
 La section efficace de production d'événements \Gjets\ à \SI{13}{\TeV} est importante~\cite{Gjet_xsec_2018}, il est donc possible de sélectionner de manière stricte les événements afin d'obtenir une bonne pureté tout en conservant une statistique suffisante.
 \begin{figure}[h]
@@ -78,12 +78,12 @@ Plusieurs jets sont alors présents dans l'état final et sont ordonnés par imp
 La topologie d'un tel événement est illustrée sur la figure~\ref{subfig-Gamma_plus_two_jets}.
 Il est possible de réduire le nombre d'événements avec ISR ou FSR en imposant une condition sur les directions du photon et du premier jet qui doivent être opposées.
 Toutefois, la plupart des événements présentent plusieurs jets dans la direction opposée au photon.
-La réponse balancée est alors considérée entre le photon et le premier jet, \ie\ le jet d'impulsion transverse la plus grande. Ainsi,
+La réponse équilibrée est alors considérée entre le photon et le premier jet, \ie\ le jet d'impulsion transverse la plus grande. Ainsi,
 \begin{equation}
 \Rbal = \frac{\pT_\reco^\text{jet 1}}{\pT^{\photon}}
 \mend
 \end{equation}
-\par En complément de la réponse balancée, la réponse MPF, définie comme
+\par En complément de la réponse équilibrée, la réponse MPF, définie comme
 \begin{equation}
 \RMPF = 1 + \frac{\vpT^{\photon}\cdot\vMET}{\abs{\vpT^{\photon}}^2}
 \mend[,]

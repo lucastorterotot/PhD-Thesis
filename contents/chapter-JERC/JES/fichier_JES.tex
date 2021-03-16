@@ -162,7 +162,7 @@ Les événements présentant un unique photon sélectionné d'après les critèr
 Avec ce photon doit être présent au moins un jet reconstruit à l'aide de l'algorithme anti-\kT~\cite{Cacciari_antikT} avec un paramètre $R=\num{0.4}$ et respectant les critères définis dans le chapitre~\refChLHCCMS.
 Ces critères permettent de rejeter les jets issus du bruit de fond avec une efficacité de \SI{99}{\%}.
 \par Les jets ainsi sélectionnés sont calibrés en énergie en suivant la procédure décrite dans la section~\ref{chapter-JERC-section-CMS} jusqu'à la correction résiduelle relative en $\eta$ incluse. Ils sont alors triés par impulsion transverse décroissante.
-Pour s'assurer d'une bonne balance dans le plan transverse entre le photon et le premier jet, \ie\ celui d'impulsion transverse la plus grande, seuls les événements proposant un écart angulaire $\Delta\phi$ entre le photon et ce jet supérieur à \SI{2.8}{\rad} sont considérés dans la suite.
+Pour s'assurer d'un bon équilibre dans le plan transverse entre le photon et le premier jet, \ie\ celui d'impulsion transverse la plus grande, seuls les événements proposant un écart angulaire $\Delta\phi$ entre le photon et ce jet supérieur à \SI{2.8}{\rad} sont considérés dans la suite.
 Le photon et le jet sont donc dos à dos dans le plan transverse.
 Il est de plus requis que ce jet soit d'impulsion transverse supérieure à \SI{15}{\GeV}.
 \par Si un second jet d'impulsion transverse supérieure à \SI{10}{\GeV} et à \SI{30}{\%} de $\pT^{\photon}$ est présent, l'événement est rejeté.
@@ -390,9 +390,9 @@ Pour chaque domaine
 de $\pT^{\photon}$ défini dans le tableau~\ref{tab-pT_photon_intervalles},
 de $\eta^\text{jet}$ défini dans le tableau~\ref{tab-eta_jet_intervalles_large} et
 de $\alpha$ défini dans le tableau~\ref{tab-alpha_intervalles},
-les distributions des réponses balancée et MPF des données réelles et simulées sont déterminées.
+les distributions des réponses équilibrée et MPF des données réelles et simulées sont déterminées.
 Certaines de ces distributions sont représentées sur la figure~\ref{fig-distribs_Gjets_18_resp_bal_and_mpf}.
-\par Afin de limiter les effets des queues de ces distributions, en particulier dans le cas de la réponse balancée,
+\par Afin de limiter les effets des queues de ces distributions, en particulier dans le cas de la réponse équilibrée,
 une troncature leur est appliquée pour n'en conserver que les parties centrales.
 Pour cela, un ajustement à une gaussienne est réalisé pour chaque distribution.
 Les points considérés dans la suite sont alors ceux appartenant à un intervalle  $[ \bar{R} - \Delta R, \bar{R} + \Delta R ]$ où $\bar{R}$ est le centre de la gaussienne obtenue et $\Delta R$ est fixé tel que l'intégrale de la distribution tronquée représente \SI{98.5}{\%} de l'intégrale de la distribution initiale.
@@ -401,10 +401,10 @@ Un écart est effectivement observé entre données réelles et simulées.
 Il s'agit précisément de l'écart que la correction résiduelle absolue en \pT\ des jets doit corriger.
 \begin{figure}[h]
 \centering
-\subcaptionbox{Réponse balancée pour $\pT^{\photon}\in[175, 230[$ \SI{}{\GeV}.\label{subfig-distrib_Gjets_18_resp_balancing_eta0013_ptPhot_175_230}}[.45\textwidth]
+\subcaptionbox{Réponse équilibrée pour $\pT^{\photon}\in[175, 230[$ \SI{}{\GeV}.\label{subfig-distrib_Gjets_18_resp_balancing_eta0013_ptPhot_175_230}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/JERC/distributions/2018/with_header/resp_balancing_eta0013_ptPhot_175_230.tex}}
 \hfill
-\subcaptionbox{Réponse balancée pour $\pT^{\photon}\in[300, 400[$ \SI{}{\GeV}.\label{subfig-distrib_Gjets_18_resp_balancing_eta0013_ptPhot_300_400}}[.45\textwidth]
+\subcaptionbox{Réponse équilibrée pour $\pT^{\photon}\in[300, 400[$ \SI{}{\GeV}.\label{subfig-distrib_Gjets_18_resp_balancing_eta0013_ptPhot_300_400}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/JERC/distributions/2018/with_header/resp_balancing_eta0013_ptPhot_300_400.tex}}
 
 \vspace{.5\baselineskip}
@@ -415,7 +415,7 @@ Il s'agit précisément de l'écart que la correction résiduelle absolue en \pT
 \subcaptionbox{Réponse MPF pour $\pT^{\photon}\in[300, 400[$ \SI{}{\GeV}.\label{subfig-distrib_Gjets_18_resp_mpf_eta0013_ptPhot_300_400}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/JERC/distributions/2018/with_header/resp_mpf_eta0013_ptPhot_300_400.tex}}
 
-\caption[Réponses balancée et MPF en 2018.]{Réponses balancée et MPF dans les données réelles (points noirs) et simulées (histogramme en rouge) pour $\alpha<\num{0.3}$, $\abs{\eta^\text{jet}}<\num{1.3}$ et deux intervalles de $\pT^{\photon}$ en 2018.}
+\caption[Réponses équilibrée et MPF en 2018.]{Réponses équilibrée et MPF dans les données réelles (points noirs) et simulées (histogramme en rouge) pour $\alpha<\num{0.3}$, $\abs{\eta^\text{jet}}<\num{1.3}$ et deux intervalles de $\pT^{\photon}$ en 2018.}
 \label{fig-distribs_Gjets_18_resp_bal_and_mpf}
 \end{figure}
 \paragraph{Extrapolation vers $\alpha=0$}
@@ -424,7 +424,7 @@ Les intervalles de $\alpha$ utilisés pour la JES sont présentés dans le table
 L'utilisation des ces intervalles inclusifs permet une extrapolation linéaire en $\alpha$, ce qui est réalisé sur la figure~\ref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}.
 \begin{figure}[h]
 \centering
-\subcaptionbox{Réponse balancée.\label{subfig-chapter-JERC-section-JES-subsec-analyse-response_eta0013_ptPhot_175_230_extrap}}[.45\textwidth]
+\subcaptionbox{Réponse équilibrée.\label{subfig-chapter-JERC-section-JES-subsec-analyse-response_eta0013_ptPhot_175_230_extrap}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/JERC/only_L2Res/Run2018ABCD/extrapolation/response_eta0013_ptPhot_175_230.tex}}
 \hfill
 \subcaptionbox{Réponse MPF.\label{subfig-chapter-JERC-section-JES-subsec-analyse-responseMPF_eta0013_ptPhot_175_230_extrap}}[.45\textwidth]
@@ -437,13 +437,13 @@ La correction à appliquer aux données réelles, définie par la formule~\eqref
 de $\pT^{\photon}$ défini dans le tableau~\ref{tab-pT_photon_intervalles} et
 de $\eta^\text{jet}$ défini dans le tableau~\ref{tab-eta_jet_intervalles_large}.
 Elle permet de ramener la réponse moyenne des jets dans les données réelles à celle constatée dans les simulations.
-\par Les résultats ainsi obtenus à l'aide des méthodes de la balance et MPF, avant et après extrapolation vers $\alpha=0$, sont présentés dans les sections~\ref{chapter-JERC-section-JES-subsec-results-subsubsec-before_extrap} et~\ref{chapter-JERC-section-JES-subsec-results-subsubsec-after_extrap}.
+\par Les résultats ainsi obtenus à l'aide des méthodes équilibrée et MPF, avant et après extrapolation vers $\alpha=0$, sont présentés dans les sections~\ref{chapter-JERC-section-JES-subsec-results-subsubsec-before_extrap} et~\ref{chapter-JERC-section-JES-subsec-results-subsubsec-after_extrap}.
 Les distributions moyennes des réponses en fonction de $\pT^{\photon}$ dans les données réelles et simulées, ainsi que leurs rapports, y sont représentés.
 Un ajustement constant est réalisé dans chaque intervalle de $\eta^\text{jet}$ afin d'obtenir un ordre de grandeur de la correction à appliquer dans cet intervalle.
 La dépendance en $\pT$ de la correction est déterminée grâce à un ajustement global réalisé avec les résultats d'autres analyses, présenté dans la section~\ref{chapter-JERC-section-JES-subsec-results-subsubsec-global_fit}.
 Enfin, une vérification de la bonne mise en œuvre de la correction ainsi déterminée est présentée dans la section~\ref{chapter-JERC-section-JES-subsec-results-subsubsec-L2L3Res_cross_check}.
 \subsubsection{Résultats avant extrapolation}\label{chapter-JERC-section-JES-subsec-results-subsubsec-before_extrap}
-\par Les distributions des réponses balancées avant extrapolation se trouvent figure~\ref{fig-responses_balancing_alpha_0_3_2018ABCD}, page~\pageref{fig-responses_balancing_alpha_0_3_2018ABCD}.
+\par Les distributions des réponses équilibrées avant extrapolation se trouvent figure~\ref{fig-responses_balancing_alpha_0_3_2018ABCD}, page~\pageref{fig-responses_balancing_alpha_0_3_2018ABCD}.
 Les corrections à appliquer sont de l'ordre
 de \SI{4}{\%} pour $\abs{\eta^\text{jet}} < \num{1.3}$,
 de \SI{6}{\%} pour $\num{1.3} \leq \abs{\eta^\text{jet}} < \num{2.5}$ et
@@ -451,9 +451,9 @@ de \SI{3}{\%} pour $\abs{\eta^\text{jet}} > \num{2.5}$.
 \par Les distributions des réponses MPF avant extrapolation se trouvent figure~\ref{fig-responses_MPF_alpha_0_3_2018ABCD}, page~\pageref{fig-responses_MPF_alpha_0_3_2018ABCD}.
 Les corrections à appliquer sont de l'ordre
 de \SI{3}{\%} pour $\abs{\eta^\text{jet}} < \num{1.3}$,
-de \SI{5}{\%} pour $\num{1.3} \leq \abs{\eta^\text{jet}} < \num{2.5}$, soit environ \SI{1}{\%} de moins qu'avec la méthode balancée, et
+de \SI{5}{\%} pour $\num{1.3} \leq \abs{\eta^\text{jet}} < \num{2.5}$, soit environ \SI{1}{\%} de moins qu'avec la méthode équilibrée, et
 de \SI{3}{\%} pour $\abs{\eta^\text{jet}} > \num{2.5}$,
-\par Il est à noter que ces résultats sont obtenus avant extrapolation vers $\alpha=0$. Or, cette extrapolation a un effet beaucoup plus important sur la réponse balancée que sur la réponse MPF, comme le montre la figure~\ref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}.
+\par Il est à noter que ces résultats sont obtenus avant extrapolation vers $\alpha=0$. Or, cette extrapolation a un effet beaucoup plus important sur la réponse équilibrée que sur la réponse MPF, comme le montre la figure~\ref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}.
 
 \input{\PhDthesisdir/contents/chapter-JERC/JES/figures_shortcuts/responses_balancing_alpha_0_3_2018ABCD.tex}
 \input{\PhDthesisdir/contents/chapter-JERC/JES/figures_shortcuts/responses_MPF_alpha_0_3_2018ABCD.tex}
@@ -462,7 +462,7 @@ de \SI{3}{\%} pour $\abs{\eta^\text{jet}} > \num{2.5}$,
 
 \subsubsection{Résultats après extrapolation}\label{chapter-JERC-section-JES-subsec-results-subsubsec-after_extrap}
 L'extrapolation des réponses vers $\alpha=0$ est réalisée comme expliqué dans la section~\ref{chapter-JERC-section-JES-subsec-analyse}.
-\par Les distributions des réponses balancées après extrapolation se trouvent figure~\ref{fig-responses_balancing_extrapolated_2018ABCD}, page~\pageref{fig-responses_balancing_extrapolated_2018ABCD}.
+\par Les distributions des réponses équilibrées après extrapolation se trouvent figure~\ref{fig-responses_balancing_extrapolated_2018ABCD}, page~\pageref{fig-responses_balancing_extrapolated_2018ABCD}.
 Les corrections à appliquer sont de l'ordre
 de \SI{3}{\%} pour $\abs{\eta^\text{jet}} < \num{1.3}$,
 de \SI{5}{\%} pour $\num{1.3} \leq \abs{\eta^\text{jet}} < \num{2.5}$, soit environ \SI{1}{\%} de moins qu'avant extrapolation, et
@@ -474,8 +474,8 @@ de \SI{5}{\%} pour $\num{1.3} \leq \abs{\eta^\text{jet}} < \num{2.5}$ et
 de \SI{3}{\%} pour $\abs{\eta^\text{jet}} > \num{2.5}$,
 soit du même ordre qu'avant extrapolation.
 L'extrapolation a donc bien un effet très faible sur \RMPF.
-\par Les valeurs des rapports données réelles sur simulées des réponses balancée et MPF obtenus sont résumés dans le tableau~\ref{tab-responses_recap_table_2018ABCD}.
-L'extrapolation vers $\alpha=0$ permet de rétablir l'accord entre les rapport des réponses balancée et MPF.
+\par Les valeurs des rapports données réelles sur simulées des réponses équilibrée et MPF obtenus sont résumés dans le tableau~\ref{tab-responses_recap_table_2018ABCD}.
+L'extrapolation vers $\alpha=0$ permet de rétablir l'accord entre les rapport des réponses équilibrée et MPF.
 Cet accord permet de valider l'utilisation de ces méthodes afin d'estimer la JES.
 
 \input{\PhDthesisdir/contents/chapter-JERC/JES/figures_shortcuts/responses_recap_table.tex}
@@ -524,5 +524,5 @@ La correction résiduelle absolue en \pT\ des jets utilisée par la collaboratio
 \subsubsection{Test d'intégrité}\label{chapter-JERC-section-JES-subsec-results-subsubsec-L2L3Res_cross_check}
 Il est possible de vérifier que la correction résiduelle absolue en \pT\ des jets déterminée permet bien de rapprocher les réponses des jets entre données réelles et simulées.
 Pour cela, l'analyse est à nouveau réalisée en appliquant la correction résiduelle absolue en \pT\ des jets lors de leur calibration.
-Les valeurs des rapports données réelles sur simulées des réponses balancée et MPF obtenus avant et après utilisation de cette correction sont présentés dans le tableau~\ref{tab-responses_recap_table_L2L3Res_cross_check_2018ABCD}. Ces rapports se rapprochent de \num{1}, ce qui montre que la correction améliore l'accord données-simulations.
+Les valeurs des rapports données réelles sur simulées des réponses équilibrée et MPF obtenus avant et après utilisation de cette correction sont présentés dans le tableau~\ref{tab-responses_recap_table_L2L3Res_cross_check_2018ABCD}. Ces rapports se rapprochent de \num{1}, ce qui montre que la correction améliore l'accord données-simulations.
 Cette amélioration peut également se constater sur les distributions des réponses des jets, dont une comparaison est proposée sur la figure~\ref{fig-distribs_Gjets_18_resp_mpf_L2L3Res_cross_check} où les deux distributions sont plus proches l'une de l'autre après correction complète.
