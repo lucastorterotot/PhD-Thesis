@@ -132,8 +132,10 @@ Ce processus est illustré sur la figure~\ref{fig-agglo_hadronique}.
 \subsubsection{Parton initial et caractéristiques du jet}
 Selon le parton à l'origine du jet, ce dernier présente certaines caractéristiques, discutées ci-après.
 Le parton n'est pas visible expérimentalement, mais les caractéristiques du jet obtenu permettent d'en estimer la saveur, comme exposé au chapitre~\refChLHCCMS.
-\paragraph{Le quark~\quarkt} possède une durée de vie trop courte pour participer à l'hadronisation. Il se désintègre alors par interaction faible en un autre quark, très majoritairement un quark~\quarkb, et un boson \Wboson. Le nouveau quark issu de cette désintégration forme alors un jet.
-\par Les autres quarks, \quarkd, \quarku, \quarks, \quarkc\ et~\quarkb, sont plus stables que le top et participent à l'hadronisation.
+\paragraph{Le quark~\quarkt} possède une durée de vie trop courte pour participer à l'hadronisation.
+Il se désintègre par interaction faible en un autre quark, généralement un quark~\quarkb, et un boson \Wboson.
+Le nouveau quark issu de cette désintégration forme alors un jet.
+\par Les autres quarks (\quarkd, \quarku, \quarks, \quarkc\ et~\quarkb) sont plus stables que le~\quarkt\ et participent à l'hadronisation.
 Ils se retrouvent donc confinés au sein des hadrons formés, éventuellement instables.
 \paragraph{Le quark~\quarkb} ne forme pas de hadron stable et se désintègre en quark~\quarkc\ ou~\quarku\ par interaction faible.
 Dans \SI{70}{\%} des cas, cette désintégration se fait avec émission d'une nouvelle paire de quarks $\quark\antiquark$ selon
@@ -146,10 +148,11 @@ Dans \SI{70}{\%} des cas, cette désintégration se fait avec émission d'une no
 \msep
 \antiquarkb \to \antiquarku\,\quark_u\antiquark_u
 \mend[,]
+\label{eq-b_to_c_u}
 \end{equation}
 où $q_d$ et $q_u$ désignent respectivement des quarks d'isospin faible bas et haut.
-Le nombre de constituants du jet, ainsi que le nombre de traces déplacées, est alors plus important.
-Dans \SI{30}{\%} des cas, la désintégration du quark $b$ se fait avec émission d'une paire de leptons, un électriquement chargé et le neutrino associé, \ie
+Le nombre de constituants du jet, ainsi que le nombre de traces provenant d'un vertex secondaire (SV), est alors plus important.
+Dans \SI{30}{\%} des cas, la désintégration du quark $b$ se fait avec émission d'une paire de leptons, l'un étant électriquement chargé et l'autre correspondant au neutrino associé, \ie
 \begin{equation}
 \quarkb \to \quarkc\,\lepton^-\antineutrino_\ell
 \msep
@@ -161,8 +164,9 @@ Dans \SI{30}{\%} des cas, la désintégration du quark $b$ se fait avec émissio
 \mend
 \end{equation}
 Le lepton chargé donne une signature caractéristique lors des collisions proton-proton du LHC.
-\par Ces désintégrations font intervenir les modules des coefficients $V_{\quarkc\quarkb}$ ou $V_{\quarku\quarkb}$ de la matrice CKM, introduite dans la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW-quarks}, dont les valeurs sont faibles; elles sont donc fortement supprimées.
-Les hadrons contenant un quark~\quarkb\ ont ainsi une durée de vie $\tau$ de l'ordre de la picoseconde~\cite{B0s_lifetime,lifetimes_c_b_hadrons} et peuvent voyager sur une distance de l'ordre du millimètre.
+\par
+Les désintégrations~\eqref{eq-b_to_c_u} font intervenir les modules des coefficients $V_{\quarkc\quarkb}$ ou $V_{\quarku\quarkb}$ de la matrice CKM, introduite dans la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW-quarks}, dont les valeurs sont faibles; elles sont donc fortement supprimées.
+Les hadrons contenant un quark~\quarkb\ ont ainsi une durée de vie de l'ordre de la picoseconde~\cite{B0s_lifetime,lifetimes_c_b_hadrons} et peuvent voyager sur une distance de l'ordre du millimètre.
 Les traces des particules chargées issues de cette nouvelle désintégration proviennent donc d'un vertex secondaire (SV), différent du vertex primaire (PV).
 Ces traces sont \og déplacées \fg.
 Pour chacune d'entre elles, il est possible de déterminer le paramètre d'impact (IP) au vertex primaire, dont la valeur est typiquement plus grande que pour des traces provenant du vertex primaire, comme cela est illustré sur la figure~\ref{fig-chapter-CMS-section-jets_reco-subsec-flavor-SV_scheme}.
@@ -224,11 +228,11 @@ Pour chacune d'entre elles, il est possible de déterminer le paramètre d'impac
 \mend[,]
 \end{equation}
 fait intervenir le module du coefficient $V_{\quarkc\quarks}$ de la matrice CKM, proche de 1.
-Les hadrons contenant un quark~\quarkc\ ont ainsi une durée de vie $\tau$ de inférieure à la picoseconde~\cite{lifetimes_c_b_hadrons} et il est plus difficile d'identifier les jets issus de quarks~\quarkc\ que ceux issus de quarks~\quarkb.
+Les hadrons contenant un quark~\quarkc\ ont ainsi une durée de vie inférieure à la picoseconde~\cite{lifetimes_c_b_hadrons} et il est donc plus difficile d'identifier les jets issus de quarks~\quarkc\ que ceux issus de quarks~\quarkb.
 \paragraph{Les quarks~\quarkd, \quarku\ et~\quarks} forment des hadrons étant:
 \begin{itemize}
 \item très instables, par exemple les \pionnull, dont seuls les produits de désintégration sont observés;
-\item faiblement instables, par exemple les \Kaonplus\ et les \Kaonnull, qui se propagent généralement jusque dans les parties sensibles du détecteur et peuvent donc être directement observés;
+\item faiblement instables, tels que les \Kaonplus\ et les \Kaonnull, qui se propagent généralement jusque dans les parties sensibles du détecteur et peuvent donc être observés directement;
 \item stables, par exemple les protons, qui sont directement observés dans le détecteur.
 \end{itemize}
 Dans tous les cas, les traces des particules chargées observées proviennent du PV, lieu de formation du quark initial.

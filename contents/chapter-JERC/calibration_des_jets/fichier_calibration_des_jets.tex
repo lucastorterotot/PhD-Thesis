@@ -1,10 +1,10 @@
 \section{Étapes de la calibration}\label{chapter-JERC-section-CMS}
 Les jets sont des objets physiques composites complexes qu'il est nécessaire de calibrer.
-La précision apportée à la mesure des jets est capitale dans de nombreuses analyses, où il s'agit d'une source majeure d'incertitude systématique.
-Les avancées réalisées récemment sur la calibration des jets ont ainsi permis d'améliorer la précision sur la mesure de la section efficace inclusive de production de jets et de la masse du quark top~\cite{JERC_RunI}.
+La précision apportée à la mesure des jets est capitale dans de nombreuses analyses dans lesquelles il s'agit d'une source majeure d'incertitude systématique.
+Les avancées réalisées récemment sur la calibration des jets ont ainsi permis d'améliorer la précision sur la mesure de la section efficace inclusive de production de jets et de la masse du quark~\quarkt~\cite{JERC_RunI}.
 \par À partir des jets reconstruits par les méthodes décrites précédemment, un procédé de correction de l'énergie des jets (JEC, \emph{Jet Energy Correction}) est réalisé.
 Il permet de corriger l'échelle en énergie des jets (JES, \emph{Jet Energy Scale}) ainsi que la résolution sur cette énergie (JER, \emph{Jet Energy Resolution}).
-La collaboration CMS utilise une approche factorisée dans laquelle plusieurs étapes corrigent chacune un effet en particulier et dépendent des étapes précédentes~\cite{JERC_RunI}.
+La collaboration CMS utilise une approche factorisée en plusieurs étapes, chacune corrigeant un effet en particulier~\cite{JERC_RunI}.
 La figure~\ref{fig-CMS-JME-13-004_Figure_002-TeX} résume ces étapes, décrites dans les sections qui suivent.
 \begin{figure}[h]
 \centering
@@ -12,13 +12,13 @@ La figure~\ref{fig-CMS-JME-13-004_Figure_002-TeX} résume ces étapes, décrites
 \caption[Étapes successives de la JEC.]{Étapes successives de la JEC pour les données réelles (\og données \fg) et simulées (\og simulations \fg) \cite{JERC_RunI}. Les corrections des étapes marquées \og MC \fg{} sont obtenues par l'étude de simulations, celles marquées \og RC \fg{} par une méthode de cône aléatoire (\emph{Random Cone}) sur les données réelles. Les types d'événements utilisés dans les corrections résiduelles sont également indiqués.}
 \label{fig-CMS-JME-13-004_Figure_002-TeX}
 \end{figure}
-\par Trois stades ou \og niveaux \fg{} de correction sur les particules peuvent être définis.
+\par Trois stades ou \og niveaux \fg{} de correction sur les particules peuvent être définis:
 \begin{itemize}
-\item Le niveau \og particule \fg, noté \ptcl, ou niveau \og vrai \fg{}, se réfère aux objets et variables après hadronisation mais avant interaction avec le détecteur. Il s'agit donc des grandeurs recherchées, uniquement accessibles dans les événements simulés.
-\item Le niveau \og reconstruit \fg, noté \reco, correspond aux objets et variables après interaction avec le détecteur et reconstruction par l'algorithme de \PF.
-\item Le niveau \og corrigé \fg{} ou calibré, noté \cali, correspond aux objets et variables corrigés, \ie\ ceux du niveau reconstruit auxquels ont été appliquées les corrections.
+\item le niveau \og particule \fg, noté \ptcl, ou niveau \og vrai \fg{}, se réfère aux objets et variables après hadronisation mais avant interaction avec le détecteur. Il s'agit donc des grandeurs recherchées, uniquement accessibles dans les événements simulés;
+\item le niveau \og reconstruit \fg, noté \reco, correspond aux objets et variables après interaction avec le détecteur et reconstruction par l'algorithme de \PF;
+\item le niveau \og corrigé \fg{} ou calibré, noté \cali, correspond aux objets et variables corrigés, \ie\ ceux du niveau reconstruit auxquels ont été appliquées les corrections.
 \end{itemize}
-La réponse d'un jet est définie comme
+La réponse d'un jet, variable importante dans ce chapitre, est définie comme
 \begin{equation}
 R = \frac{\pT}{\pT_\ptcl}
 \mend
@@ -26,7 +26,7 @@ R = \frac{\pT}{\pT_\ptcl}
 \end{equation}
 La réponse peut être définie à différents niveaux, et par définition $R_\ptcl=1$.
 Si la JEC est correcte, alors l'impulsion transverse du jet corrigé doit correspondre sensiblement à l'impulsion transverse au niveau particule, \ie\ $R_\cali\simeq1$.
-Sur la figure~\ref{fig-JERC_RunI-1} sont représentées les réponses de jets d'événements QCD simulés à différentes étapes de la JEC. Après avoir appliqué toutes les corrections, ce qui correspond à la figure~\ref{subfig-JERC_RunI-1_3}, la réponse est sensiblement égale à 1, ce qui montre que la JEC est correcte.
+Sur la figure~\ref{fig-JERC_RunI-1} sont représentées les réponses de jets d'événements QCD simulés à différentes étapes de la JEC. Après avoir appliqué toutes les corrections (figure~\ref{subfig-JERC_RunI-1_3}), la réponse est sensiblement égale à 1, ce qui montre que la JEC est correcte.
 \begin{figure}[h]
 \centering
 \subcaptionbox{Avant correction ($R_\reco$).\label{subfig-JERC_RunI-1_1}}[.3\textwidth]
@@ -40,17 +40,21 @@ Sur la figure~\ref{fig-JERC_RunI-1} sont représentées les réponses de jets d'
 \caption[Valeur moyenne de la réponse de jets d'événements QCD simulés.]{Valeur moyenne de la réponse de jets d'événements QCD simulés en fonction de $\pT_\ptcl$ à différentes étapes de la JEC~\cite{JERC_RunI} et pour différentes valeurs d'interactions d'empilement $\mu$.}
 \label{fig-JERC_RunI-1}
 \end{figure}
-\par Les jets au niveau particule sont reconstruits en appliquant la procédure de recombinaison à toutes les particules de durée de vie $\tau$ telle que $c\tau>\SI{1}{\centi\meter}$ à l'exception des neutrinos~\cite{JERC_RunI}.
-Les hadrons contenant des quarks~\quarkc\ ou~\quarkb\ ne rentrent pas dans cette catégorie et ce sont donc leurs produits de désintégration qui sont pris en compte pour la recombinaison.
-Les neutrinos sont exclus pour pouvoir définir la réponse des jets d'une manière qui soit accessible expérimentalement et qui réduise significativement les différences de réponse entre jets lourds et jets légers ou de gluons, à cause des neutrinos produits dans les désintégration des quarks lourds.
+\par Les jets au niveau particule sont reconstruits en appliquant la procédure de recombinaison à toutes les particules de durée de vie $\tau$ telle que $c\tau>\SI{1}{\centi\meter}$, à l'exception des neutrinos~\cite{JERC_RunI}.
+Les hadrons contenant des quarks lourds, \quarkc\ ou~\quarkb, ne rentrent pas dans cette catégorie et ce sont donc leurs produits de désintégration qui sont pris en compte pour la recombinaison.
+Exclure les neutrinos permet de définir la réponse des jets d'une manière qui soit
+accessible expérimentalement
+et
+similaire entre jets légers ou de gluons et jets lourds
+dans lesquels des neutrinos sont produits lors des désintégrations des quarks lourds.
 \par La JEC est déterminée pour chaque année de prise de donnée et pour différentes subdivisions de ces années.
 En effet, les conditions expérimentales changent au cours du temps.
 Ce peut être dû au vieillissement du détecteur,
 à une modification des caractéristiques des faisceaux de protons
 ou encore
 à une modification du détecteur lui-même.
-Par exemple, entre 2016 et 2017, la partie centrale du trajectographe est remplacée par un système d'architecture différente~\cite{CMS-TDR-11,cms_trk_upgrade_2017}.
-De 2017 à 2018, les photodiodes des \CMSendcaps\ du HCAL sont remplacées par des photomultiplicateurs à silicium~\cite{CMS-TDR-10,SiPM_CMS_conf}.
+Par exemple, entre 2016 et 2017, la partie centrale du trajectographe a été remplacée par un système d'architecture différente~\cite{CMS-TDR-11,cms_trk_upgrade_2017}.
+De 2017 à 2018, les photodiodes des \CMSendcaps\ du HCAL ont été changées pour des photomultiplicateurs à silicium~\cite{CMS-TDR-10,SiPM_CMS_conf}.
 La réponse en énergie des jets dépend fortement de la nature du détecteur, c'est pourquoi des évolutions importantes peuvent apparaître sur la JEC d'une année à une autre.
 C'est en particulier le cas pour la réponse du détecteur dont la correction, présentée dans la section~\ref{chapter-JERC-section-CMS-subsec-reponse}, est réalisée après la correction de l'empilement abordée ci-après.
 \subsection{Correction de l'empilement}\label{chapter-JERC-section-CMS-subsec-PU}
@@ -59,12 +63,14 @@ La correction de l'empilement a pour but de soustraire ces contributions et est 
 Elle permet d'améliorer la résolution en énergie des jets et d'obtenir une JES plus précise.
 \par L'empilement asynchrone est réduit par l'analyse temporelle des signaux des calorimètres,
 l'empilement synchrone par la méthode de soustraction des hadrons chargés (CHS, \emph{pile-up Charged Hadron Subtraction})~\cite{CMS-PAS-JME-14-001}, décrite ci-après.
-\par Pour chacun des vertex primaires de l'événement, la somme des impulsions transverses au carré des traces associées au vertex est calculée.
-Le vertex primaire principal est choisi comme étant le vertex présentant la plus grande valeur de cette somme.
+\par
+Pour chacun des vertex primaires de l'événement, la somme des carrés des impulsions transverses des traces associées au vertex est calculée.
+Le vertex primaire principal est choisi comme étant le vertex présentant la plus grande valeur ainsi obtenue.
 Les autres vertex primaires sont considérés comme des vertex d'empilement.
-Les hadrons chargés dont les traces associées proviennent de vertex d'empilement sont retirés de l'événement.
+La méthode CHS consiste à retirer de l'événement les hadrons chargés dont les traces associées proviennent de vertex d'empilement.
+Ces traces permettent en effet de s'assurer que ces hadrons ne sont pas issus du vertex primaire principal.
 La reconstruction des jets est alors réalisée à partir de l'événement nettoyé, ce qui permet d'améliorer la résolution en \pT\ des jets.
-\par La correction de l'empilement résiduel $\mathcal{C}_\text{PU}$, principalement due aux hadrons neutres, aux photons, aux traces non associées à un vertex et à l'empilement asynchrone qui n'a pas pu être corrigé totalement, s'exprime en fonction de
+\par La correction $\mathcal{C}_\text{PU}$ de l'empilement résiduel, principalement dû aux hadrons neutres, aux photons, aux traces non associées à un vertex et à l'empilement asynchrone qui n'a pas pu être corrigé totalement, s'exprime en fonction de
 \begin{itemize}
 \item l'impulsion transverse du jet avant application de cette correction et après CHS, $\pT_\reco^\text{CHS}$;
 \item la pseudo-rapidité du jet, $\eta$;
@@ -130,7 +136,7 @@ Il est alors possible de définir un facteur d'échelle à appliquer aux paramè
 La contribution additionnelle de l'empilement est ainsi corrigée dans les simulations et les données réelles.
 \subsection{Correction de la réponse du détecteur en $\pT$ et en $\eta$}\label{chapter-JERC-section-CMS-subsec-reponse}
 La réponse du détecteur CMS à un jet n'est pas uniforme selon la valeur de \pT\ et $\eta$ du jet.
-La réponse au niveau reconstruit de jets simulés $R_\reco$,
+La réponse au niveau reconstruit des jets simulés $R_\reco$,
 déterminée grâce à une simulation du détecteur CMS basée sur \GEANTfour~\cite{geant4_2003,geant4_2006,geant4_2016},
 combinée à \PYTHIA~6.4~\cite{pythia6.4}
 avec les réglages Z2*~\cite{tunes_2016},
