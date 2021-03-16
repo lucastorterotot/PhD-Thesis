@@ -9,7 +9,7 @@ La figure~\ref{fig-CMS-JME-13-004_Figure_002-TeX} résume ces étapes, décrites
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{\PhDthesisdir/plots_and_images/from_JERC_RunI/CMS-JME-13-004_Figure_002-FR-TeX.tex}
-\caption[Étapes successives de la JEC.]{Étapes successives de la JEC pour les données et les simulations~\cite{JERC_RunI}. Les corrections des étapes marquées \og MC \fg{} sont obtenues par l'étude de simulations, celles marquées \og RC \fg{} par une méthode de cône aléatoire (\emph{Random Cone}) sur les données. Les types d'événements utilisés dans les corrections résiduelles sont également indiqués.}
+\caption[Étapes successives de la JEC.]{Étapes successives de la JEC pour les données réelles (\og données \fg) et simulées (\og simulations \fg) \cite{JERC_RunI}. Les corrections des étapes marquées \og MC \fg{} sont obtenues par l'étude de simulations, celles marquées \og RC \fg{} par une méthode de cône aléatoire (\emph{Random Cone}) sur les données réelles. Les types d'événements utilisés dans les corrections résiduelles sont également indiqués.}
 \label{fig-CMS-JME-13-004_Figure_002-TeX}
 \end{figure}
 \par Trois stades ou \og niveaux \fg{} de correction sur les particules peuvent être définis.
@@ -55,7 +55,7 @@ La réponse en énergie des jets dépend fortement de la nature du détecteur, c
 C'est en particulier le cas pour la réponse du détecteur dont la correction, présentée dans la section~\ref{chapter-JERC-section-CMS-subsec-reponse}, est réalisée après la correction de l'empilement abordée ci-après.
 \subsection{Correction de l'empilement}\label{chapter-JERC-section-CMS-subsec-PU}
 Des contributions additionnelles à l'énergie et à l'impulsion des jets peuvent apparaître du fait de l'empilement, décrit dans le chapitre~\refChLHCCMS.
-La correction de l'empilement a pour but de soustraire ces contributions et est appliquée dans les données et les événements simulés.
+La correction de l'empilement a pour but de soustraire ces contributions et est appliquée aux données réelles et simulées.
 Elle permet d'améliorer la résolution en énergie des jets et d'obtenir une JES plus précise.
 \par L'empilement asynchrone est réduit par l'analyse temporelle des signaux des calorimètres,
 l'empilement synchrone par la méthode de soustraction des hadrons chargés (CHS, \emph{pile-up Charged Hadron Subtraction})~\cite{CMS-PAS-JME-14-001}, décrite ci-après.
@@ -108,7 +108,7 @@ Les résultats de la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-PU-JERC_
 \caption[Contribution additionnelle de l'empilement au niveau particule.]{Contribution additionnelle de l'empilement au niveau particule telle que définie dans l'équation~\eqref{eq-chapter-JERC-section-CMS-subsec-PU-pTaddptcl} pour $\abs{\eta}<\num{1.3}$ en fonction de l'impulsion du jet au niveau particule pour différentes valeurs du nombre d'interaction d'empilement ($\mu$)~\cite{JERC_RunI}.}
 \label{fig-chapter-JERC-section-CMS-subsec-PU-JERC_RunI-Figure_005}
 \end{figure}
-\par La correction ainsi décrite doit être légèrement adaptée pour pouvoir l'appliquer aux données à cause des biais de simulation du détecteur.
+\par La correction ainsi décrite doit être légèrement adaptée pour pouvoir l'appliquer aux données réelles à cause des biais de simulation du détecteur.
 Pour cela, un ajustement en fonction de $\eta$ est déterminé à l'aide de la méthode de cône aléatoire (RC, \emph{Random Cone}).
 La méthode RC consiste à placer aléatoirement des cônes couvrant l'ensemble de l'acceptation du détecteur dans le plan $(\eta, \phi)$.
 La reconstruction des jets se fait alors cône par cône, par regroupement des particules contenues dans chacun d'entre eux.
@@ -122,12 +122,12 @@ Dans ce cas, l'impulsion transverse moyenne des jets reconstruits par la méthod
 \average{\pT^\text{add}}^\text{RC} = \average{\pT_\text{cône}}
 \mend
 \end{equation}
-Il est alors possible de définir un facteur d'échelle à appliquer aux paramètres $\rho_0$ et $\beta$ de l'équation~\eqref{eq-chapter-JERC-section-CMS-subsec-PU-offset_corr_v1} lorsque cette correction est appliquée aux données. Ce facteur d'échelle s'exprime
+Il est alors possible de définir un facteur d'échelle à appliquer aux paramètres $\rho_0$ et $\beta$ de l'équation~\eqref{eq-chapter-JERC-section-CMS-subsec-PU-offset_corr_v1} lorsque cette correction est appliquée aux données réelles. Ce facteur d'échelle s'exprime
 \begin{equation}
 \frac{\average{\pT^\text{add}}^\text{RC}_\text{données}(\eta, \rho_\text{données})}{\average{\pT^\text{add}}^\text{RC}_\text{simulation}(\eta, \rho_\text{simulation})}
 \mend
 \end{equation}
-La contribution additionnelle de l'empilement est ainsi corrigée dans les simulations et les données.
+La contribution additionnelle de l'empilement est ainsi corrigée dans les simulations et les données réelles.
 \subsection{Correction de la réponse du détecteur en $\pT$ et en $\eta$}\label{chapter-JERC-section-CMS-subsec-reponse}
 La réponse du détecteur CMS à un jet n'est pas uniforme selon la valeur de \pT\ et $\eta$ du jet.
 La réponse au niveau reconstruit de jets simulés $R_\reco$,
@@ -156,9 +156,9 @@ Il apparaît, par exemple, qu'un jet de $\pT=\SI{30}{\GeV}$ nécessite une corre
 où $\pT_\reco'$ est l'impulsion transverse du jet après correction de l'empilement.
 Les moyennes sont réalisées sur les jets appartenant à la même cellule d'une grille en $(\pT_\ptcl, \eta)$ prédéfinie~\cite{JERC_RunI}.
 \subsection{Corrections résiduelles}\label{chapter-JERC-section-CMS-subsec-residuals}
-Les corrections décrites dans les sections précédentes permettent d'obtenir une bonne correction en énergie des jets.
-Toutefois, des différences dans les réponses des jets, de l'ordre du pourcent, subsistent entre données et simulations.
-Des corrections résiduelles à appliquer aux données sont ainsi déterminées afin de réduire ces écarts, définies telles que
+Les corrections décrites dans les sections précédentes permettent d'obtenir une bonne calibration en énergie des jets.
+Toutefois, des différences dans leurs réponses, de l'ordre du pourcent, subsistent entre données réelles et simulées.
+Des corrections résiduelles à appliquer aux données réelles sont ainsi déterminées afin de réduire ces écarts, définies telles que
 \begin{equation}
 \mathcal{C}_\text{Res} = \frac{R_\text{simulations}}{R_\text{données}}
 \mend
@@ -234,10 +234,10 @@ ce qui permet de définir \RMPF\ comme
 \end{description}
 \subsubsection{Correction résiduelle relative en $\eta$}\label{chapter-JERC-section-CMS-subsec-residuals_eta}
 La première de ces corrections résiduelles, fonction de $\eta$, est obtenue à partir de la comparaison données-simulations sur une sélection d'événements dijet.
-Son but est de rendre indépendant de $\eta$ le rapport données sur simulations de la réponse des jets.
+Son but est de rendre indépendant de $\eta$ le rapport données réelles sur simulées de la réponse des jets.
 Cette correction s'appuie sur la bonne reconstruction des jets dans le \CMSbarrel.
 Lorsqu'un événement présente un premier jet avec $\abs{\eta}<\num{1.3}$, \ie\ dans la région de référence du \CMSbarrel, et un second avec $\abs{\eta}>\num{1.3}$ et de \pT\ similaire, le premier sert d'objet de référence afin de calibrer le second; c'est pourquoi cette correction est qualifiée de \og relative \fg.
-La correction à appliquer aux données ainsi obtenue est illustrée sur la figure~\ref{fig-L2ResRel_RunII} dans le cas des jets d'impulsion transverse égale à \SI{120}{\GeV}.
+La correction à appliquer aux données réelles ainsi obtenue est illustrée sur la figure~\ref{fig-L2ResRel_RunII} dans le cas des jets d'impulsion transverse égale à \SI{120}{\GeV}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-DP-2020-019/relative_eta_residual_RunII.png}
@@ -245,7 +245,7 @@ La correction à appliquer aux données ainsi obtenue est illustrée sur la figu
 \label{fig-L2ResRel_RunII}
 \end{figure}
 \subsubsection{Correction résiduelle absolue en \pT}\label{chapter-JERC-section-CMS-subsec-residuals_pT}
-Cette correction, fonction de \pT, a pour but de rendre indépendant de \pT\ le rapport données sur simulations de la réponse des jets.
+Cette correction, fonction de \pT, a pour but de rendre indépendant de \pT\ le rapport données réelles sur simulées de la réponse des jets.
 Elle combine, à l'aide d'un ajustement global, les comparaisons données-simulations de plusieurs types d'événements afin de couvrir un large spectre de valeurs de \pT. Chaque type d'événement est en effet dominant, de par sa statistique, dans une gamme de \pT\ donnée:
 \begin{itemize}
 \item événements \Zjets: il s'agit d'événements \Zmmjets\ et \Zeejets, sélectionnés par la présence d'une paire de muons ou d'électrons compatibles avec la désintégration d'un \Zboson, ils couvrent la région $\pT<\SI{400}{\GeV}$;
@@ -254,7 +254,7 @@ Elle combine, à l'aide d'un ajustement global, les comparaisons données-simula
 \end{itemize}
 En 2017 et 2018, les événements multijet n'ont pas été exploités et la correction résiduelle absolue en \pT\ dans la région $\pT>\SI{800}{\GeV}$ est contrainte par l'analyse des événements \Gjets.
 \par Cette correction corrige l'échelle en énergie absolue des jets, d'où son qualificatif, à partir d'un objet de référence pouvant être un boson \Zboson\ (\Zjets), un photon (\Gjets) ou un autre jet (multijet).
-La correction à appliquer aux données ainsi obtenue est illustrée sur la figure~\ref{fig-L3ResAbs_RunII} dans le cas des jets de pseudo-rapidité $\abs{\eta}<\num{1.3}$.
+La correction à appliquer aux données réelles ainsi obtenue est illustrée sur la figure~\ref{fig-L3ResAbs_RunII} dans le cas des jets de pseudo-rapidité $\abs{\eta}<\num{1.3}$.
 \begin{figure}[h]
 \centering
 \subcaptionbox{Année 2016.\label{subfig-absolute_pT_residual_2016}}[.3\textwidth]
@@ -289,7 +289,7 @@ Par exemple, les particules de bas \pT\ se retrouvent hors de l'acceptation du d
 Or, des jets initiés par des gluons présentent de nombreuses particules de bas \pT\ par rapport aux jets issus de quarks légers.
 Dans une moindre mesure, les jets lourds possèdent également plus de particules de bas \pT\ que les jets de quarks légers suite à la désintégration du hadron lourd.
 La proportion de particules neutres dans le jet est également un des paramètres affectant le plus sa réponse.
-\par La correction résiduelle de saveur $\mathcal{C}_\text{Sav}$ à appliquer aux données et aux simulations est obtenue à l'aide de
+\par La correction résiduelle de saveur $\mathcal{C}_\text{Sav}$ à appliquer aux données réelles et simulées est obtenue à l'aide de
 \PYTHIA~6.4~\cite{pythia6.4}
 avec les réglages Z2*~\cite{tunes_2016}
 sur des événements dijet, \Zjets\ et \Gjets\ simulés
@@ -335,7 +335,7 @@ Cette incertitude prend en compte l'échelle en énergie des objets de référen
 Cette incertitude est principalement due à la JER qui s'applique à l'objet de référence dans la correction résiduelle relative en $\eta$ décrite dans la section~\ref{chapter-JERC-section-CMS-subsec-residuals_eta} ainsi qu'aux effets de l'ISR et du FSR.
 \item[Empilement] ou \emph{Pileup} sur les légendes des figures~\ref{subfig-Syst_uncs_pT_2016} à~\ref{subfig-Syst_uncs_eta_2018}.
 Il s'agit de rendre compte de l'incertitude sur la détermination de la contribution additionnelle de l'empilement au niveau particule.
-Une incertitude de \SI{5}{\%} sur le rapport données sur simulations de cette contribution, obtenue à l'aide de la méthode de cône aléatoire, est considérée.
+Une incertitude de \SI{5}{\%} sur le rapport données réelles sur simulées de cette contribution, obtenue à l'aide de la méthode de cône aléatoire, est considérée.
 La différence résiduelle entre la contribution obtenue par cône aléatoire et la contribution réelle extraite des simulations est également prise en compte.
 \item[Méthode et jeux de données] ou \emph{Method \& sample} sur les légendes des figures~\ref{subfig-Syst_uncs_pT_2016} à~\ref{subfig-Syst_uncs_eta_2018}.
 Cette incertitude correspond aux écarts observés entre les méthodes utilisant les réponses~\Rbal\ et~\RMPF\ d'une part et entre les analyses utilisant les événements \Zjets, \Gjets\ et dijet d'autre part.
@@ -372,8 +372,8 @@ Il est donc nécessaire de maîtriser cette grandeur.
 \par La JER est définie comme la largeur de la gaussienne obtenue par un ajustement sur la distribution de $R_\cali$ des jets, \ie\ $\pT_\cali/\pT_\ptcl$.
 Sa mesure est réalisée à l'aide d'événements \Gjets\ et \Zjets\ et les résultats obtenus lors du Run~I sont présentés sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JERC_RunI-Figure_036-b}.
 Elle dépend de $\pT_\ptcl$, $\eta$ et $\mu$.
-\par La JER observée dans les simulations diffère de celle observée dans les données, elle est légèrement meilleure.
-Afin de pouvoir réaliser des analyses comparant données et simulations, il est nécessaire d'avoir une JER comparable dans ces deux catégories d'événements.
+\par La JER observée dans les simulations diffère de celle observée dans les données réelles, elle est légèrement meilleure.
+Afin de pouvoir réaliser des analyses comparant données réelles et simulées, il est nécessaire d'avoir une JER comparable dans ces deux catégories d'événements.
 La JER des simulations est ainsi détériorée par un facteur d'échelle (JER SF), déterminé à partir d'événements \Gjets\ et dijet et défini en fonction de $\eta$.
 Les résultats obtenus lors du Run~II sont présentés sur la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-JER-JER_SF_RunII}.
 Le principe est le même que pour les corrections résiduelles décrites dans les sections~\ref{chapter-JERC-section-CMS-subsec-residuals_eta} et~\ref{chapter-JERC-section-CMS-subsec-residuals_pT}. Au lieu de s'intéresser à la moyenne de la distribution, c'est sa largeur qui est étudiée.
