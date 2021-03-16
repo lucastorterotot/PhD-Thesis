@@ -110,8 +110,8 @@ Les résultats de la figure~\ref{subfig-chapter-JERC-section-CMS-subsec-PU-JERC_
 \end{figure}
 \par La correction ainsi décrite doit être légèrement adaptée pour pouvoir l'appliquer aux données à cause des biais de simulation du détecteur.
 Pour cela, un ajustement en fonction de $\eta$ est déterminé à l'aide de la méthode de cône aléatoire (RC, \emph{Random Cone}).
-La méthode RC consiste à placer aléatoirement des cônes couvrant l'ensemble de l'acceptance du détecteur dans le plan $(\eta, \phi)$.
-La reconstruction des jets se fait alors cône par cône, par regroupement des particules contenues dans le cône.
+La méthode RC consiste à placer aléatoirement des cônes couvrant l'ensemble de l'acceptation du détecteur dans le plan $(\eta, \phi)$.
+La reconstruction des jets se fait alors cône par cône, par regroupement des particules contenues dans chacun d'entre eux.
 %La méthode RC reconstruit ainsi autant de jets que possible.
 L'impulsion transverse moyenne de ces jets, dans chaque événement, est une mesure de la densité d'énergie moyenne se retrouvant dans les jets~\cite{JERC_RunI}.
 L'étude est réalisée sur des événements dits de \og zéro biais \fg.
@@ -146,7 +146,7 @@ Il apparaît, par exemple, qu'un jet de $\pT=\SI{30}{\GeV}$ nécessite une corre
 \hfill
 \subcaptionbox{Année 2018.\label{subfig-simulated_jet_response_2018}}[.3\textwidth]
 {\includegraphics[width=.3\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-DP-2020-019/simulated_jet_response_2018.png}}
-\caption[Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II.]{Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II~\cite{CMS-DP-2020-019}. La chute de la réponse des jets dans la région $\abs{\eta}\simeq\num{3}$ est due à la transition entre l'\CMSendcap\ et la partie \CMSforward\ du détecteur. Pour $\abs{\eta}>\num{4.5}$, les limites d'acceptance du détecteur expliquent la chute de la réponse des jets. La dégradation au cours du temps du détecteur dans la région \og EC2 \fg{} s'observe par la baisse de la réponse des jets dans cette région de 2016 à 2017.}
+\caption[Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II.]{Réponse des jets reconstruits en fonction de \pT\ et $\eta$ lors du Run~II~\cite{CMS-DP-2020-019}. La chute de la réponse des jets dans la région $\abs{\eta}\simeq\num{3}$ est due à la transition entre l'\CMSendcap\ et la partie \CMSforward\ du détecteur. Pour $\abs{\eta}>\num{4.5}$, les limites d'acceptation du détecteur expliquent la chute de la réponse des jets. La dégradation au cours du temps du détecteur dans la région \og EC2 \fg{} s'observe par la baisse de la réponse des jets dans cette région de 2016 à 2017.}
 \label{fig-simulated_jet_response_RunII}
 \end{figure}
 \par Afin de corriger la réponse du détecteur en $\pT$ et en $\eta$, la correction $\mathcal{C}_\text{Rép}$ à appliquer s'exprime
@@ -285,7 +285,7 @@ La phénoménologie de ces événements ainsi que leur analyse sont détaillées
 \end{wrapfigure}
 Les propriétés des jets dépendent de leur saveur, \ie\ du parton initial, comme exposé au chapitre~\refChMSSM.
 Il existe ainsi une différence de réponse selon la saveur du jet, majoritairement due à la fragmentation en énergie et la composition du jet qui dépendent de cette saveur~\cite{JERC_RunI}.
-Par exemple, les particules de bas \pT\ se retrouvent hors de l'acceptance du détecteur.
+Par exemple, les particules de bas \pT\ se retrouvent hors de l'acceptation du détecteur.
 Or, des jets initiés par des gluons présentent de nombreuses particules de bas \pT\ par rapport aux jets issus de quarks légers.
 Dans une moindre mesure, les jets lourds possèdent également plus de particules de bas \pT\ que les jets de quarks légers suite à la désintégration du hadron lourd.
 La proportion de particules neutres dans le jet est également un des paramètres affectant le plus sa réponse.
