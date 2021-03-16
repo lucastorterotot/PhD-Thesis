@@ -1,56 +1,68 @@
 \section{Introduction}\label{chapter-ML-section-intro}
-
-AI = exploding for last years
-
-Siri, autonomus cars, AlphaGO, ...
-
-AI > Machine Learning > Deep Learning
-
-principle of ML: get a program mapping inputs to outputs
-
-classification vs regression tasks
-
-in HEP: \cite{jet_flavor_deep_nn} and the one used for the SM categories in the analysis!
-
-Also cite Gaël thesis:\\\fullcite{Gael_thesis}
-
-and Mortiz's:\\\fullcite{scham_moritz_2020_21993}
-
-and Tanja's:\\\fullcite{kopf_tanja_2019_21500}
-
-\emph{The Elements of statistical learning} : Trees have one aspect that prevents them from bering the ideal tool for predictive learning, namely inaccuracy.
---> they work great with the data used to create them, but they are not flexible when it comes to classifying new samples...
-
-\manip \textbf{Aim:} reconstruction of di-\tau\ mass.
-\submanip Already done in:\\
-\fullcite{BARTSCHI201929}
-
-\fullcite{Baldi_2015}
-
-\manip \textbf{BUT}
-\submanip CMS simulated at phase-0 with Delphes $\rightarrow$ we used CMS Fast Simulation (\FASTSIM).
-\submanip No Pile-Up $\rightarrow$ we added it using the 2017 PU profile.
-\submanip $m_{\higgs}\in [ 80 \isp 300 ] \SI{}{\GeV}$ per steps of \SI{5}{\GeV} $\rightarrow$ we do from 50 to 800 per steps of 1.
-\submanip \num{270000} training events $\rightarrow$ we have \num{2180992} ($\times8$).
-\submanip \num{100000} testing events $\rightarrow$ we have \num{311504} ($\times3$).
-
-Try both \XGB\ and DNN and compare, then apply to MSSM HTT analysis
-
-\remarque{To cite:
+L'utilisation de l'intelligence artificielle (IA) s'est grandement développée au cours des dernières années.
+L'IA est la capacité qu'ont des programmes à prendre des décisions, selon les informations qui leurs sont données par exemple sur leur environnement, de manière à maximiser leurs chances de réussite.
+L'entreprise Google DeepMind a par exemple développé AlphaGo~\cite{alphago},
+un programme destiné à jouer au jeu de Go,
+qui a battu en 2016 le champion du monde de la discipline 4 à 1.
+\par
+Le \emph{Machine Learning} (ML) est une branche de l'IA
+dans laquelle un modèle (algorithme ou programme) s'améliore à réaliser une tâche par
+accumulation d'expérience sur des jeux de données d'entraînement,
+sans pour autant être programmé explicitement pour réaliser cette tâche.
+Pour y parvenir,
+les jeux de données d'entraînement comprennent les informations $\vec{x}$ à donner au modèle
+ainsi que les \og bonnes réponses \fg\ \ytrue\ qu'il doit fournir.
+L'objectif du modèle est donc de donner une fonction $F$ approximant celle reliant $\vec{x}$ à \ytrue.
+Il peut alors donner des prédictions $\ypred=F(\vec{x})$ sur d'autres jeux de données.
+La tâche du modèle est:
+\begin{description}
+\item[une classification] lorsque $y$ est discrète, par exemple lorsqu'il s'agit de déterminer si une image représente un chat ou un chien~\cite{datafrog_img_reco};
+\item[une régression] lorsque $y$ est continue, par exemple estimer le prix d'un bien immobilier~\cite{house_prices_regression}.
+\end{description}
+\par
+Les applications du ML à la physique des particules sont variées et proposent de nombreux sujets d'étude~\cite{Gael_thesis,scham_moritz_2020_21993,kopf_tanja_2019_21500,Baldi_2015}.
+Dans les chapitres précédents, le ML est déjà activement utilisé pour diverses tâches:
 \begin{itemize}
-\item \DELPHES~3.4.2~\cite{Delphes,Delphes_additions}?
-\item CMS Fast Simulation (\FASTSIM)~\cite{FastSim_2011,FastSim_2014,FastSim_2017_1,FastSim_2017_2}
-\item \PYTHIA~8.235~\cite{pythia8.2}
-\item \FASTJET~\cite{Cacciari:2011ma,Cacciari:2006} % Fast Jet
-\item \KERAS~\cite{keras}
-\item \TENSORFLOW~\cite{tensorflow}
-\item \XGB~\cite{xgboost}
-\item for an example of nn use in HEP\\
-\fullcite{jet_flavor_deep_nn}
-\item \fullcite{Sarle1994NeuralNA}
-\item \fullcite{BARTSCHI201929}
-\item \SVFIT~\cite{SVFit_Bianchini_2014}
-\end{itemize}}
-
-
-\fullcite{DL_for_HTT_mass}
+\item identification des jets issus de quarks~\quarkb\ (\quarkb-\emph{tagging}) avec \DeepCSV~\cite{jet_flavor_deep_nn,Sirunyan_heavy_flavor_jets_2018,DeepJet};
+\item identification des taus hadroniques avec \DEEPTAU~\cite{CMS-DP-2019-033};
+\item catégorisation des événements comme exposé dans le chapitre~\refChHTT~\cite{CMS-NOTE-2019-177,CMS-NOTE-2019-178}.
+\end{itemize}
+\par
+Dans les événements $\Higgs\to\tau\tau$ présentés au chapitre~\refChMSSM,
+et plus généralement lors de tout processus physique $X\to\tau\tau$ où une particule $X$ se désintègre en paire de leptons tau,
+des neutrinos sont émis lors des désintégrations des taus.
+Or, ils sont invisibles dans les détecteurs tels que CMS ou ATLAS.
+Il est donc impossible de déterminer la masse invariante totale du système $\tau\tau$ issu de $X$.
+Plusieurs méthodes ont été développées afin de reconstruire la masse du système $\tau\tau$~\cite{ELAGIN2011481,Barr_2011,Gripaios_2013}.
+Dans le cadre des analyses $\Higgs\to\tau\tau$, la collaboration CMS utilise \SVFIT~\cite{SVFit_Bianchini_2014}.
+\par
+La reconstruction la masse de la particule $X$, ou résonance, se désintégrant en paire de leptons tau grâce au \emph{Machine Learning}
+a été étudiée par \author{BARTSCHI201929}~\cite{BARTSCHI201929} dans le cas où $X$ est un boson de Higgs avec une masse entre \num{80} et \SI{300}{\GeV}.
+Ils ont obtenu une résolution de \SI{8.4}{\%} sur la masse du Higgs, contre \SI{17}{\%} avec \SVFIT.
+Le temps de calcul nécessaire à l'obtention de la masse est de plus bien plus court avec le ML.
+L'utilisation du ML est donc très prometteuse.
+Cependant,
+ces travaux utilisent des événements générés
+avec une simulation grossière du détecteur CMS basée sur
+\DELPHES~\cite{Delphes,Delphes_additions}
+et sans empilement, notion introduite dans le chapitre~\refChLHCCMS.
+\par
+Les travaux présentés dans ce chapitre vont plus loin.
+La génération des événements, introduite dans la section~\ref{chapter-ML-section-evt_gen},
+utilise \FASTSIM~\cite{FastSim_2011,FastSim_2014,FastSim_2017_1,FastSim_2017_2}
+pour modéliser le détecteur CMS.
+Bien qu'il ne s'agisse pas de la simulation complète basée sur \GEANTfour~\cite{geant4_2003,geant4_2006,geant4_2016},
+\FASTSIM\ est bien plus proche de la réalité que \DELPHES.
+De plus, l'empilement est pris en compte.
+Les modèles obtenus sont ainsi directement utilisables dans de réelles analyses, telles que celle présentée dans le chapitre~\refChHTT.
+\par
+Deux types de modèle sont étudiés:
+\begin{itemize}
+\item des arbres de décision basés sur \XGB~\cite{xgboost}, introduits section~\ref{chapter-ML-section-XGB};
+\item des réseaux de neurones profonds, introduits section~\ref{chapter-ML-section-DNN}.
+\end{itemize}
+La comparaison des modèles obtenus et la sélection de l'un d'entre eux est présentée section~\ref{chapter-ML-section-hyperparameters}.
+Dans la section~\ref{chapter-ML-section-discussion},
+divers effets sur les performances des modèles sont discutés,
+en particulier la prise en compte de l'empilement.
+Enfin, l'utilisation en conditions réelles du modèle issu de ces travaux dans des analyses de physique est présentée dans la section~\ref{chapter-ML-section-use_HTT}.
