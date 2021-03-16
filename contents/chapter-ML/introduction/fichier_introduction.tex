@@ -11,8 +11,8 @@ accumulation d'expérience sur des jeux de données d'entraînement,
 sans pour autant être programmé explicitement pour réaliser cette tâche.
 Pour y parvenir,
 les jeux de données d'entraînement comprennent les informations $\vec{x}$ à donner au modèle
-ainsi que les \og bonnes réponses \fg\ \ytrue\ qu'il doit fournir.
-L'objectif du modèle est donc de donner une fonction $F$ approximant celle reliant $\vec{x}$ à \ytrue.
+ainsi que les \og bonnes réponses \fg\ \ytrue\ qu'il doit fournir en sortie.
+L'objectif du modèle est donc de donner une fonction $F$ approximant celle reliant l'entrée $\vec{x}$ à la cible \ytrue.
 Il peut alors donner des prédictions $\ypred=F(\vec{x})$ sur d'autres jeux de données.
 La tâche du modèle est:
 \begin{description}
