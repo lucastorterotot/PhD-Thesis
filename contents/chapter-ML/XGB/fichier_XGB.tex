@@ -1,33 +1,193 @@
-\section{Arbres de décision basés sur \XGBOOST}\label{chapter-ML-section-XGB}
-
-
+\section{Arbres de décision améliorés}\label{chapter-ML-section-XGB}
 % https://docs.google.com/presentation/d/1WTeOmpcj3Fr4KU2-ZASnBPjyNd5OddY6Bmr9YYZaXDs/edit#slide=id.g53a3150aec_0_7
+La librairie
+\XGBOOST~\cite{xgboost}
+(\emph{eXtreme Gradient Boosting})
+permet de construire des
+arbres de décision améliorés.
+De nombreuses compétitions Kaggle~\cite{kaggle_challenge} ont été remportées grâce eux.
+Ils présentent l'avantage d'être généralement plus à entraîner que des réseaux de neurones profonds (DNN),
+et peuvent fournir des prédictions même si une des entrées est manquante, ce qui n'est pas le cas des DNNs.
+\subsection{Arbres de décision}
+Les arbres de décision sont une succession de questions,
+dont les réponses mènent à un résultat final,
+comme illustré sur la figure~\ref{fig-decision_tree_schema}.
+Chaque réponse à une question créé une \og branche \fg{} (en bleu),
+les réponses finales sont les \og feuilles \fg{} (en rouge et vert).
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\def\DeltaX{2}
+\def\DeltaY{1.5}
 
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (A) at (0*\DeltaX,0*\DeltaY) {\og réclamez votre gain \fg{} dans l'objet};
 
-why? faster a good at challenges (see Colin's slides from \emph{somewhere in the past})
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (B) at (1.5*\DeltaX,-1*\DeltaY) {pourriel};
+%\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (B) at (2.5*\DeltaX,-1*\DeltaY) {j'ai participé à un jeu};
+%\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (Br) at (3.25*\DeltaX,-2*\DeltaY) {pourriel};
 
-\emph{The Elements of statistical learning} : Trees have one aspect that prevents them from bering the ideal tool for predictive learning, namely inaccuracy.
---> they work great with the data used to create them, but they are not flexible when it comes to classifying new samples...
-\subsection{Principe}
-tree
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (C) at (-1.5*\DeltaX,-1*\DeltaY) {orthographe douteuse};
 
-max depth, n estimators
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (Cr) at (-2.25*\DeltaX,-2*\DeltaY) {pourriel};
 
-\subsection{Entraînement}
-\subsubsection{Amélioration des prédictions}
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (D) at (0*\DeltaX,-2*\DeltaY) {expéditeur dans les contacts};
 
-objective
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (Dr) at (-1*\DeltaX,-3*\DeltaY) {pourriel};
 
-learning rate
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (E) at (1.5*\DeltaX,-3*\DeltaY) {lien ou pièce jointe suspects};
 
-early stopping
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (F) at (0.5*\DeltaX,-4*\DeltaY) {mail accepté};
 
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/XGB_structures-full_mape.pdf}
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (G) at (2.5*\DeltaX,-4*\DeltaY) {pourriel};
 
+\draw [thick, -latex, ltcolorred] (A) to (C) ;
+%\draw [thick, -latex, ltcolorred] (B) to (Br) ;
+\draw [thick, -latex, ltcolorred] (C) to (D) ;
+\draw [thick, -latex, ltcolorred] (D) to (Dr) ;
+\draw [thick, -latex, ltcolorred] (E) to (F) ;
 
+\draw [thick, -latex, ltcolorgreen] (A) to (B) ;
+%\draw [thick, -latex, ltcolorgreen] (B) to (E) ;
+\draw [thick, -latex, ltcolorgreen] (C) to (Cr) ;
+\draw [thick, -latex, ltcolorgreen] (D) to (E) ;
+\draw [thick, -latex, ltcolorgreen] (E) to (G) ;
 
-\subsubsection{Surentraînement}
-
+\draw (A.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
+%\draw (B.south) node [below] {{\color{ltcolorgreen}oui} \qquad\qquad {\color{ltcolorred}non}};
+\draw (C.south) node [below] {\quad {\color{ltcolorgreen}oui} {\color{ltcolorred}non}};
+\draw (D.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
+\draw (E.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
+\end{tikzpicture}
+\caption[Exemple d'un arbre de décision.]{Exemple d'un arbre de décision classant des mails comme pourriel (\emph{spam}).}
+\label{fig-decision_tree_schema}
+\end{figure}
+\par
+De tels arbres peuvent être utilisés avec des variables numériques.
+Dans ce cas, les questions consistent en une condition sur l'une des variables, par exemple $\pT^{\mu} > \SI{50}{\GeV}$.
+Le choix de la variable ($\pT^{\mu}$) et de la coupure correspondante (\SI{50}{\GeV}) à utiliser pour former deux nouvelles branches $b_1$ (condition fausse) et $b_2$ (condition vraie) se base sur la similarité $S$, définie comme
+\begin{equation}
+S = \frac{1}{N} \left(\sum_{k=1}^N r_k \right)^2
+\end{equation}
+où $N$ est la taille du jeu de données d'entraînement (quantité d'échantillons)
+et $r_k$ la valeur de la variable $r$ dans le $k$\up{e} échantillon.
+Le gain $G$ obtenu s'exprime
+\begin{equation}
+G = S_{b_1} + S_{b_2} - S_{b_1+b_2}
+\end{equation}
+avec
+$S_{b_1+b_2}$ la similarité du jeu de donnée non séparé,
+$S_{b_1}$ ($S_{b_2}$) la similarité du jeu de donnée se retrouvant dans la branche $b_1$ ($b_2$).
+La condition retenue pour former les deux branches est celle présentant le gain le plus élevé.
+Ce processus est alors itéré sur chacune des nouvelles branches, jusqu'à ce que:
+\begin{itemize}
+\item le gain soit inférieur à $\gamma$;
+\item la profondeur de l'arbre (nombre de conditions successives) est supérieure à \MaxDepth.
+\item la quantité d'échantillons dans une branche est inférieure à \MinChildWeight.
+\end{itemize}
+Les paramètres $\gamma$, \MaxDepth\ et \MinChildWeight\ sont nommés \og hyper-paramètres \fg,
+afin d'éviter toute confusion avec les paramètres interne de l'arbre utilisés pour la construction des branches.
+%Par défaut, $\gamma=0$ et $\MinChildWeight=1$.
+\subsection{\emph{Gradient Boosting}}
+La technique du \emph{Gradient Boosting} consiste en
+l'utilisation de modèles simples,
+ici des arbres de décision,
+pour obtenir un modèle global plus robuste.
+La construction se fait de manière itérative.
+\par
+À chaque étape $k\geq1$,
+un arbre de décision $M_k$ nommé estimateur est construit avec pour objectif de prédire
+\begin{equation}
+\ytruei - F_{k-1}(\vec{x}_i)
+\end{equation}
+pour une entrée $\vec{x}_i$,
+avec
+\ytruei\ la valeur que doit prédire le modèle global pour l'entrée $\vec{x}_i$
+et
+$F_{k-1}$ la fonction du modèle global issu de l'étape ${k-1}$,
+$F_0$ étant égale à $M_0$, l'arbre de décision obtenu sans \emph{Gradient Boosting}.
+Le modèle $M_k$ corrige donc l'écart résiduel des prédictions $\set{\ypredi}$ du modèle global à $\set{\ytruei}$.
+Les prédictions $F_k$ du modèle global s'expriment alors
+\begin{equation}
+\ypredi = F_k(\vec{x}_i) = F_{k-1}(\vec{x}_i) + \eta\,M_k(\vec{x}_i)
+\end{equation}
+avec
+$\eta$ le taux d'apprentissage, inférieur à 1, permettant de corriger progressivement l'écart résiduel.
+L'itération s'arrête lorsque le nombre maximal d'estimateurs \Nestimators\ est atteint.
+Les grandeurs $\eta$ et \Nestimators\ sont également des hyper-paramètres.
+%\emph{The Elements of statistical learning} : Trees have one aspect that prevents them from bering the ideal tool for predictive learning, namely inaccuracy. --> they work great with the data used to create them, but they are not flexible when it comes to classifying new samples...
+\subsection{Fonction de coût et \emph{Gradient Descent}}
+Une fonction de coût (\emph{loss function}) compare les prédictions d'un modèle aux valeurs vraies.
+Elle est définie de manière à être minimale lorsque les prédictions sont égales aux valeurs vraies, \ie\ lorsque le modèle est parfait.
+Les fonctions de coûts les plus répandues sont:
+\begin{description}
+\item[MSE] \emph{Mean Squared Error} ou erreur quadratique moyenne,
+\begin{equation}
+\Loss_\text{MSE}(\set{\ytruei}, \set{\ypredi}) = \frac{1}{2N} \sum_{i=1}^N \left( \ypredi - \ytruei \right)^2
+\label{eq-loss_MSE}
+\mend[;]
+\end{equation}
+\item[MAE] \emph{Mean Absolute Error} ou erreur absolue moyenne,
+\begin{equation}
+\Loss_\text{MAE}(\set{\ytruei}, \set{\ypredi}) = \frac{1}{N} \sum_{i=1}^N \left| \ypredi - \ytruei \right|
+\label{eq-loss_MAE}
+\mend[;]
+\end{equation}
+\item[MAPE] \emph{Mean Absolute Percentile Error} ou erreur absolue relative moyenne,
+\begin{equation}
+\Loss_\text{MAE}(\set{\ytruei}, \set{\ypredi}) = \frac{100}{N} \sum_{i=1}^N \left| \frac{\ypredi - \ytruei}{\ytruei} \right|
+\label{eq-loss_MAPE}
+\mend
+\end{equation}
+\end{description}
+\par
+L'objectif du modèle $M_k$ défini dans la section précédente est de prédire, pour $\vec{x}_i$,
+\begin{equation}
+\ytruei - F_{k-1}(\vec{x}_i)
+=
+- \pdv{\Loss_\text{MSE}(\ytruei, F_{k-1}(\vec{x}_i))}{F_{k-1}(\vec{x}_i)}
+\mend
+\end{equation}
+Il est ainsi possible de généraliser le \emph{Gradient Boosting}
+en considérant que l'objectif de $M_k$ est de prédire
+\begin{equation}
+- \pdv{\Loss(\ytruei, F_{k-1}(\vec{x}_i))}{F_{k-1}(\vec{x}_i)}
+\end{equation}
+avec \Loss\ une fonction de coût quelconque.
+Il s'agit du \emph{Gradient Descent},
+où l'objectif est de minimiser \Loss.
+La fonction de coût est un hyper-paramètre du modèle.
+\subsection{Sous-entraînement et surentraînement}
+La construction d'un modèle, aussi appelé \og entraînement \fg,
+vise à minimiser la fonction de coût \Loss.
+L'entraînement est un processus itératif.
+Dans le cas des arbres de décision améliorés créés avec \XGBOOST,
+l'entraînement cesse lorsque le nombre d'estimateur maximal est atteint, lorsqu'il est renseigné.
+Dans tous les cas, il est légitime de se demander si le modèle obtenu à la fin de l'entraînement est optimal.
+\par
+Il faut que l'entraînement soit suffisamment long pour que le modèle propose les prédictions les plus précises possible.
+Autrement dit, il faut que le modèle ait le temps d'apprendre.
+S'il ne l'a pas, les prédictions ne sont pas aussi précises qu'elles pourraient l'être, c'est le sous-entraînement (\emph{underfitting}).
+La valeur de la fonction de coût appliquée au jeu de données d'entraînement diminuant lors de l'apprentissage,
+un critère pourrait être de l'utiliser afin de déterminer si le modèle apprend encore ou non.
+Arrivé à un plateau, le modèle ne s'améliore plus et l'entraînement s'arrête.
+\par
+Cette approche masquerait toutefois une spécialisation du modèle.
+En effet, un modèle peut apprendre à prédire parfaitement $\set{\ytruei}$ sur le jeu de données d'entraînement,
+ce qui correspond à une fonction de coût nulle,
+mais être moins bon qu'un modèle entraîné moins longtemps lorsqu'il est utilisé sur d'autres données.
+C'est le surentraînement (\emph{overfitting}).
+Cet effet peut être évité en utilisant un jeu de données dit de \og validation \fg,
+non utilisé pour régler les paramètres du modèle.
+L'intérêt du jeu de validation est illustré sur la figure~\ref{fig-underfitting_and_overfitting}.
+Un modèle sous-entraîné ou dont l'entraînement est optimal présente des erreurs similaires dans les deux jeux de données.
+Dans le cas d'un surentraînement, les erreurs continuent à diminuer sur le jeu d'entraînement, mais pas sur le jeu de validation.
+Une fonction d'évaluation $E$, éventuellement égale à la fonction de coût \Loss, permet de quantifier ces erreurs et de mettre fin à l'entraînement avant de surentraîner le modèle.
+Il s'agit de l'arrêt prématuré (\emph{early stopping}).
+\begin{figure}[h]
+\centering
 \input{\PhDthesisdir/plots_and_images/my_plots/ML/overfitting_and_early_stopping/examples-pyplot.pgf}
-
-
+\caption[Illustrations du sous-entraînement et du surentraînement.]{Illustrations du sous-entraînement et du surentraînement.
+Un même modèle est peu (gauche), suffisamment (milieu) ou trop entraîné (droite). Ses prédictions (ordonnées) en fonction de l'entrée (abscisses) sont tracées en vert.
+Le jeu de données d'entraînement (de validation) est représenté par des croix bleues (rouges) sur la ligne du haut (bas).}
+\label{fig-underfitting_and_overfitting}
+\end{figure}
