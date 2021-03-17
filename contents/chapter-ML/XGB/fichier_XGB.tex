@@ -26,39 +26,39 @@ les réponses finales sont les \og feuilles \fg{} (en rouge et vert).
 %\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (B) at (2.5*\DeltaX,-1*\DeltaY) {j'ai participé à un jeu};
 %\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (Br) at (3.25*\DeltaX,-2*\DeltaY) {pourriel};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (C) at (-1.5*\DeltaX,-1*\DeltaY) {orthographe douteuse};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (C) at (-1.5*\DeltaX,-1*\DeltaY) {lien ou pièce jointe};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (Cr) at (-2.25*\DeltaX,-2*\DeltaY) {pourriel};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (Ca) at (-2.25*\DeltaX,-2*\DeltaY) {mail accepté};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (D) at (0*\DeltaX,-2*\DeltaY) {expéditeur dans les contacts};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (D) at (0*\DeltaX,-2*\DeltaY) {orthographe douteuse};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (Dr) at (-1*\DeltaX,-3*\DeltaY) {pourriel};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (Dr) at (1.5*\DeltaX,-3*\DeltaY) {pourriel};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (E) at (1.5*\DeltaX,-3*\DeltaY) {lien ou pièce jointe suspects};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (E) at (-1*\DeltaX,-3*\DeltaY) {expéditeur connu};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (F) at (0.5*\DeltaX,-4*\DeltaY) {mail accepté};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolororange1] (F) at (-2*\DeltaX,-4*\DeltaY) {méfiance!};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (G) at (2.5*\DeltaX,-4*\DeltaY) {pourriel};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (G) at (0*\DeltaX,-4*\DeltaY) {mail accepté};
 
 \draw [thick, -latex, ltcolorred] (A) to (C) ;
 %\draw [thick, -latex, ltcolorred] (B) to (Br) ;
-\draw [thick, -latex, ltcolorred] (C) to (D) ;
-\draw [thick, -latex, ltcolorred] (D) to (Dr) ;
+\draw [thick, -latex, ltcolorred] (C) to (Ca) ;
+\draw [thick, -latex, ltcolorred] (D) to (E) ;
 \draw [thick, -latex, ltcolorred] (E) to (F) ;
 
 \draw [thick, -latex, ltcolorgreen] (A) to (B) ;
 %\draw [thick, -latex, ltcolorgreen] (B) to (E) ;
-\draw [thick, -latex, ltcolorgreen] (C) to (Cr) ;
-\draw [thick, -latex, ltcolorgreen] (D) to (E) ;
+\draw [thick, -latex, ltcolorgreen] (C) to (D) ;
+\draw [thick, -latex, ltcolorgreen] (D) to (Dr) ;
 \draw [thick, -latex, ltcolorgreen] (E) to (G) ;
 
 \draw (A.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
 %\draw (B.south) node [below] {{\color{ltcolorgreen}oui} \qquad\qquad {\color{ltcolorred}non}};
-\draw (C.south) node [below] {\quad {\color{ltcolorgreen}oui} {\color{ltcolorred}non}};
+\draw (C.south) node [below] {\quad {\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
 \draw (D.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
 \draw (E.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
 \end{tikzpicture}
-\caption[Exemple d'un arbre de décision.]{Exemple d'un arbre de décision classant des mails comme pourriel (\emph{spam}).}
+\caption[Exemple d'un arbre de décision.]{Exemple d'un arbre de décision classant des mails comme pourriel (\emph{spam}) ou potentiellement dangereux.}
 \label{fig-decision_tree_schema}
 \end{figure}
 \par
