@@ -133,5 +133,20 @@ le permet, c'est celui-ci qui est donc utilisé pour les limites dépendantes d'
 \par
 Dans le MSSM, en plus de bosons de Higgs neutres supplémentaires, les propriétés du boson de Higgs correspondant à celui découvert en 2012 sont modifiées.
 L'utilisation conjointe des catégories \CATsm\ et \CATbsm, introduite dans la section~\ref{chapter-HTT_analysis-section-categorisation-SM_and_BSM}, peut donc permettre d'obtenir des limites plus contraignantes sur le MSSM.
-Les résultats, présentés section~\ref{chapter-HTT_analysis-section-results}, sont proposés avec ces différents jeux de catégories.
+La présence attendue d'une contribution des différents modes de production considérés pour~\higgs, \Higgs\ et~\HiggsA\ au signal dans ces différentes catégories est donnée dans le tableau~\ref{tab-sign_in_cats_expected}.
+L'utilisation des catégories \CATsm\ permet d'avoir une sensibilité spécifique à \higgs\ avec les modes $\gluon\gluon\higgs$, VBF et VH.
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Catégorie & & $\gluon\gluon\higgs$, VBF, VH & $\quarkb\antiquarkb\higgs$ & \Higgs, \HiggsA\\
+\midrule
+\CATnobtag, $\mCutForCategories<\SI{250}{\GeV}$ & (\CATsm) & \OK & \KO & \KO\\
+\CATnobtag, $\mCutForCategories\geq\SI{250}{\GeV}$ & (\CATbsm) & \KO & \KO & \OK\\
+\CATbtag & (\CATbsm) & \OK & \OK & \OK\\
+\bottomrule
+\end{tabular}
+\caption{Présences attendues des contributions au signal dans les catégories.}
+\label{tab-sign_in_cats_expected}
+\end{table}
 \paragraph{Cas du scénario avec violation de $CP$} \todo{!}
