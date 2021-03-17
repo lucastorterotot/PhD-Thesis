@@ -10,10 +10,10 @@ dans laquelle un modèle (algorithme ou programme) s'améliore à réaliser une 
 accumulation d'expérience sur des jeux de données d'entraînement,
 sans pour autant être programmé explicitement pour réaliser cette tâche.
 Pour y parvenir,
-les jeux de données d'entraînement comprennent les informations $\vec{x}$ à donner au modèle
-ainsi que les \og bonnes réponses \fg\ \ytrue\ qu'il doit fournir en sortie.
-L'objectif du modèle est donc de donner une fonction $F$ approximant celle reliant l'entrée $\vec{x}$ à la cible \ytrue.
-Il peut alors donner des prédictions $\ypred=F(\vec{x})$ sur d'autres jeux de données.
+les jeux de données d'entraînement comprennent les informations $\set{\vec{x}_i}$ à donner au modèle
+ainsi que les \og bonnes réponses \fg\ $\set{\ytruei}$ qu'il doit fournir en sortie.
+L'objectif du modèle est donc de donner une fonction $F$ approximant celle reliant les entrées $\set{\vec{x}_i}$ aux cibles $\set{\ytruei}$.
+Il peut alors donner une prédiction \ypred\ sur une nouvelle entrée selon $\ypred=F(\vec{x})$.
 La tâche du modèle est:
 \begin{description}
 \item[une classification] lorsque $y$ est discrète, par exemple lorsqu'il s'agit de déterminer si une image représente un chat ou un chien~\cite{datafrog_img_reco};
@@ -58,7 +58,7 @@ Les modèles obtenus sont ainsi directement utilisables dans de réelles analyse
 \par
 Deux types de modèle sont étudiés:
 \begin{itemize}
-\item des arbres de décision basés sur \XGB~\cite{xgboost}, introduits section~\ref{chapter-ML-section-XGB};
+\item des arbres de décision améliorés, introduits section~\ref{chapter-ML-section-XGB};
 \item des réseaux de neurones profonds, introduits section~\ref{chapter-ML-section-DNN}.
 \end{itemize}
 La comparaison des modèles obtenus et la sélection de l'un d'entre eux est présentée section~\ref{chapter-ML-section-hyperparameters}.
