@@ -79,21 +79,6 @@ Canal & \multicolumn{6}{l}{Catégories de bruit de fond possibles}\\
 %covers Z → ll and W + jets in the eμ channel, di-Boson, single top and EWKZ in the eτ h and
 %μτ h channel and Z → ll, tt̄, W + jets, di-Boson, single top and EWKZ in the τ h τ h channel.
 \subsubsection{Variable discriminante}
-Le réseau de neurones utilisé a pour but de classer les événements selon leur nature dans les différentes catégories définies précédemment.
-De l'entraînement de ce réseau résultent les frontières entre les différentes catégories.
-Les régions frontalières, \ie\ les régions de l'espace des phases dans lesquelles les événements ont de proches probabilités d'appartenir à deux catégories ou plus, sont ainsi délibérément fixées lors de l'entraînement et en dépendent.
-Modifier les paramètres du réseau ou de l'entraînement mène ainsi à des migrations d'événements frontaliers d'une catégorie à une autre.
-Or, ces événements frontaliers sont ceux dont la probabilité d'appartenir à une catégorie ne peut être grande, car dans ce cas cet événement est très caractéristique de cette catégorie.
-\par
-Il est donc pertinent d'utiliser les valeurs de sortie du réseau pour définir une variable discriminante.
-Le choix fait est d'utiliser la plus grande probabilité parmi celles données par le réseau, \ie\ la probabilité d'appartenir à la catégorie dans laquelle le réseau estime que cet événement fait partie.
-Cette variable est dénommée \og score \fg{} et notée \NNscore.
-\begin{wrapfigure}{R}{.45\textwidth}
-\centering
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2019-177/fig67.png}
-\caption[Réduction à une dimension de la catégorie \CATxxh.]{Réduction à une dimension de la catégorie \CATxxh~\cite{CMS-NOTE-2019-177}.}
-\label{fig-67-CMS-NOTE-2019-177}
-\end{wrapfigure}
 \begin{figure}[p]
 \centering
 
@@ -118,6 +103,21 @@ Cette variable est dénommée \og score \fg{} et notée \NNscore.
 \caption[Distributions de \NNscore\ en 2017 dans le canal \ele\mu.]{Distributions de \NNscore\ en 2017 dans le canal \ele\mu.}
 \label{fig-NNscore_distribs_exemple}
 \end{figure}
+Le réseau de neurones utilisé a pour but de classer les événements selon leur nature dans les différentes catégories définies précédemment.
+De l'entraînement de ce réseau résultent les frontières entre les différentes catégories.
+Les régions frontalières, \ie\ les régions de l'espace des phases dans lesquelles les événements ont de proches probabilités d'appartenir à deux catégories ou plus, sont ainsi délibérément fixées lors de l'entraînement et en dépendent.
+Modifier les paramètres du réseau ou de l'entraînement mène ainsi à des migrations d'événements frontaliers d'une catégorie à une autre.
+Or, ces événements frontaliers sont ceux dont la probabilité d'appartenir à une catégorie ne peut être grande, car dans ce cas cet événement est très caractéristique de cette catégorie.
+\par
+Il est donc pertinent d'utiliser les valeurs de sortie du réseau pour définir une variable discriminante.
+Le choix fait est d'utiliser la plus grande probabilité parmi celles données par le réseau, \ie\ la probabilité d'appartenir à la catégorie dans laquelle le réseau estime que cet événement fait partie.
+Cette variable est dénommée \og score \fg{} et notée \NNscore.
+\begin{wrapfigure}{R}{.45\textwidth}
+\centering
+\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2019-177/fig67.png}
+\caption[Réduction à une dimension de la catégorie \CATxxh.]{Réduction à une dimension de la catégorie \CATxxh~\cite{CMS-NOTE-2019-177}.}
+\label{fig-67-CMS-NOTE-2019-177}
+\end{wrapfigure}
 \par
 Des événements de signal peuvent être difficilement classés dans une unique catégorie de signal, \texttt{ggh} ou \texttt{qqh}.
 Dans ce cas, leurs scores sont bas pour ces catégories et ils pourraient être catégorisés comme bruit de fond par le réseau de neurones.
@@ -125,6 +125,7 @@ Afin de conserver autant que possible de tels événements hors des catégories 
 la solution trouvée~\cite{CMS-NOTE-2019-177} est de créer une catégorie globale $\CATxxh=\texttt{ggh} + \texttt{qqh}$.
 Le score dans cette catégorie \CATxxh\ est alors bidimensionnel, chaque dimension correspondant à un des deux scores des catégories \texttt{ggh} et \texttt{qqh}.
 Pour obtenir un histogramme à une dimension, une réduction est réalisée tel qu'illustré figure~\ref{fig-67-CMS-NOTE-2019-177}.
+\par
 La segmentation est à peu près uniforme en fonction du score \texttt{ggh}.
 Aux bas scores \texttt{qqh}, elle est plus large à cause des larges contributions du bruit de fond ainsi que de la quantité réduite d'événements.
 Aux hauts scores \texttt{qqh}, elle est plus fine car le signal y est fortement présent.
