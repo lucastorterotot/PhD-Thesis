@@ -127,12 +127,12 @@ Année & Caractéristique & Section efficace (\SI{}{\pico\barn})\\
 \end{table}
 \subsubsection{Sélection des événements}
 Une sélection des événements à considérer est réalisée lors de l'analyse.
-En effet, les événements souhaités sont ceux contenant un photon avec un ou plusieurs jets;
-un des bruits de fond principal provient d'événements multijet où un des jets est identifié à tort comme un photon.
+Les événements souhaités sont ceux contenant un photon avec un ou plusieurs jets.
+Un des bruits de fond principal provient d'événements multijet dans lesquels l'un des jets est identifié à tort comme un photon.
 Cette situation peut arriver lorsqu'une fraction importante de l'énergie de ce jet est portée par un ou plusieurs pions neutres, les \pionnull.
 Les \pionnull\ se propagent sur des distances moyennes de \SI{26}{\nano\meter} puis se désintègrent dans \SI{99}{\%} des cas en deux photons~\cite{PDG_booklet_2020}.
 Ces particules ne laissent donc aucune trace dans le trajectographe et un dépôt d'énergie dans le ECAL, tout comme les photons issus de l'interaction initiale.
-Un tel jet comporte ainsi une signature similaire à un photon d'un événement \Gjet\ autour duquel une activité hadronique existe.
+Un tel jet comporte ainsi une signature similaire à celle d'un photon d'un événement \Gjet\ autour duquel une activité hadronique existe.
 %Les topologies de ces deux types d'événements, semblables, sont représentées sur la figure~\ref{fig-Gamma_plus_jet_events_real_faked}.
 %\begin{figure}[h]
 %\centering
@@ -166,12 +166,11 @@ Pour s'assurer d'un bon équilibre dans le plan transverse entre le photon et le
 Le photon et le jet sont donc dos à dos dans le plan transverse.
 Il est de plus requis que ce jet soit d'impulsion transverse supérieure à \SI{15}{\GeV}.
 \par Si un second jet d'impulsion transverse supérieure à \SI{10}{\GeV} et à \SI{30}{\%} de $\pT^{\photon}$ est présent, l'événement est rejeté.
-L'événement est également rejeté si un lepton (électron ou muon) isolé, en pratique hors des jets, est présent.
+L'événement est également rejeté si un lepton (électron ou muon) isolé, \ie\ hors des jets, est présent.
 \par Il a été observé que des régions des calorimètres produisent des signaux menant à des reconstructions biaisées de jets.
 De plus, un système de lecture expérimental \og SiPM \fg{} a été installé dans le \CMSendcap\ du HCAL~\cite{SiPM_CMS_conf}.
 Il en résulte des calibrations qui ne sont pas optimales dans les régions correspondantes du détecteur.
-Afin d'éviter ces effets, tout événement est rejeté s'il comporte, dans ces régions des calorimètres, un jet utilisé dans l'analyse.
-Ces régions sont résumées sur la figure~\ref{fig-hotjets2017UL}.
+Afin d'éviter ces effets, tout événement est rejeté s'il comporte un jet sélectionné dans ces régions des calorimètres, résumées sur la figure~\ref{fig-hotjets2017UL}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=.6\textwidth]{\PhDthesisdir/plots_and_images/hotjets2017UL.pdf}
@@ -190,15 +189,14 @@ Ces régions sont résumées sur la figure~\ref{fig-hotjets2017UL}.
 %    Please note that for analyses comparing data to simulation or otherwise relying heavily on simulation, it may be necessary to use the filtering also for MC processing for ensuring avoiding any biases due to angular dependencies etc. In these cases the same data-based filter should be used for data and MC. The maps labelled 'mc' (=pythia) or 'hw' (=herwig) in the JECDatabase are for expert studies only. 
 \paragraph{Sélection sur le chemin de déclenchement}
 Comme expliqué dans le chapitre~\refChLHCCMS, un événement observé par le détecteur CMS est sauvegardé si un chemin de déclenchement (HLT \emph{path}) est activé.
-Dans cette analyse, seuls les événements dont le photon servant d'objet de référence pour la calibration des jets correspond au photon ayant activé le \HLTpath\ pour cet événement sont retenus.
+Dans cette analyse, seuls les événements dont le photon servant d'objet de référence pour la calibration des jets correspond à celui ayant activé le \HLTpath\ pour cet événement sont retenus.
 Or, plus l'impulsion transverse du photon est faible, plus le nombre d'événements pouvant être sauvegardés est importante, si bien que la chaîne d'acquisition arrive à saturation.
-Pour pallier à cette saturation, il existe différents \HLTpaths\ en fonction de l'impulsion transverse du photon et pour chacun d'entre eux, seule une fraction des événements les déclenchant est effectivement sauvegardée.
+Pour pallier à cela, il existe différents \HLTpaths\ en fonction de l'impulsion transverse du photon et pour chacun d'entre eux, seule une fraction des événements les déclenchant est effectivement sauvegardée.
 Cette fraction est nommée \emph{prescale}.
-À chaque \HLTpath\ correspond ainsi un \emph{prescale}.
-Un intervalle d'impulsion transverse du photon retenu est alors défini pour chaque \HLTpath\ utilisé.
-Cet intervalle permet de se placer au plateau d'efficacité du \HLTpath.
-Les différents \HLTpaths, leurs \emph{prescales} et intervalles d'impulsion transverse sont présentés dans le tableau~\ref{tab-HLT_pT_precales_18_and_17UL}.
-Par exemple, un photon d'impulsion transverse \SI{95}{\GeV} doit avoir déclenché le chemin nommé \inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM}.
+%À chaque \HLTpath\ correspond ainsi un \emph{prescale}.
+Un intervalle d'impulsion transverse du photon retenu est alors défini pour chaque \HLTpath\ utilisé afin de se placer à son plateau d'efficacité.
+Le tableau~\ref{tab-HLT_pT_precales_18_and_17UL} résume ces intervalles et \emph{prescales}.
+Par exemple, un photon d'impulsion transverse \SI{95}{\GeV} doit avoir activé le chemin nommé \inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM}.
 \begin{table}[h]
 \centering
 \begin{tabular}{lccc}
@@ -364,7 +362,9 @@ L'activité additionnelle liée aux jets supplémentaires est quantifiée par la
 \par L'analyse des événements \Gjets\ est alors réalisée pour différents intervalles de $\alpha$ afin de pouvoir réaliser par la suite une extrapolation à $\alpha=0$, correspondant au cas idéal d'événements \Gjet.
 Les intervalles utilisés sont présentés dans le tableau~\ref{tab-alpha_intervalles}.
 Il s'agit d'intervalles inclusifs, \ie\ que chaque intervalle contient l'intervalle précédent.
-L'évolution des réponses moyennes en fonction de $\alpha$ y étant linéaire \aposteriori, ce qui se retrouve dans les résultats de la figure~\ref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}, page~\pageref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}, ce choix rend possible une extrapolation simple vers $\alpha=0$.
+L'évolution des réponses moyennes en fonction de $\alpha$ y est linéaire \aposteriori.
+Cela se retrouve dans les résultats de la figure~\ref{fig-chapter-JERC-section-JES-subsec-analyse-responsebal_and_MPF_eta0013_ptPhot_175_230_extrap}.
+Ce comportement linéaire rend possible une extrapolation simple vers $\alpha=0$.
 \begin{table}[h]
 \centering
 \begin{tabular}{ccccc}
@@ -396,9 +396,9 @@ Certaines de ces distributions sont représentées sur la figure~\ref{fig-distri
 une troncature leur est appliquée pour n'en conserver que les parties centrales.
 Pour cela, un ajustement à une gaussienne est réalisé pour chaque distribution.
 Les points considérés dans la suite sont alors ceux appartenant à un intervalle  $[ \bar{R} - \Delta R, \bar{R} + \Delta R ]$ où $\bar{R}$ est le centre de la gaussienne obtenue et $\Delta R$ est fixé tel que l'intégrale de la distribution tronquée représente \SI{98.5}{\%} de l'intégrale de la distribution initiale.
-Une estimation des moyennes de ces distributions tronquées est alors obtenue ; ces moyennes sont représentées sur la figure~\ref{fig-distribs_Gjets_18_resp_bal_and_mpf}.
-Un écart est effectivement observé entre données réelles et simulées.
-Il s'agit précisément de l'écart que la correction résiduelle absolue en \pT\ des jets doit corriger.
+Une estimation des moyennes de ces distributions tronquées est alors obtenue ; ces dernières sont représentées sur la figure~\ref{fig-distribs_Gjets_18_resp_bal_and_mpf}.
+Un écart est effectivement observé entre données réelles et simulées,
+il s'agit précisément de celui que la correction résiduelle absolue en \pT\ des jets doit corriger.
 \begin{figure}[h]
 \centering
 \subcaptionbox{Réponse équilibrée pour $\pT^{\photon}\in[175, 230[$ \SI{}{\GeV}.\label{subfig-distrib_Gjets_18_resp_balancing_eta0013_ptPhot_175_230}}[.45\textwidth]
