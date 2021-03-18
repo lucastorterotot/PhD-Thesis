@@ -110,22 +110,9 @@ selon les procédures présentées ci-après.
 Plus de 22 millions d'événements ont été générés.
 Environ 3 millions sont sélectionnés selon les critères présentés précédemment.
 La distribution de $m_{\higgsML}$ dans ces événements sélectionnés est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-raw-all_events}.
-Quelques événements présentent des valeurs de $m_{\higgsML}$ au-delà de \SI{800}{\GeV}, cet effet est dû à la largeur de cette particule.
-À haute masse, la durée de vie est réduite.
-Alors, l'incertitude sur la masse augmente, comme l'indique le principe d'incertitude de Heisenberg.
-Cet effet n'est pas présent à basse masse.
-Les événements retenus dans la suite sont ceux où la masse effective de \higgsML\ se situe bien entre \num{50} et \SI{800}{\GeV}.
-\par
-Ces événements sont de plus séparés en trois groupes selon les proportions suivantes:
-\begin{itemize}
-\item \SI{70}{\%} pour l'entraînement. Ce sont ces événements que les modèles pourront exploiter afin d'apprendre à prédire correctement $m_{\higgsML}$;
-\item \SI{20}{\%} pour la validation. Ces événements permettent de vérifier qu'il n'y a pas de surentraînement, \ie\ que le modèle ne se spécialise pas vis-à-vis du jeu d'entraînement;
-\item \SI{10}{\%} pour les tests. Ces événements ne sont pas utilisés lors des entraînements et permettent donc de tester les modèles sur des données inédites. Sauf contre-indication, les figures sont toutes obtenues avec ce groupe d'événements.
-\end{itemize}
-\par
-Afin de réaliser un entraînement équitable entre les différentes valeurs de $m_{\higgsML}$, un poids est associé à chaque événement de manière à ce que la distribution pondérée de $m_{\higgsML}$ soit plate.
-La distribution pondérée de $m_{\higgsML}$ sur les événements utilisés pour l'entraînement des modèles est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-weighted-is_train}.
-\begin{figure}[h]
+Quelques événements présentent des valeurs de $m_{\higgsML}$ au-delà de \SI{800}{\GeV}, cet effet est dû à la largeur de cette particule,
+représentée sur la figure~\ref{fig-_Higgs_xsec_book_3-SM_Width} en fonction de sa masse.
+\begin{figure}[b]
 \centering
 
 \subcaptionbox{Distribution brute sur tous les événements.\label{subfig-distribution-inclusive-Higgs_mass_gen-raw-all_events}}[0.45\textwidth]
@@ -136,4 +123,26 @@ La distribution pondérée de $m_{\higgsML}$ sur les événements utilisés pour
 
 \caption[Distributions de la masse générée de \higgsML.]{Distributions de la masse générée de \higgsML.}
 \label{fig-distribution-inclusive-Higgs_mass_gen-raw-all_events}
+
+\vspace{\baselineskip}
+
+\includegraphics[width=.45\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/from_Higgs_xsec_book_3/SM_Width.pdf}
+\caption[Largeur du boson de Higgs du modèle standard.]{Largeur du boson de Higgs du modèle standard~\cite{Higgs_xsec_book_3}.}
+\label{fig-_Higgs_xsec_book_3-SM_Width}
 \end{figure}
+La largeur à \SI{800}{\GeV} est ainsi d'environ \SI{300}{\GeV}.
+Le réglage $m_{\higgsML} = \SI{800}{\GeV}$ donne donc des événements contenant un boson dont la masse effective se situe entre \num{500} et \SI{1100}{\GeV}, d'où la queue de la distribution observée à haute masse sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-raw-all_events}.
+À basse masse en revanche, la largeur est inférieure à \SI{100}{\MeV}, cet effet n'est donc pas présent.
+La cible du modèle est la masse effective du boson.
+Les événements retenus dans la suite sont ceux celle-ci se situe bien entre \num{50} et \SI{800}{\GeV},
+d'où la disparition de la queue à haute masse sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-weighted-is_train}.
+\par
+Ces événements sont de plus séparés en trois groupes selon les proportions suivantes:
+\begin{itemize}
+\item \SI{70}{\%} pour l'entraînement. Ce sont ces événements que les modèles pourront exploiter afin d'apprendre à prédire correctement $m_{\higgsML}$;
+\item \SI{20}{\%} pour la validation. Ces événements permettent de vérifier qu'il n'y a pas de surentraînement, \ie\ que le modèle ne se spécialise pas vis-à-vis du jeu d'entraînement;
+\item \SI{10}{\%} pour les tests. Ces événements ne sont pas utilisés lors des entraînements et permettent donc de tester les modèles sur des données inédites. Sauf contre-indication, les figures sont toutes obtenues avec ce groupe d'événements.
+\end{itemize}
+\par
+Afin de réaliser un entraînement équitable entre les différentes valeurs de $m_{\higgsML}$, un poids est associé à chaque événement de manière à ce que la distribution pondérée de $m_{\higgsML}$ soit plate.
+La distribution pondérée de $m_{\higgsML}$ sur les événements utilisés pour l'entraînement des modèles est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-weighted-is_train}.
