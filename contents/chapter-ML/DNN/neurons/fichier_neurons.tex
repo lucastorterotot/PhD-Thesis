@@ -1,14 +1,93 @@
 \subsection{Neurones}\label{chapter-ML-section-DNN-neuron}
-
+\subsubsection{Principe}
+Un neurone, au sens du ML, est une entité ayant
+un certain nombre d'entrées $x_i$, $i\in\set{1,\ldots,N}$
+auxquelles sont associées des poids $w_i$,
+un biais $b$
+et
+une fonction $f$ dite d'\og activation \fg, discutée section~\ref{chapter-ML-section-DNN-neuron-activ_fct}.
+La sortie $s$ du neurone s'exprime
+\begin{equation}
+s = f\left(\sum_{i=1}^n w_ix_i + b\right)
+\mend
+\end{equation}
+Le fonctionnement d'un neurone est résumé sur la figure~\ref{fig-chapter-ML-section-DNN-neuron-neuron_structure}.
 \begin{figure}[h]
 \centering
 \input{\PhDthesisdir/plots_and_images/my_plots/ML/neuron/neuron_fr.tex}
 \caption[Structure d'un neurone.]{Structure d'un neurone. Une fonction $f$ dite d'\og activation \fg{} est appliquée à la somme des entrées $x_i$ pondérées par les poids $w_i$ et du biais $b$ afin d'obtenir la valeur de sortie.}
 \label{fig-chapter-ML-section-DNN-neuron-neuron_structure}
 \end{figure}
+\subsubsection{Fonctions d'activation}\label{chapter-ML-section-DNN-neuron-activ_fct}
+En principe, toute fonction définie sur l'ensemble d'existence des entrées $x_i$ peut être utilisée comme fonction d'activation.
+Celles-ci étant généralement à valeurs réelles et unidimensionnelles, les fonctions sont définies sur $\mathbb{R}$.
+Les plus utilisées sont:
+\begin{description}
+\item[tangente hyperbolique] notée $\tanh$, définie par
+\begin{equation}
+\tanh(x) = \frac{\eexp{x}-\eexp{-x}}{\eexp{x}+\eexp{-x}}
+\label{eq-act_fct-tanh}
+\mend[;]
+\end{equation}
+\item[sigmoïde] notée $\mathrm{sig}$, définie par
+\begin{equation}
+\mathrm{sig}(x) = \frac{\eexp{x}}{1+\eexp{x}} = \frac{1}{1+\eexp{-x}}
+\label{eq-act_fct-sig}
+\mend[;]
+\end{equation}
+\item[Softsign] notée $\mathrm{Ssg}$, définie par
+\begin{equation}
+\mathrm{Ssg}(x) = \frac{x}{1+\abs{x}}
+\label{eq-act_fct-ssg}
+\mend[;]
+\end{equation}
+\item[ReLU] (\emph{Rectified Linear Unit}), définie par
+\begin{equation}
+\mathrm{ReLU}(x)
+=
+\left\lbrace \begin{aligned}
+x\msep & x > 0\\
+0 & x \leq 0
+\end{aligned} \right.
+\label{eq-act_fct-relu}
+\mend[;]
+\end{equation}
+\item[Softplus] notée $\mathrm{Spl}$, définie par
+\begin{equation}
+\mathrm{Spl}(x)
+=
+\ln(1+\eexp{x})
+\label{eq-act_fct-spl}
+\mend[;]
+\end{equation}
+\item[ELU] (\emph{Exponential Linear Unit}), définie par
+\begin{equation}
+\mathrm{ELU}(x)
+=
+\left\lbrace \begin{aligned}
+x\msep & x > 0\\
+\alpha(\eexp{x}-1)\msep & x \leq 0
+\end{aligned} \right.
+\msep
+\alpha=1
+\label{eq-act_fct-elu}
+\mend[;]
+\end{equation}
+\item[SELU] (\emph{Scaled Exponential Linear Unit}), définie par
+\begin{equation}
+\mathrm{SELU}(x)
+=
+\lambda\times\left\lbrace \begin{aligned}
+x\msep & x > 0\\
+\alpha(\eexp{x}-1)\msep & x \leq 0
+\end{aligned} \right.
+\msep
+\alpha \simeq \num{1.67}
+\msep
+\lambda \simeq \num{1.05}
+\label{eq-act_fct-selu}
+\mend[;]
+\end{equation}
+\end{description}
 
-
-
-Activation functions:
-tanh, sigmoïd mostly for classification,
-linear, relu, elu, selu, softmax, softplus ...
+\todo{figure with plots for some activation functions}
