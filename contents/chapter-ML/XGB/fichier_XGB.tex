@@ -15,48 +15,66 @@ comme illustré sur la figure~\ref{fig-decision_tree_schema}.
 Chaque réponse à une question créé une \og branche \fg{} (en bleu),
 les réponses finales sont les \og feuilles \fg{} (en rouge et vert).
 \begin{figure}[h]
-\centering
+\centering\small
 \begin{tikzpicture}
-\def\DeltaX{2}
-\def\DeltaY{1.5}
+\def\DeltaX{1.5}
+\def\DeltaY{1.25}
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (A) at (0*\DeltaX,0*\DeltaY) {\og réclamez votre gain \fg{} dans l'objet};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (A1) at (3.125*\DeltaX,0*\DeltaY) {Est-ce le weekend ?\vphantom{Àq}};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (B) at (1.5*\DeltaX,-1*\DeltaY) {pourriel};
-%\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (B) at (2.5*\DeltaX,-1*\DeltaY) {j'ai participé à un jeu};
-%\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (Br) at (3.25*\DeltaX,-2*\DeltaY) {pourriel};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (B1) at (1.625*\DeltaX,-1*\DeltaY) {Réunion ou cours dans l'agenda ?\vphantom{Àq}};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (B2) at (4.625*\DeltaX,-1*\DeltaY) {se reposer\vphantom{Àq}};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (C) at (-1.5*\DeltaX,-1*\DeltaY) {lien ou pièce jointe};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (C1) at (.5*\DeltaX,-2*\DeltaY) {Résultats disponibles ?\vphantom{Àq}};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (C2) at (2.75*\DeltaX,-2*\DeltaY) {y aller\vphantom{Àq}};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (Ca) at (-2.25*\DeltaX,-2*\DeltaY) {mail accepté};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (D1) at (-2*\DeltaX,-3*\DeltaY) {Calculs en cours ?\vphantom{Àq}};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (D2) at (2.75*\DeltaX,-3*\DeltaY) {Retours sur le manuscrit ?\vphantom{Àq}};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (D) at (0*\DeltaX,-2*\DeltaY) {orthographe douteuse};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (E1) at (-3*\DeltaX,-4*\DeltaY) {les lancer\vphantom{Àq}};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (E2) at (-1*\DeltaX,-4*\DeltaY) {les contrôler\vphantom{Àq}};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (E3) at (1.5*\DeltaX,-4*\DeltaY) {Chapitre terminé ?\vphantom{Àq}};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (E4) at (4*\DeltaX,-4*\DeltaY) {les appliquer\vphantom{Àq}};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (Dr) at (1.5*\DeltaX,-3*\DeltaY) {pourriel};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (F1) at (.5*\DeltaX,-5*\DeltaY) {rédiger\vphantom{Àq}};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (F2) at (2.5*\DeltaX,-5*\DeltaY) {Chapitre relu ?\vphantom{Àq}};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (E) at (-1*\DeltaX,-3*\DeltaY) {expéditeur connu};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (G1) at (1.5*\DeltaX,-6*\DeltaY) {relire\vphantom{Àq}};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (G2) at (3.5*\DeltaX,-6*\DeltaY) {envoyer pour relecture\vphantom{Àq}};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolororange1] (F) at (-2*\DeltaX,-4*\DeltaY) {méfiance !};
+\draw [thick, -latex, ltcolorred] (A1) to (B1) ;
+\draw [thick, -latex, ltcolorgreen] (A1) to (B2) ;
+\draw (A1.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (G) at (0*\DeltaX,-4*\DeltaY) {mail accepté};
+\draw [thick, -latex, ltcolorred] (B1) to (C1) ;
+\draw [thick, -latex, ltcolorgreen] (B1) to (C2) ;
+\draw (B1.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
 
-\draw [thick, -latex, ltcolorred] (A) to (C) ;
-%\draw [thick, -latex, ltcolorred] (B) to (Br) ;
-\draw [thick, -latex, ltcolorred] (C) to (Ca) ;
-\draw [thick, -latex, ltcolorred] (D) to (E) ;
-\draw [thick, -latex, ltcolorred] (E) to (F) ;
+\draw [thick, -latex, ltcolorred] (C1) to (D1) ;
+\draw [thick, -latex, ltcolorgreen] (C1) to (D2) ;
+\draw (C1.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
 
-\draw [thick, -latex, ltcolorgreen] (A) to (B) ;
-%\draw [thick, -latex, ltcolorgreen] (B) to (E) ;
-\draw [thick, -latex, ltcolorgreen] (C) to (D) ;
-\draw [thick, -latex, ltcolorgreen] (D) to (Dr) ;
-\draw [thick, -latex, ltcolorgreen] (E) to (G) ;
+\draw [thick, -latex, ltcolorred] (D1) to (E1) ;
+\draw [thick, -latex, ltcolorgreen] (D1) to (E2) ;
+\draw (D1.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
 
-\draw (A.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
+\draw [thick, -latex, ltcolorred] (D2) to (E3) ;
+\draw [thick, -latex, ltcolorgreen] (D2) to (E4) ;
+\draw (D2.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
+
+\draw [thick, -latex, ltcolorred] (E3) to (F1) ;
+\draw [thick, -latex, ltcolorgreen] (E3) to (F2) ;
+\draw (E3.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
+
+\draw [thick, -latex, ltcolorred] (F2) to (G1) ;
+\draw [thick, -latex, ltcolorgreen] (F2) to (G2) ;
+\draw (F2.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
+
+%\draw (A.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
 %\draw (B.south) node [below] {{\color{ltcolorgreen}oui} \qquad\qquad {\color{ltcolorred}non}};
-\draw (C.south) node [below] {\quad {\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
-\draw (D.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
-\draw (E.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
+%\draw (C.south) node [below] {\quad {\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
+%\draw (D.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
+%\draw (E.south) node [below] {{\color{ltcolorred}non} {\color{ltcolorgreen}oui}};
 \end{tikzpicture}
 \caption[Exemple d'un arbre de décision.]{Exemple d'un arbre de décision classant des mails comme pourriel (\emph{spam}) ou potentiellement dangereux.}
 \label{fig-decision_tree_schema}
