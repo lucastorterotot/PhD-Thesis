@@ -24,48 +24,84 @@ Le fonctionnement d'un neurone est résumé sur la figure~\ref{fig-chapter-ML-se
 En principe, toute fonction définie sur l'ensemble d'existence des entrées $x_i$ peut être utilisée comme fonction d'activation.
 Celles-ci étant généralement à valeurs réelles et unidimensionnelles, les fonctions sont définies sur $\mathbb{R}$.
 Les plus utilisées sont:
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{Tangente hyperbolique.\label{subfig-act_fct-tanh}}[.45\textwidth]
+{\input{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/activation_functions/tanh-pyplot.pgf}\vspace{-\baselineskip}}
+\hfill
+\subcaptionbox{ReLU.\label{subfig-act_fct-relu}}[.45\textwidth]
+{\input{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/activation_functions/relu-pyplot.pgf}\vspace{-\baselineskip}}
+
+\vspace{.5\baselineskip}
+
+\subcaptionbox{Sigmoïde.\label{subfig-act_fct-sigmoid}}[.45\textwidth]
+{\input{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/activation_functions/sigmoid-pyplot.pgf}\vspace{-\baselineskip}}
+\hfill
+\subcaptionbox{Softplus.\label{subfig-act_fct-Spl}}[.45\textwidth]
+{\input{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/activation_functions/softplus-pyplot.pgf}\vspace{-\baselineskip}}
+
+\vspace{.5\baselineskip}
+
+\subcaptionbox{Softsign.\label{subfig-act_fct-Ssg}}[.45\textwidth]
+{\input{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/activation_functions/softsign-pyplot.pgf}\vspace{-\baselineskip}}
+\hfill
+\subcaptionbox{ELU.\label{subfig-act_fct-elu}}[.45\textwidth]
+{\input{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/activation_functions/elu-pyplot.pgf}\vspace{-\baselineskip}}
+
+\vspace{.5\baselineskip}
+
+\caption[Exemples de fonctions d'activation.]{Exemples de fonctions d'activation. À gauche, des fonctions à valeurs bornées, généralement utilisées en classification. À droite, des fonctions à valeurs non bornées, utilisables pour des tâches de régression.}
+\label{fig-act_fct}
+\end{figure}
 \begin{description}
 \item[tangente hyperbolique] notée $\tanh$, définie par
 \begin{equation}
-\tanh(x) = \frac{\eexp{x}-\eexp{-x}}{\eexp{x}+\eexp{-x}}
+\tanh
+:x\mapsto
+\frac{\eexp{x}-\eexp{-x}}{\eexp{x}+\eexp{-x}}
 \label{eq-act_fct-tanh}
 \mend[;]
 \end{equation}
 \item[sigmoïde] notée $\mathrm{sig}$, définie par
 \begin{equation}
-\mathrm{sig}(x) = \frac{\eexp{x}}{1+\eexp{x}} = \frac{1}{1+\eexp{-x}}
+\mathrm{sig}
+:x\mapsto
+\frac{\eexp{x}}{1+\eexp{x}} = \frac{1}{1+\eexp{-x}}
 \label{eq-act_fct-sig}
 \mend[;]
 \end{equation}
 \item[Softsign] notée $\mathrm{Ssg}$, définie par
 \begin{equation}
-\mathrm{Ssg}(x) = \frac{x}{1+\abs{x}}
+\mathrm{Ssg}
+:x\mapsto
+\frac{x}{1+\abs{x}}
 \label{eq-act_fct-ssg}
 \mend[;]
 \end{equation}
 \item[ReLU] (\emph{Rectified Linear Unit}), définie par
 \begin{equation}
-\mathrm{ReLU}(x)
-=
+\mathrm{ReLU}
+:x\mapsto
 \left\lbrace \begin{aligned}
 x\msep & x > 0\\
-0 & x \leq 0
+0\msep & x \leq 0
 \end{aligned} \right.
 \label{eq-act_fct-relu}
 \mend[;]
 \end{equation}
 \item[Softplus] notée $\mathrm{Spl}$, définie par
 \begin{equation}
-\mathrm{Spl}(x)
-=
+\mathrm{Spl}
+:x\mapsto
 \ln(1+\eexp{x})
 \label{eq-act_fct-spl}
 \mend[;]
 \end{equation}
 \item[ELU] (\emph{Exponential Linear Unit}), définie par
 \begin{equation}
-\mathrm{ELU}(x)
-=
+\mathrm{ELU}
+:x\mapsto
 \left\lbrace \begin{aligned}
 x\msep & x > 0\\
 \alpha(\eexp{x}-1)\msep & x \leq 0
@@ -77,8 +113,8 @@ x\msep & x > 0\\
 \end{equation}
 \item[SELU] (\emph{Scaled Exponential Linear Unit}), définie par
 \begin{equation}
-\mathrm{SELU}(x)
-=
+\mathrm{SELU}
+:x\mapsto
 \lambda\times\left\lbrace \begin{aligned}
 x\msep & x > 0\\
 \alpha(\eexp{x}-1)\msep & x \leq 0
@@ -91,5 +127,5 @@ x\msep & x > 0\\
 \mend[;]
 \end{equation}
 \end{description}
-
-\todo{figure with plots for some activation functions}
+ou encore la fonction linéaire identité $\Id:x\mapsto x$.
+Certaines d'entre elles sont représentées sur la figure~\ref{fig-act_fct}.
