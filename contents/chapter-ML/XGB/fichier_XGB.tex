@@ -6,8 +6,8 @@ La librairie
 permet de construire des
 arbres de décision améliorés.
 De nombreuses compétitions Kaggle~\cite{kaggle_challenge} ont été remportées grâce eux.
-Ils présentent l'avantage d'être généralement plus à entraîner que des réseaux de neurones profonds (DNN),
-et peuvent fournir des prédictions même si une des entrées est manquante, ce qui n'est pas le cas des DNNs.
+Ils présentent l'avantage d'être généralement plus à entraîner que des réseaux de neurones présentés section~\ref{chapter-ML-section-DNN},
+et peuvent fournir des prédictions même si une des entrées est manquante, ce qui n'est pas le cas des réseaux de neurones.
 \subsection{Arbres de décision}
 Les arbres de décision sont une succession de questions,
 dont les réponses mènent à un résultat final,
@@ -102,8 +102,8 @@ Ce processus est alors itéré sur chacune des nouvelles branches, jusqu'à ce q
 \item la profondeur de l'arbre (nombre de conditions successives) est supérieure à \MaxDepth.
 \item la quantité d'échantillons dans une branche est inférieure à \MinChildWeight.
 \end{itemize}
-Les paramètres $\gamma$, \MaxDepth\ et \MinChildWeight\ sont nommés \og hyper-paramètres \fg,
-afin d'éviter toute confusion avec les paramètres interne de l'arbre utilisés pour la construction des branches.
+Les paramètres $\gamma$, \MaxDepth\ et \MinChildWeight, fixés par l'utilisateur, sont nommés \og hyper-paramètres \fg.
+Ils ne doivent pas être confondus avec les paramètres propres à l'arbre, déterminés lors de la construction des branches.
 %Par défaut, $\gamma=0$ et $\MinChildWeight=1$.
 \subsection{\emph{Gradient Boosting}}
 La technique du \emph{Gradient Boosting} consiste en
