@@ -21,7 +21,7 @@ Le NN ayant une structure profonde, il s'agit d'un DNN (\emph{Deep Neural Networ
 \par
 La tâche du réseau est une régression sur une seule grandeur, $m_{\higgsML}$, à partir de $n$ variables d'entrée $x_j$, $j\in\set{1,\ldots,n}$.
 La couche de sortie est donc composée d'un seul neurone dont la fonction d'activation est linéaire.
-La couche d'entrée comporte $n$ neurones, chacun ayant une entrée correspondant à une variable.
+La couche d'entrée comporte $n$ neurones, chacun ayant une entrée correspondant à une variable avec un poids de 1 et un biais de zéro.
 La fonction d'activation des neurones des couches d'entrée et cachées est identique, plusieurs possibilités sont essayées dans la section~\ref{chapter-ML-section-hyperparameters}.
 La structure obtenue est représentée sur la figure~\ref{fig-neural_network_fr}.
 \begin{figure}[h]
