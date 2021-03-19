@@ -171,6 +171,8 @@ Il est ainsi possible de généraliser le \emph{Gradient Boosting}
 en considérant que l'objectif de $M_k$ est de prédire
 \begin{equation}
 - \pdv{\Loss(\ytruei, F_{k-1}(\vec{x}_i))}{F_{k-1}(\vec{x}_i)}
+=
+- \grad_{F_{k-1}(\vec{x}_i)} \left(\Loss(\ytruei, F_{k-1}(\vec{x}_i))\right)
 \end{equation}
 avec \Loss\ une fonction de coût quelconque.
 Il s'agit du \emph{Gradient Descent},
@@ -178,8 +180,8 @@ où l'objectif est de minimiser \Loss.
 La fonction de coût est un hyper-paramètre du modèle.
 \subsection{Sous-entraînement et surentraînement}
 La construction d'un modèle, aussi appelé \og entraînement \fg,
-vise à minimiser la fonction de coût \Loss.
-L'entraînement est un processus itératif.
+est un processus itératif
+visant à minimiser la fonction de coût.
 Dans le cas des arbres de décision améliorés créés avec \XGBOOST,
 l'entraînement cesse lorsque le nombre d'estimateur maximal est atteint, lorsqu'il est renseigné.
 Dans tous les cas, il est légitime de se demander si le modèle obtenu à la fin de l'entraînement est optimal.
@@ -198,13 +200,12 @@ mais être moins bon qu'un modèle entraîné moins longtemps lorsqu'il est util
 C'est le surentraînement (\emph{overfitting}).
 Cet effet peut être évité en utilisant un jeu de données dit de \og validation \fg,
 non utilisé pour régler les paramètres du modèle.
+\par
 L'intérêt du jeu de validation est illustré sur la figure~\ref{fig-underfitting_and_overfitting}.
 Un modèle sous-entraîné ou dont l'entraînement est optimal présente des erreurs similaires dans les deux jeux de données.
 Dans le cas d'un surentraînement, les erreurs continuent à diminuer sur le jeu d'entraînement, mais pas sur le jeu de validation.
 Une fonction d'évaluation $E$, éventuellement égale à la fonction de coût \Loss, permet de quantifier ces erreurs et de mettre fin à l'entraînement avant de surentraîner le modèle.
 Il s'agit de l'arrêt prématuré (\emph{early stopping}).
-\par
-Dans le cas des arbres de décision améliorés, un arrêt prématuré est réalisé lorsque l'erreur quadratique moyenne ne diminue pas sur le jeu de validation pour 5 nouveaux estimateurs (ou itérations).
 \begin{figure}[h]
 \centering
 \input{\PhDthesisdir/plots_and_images/my_plots/ML/overfitting_and_early_stopping/examples-pyplot.pgf}
@@ -213,3 +214,6 @@ Un même modèle est peu (gauche), suffisamment (milieu) ou trop entraîné (dro
 Le jeu de données d'entraînement (de validation) est représenté par des croix bleues (rouges) sur la ligne du haut (bas).}
 \label{fig-underfitting_and_overfitting}
 \end{figure}
+\par
+Dans le cas des arbres de décision améliorés, une itération de l'entraînement consiste en l'ajout d'un estimateur, comme exposé dans la section~\ref{chapter-ML-section-XGB-grad_boost}.
+Un arrêt prématuré est réalisé lorsque l'erreur quadratique moyenne ne diminue pas sur le jeu de validation pendant 5 itérations.
