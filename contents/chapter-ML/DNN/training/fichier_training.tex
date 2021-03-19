@@ -1,21 +1,52 @@
 \subsection{Entraînement}\label{chapter-ML-section-DNN-training}
-\subsubsection{Fonction de coût}
-loss == objective
-
-
-= 0 when prediction == truth
-
-minimize it!
-
-\subsubsection{Initialisation des poids et optimisation}
-
+L'entraînement d'un NN est le réglage des paramètres des neurones du réseau situés sur les couches cachées et la couche de sortie.
+Il s'agit des poids $w_i$ et du biais $b$.
+Pour un DNN avec
+$n_\text{in} = \num{27}$ variables d'entrée,
+$N_L = \num{3}$ couches cachées
+de $N_N = \num{1000}$ neurones,
+le nombre de paramètres est ainsi de
+\begin{align}
+N_\text{params.}
+&= \underbrace{N_N \times (n_\text{in} + 1)}_\text{couche cachée 1} \!\!\!&\!\!\!+\,\,\,& \underbrace{(N_L -1)\times N_N \times(N_N+1)}_\text{autres couches cachées} \!\!\!&\!\!\!+\,\,\,& \underbrace{N_N +1\vphantom{()}}_\text{couche de sortie}
+\nonumber\\&
+=
+\num{28000} \!\!\!&\!\!\!+\,\,\,& 2\times\num{1001000} \!\!\!&\!\!\!+\,\,\,& \num{1001}
+=
+\num{2031001}
+\mend[,]
+\end{align}
+soit près de deux millions.
+Les termes \og $+1$ \fg{} correspondent aux biais $b$ à ajouter au nombre d'entrées des neurones.
+\subsubsection{Initiation des paramètres}
+Les poids $w_i$ sont initialement fixés à une valeur constante donnée ou aléatoirement selon une loi de probabilité.
+Le mode d'initiation est un hyper-paramètre du modèle.
+Lors de ces travaux, nous avons testé les lois normale et uniforme.
+Dans le cas des DNNs, ces modes d'initiation peuvent être améliorés par la méthode de \citeauthor{glorot}~\cite{glorot} afin de faciliter l'entraînement.
+Il s'agit alors des lois \og Glorot uniforme \fg{} et \og Glorot normale \fg, également testées.
+\subsubsection{Fonction de coût et optimisation des paramètres}
+Les modifications apportées aux paramètres ont pour objectif l'amélioration des prédictions du modèle.
+La qualité de ces prédictions est quantifiée par une fonction de coût \Loss\ à minimiser, comme exposé section~\ref{chapter-ML-section-loss}.
+Il s'agit donc de trouver le minimum de \Loss\ dans l'espace à $D$ dimensions formé par les $D=N_\text{params.}$ paramètres à régler.
+Cela peut être fait de manière itérative par \emph{Gradient Descent}.
+\par
+Le \emph{Gradient Descent} détermine le gradient de \Loss, $\grad(\Loss)$, autour de la \og position \fg{} du modèle dans l'espace à $D$ dimensions.
+Chaque paramètre $p$ ($w_i$ et $b$ de chaque neurone) est alors modifié selon
+\begin{equation}
+p \to p - \eta \grad(\Loss) \cdot \bvec_p = p - \eta \pdv{\Loss}{p}
+\end{equation}
+avec $\eta$ le taux d'apprentissage.
+\par
+optimizers and variations of GD
 Adam, Adadelta, SGD
+most of them = backpropagation
+\par
+mini-batch, epoch
+\par
+local minima?
+\par
+backpropagation and vanishing grad
+\par
+early stopping
 
-parameters to optimize = weights and biais
-
-need to init: (Glorot) uniform/normal
-
-Glorot :  X. Glorot and Y. Bengio, “Understanding the difficulty of training deep feedforward neural networks”, in Proceedings of the thirteenth international conference on artificial intelligence and statistics, p. 249. 2010.
-
-
-
+%EarlyStopping(monitor='val_mean_absolute_error', patience=20, verbose=0)]
