@@ -84,11 +84,13 @@ De tels arbres peuvent être utilisés avec des variables numériques.
 Dans ce cas, les questions consistent en une condition sur l'une des variables, par exemple $\pT^{\mu} > \SI{50}{\GeV}$.
 Le choix de la variable ($\pT^{\mu}$) et de la coupure correspondante (\SI{50}{\GeV}) à utiliser pour former deux nouvelles branches $b_1$ (condition fausse) et $b_2$ (condition vraie) se base sur la similarité $S$, définie comme
 \begin{equation}
-S = \frac{1}{N} \left(\sum_{k=1}^N r_k \right)^2
+S = \frac{1}{N\,n} \left(\sum_{i=1}^N \sum_{j=1}^n x_{j,i} \right)^2
 \end{equation}
-où $N$ est la taille du jeu de données d'entraînement (quantité d'échantillons)
-et $r_k$ la valeur de la variable $r$ dans le $k$\up{e} échantillon.
-Le gain $G$ obtenu s'exprime
+où $N$ est la taille du jeu de données d'entraînement (quantité d'échantillons),
+$n$ le nombre de variables d'entrée différentes
+et $x_{j,i}$ la valeur de la variable $x_j$ dans le $i$\up{e} échantillon.
+\par
+Le gain $G$ obtenu par la création de deux nouvelles branches $b_1$ et $b_2$ s'exprime
 \begin{equation}
 G = S_{b_1} + S_{b_2} - S_{b_1+b_2}
 \end{equation}

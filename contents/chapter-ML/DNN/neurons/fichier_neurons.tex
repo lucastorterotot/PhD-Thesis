@@ -1,27 +1,27 @@
 \subsection{Neurones}\label{chapter-ML-section-DNN-neuron}
 \subsubsection{Principe}
 Un neurone est une entité ayant
-un certain nombre d'entrées $x_i$, $i\in\set{1,\ldots,n}$,
-auxquelles sont associées des poids $w_i$,
+un certain nombre d'entrées $x_j$, $j\in\set{1,\ldots,n}$,
+auxquelles sont associées des poids $w_j$,
 un biais $b$
 et
 une fonction $f$ dite d'\og activation \fg, discutée section~\ref{chapter-ML-section-DNN-neuron-activ_fct}.
-Les poids $w_i$ et le biais $b$ sont les paramètres du neurone,
+Les poids $w_j$ et le biais $b$ sont les paramètres du neurone,
 la fonction d'activation est un hyper-paramètre.
 La sortie $s$ du neurone s'exprime
 \begin{equation}
-s = f\left(\sum_{i=1}^n w_ix_i + b\right)
+s = f\left(\sum_{j=1}^n w_jx_j + b\right)
 \mend
 \end{equation}
 Le fonctionnement d'un neurone est résumé sur la figure~\ref{fig-chapter-ML-section-DNN-neuron-neuron_structure}.
 \begin{figure}[h]
 \centering
 \input{\PhDthesisdir/plots_and_images/my_plots/ML/neuron/neuron_fr.tex}
-\caption[Structure d'un neurone.]{Structure d'un neurone. Une fonction $f$ dite d'\og activation \fg{} est appliquée à la somme des entrées $x_i$ pondérées par les poids $w_i$ et du biais $b$ afin d'obtenir la valeur de sortie.}
+\caption[Structure d'un neurone.]{Structure d'un neurone. Une fonction $f$ dite d'\og activation \fg{} est appliquée à la somme des entrées $x_j$ pondérées par les poids $w_j$ et du biais $b$ afin d'obtenir la valeur de sortie.}
 \label{fig-chapter-ML-section-DNN-neuron-neuron_structure}
 \end{figure}
 \subsubsection{Fonctions d'activation}\label{chapter-ML-section-DNN-neuron-activ_fct}
-En principe, toute fonction définie sur l'ensemble d'existence des entrées $x_i$ peut être utilisée comme fonction d'activation.
+En principe, toute fonction définie sur l'ensemble d'existence des entrées $x_j$ peut être utilisée comme fonction d'activation.
 Celles-ci étant généralement à valeurs réelles et unidimensionnelles, les fonctions sont définies sur $\mathbb{R}$.
 Les plus utilisées sont:
 \begin{figure}[p]
