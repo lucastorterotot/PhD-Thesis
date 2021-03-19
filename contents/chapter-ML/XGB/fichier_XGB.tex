@@ -107,7 +107,7 @@ Ce processus est alors itéré sur chacune des nouvelles branches, jusqu'à ce q
 Les paramètres $\gamma$, \MaxDepth\ et \MinChildWeight, fixés par l'utilisateur, sont nommés \og hyper-paramètres \fg.
 Ils ne doivent pas être confondus avec les paramètres propres à l'arbre, déterminés lors de la construction des branches.
 %Par défaut, $\gamma=0$ et $\MinChildWeight=1$.
-\subsection{\emph{Gradient Boosting}}
+\subsection{\emph{Gradient Boosting}}\label{chapter-ML-section-XGB-grad_boost}
 La technique du \emph{Gradient Boosting} consiste en
 l'utilisation de modèles simples,
 ici des arbres de décision,
@@ -135,7 +135,7 @@ $\eta$ le taux d'apprentissage, inférieur à 1, permettant de corriger progress
 L'itération s'arrête lorsque le nombre maximal d'estimateurs \Nestimators\ est atteint.
 Les grandeurs $\eta$ et \Nestimators\ sont également des hyper-paramètres.
 %\emph{The Elements of statistical learning} : Trees have one aspect that prevents them from bering the ideal tool for predictive learning, namely inaccuracy. --> they work great with the data used to create them, but they are not flexible when it comes to classifying new samples...
-\subsection{Fonction de coût et \emph{Gradient Descent}}
+\subsection{Fonction de coût et \emph{Gradient Descent}}\label{chapter-ML-section-loss}
 Une fonction de coût (\emph{loss function}) compare les prédictions d'un modèle aux valeurs vraies.
 Elle est définie de manière à être minimale lorsque les prédictions sont égales aux valeurs vraies, \ie\ lorsque le modèle est parfait.
 Les fonctions de coûts les plus répandues sont:
