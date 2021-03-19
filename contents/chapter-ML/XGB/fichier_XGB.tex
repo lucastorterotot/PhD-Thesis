@@ -188,7 +188,7 @@ Dans tous les cas, il est légitime de se demander si le modèle obtenu à la fi
 \par
 Il faut que l'entraînement soit suffisamment long pour que le modèle propose les prédictions les plus précises possible.
 Autrement dit, il faut que le modèle ait le temps d'apprendre.
-S'il ne l'a pas, les prédictions ne sont pas aussi précises qu'elles pourraient l'être, c'est le sous-entraînement (\emph{underfitting}).
+S'il ne l'a pas, les prédictions ne sont pas aussi précises qu'elles pourraient l'être, c'est le sous-entraînement.
 La valeur de la fonction de coût appliquée au jeu de données d'entraînement diminuant lors de l'apprentissage,
 un critère pourrait être de l'utiliser afin de déterminer si le modèle apprend encore ou non.
 Arrivé à un plateau, le modèle ne s'améliore plus et l'entraînement s'arrête.
@@ -197,7 +197,7 @@ Cette approche masquerait toutefois une spécialisation du modèle.
 En effet, un modèle peut apprendre à prédire parfaitement $\set{\ytruei}$ sur le jeu de données d'entraînement,
 ce qui correspond à une fonction de coût nulle,
 mais être moins bon qu'un modèle entraîné moins longtemps lorsqu'il est utilisé sur d'autres données.
-C'est le surentraînement (\emph{overfitting}).
+C'est le surentraînement.
 Cet effet peut être évité en utilisant un jeu de données dit de \og validation \fg,
 non utilisé pour régler les paramètres du modèle.
 \par
