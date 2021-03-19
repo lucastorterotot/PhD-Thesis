@@ -28,7 +28,7 @@ y_noise_2 = y_true + 0.019*np.random.normal(size=len(y_true))
 points_2 = lt.ltPlotPts(x, y_noise_2, color='C3')
 
 # Définir le graphique
-x_labels = [None, None, None, "\\emph{Underfitting}", "Bon modèle", "\\emph{Overfitting}"]
+x_labels = [None, None, None, "Sous-entraînement", "Bon modèle", "Surentraînement"]
 y_labels = ["Entraînement", None, None, "Validation", None, None]
 for index in range(1,7):
     fig.addgraph(
