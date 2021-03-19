@@ -203,6 +203,8 @@ Un modèle sous-entraîné ou dont l'entraînement est optimal présente des err
 Dans le cas d'un surentraînement, les erreurs continuent à diminuer sur le jeu d'entraînement, mais pas sur le jeu de validation.
 Une fonction d'évaluation $E$, éventuellement égale à la fonction de coût \Loss, permet de quantifier ces erreurs et de mettre fin à l'entraînement avant de surentraîner le modèle.
 Il s'agit de l'arrêt prématuré (\emph{early stopping}).
+\par
+Dans le cas des arbres de décision améliorés, un arrêt prématuré est réalisé lorsque l'erreur quadratique moyenne ne diminue pas sur le jeu de validation pour 5 nouveaux estimateurs (ou itérations).
 \begin{figure}[h]
 \centering
 \input{\PhDthesisdir/plots_and_images/my_plots/ML/overfitting_and_early_stopping/examples-pyplot.pgf}
