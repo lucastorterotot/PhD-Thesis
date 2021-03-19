@@ -26,7 +26,6 @@ class activation_function():
         self.plot = lt.ltPlotFct(
             x,
             y,
-            label = label,
             color = color
         )
 
@@ -43,55 +42,55 @@ class activation_function():
 activations = [
     activation_function(
         x, x,
-        "linear", label="Linéaire",
+        "linear", label="1",
         y_min = -5, y_max = 5
     ),
     activation_function(
         x, (x+abs(x))/2,
-        "relu", label="ReLU",
-        y_min = -1, y_max = 5
+        "relu", label="\\mathrm{ReLU}",
+        y_min = -2, y_max = 5
     ),
     activation_function(
         x, (x+abs(x))/2 + (np.exp(x)-1)*(1-np.sign(x))/2,
-        "elu", label="ELU",
+        "elu", label="\\mathrm{ELU}",
         y_min = -2, y_max = 5
     ),
     activation_function(
         x, 1.05070098*(x+abs(x))/2 + 1.05070098*1.67326324*(np.exp(x)-1)*(1-np.sign(x))/2,
-        "selu", label="SELU",
+        "selu", label="\\mathrm{SELU}",
         y_min = -2, y_max = 5
     ),
     activation_function(
         x, 1/(1+np.exp(-x)),
-        "sigmoid", label="Sigmoïde",
-        y_min = -1, y_max = 2
+        "sigmoid", label="\\mathrm{sig}",
+        y_min = -1.5, y_max = 1.5
     ),
     activation_function(
         x, np.tanh(x),
-        "tanh", label="tanh",
-        y_min = -2, y_max = 2
+        "tanh", label="\\tanh",
+        y_min = -1.5, y_max = 1.5
     ),
     activation_function(
         x, np.log(1+np.exp(x)),
-        "softplus", label="Softplus",
-        y_min = -1, y_max = 5
+        "softplus", label="\\mathrm{Spl}",
+        y_min = -2, y_max = 5
     ),
     activation_function(
         x, x / (1+np.abs(x)),
-        "softsign", label="Softsign",
-        y_min = -2, y_max = 2
+        "softsign", label="\\mathrm{Ssg}",
+        y_min = -1.5, y_max = 1.5
     )
 ]
 
 for activation in activations:
     fig = lt.ltFigure(
         name = activation.name,
-        height_width_ratio = 1, width_frac = .45
+        height_width_ratio = 1, width_frac = .425
     )
     fig.addgraph(
         'graph',
         x_label= r"$x$",
-        y_label= r"$f(x)$",
+        y_label= r"${}(x)$".format(activation.label),
         show_legend=False,
         legend_on_side=False,
         x_min = x.min(), x_max = x.max(),
