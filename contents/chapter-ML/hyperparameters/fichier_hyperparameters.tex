@@ -1,4 +1,31 @@
 \section{Sélection d'un modèle}\label{chapter-ML-section-hyperparameters}
+Deux types de modèle sont étudiés:
+\begin{itemize}
+\item des arbres de décision améliorés, introduits section~\ref{chapter-ML-section-XGB}, notés XGB;
+\item des réseaux de neurones profonds, introduits section~\ref{chapter-ML-section-DNN}, notés DNN.
+\end{itemize}
+\par
+Les hyperparamètres des XGBs sont:
+\begin{itemize}
+\item la profondeur maximale des arbres \MaxDepth;
+\item la quantité d'échantillons minimale dans une branche \MinChildWeight;
+\item le nombre d'arbres \Nestimators;
+\item le gain minimal $\gamma$;
+\item le taux d'apprentissage $\eta$;
+\item la fonction de coût \Loss;
+\item la liste des variables d'entrée.
+\end{itemize}
+\par
+Les hyperparamètres des DNNs sont:
+\begin{itemize}
+\item le nombre de couches cachées $N_L$;
+\item le nombre de neurones par couche cachée $N_N$;
+\item la fonction d'activation des neurones (hormis celui de sortie);
+\item la fonction de coût \Loss;
+\item l'optimiseur;
+\item le mode d'initiation des poids;
+\item la liste des variables d'entrée.
+\end{itemize}
 
 no customized loss yet.
 
