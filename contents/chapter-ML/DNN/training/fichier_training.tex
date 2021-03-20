@@ -30,23 +30,112 @@ La qualité de ces prédictions est quantifiée par une fonction de coût \Loss\
 Il s'agit donc de trouver le minimum de \Loss\ dans l'espace à $D$ dimensions formé par les $D=N_\text{params.}$ paramètres à régler.
 Cela peut être fait de manière itérative par \emph{Gradient Descent}.
 \par
-Le \emph{Gradient Descent} détermine le gradient de \Loss, $\grad(\Loss)$, autour de la \og position \fg{} du modèle dans l'espace à $D$ dimensions.
+Le \emph{Gradient Descent}~\cite{cauchy_1847} détermine le gradient de \Loss, $\grad(\Loss)$, autour de la \og position \fg{} du modèle dans l'espace à $D$ dimensions.
 Chaque paramètre $p$ ($w_i$ et $b$ de chaque neurone) est alors modifié selon
 \begin{equation}
 p \to p - \eta \grad(\Loss) \cdot \bvec_p = p - \eta \pdv{\Loss}{p}
 \end{equation}
-avec $\eta$ le taux d'apprentissage.
+avec $\eta$ le taux d'apprentissage,
+\ie\ que la position du modèle est déplacée en suivant la pente du gradient vers un point plus bas.
+Le taux d'apprentissage est généralement pris entre 0 et 1.
+\subsubsection{Mini-lots et époques d'entraînement}
+La modification des paramètres du NN pourrait être réalisée pour chaque événement du jeu de données d'entraînement.
+Or, la nature des données à analyser peut mener à une stagnation, si deux événements mènent à des modifications contraires.
+Afin d'éviter ce phénomène, la mise à jour des paramètres se fait à partir d'un mini-lot %(\emph{mini-batch})
+du jeu de données de manière à minimiser la moyenne de la fonction de coût sur ce mini-lot.
+Une \og époque \fg{} de l'entraînement correspond à une utilisation de tous les mini-lots, \ie\ de tous les échantillons du jeu de données, pour modifier les paramètres du NN.
+Le nombre maximal d'époques autorisé est de \num{500}, avec un arrêt prématuré au bout de \num{20} époques sans diminution de l'erreur absolue moyenne sur les données de validation.
 \par
-optimizers and variations of GD
-Adam, Adadelta, SGD
+Pour ne pas biaiser l'entraînement à cause de l'ordre du jeu de données,
+il est mélangé aléatoirement à chaque nouvelle époque.
+La composition des mini-lots est donc également aléatoire.
+La taille des mini-lots est fixée à $2^{11}=\num{2048}$ événements.
+Une taille de la forme $2^n$ permet d'optimiser l'utilisation des GPUs (\emph{Graphics Processing Unit}) sur lesquels l'entraînement se fait~\cite{DNN}.
+Les points de masse générés étant les entiers entre \num{50} et \SI{800}{\GeV}, soit \num{750} points de masse,
+\num{2048} événements pris au hasard est un compromis entre
+un petit mini-lot
+et
+une bonne probabilité de couvrir une large gamme de masse au sein d'un mini-lot.
+\subsubsection{Algorithmes d'optimisation}
+Plusieurs algorithmes d'optimisation existent~\cite{DNN}, présentés ci-après.
+Le premier, SGD, est l'adaptation directe du \emph{Gradient Descent} aux mini-lots.
+Cependant, fixer le taux d'apprentissage $\eta$ est ardu et les modèles y sont très sensibles~\cite{DNN}.
+C'est pourquoi d'autres algorithmes d'optimisation ont été développés.
+\paragraph{\emph{Stochastic Gradient Descent} (SGD)}
+L'algorithme SGD~\cite{SGD} applique le principe du \emph{Gradient Descent} en estimant le gradient de la fonction de coût par une moyenne sur le mini-lot.
+Cette moyenne introduit un bruit dû à la composition aléatoire des mini-lots
+qui reste non nul même une fois le minimum de \Loss\ atteint.
+Pour palier cet effet, le taux d'apprentissage $\eta$ peut être diminué à chaque époque.
+La condition sur les taux d'apprentissage $\eta_k$ avec $k$ l'époque afin de s'assurer de la convergence du modèle optimisé par SGD est~\cite{DNN}
+\begin{equation}
+\sum_{k=1}^\infty \eta_k = \infty
+\msep
+\sum_{k=1}^\infty \eta_k^2 < \infty
+\mend
+\end{equation}
+La mise à jour des paramètres à la fin d'un mini-lot pendant l'époque $k$ est alors réalisée selon
+\begin{equation}
+p \to p - \eta_k \average{\grad(\Loss)}_\text{mini-lot} \cdot \bvec_p = p - \eta_k \average{\pdv{\Loss}{p}}_\text{mini-lot}
+\mend
+\end{equation}
+\paragraph{SGD avec moments}
+Les moments sont une \og mémoire \fg{} des valeurs du gradient de la fonction de coût des époques précédentes.
+Ce peut être vu comme une inertie du mouvement du modèle dans l'espace des paramètres,
+prise en compte à travers une vitesse $\vec{v}$ définie initialement par l'utilisateur et mise à jour à la fin d'un mini-lot selon
+\begin{equation}
+\vec{v} \to \alpha\vec{v} - \eta_k \average{\grad(\Loss)}_\text{mini-lot}
+\Rightarrow
+\vec{v}\cdot\bvec_p = v_p \to \alpha v_p - \eta_k \average{\pdv{\Loss}{p}}_\text{mini-lot}
+\end{equation}
+avec $0\leq\alpha<1$ le paramètre des moments.
+La mise à jour des paramètres se fait alors selon
+\begin{equation}
+p \to p + v_p
+=
+p + \alpha v_p - \eta_k \average{\pdv{\Loss}{p}}_\text{mini-lot}
+\mend
+\end{equation}
+\paragraph{\emph{•} (Adagrad)}
+
+\paragraph{\emph{•} (Adadelta)}
+
+\paragraph{\emph{Adaptive Moments} (Adam)} \cite{adam,DNN}
+L'algorithme Adam utilise la méthode des moments et adapte le taux d'apprentissage pour chaque paramètre à chaque mini-lot.
+Pour cela sont définis initialement:
+\begin{itemize}
+\item le pas $\epsilon=\num{0.001}$;
+\item les moments d'ordres 1 et 2, $\vec{s}=\vec{0}$ et $\vec{r}=\vec{0}$;
+\item les taux de diminution de moments d'ordre 1 et 2, $\rho_1=\num{0.9}$ et $\rho_2=\num{0.999}$;
+\item le paramètre temporel $t=0$.
+\end{itemize}
+Puis, à chaque mini-lot, les moments sont redéfinis selon
+\begin{equation}
+\vec{s}\cdot\bvec_p =
+s_p \to \rho_1 s_p + (1-\rho_1) \average{\pdv{\Loss}{p}}_\text{mini-lot}
+\msep
+\vec{r}\cdot\bvec_p =
+r_p \to \rho_2 r_p + (1-\rho_2) \average{\pdv{\Loss}{p}}_\text{mini-lot}^2
+\mend
+\end{equation}
+Le biais d'initiation des moments est corrigé en appliquant
+\begin{equation}
+t \to t+1
+\msep
+s_p \to \frac{s_p}{1-\rho_1^t}
+\msep
+r_p \to \frac{r_p}{1-\rho_2^t}
+\mend
+\end{equation}
+Les paramètres du modèle sont alors mis à jour selon
+\begin{equation}
+p \to p - \epsilon \frac{s_p}{\sqrt{r_p}+\delta}
+\end{equation}
+où
+$\delta=\num{e-8}$ permet de stabiliser les calculs en évitant une division par zéro.
+
+
 most of them = backpropagation
-\par
-mini-batch, epoch
 \par
 local minima?
 \par
 backpropagation and vanishing grad
-\par
-early stopping
-
-%EarlyStopping(monitor='val_mean_absolute_error', patience=20, verbose=0)]
