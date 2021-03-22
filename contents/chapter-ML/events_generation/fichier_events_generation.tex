@@ -146,7 +146,7 @@ Ces événements sont de plus séparés en trois groupes selon les proportions s
 \par
 Afin de réaliser un entraînement équitable entre les différentes valeurs de $m_{\higgsML}$, un poids est associé à chaque événement de manière à ce que la distribution pondérée de $m_{\higgsML}$ soit plate.
 La distribution pondérée de $m_{\higgsML}$ sur les événements utilisés pour l'entraînement des modèles est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-weighted-is_train}.
-\subsection{Cible et variables d'entrée des modèles}
+\subsection{Cible et variables d'entrée des modèles}\label{chapter-ML-section-evt_gen-inputs}
 La cible des modèle est la masse de la particule générée \higgsML\ se désintégrant en paire de leptons tau.
 Un tel événement est illustré sur la figure~\ref{fig-model_inputs-fgraph-H-BBtautau_mutau_small}.
 Les variables d'entrée doivent être des observables accessibles expérimentalement,
@@ -186,7 +186,7 @@ définies par
 \item les impulsions des deux jets principaux (de plus haut \pT) présents dans l'événement:\\
 $\pT^\text{jet 1}$, $\eta^\text{jet 1}$, $\phi^\text{jet 1}$,
 $\pT^\text{jet 2}$, $\eta^\text{jet 2}$, $\phi^\text{jet 2}$;
-\item l'activité hadronique additionnelle, définie par une somme des impulsions des jets autres que les deux principaux:\\
+\item l'Activité Hadronique Additionnelle (AHA), définie par une somme des impulsions des jets autres que les deux principaux:\\
 $\pT^{\AddHadAct}$, $\eta^{\AddHadAct}$, $\phi^{\AddHadAct}$ avec
 \begin{equation}
 \vec{p}^{\AddHadAct} = \sum_\text{jet $i$, $i > 2$} \vec{p}^\text{jet $i$}
