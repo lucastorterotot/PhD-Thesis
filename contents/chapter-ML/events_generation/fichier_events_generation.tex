@@ -146,3 +146,53 @@ Ces événements sont de plus séparés en trois groupes selon les proportions s
 \par
 Afin de réaliser un entraînement équitable entre les différentes valeurs de $m_{\higgsML}$, un poids est associé à chaque événement de manière à ce que la distribution pondérée de $m_{\higgsML}$ soit plate.
 La distribution pondérée de $m_{\higgsML}$ sur les événements utilisés pour l'entraînement des modèles est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-weighted-is_train}.
+\subsection{Cible et variables d'entrée des modèles}
+La cible des modèle est la masse de la particule générée \higgsML\ se désintégrant en paire de leptons tau.
+Un tel événement est illustré sur la figure~\ref{fig-model_inputs-fgraph-H-BBtautau_mutau_small}.
+Les variables d'entrée doivent être des observables accessibles expérimentalement,
+\ie\ issues de la reconstruction des événements présentée dans le chapitre~\refChLHCCMS.
+\begin{figure}[h]
+\centering
+{\def\Higgs{\higgsML}\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/BG/fgraph-H-tautau_mutau_small.tex}}
+\caption[Diagramme de Feynman des événements d'entraînement des modèles.]{Diagramme de Feynman des événements d'entraînement des modèles dans le cas du canal \mu\tauh.}
+\label{fig-model_inputs-fgraph-H-BBtautau_mutau_small}
+\end{figure}
+\par
+Les variables considérées sont:
+\begin{itemize}
+\item les impulsions de $L_1$ et $L_2$ les produits de désintégration visibles des taus \ie\ le muon et le \tauh\ dans l'exemple de la figure~\ref{fig-model_inputs-fgraph-H-BBtautau_mutau_small}:\\
+$\pT^{L_1}$, $\eta^{L_1}$, $\phi^{L_1}$,
+$\pT^{L_2}$, $\eta^{L_2}$, $\phi^{L_2}$;
+\item l'énergie transverse manquante pour rendre compte de la présence des neutrinos:\\
+\MET, $\phi^{\MET}$;
+\item la matrice $M$ de covariance de \MET, rendant compte de l'incertitude sur la mesure de \MET:\\
+$M_{xx}$, $M_{xy}$, $M_{yy}$;
+\item le nombre attendu de neutrinos lié à l'état final identifié \Nnu,
+déterminé à partir du canal obtenu par la sélection des événements, \ie\ sans utilisation des informations générées;
+\item les masses transverses
+$\mT^{(L_1,\MET)}$,
+$\mT^{(L_2,\MET)}$ et
+$\mT^{(L_1,L_2)}$
+définies par
+\begin{equation}
+\mT^{(A,B)} = \sqrt{2 \, \pT^{A} \, \pT^{B} \, (1-\cos(\phi^A-\phi^B))}
+\mend[;]
+\end{equation}
+\item la masse transverse totale \mTtot\ définie par
+\begin{equation}
+\mTtot = \sqrt{\mT^{(L_1,\MET)} + \mT^{(L_2,\MET)} + \mT^{(L_1,L_2)}}
+\mend[;]
+\end{equation}
+\item les impulsions des deux jets principaux (de plus haut \pT) présents dans l'événement:\\
+$\pT^\text{jet 1}$, $\eta^\text{jet 1}$, $\phi^\text{jet 1}$,
+$\pT^\text{jet 2}$, $\eta^\text{jet 2}$, $\phi^\text{jet 2}$;
+\item l'activité hadronique additionnelle, définie par une somme des impulsions des jets autres que les deux principaux:\\
+$\pT^{\AddHadAct}$, $\eta^{\AddHadAct}$, $\phi^{\AddHadAct}$ avec
+\begin{equation}
+\vec{p}^{\AddHadAct} = \sum_\text{jet $i$, $i > 2$} \vec{p}^\text{jet $i$}
+\mend[;]
+\end{equation}
+\item la quantité de jets utilisés pour déterminer $\vec{p}^{\AddHadAct}$, \Njetsr;
+\item le nombre de vertex principaux d'empilement, \Npu.
+\end{itemize}
+Des modèles sont entraînés sur l'ensemble de ces 27 variables ainsi que sur des sous-ensembles de cette liste.
