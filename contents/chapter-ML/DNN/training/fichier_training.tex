@@ -89,22 +89,69 @@ prise en compte à travers une vitesse $\vec{v}$ définie initialement par l'uti
 \begin{equation}
 \vec{v} \to \alpha\vec{v} - \eta_k \average{\grad(\Loss)}_\text{mini-lot}
 \Rightarrow
-\vec{v}\cdot\bvec_p = v_p \to \alpha v_p - \eta_k \average{\pdv{\Loss}{p}}_\text{mini-lot}
-\end{equation}
-avec $0\leq\alpha<1$ le paramètre des moments.
-La mise à jour des paramètres se fait alors selon
+\vec{v}[t]\cdot\bvec_p = v_p[t]
+&=
+\alpha v_p[t-1] - \eta_k \average{\pdv{\Loss}{p} [t]}_\text{mini-lot}
+\end{align}
+avec
+$t$ le numéro de l'itération de l'entraînement
+et
+$0\leq\alpha<1$ le paramètre des moments.
+La mise à jour des paramètres lors de l'itération $t$ se fait alors selon
 \begin{equation}
-p \to p + v_p
+p [t-1] \to p[t]
 =
-p + \alpha v_p - \eta_k \average{\pdv{\Loss}{p}}_\text{mini-lot}
+p[t-1] + v_p[t]
+=
+p[t-1] + \alpha v_p[t-1] - \eta_k \average{\pdv{\Loss}{p} [t]}_\text{mini-lot}
 \mend
 \end{equation}
-\paragraph{\emph{•} (Adagrad)}
-
-\paragraph{\emph{•} (Adadelta)}
-
+\paragraph{\emph{Adaptive Gradient} (Adagrad)} \cite{adagrad}
+L'algorithme Adagrad adapte le taux d'apprentissage individuellement pour chaque paramètre $p$
+à l'aide d'une
+variable de mémoire $\vec{r}$.
+Elle est initialement définie à $\vec{0}$ et est modifiée à chaque mini-lot selon
+\begin{equation}
+\vec{r}\cdot\bvec_p = r_p \to r_p + \average{\pdv{\Loss}{p}}_\text{mini-lot}^2
+\label{eq-AdaGrad_memory}
+\mend
+\end{equation}
+La mise à jour des paramètres se fait alors selon
+\begin{equation}
+p \to p - \eta \frac{1}{\sqrt{r_p}+\delta} \average{\pdv{\Loss}{p}}_\text{mini-lot}
+\end{equation}
+où $\delta$ est une variable de régularisation évitant les divisions par zéro.
+Le taux d'apprentissage effectif pour le paramètre $p$
+est ainsi $\eta$ divisé par la somme quadratique des gradients précédents $\sqrt{r_p}$.
+\par
+Plus un paramètre modifie la valeur de la fonction de coût, plus sa modification est progressive.
+Dans l'optique de la recherche d'un minimum, cela revient à descendre une pente lentement et à se mouvoir rapidement dans une direction plane.
+Cependant, l'accumulation depuis le début de l'entraînement des gradients au carré dans $r_p$ peut mener à une diminution excessive du taux d'apprentissage effectif d'un paramètre.
+\paragraph{RMSProp} \cite{RMSProp}
+L'algorithme RMSProp consiste en une légère modification de AdaGrad.
+Une décroissance exponentielle de la mémoire des gradients passés est mise en place en remplaçant~\eqref{eq-AdaGrad_memory} par
+\begin{equation}
+r_p \to \rho \, r_p + (1-\rho)\average{\pdv{\Loss}{p}}_\text{mini-lot}^2
+\end{equation}
+où $0<\rho<1$ est le tau de diminution de la mémoire.
+RMSProp est ainsi une version de AdaGrad dont la mémoire est plus adaptée à la situation locale.
+\paragraph{\emph{Adaptive Delta} (Adadelta)}
+À l'instar de RMSProp, Adadelta est une modification de AdaGrad visant à modifier l'effet de mémoire.
+La variable $r_p$ est mise à jour par~\eqref{eq-AdaGrad_memory}.
+Cependant, la valeur précédente de $r_p$ est également utilisée lors de la mise à jour de $p$.
+Ainsi, lors de l'itération $t$,
+\begin{equation}
+p [t-1] \to p [t] = p[t-1] - \frac{\sqrt{r_p[t-1]}+\delta}{\sqrt{r_p[t]}+\delta} \average{\pdv{\Loss}{p} [t]}_\text{mini-lot}
+\mend
+\end{equation}
+Il n'y a donc pas besoin de définir un taux d'apprentissage initial avec Adadelta.
 \paragraph{\emph{Adaptive Moments} (Adam)} \cite{adam,DNN}
-L'algorithme Adam utilise la méthode des moments et adapte le taux d'apprentissage pour chaque paramètre à chaque mini-lot.
+L'algorithme Adam
+combine
+la méthode des moments
+et
+RMSProp.
+il adapte donc le taux d'apprentissage pour chaque paramètre à chaque mini-lot.
 Pour cela sont définis initialement:
 \begin{itemize}
 \item le pas $\epsilon=\num{0.001}$;
