@@ -65,12 +65,12 @@ Plusieurs algorithmes d'optimisation existent~\cite{DNN}, présentés ci-après.
 Le premier, SGD, est l'adaptation directe du \emph{Gradient Descent} aux mini-lots.
 Cependant, fixer le taux d'apprentissage $\eta$ est ardu et les modèles y sont très sensibles~\cite{DNN}.
 C'est pourquoi d'autres algorithmes d'optimisation ont été développés.
-\paragraph{\emph{Stochastic Gradient Descent} (SGD)}
-L'algorithme SGD~\cite{SGD} applique le principe du \emph{Gradient Descent} en estimant le gradient de la fonction de coût par une moyenne sur le mini-lot.
+\paragraph{\emph{Stochastic Gradient Descent} (SGD)} \cite{SGD}
+L'algorithme SGD applique le principe du \emph{Gradient Descent} en estimant le gradient de la fonction de coût par une moyenne sur le mini-lot.
 Cette moyenne introduit un bruit dû à la composition aléatoire des mini-lots
 qui reste non nul même une fois le minimum de \Loss\ atteint.
-Pour palier cet effet, le taux d'apprentissage $\eta$ peut être diminué à chaque époque.
-La condition sur les taux d'apprentissage $\eta_k$ avec $k$ l'époque afin de s'assurer de la convergence du modèle optimisé par SGD est~\cite{DNN}
+Pour palier cet effet, le taux d'apprentissage $\eta$ peut être diminué à chaque époque~\cite{DNN}.
+La condition sur les taux d'apprentissage $\eta_k$ avec $k$ l'époque afin de s'assurer de la convergence du modèle optimisé par SGD est
 \begin{equation}
 \sum_{k=1}^\infty \eta_k = \infty
 \msep
@@ -82,12 +82,15 @@ La mise à jour des paramètres à la fin d'un mini-lot pendant l'époque $k$ es
 p \to p - \eta_k \average{\grad(\Loss)}_\text{mini-lot} \cdot \bvec_p = p - \eta_k \average{\pdv{\Loss}{p}}_\text{mini-lot}
 \mend
 \end{equation}
-\paragraph{SGD avec moments}
+\paragraph{SGD avec moments} \cite{DNN}
 Les moments sont une \og mémoire \fg{} des valeurs du gradient de la fonction de coût des époques précédentes.
 Ce peut être vu comme une inertie du mouvement du modèle dans l'espace des paramètres,
-prise en compte à travers une vitesse $\vec{v}$ définie initialement par l'utilisateur et mise à jour à la fin d'un mini-lot selon
-\begin{equation}
-\vec{v} \to \alpha\vec{v} - \eta_k \average{\grad(\Loss)}_\text{mini-lot}
+prise en compte à travers une vitesse $\vec{v}$ définie initialement par l'utilisateur et mise à jour à chaque mini-lot selon
+\begin{align}
+\vec{v}[t-1] \to \vec{v}[t]
+&=
+\alpha\vec{v}[t-1] - \eta_k \average{\grad(\Loss)[t]}_\text{mini-lot}
+\\
 \Rightarrow
 \vec{v}[t]\cdot\bvec_p = v_p[t]
 &=
@@ -155,14 +158,14 @@ il adapte donc le taux d'apprentissage pour chaque paramètre à chaque mini-lot
 Pour cela sont définis initialement:
 \begin{itemize}
 \item le pas $\epsilon=\num{0.001}$;
-\item les moments d'ordres 1 et 2, $\vec{s}=\vec{0}$ et $\vec{r}=\vec{0}$;
+\item les moments d'ordres 1 et 2, $\vec{v}=\vec{0}$ et $\vec{r}=\vec{0}$;
 \item les taux de diminution de moments d'ordre 1 et 2, $\rho_1=\num{0.9}$ et $\rho_2=\num{0.999}$;
 \item le paramètre temporel $t=0$.
 \end{itemize}
 Puis, à chaque mini-lot, les moments sont redéfinis selon
 \begin{equation}
-\vec{s}\cdot\bvec_p =
-s_p \to \rho_1 s_p + (1-\rho_1) \average{\pdv{\Loss}{p}}_\text{mini-lot}
+\vec{v}\cdot\bvec_p =
+v_p \to \rho_1 v_p + (1-\rho_1) \average{\pdv{\Loss}{p}}_\text{mini-lot}
 \msep
 \vec{r}\cdot\bvec_p =
 r_p \to \rho_2 r_p + (1-\rho_2) \average{\pdv{\Loss}{p}}_\text{mini-lot}^2
@@ -172,14 +175,14 @@ Le biais d'initiation des moments est corrigé en appliquant
 \begin{equation}
 t \to t+1
 \msep
-s_p \to \frac{s_p}{1-\rho_1^t}
+v_p \to \frac{v_p}{1-\rho_1^t}
 \msep
 r_p \to \frac{r_p}{1-\rho_2^t}
 \mend
 \end{equation}
 Les paramètres du modèle sont alors mis à jour selon
 \begin{equation}
-p \to p - \epsilon \frac{s_p}{\sqrt{r_p}+\delta}
+p \to p - \epsilon \frac{v_p}{\sqrt{r_p}+\delta}
 \end{equation}
 où
 $\delta=\num{e-8}$ permet de stabiliser les calculs en évitant une division par zéro.
