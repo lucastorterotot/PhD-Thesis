@@ -38,12 +38,16 @@ p \to p - \eta \grad(\Loss) \cdot \bvec_p = p - \eta \pdv{\Loss}{p}
 avec $\eta$ le taux d'apprentissage,
 \ie\ que la position du modèle est déplacée en suivant la pente du gradient vers un point plus bas.
 Le taux d'apprentissage est généralement pris entre 0 et 1.
-\subsubsection{Mini-lots et époques d'entraînement}
-La modification des paramètres du NN pourrait être réalisée pour chaque événement du jeu de données d'entraînement.
-Or, la nature des données à analyser peut mener à une stagnation, si deux événements mènent à des modifications contraires.
-Afin d'éviter ce phénomène, la mise à jour des paramètres se fait à partir d'un mini-lot %(\emph{mini-batch})
-du jeu de données de manière à minimiser la moyenne de la fonction de coût sur ce mini-lot.
-Une \og époque \fg{} de l'entraînement correspond à une utilisation de tous les mini-lots, \ie\ de tous les échantillons du jeu de données, pour modifier les paramètres du NN.
+\par
+La modification des paramètres du NN pourrait être réalisée ainsi pour chaque événement du jeu de données d'entraînement.
+Or, la nature des données à analyser peut mener à une stagnation, si deux événements donnent modifications opposées.
+Afin d'éviter ce phénomène, la mise à jour des paramètres se fait à partir de \og mini-lots \fg, introduits section~\ref{chapter-ML-section-DNN-training-minibatch}.
+Des algorithmes d'optimisation, adaptés aux mini-lots et dérivés du \emph{Gradient Descent}, sont présentés section~\ref{chapter-ML-section-DNN-training-optimizers}.
+\subsubsection{Mini-lots et époques}\label{chapter-ML-section-DNN-training-minibatch}
+Un mini-lot est un sous-ensemble du jeu de données.
+L'entraînement se base alors sur la moyenne du gradient de la fonction de coût sur le mini-lot, au lieu de la valeur de ce gradient pour chaque événement.
+\par
+Une \og époque \fg{} de l'entraînement correspond à une utilisation de tous les mini-lots, \ie\ de tous les événements du jeu de données, pour modifier les paramètres du NN.
 Le nombre maximal d'époques autorisé est de \num{500}, avec un arrêt prématuré au bout de \num{20} époques sans diminution de l'erreur absolue moyenne sur les données de validation.
 \par
 Pour ne pas biaiser l'entraînement à cause de l'ordre du jeu de données,
@@ -56,7 +60,7 @@ Les points de masse générés étant les entiers entre \num{50} et \SI{800}{\Ge
 un petit mini-lot
 et
 une bonne probabilité de couvrir une large gamme de masse au sein d'un mini-lot.
-\subsubsection{Algorithmes d'optimisation}
+\subsubsection{Algorithmes d'optimisation}\label{chapter-ML-section-DNN-training-optimizers}
 Plusieurs algorithmes d'optimisation existent~\cite{DNN}, présentés ci-après.
 Le premier, SGD, est l'adaptation directe du \emph{Gradient Descent} aux mini-lots.
 Cependant, fixer le taux d'apprentissage $\eta$ est ardu et les modèles y sont très sensibles~\cite{DNN}.
