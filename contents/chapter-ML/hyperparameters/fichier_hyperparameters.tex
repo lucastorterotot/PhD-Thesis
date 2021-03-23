@@ -223,8 +223,11 @@ La fonction de coût retenue est donc \LossMAPE.
 \end{figure}
 \newpage
 \subsection{Algorithme d'optimisation et initiation des paramètres}
-Deux algorithmes d'optimisation ont été considérés, Adam et Adadelta.
-Il apparaît clairement sur la figure~\ref{fig-optimizer} qu'Adam propose de meilleurs modèles qu'Adadelta.
+Trois algorithmes d'optimisation ont été considérés, SGD, Adadelta et Adam.
+
+\todo{QGD complètement dans les choux}
+
+Il apparaît sur la figure~\ref{fig-optimizer} qu'Adam propose de meilleurs modèles qu'Adadelta.
 L'initiation des paramètres des neurones n'a en revanche que peu d'influence sur \LossMAPE, comme cela se voit figure~\ref{fig-w_init_mode}.
 \begin{figure}[h]
 \centering
