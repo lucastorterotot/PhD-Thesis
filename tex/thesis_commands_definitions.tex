@@ -176,6 +176,9 @@
 \newcommand{\Neventsaxis}{Nombre d'événements}
 \newcommand{\InclusiveSTR}{inclusif}
 
+\newcommand{\RatiosaxisA}{Rapport au}
+\newcommand{\RatiosaxisB}{bruit de fond}
+
 \newcommand{\HTTplotsdir}{HTT_v2}
 
 \newcommand{\GETplotHTTModelIndepLimitsINFOS}[5][\HTTplotsdir]{%
@@ -409,6 +412,9 @@
 % axis labels
 \draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
 \draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
+
+\draw (-.1, 1.75) node (tmp) [below, rotate=90] {\scriptsize \RatiosaxisA\vphantom{Àq,}};
+\draw (tmp) node [below, rotate=90] {\scriptsize \RatiosaxisB\vphantom{Àq,}};
 
 % CMS disclaimer
 \draw (1.85, 7.05) node [below] {\scriptsize CMS Data\vphantom{Àq,}};
@@ -720,6 +726,9 @@
 % axis labels
 \draw (7.7, 0) node [above left] {\footnotesize \localxaxislabel\vphantom{Àq,}};
 \draw (-.1, 7.2) node [below left, rotate=90] {\footnotesize \localyaxislabel\vphantom{Àq,}};
+
+\draw (-.1, 1.75) node (tmp) [below, rotate=90] {\scriptsize \RatiosaxisA\vphantom{Àq,}};
+\draw (tmp) node [below, rotate=90] {\scriptsize \RatiosaxisB\vphantom{Àq,}};
 
 % CMS disclaimer
 \draw (\localCMSdisclaimerAX, \localCMSdisclaimerAY) node [below] {\scriptsize CMS Data\vphantom{Àq,}};
