@@ -15,42 +15,63 @@
 
 \subcaptionbox{Catégorie \CATmisc.}[.475\textwidth]
 {\plotHTTshapes{mt_tot}{mssm_vs_sm_h125}{\lolcalcurrentyear}{\lolcalcurrentchannel}{16}{prefit_linear}}
-
-\caption[Distributions de \NNscore\ en \lolcalcurrentyear\ dans le canal \localchannel.]{Distributions de \NNscore\ en \lolcalcurrentyear\ dans le canal \localchannel.}
-\end{figure}
-
-\begin{figure}[p]
-\centering
-
-\subcaptionbox{Catégorie \CATnobtag~\CATtightmt, \mTtot.}[.475\textwidth]
-{\plotHTTshapes{mt_tot}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{32}{prefit_linear}}
 \hfill
-\subcaptionbox{Catégorie \CATnobtag~\CATtightmt, \mml.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{32}{prefit_linear}}
+\subcaptionbox{Catégorie \CATfake.}[.475\textwidth]
+{\plotHTTshapes{mt_tot}{mssm_vs_sm_h125}{\lolcalcurrentyear}{\lolcalcurrentchannel}{21}{prefit_linear}}
 
-\subcaptionbox{Catégorie \CATnobtag~\CATloosemt, \mTtot.}[.475\textwidth]
-{\plotHTTshapes{mt_tot}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{33}{prefit_linear}}
-\hfill
-\subcaptionbox{Catégorie \CATnobtag~\CATloosemt, \mml.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{33}{prefit_linear}}
-
-\caption[Distributions de \mTtot\ et \mml\ en \lolcalcurrentyear\ dans le canal \localchannel.]{Distributions de \mTtot\ et \mml\ en \lolcalcurrentyear\ dans le canal \localchannel.}
+\caption{Distributions de \NNscore\ en \lolcalcurrentyear\ dans le canal \localchannel.}
 \end{figure}
 
 \begin{figure}[p]
 \centering
 
 \subcaptionbox{Catégorie \CATbtag~\CATtightmt, \mTtot.}[.475\textwidth]
-{\plotHTTshapes{mt_tot}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{35}{prefit_linear}}
+{\plotHTTshapes{mt_tot}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{35}{prefit_linear_nosignal}}
 \hfill
 \subcaptionbox{Catégorie \CATbtag~\CATtightmt, \mml.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{35}{prefit_linear}}
+{\plotHTTshapes{m_ml}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{35}{prefit_linear_nosignal}}
 
 \subcaptionbox{Catégorie \CATbtag~\CATloosemt, \mTtot.}[.475\textwidth]
-{\plotHTTshapes{mt_tot}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{36}{prefit_linear}}
+{\plotHTTshapes{mt_tot}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{36}{prefit_linear_nosignal}}
 \hfill
 \subcaptionbox{Catégorie \CATbtag~\CATloosemt, \mml.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{36}{prefit_linear}}
+{\plotHTTshapes{m_ml}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{36}{prefit_linear_nosignal}}
 
-\caption[Distributions de \mTtot\ et \mml\ en \lolcalcurrentyear\ dans le canal \localchannel.]{Distributions de \mTtot\ et \mml\ en \lolcalcurrentyear\ dans le canal \localchannel.}
+\caption{Distributions de \mTtot\ et \mml\ en \lolcalcurrentyear\ dans le canal \localchannel, catégories \CATbtag.}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{Catégorie \CATnobtag~\CATtightmt, \mTtot.}[.475\textwidth]
+{\plotHTTshapes{mt_tot}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{32}{prefit_linear_nosignal}}
+\hfill
+\subcaptionbox{Catégorie \CATnobtag~\CATtightmt, \mml.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{32}{prefit_linear_nosignal}}
+
+\subcaptionbox{Catégorie \CATnobtag~\CATloosemt, \mTtot.}[.475\textwidth]
+{\plotHTTshapes{mt_tot}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{33}{prefit_linear_nosignal}}
+\hfill
+\subcaptionbox{Catégorie \CATnobtag~\CATloosemt, \mml.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{mssm_classic}{\lolcalcurrentyear}{\lolcalcurrentchannel}{33}{prefit_linear_nosignal}}
+
+\caption{Distributions de \mTtot\ et \mml\ en \lolcalcurrentyear\ dans le canal \localchannel, catégories \CATnobtag.}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{Catégorie \CATbsm~\CATnobtag~\CATtightmt, \mTtot.}[.475\textwidth]
+{\plotHTTshapes{mt_tot}{mssm_vs_sm_h125}{\lolcalcurrentyear}{\lolcalcurrentchannel}{32}{prefit_linear_nosignal}}
+\hfill
+\subcaptionbox{Catégorie \CATbsm~\CATnobtag~\CATtightmt, \mml.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{mssm_vs_sm_h125}{\lolcalcurrentyear}{\lolcalcurrentchannel}{32}{prefit_linear_nosignal}}
+
+\subcaptionbox{Catégorie \CATbsm~\CATnobtag~\CATloosemt, \mTtot.}[.475\textwidth]
+{\plotHTTshapes{mt_tot}{mssm_vs_sm_h125}{\lolcalcurrentyear}{\lolcalcurrentchannel}{33}{prefit_linear_nosignal}}
+\hfill
+\subcaptionbox{Catégorie \CATbsm~\CATnobtag~\CATloosemt, \mml.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{mssm_vs_sm_h125}{\lolcalcurrentyear}{\lolcalcurrentchannel}{33}{prefit_linear_nosignal}}
+
+\caption{Distributions de \mTtot\ et \mml\ en \lolcalcurrentyear\ dans le canal \localchannel, catégories \CATnobtag\ avec $\mCutForCategories \geq \SI{250}{\GeV}$.}
 \end{figure}
