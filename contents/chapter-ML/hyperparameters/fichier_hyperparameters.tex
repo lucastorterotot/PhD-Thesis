@@ -56,60 +56,115 @@ Sauf contre-indication, toute la gamme de masse est considérée.
 \subsection{Variables d'entrée}
 Les différentes variables d'entrée considérées sont listées dans la section~\ref{chapter-ML-section-evt_gen-inputs}.
 La plupart de celles-ci sont généralement déjà exploitées dans les analyses en cours.
-Ce n'est toutefois pas forcément le cas, en particulier pour les variables relatives à l'activité hadronique additionnelle.
-L'utilisation de telles variables supplémentaires demande,
+Ce n'est toutefois pas garanti, en particulier pour les variables relatives à l'activité hadronique additionnelle.
+L'utilisation de variables supplémentaires demande,
 en plus de la mise en place de leur obtention,
 de reprendre potentiellement de longues étapes de calculs.
-L'utilisation de sous-jeux de variables pourrait donc faciliter l'utilisation de nos modèles.
+Se restreindre à un sous-ensemble des variables d'entrée,
+si cela ne dégrade pas la qualité des modèles,
+pourrait donc faciliter l'intégration de nos modèles.
 \par
-Des sous-jeux sont ainsi définis par restriction:
+Les sous-ensembles des variables d'entrée sont définis par les restrictions suivantes:
 \begin{itemize}
 \item sans \Npu: la variable \Npu\ n'est pas utilisée;
 \item sans \Nnu: la variable \Nnu\ n'est pas utilisée;
-\item sans AHA: les variables AHA ne sont pas utilisées;
+\item sans AHA: les variables d'activité hadronique additionnelle ne sont pas utilisées;
 \item sans jets: les variables relatives aux jets (dont AHA) ne sont pas utilisées;
 \item sans \mT: les masses transverses ne sont pas utilisées;
 \item sans METcov: la matrice de covariance de \MET\ n'est pas utilisée.
 \end{itemize}
-Des sous-jeux avec des restrictions multiples sont également testés.
-Dans les figures suivantes, les modèles sont regroupés selon les restrictions simples.
-Ceux étant concernés par une restriction multiple sont comptés dans chaque groupe simple.
+L'application de plusieurs de ces restrictions est également testée.
 \par
-Les performances des XGBs sont données sur la figure~\ref{fig-XGB_inputs}, celles des DNNs sur la figure~\ref{fig-DNN_inputs}.
-Quel que soit le type de modèle,
-il est possible d'obtenir de faibles valeurs de $\Loss_\text{MAPE}$ similaires avec des sous-jeux de données.
-Toutefois, les largeurs à $1\sigma$ sont meilleures avec l'utilisation de l'ensemble des variables, en particulier avec les DNNs.
-Dans le cas des XGBs, quelques modèles sans \mT\ présentent également une faible largeur, mais ils sont associés à de moins bonnes valeurs de $\Loss_\text{MAPE}$.
-\par
-Par la suite, seuls les modèles utilisant toutes les variables, au nombre de 27, sont considérés.
-\begin{figure}[p]
+Les performances modèles entraînés avec les différents ensembles de variables d'entrée sont données
+figure~\ref{fig-XGB_inputs} pour les XGBs
+et
+figure~\ref{fig-DNN_inputs}
+pour les DNNs.
+Les modèles concernés par plusieurs restrictions sont comptés de manière pondérée dans chaque groupe correspondant à une restriction unique.
+Par exemple, un modèle soumis à la restriction \og sans \Npu\ \fg{} et \og sans \Nnu\ \fg{} aura un poids de $\frac{1}{2}$ dans chacun de ces deux groupes.
+Une pondération par la quantité de modèles dans chaque groupe est de plus appliquée pour supprimer le biais lié à la quantité accrue de modèles dans le groupe sans restrictions.
+Les histogrammes ainsi créés sont superposés.
+Il est alors possible de voir les contributions de chacune des restrictions aux valeurs obtenues sur la métrique d'évaluation illustrée.
+\begin{figure}[h]
 \centering
 
-\subcaptionbox{}[.45\textwidth]
+\subcaptionbox{\label{subfig-XGB_inputs-mape}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/XGB_inputs_all-full_mape.pdf}\vspace{-\baselineskip}}
 \hfill
-\subcaptionbox{}[.45\textwidth]
+\subcaptionbox{\label{subfig-XGB_inputs-1sigw}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/XGB_inputs_all-full_1sig_width.pdf}\vspace{-\baselineskip}}
 
 \caption{Comparaison des performances des XGBs selon les variables d'entrée.}
 \label{fig-XGB_inputs}
-%\end{figure}
-%\begin{figure}[p]
-%\centering
+\end{figure}
+\begin{figure}[h]
+\centering
 
-\subcaptionbox{}[.45\textwidth]
+\subcaptionbox{\label{subfig-DNN_inputs-mape}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_inputs_all-full_mape.pdf}\vspace{-\baselineskip}}
 \hfill
-\subcaptionbox{}[.45\textwidth]
+\subcaptionbox{\label{subfig-DNN_inputs-1sigw}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_inputs_all-full_1sig_width.pdf}\vspace{-\baselineskip}}
 
 \caption{Comparaison des performances des DNNs selon les variables d'entrée.}
 \label{fig-DNN_inputs}
 \end{figure}
-\clearpage
+\par
+Dans le cas des XGBs,
+l'évaluation des modèles par \LossMAPE, en figure~\ref{subfig-XGB_inputs-mape},
+montre que les modèles utilisant toutes les variables d'entrée permettent d'obtenir plus facilement
+une faible valeur de cette métrique.
+Le coeur de la distribution,
+aux alentours de $\LossMAPE=\todo{?}$,
+est en effet plutôt constitué
+de modèles utilisant
+toutes les entrées
+dans sa partie gauche (\LossMAPE\ faible)
+et
+de modèles utilisant
+un sous-ensemble d'entrées
+dans sa partie droite (\LossMAPE\ haute).
+De plus, les basses valeurs de \LossMAPE, en-dessous de \todo{?},
+sont presque exclusivement obtenues avec des modèles utilisant toutes les entrées.
+À l'inverse, la queue à hautes valeurs de la distribution obtenue est largement dominée par les contributions des modèles avec un sous-ensemble d'entrées.
+\par
+La largeur \OneSigmaWidth, en figure~\ref{subfig-XGB_inputs-1sigw},
+montre des extremums
+à \todo{?} et \todo{?}
+pour l'ensemble des modèles,
+mais
+à \todo{?} et \todo{?}
+pour les modèles utilisant toutes les entrées.
+Quelques modèles sans \mT\ présentent
+une valeur de \OneSigmaWidth\
+inférieure à \todo{?},
+mais ils sont associés à des valeurs de \LossMAPE\
+plus élevées que ceux utilisant toutes les entrées.
+\par
+Dans le cas des DNNs,
+la métrique \LossMAPE, en figure~\ref{subfig-DNN_inputs-mape},
+ne montre pas d'avantage net d'un type de modèle sur un autre.
+En revanche,
+la largeur \OneSigmaWidth, en figure~\ref{subfig-DNN_inputs-1sigw},
+montre que les modèles utilisant toutes les entrées peuvent se répartir en trois groupes,
+aux alentour des valeurs
+\todo{?}, \todo{?} et \todo{?}.
+À \todo{?3e} apparaît également un groupe de modèles entraînés sans \mT.
+À \todo{?2e} se trouvent la majorité des modèles entraînés avec une restriction des entrées.
+Les modèles de ces groupes ont potentiellement minimisé l'utilisation de certaines variables.
+Les modèles d'intérêt sont ceux du groupe se situant à \OneSigmaWidth\ d'environ \todo{?1er}.
+Il s'agit presque exclusivement de modèles utilisant toutes les variables d'entrée.
+\par
+L'utilisation de toutes les variables listées dans la section~\ref{chapter-ML-section-evt_gen-inputs}
+est ainsi corrélée avec de meilleures performances
+selon les métriques
+\LossMAPE\
+et \OneSigmaWidth.
+Par la suite, seuls les modèles utilisant toutes les variables, au nombre de 27, sont considérés.
+
 \subsection{Type de modèle}
 Les distributions des métriques des deux types de modèle sont données figure~\ref{fig-DNN_vs_XGB}.
-Si les XGBs sont compétitifs en termes de largeurs à $1\sigma$, les DNNs proposent de bien meilleures performances sur $\Loss_\text{MSE}$, $\Loss_\text{MAE}$ et surtout $\Loss_\text{MAPE}$.
+Si les XGBs sont compétitifs selon \OneSigmaWidth, les DNNs proposent de bien meilleures performances sur \LossMSE, \LossMAE\ et surtout \LossMAPE.
 La sélection d'un modèle est donc faite parmi les DNNs.
 \begin{figure}[h]
 \centering
@@ -145,15 +200,15 @@ les réseaux entraînés de manière à minimiser une fonction de coût sont mei
 \subcaptionbox{}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_loss-full_mape.pdf}\vspace{-\baselineskip}}
 
-\caption{Comparaisons des fonctions de coût $\Loss_\text{MSE}$ et $\Loss_\text{MAPE}$ d'après leurs propres valeurs.}
+\caption{Comparaisons des fonctions de coût \LossMSE\ et \LossMAPE\ d'après leurs propres valeurs.}
 \label{fig-loss_mse_mape_themselves}
 \end{figure}
 \par
-Cependant, l'écart entre les modèles minimisant $\Loss_\text{MSE}$ ou bien $\Loss_\text{MAPE}$
-est moindre lorsqu'ils sont évalués par $\Loss_\text{MSE}$ que par $\Loss_\text{MAPE}$,
-ce qui laisse à penser que l'utilisation de $\Loss_\text{MAPE}$ donne de meilleurs modèles.
-Ceci est confirmé par la figure~\ref{fig-loss_mse_mape_by_mae_and_low_1sigma} où ces deux catégories de modèles sont évaluées par $\Loss_\text{MAE}$ et par la largeur à $1\sigma$ à basse masse.
-La fonction de coût retenue est donc $\Loss_\text{MAPE}$.
+Cependant, l'écart entre les modèles minimisant \LossMSE\ ou bien \LossMAPE\
+est moindre lorsqu'ils sont évalués par \LossMSE\ que par \LossMAPE,
+ce qui laisse à penser que l'utilisation de \LossMAPE\ donne de meilleurs modèles.
+Ceci est confirmé par la figure~\ref{fig-loss_mse_mape_by_mae_and_low_1sigma} où ces deux catégories de modèles sont évaluées par \LossMAE\ et par \OneSigmaWidth\ à basse masse.
+La fonction de coût retenue est donc \LossMAPE.
 \begin{figure}[h]
 \centering
 
