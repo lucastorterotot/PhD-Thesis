@@ -12,7 +12,7 @@ Dans le cas des canaux \mu\tauh, \ele\tauh\ et \ele\mu, chacune de ces deux cat�
 \paragraph{Canaux \mu\tauh\ et \ele\tauh}
 Dans ces deux canaux, la masse transverse de $L_1$ (le muon ou l'électron, notés $\ell$) définie par
 \begin{equation}
-\mT^{\ell} = \sqrt{2 \, \pT^{\ell} \, \MET \, (1-\cos\Delta\phi)} \label{eq-mT_def-ell}
+\mT^{\ell} = \mT(\ell, \MET) = \sqrt{2 \, \pT^{\ell} \, \MET \, (1-\cos\Delta\phi)} \label{eq-mT_def-ell}
 \end{equation}
 avec $\Delta\phi = \phi^{\ell} - \phi^{\MET}$
 est utilisée afin de définir deux catégories:
@@ -147,18 +147,18 @@ m^2 &= E^2 - p^2
 \nonumber\\
 &\hphantom{=2(} \quad + \pT^{L_1}\MET(1-\cos\Delta\phi^{(L_1,\MET)}) + \pT^{L_2}\MET(1-\cos\Delta\phi^{(L_2,\MET)}) \Big]
 \nonumber\\
-&= {\mT^{(L_1,L_2)}}^2 + {\mT^{(L_1,\MET)}}^2 + {\mT^{(L_2,\MET)}}^{2} = {\mTtot}^2
+&= \mT^2 (L_1,L_2) + \mT^2 (L_1,\MET) + \mT^2 (L_2,\MET) = {\mTtot}^2
 \mend
 \end{align}
 \par
 La variable discriminante utilisée dans les catégories \CATbsm\ est ainsi \mTtot, définie telle que
 \begin{equation}
-\mTtot = \sqrt{{\mT^{(L_1,L_2)}}^2 + {\mT^{(L_1,\MET)}}^2 + {\mT^{(L_2,\MET)}}^{2}}
+\mTtot = \sqrt{\mT^2 (L_1,L_2) + \mT^2 (L_1,\MET) + \mT^2 (L_2,\MET)}
 \label{eq-def_mTtot}
 \end{equation}
 avec
 \begin{equation}
-\mT^{(A,B)} = \sqrt{2 \, \pT^{A} \, \pT^{B} \, (1-\cos\Delta\phi^{(A,B)})}
+\mT (A,B) = \sqrt{2 \, \pT^{A} \, \pT^{B} \, (1-\cos\Delta\phi^{(A,B)})}
 \mend
 \end{equation}
 \par
