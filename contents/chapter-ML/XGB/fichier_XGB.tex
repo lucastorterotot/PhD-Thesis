@@ -142,19 +142,19 @@ Les fonctions de coûts les plus répandues sont:
 \begin{description}
 \item[MSE] \emph{Mean Squared Error} ou erreur quadratique moyenne,
 \begin{equation}
-\Loss_\text{MSE}(\set{\ytruei}, \set{\ypredi}) = \frac{1}{2N} \sum_{i=1}^N \left( \ypredi - \ytruei \right)^2
+\LossMSE(\set{\ytruei}, \set{\ypredi}) = \frac{1}{2N} \sum_{i=1}^N \left( \ypredi - \ytruei \right)^2
 \label{eq-loss_MSE}
 \mend[;]
 \end{equation}
 \item[MAE] \emph{Mean Absolute Error} ou erreur absolue moyenne,
 \begin{equation}
-\Loss_\text{MAE}(\set{\ytruei}, \set{\ypredi}) = \frac{1}{N} \sum_{i=1}^N \left| \ypredi - \ytruei \right|
+\LossMAE(\set{\ytruei}, \set{\ypredi}) = \frac{1}{N} \sum_{i=1}^N \left| \ypredi - \ytruei \right|
 \label{eq-loss_MAE}
 \mend[;]
 \end{equation}
 \item[MAPE] \emph{Mean Absolute Percentile Error} ou erreur absolue relative moyenne,
 \begin{equation}
-\Loss_\text{MAE}(\set{\ytruei}, \set{\ypredi}) = \frac{100}{N} \sum_{i=1}^N \left| \frac{\ypredi - \ytruei}{\ytruei} \right|
+\LossMAPE(\set{\ytruei}, \set{\ypredi}) = \frac{100}{N} \sum_{i=1}^N \left| \frac{\ypredi - \ytruei}{\ytruei} \right|
 \label{eq-loss_MAPE}
 \mend
 \end{equation}
@@ -164,7 +164,7 @@ L'objectif du modèle $M_k$ défini dans la section précédente est de prédire
 \begin{equation}
 \ytruei - F_{k-1}(\vec{x}_i)
 =
-- \pdv{\Loss_\text{MSE}(\ytruei, F_{k-1}(\vec{x}_i))}{F_{k-1}(\vec{x}_i)}
+- \pdv{\LossMSE(\ytruei, F_{k-1}(\vec{x}_i))}{F_{k-1}(\vec{x}_i)}
 \mend
 \end{equation}
 Il est ainsi possible de généraliser le \emph{Gradient Boosting}

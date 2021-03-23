@@ -28,14 +28,15 @@ Les hyper-paramètres des DNNs sont:
 \end{itemize}
 \par
 Il est difficile de définir un seul score quantifiant la qualité d'un modèle.
-Plusieurs métriques sont considérées afin de comparer les modèles entre eux:
+Plusieurs métriques sont considérées afin d'évaluer les modèles:
 \begin{itemize}
 \item les valeurs de
-$\Loss_\text{MSE}$,
-$\Loss_\text{MAE}$,
-$\Loss_\text{MAPE}$;
+\LossMSE,
+\LossMAE,
+\LossMAPE;
 \item la largeur du premier quantile de la distribution des réponses des modèles,
-ou \og largeur à $1\sigma$ \fg{} ,
+ou \og largeur à $1\sigma$ \fg,
+notée \OneSigmaWidth,
 où la réponse $r$ est définie comme
 \begin{equation}
 r = \frac{\ypred}{\ytrue} = \frac{F(\vec{x})}{m_{\higgsML}}
@@ -162,14 +163,14 @@ La fonction de coût retenue est donc $\Loss_\text{MAPE}$.
 \subcaptionbox{}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_loss-low_1sig_width.pdf}\vspace{-\baselineskip}}
 
-\caption{Comparaisons des fonctions de coût $\Loss_\text{MSE}$ et $\Loss_\text{MAPE}$ d'après d'autres métriques.}
+\caption{Comparaisons des fonctions de coût \LossMSE\ et \LossMAPE\ d'après d'autres métriques.}
 \label{fig-loss_mse_mape_by_mae_and_low_1sigma}
 \end{figure}
 \newpage
 \subsection{Algorithme d'optimisation et initiation des paramètres}
 Deux algorithmes d'optimisation ont été considérés, Adam et Adadelta.
 Il apparaît clairement sur la figure~\ref{fig-optimizer} qu'Adam propose de meilleurs modèles qu'Adadelta.
-L'initiation des paramètres des neurones n'a en revanche que peu d'influence sur $\Loss_\text{MAPE}$, comme cela se voit figure~\ref{fig-w_init_mode}.
+L'initiation des paramètres des neurones n'a en revanche que peu d'influence sur \LossMAPE, comme cela se voit figure~\ref{fig-w_init_mode}.
 \begin{figure}[h]
 \centering
 
