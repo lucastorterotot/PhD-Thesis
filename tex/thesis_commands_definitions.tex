@@ -294,6 +294,10 @@
   \def\localxaxislabel{$\pT (\text{jet secondaire})$ (\SI{}{\GeV})}
   \def\localyaxislabel{\Neventsaxis\ / $\dd~\pT$ (1/\SI{}{\GeV})}
 }{}
+\ifthenelse{\equal{#5}{jpt_r}}{
+  \def\localxaxislabel{$\pT (\text{activité hadronique additionnelle})$ (\SI{}{\GeV})}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\pT$ (1/\SI{}{\GeV})}
+}{}
 \ifthenelse{\equal{#5}{jeta_1}}{
   \def\localxaxislabel{$\eta (\text{jet principal})$}
   \def\localyaxislabel{\Neventsaxis\ / $\dd~\eta$}
@@ -302,12 +306,36 @@
   \def\localxaxislabel{$\eta (\text{jet secondaire})$}
   \def\localyaxislabel{\Neventsaxis\ / $\dd~\eta$}
 }{}
+\ifthenelse{\equal{#5}{jeta_r}}{
+  \def\localxaxislabel{$\eta (\text{activité hadronique additionnelle})$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\eta$}
+}{}
+\ifthenelse{\equal{#5}{jphi_1}}{
+  \def\localxaxislabel{$\phi (\text{jet principal})$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\phi$}
+}{}
+\ifthenelse{\equal{#5}{jphi_2}}{
+  \def\localxaxislabel{$\phi (\text{jet secondaire})$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\phi$}
+}{}
+\ifthenelse{\equal{#5}{jphi_r}}{
+  \def\localxaxislabel{$\phi (\text{activité hadronique additionnelle})$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\phi$}
+}{}
 \ifthenelse{\equal{#5}{nbtag}}{
   \def\localxaxislabel{\Nbjets}
   \def\localyaxislabel{\Neventsaxis}
 }{}
 \ifthenelse{\equal{#5}{njets}}{
   \def\localxaxislabel{\Njets}
+  \def\localyaxislabel{\Neventsaxis}
+}{}
+\ifthenelse{\equal{#5}{Njet_r}}{
+  \def\localxaxislabel{\Njetsr}
+  \def\localyaxislabel{\Neventsaxis}
+}{}
+\ifthenelse{\equal{#5}{npv}}{
+  \def\localxaxislabel{\Npu}
   \def\localyaxislabel{\Neventsaxis}
 }{}
 \ifthenelse{\equal{#5}{dijetpt}}{
@@ -338,6 +366,14 @@
   \def\localxaxislabel{$\eta (\localLB)$}
   \def\localyaxislabel{\Neventsaxis\ / $\dd~\eta$}
 }{}
+\ifthenelse{\equal{#5}{phi_1}}{
+  \def\localxaxislabel{$\phi (\localLA)$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\phi$}
+}{}
+\ifthenelse{\equal{#5}{phi_2}}{
+  \def\localxaxislabel{$\phi (\localLB)$}
+  \def\localyaxislabel{\Neventsaxis\ / $\dd~\phi$}
+}{}
 \ifthenelse{\equal{#5}{mt_1_puppi}}{
   \def\localxaxislabel{$\mT(\localLA,\MET)$ (\SI{}{\GeV})}
   \def\localyaxislabel{\Neventsaxis\ / $\dd~\mT$ (1/\SI{}{\GeV})}
@@ -355,7 +391,7 @@
   \def\localyaxislabel{\Neventsaxis\ / $\dd~\Dzeta$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{pt_tt_puppi}}{
-  \def\localxaxislabel{$\pT (\tau\tau)$ (\SI{}{\GeV})}
+  \def\localxaxislabel{$\pT (\localLA+\localLB+\MET)$ (\SI{}{\GeV})}
   \def\localyaxislabel{\Neventsaxis\ / $\dd~\pT$ (1/\SI{}{\GeV})}
 }{}
 \ifthenelse{\equal{#5}{DiTauDeltaR}}{
@@ -441,7 +477,7 @@
 \def\localBSMvar{\mTtot}
 \ifthenelse{\equal{#2}{m_ml}}{\def\localBSMvar{\mml}}{}
 \def\localSMvar{\NNscore}
-\def\localSMvarBD{\text{Indice du \NNscore\ 2D}}
+\def\localSMvarBD{\text{\NNscore\ 2D}}
 %\ifthenelse{\equal{#1}{HTT_v1}}{\def\localSMvar{\msv}}{}
 \def\localcat{\InclusiveSTR{}}
 \def\localvar{\localBSMvar}
@@ -645,10 +681,27 @@
 \def\localyaxislabel{\Neventsaxis\ / $\dd~\localvar$\ifthenelse{\equal{\localvar}{\localBSMvar}}{ (1/\SI{}{\GeV})}{}}
 
 % CMS disclaimer
-\def\localCMSdisclaimerAX{1.85}
+\def\localCMSdisclaimerAX{1.95}
 \def\localCMSdisclaimerAY{7.05}
-\def\localCMSdisclaimerBX{3.25}
+\def\localCMSdisclaimerBX{3.35}
 \def\localCMSdisclaimerBY{7.05}
+\ifthenelse{\equal{#5}{tt}}{ % tt
+  \ifthenelse{\equal{#6}{21}\or\equal{#6}{20}\or\equal{#6}{16}}{ % fake, EMB, misc
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
+  }{}
+}{}
+\ifthenelse{\equal{#5}{mt}\or\equal{#5}{et}}{ % semi-leptonic
+  \ifthenelse{\equal{#6}{20}\or\equal{#6}{13}\or\equal{#6}{15}}{
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
+  }{}
+  \ifthenelse{\equal{#6}{16}}{
+    \def\localCMSdisclaimerAX{6.5}
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
+  }{}
+}{}
 \ifthenelse{\equal{#5}{em}}{ % em
   \ifthenelse{\equal{#6}{20}\or\equal{#6}{19}\or\equal{#6}{14}}{ % EMB, diboson, qcd
     \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
@@ -847,9 +900,9 @@ doit vérifier $\mT < \SI{70}{\GeV}$. \TransverseMassWjetsInfosTXT}
 \draw [thick, -latex, ltcolorred] (0,0) -- (\xMET,\yMET) coordinate (vMET);
 \draw [ltcolorred] (vMET) node [below] {\vMET};
 \draw [thick, -latex, ltcolorblue] (0,0) -- (\xELE,\yELE) coordinate (vE);
-\draw [ltcolorblue] (vE) node [right] {$\vpT (\ele)$};
+\draw [ltcolorblue] (vE) node [right] {$\vpT^{\ele}$};
 \draw [thick, -latex, ltcolorblue] (0,0) -- (\xMU,\yMU) coordinate (vM);
-\draw [ltcolorblue] (vM) node [right] {$\vpT (\mu)$};
+\draw [ltcolorblue] (vM) node [right] {$\vpT^{\mu}$};
 
 \draw [dashed, -latex] ({-\xELE+-\xMU}, {-\yELE+-\yMU}) -- ({1.25*(\xELE+\xMU)}, {1.25*(\yELE+\yMU)}) node [above] {$\vec{\zeta}$};
 
@@ -882,7 +935,7 @@ p_\zeta^{(\tau\tau)} = \vpTvis \cdot \hat{\zeta}
 où $\hat{\zeta}$ est la direction bisectionnelle entre l'électron et le muon dans le plan transverse~\cite{Jang_thesis}
 et
 \begin{equation}
-\vpTvis = \left( \vpT^{\ele} + \vpT^{\mu} \right)
+\vpTvis = \vpT^{\ele} + \vpT^{\mu}
 \label{eq-pTvis_def}
 \end{equation}
 comme illustré sur la figure~\ref{fig-zeta_illustration}.
