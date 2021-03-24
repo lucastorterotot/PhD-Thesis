@@ -34,12 +34,22 @@ Plusieurs métriques sont considérées afin d'évaluer les modèles:
 \LossMSE,
 \LossMAE,
 \LossMAPE;
-\item la largeur du premier quantile de la distribution des réponses des modèles,
+\item la résolution relative des modèles,
 ou \og largeur à $1\sigma$ \fg,
 notée \OneSigmaWidth,
+estimée par
+la moyenne
+de
+la largeur du premier quantile de la distribution de la réponse $r$ des modèles
+sur des intervalles de \SI{10}{\GeV} sur $\ytrue=m_{\higgsML}$,
 où la réponse $r$ est définie comme
 \begin{equation}
 r = \frac{\ypred}{\ytrue} = \frac{F(\vec{x})}{m_{\higgsML}}
+\mend[,]
+\end{equation}
+\ie
+\begin{equation}
+\OneSigmaWidth = \Average{\eval{\sigma\left(\frac{\ypred}{\ytrue}\right)}_{\ytrue\in [n, n+1]\times\SI{10}{\GeV}}}_n
 \mend
 \end{equation}
 \end{itemize}
