@@ -122,81 +122,202 @@ Il est alors possible de voir les contributions de chacune des restrictions aux 
 \par
 Dans le cas des XGBs,
 l'évaluation des modèles par \LossMAPE, en figure~\ref{subfig-XGB_inputs-mape},
-montre que les modèles utilisant toutes les variables d'entrée permettent d'obtenir plus facilement
-une faible valeur de cette métrique.
-Le coeur de la distribution,
-aux alentours de $\LossMAPE=\todo{?}$,
-est en effet plutôt constitué
+donne des valeurs situées entre \num{17} et \num{35}.
+Le cœur de la distribution,
+à $\LossMAPE=\num{19}\pm\num{2}$,
+est plutôt constitué
 de modèles utilisant
 toutes les entrées
-dans sa partie gauche (\LossMAPE\ faible)
+dans sa partie gauche ($\LossMAPE<\num{19}$)
 et
 de modèles utilisant
 un sous-ensemble d'entrées
-dans sa partie droite (\LossMAPE\ haute).
-De plus, les basses valeurs de \LossMAPE, en-dessous de \todo{?},
+dans sa partie droite ($\num{19}<\LossMAPE<\num{22}$).
+De plus, les basses valeurs de \LossMAPE, en-dessous de \num{18.5},
 sont presque exclusivement obtenues avec des modèles utilisant toutes les entrées.
-À l'inverse, la queue à hautes valeurs de la distribution obtenue est largement dominée par les contributions des modèles avec un sous-ensemble d'entrées.
+À l'inverse, la queue à hautes valeurs de la distribution obtenue ($\LossMAPE>\num{23}$) est largement dominée par les contributions des modèles avec un sous-ensemble d'entrées.
 \par
-La largeur \OneSigmaWidth, en figure~\ref{subfig-XGB_inputs-1sigw},
-montre des extremums
-à \todo{?} et \todo{?}
-pour l'ensemble des modèles,
-mais
-à \todo{?} et \todo{?}
-pour les modèles utilisant toutes les entrées.
-Quelques modèles sans \mT\ présentent
-une valeur de \OneSigmaWidth\
-inférieure à \todo{?},
-mais ils sont associés à des valeurs de \LossMAPE\
-plus élevées que ceux utilisant toutes les entrées.
+La plupart des XGBs ont
+une largeur \OneSigmaWidth, en figure~\ref{subfig-XGB_inputs-1sigw},
+située entre \num{27} et \num{38}.
+Cependant,
+les XGBs utilisant toutes les variables d'entrée
+exhibent une distribution de \OneSigmaWidth\ légèrement décalée vers de plus faibles valeurs.
 \par
 Dans le cas des DNNs,
-la métrique \LossMAPE, en figure~\ref{subfig-DNN_inputs-mape},
-ne montre pas d'avantage net d'un type de modèle sur un autre.
-En revanche,
-la largeur \OneSigmaWidth, en figure~\ref{subfig-DNN_inputs-1sigw},
+la distribution de la métrique \LossMAPE, en figure~\ref{subfig-DNN_inputs-mape},
+contient des valeurs situées entre \num{17.5} et \num{25}.
+Les DNNs n'utilisant pas \Nnu\
+se situent à $\LossMAPE>\num{18}$.
+Cette variable permet aux modèles de différencier les canaux
+hadroniques, semi-leptoniques et leptoniques,
+dont la séparation est discutée dans la section~\ref{chapter-ML-section-discussion}.
+Ceux n'utilisant pas \mT\ présentent également des valeurs de \LossMAPE\ uniquement au-delà de \num{18}.
+L'utilisation de ces variables permet donc d'obtenir de meilleurs modèles.
+Elles sont de plus facilement obtenues à partir du \emph{dilepton}, défini chapitre~\refChHTT, et de \MET.
+Les analyses avec deux leptons tau dans l'état final exploitent déjà ces observables,
+leur utilisation par nos modèles est donc à la fois
+pertinente, car les scores de \LossMAPE\ obtenus sont meilleurs,
+et
+sans incidence sur la facilité d'intégration du modèle à l'analyse.
+Les DNNs avec $\LossMAPE\lesssim\num{18}$
+exploitent presque tous
+les variables relatives aux jets, à l'AHA et à la matrice de covariance de \MET.
+Ces entrées sont donc vraisemblablement utiles aux DNNs afin de réaliser la régression.
+Enfin,
+la restriction sur \Npu\
+ne semble pas dégrader les performances des DNNs
+selon \LossMAPE.
+\par
+La distribution de
+\OneSigmaWidth, en figure~\ref{subfig-DNN_inputs-1sigw},
 montre que les modèles utilisant toutes les entrées peuvent se répartir en trois groupes,
 aux alentour des valeurs
-\todo{?}, \todo{?} et \todo{?}.
-À \todo{?3e} apparaît également un groupe de modèles entraînés sans \mT.
-À \todo{?2e} se trouvent la majorité des modèles entraînés avec une restriction des entrées.
+\num{0.275}, \num{0.335} et \num{0.395}.
+À \num{0.39} apparaît également un groupe de modèles entraînés sans \mT.
+À \num{0.33} se trouvent la majorité des modèles entraînés avec une restriction des entrées.
 Les modèles de ces groupes ont potentiellement minimisé l'utilisation de certaines variables.
-Les modèles d'intérêt sont ceux du groupe se situant à \OneSigmaWidth\ d'environ \todo{?1er}.
+Les modèles d'intérêt sont ceux du groupe se situant à $\OneSigmaWidth \simeq \num{0.275}$.
 Il s'agit presque exclusivement de modèles utilisant toutes les variables d'entrée.
 \par
 L'utilisation de toutes les variables listées dans la section~\ref{chapter-ML-section-evt_gen-inputs}
-est ainsi corrélée avec de meilleures performances
+est donc corrélée avec de meilleures performances
 selon les métriques
 \LossMAPE\
-et \OneSigmaWidth.
+et
+\OneSigmaWidth.
 Par la suite, seuls les modèles utilisant toutes les variables, au nombre de 27, sont considérés.
-
 \subsection{Type de modèle}
-Les distributions des métriques des deux types de modèle sont données figure~\ref{fig-DNN_vs_XGB}.
-Si les XGBs sont compétitifs selon \OneSigmaWidth, les DNNs proposent de bien meilleures performances sur \LossMSE, \LossMAE\ et surtout \LossMAPE.
-La sélection d'un modèle est donc faite parmi les DNNs.
+Les figures~\ref{fig-DNN_vs_XGB-mse_mape} et~\ref{fig-DNN_vs_XGB-1sigma}
+présentent les distributions des scores de
+\LossMSE,
+\LossMAPE\
+et
+\OneSigmaWidth\
+pour l'ensemble des DNNs et des XGBs
+utilisant toutes les variables d'entrée.
+\par
 \begin{figure}[h]
 \centering
 
-\subcaptionbox{}[.45\textwidth]
-{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB-full_1sig_width.pdf}\vspace{-\baselineskip}}
+\subcaptionbox{Évaluation par \LossMSE.\label{subfig-DNN_vs_XGB-mse}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-full_mse.pdf}\vspace{-\baselineskip}}
 \hfill
-\subcaptionbox{}[.45\textwidth]
-{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB-full_mape.pdf}\vspace{-\baselineskip}}
+\subcaptionbox{Évaluation par \LossMAPE.\label{subfig-DNN_vs_XGB-mape}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-full_mape.pdf}\vspace{-\baselineskip}}
 
-\vspace{\baselineskip}
-
-\subcaptionbox{}[.45\textwidth]
-{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB-full_mse.pdf}\vspace{-\baselineskip}}
-\hfill
-\subcaptionbox{}[.45\textwidth]
-{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB-full_mae.pdf}\vspace{-\baselineskip}}
-
-\caption{Comparaisons des XGBs et des DNNs.}
-\label{fig-DNN_vs_XGB}
+\caption{Évaluations des XGBs et des DNNs par \LossMSE\ et \LossMAPE.}
+\label{fig-DNN_vs_XGB-mse_mape}
 \end{figure}
-\newpage
+\begin{figure}[h]
+\centering
+%\vspace{\baselineskip}
+
+%\subcaptionbox{\label{subfig-DNN_vs_XGB-mae}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-full_mae.pdf}\vspace{-\baselineskip}}
+%\hfill
+\subcaptionbox{Sur toute la gamme de masse.\label{subfig-DNN_vs_XGB-1sigma}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-full_1sig_width.pdf}\vspace{-\baselineskip}}
+\hfill
+\subcaptionbox{À basse masse.\label{subfig-DNN_vs_XGB-low_1sigma}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-low_1sig_width.pdf}\vspace{-\baselineskip}}
+
+\caption{Évaluations des XGBs et des DNNs par \OneSigmaWidth.}
+\label{fig-DNN_vs_XGB-1sigma}
+\end{figure}
+L'évaluation par \LossMSE, en figure~\ref{subfig-DNN_vs_XGB-mse}, favorise les XGBs.
+Le cœur de la distribution de \LossMSE\ pour ces modèles est en effet à \SI{8.1e3}{\GeV^2}
+contre \SI{8.5e3}{\GeV^2} pour les DNNs.
+En revanche,
+l'évaluation par \LossMAPE, en figure~\ref{subfig-DNN_inputs-mape}, favorise les DNNs
+avec un groupe de DNNs à $\LossMAPE=\num{18}$
+contre \num{19} pour les XGBs.
+Un second groupe de DNNs est présent à \num{23}.
+\par
+La résolution des modèles est évaluée par \OneSigmaWidth\
+en figure~\ref{subfig-DNN_vs_XGB-1sigma} pour toute la gamme de masse
+et
+en figure~\ref{subfig-DNN_vs_XGB-low_1sigma} pour les basses masses.
+Sur l'ensemble de la gamme de masse,
+les XGBs ont un score de $\num{0.32}\pm\num{0.04}$
+et
+les DNNs se répartissent en trois groupes
+à environ
+\num{0.28}, \num{0.33} et \num{0.40}.
+%\num{0.275}, \num{0.335} et \num{0.395}.
+Les XGBs sont ainsi compétitifs d'après cette évaluation.
+Cependant,
+les performances des modèles
+à basse masse, \ie\ pour $m_{\higgsML} < \SI{150}{\GeV}$,
+sont importantes car c'est dans cette gamme de masse que se trouvent les bosons \Zboson\ et \higgs\ du modèle standard.
+Sur la figure~\ref{subfig-DNN_vs_XGB-low_1sigma},
+l'évaluation à basse masse par \OneSigmaWidth\
+les XGBs ont un score de $\num{0.70}\pm\num{0.15}$
+alors que les DNNs se répartissent en deux groupes,
+le premier à $\num{0.42}\pm\num{0.05}$
+et
+le second entre $\num{0.50}$ et $\num{1.0}$.
+Le premier ensemble de DNNs propose les meilleures résolutions sur les masses des particules du modèle standard.
+\par
+La réévaluation des modèles par 
+\LossMSE\ et \LossMAPE\ à basse masse, en figures~\ref{subfig-DNN_vs_XGB-low_mse} et~\ref{subfig-DNN_vs_XGB-low_mape},
+confirme l'obtention de meilleures performances avec les DNNs.
+En effet,
+les DNNs sont les seuls modèles avec
+$\LossMSE < \SI{1.5e3}{\GeV^2}$
+et
+$\LossMAPE < \num{28}$
+à basse masse.
+Les XGBs ont des scores de \LossMSE\ et \LossMAPE\ généralement
+entre \SI{1.5e3}{\GeV^2} et \SI{4.0e3}{\GeV^2}
+et
+entre \num{28} et \num{43},
+respectivement.
+La suite de la sélection d'un modèle est donc faite parmi les DNNs.
+\begin{figure}[h]
+\centering
+%\vspace{\baselineskip}
+
+\subcaptionbox{Évaluation par \LossMSE.\label{subfig-DNN_vs_XGB-low_mse}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-low_mse.pdf}\vspace{-\baselineskip}}
+\hfill
+\subcaptionbox{Évaluation par \LossMAPE.\label{subfig-DNN_vs_XGB-low_mape}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-low_mape.pdf}\vspace{-\baselineskip}}
+
+\caption{Évaluations des XGBs et des DNNs par \LossMSE\ et \LossMAPE\ à basse masse.}
+\label{fig-DNN_vs_XGB-mse_mape-low}
+\end{figure}
+%\begin{figure}[p]
+%\centering
+%
+%\subcaptionbox{\label{subfig-DNN_vs_XGB-medium_mse}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-medium_mse.pdf}\vspace{-\baselineskip}}
+%\hfill
+%\subcaptionbox{\label{subfig-DNN_vs_XGB-medium_mape}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-medium_mape.pdf}\vspace{-\baselineskip}}
+%
+%\vspace{\baselineskip}
+%
+%%\subcaptionbox{\label{subfig-DNN_vs_XGB-mae}}[.45\textwidth]
+%%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-full_mae.pdf}\vspace{-\baselineskip}}
+%%\hfill
+%\subcaptionbox{\label{subfig-DNN_vs_XGB-medium_1sigma}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-medium_1sig_width.pdf}\vspace{-\baselineskip}}
+%\hfill
+%\subcaptionbox{\label{subfig-DNN_vs_XGB-high_1sigma}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-high_1sig_width.pdf}\vspace{-\baselineskip}}
+%
+%\vspace{\baselineskip}
+%
+%\subcaptionbox{\label{subfig-DNN_vs_XGB-high_mse}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-high_mse.pdf}\vspace{-\baselineskip}}
+%\hfill
+%\subcaptionbox{\label{subfig-DNN_vs_XGB-high_mape}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-high_mape.pdf}\vspace{-\baselineskip}}
+%
+%\caption{Comparaisons des XGBs et des DNNs.}
+%\label{fig-DNN_vs_XGB_bis}
+%\end{figure}
 \subsection{Fonction de coût}
 Le choix de la fonction de coût \Loss\ ne peut se faire sur la base des métriques correspondant elles-mêmes.
 En effet, comme cela se voit sur la figure~\ref{fig-loss_mse_mape_themselves},
