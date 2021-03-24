@@ -98,25 +98,25 @@ Il est alors possible de voir les contributions de chacune des restrictions aux 
 \begin{figure}[h]
 \centering
 
-\subcaptionbox{\label{subfig-XGB_inputs-mape}}[.45\textwidth]
+\subcaptionbox{Évaluation par \LossMAPE.\label{subfig-XGB_inputs-mape}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/XGB_inputs_all-full_mape.pdf}\vspace{-\baselineskip}}
 \hfill
-\subcaptionbox{\label{subfig-XGB_inputs-1sigw}}[.45\textwidth]
+\subcaptionbox{Évaluation par \OneSigmaWidth.\label{subfig-XGB_inputs-1sigw}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/XGB_inputs_all-full_1sig_width.pdf}\vspace{-\baselineskip}}
 
-\caption{Comparaison des performances des XGBs selon les variables d'entrée.}
+\caption{Évaluations des XGBs regroupés selon les variables d'entrée.}
 \label{fig-XGB_inputs}
 \end{figure}
 \begin{figure}[h]
 \centering
 
-\subcaptionbox{\label{subfig-DNN_inputs-mape}}[.45\textwidth]
+\subcaptionbox{Évaluation par \LossMAPE.\label{subfig-DNN_inputs-mape}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_inputs_all-full_mape.pdf}\vspace{-\baselineskip}}
 \hfill
-\subcaptionbox{\label{subfig-DNN_inputs-1sigw}}[.45\textwidth]
+\subcaptionbox{Évaluation par \OneSigmaWidth.\label{subfig-DNN_inputs-1sigw}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_inputs_all-full_1sig_width.pdf}\vspace{-\baselineskip}}
 
-\caption{Comparaison des performances des DNNs selon les variables d'entrée.}
+\caption{Évaluations des DNNs regroupés selon les variables d'entrée.}
 \label{fig-DNN_inputs}
 \end{figure}
 \par
@@ -287,61 +287,22 @@ La suite de la sélection d'un modèle est donc faite parmi les DNNs.
 \caption{Évaluations des XGBs et des DNNs par \LossMSE\ et \LossMAPE\ à basse masse.}
 \label{fig-DNN_vs_XGB-mse_mape-low}
 \end{figure}
-%\begin{figure}[p]
-%\centering
-%
-%\subcaptionbox{\label{subfig-DNN_vs_XGB-medium_mse}}[.45\textwidth]
-%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-medium_mse.pdf}\vspace{-\baselineskip}}
-%\hfill
-%\subcaptionbox{\label{subfig-DNN_vs_XGB-medium_mape}}[.45\textwidth]
-%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-medium_mape.pdf}\vspace{-\baselineskip}}
-%
-%\vspace{\baselineskip}
-%
-%%\subcaptionbox{\label{subfig-DNN_vs_XGB-mae}}[.45\textwidth]
-%%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-full_mae.pdf}\vspace{-\baselineskip}}
-%%\hfill
-%\subcaptionbox{\label{subfig-DNN_vs_XGB-medium_1sigma}}[.45\textwidth]
-%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-medium_1sig_width.pdf}\vspace{-\baselineskip}}
-%\hfill
-%\subcaptionbox{\label{subfig-DNN_vs_XGB-high_1sigma}}[.45\textwidth]
-%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-high_1sig_width.pdf}\vspace{-\baselineskip}}
-%
-%\vspace{\baselineskip}
-%
-%\subcaptionbox{\label{subfig-DNN_vs_XGB-high_mse}}[.45\textwidth]
-%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-high_mse.pdf}\vspace{-\baselineskip}}
-%\hfill
-%\subcaptionbox{\label{subfig-DNN_vs_XGB-high_mape}}[.45\textwidth]
-%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_vs_XGB_all_inputs-high_mape.pdf}\vspace{-\baselineskip}}
-%
-%\caption{Comparaisons des XGBs et des DNNs.}
-%\label{fig-DNN_vs_XGB_bis}
-%\end{figure}
 \subsection{Fonction de coût}
-Le choix de la fonction de coût \Loss\ ne peut se faire sur la base des métriques correspondant elles-mêmes.
-En effet, comme cela se voit sur la figure~\ref{fig-loss_mse_mape_themselves},
-les réseaux entraînés de manière à minimiser une fonction de coût sont meilleurs selon cette métrique.
+Les évaluations des DNNs,
+regroupés d'après la fonction de coût utilisée lors de leurs entraînements,
+selon les métriques
+\LossMSE, \LossMAPE, \LossMAE\ et \OneSigmaWidth\
+sont représentées sur la figure~\ref{fig-DNN_losses}.
 \begin{figure}[h]
 \centering
 
-\subcaptionbox{}[.45\textwidth]
+\subcaptionbox{\label{subfig-loss_mse_mape-mse}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_loss-full_mse.pdf}\vspace{-\baselineskip}}
 \hfill
-\subcaptionbox{}[.45\textwidth]
+\subcaptionbox{\label{subfig-loss_mse_mape-mape}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_loss-full_mape.pdf}\vspace{-\baselineskip}}
 
-\caption{Comparaisons des fonctions de coût \LossMSE\ et \LossMAPE\ d'après leurs propres valeurs.}
-\label{fig-loss_mse_mape_themselves}
-\end{figure}
-\par
-Cependant, l'écart entre les modèles minimisant \LossMSE\ ou bien \LossMAPE\
-est moindre lorsqu'ils sont évalués par \LossMSE\ que par \LossMAPE,
-ce qui laisse à penser que l'utilisation de \LossMAPE\ donne de meilleurs modèles.
-Ceci est confirmé par la figure~\ref{fig-loss_mse_mape_by_mae_and_low_1sigma} où ces deux catégories de modèles sont évaluées par \LossMAE\ et par \OneSigmaWidth\ à basse masse.
-La fonction de coût retenue est donc \LossMAPE.
-\begin{figure}[h]
-\centering
+\vspace{\baselineskip}
 
 \subcaptionbox{}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_loss-full_mae.pdf}\vspace{-\baselineskip}}
@@ -349,10 +310,22 @@ La fonction de coût retenue est donc \LossMAPE.
 \subcaptionbox{}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_loss-low_1sig_width.pdf}\vspace{-\baselineskip}}
 
-\caption{Comparaisons des fonctions de coût \LossMSE\ et \LossMAPE\ d'après d'autres métriques.}
-\label{fig-loss_mse_mape_by_mae_and_low_1sigma}
+\caption{Évaluations des DNNs regroupés selon la fonction de coût par \LossMSE, \LossMAPE, \LossMAE\ et \OneSigmaWidth.}
+\label{fig-DNN_losses}
 \end{figure}
-\newpage
+\par
+L'évaluation par \LossMSE, figure~\ref{subfig-loss_mse_mape-mse},
+montre que les DNNs entraînés avec $\Loss=\LossMSE$
+présentent une score
+compris entre \SI{7.5e3}{\GeV^2} et \SI{15e3}{\GeV^2},
+la majorité d'entre eux se trouvant en-dessous de \SI{11e3}{\GeV^2}.
+Les DNNs entraînés avec $\Loss=\LossMAPE$ en revanche
+se séparent en deux groupes.
+Le premier se situe entre \SI{7.5e3}{\GeV^2} et \SI{10e3}{\GeV^2},
+le second  entre \num{13} et \SI{16e3}{\GeV^2}.
+
+\todo{Models with MAE to be trained}
+
 \subsection{Algorithme d'optimisation et initiation des paramètres}
 Trois algorithmes d'optimisation ont été considérés, SGD, Adadelta et Adam.
 
