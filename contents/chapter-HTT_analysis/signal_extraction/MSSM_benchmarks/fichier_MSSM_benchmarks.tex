@@ -1,8 +1,8 @@
 \subsection{Interprétation dans les scénarios du MSSM}\label{chapter-HTT_analysis-section-signal_extraction-benchmarks}
-Les résultats de l'analyse sont de plus interprétés dans le cadre de scénarios de référence~\cite{Bagnaschi_2019}
+Les résultats de l'analyse sont interprétés dans le cadre de scénarios de référence~\cite{Bagnaschi_2019}
 respectant les limites fixées par les expériences du LEP, du Tevatron et du LHC.
 En particulier, un des bosons de Higgs scalaire doit jouer le rôle du boson découvert en 2012 avec une masse de $\num{125}\pm\SI{3}{\GeV}$.
-\par
+\subsubsection{Scénarios sans violation de $CP$}
 Comme exposé dans le chapitre~\refChMSSM,
 les deux paramètres permettant de décrire au premier ordre les bosons de Higgs dans le MSSM
 sont $m_{\HiggsA}$ et $\tan\beta$,
@@ -149,20 +149,34 @@ Catégorie & & $\gluon\gluon\higgs$, VBF, VH & $\quarkb\antiquarkb\higgs$ & \Hig
 \caption{Présences attendues des contributions au signal dans les catégories.}
 \label{tab-sign_in_cats_expected}
 \end{table}
-\subsection{Cas du scénario avec violation de $CP$}
-La violation de la symétrie $CP$,
-abordée dans le chapitre~\refChMSSM,
-peut également apparaître avec les bosons de Higgs.
-Hors violation de $CP$, les bosons sont dits \og $CP$-pairs \fg.
-Une composante \og $CP$-impaire \fg{} implique une violation de $CP$.
+\subsubsection{Cas du scénario avec violation de $CP$}
+Le boson de Higgs du modèle standard \higgsSM\ est prédit comme étant purement $CP$-pair,
+ce qui est également le cas du boson de Higgs \higgsMSSM\ du MSSM sans violation de $CP$.
+Dans ce cas, \Higgs\ est également $CP$-pair et \HiggsA\ est $CP$-impair,
+tous ces bosons sont donc des états propres de $CP$.
 \par
-La présence d'une telle composante peut être directement étudiée par la mesure de l'angle de mixage $CP$ du boson de Higgs \higgs,
-$\phi_{CP}^{\higgs}$~\cite{PhysRevD.92.096012}.
-Cette mesure peut être réalisée à partir des événements avec une paire de leptons tau~\cite{Bourgatte_thesis},
-en particulier,
-par les méthodes du paramètres d'impact~\cite{BERGE2013488}, du plan de désintégration~\cite{Desch_2004} et du vecteur polarimétrique~\cite{Cherepanov_cpv},
+Cependant, comme exposé au chapitre~\refChMSSM,
+une violation de $CP$ peut apparaître avec les bosons de Higgs.
+Dans ce cas, les états propres de masse de ces bosons sont, par masses croissantes,
+$\Higgs_1$, $\Higgs_2$ et $\Higgs_3$.
+Il s'agit d'états $CP$ mixtes,
+\ie\ avec une composante $CP$-paire et une $CP$-impaire.
+Dans le cadre de la recherche de bosons supplémentaires de haute masse,
+le rôle du boson de Higgs déjà observé \higgs\ est pris par $\Higgs_1$.
+\par
+La recherche d'une composante $CP$-impaire peut être réalisée directement sur \higgs.
+Les événements avec une paire de leptons tau peuvent être étudiés à cette fin~\cite{Bourgatte_thesis}
+à l'aide des méthodes du paramètres d'impact~\cite{BERGE2013488}, du plan de désintégration~\cite{Desch_2004} ou du vecteur polarimétrique~\cite{Cherepanov_cpv},
 basées sur les propriétés cinématiques des particules de l'état final.
-
-\todo{continue}
-
-\cite{CMS-NOTE-2019-192,Goodsell_cpv,Arbey_cpv,Carena_cpv}
+\par
+Dans le cadre de l'analyse menée dans cette thèse,
+l'hypothèse du MSSM avec violation de $CP$
+est testée par rapport à celle du modèle standard de manière similaire
+au cas des scénarios sans violation de $CP$.
+Cependant,
+le signal du MSSM considéré est
+$\Phi\in\set{\Higgs_1,\Higgs_2,\Higgs_3}\to\tau\tau$.
+Le paramètre $m_{\HiggsA}$ est alors remplacé par $m_{\Higgspm}$ la masse des bosons de Higgs chargés.
+Enfin, des interférences entre $\Higgs_2$ et $\Higgs_3$ sont attendues et peuvent mener à des limites d'exclusion plus faibles.
+%\cite{CMS-NOTE-2019-192,Goodsell_cpv,Arbey_cpv,Carena_cpv}
+% https://twiki.cern.ch/twiki/bin/view/LHCPhysics/LHCHWGMSSMNeutral?redirectedfrom=LHCPhysics.LHCHXSWGMSSMNeutral#ROOT_histograms_2018_and_beyond
