@@ -1,8 +1,6 @@
-\def\localLA{\ensuremath{\tauh^{(1)}}}
-\def\localLB{\ensuremath{\tauh^{(2)}}}
-\def\localchannel{\tauh\tauh}
-\ifthenelse{\equal{\lolcalcurrentchannel}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}}{}
-\ifthenelse{\equal{\lolcalcurrentchannel}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}}{}
+\ifthenelse{\equal{\lolcalcurrentchannel}{tt}}{\def\localchannel{\tauh\tauh}\def\localLA{\ensuremath{\tauh^{(1)}}}\def\localLB{\ensuremath{\tauh^{(2)}}}}{}
+\ifthenelse{\equal{\lolcalcurrentchannel}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}\def\localLB{\ensuremath{\tauh}}}{}
+\ifthenelse{\equal{\lolcalcurrentchannel}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}\def\localLB{\ensuremath{\tauh}}}{}
 \ifthenelse{\equal{\lolcalcurrentchannel}{em}}{\def\localchannel{\ele\mu}\def\localLA{\ele}\def\localLB{\mu}}{}
 
 \begin{figure}[p]

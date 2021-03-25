@@ -264,11 +264,9 @@
 \ifthenelse{\equal{#3}{emb_ff_high_m_sv_puppi}}{\def\localcat{$\msv>\SI{250}{\GeV}$}}{}
 
 % channel
-\def\localLA{\ensuremath{\tauh^{(1)}}}
-\def\localLB{\ensuremath{\tauh^{(2)}}}
-\def\localchannel{\tauh\tauh}
-\ifthenelse{\equal{#4}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}}{}
-\ifthenelse{\equal{#4}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}}{}
+\ifthenelse{\equal{#4}{tt}}{\def\localchannel{\tauh\tauh}\def\localLA{\ensuremath{\tauh^{(1)}}}\def\localLB{\ensuremath{\tauh^{(2)}}}}{}
+\ifthenelse{\equal{#4}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}\def\localLB{\ensuremath{\tauh}}}{}
+\ifthenelse{\equal{#4}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}\def\localLB{\ensuremath{\tauh}}}{}
 \ifthenelse{\equal{#4}{em}}{\def\localchannel{\ele\mu}\def\localLA{\ele}\def\localLB{\mu}}{}
 
 % year
@@ -467,11 +465,9 @@
 \ifthenelse{\equal{#4}{2018}}{\def\locallumivalue{59.7}}{}
 
 % channel
-\def\localLA{\ensuremath{\tauh^{(1)}}}
-\def\localLB{\ensuremath{\tauh^{(2)}}}
-\def\localchannel{\tauh\tauh}
-\ifthenelse{\equal{#5}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}}{}
-\ifthenelse{\equal{#5}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}}{}
+\ifthenelse{\equal{#5}{tt}}{\def\localchannel{\tauh\tauh}\def\localLA{\ensuremath{\tauh^{(1)}}}\def\localLB{\ensuremath{\tauh^{(2)}}}}{}
+\ifthenelse{\equal{#5}{mt}}{\def\localchannel{\mu\tauh}\def\localLA{\mu}\def\localLB{\ensuremath{\tauh}}}{}
+\ifthenelse{\equal{#5}{et}}{\def\localchannel{\ele\tauh}\def\localLA{\ele}\def\localLB{\ensuremath{\tauh}}}{}
 \ifthenelse{\equal{#5}{em}}{\def\localchannel{\ele\mu}\def\localLA{\ele}\def\localLB{\mu}}{}
 
 % category and variable
