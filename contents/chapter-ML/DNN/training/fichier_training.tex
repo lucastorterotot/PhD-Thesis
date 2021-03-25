@@ -19,7 +19,8 @@ N_\text{params.}
 soit près de deux millions.
 Les termes \og $+1$ \fg{} correspondent aux biais $b$ à ajouter au nombre d'entrées des neurones.
 \subsubsection{Initiation des paramètres}
-Les poids $w_i$ sont initialement fixés à une valeur constante donnée ou aléatoirement selon une loi de probabilité.
+Les biais $b_i$ sont initialement fixés à 0,
+les poids $w_i$ à une valeur constante donnée ou aléatoirement selon une loi de probabilité.
 Le mode d'initiation est un hyper-paramètre du modèle.
 Lors de ces travaux, nous avons testé les lois normale et uniforme.
 Dans le cas des DNNs, ces modes d'initiation peuvent être améliorés par la méthode de \citeauthor{glorot}~\cite{glorot} afin de faciliter l'entraînement.
