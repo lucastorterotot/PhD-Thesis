@@ -27,6 +27,39 @@ Les hyper-paramètres des DNNs sont:
 \item la liste des variables d'entrée.
 \end{itemize}
 \par
+Les modèles entraînés ont pour but de prédire la masse générée du boson de Higgs $m_{\higgsML}$.
+Une représentation graphique possible afin de montrer les performances d'un modèle serait de représenter ses prédictions \ypred\ en fonction de \ytrue, dans un histogramme à deux dimensions.
+La figure~\ref{subfig-pred_vs_ans_2d_histo_example} montre un tel histogramme pour un de nos modèles.
+L'objectif des modèles est alors de se rapprocher autant que possible de la première bissectrice, tracée en rouge.
+Toutefois
+la large gamme explorée, de \num{50} à \SI{800}{\GeV}, rend difficile
+la visualisation des performances à basse masse.
+Or, cette région est importante car elle contient les bosons \Zboson\ et \higgs\ du modèle standard.
+La réponse $r$ du modèle, définie comme
+\begin{equation}
+r = \frac{\ypred}{\ytrue} = \frac{F(\vec{x})}{m_{\higgsML}}
+\mend[,]
+\end{equation}
+permet de ramener l'objectif des modèles à 1 sur toute la gamme de masse.
+La réponse du même modèle est ainsi représentée sur la figure~\ref{subfig-model_response_example}.
+Pour chaque intervalle de \SI{10}{\GeV} sur $m_{\higgsML}$,
+la distribution de $r$ est déterminée.
+La valeur moyenne et la médiane de cette distribution sont données,
+et ainsi que le premier ($\pm1\sigma$) et le second quantile ($\pm2\sigma$).
+Une évaluation quantifiée des modèles reste nécessaire.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Histogramme à deux dimensions de \ypred\ en fonction de \ytrue.\label{subfig-pred_vs_ans_2d_histo_example}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/predicted_vs_answers_histo-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}}
+\hfill
+\subcaptionbox{Réponse du modèle $\ypred/\ytrue$ en fonction de \ytrue.\label{subfig-model_response_example}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}}
+
+\caption{Exemples de graphiques rendant compte des performances des modèles.}
+\label{fig-model_perfs_graphiques_examples}
+\end{figure}
+\par
 Il est difficile de définir un seul score quantifiant la qualité d'un modèle.
 Plusieurs métriques sont considérées afin d'évaluer les modèles:
 \begin{itemize}
@@ -42,16 +75,12 @@ la moyenne
 de
 la largeur du premier quantile de la distribution de la réponse $r$ des modèles
 sur des intervalles de \SI{10}{\GeV} sur $\ytrue=m_{\higgsML}$,
-où la réponse $r$ est définie comme
-\begin{equation}
-r = \frac{\ypred}{\ytrue} = \frac{F(\vec{x})}{m_{\higgsML}}
-\mend[,]
-\end{equation}
 \ie
 \begin{equation}
 \OneSigmaWidth = \Average{\eval{\sigma\left(\frac{\ypred}{\ytrue}\right)}_{\ytrue\in [n, n+1]\times\SI{10}{\GeV}}}_n
 \mend
 \end{equation}
+Il s'agit donc de la moyenne de la largeur verticale des bandes vertes ($\pm1\sigma$) sur les graphiques des réponses des modèles comme celui de la figure~\ref{subfig-model_response_example}.
 \end{itemize}
 Pour toutes ces métriques, l'objectif est la plus petite valeur possible.
 De plus, quatre domaines de masse sont définis:
