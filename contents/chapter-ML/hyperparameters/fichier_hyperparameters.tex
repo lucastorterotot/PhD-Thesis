@@ -200,14 +200,15 @@ selon \LossMAPE.
 \par
 La distribution de
 \OneSigmaWidth, en figure~\ref{subfig-DNN_inputs-1sigw},
-montre que les modèles utilisant toutes les entrées peuvent se répartir en trois groupes,
+montre que les modèles utilisant toutes les entrées peuvent se répartir en plusieurs groupes,
 aux alentour des valeurs
-\num{0.275}, \num{0.335} et \num{0.395}.
-À \num{0.39} apparaît également un groupe de modèles entraînés sans \mT.
-À \num{0.33} se trouvent la majorité des modèles entraînés avec une restriction des entrées.
-Les modèles de ces groupes ont potentiellement minimisé l'utilisation de certaines variables.
-Les modèles d'intérêt sont ceux du groupe se situant à $\OneSigmaWidth \simeq \num{0.275}$.
-Il s'agit presque exclusivement de modèles utilisant toutes les variables d'entrée.
+\num{0.275}, \num{0.335}, \num{0.395}, \num{0.425} et \num{0.475}.
+À \num{0.395} apparaît également un groupe de modèles entraînés sans \mT.
+À \num{0.335} se trouvent la majorité des modèles entraînés avec une restriction des entrées.
+%Les modèles de ces groupes ont potentiellement minimisé l'utilisation de certaines variables.
+%Les modèles d'intérêt sont ceux du groupe se situant à $\OneSigmaWidth \simeq \num{0.275}$.
+%Il s'agit presque exclusivement de modèles utilisant toutes les variables d'entrée.
+Pour $\OneSigmaWidth<\num{0.3}$, les modèles sont très majoritairement ceux utilisant l'ensemble des variables proposées.
 \par
 L'utilisation de toutes les variables listées dans la section~\ref{chapter-ML-section-evt_gen-inputs}
 est donc corrélée avec de meilleures performances
@@ -216,7 +217,7 @@ selon les métriques
 et
 \OneSigmaWidth.
 Par la suite, seuls les modèles utilisant toutes les variables, au nombre de 27, sont considérés.
-\subsection{Type de modèle}
+\subsection{Type de modèle}\label{chapter-ML-section-hyperparameters-type}
 Les figures~\ref{fig-DNN_vs_XGB-mse_mape} et~\ref{fig-DNN_vs_XGB-1sigma}
 présentent les distributions des scores de
 \LossMSE,
@@ -258,10 +259,11 @@ L'évaluation par \LossMSE, en figure~\ref{subfig-DNN_vs_XGB-mse}, favorise les 
 Le cœur de la distribution de \LossMSE\ pour ces modèles est en effet à \SI{8.1e3}{\GeV^2}
 contre \SI{8.5e3}{\GeV^2} pour les DNNs.
 En revanche,
-l'évaluation par \LossMAPE, en figure~\ref{subfig-DNN_inputs-mape}, favorise les DNNs
+l'évaluation par \LossMAPE, en figure~\ref{subfig-DNN_vs_XGB-mape}, favorise les DNNs
 avec un groupe de DNNs à $\LossMAPE=\num{18}$
 contre \num{19} pour les XGBs.
-Un second groupe de DNNs est présent à \num{23}.
+Un second groupe de DNNs est présent à $\LossMAPE=\num{23}$.
+L'existence de ces deux groupes est due à l'utilisation de plusieurs algorithmes d'optimisation, comme discuté dans la section~\ref{chapter-ML-section-hyperparameters-opti}.
 \par
 La résolution des modèles est évaluée par \OneSigmaWidth\
 en figure~\ref{subfig-DNN_vs_XGB-1sigma} pour toute la gamme de masse
@@ -270,10 +272,10 @@ en figure~\ref{subfig-DNN_vs_XGB-low_1sigma} pour les basses masses.
 Sur l'ensemble de la gamme de masse,
 les XGBs ont un score de $\num{0.32}\pm\num{0.04}$
 et
-les DNNs se répartissent en trois groupes
+les DNNs se répartissent en plusieurs groupes
 à environ
-\num{0.28}, \num{0.33} et \num{0.40}.
-%\num{0.275}, \num{0.335} et \num{0.395}.
+\num{0.28}, \num{0.33}, \num{0.40}, \num{0.42} et \num{0.48}.
+%\num{0.275}, \num{0.335}, \num{0.395}, \num{0.425} et \num{0.475}.
 Les XGBs sont ainsi compétitifs d'après cette évaluation.
 Cependant,
 les performances des modèles
@@ -316,98 +318,269 @@ La suite de la sélection d'un modèle est donc faite parmi les DNNs.
 \caption{Évaluations des XGBs et des DNNs par \LossMSE\ et \LossMAPE\ à basse masse.}
 \label{fig-DNN_vs_XGB-mse_mape-low}
 \end{figure}
-\subsection{Fonction de coût}
+\subsection{Fonction de coût}\label{chapter-ML-section-hyperparameters-loss}
 Les évaluations des DNNs,
 regroupés d'après la fonction de coût utilisée lors de leurs entraînements,
 selon les métriques
-\LossMSE, \LossMAPE, \LossMAE\ et \OneSigmaWidth\
+\LossMSE, \LossMAPE, \LossMAE\ sur toute la gamme de masse et \OneSigmaWidth\ à basse masse
 sont représentées sur la figure~\ref{fig-DNN_losses}.
 \begin{figure}[h]
 \centering
 
-\subcaptionbox{\label{subfig-loss_mse_mape-mse}}[.45\textwidth]
+\subcaptionbox{\label{subfig-loss-mse}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_loss-full_mse.pdf}\vspace{-\baselineskip}}
 \hfill
-\subcaptionbox{\label{subfig-loss_mse_mape-mape}}[.45\textwidth]
+\subcaptionbox{\label{subfig-loss-mape}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_loss-full_mape.pdf}\vspace{-\baselineskip}}
 
 \vspace{\baselineskip}
 
-\subcaptionbox{}[.45\textwidth]
+\subcaptionbox{\label{subfig-loss-mae}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_loss-full_mae.pdf}\vspace{-\baselineskip}}
 \hfill
-\subcaptionbox{}[.45\textwidth]
+\subcaptionbox{\label{subfig-loss-low_1sigma}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_loss-low_1sig_width.pdf}\vspace{-\baselineskip}}
 
 \caption{Évaluations des DNNs regroupés selon la fonction de coût par \LossMSE, \LossMAPE, \LossMAE\ et \OneSigmaWidth.}
 \label{fig-DNN_losses}
 \end{figure}
 \par
-L'évaluation par \LossMSE, figure~\ref{subfig-loss_mse_mape-mse},
-montre que les DNNs entraînés avec $\Loss=\LossMSE$
-présentent une score
-compris entre \SI{7.5e3}{\GeV^2} et \SI{15e3}{\GeV^2},
-la majorité d'entre eux se trouvant en-dessous de \SI{11e3}{\GeV^2}.
-Les DNNs entraînés avec $\Loss=\LossMAPE$ en revanche
-se séparent en deux groupes.
-Le premier se situe entre \SI{7.5e3}{\GeV^2} et \SI{10e3}{\GeV^2},
-le second  entre \num{13} et \SI{16e3}{\GeV^2}.
-
-\todo{Models with MAE to be trained}
-
-\subsection{Algorithme d'optimisation et initiation des paramètres}
-Trois algorithmes d'optimisation ont été considérés, SGD, Adadelta et Adam.
-
-\todo{QGD complètement dans les choux}
-
-Il apparaît sur la figure~\ref{fig-optimizer} qu'Adam propose de meilleurs modèles qu'Adadelta.
-L'initiation des paramètres des neurones n'a en revanche que peu d'influence sur \LossMAPE, comme cela se voit figure~\ref{fig-w_init_mode}.
+L'évaluation par \LossMSE\ est représentée figure~\ref{subfig-loss-mse}.
+Les DNNs entraînés avec $\Loss=\LossMSE$
+y présentent un score
+compris entre \SI{7.8e3}{\GeV^2} et \SI{15e3}{\GeV^2},
+la majorité d'entre eux se trouvant en-dessous de \SI{11e3}{\GeV^2}
+avec un pic de leur distribution à \SI{8.7e3}{\GeV^2}.
+Les DNNs entraînés avec $\Loss=\LossMAE$
+se situent majoritairement
+entre \SI{7.7e3}{\GeV^2} et \SI{10e3}{\GeV^2},
+avec un pic de leur distribution à \SI{8.3e3}{\GeV^2}.
+Les DNNs entraînés avec $\Loss=\LossMAPE$
+se répartissent en deux groupes,
+le premier
+entre \SI{7.9e3}{\GeV^2} et \SI{10e3}{\GeV^2},
+le second
+entre \SI{13e3}{\GeV^2} et \SI{16e3}{\GeV^2}.
+La fonction de coût \LossMAE\ semble ainsi préférable à \LossMSE\ lorsque la comparaison de fait sur \LossMSE\ elle-même.
+Il est en revanche plus difficile de conclure quant à \LossMAPE.
+\par
+L'évaluation par \LossMAPE, figure~\ref{subfig-loss-mape},
+montre également un avantage de \LossMAE\ sur \LossMSE.
+En effet, les modèles
+entraînés avec $\Loss=\LossMAE$
+se situent majoritairement à $\LossMAPE<\num{21}$
+alors que ceux
+entraînés avec $\Loss=\LossMSE$
+sont plutôt dans la région $\LossMAPE>\num{20}$.
+Enfin, les valeurs de \LossMAPE\ les plus basses sont atteintes par les modèles entraînés avec cette même fonction de coût.
+Il n'est donc pas pertinent d'affirmer que \LossMAPE\ est préférable d'après les résultats de la figure~\ref{subfig-loss-mape}.
+\par
+Afin de compléter ces comparaisons,
+la figure~\ref{subfig-loss-mae} représente l'évaluation des DNNs par \LossMAE.
+La distribution obtenue avec les DNNs entraînés avec $\Loss=\LossMSE$
+s'étend de \SI{65}{\GeV} à près de \SI{10}{\GeV} avec un pic à \SI{71}{\GeV}.
+En revanche, de nombreux modèles entraînés avec \LossMAE\ ou \LossMAPE\
+se situent à $\num{67}\pm\SI{4}{\GeV}$.
+\par
+Enfin,
+sur la figure~\ref{subfig-loss-low_1sigma} se trouvent les distributions
+de \OneSigmaWidth\ à basse masse pour ces trois groupes de DNNs.
+Les modèles utilisant \LossMSE\ ont tous un score supérieur à \num{0.5}.
+Ceux entraînés avec \LossMAE\ se situent entre \num{0.4} et \num{0.6}.
+Les modèles basés sur \LossMAPE\ forment encore deux groupes,
+le premier entre \num{0.34} et \num{0.5},
+le second entre \num{0.5} et \num{0.64}.
+Les fonctions de coût \LossMAPE\ et \LossMAE\ permettent donc d'obtenir des modèles avec une meilleure résolution à basse masse que \LossMSE.
+\par
+Les modèles entraînés avec $\Loss=\LossMAE$ ou $\Loss=\LossMAPE$
+proposent de meilleurs scores que ceux obtenus avec $\Loss=\LossMSE$,
+quelle que soit la métrique d'évaluation utilisée.
+Lors des évaluations avec \LossMSE\ ou \LossMAE,
+aucun avantage net n'est visible entre $\Loss=\LossMAE$ et $\Loss=\LossMAPE$.
+En revanche, les métriques \LossMAPE\ et \OneSigmaWidth\ montrent que certains modèles
+entraînés avec $\Loss=\LossMAPE$
+donnent de meilleurs résultats.
+La sélection d'un modèle est donc réalisée parmi ceux ayant comme fonction de coût \LossMAPE.
+\subsection{Algorithme d'optimisation}\label{chapter-ML-section-hyperparameters-opti}
+Les algorithmes d'optimisation sont présentés dans la section~\ref{chapter-ML-section-DNN-training-optimizers}.
+L'algorithme SGD ne permet pas aux modèles de converger, il est donc exclu de nos investigations.
+Deux algorithmes sont comparés, Adadelta et Adam.
+\par
+Les évaluations des DNNs précédemment sélectionnés,
+regroupés d'après l'algorithme d'optimisation utilisé lors de leurs entraînements,
+selon les métriques
+\LossMAPE\ sur toute la gamme de masse et \OneSigmaWidth\ à basse masse
+sont représentées sur la figure~\ref{fig-optimizer}.
+Les deux groupes observés dans les sections précédentes sont identifiés comme étant les modèles entraînés respectivement par Adam et Adadelta.
+Dans le cadre de nos travaux, nous avons initialement utilisé Adam jusqu'à sélectionner
+le jeu de variables d'entrée (section~\ref{chapter-ML-section-hyperparameters-inputs})
+et
+la fonction de coût (section~\ref{chapter-ML-section-hyperparameters-loss}) à utiliser.
+C'est pourquoi ces deux groupes liés à Adam et Adadelta n'apparaissent que dans certains ensembles de modèles.
+Lors de la sélection finale, nous avons choisi de reprendre tous les modèles dès la début de la procédure.
 \begin{figure}[h]
 \centering
 
-\subcaptionbox{}[.45\textwidth]
+\subcaptionbox{\label{subfig-optimizer-mape}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_optimizer-full_mape.pdf}\vspace{-\baselineskip}}
 \hfill
-\subcaptionbox{}[.45\textwidth]
+\subcaptionbox{\label{subfig-optimizer-low_1sigma}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_optimizer-low_1sig_width.pdf}\vspace{-\baselineskip}}
-\caption{Comparaisons des algorithmes d'optimisation.}
+
+\caption{Évaluations des DNNs regroupés selon l'algorithme d'optimisation par \LossMAPE\ et \OneSigmaWidth.}
 \label{fig-optimizer}
 \end{figure}
+\par
+Sur la figure~\ref{subfig-optimizer-mape},
+les modèles optimisés par Adam présentent un score de \LossMAPE\
+entre \num{17.5} et \num{20}
+alors que ceux optimisés par Adadelta se situent
+entre \num{22.2} et \num{24.3}.
+L'optimisation par Adam semble donc meilleure que celle par Adadelta.
+L'évaluation à basse masse par \OneSigmaWidth\ sur la figure~\ref{subfig-optimizer-low_1sigma}
+confirme cette observation.
+Les modèles optimisés par Adam se situent en effet
+entre \num{0.35} et \num{0.48},
+ceux optimisés par Adadelta
+entre \num{0.49} et \num{0.64}.
+\par
+L'algorithme d'optimisation Adam donne de meilleurs modèles qu'Adadelta.
+\subsection{Autres hyper-paramètres}\label{chapter-ML-section-hyperparameters-others}
+Les hyper-paramètres restant à être fixés ainsi que les valeurs explorées sont:
+\begin{itemize}
+\item le nombre de couches cachées $N_L$, 2 à 5;
+\item le nombre de neurones par couche cachée $N_N$, \num{200} à \num{2000} par pas de \num{100};
+\item le mode d'initiation des poids (WI), uniforme (u), normale (n), Glorot uniforme (gu), Glorot normale (gn);
+\item la fonction d'activation (FA) des neurones des couches cachées, ReLU, SELU, ELU, Softplus.
+\end{itemize}
+Les évaluations
+à basse, moyenne et haute masse
+des DNNs
+utilisant les 27 variables d'entrée
+et
+entraînés par Adam avec $\Loss=\LossMAPE$,
+regroupés respectivement par
+$N_L$, $N_N$, mode d'initiation des poids et fonction d'activation
+sont données sur les
+figures~\ref{fig-N_layers}, \ref{fig-N_neurons}, \ref{fig-w_init_mode} et~\ref{fig-activation} respectivement.
+La position du modèle final sélectionné est également indiquée.
+\def\localHP{N_layers}
+\def\localHPlong{$N_L$}
+\input{\PhDthesisdir/contents/chapter-ML/hyperparameters/last_hyperparams_shortcut.tex}
+\def\localHP{N_neurons}
+\def\localHPlong{$N_N$}
+\input{\PhDthesisdir/contents/chapter-ML/hyperparameters/last_hyperparams_shortcut.tex}
+\def\localHP{w_init_mode}
+\def\localHPlong{le mode d'initiation des poids}
+\input{\PhDthesisdir/contents/chapter-ML/hyperparameters/last_hyperparams_shortcut.tex}
+\def\localHP{activation}
+\def\localHPlong{la fonction d'activation}
+\input{\PhDthesisdir/contents/chapter-ML/hyperparameters/last_hyperparams_shortcut.tex}
+\par
+Les regroupements définis par une valeur fixée d'un seul hyper-paramètre ne montrent aucune corrélation
+avec les valeurs des métriques d'évaluation utilisées.
+La méthode employée jusqu'ici pour sélectionner les hyper-paramètres ne permet donc pas de conclure.
+Nous avons alors choisi d'utiliser la procédure suivante:
+\begin{enumerate}
+\item Déterminer la valeur maximale $x_\text{max}^\text{métrique $m$}$, sur l'ensemble des modèles sélectionnés, de chacune des métriques d'évaluation $m$ utilisées.
+La valeur maximale autorisée $x_\text{OK}^\text{métrique $m$}$ pour la métrique $m$ est initialement fixée à $x_\text{max}^\text{métrique $m$}$;
+\item Fixer la valeur maximale autorisée à \SI{99}{\%} de sa valeur actuelle pour chacune des métriques $m$;
+\item Rejeter tout modèle dont une des métriques donne un score supérieur à $x_\text{OK}^\text{métrique $m$}$;
+\item Reprendre à l'étape 2 si plus de 10 modèles sont encore sélectionnés.
+\end{enumerate}
+Les modèles ainsi sélectionnés, au nombre de 7, sont listés dans le tableau~\ref{tab-chapter-ML-section-hyperparameters-others-final} sans ordre particulier.
+Leurs réponses dont données sur les figures~\ref{subfig-reponse_model_A} et~\ref{fig-reponse_model_B_to_G}.
 \begin{figure}[h]
 \centering
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_w_init_mode-full_mape.pdf}
-\caption{Comparaisons des initiations des paramètres.}
-\label{fig-w_init_mode}
+\begin{minipage}[c]{.45\textwidth}
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}
+\toprule
+Modèle & $N_L$ & $N_N$ & WI & FA \\
+\midrule
+A & 3 & \num{1000} & gu & ELU \\
+B & 3 & \num{1000} & gu & Softplus \\
+C & 3 & \num{1000} & n & SELU \\
+D & 3 & \num{1400} & gu & ReLU \\
+E & 4 & \num{200} & gn & ReLU \\
+F & 4 & \num{1000} & gu & ELU \\
+G & 4 & \num{1400} & gu & Softplus \\
+\bottomrule
+\end{tabular}
+\caption{Liste des 7 modèles sélectionnés.}
+\label{tab-chapter-ML-section-hyperparameters-others-final}
+\end{table}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.45\textwidth}
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response-NN-ADAM_glorot_uniform-activation-elu-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}
+
+\caption{Réponse du modèle A.}
+\label{subfig-reponse_model_A}
 \end{figure}
-\subsection{Structure}
-which structure ?
+\end{minipage}
+\end{figure}
+\begin{figure}[p]
+\centering
 
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-full_mape.pdf}
+\subcaptionbox{Réponse du modèle B.\label{subfig-reponse_model_B}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-\baselineskip}}
+\hfill
+\subcaptionbox{Réponse du modèle C.\label{subfig-reponse_model_C}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response-NN-activation-selu-batch_size-2048-mape-Adam-n-inclusive-3-layers-1000-neurons.pdf}\vspace{-\baselineskip}}
+
+\subcaptionbox{Réponse du modèle D.\label{subfig-reponse_model_D}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response-NN-activation-relu-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1400-neurons.pdf}\vspace{-\baselineskip}}
+\hfill
+\subcaptionbox{Réponse du modèle E.\label{subfig-reponse_model_E}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response-NN-activation-relu-batch_size-2048-mape-Adam-gn-inclusive-4-layers-200-neurons.pdf}\vspace{-\baselineskip}}
+
+\subcaptionbox{Réponse du modèle F.\label{subfig-reponse_model_F}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response-NN-activation-elu-batch_size-2048-mape-Adam-gu-inclusive-4-layers-1000-neurons.pdf}\vspace{-\baselineskip}}
+\hfill
+\subcaptionbox{Réponse du modèle G.\label{subfig-reponse_model_G}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-4-layers-1400-neurons.pdf}\vspace{-\baselineskip}}
+
+\caption{Réponse des modèles B à G.}
+\label{fig-reponse_model_B_to_G}
+\end{figure}
+\par
+Aucun modèle avec $N_L\in\set{2,5}$ n'est sélectionné.
+Pour 4 modèles, $N_L=3$.
+Le nombre de neurones par couche cachée est de \num{1000} pour 4 modèles sur 7, dont 3 sur les 4 avec $N_L=3$.
+Le WI le plus représenté est Glorot uniforme (5/7).
+Les FA sont disparates, chacune apparaissant une ou deux fois dans la sélection.
+\par
+Chacun de ces modèles présente une réponse proche de 1 entre \num{70} et \SI{400}{\GeV}.
+Le modèle F conserve une réponse proche de 1 jusqu'à environ \SI{500}{\GeV}, cependant se résolution à basse masse en légèrement dégradée par rapport aux autres modèles.
+Le modèle B a des hyper-paramètres \og consensus \fg,
+\ie\ que chacune des valeurs de ses hyper-paramètres correspond à la valeur la plus représentée dans la sélection.
+C'est à partir de ce modèle que nous avons choisi de continuer notre étude.
+Les hyper-paramètres sont donc:
+\begin{itemize}
+\item 3 couches cachées;
+\item \num{1000} neurones par couche cachée;
+\item fonction d'activation Softplus, $x\mapsto\ln(1+\eexp{x})$;
+\item algorithme d'optimisation Adam, présenté en section~\ref{chapter-ML-section-DNN-training-optimizers};
+\item fonction de coût MAPE, définie équation~\eqref{eq-loss_MAPE};
+\item initiation des poids selon le mode \og Glorot Uniforme \fg~\cite{glorot};
+\item la liste des variables d'entrée égale à celle donnée en section~\ref{chapter-ML-section-evt_gen-inputs}.
+\end{itemize}
+
+%\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-full_mape.pdf}
 %\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_all-full_mape.pdf}
-
-several possibilities, but the loss mass region contains the Z boson and is important
-
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-low_mape.pdf}
+%several possibilities, but the loss mass region contains the Z boson and is important
+%\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-low_mape.pdf}
 %\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_all-low_mape.pdf}
-
-2x900 and 5x600 seem to be the best options, check the low mass resolution
-
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-low_1sig_width.pdf}
+%2x900 and 5x600 seem to be the best options, check the low mass resolution
+%\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-low_1sig_width.pdf}
 %\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_all-low_1sig_width.pdf}
-
-5x600 seems good, check the low mass \textbf{calibrated} resolution
-
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-low_1sig_calibr_width.pdf}
+%5x600 seems good, check the low mass \textbf{calibrated} resolution
+%\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-low_1sig_calibr_width.pdf}
 %\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_all-low_1sig_calibr_width.pdf}
-
-and in the medium mass region we have
-
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-medium_mape.pdf}
+%and in the medium mass region we have
+%\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-medium_mape.pdf}
 %\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_all-medium_mape.pdf}
-
-3x1000 is the best compromise we found
-
-\subsection{Fonction d'activation}
-
-activation = softplus
-
+%3x1000 is the best compromise we found
