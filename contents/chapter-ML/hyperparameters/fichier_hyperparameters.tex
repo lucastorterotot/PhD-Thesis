@@ -553,7 +553,7 @@ Le nombre de neurones par couche cachée est de \num{1000} pour 4 modèles sur 7
 Le WI le plus représenté est Glorot uniforme (5/7).
 Les FA sont disparates, chacune apparaissant une ou deux fois dans la sélection.
 \par
-Chacun de ces modèles présente une réponse proche de 1 entre \num{70} et \SI{400}{\GeV}.
+Chacun de ces modèles présente une réponse proche de 1 entre \num{70} et \SI{400}{\GeV} avec une résolution à $\pm1\sigma$ de l'ordre de \SI{20}{\%}.
 Le modèle F conserve une réponse proche de 1 jusqu'à environ \SI{500}{\GeV}, cependant se résolution à basse masse en légèrement dégradée par rapport aux autres modèles.
 Le modèle B a des hyper-paramètres \og consensus \fg,
 \ie\ que chacune des valeurs de ses hyper-paramètres correspond à la valeur la plus représentée dans la sélection.
@@ -566,7 +566,25 @@ Les hyper-paramètres sont donc:
 \item algorithme d'optimisation Adam, présenté en section~\ref{chapter-ML-section-DNN-training-optimizers};
 \item fonction de coût MAPE, définie équation~\eqref{eq-loss_MAPE};
 \item initiation des poids selon le mode \og Glorot Uniforme \fg~\cite{glorot};
-\item la liste des variables d'entrée égale à celle donnée en section~\ref{chapter-ML-section-evt_gen-inputs}.
+\item la liste des 27 variables d'entrée égale à celle donnée en section~\ref{chapter-ML-section-evt_gen-inputs}.
+\end{itemize}
+En comparaison, le DNN de \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929} a pour hyper-paramètres:
+\begin{itemize}
+\item 4 couches cachées;
+\item \num{200} neurones par couche cachée;
+\item fonction d'activation ReLU y compris pour la couche de sortie;
+\item algorithme d'optimisation Adam;
+\item fonction de coût MSE, définie équation~\eqref{eq-loss_MSE};
+\item 17 variables d'entrée:
+\begin{itemize}
+\item les impulsions, énergies et masses invariantes de $L_1$ et $L_2$:\\
+$\pT^{L_1}$, $\eta^{L_1}$, $\phi^{L_1}$, $E^{L_1}$, $\minv^{L_1}$,
+$\pT^{L_2}$, $\eta^{L_2}$, $\phi^{L_2}$, $E^{L_2}$, $\minv^{L_2}$;
+\item l'énergie transverse manquante:\\
+\MET, $\phi^{\MET}$;
+\item la masse colinéaire du système di-\tau, $m_\text{coll}$, définie dans~\cite{BARTSCHI201929};
+\item 4 booléens donnant le type de canal (hadronique, semi-leptonique ou leptonique).
+\end{itemize}
 \end{itemize}
 
 %\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-full_mape.pdf}
