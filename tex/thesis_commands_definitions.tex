@@ -140,6 +140,17 @@
 
 \newcommand{\FF}{\ensuremath{\mathrm{FF}}}
 
+\newcommand{\GetChannelStr}[1]{%
+\ifthenelse{\equal{#1}{tt}}{\tauh\tauh}{}%
+\ifthenelse{\equal{#1}{mt}}{\mu\tauh}{}%
+\ifthenelse{\equal{#1}{et}}{\ele\tauh}{}%
+\ifthenelse{\equal{#1}{mm}}{\mu\mu}{}%
+\ifthenelse{\equal{#1}{em}}{\ele\mu}{}%
+\ifthenelse{\equal{#1}{ee}}{\ele\ele}{}%
+\ifthenelse{\equal{#1}{lt}}{$\ell\tauh$}{}%
+\ifthenelse{\equal{#1}{ll}}{$\ell\ell$}{}%
+}
+
 \newcommand{\CATnobtag}{\texttt{no-btag}}
 \newcommand{\CATbtag}{\texttt{btag}}
 \newcommand{\CATlowdz}{\texttt{low-}\Dzeta}
