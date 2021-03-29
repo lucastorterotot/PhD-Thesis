@@ -64,13 +64,18 @@ est ainsi directement envisageable.
 \caption{Réponses du modèle B sur les événements sans et avec PU.}
 \label{fig-reponse_model_1PU}
 \end{figure}
-\subsection{Effet de la reconstruction}
+\subsection{Effet de la reconstruction des particules}
 \def\Bgenleg{$\text{B}^\text{gen}$}
 La reconstruction des particules est présentée dans le chapitre~\refChLHCCMS.
 Son effet peut être caractérisé par l'étude du modèle \Bgenleg,
-ayant les mêmes hyper-paramètres que B mais entraîné en utilisant les objets générées au lieu des ceux reconstruits pour $L_1$, $L_2$ et \MET, \ie\ pour les trois objets physiques issus de la désintégration des leptons tau (deux parties visibles et \MET\ pour les neutrinos).
-En particulier, les valeurs de $\pT^{L_1}$, $\pT^{L_2}$ et \MET\ correspondent exactement à la réalité physique.
-
+ayant les mêmes hyper-paramètres que B mais entraîné en utilisant les objets générés au lieu de ceux reconstruits pour $L_1$, $L_2$ et \MET, \ie\ pour les trois objets physiques issus de la désintégration des leptons tau (deux parties visibles $L_1$ et $L_2$ et \MET\ pour les neutrinos).
+En particulier, les valeurs de $\vpT^{L_1}$, $\vpT^{L_2}$ et \vMET\ correspondent exactement à la réalité.
+Il s'agit donc du cas où les objets physiques directement liés à la désintégration de \higgsML\ sont parfaitement reconstruits.
+\par
+La figure~\ref{fig-reponse_model_1GENleg} montre les réponses du modèle \Bgenleg\ sur les événements avec reconstruction parfaite et réelle.
+Dans le cas d'une reconstruction parfaite,
+la réponse de \Bgenleg\ est de l'ordre de $\num{1.01}^{+\num{0.01}}_{-\num{0.02}}$.
+Il s'agit donc d'une estimation de $m_{\higgsML}$ avec une précision de \SI{2}{\%}.
 \begin{figure}[h]
 \centering
 
@@ -80,18 +85,361 @@ En particulier, les valeurs de $\pT^{L_1}$, $\pT^{L_2}$ et \MET\ correspondent e
 \subcaptionbox{Réponse de \Bgenleg\ dans le cas d'une reconstruction réelle.\label{subfig-reponse_model_GENleg_11}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Reco_effect/GENleg_with_METcov_j1j2jr_Nnu_Npu/test_on_reco/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
 
-\caption{Réponses du modèle \Bgenleg\ dans le cas d'une reconstruction des particules parfaite et réelle.}
+\caption[Réponses du modèle \Bgenleg\ avec reconstruction parfaite ou réelle.]{Réponses du modèle \Bgenleg\ dans le cas d'une reconstruction des particules parfaite et réelle.}
 \label{fig-reponse_model_1GENleg}
 \end{figure}
-
-show trained/tested on gen tau, gen tau decays, reco tau decays (=real), see fig 3 from report 2021-01-11
-
-the model understand the physics, now it has to deal with the reco resolution and fakes.
-
+\par
+Les DNNs sont donc en mesure
+de comprendre la physique des événements $\higgsML\to\tau\tau$
+afin d'estimer $m_{\higgsML}$
+à partir des objets physiques générés
+correspondant aux objets effectivement reconstruits par le détecteur.
+Cependant, comme le montre la figure~\ref{subfig-reponse_model_GENleg_11},
+l'utilisation de \Bgenleg\ sur les variables reconstruites, effectivement accessibles expérimentalement, ne permet pas d'obtenir $m_{\higgsML}$.
+En effet, la réponse de \Bgenleg\ avec ces variables est inférieure à \num{1} et de l'ordre de \num{0.7} à haute masse.
+De plus, la résolution relative est de l'ordre de \SI{40}{\%}.
+Une des tâches des DNNs est donc de corriger cet effet de reconstruction.
 \subsection{Effet des faux taus hadroniques}
+La phénoménologie des événements contenant une paire de leptons tau est décrite dans le chapitre~\refChMSSM.
+Ces leptons peuvent se désintégrer hadroniquement en tau hadronique (\tauh) ou leptoniquement en électron (\ele) ou en muon (\mu).
+%Ces désintégrations s'accompagnent de l'émission de un (cas hadronique) ou deux (cas leptoniques) neutrinos.
+Il existe ainsi six canaux différents dans les événements avec une paire de leptons tau, pouvant être répartis en trois groupes:
+\begin{itemize}
+\item complètement hadronique: \tauh\tauh, avec deux \tauh;
+\item semi-leptoniques: \mu\tauh\ et \ele\tauh, ou simplement $\ell\tauh$, avec un \tauh;
+\item leptoniques: \mu\mu, \ele\mu\ et \ele\ele, ou simplement $\ell\ell$, sans \tauh.
+\end{itemize}
+\par
+Les faux taus hadroniques (\ftauhs) sont des objets physiques tels que des électrons, des muons et surtout des jets identifiés à tort comme des \tauh.
+Ils représentent près de \SI{70}{\%} des événements dans le canal \tauh\tauh, \SI{38}{\%} dans le canal \mu\tauh\ et \SI{68}{\%} dans le canal \ele\tauh.
+Les \ftauhs\ sont particulièrement difficiles à modéliser dans les simulations~\cite{CMS-NOTE-2018-257,CMS-NOTE-2019-170}.
+\par
+L'identification des \tauh\ est réalisée dans nos travaux à l'aide de l'algorithme \DEEPTAU~\cite{CMS-DP-2019-033},
+qui présente un faible taux de mauvaise identification des \tauh, inférieur à \SI{1}{\%}.
+Cependant, une autre méthode d'identification des \tauh, basée sur un arbre de décision (BDT), peut être utilisée et présente un taux de mauvaise identification de jets en tant que \tauh\ pouvant atteindre \SI{4}{\%}~\cite{Khachatryan:2015dfa}.
+Une sélection plus riche en \ftauhs\ est ainsi obtenue.
+\par
+Les réponses du modèle B sur chacun des trois groupes de canaux (hadronique, semi-leptoniques et leptoniques) sont représentées figure~\ref{fig-fakes_B_tt-lt-ll} pour les deux ensembles de sélection des \tauh.
+\begin{figure}[p]
+\centering
 
+\def\localch{tt}
+\subcaptionbox{Canal \GetChannelStr{\localch}, \DEEPTAU.\label{subfig-B_few_fakes_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_inclusive/test_on_\localch/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Canal \GetChannelStr{\localch}, BDT.\label{subfig-B_more_fakes_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Fakes_no_DeepTau/trained_on_not_fakes/inclusive_train_test_on_\localch/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\def\localch{lt}
+\subcaptionbox{Canaux \GetChannelStr{\localch}, \DEEPTAU.\label{subfig-B_few_fakes_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_inclusive/test_on_\localch/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Canaux \GetChannelStr{\localch}, BDT.\label{subfig-B_more_fakes_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Fakes_no_DeepTau/trained_on_not_fakes/inclusive_train_test_on_\localch/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\def\localch{ll}
+\subcaptionbox{Canaux \GetChannelStr{\localch}, \DEEPTAU.\label{subfig-B_few_fakes_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_inclusive/test_on_\localch/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Canaux \GetChannelStr{\localch}, BDT.\label{subfig-B_more_fakes_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Fakes_no_DeepTau/trained_on_not_fakes/inclusive_train_test_on_\localch/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\caption{Réponses du modèle B sur les différents types de canaux avec une quantité variable de \ftauhs.}
+\label{fig-fakes_B_tt-lt-ll}
+\end{figure}
+Quel que soit le groupe d'état final, les réponses pour $m_{\higgsML}>\SI{600}{\GeV}$ ne sont pas affectées par la sélection des \tauh.
+En effet, pour de hautes valeurs de $m_{\higgsML}$, les \tauh\ ont des impulsions suffisamment élevées pour être correctement sélectionnés par la séquence d'analyse.
+À basse masse en revanche,
+les \ftauhs\ sont compétitifs et
+leur présence modifie la réponse du modèle
+qui augmente jusqu'à \SI{20}{\%}
+pour des masses entre \SI{100}{\GeV} et \SI{600}{\GeV}.
+L'effet le plus important se situe à très basse masse où la résolution est fortement dégradée.
+La figure~\ref{fig-diffs_fakes_B_tt-lt-ll} montre la différence $\ypred-\ytrue$ entre les prédictions du modèle B et la valeur vraie de $m_{\higgsML}$ pour des valeurs de $m_{\higgsML}$ entre \num{50} et \SI{200}{\GeV} sur chacun des trois groupes de canaux et pour les deux ensembles de sélection des \tauh.
+\begin{figure}[p]
+\centering
+
+\def\localch{tt}
+\subcaptionbox{Canal \GetChannelStr{\localch}, \DEEPTAU.\label{subfig-diffs_B_few_fakes_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_inclusive/test_on_\localch/model_response_diff_lowmass-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Canal \GetChannelStr{\localch}, BDT.\label{subfig-diffs_B_more_fakes_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Fakes_no_DeepTau/trained_on_not_fakes/inclusive_train_test_on_\localch/model_response_diff_lowmass-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\def\localch{lt}
+\subcaptionbox{Canaux \GetChannelStr{\localch}, \DEEPTAU.\label{subfig-diffs_B_few_fakes_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_inclusive/test_on_\localch/model_response_diff_lowmass-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Canaux \GetChannelStr{\localch}, BDT.\label{subfig-diffs_B_more_fakes_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Fakes_no_DeepTau/trained_on_not_fakes/inclusive_train_test_on_\localch/model_response_diff_lowmass-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\def\localch{ll}
+\subcaptionbox{Canaux \GetChannelStr{\localch}, \DEEPTAU.\label{subfig-diffs_B_few_fakes_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_inclusive/test_on_\localch/model_response_diff_lowmass-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Canaux \GetChannelStr{\localch}, BDT.\label{subfig-diffs_B_more_fakes_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Fakes_no_DeepTau/trained_on_not_fakes/inclusive_train_test_on_\localch/model_response_diff_lowmass-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\caption{Écarts à basse masse du modèle B sur les différents types de canaux avec une quantité variable de \ftauhs.}
+\label{fig-diffs_fakes_B_tt-lt-ll}
+\end{figure}
+\par
+Les différences observée pour les canaux leptoniques ($\ell\ell$),
+figures~\ref{subfig-diffs_B_few_fakes_ll} et~\ref{subfig-diffs_B_more_fakes_ll},
+sont bien moins importantes que dans les autres canaux.
+Les canaux leptoniques ne comportent aucun \tauh, seule la sélection des événements est modifiée.
+Un objet physique identifié comme un \tauh\ par le BDT et non par \DEEPTAU\ peut en effet basculer d'un canal à l'autre, si le \tauh\ identifié par le BDT permet de construire un \emph{dilepton}.
+\par
+Dans le cas des canaux semi-leptoniques ($\ell\tauh$),
+la différence entre \ypred\ de B et \ytrue\ à basse masse est en moyenne inférieure à \SI{10}{\GeV}
+pour une sélection des \tauh\ par \DEEPTAU, figure~\ref{subfig-diffs_B_few_fakes_lt}.
+La résolution relative est quant à elle inférieure à \SI{25}{\%}.
+Lors les \tauh\ sont identifiés par le BDT,
+figure~\ref{subfig-diffs_B_more_fakes_lt},
+le modèle surestime $m_{\higgsML}$ de \SI{25}{\GeV} en moyenne pour $\SI{70}{\GeV} < m_{\higgsML} < \SI{200}{\GeV}$
+et de près de \SI{40}{\GeV} à $m_{\higgsML}=\SI{50}{\GeV}$.
+La résolution relative est de l'ordre de \SI{25}{\%} au-dessus de \SI{70}{\GeV},
+moins bonne qu'avec \DEEPTAU,
+et augmente drastiquement pour des masses plus basses, ce qui n'est pas le cas avec \DEEPTAU.
+Il s'agit donc de la contribution des \ftauhs.
+\par
+Dans le canal \tauh\tauh,
+figures~\ref{subfig-diffs_B_few_fakes_tt} et~\ref{subfig-diffs_B_more_fakes_tt},
+un effet similaire existe.
+La résolution relative est toujours de l'ordre de \SI{20}{\%},
+mais la présence des \ftauhs\ mène à une surestimation moyenne de \SI{30}{\GeV} pour $m_{\higgsML}>\SI{110}{\GeV}$
+et pouvant aller jusqu'à \SI{100}{\GeV} pour $m_{\higgsML}\simeq\SI{50}{\GeV}$, soit une erreur de \SI{200}{\%}.
+La dégradation de la résolution à très basse masse commence dès \SI{100}{\GeV}, au lieu de \SI{70}{\GeV} pour les canaux $\ell\tauh$.
+L'effet des \ftauhs\ est donc plus important que dans les canaux $\ell\tauh$,
+ce qui s'explique facilement par la présence de deux \tauh\ au lieu d'un seul.
+Pour $m_{\higgsML}=\SI{50}{\GeV}$, la résolution de B sur les événements avec \DEEPTAU\ est également mauvaise.
+La sélection des \tauh\ se fait avec $\pT>\SI{40}{\GeV}$, ce qui est difficile à obtenir pour $m_{\higgsML}=\SI{50}{\GeV}$.
+Ces événements sont donc peu nombreux et vraisemblablement très contaminés par les \ftauhs.
+\par
+Les \ftauhs\ introduisent donc un biais important sur une large gamme de masse
+et en particulier dans la région des bosons
+\Zboson\ ($m_{\Zboson}=\SI{91.2}{\GeV}$)
+et
+\higgs\ ($m_{\higgs}=\SI{125.1}{\GeV}$).
+L'inclusion des \ftauhs\ dans l'entraînement est non trivial, car la masse à prédire n'est pas définie,
+les \ftauhs\ n'étant pas des objets physiques provenant de \higgsML.
 \subsection{Effet de la séparation des canaux}
-not relevant (fig3 report  2021-01-21)
+\def\Bchsplit#1{\ifthenelse{\equal{#1}{x}}{$\text{B}^{#1}$}{$\text{B}^\text{\GetChannelStr{#1}}$}}
+Les modèles construits sont entraînés et testés sur l'ensemble des événements, sans sélection sur le canal.
+Or,
+il est possible d'entraîner un DNN par canal afin de le spécialiser à la phénoménologie associée
+et obtenir, potentiellement, de meilleures estimations de $m_{\higgsML}$.
+\par
+Les modèles notés \Bchsplit{x} possèdent les mêmes hyper-paramètres que B mais sont entraînés uniquement sur les événements du canal $x$.
+\subsubsection{Séparation en six canaux}
+Les figures~\ref{fig-tt-mt-et} et~\ref{fig-mm-em-ee} donnent
+les réponses des modèles
+\Bchsplit{tt},
+\Bchsplit{mt},
+\Bchsplit{et}
+et
+\Bchsplit{mm},
+\Bchsplit{em},
+\Bchsplit{ee}
+testés sur leurs canaux respectifs,
+comparées à celles de B sur les mêmes canaux.
+\begin{figure}[p]
+\centering
+
+\def\localch{tt}
+\subcaptionbox{Modèle \Bchsplit{\localch} testé sur \GetChannelStr{\localch}.\label{subfig-reponse_model_train_on_\localch_test_on_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localch/test_on_\localch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Modèle B testé sur \GetChannelStr{\localch}.\label{subfig-reponse_model_train_on_\localch_test_on_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_inclusive/test_on_\localch/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\def\localch{mt}
+\subcaptionbox{Modèle \Bchsplit{\localch} testé sur \GetChannelStr{\localch}.\label{subfig-reponse_model_train_on_\localch_test_on_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localch/test_on_\localch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Modèle B testé sur \GetChannelStr{\localch}.\label{subfig-reponse_model_train_on_\localch_test_on_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_inclusive/test_on_\localch/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\def\localch{et}
+\subcaptionbox{Modèle \Bchsplit{\localch} testé sur \GetChannelStr{\localch}.\label{subfig-reponse_model_train_on_\localch_test_on_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localch/test_on_\localch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Modèle B testé sur \GetChannelStr{\localch}.\label{subfig-reponse_model_train_on_\localch_test_on_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_inclusive/test_on_\localch/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\caption{Comparaison des modèles entraînés par canal (\tauh\tauh, \mu\tauh, \ele\tauh) au modèle B.}
+\label{fig-tt-mt-et}
+\end{figure}
+\begin{figure}[p]
+\centering
+
+\def\localch{mm}
+\subcaptionbox{Modèle \Bchsplit{\localch} testé sur \GetChannelStr{\localch}.\label{subfig-reponse_model_train_on_\localch_test_on_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localch/test_on_\localch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Modèle B testé sur \GetChannelStr{\localch}.\label{subfig-reponse_model_train_on_\localch_test_on_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_inclusive/test_on_\localch/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\def\localch{em}
+\subcaptionbox{Modèle \Bchsplit{\localch} testé sur \GetChannelStr{\localch}.\label{subfig-reponse_model_train_on_\localch_test_on_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localch/test_on_\localch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Modèle B testé sur \GetChannelStr{\localch}.\label{subfig-reponse_model_train_on_\localch_test_on_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_inclusive/test_on_\localch/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\def\localch{ee}
+\subcaptionbox{Modèle \Bchsplit{\localch} testé sur \GetChannelStr{\localch}.\label{subfig-reponse_model_train_on_\localch_test_on_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localch/test_on_\localch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Modèle B testé sur \GetChannelStr{\localch}.\label{subfig-reponse_model_train_on_\localch_test_on_\localch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_inclusive/test_on_\localch/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\caption{Comparaison des modèles entraînés par canal (\mu\mu, \ele\mu, \ele\ele) au modèle B.}
+\label{fig-mm-em-ee}
+\end{figure}
+\par
+Dans le canal \tauh\tauh,
+une baisse de la réponse est observable pour $m_{\higgsML}<\SI{110}{\GeV}$.
+La coupure sur l'impulsion transverse des \tauh\ étant de \SI{40}{\GeV} pour chacun des deux \tauh,
+\todo{\ftauhs}
+
+
+\subsubsection{Séparation en trois groupes}
+
+En dehors de toute considération de reconstruction des particules,
+la phénoménologie des canaux d'un même groupe
+est sensiblement la même.
+La séparation peut donc se faire
+selon les six canaux différents (\tauh\tauh, \mu\tauh, \ele\tauh, \mu\mu, \ele\mu, \ele\ele)
+ou
+selon les trois groupes de canaux (\tauh\tauh, $\ell\tauh$, $\ell\ell$).
+
+Entraîner des DNNs selon le groupe et non le canal
+permet de n'en définir que trois au lieu de six.
+%D'une part, cela réduit le nombre de modèles à utiliser dans les analyses.
+%D'autre part, plus d'événements sont disponibles pour les entraînements regroupés.
+Le canal \tauh\tauh, seul de son groupe, n'est pas concerné par cette discussion.
+\par
+Les canaux \mu\tauh\ et \ele\tauh\ peuvent être regroupé en $\ell\tauh$.
+Les réponses des modèles
+\Bchsplit{mt}, \Bchsplit{et} et \Bchsplit{lt},
+testés sur les événements de ces mêmes ensembles,
+sont données figure~\ref{fig-mt-et-lt}.
+%\begin{figure}[p]
+%\centering
+%
+%\def\localTRAINch{mt}
+%\def\localTESTch{mt}
+%\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+%\hfill
+%\def\localTRAINch{mt}
+%\def\localTESTch{et}
+%\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+%
+%\def\localTRAINch{et}
+%\def\localTESTch{mt}
+%\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+%\hfill
+%\def\localTRAINch{et}
+%\def\localTESTch{et}
+%\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+%\centering
+%
+%\def\localTRAINch{lt}
+%\def\localTESTch{mt}
+%\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+%\hfill
+%\def\localTRAINch{lt}
+%\def\localTESTch{et}
+%\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+%
+%\caption{Réponses des modèles \Bchsplit{mt}, \Bchsplit{et} et \Bchsplit{lt} sur les canaux semi-leptoniques.}
+%\label{fig-mt-et-lt}
+%\end{figure}
+\par
+Le modèle \Bchsplit{mt}
+testé sur le canal \mu\tauh,
+figure~\ref{subfig-reponse_model_train_on_mt_test_on_mt},
+a une réponse de $\num{1.0}\pm\num{0.1}$ pour $m_{\higgsML}$ entre \SI{50}{\GeV} et \SI{600}{\GeV}
+avec une résolution relative de l'ordre de \SI{25}{\%}.
+
+%\begin{figure}[p]
+%\centering
+%
+%\def\localTRAINch{mm}
+%\def\localTESTch{mm}
+%\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+%\hfill
+%\def\localTRAINch{ll}
+%\def\localTESTch{mm}
+%\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+%
+%\def\localTRAINch{em}
+%\def\localTESTch{em}
+%\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+%\hfill
+%\def\localTRAINch{ll}
+%\def\localTESTch{em}
+%\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+%
+%\def\localTRAINch{ee}
+%\def\localTESTch{ee}
+%\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+%\hfill
+%\def\localTRAINch{ll}
+%\def\localTESTch{ee}
+%\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+%{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+%
+%\caption{Réponses des modèles sur les canaux leptoniques.}
+%\label{fig-mm-em-ee-ll}
+%\end{figure}
+
+\begin{figure}[p]
+\centering
+
+\def\localTRAINch{tt}
+\def\localTESTch{tt}
+\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\def\localTESTch{em}
+\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\def\localTESTch{ll}
+\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\def\localTESTch{lt}
+\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\def\localTESTch{mt}
+\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\def\localTESTch{et}
+\subcaptionbox{Modèle \Bchsplit{\localTRAINch} testé sur \GetChannelStr{\localTESTch}.\label{subfig-reponse_model_train_on_\localTRAINch_test_on_\localTESTch}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Channel_split/train_on_\localTRAINch/test_on_\localTESTch/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-\localTRAINch-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\caption{}
+\end{figure}
+
+
+\subsection{Effet de la définition de \MET}
+
 
 
 \subsection{Effet de l'intervalle de masse}
