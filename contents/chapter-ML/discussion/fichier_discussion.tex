@@ -16,30 +16,30 @@ Dans les travaux de \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929},
 l'empilement (PU, \emph{Pile-Up}) n'est pas considéré.
 Nous avons donc souhaité déterminer l'effet du PU sur les prédictions de notre modèle.
 Pour cela, les mêmes événements que ceux décrits en section~\ref{chapter-ML-section-evt_gen} ont été générés sans PU.
-Un DNN est entraîné avec les mêmes hyper-paramètres que B sur ces événements sans PU, il est noté \Bnpu.
+Un DNN, noté \Bnpu, est entraîné sur ces événements sans PU.
+Les hyper-paramètres de \Bnpu\ sont ceux de B, à l'exception des variables d'entrées auxquelles \Npu\ est retiré, car $\Npu=0$ pour tous les événements sans PU.
 La réponse de \Bnpu\ sur les événements de test sans PU est représentée sur la figure~\ref{subfig-reponse_model_PU_00}.
-La réponse du modèle est proche de 1 pour $m_{\higgsML}$ entre \SI{80}{\GeV} et \SI{600}{\GeV} avec une résolution à $\pm1\sigma$ de l'ordre de \SI{20}{\%}.
+La réponse du modèle est de l'ordre de 1 pour $m_{\higgsML}$ entre \SI{80}{\GeV} et \SI{600}{\GeV} avec une résolution à $\pm1\sigma$ de l'ordre de \SI{20}{\%} à basse masse et \SI{10}{\%} à haute masse.
 \begin{figure}[h]
 \centering
 
 \subcaptionbox{Réponse de \Bnpu\ sur les événements sans PU.\label{subfig-reponse_model_PU_00}}[.45\textwidth]
-{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/PU/trained_wo_PU/test_wo_PU/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-\baselineskip}}
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/PU/trained_wo_PU_wo_Npu/test_wo_PU/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-\baselineskip}}
 \hfill
 \subcaptionbox{Réponse de \Bnpu\ sur les événements avec PU.\label{subfig-reponse_model_PU_01}}[.45\textwidth]
-{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/PU/trained_wo_PU/test_on_PU/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-\baselineskip}}
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/PU/trained_wo_PU_wo_Npu/test_on_PU/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-\baselineskip}}
 
 \caption{Réponses du modèle \Bnpu\ sur les événements sans et avec PU.}
 \label{fig-reponse_model_0PU}
 \end{figure}
 \par
 Cependant, la réponse de \Bnpu\ est dégradée sur des événements contenant du PU, figure~\ref{subfig-reponse_model_PU_01}.
-La réponse moyenne se situe en effet entre \num{2.0} à basse masse et diminue jusqu'à \num{1.1} à haute masse.
-La résolution relative est de l'ordre de \SI{30}{\%}.
-Pour les basses valeurs de $m_{\higgsML}$,
-l'énergie emportée par $L_1$ et $L_2$, issue de la masse de \higgsML,
-est moindre.
+La réponse médiane se situe en effet à \num{1.2} à $m_{\higgsML}=\SI{100}{\GeV}$ et diminue à \num{0.9} à $m_{\higgsML}=\SI{800}{\GeV}$ contre \num{1.05} et \num{0.9} sans PU respectivement.
+La résolution relative à basse masse est de l'ordre de \SI{30}{\%}.
+Plus $m_{\higgsML}$ est faible,
+plus basse est l'énergie portée par $L_1$ et $L_2$, issue de la masse de \higgsML.
 Alors, les particules du PU sont compétitives, en termes de propriétés cinématiques, avec $L_1$ et $L_2$.
-Lors de la sélection des événements et de la construction du \emph{dilepton},
+Lors de la sélection des événements et de la construction du \emph{dilepton} présentée au chapitre~\refChHTT,
 il est ainsi possible que les particules utilisées en tant que $L_1$ ou $L_2$ soient en réalité issues du PU et non de la désintégration de \higgsML.
 Plus $m_{\higgsML}$ augmente, moins le PU est compétitif, d'où l'atténuation de l'effet sur la réponse observée du modèle.
 Il est donc primordial d'inclure le PU dans l'entraînement dans l'optique d'une utilisation de nos modèles dans les analyses de CMS.
@@ -48,8 +48,10 @@ La réponse du modèle B, entraîné avec PU, peut être comparée
 dans le cas d'événements sans PU, figure~\ref{subfig-reponse_model_PU_10},
 au cas d'événements avec PU, figure~\ref{subfig-reponse_model_PU_11} (identique à~\ref{subfig-reponse_model_B}).
 Le profil de PU utilisé pour générer les événements d'entraînement est celui de l'année 2017.
-Or, il apparaît que le modèle B est peu sensible à la présence de PU, les réponses étant similaires sur les figure~\ref{subfig-reponse_model_PU_10} et~\ref{subfig-reponse_model_PU_11}.
-L'utilisation de B sur des événements des années 2016 et 2018, ayant un profil de PU différent, est ainsi directement envisageable.
+Or, il apparaît que le modèle B est peu sensible au retrait du PU, les réponses étant similaires sur les figure~\ref{subfig-reponse_model_PU_10} et~\ref{subfig-reponse_model_PU_11}.
+L'utilisation de B sur des événements dont le profil de PU est légèrement différent de celui de l'année 2017,
+comme c'est le cas pour les autres années du Run~II (2016, 2018)
+est ainsi directement envisageable.
 \begin{figure}[h]
 \centering
 
