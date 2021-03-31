@@ -515,6 +515,7 @@ en particulier des bosons \Zboson\ et \higgs\ à \num{91.2} et \SI{125.1}{\GeV} 
 Pour une recherche de bosons de Higgs supplémentaires de haute masse,
 la limite supérieure de l'intervalle d'entraînement doit être la plus haute possible.
 \subsubsection{Effet de bord}
+\paragraph{Origine de l'effet de bord}
 L'intervalle de masse utilisé pour l'entraînement du modèle B
 s'étend de \num{50} à \SI{800}{\GeV}.
 Comme discuté dans la section~\ref{chapter-ML-section-evt_gen},
@@ -544,32 +545,255 @@ Ainsi, $m_{\higgsML}$ est sur-estimée à basse masse
 et
 sous-estimée à haute masse.
 Il s'agit de l'effet de bord de l'intervalle de masse.
+L'interprétation de cet effet est la suivante.
+Chaque ensemble d'événements prédits à une valeur de \ypred\ donnée est une même famille du point de vue du DNN.
+En termes de classification en un nombre infinie de catégories au lieu de régression, cela revient à dire qu'une famille est donc une catégorie identifiée.
+Sur la figure~\ref{fig-B-boundaries_effect-true_at_pred}
+sont représentées les distributions de $\ytrue=m_{\higgsML}$
+pour des valeurs de $\ypred$ la masse prédite par le modèle de
+\num{400} (figure~\ref{subfig-true_at_pred_400}) et \SI{750}{\GeV} (figure~\ref{subfig-true_at_pred_750})
+à $\pm\SI{5}{\GeV}$.
+Il s'agit donc de tranches horizontales de l'histogramme de la figure~\ref{subfig-pred_vs_answ_B-boundaries_effect},
+ce qui correspond à une famille d'événements selon le DNN.
+\begin{figure}[h]
+\centering
 
-\todo{continue here}
+\subcaptionbox{Distribution de \ytrue\ pour $\ypred=\num{400}\pm\SI{5}{\GeV}$.\label{subfig-true_at_pred_400}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Mass_range/distributions/distribution-inclusive-Higgs_mass_gen-at_pred_mass_400weighted-is_test.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Distribution de \ytrue\ pour $\ypred=\num{750}\pm\SI{5}{\GeV}$.\label{subfig-true_at_pred_750}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Mass_range/distributions/distribution-inclusive-Higgs_mass_gen-at_pred_mass_750weighted-is_test.pdf}\vspace{-.5\baselineskip}}
 
-use the custom loss with boundaries cuts (basically all the report 2021-02-04)
+\caption{Distributions de \ytrue\ à \ypred\ fixée.}
+\label{fig-B-boundaries_effect-true_at_pred}
+\end{figure}
+\par
+Loin des bords de l'intervalle d'entraînement,
+figure~\ref{subfig-true_at_pred_400},
+la distribution de \ytrue\ pour une famille est complète.
+Des deux côtés de la valeur centrale, les queues de la distribution sont présentes.
+Lors de l'entraînement,
+le DNN \og apprend \fg{} à prédire pour les événements de cette famille
+la valeur de \ypred\ minimisant la fonction de coût sur cette distribution.
+Nous obtenons dans ce cas une valeur proche de \SI{400}{\GeV}, ce qui est correct.
+%Il est à noter que certains événements générés à $m_{\higgsML}=\SI{800}{\GeV}$ font partie de cette famille, ce qui est lié à la résolution du modèle.
+\par
+Au niveau des bords de l'intervalle en revanche,
+figure~\ref{subfig-true_at_pred_750} pour celui de haute masse par exemple,
+l'absence d'événements au-delà de \SI{800}{\GeV} donne une distribution tronquée de \ytrue\ pour une famille donnée.
+Seule l'extrémité à basse masse de la queue de la distribution est présente.
+Par conséquent, le DNN ne connaît que les basses masses de cette famille
+et la minimisation de la fonction de coût mène à des prédictions plus basses.
+Il est donc tout à fait cohérent qu'il sous-estime la masse de ces événements.
+Si les événements au-delà de \SI{800}{\GeV} étaient présents dans cette famille,
+la distribution apparaîtrait décalée vers la droite, \ie\ vers les hautes masses,
+et la minimisation de la fonction de coût mènerait donc le DNN à prédire une masse plus élevée.
+\paragraph{Principe de la correction}
+La minimisation de la fonction de coût est donc réalisée correctement, mais sur des familles d'événements tronquées.
+Afin de contrer cet effet,
+l'idée retenue est de reformer des familles équilibrées
+en les tronquant de manière symétrique par rapport à la valeur de \ytrue\ devant leur correspondre.
+La figure~\ref{subfig-mirrored_cut-2D_histo} illustre le principe de cette coupure symétrique.
+\begin{figure}[h]
+\centering
 
-Follow report from 2021-02-04 but for section 3 : We saw that predictions come out too low, which already is a motivation to put larger weights on higher masses, i.e. to weight by truth. Choosing sqrt(truth) is of course just a guess then
+\subcaptionbox{Principe de la coupure symétrique à haute masse.\label{subfig-mirrored_cut-2D_histo}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/custom_loss-illustrations/distance_and_mirror.tex}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Distribution de \ytrue\ pour $\ypred=\num{750}\pm\SI{5}{\GeV}$ avec coupure symétrique.\label{subfig-mirrored_cut-true_at_pred_750}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Mass_range/distributions/distribution-inclusive-Higgs_mass_gen-mirrored_cut_at_pred_mass_750weighted-is_test.pdf}\vspace{-.5\baselineskip}}
 
-extend up to 1TeV using the tails
+\caption{Mise en place de la coupure symétrique.}
+\label{fig-B-boundaries_effect-mirrored_cut}
+\end{figure}
+\par
+La troncature des familles due à l'extrémité de l'intervalle à \SI{800}{\GeV}
+est symétrisée par rapport au centre de valeur \ytrue\ devant correspondre à chaque famille.
+Ainsi, tout événement d'une famille (tranche horizontale)
+situé à une distance $d$ de la valeur centrale à prédire (sur la diagonale rouge)
+plus grande que la distance de cette valeur centrale à
+l'extrémité de l'intervalle (trait orange vertical)
+est rejeté de l'entraînement.
+La distribution de la famille de la figure~\ref{subfig-true_at_pred_750}
+symétrisée par troncature selon cette méthode est présentée sur la figure~\ref{subfig-mirrored_cut-true_at_pred_750}.
+La valeur de la fonction de coût sur cette distribution n'est plus minimale pour la valeur prédite par le modèle,
+elle l'est en revanche pour une valeur prédite plus élevée.
+Le modèle actuel sous-estimant $m_{\higgsML}$ à haute masse,
+cette correction doit donc permettre d'obtenir un nouveau modèle avec une réponse plus proche de 1.
+\paragraph{Modification de la fonction de coût}
+Une coupure symétrique est également mise en place pour les basses masses.
+Cinq zones peuvent être définies dans le plan $(\ytrue, \ypred)$:
+\begin{description}
+\item[Zone 1] $\ytrue < \SI{50}{\GeV}$:\\
+absence d'événements due à la masse minimale de l'entraînement;
+\item[Zone 2] $\ytrue > \SI{800}{\GeV}$:\\
+absence d'événements due à la masse maximale de l'entraînement;
+\item[Zone 3] $\abs{\ypred - \ytrue} > \abs{\SI{800}{\GeV} - \ypred}$:\\
+zone d'exclusion à haute masse;
+\item[Zone 4] $\abs{\ypred - \ytrue} > \abs{\SI{50}{\GeV} - \ypred}$:\\
+zone d'exclusion à basse masse;
+\item[Zone 5] zone centrale.
+\end{description}
+Ces zones sont illustrées en figure~\ref{fig-B-boundaries_effect-mirrored_cut-areas}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/custom_loss-illustrations/areas.tex}
+\caption{Zones considérées pour l'entraînement.}
+\label{fig-B-boundaries_effect-mirrored_cut-areas}
+\end{figure}
+\par
+Dans la zone centrale, la fonction de coût est utilisée de manière classique, sans changement.
+Dans les zones 3 et 4 d'exclusion en revanche,
+afin de ne pas prendre en compte les événements comme prévu afin de symétriser les bords de l'intervalle d'entraînement au sein d'une famille,
+la fonction de coût est rendue égale à zéro.
+En d'autres termes, nous procédons au changement
+\begin{equation}
+\Loss \to \Loss' = \LossMAPE \times
+\left\lbrace
+\begin{aligned}
+0 \quad & \text{si le point $(\ytrue, \ypred)$ est dans les zones 3 ou 4}\\
+1 \quad & \text{sinon}
+\end{aligned}
+\right.
+\mend
+\end{equation}
+La fonction de coût ainsi obtenue ne respecte pas la condition
+\begin{equation}
+\Loss(\ytrue, \ypred) = 0 \Leftrightarrow \ytrue = \ypred
+\mend[,]
+\end{equation}
+des problèmes de convergence lors de l'entraînement peuvent survenir.
+C'est effectivement ce que nous avons pu observer lors de la mise en place de cette fonction de coût
+avec la condition d'exclusion de la zone 4.
+Nous avons alors choisi de multiplier la valeur de la fonction de coût par \num{0.1} dans la zone 4 au lieu de 0.
+De plus, nous avons observé que la multiplication de $\LossMAPE$ par la racine de \ytrue,
+conjointement avec les conditions d'exclusion,
+permettait d'améliorer encore la réponse du modèle.
+La fonction de coût ainsi utilisée est
+\LossMAPEsqrtb, définie par
+\begin{equation}
+\LossMAPEsqrtb(\ytrue, \ypred)
+=
+\LossMAPEsqrt(\ytrue, \ypred)
+\times
+\left\lbrace
+\begin{aligned}
+0 \quad & \text{si $(\ytrue, \ypred)\in$ zone 3}\\
+\num{0.1} \quad & \text{si $(\ytrue, \ypred)\in$ zone 4}\\
+1 \quad & \text{sinon}
+\end{aligned}
+\right.
+\label{eq-LossMAPEsqrtb}
+\end{equation}
+avec
+\begin{align}
+\LossMAPEsqrt(\ytrue, \ypred)
+&=
+\LossMAPE(\ytrue, \ypred) \times \sqrt{\ytrue}
+=
+\abs{\frac{\ypred-\ytrue}{\ytrue}} \times \sqrt{\ytrue}
+\nonumber\\\Leftrightarrow
+\LossMAPEsqrt(\ytrue, \ypred)
+&=
+\abs{\frac{\ypred-\ytrue}{\sqrt{\ytrue}}}
+\mend
+\end{align}
+\paragraph{Nouveau modèle obtenu}
+Le nouveau modèle obtenu, noté B', est comparé à B
+sur la figure~\ref{fig-B_Bprime-boundaries_effect}.
+\begin{figure}[p]
+\centering
 
+\subcaptionbox{Réponse du modèle B à basse masse.\label{subfig-B_lowmass-BvsBprime}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response_lowmass-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Réponse du modèle B' à basse masse.\label{subfig-Bprime_lowmass-BvsBprime}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response_lowmass-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
 
+\subcaptionbox{Réponse du modèle B.\label{subfig-B-BvsBprime}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Réponse du modèle B'.\label{subfig-Bprime-BvsBprime}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\subcaptionbox{Prédictions de B en fonction des valeurs vraies.\label{subfig-B_2dhisto-BvsBprime}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/predicted_vs_answers_histo-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Prédictions de B' en fonction des valeurs vraies.\label{subfig-Bprime_2dhisto-BvsBprime}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/predicted_vs_answers_histo-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\caption{Comparaison des modèles B et B'.}
+\label{fig-B_Bprime-boundaries_effect}
+\end{figure}
+Pour des masses inférieures à \SI{70}{\GeV},
+la réponse médiane de B', en figure~\ref{subfig-Bprime_lowmass-BvsBprime},
+est égale à 1 alors que celle de B, en figure~\ref{subfig-B_lowmass-BvsBprime},
+est sujette à l'effet de bord.
+À haute masse, 
+la réponse de B' en figure~\ref{subfig-Bprime-BvsBprime} est également plus proche de 1
+que celle de B, en figure~\ref{subfig-Bprime-BvsBprime}.
+L'utilisation de  \LossMAPEsqrt\ comme fonction de coût permet donc de
+supprimer l'effet de bord à basse masse
+et de le réduire à haute masse.
+\paragraph{Exploitation de la queue à haute masse des événements générés}
+Lors de la génération des événements à haute masse, la largeur du boson de Higgs permet d'obtenir des événements avec $m_{\higgsML}$ supérieure à \SI{800}{\GeV}, comme discuté en section~\ref{chapter-ML-section-evt_gen}.
+Jusqu'ici, nous ne considérerions que les événements tels que
+$\SI{50}{\GeV}\leq m_{\higgsML}\leq \SI{800}{\GeV}$.
+L'inclusion de la queue à haute masse des événements générés permet d'étendre artificiellement l'intervalle d'entraînement jusqu'à \SI{1}{\TeV}.
+Le biais éventuel dû à la faible quantité d'événements au-delà de \SI{800}{\GeV} est évité grâce à la pondération présentée dans la section~\ref{chapter-ML-section-evt_gen}.
+De même, les définitions des cinq zones utilisées pour déterminer la fonction de coût sont adaptées à la nouvelle valeur maximale de $m_{\higgsML}$ fixée à \SI{1}{\TeV}.
+Le modèle B" ainsi obtenu est est comparé à B'
+sur la figure~\ref{fig-BprimevsBpprime-boundaries_effect}.
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{Réponse du modèle B' à basse masse.\label{subfig-Bprime_lowmass-BprimevsBpprime}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response_lowmass-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Réponse du modèle B" à basse masse.\label{subfig-Bpprime_lowmass-BprimevsBpprime}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/selected_NNs_FastSim/DeepTau-inclusive-1TeV/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/plots_up_to_800/model_response_lowmass-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\subcaptionbox{Réponse du modèle B'.\label{subfig-Bprime-BprimevsBpprime}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Réponse du modèle B".\label{subfig-Bpprime-BprimevsBpprime}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/selected_NNs_FastSim/DeepTau-inclusive-1TeV/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/plots_up_to_800/model_response-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\subcaptionbox{Prédictions de B' en fonction des valeurs vraies.\label{subfig-Bprime_2dhisto-BprimevsBpprime}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/predicted_vs_answers_histo-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Prédictions de B" en fonction des valeurs vraies.\label{subfig-Bpprime_2dhisto-BprimevsBpprime}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/selected_NNs_FastSim/DeepTau-inclusive-1TeV/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/plots_up_to_800/predicted_vs_answers_histo-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\caption{Comparaison des modèles B' et B".}
+\label{fig-BprimevsBpprime-boundaries_effect}
+\end{figure}
+La réponse à basse masse de B", figure~\ref{subfig-Bpprime_lowmass-BprimevsBpprime},
+est semblable à celle de B', figure~\ref{subfig-Bprime_lowmass-BprimevsBpprime},
+ce qui est attendu.
+En revanche, la réponse moyenne de B" à haute masse, figure~\ref{subfig-Bpprime-BprimevsBpprime},
+est de $\num{1.00}\pm\num{0.04}$
+contre $\num{0.93}\pm\num{0.07}$ pour B', figure~\ref{subfig-Bprime-BprimevsBpprime}.
+Enfin, la résolution relative de B' est de \SI{22}{\%}, celle de B" de \SI{25}{\%}.
 \subsection{Modèle final}
-
-\DEEPTAU
-
-1 TeV
-
-all inputs
-
-activation softplus
-
-loss mapesqrt\_b
-
-opti Adam
-
-glorot uniform
-
-3 layers of 1000 neurons
-
-show reponses and 2d histo
+Le modèle B" que nous avons construit
+est donc entraîné sur des événements $\higgsML\to\tau\tau$
+où \higgsML\ est le boson de Higgs du modèle standard \higgs\ avec une masse modifiée
+entre \num{50} et \SI{800}{\GeV},
+avec addition d'empilement selon le profil de l'année 2017,
+dont la sélection est réalisée selon la procédure décrite section~\ref{chapter-ML-section-evt_gen}.
+En particulier, l'algorithme \DEEPTAU~\cite{CMS-DP-2019-033} est utilisé pour l'identification des taus hadroniques.
+La largeur de \higgsML\ permet d'exploiter des événements où sa masse effective est supérieure à \SI{800}{\GeV}, jusqu'à \SI{1}{\TeV}.
+La gamme d'utilisation de notre modèle est toutefois considérée comme allant de \num{50} à \SI{800}{\GeV} uniquement.
+Les hyper-paramètres de B" sont ceux de B à l'exception de la fonction de coût:
+\begin{itemize}
+\item 3 couches cachées;
+\item \num{1000} neurones par couche cachée;
+\item fonction d'activation Softplus, $x\mapsto\ln(1+\eexp{x})$;
+\item algorithme d'optimisation Adam, présenté en section~\ref{chapter-ML-section-DNN-training-optimizers};
+\item fonction de coût \LossMAPEsqrtb, définie équation~\eqref{eq-LossMAPEsqrtb};
+\item initiation des poids selon le mode \og Glorot Uniforme \fg~\cite{glorot};
+\item 27 variables d'entrée données en section~\ref{chapter-ML-section-evt_gen-inputs}.
+\end{itemize}
+\par
+L'utilisation de B" dans les analyses de CMS est abordé dans la section suivante.
