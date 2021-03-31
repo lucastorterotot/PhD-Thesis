@@ -19,7 +19,7 @@ Pour cela, les mêmes événements que ceux décrits en section~\ref{chapter-ML-
 Un DNN, noté \Bnpu, est entraîné sur ces événements sans PU.
 Les hyper-paramètres de \Bnpu\ sont ceux de B, à l'exception des variables d'entrées auxquelles \Npu\ est retiré, car $\Npu=0$ pour tous les événements sans PU.
 La réponse de \Bnpu\ sur les événements de test sans PU est représentée sur la figure~\ref{subfig-reponse_model_PU_00}.
-La réponse du modèle est de l'ordre de 1 pour $m_{\higgsML}$ entre \SI{80}{\GeV} et \SI{600}{\GeV} avec une résolution à $\pm1\sigma$ de l'ordre de \SI{20}{\%} à basse masse et \SI{10}{\%} à haute masse.
+La réponse moyenne du modèle est de $\num{1.00}\pm\num{0.05}$ pour $m_{\higgsML}$ entre \SI{80}{\GeV} et \SI{600}{\GeV} avec une résolution à $\pm1\sigma$ de l'ordre de \SI{20}{\%} à basse masse et \SI{10}{\%} à haute masse.
 \begin{figure}[h]
 \centering
 
@@ -34,8 +34,8 @@ La réponse du modèle est de l'ordre de 1 pour $m_{\higgsML}$ entre \SI{80}{\Ge
 \end{figure}
 \par
 Cependant, la réponse de \Bnpu\ est dégradée sur des événements contenant du PU, figure~\ref{subfig-reponse_model_PU_01}.
-La réponse médiane se situe en effet à \num{1.2} à $m_{\higgsML}=\SI{100}{\GeV}$ et diminue à \num{0.9} à $m_{\higgsML}=\SI{800}{\GeV}$ contre \num{1.05} et \num{0.9} sans PU respectivement.
-La résolution relative à basse masse est de l'ordre de \SI{30}{\%}.
+La réponse moyenne se situe en effet à \num{1.3} à $m_{\higgsML}=\SI{100}{\GeV}$ et diminue à \num{0.9} à $m_{\higgsML}=\SI{800}{\GeV}$ avec PU contre \num{1.05} et \num{0.9} sans PU.
+La résolution relative à basse masse est de l'ordre de \SI{30}{\%} avec PU.
 Plus $m_{\higgsML}$ est faible,
 plus basse est l'énergie portée par $L_1$ et $L_2$, issue de la masse de \higgsML.
 Alors, les particules du PU sont compétitives, en termes de propriétés cinématiques, avec $L_1$ et $L_2$.
@@ -74,7 +74,7 @@ Il s'agit donc du cas où les objets physiques directement liés à la désinté
 \par
 La figure~\ref{fig-reponse_model_1GENleg} montre les réponses du modèle \Bgenleg\ sur les événements avec reconstruction parfaite et réelle.
 Dans le cas d'une reconstruction parfaite,
-la réponse de \Bgenleg\ est de l'ordre de $\num{1.01}^{+\num{0.01}}_{-\num{0.02}}$.
+la réponse médiane de \Bgenleg\ est de l'ordre de $\num{1.01}\pm\num{0.02}$ de \num{70} à \SI{800}{\GeV}.
 Il s'agit donc d'une estimation de $m_{\higgsML}$ avec une précision de \SI{2}{\%}.
 \begin{figure}[h]
 \centering
@@ -96,7 +96,7 @@ afin d'estimer $m_{\higgsML}$
 correspondant aux objets effectivement reconstruits par le détecteur.
 Cependant, comme le montre la figure~\ref{subfig-reponse_model_GENleg_11},
 l'utilisation de \Bgenleg\ sur les variables reconstruites, effectivement accessibles expérimentalement, ne permet pas d'obtenir $m_{\higgsML}$.
-En effet, la réponse de \Bgenleg\ avec ces variables est inférieure à \num{1} et de l'ordre de \num{0.7} à haute masse.
+En effet, la réponse moyenne de \Bgenleg\ avec ces variables est inférieure à \num{1} et de l'ordre de \num{0.7} à haute masse.
 De plus, la résolution relative est de l'ordre de \SI{40}{\%}.
 Une des tâches des DNNs est donc de corriger cet effet de reconstruction.
 \subsection{Effet des faux taus hadroniques}
@@ -315,11 +315,11 @@ figure~\ref{subfig-reponse_model_train_on_mt_test_on_mt},
 possède une réponse équivalente à celle de B sur les mêmes événements,
 figure~\ref{subfig-reponse_model_train_on_inclusive_test_on_mt},
 pour des masses inférieures à \SI{400}{\GeV}.
-À haute masse, la réponse du modèle B est toutefois plus proche de 1.
+À haute masse, la réponse moyenne du modèle B est toutefois plus proche de 1.
 Le même constat peut être fait dans le cas du canal \ele\tauh,
 figures~\ref{subfig-reponse_model_train_on_et_test_on_et}
 et~\ref{subfig-reponse_model_train_on_inclusive_test_on_et}.
-La réponse de B est toutefois plus proche de 1 que celle de \Bchsplit{et} sur toute la gamme de masse.
+La réponse moyenne de B est toutefois plus proche de 1 que celle de \Bchsplit{et} sur toute la gamme de masse.
 \par
 Dans le cas des canaux leptoniques, figure~\ref{fig-mm-em-ee},
 l'utilisation de B plutôt que
@@ -345,6 +345,7 @@ Canal $x$ & \multicolumn{2}{c}{Modèle \Bchsplit{x}} & \multicolumn{2}{c}{Modèl
 \par
 Il semble ainsi préférable d'utiliser un seul modèle global plutôt qu'un modèle par canal.
 Cet effet peut être dû à la statistique plus faible à disposition lors de l'entraînement des DNNs séparément pour chaque canal.
+Un compromis peut être obtenu en séparant non pas par canal, mais par groupe de canal.
 \subsubsection{Séparation en trois groupes}
 En dehors de toute considération de reconstruction des particules,
 la phénoménologie des canaux d'un même groupe
@@ -362,7 +363,7 @@ La figure~\ref{fig-lt} compare le modèle
 à B utilisé sur ces mêmes événements.
 Pour des masses supérieures à \SI{300}{\GeV},
 les deux modèles sont équivalents en termes de réponse et de résolution relative.
-En revanche, à basse masse, le modèle B a une réponse de \num{1.06} contre \num{1.10} pour \Bchsplit{lt}.
+En revanche, à basse masse, le modèle B a une réponse moyenne de \num{1.10} contre \num{1.18} pour \Bchsplit{lt}.
 \begin{figure}[h]
 \centering
 
@@ -381,9 +382,10 @@ En revanche, à basse masse, le modèle B a une réponse de \num{1.06} contre \n
 La figure~\ref{fig-ll} compare le modèle
 \Bchsplit{ll}, entraîné sur les canaux leptoniques,
 à B utilisé sur ces mêmes événements.
-
-\todo{continue here}
-
+Les réponses de ces deux modèles sont équivalentes.
+Entre \num{100} et \SI{200}{\GeV},
+la réponse moyenne de \Bchsplit{ll} est légèrement plus proche de 1 que celle de B.
+Cette différence est toutefois négligeable face à la résolution relative de ces modèles, de l'ordre de \SI{30}{\%} dans cette région.
 \begin{figure}[h]
 \centering
 
@@ -398,17 +400,152 @@ La figure~\ref{fig-ll} compare le modèle
 \caption[Comparaison du modèle entraîné sur les canaux leptoniques au modèle B.]{Comparaison de \Bchsplit{ll} à B.}
 \label{fig-ll}
 \end{figure}
-
-
-
+\par
+Utiliser un modèle par groupe de canaux
+ne permet donc pas non plus d'améliorer les estimations obtenues
+par rapport au modèle de référence entraîné sur l'ensemble des canaux.
+Ce modèle, B, a en variable d'entrée le nombre attendu de neutrinos dans l'état final, \Nnu,
+directement relié au groupe du canal.
+En effet, $\Nnu=2$ pour le canal hadronique, 3 pour les semi-leptoniques et 4 pour les leptoniques.
+Or, comme vu dans la section~\ref{chapter-ML-section-hyperparameters-inputs}, tout modèle privé de cette information a des performances dégradées.
+Le modèle B identifie donc vraisemblablement correctement le groupe de canal grâce à \Nnu.
 \subsection{Effet de la définition de \MET}
+\def\Bpf{$\text{B}^\text{PF}$}
+Dans l'analyse présentée au chapitre~\refChHTT,
+\MET\ est déterminée par l'algorithme \PUPPI~\cite{PUPPI}.
+Il s'agit de la \og \PUPPI MET \fg.
+C'est pourquoi nous avons entraîné les modèles avec \PUPPI MET.
+Toutefois, une autre estimation de \MET\ existe, directement à partir de l'algorithme de \PF.
+C'est la \og PFMET \fg.
+Ces deux définitions de \MET\ sont introduites dans le chapitre~\refChLHCCMS.
+\par
+Certaines analyses utilisent PFMET plutôt que \PUPPI MET.
+Nous avons donc souhaité vérifier la portabilité du modèle B
+entraîné avec \PUPPI MET à une utilisation avec PFMET.
+La figure~\ref{fig-MET-PF-PUPPI-B} montre les réponses de B
+sur les mêmes événements,
+lorsque les variables reliées à \MET\ sont obtenues à partir de
+\PUPPI MET (figure~\ref{subfig-reponse_model_train_on_Puppi_test_on_Puppi})
+ou
+PFMET (figure~\ref{subfig-reponse_model_train_on_Puppi_test_on_PF}).
+\begin{figure}[h]
+\centering
 
+\subcaptionbox{Modèle B testé avec \PUPPI MET.\label{subfig-reponse_model_train_on_Puppi_test_on_Puppi}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Puppi_vs_PF_MET/trained_on_Puppi/test_on_Puppi/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Modèle B testé avec PFMET.\label{subfig-reponse_model_train_on_Puppi_test_on_PF}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Puppi_vs_PF_MET/trained_on_Puppi/test_on_PF/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
 
+\caption{Réponses du modèle B avec \PUPPI MET ou PFMET.}
+\label{fig-MET-PF-PUPPI-B}
+\end{figure}
+\par
+L'utilisation de PFMET augmente la réponse de B.
+Cette augmentation est cependant inférieure à \SI{3}{\%}.
+La résolution relative est inchangée.
+Il est donc tout à fait possible d'utiliser le modèle B avec PFMET, bien qu'il soit entraînée avec \PUPPI MET.
+\par
+La possibilité d'obtenir de meilleures prédictions avec PFMET à l'aide d'un modèle entraîné avec PFMET a également été étudiée.
+Sur la figure~\ref{fig-MET-PF-PUPPI-Bpf},
+le modèle \Bpf\ a les mêmes hyper-paramètres que B mais est donc entraîné directement avec PFMET.
+\begin{figure}[h]
+\centering
 
+\subcaptionbox{Modèle \Bpf\ testé avec \PUPPI MET.\label{subfig-reponse_model_train_on_PF_test_on_PUPPI}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Puppi_vs_PF_MET/trained_on_PF/test_on_Puppi/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Modèle \Bpf\ testé avec PFMET.\label{subfig-reponse_model_train_on_PF_test_on_PF}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Puppi_vs_PF_MET/trained_on_PF/test_on_PF/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\caption{Réponses du modèle \Bpf\ avec \PUPPI MET ou PFMET.}
+\label{fig-MET-PF-PUPPI-Bpf}
+\end{figure}
+\par
+Le même effet de transition entre PFMET et \PUPPI MET qu'avec B est observable avec \Bpf.
+Cependant,
+la réponse moyenne de B avec \PUPPI MET (figure~\ref{subfig-reponse_model_train_on_Puppi_test_on_Puppi})
+est égale à $\num{1.00}\pm\num{0.05}$ de \SI{80}{\GeV} à \SI{425}{\GeV},
+alors que ce n'est la cas que de \SI{200}{\GeV} à \SI{425}{\GeV}
+pour \Bpf\ avec PFMET (figure~\ref{subfig-reponse_model_train_on_PF_test_on_PF}).
+De plus, la réponse moyenne de B avec PFMET (figure~\ref{subfig-reponse_model_train_on_Puppi_test_on_PF})
+est plus proche de 1 pour $m_{\higgsML}\simeq\SI{100}{\GeV}$
+que celle de \Bpf\ avec PFMET (figure~\ref{subfig-reponse_model_train_on_PF_test_on_PF}).
 \subsection{Effet de l'intervalle de masse}
-\subsubsection{Gamme de masse}
+\subsubsection{Étendue de l'intervalle}
+\def\Bsmr{$\text{B}^\text{200-500}$}
+L'intervalle de masse exploré lors de l'entraînement s'étend de \num{50} à \SI{800}{\GeV},
+ce qui correspond aux valeurs de la masse du boson de Higgs modifié \higgsML\ utilisé lors de la génération des événements
+présentée dans la section~\ref{chapter-ML-section-evt_gen}.
+Cet intervalle est également le domaine de validité du modèle.
+La figure~\ref{fig-Bsmr}
+montre les performances du modèle \Bsmr,
+équivalent au modèle B mais entraîné uniquement entre \num{200} et \SI{500}{\GeV}.
+\begin{figure}[h]
+\centering
 
+\subcaptionbox{Prédictions en fonction des valeurs vraies.\label{subfig-pred_vs_answ_Bsmr}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Mass_range/predicted_vs_answers_histo-NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Réponse.\label{subfig-reponse_Bsmr}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/Mass_range/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\caption{Performances du modèle \Bsmr.}
+\label{fig-Bsmr}
+\end{figure}
+\par
+L'histogramme à deux dimensions des prédictions de \Bsmr\ en fonction de la vraie valeur de $m_{\higgsML}$,
+figure~\ref{subfig-pred_vs_answ_Bsmr},
+montre que les prédictions du modèle sont contenues dans l'intervalle d'entraînement,
+à quelques exceptions près.
+Dans l'intervalle d'entraînement, les prédictions sont cohérentes avec $m_{\higgsML}$,
+la population de l'histogramme est proche de la première bissectrice ($\ypred=\ytrue$) en rouge.
+En dehors de cet intervalle,
+le comportement du modèle est proche d'une classification.
+Les événements
+avec $m_{\higgsML}<\SI{200}{\GeV}$ sont prédits vers \SI{230}{\GeV}
+et ceux 
+avec $m_{\higgsML}>\SI{500}{\GeV}$ sont prédits vers \SI{480}{\GeV}.
+Un modèle ne peut donc pas être utilisé afin de prédire des masses en dehors de son intervalle d'entraînement.
+\par
+Afin d'obtenir un modèle pertinent dans l'optique d'une utilisation dans les analyses de CMS,
+il est donc important d'utiliser un intervalle
+contenant la gamme de masse des particules du modèle standard,
+en particulier des bosons \Zboson\ et \higgs\ à \num{91.2} et \SI{125.1}{\GeV} respectivement.
+Pour une recherche de bosons de Higgs supplémentaires de haute masse,
+la limite supérieure de l'intervalle d'entraînement doit être la plus haute possible.
 \subsubsection{Effet de bord}
+L'intervalle de masse utilisé pour l'entraînement du modèle B
+s'étend de \num{50} à \SI{800}{\GeV}.
+Comme discuté dans la section~\ref{chapter-ML-section-evt_gen},
+il ne nous est pas possible de l'étendre avec la méthode utilisée pour générer les événements.
+Or, il existe un effet de bord sur les prédictions du modèle B lié à cet intervalle.
+La figure~\ref{subfig-pred_vs_answ_B-boundaries_effect} montre l'histogramme à deux dimensions des prédictions de B en fonction de la vraie valeur de $m_{\higgsML}$.
+Pour $m_{\higgsML}>\SI{600}{\GeV}$, les prédictions de B saturent progressivement en dessous de \SI{800}{\GeV}.
+De même, la réponse moyenne de B à basse masse, figure~\ref{subfig-reponse_model_B-boundaries_effect},
+est de $\num{1.01}\pm\num{0.01}$ pour $\SI{80}{\GeV}<m_{\higgsML}<\SI{200}{\GeV}$.
+En dessous de \SI{80}{\GeV}, la réponse moyenne augmente
+et
+le premier quantile inférieur (limite basse de la bande verte $\pm1\sigma$) passe de \num{0.8} à \num{1.0}.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Prédictions en fonction des valeurs vraies.\label{subfig-pred_vs_answ_B-boundaries_effect}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/predicted_vs_answers_histo-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Réponse du modèle B à basse masse.\label{subfig-reponse_model_B-boundaries_effect}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response_lowmass-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+
+\caption{Performances du modèle B.}
+\label{fig-B-boundaries_effect}
+\end{figure}
+\par
+Ainsi, $m_{\higgsML}$ est sur-estimée à basse masse
+et
+sous-estimée à haute masse.
+Il s'agit de l'effet de bord de l'intervalle de masse.
+
+\todo{continue here}
 
 use the custom loss with boundaries cuts (basically all the report 2021-02-04)
 
