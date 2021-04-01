@@ -1,9 +1,394 @@
 \section{Utilisation du modèle dans les analyses CMS}\label{chapter-ML-section-use_HTT}
+Dans cette section, l'utilisation du modèle B" introduit dans la section~\ref{chapter-ML-section-discussion} sur les événements de l'analyse présentée dans le chapitre~\refChHTT\ est discutée.
+Ce modèle issu du ML est conçu pour prédire la masse de la particule se désintégrant en paire de leptons tau.
+Nous noterons donc \mml\ la variable correspondant à la prédiction de B".
+\subsection{Utilisation de \mml\ comme variable discriminante}
+\subsubsection{Performances de \mml\ et de \mTtot}
+Comme exposé au chapitre~\refChHTT,
+il est nécessaire de définir une variable discriminante
+permettant de différentier le signal et le bruit de fond.
+Une variable de choix peut être la masse invariante \minv\ du système dans l'état final,
+devant correspondre à la masse de la particule initiale.
+Cependant, dans les analyses avec une paire de leptons tau,
+la présence de neutrinos rend impossible l'exploitation de \minv.
+C'est pourquoi
+\mTtot\ est la variable discriminante
+utilisée dans l'analyse du chapitre~\refChHTT.
+\par
+Or, les valeurs de \mml\ doivent correspondre à la masse de la particule se désintégrant en paire de leptons tau.
+La prédiction de notre modèle
+pourrait donc servir directement de variable discriminante.
+Il est possible de comparer \mml\ à \mTtot\ en considérant que \mTtot\ correspond aux prédictions d'un autre DNN, par exemple.
+Selon le groupe de canaux considéré, le nombre de neutrinos dans l'état final change.
+Il y en a
+2 pour le canal hadronique \tauh\tauh,
+3 pour les canaux semi-leptoniques $\ell\tauh$ et
+4 dans les canaux leptoniques $\ell\ell$.
+La comparaison est ainsi réalisée pour chacun de ces groupes séparément.
+\par
+La figure~\ref{fig-BpprimevsMTTOT-resp} montre les réponses de \mml\ et de \mTtot.
+Cette comparaison est réalisée sur la figure~\ref{fig-BpprimevsMTTOT}.
+\begin{figure}[p]
+\centering
 
-show distributions of mTtot and ML predictions
+\subcaptionbox{Réponse de \mml, canal \tauh\tauh.\label{subfig-resp-Bpprime-BpprimevsMTTOT-tt}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/selected_NNs_FastSim/DeepTau-inclusive-1TeV/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/plots_up_to_800/channel_tt/model_response-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Réponse de \mTtot, canal \tauh\tauh.\label{subfig-resp-MTTOT-BpprimevsMTTOT-tt}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau/channel_tt/model_response-PuppimTtot_reco.pdf}\vspace{-.5\baselineskip}}
 
-discuss
+\subcaptionbox{Réponse de \mml, canal $\ell\tauh$.\label{subfig-resp-Bpprime-BpprimevsMTTOT-lt}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/selected_NNs_FastSim/DeepTau-inclusive-1TeV/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/plots_up_to_800/channel_lt/model_response-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Réponse de \mTtot, canal $\ell\tauh$.\label{subfig-resp-MTTOT-BpprimevsMTTOT-lt}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau/channel_lt/model_response-PuppimTtot_reco.pdf}\vspace{-.5\baselineskip}}
 
-show limits
+\subcaptionbox{Réponse de \mml, canal $\ell\ell$.\label{subfig-resp-Bpprime-BpprimevsMTTOT-ll}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/selected_NNs_FastSim/DeepTau-inclusive-1TeV/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/plots_up_to_800/channel_ll/model_response-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Réponse de \mTtot, canal $\ell\ell$.\label{subfig-resp-MTTOT-BpprimevsMTTOT-ll}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau/channel_ll/model_response-PuppimTtot_reco.pdf}\vspace{-.5\baselineskip}}
 
-discuss
+\caption{Comparaison des réponses de \mml et \mTtot.}
+\label{fig-BpprimevsMTTOT-resp}
+\end{figure}
+Il apparaît que les valeurs de \mTtot\ ne sont pas du tout concordantes avec la masse du boson initial, car la réponse de \mTtot\ est différente de 1 dans le cas général.
+Dans chacun des trois groupes,
+cette réponse diminue lorsque $m_{\higgsML}$ augmente jusqu'à environ \SI{400}{\GeV} où elle stagne
+à \num{0.72} dans le canal \tauh\tauh,
+\num{0.61} pour $\ell\tauh$
+et
+\num{0.45} pour $\ell\ell$.
+\par
+Cependant, \mTtot\ n'a pas pour but d'estimer $m_{\higgsML}$.
+Il s'agit uniquement d'une variable discriminante.
+Une seconde comparaison, basée sur les résolutions relatives de \mml\ et \mTtot, est présentée en figure~\ref{fig-BpprimevsMTTOT-reso}.
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{Résolution relative de \mml, canal \tauh\tauh.\label{subfig-reso-Bpprime-BpprimevsMTTOT-tt}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/selected_NNs_FastSim/DeepTau-inclusive-1TeV/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/plots_up_to_800/channel_tt/model_response_calibrated-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Résolution relative de \mTtot, canal \tauh\tauh.\label{subfig-reso-MTTOT-BpprimevsMTTOT-tt}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau/channel_tt/model_response_calibrated-PuppimTtot_reco.pdf}\vspace{-.5\baselineskip}}
+
+\subcaptionbox{Résolution relative de \mml, canal $\ell\tauh$.\label{subfig-reso-Bpprime-BpprimevsMTTOT-lt}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/selected_NNs_FastSim/DeepTau-inclusive-1TeV/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/plots_up_to_800/channel_lt/model_response_calibrated-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Résolution relative de \mTtot, canal $\ell\tauh$.\label{subfig-reso-MTTOT-BpprimevsMTTOT-lt}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau/channel_lt/model_response_calibrated-PuppimTtot_reco.pdf}\vspace{-.5\baselineskip}}
+
+\subcaptionbox{Résolution relative de \mml, canal $\ell\ell$.\label{subfig-reso-Bpprime-BpprimevsMTTOT-ll}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/selected_NNs_FastSim/DeepTau-inclusive-1TeV/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/plots_up_to_800/channel_ll/model_response_calibrated-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
+\hfill
+\subcaptionbox{Résolution relative de \mTtot, canal $\ell\ell$.\label{subfig-reso-MTTOT-BpprimevsMTTOT-ll}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau/channel_ll/model_response_calibrated-PuppimTtot_reco.pdf}\vspace{-.5\baselineskip}}
+
+\caption{Comparaison des résolutions relatives de \mml et \mTtot.}
+\label{fig-BpprimevsMTTOT-reso}
+\end{figure}
+\par
+Dans le canal \tauh\tauh,
+la résolution relative de \mml\ sur $m_{\higgsML}$,
+figure~\ref{subfig-reso-Bpprime-BpprimevsMTTOT-tt},
+est
+d'environ \SI{30}{\%} à \SI{70}{\GeV}
+et de \SI{20}{\%} sur le reste de la gamme de masse.
+Celle de \mTtot,
+figure~\ref{subfig-reso-MTTOT-BpprimevsMTTOT-tt},
+d'environ \SI{70}{\%} à \SI{70}{\GeV}
+et de \SI{27}{\%} sur le reste de la gamme de masse.
+L'utilisation de \mml\ présente ainsi un gain important en termes de résolution,
+en particulier en dessous de \SI{100}{\GeV}, région dans laquelle se trouve le boson \Zboson.
+\par
+Dans les canaux $\ell\tauh$,
+la résolution relative de \mml\ sur $m_{\higgsML}$,
+figure~\ref{subfig-reso-Bpprime-BpprimevsMTTOT-lt},
+est
+comprise entre \num{20} et \SI{28}{\%}
+alors que
+celle de \mTtot,
+figure~\ref{subfig-reso-MTTOT-BpprimevsMTTOT-lt},
+est supérieure à \SI{25}{\%};
+de l'ordre de \SI{35}{\%} à haute masse et
+\SI{40}{\%} à basse masse.
+\par
+Dans les canaux $\ell\ell$,
+la résolution relative de \mml\ sur $m_{\higgsML}$,
+figure~\ref{subfig-reso-Bpprime-BpprimevsMTTOT-ll},
+est
+comprise entre \num{20} et \SI{37}{\%}
+alors que
+celle de \mTtot,
+figure~\ref{subfig-reso-MTTOT-BpprimevsMTTOT-ll},
+est de \SI{30}{\%} à basse masse et augmente
+jusqu'à \SI{40}{\%} à haute masse.
+\par
+À l'exception de la région proche de $m_{\higgsML}=\SI{140}{\GeV}$ dans les canaux $\ell\ell$,
+où elle est légèrement supérieure,
+la résolution de \mml\ est systématiquement inférieure à celle de \mTtot, \ie\ meilleure.
+C'est pourquoi l'utilisation de \mml\ au lieu de \mTtot\ en tant que variable discriminante pour l'analyse du chapitre~\refChHTT\ semble envisageable.
+\subsubsection{Résultats avec \mml}
+L'analyse indépendante du modèle introduite au chapitre~\refChHTT\ a été réalisée
+sur l'année 2017
+avec \mml\ et \mTtot\ comme variables discriminantes,
+sans aucun autre changement.
+Les résultats obtenus sont donnés en figure~\ref{fig-model_indep_2017_mml}
+pour les processus $\gluon\gluon\to\Phi\to\tau\tau$ et $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Processus $\gluon\gluon\to\Phi\to\tau\tau$.}[.475\textwidth]
+{\plotHTTModelIndepLimits{mssm_classic_ml}{2017}{ggH}{_vs_mTtot_expOnly}}
+\hfill
+\subcaptionbox{Processus $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$.}[.475\textwidth]
+{\plotHTTModelIndepLimits{mssm_classic_ml}{2017}{bbH}{_vs_mTtot_expOnly}}
+
+% 106 120 130 140 160 180 200 250 300 350 400 450 500 600 700 800 900 1000 ...
+
+\caption{Limites d'exclusion indépendantes du modèle physique avec \mml\ en tant que variable discriminante obtenue avec l'année 2017.}
+\label{fig-model_indep_2017_mml}
+\end{figure}
+\par
+Pour le processus $\gluon\gluon\to\Phi\to\tau\tau$
+à $m_\Phi=\SI{100}{\GeV}$,
+\mml\ permet d'exclure les valeurs de $\sigma\times\BR$ jusqu'à \SI{10}{\pico\barn}
+contre \SI{30}{\pico\barn} avec \mTtot.
+À \SI{140}{\GeV}, les performances de \mml\ et \mTtot\ sont équivalentes.
+De \num{150} à \SI{700}{\GeV}, \mTtot\ permet en revanche d'exclure jusqu'à des valeurs trois fois plus basses de $\sigma\times\BR$ que ne permet de le faire \mml.
+Au-delà, les deux variables sont équivalentes.
+Dans le cas du processus $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$,
+l'utilisation de \mml\ ne permet pas d'améliorer les limites d'exclusion.
+\par
+Afin d'interpréter ces résultats, il est possible de se référer aux distributions de \mml\ et \mTtot.
+La figure~\ref{fig-distributions_mml_mttot_2017_tt_btag} les présente pour la catégorie \CATbtag\ du canal \tauh\tauh.
+D'autres distributions sont disponibles dans l'annexe~\refApHTTshapes.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Distribution de \mTtot.}[.475\textwidth]
+{\plotHTTshapes{mt_tot}{mssm_classic}{2017}{tt}{35}{prefit_linear_blinded_rawsig}}
+\hfill
+\subcaptionbox{Distribution de \mml.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{mssm_classic}{2017}{tt}{35}{prefit_linear_blinded_rawsig}}
+
+\caption[Distributions de \mTtot\ et \mml\ en 2017 dans la catégorie \CATbtag\ du canal \tauh\tauh.]{Distributions de \mTtot\ et \mml\ en 2017 dans la catégorie \CATbtag\ du canal \tauh\tauh. Un signal correspondant à un boson de Higgs supplémentaire de masse \SI{400}{\GeV} est ajouté à titre d'illustration.}
+\label{fig-distributions_mml_mttot_2017_tt_btag}
+\end{figure}
+\par
+À haute masse,
+l'effet de la statistique est dominant
+à cause de la faible quantité d'événements présents.
+C'est pourquoi les deux variables donnent des résultats équivalents.
+Pour les masses intermédiaires en revanche,
+et en particulier dans l'intervalle de \num{200} à \SI{500}{\GeV},
+l'avantage de \mTtot\ sur \mml\ provient de la présence des processus où
+le \emph{dilepton} construit n'est pas pertinent,
+en particulier:
+\begin{itemize}
+\item les \ftauhs, où un jet est identifié à tort comme un \tauh;
+\item le processus \ttbar, où la désintégration par interaction faible des quarks~\quarkt\ imite celle des leptons tau.
+\end{itemize}
+En effet, dans ces processus,
+les objets physiques constituant le \emph{dilepton}
+ne proviennent pas d'une même particule.
+\par
+Dans le cas des \ftauhs,
+les jets ne proviennent pas de la désintégration d'un boson de Higgs en paire de leptons tau.
+Si le jet est décorrélé de l'autre élément du \emph{dilepton},
+déterminer une masse pour ce \emph{dilepton} n'a pas de sens physique.
+Si en revanche les deux éléments du \emph{dilepton} sont corrélés,
+par exemple s'ils proviennent bien d'une même particule,
+alors il s'agit d'un processus physique autre qu'une désintégration en paire de leptons tau,
+par exemple $\Higgs\to\quarkb\antiquarkb$,
+ce pour quoi B" n'est pas entraîné.
+\par
+Les événements \ttbar\ peuvent présenter des objets physiques dans l'état final équivalents
+au processus $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$.
+Toutefois, les éléments du \emph{dilepton} construit dans les événements \ttbar\
+doivent en général correspondre, respectivement, au produits de désintégration des bosons \Wboson\ issus des processus
+$\quarkt\to\quarkb\Wboson$ pour chacun des deux quarks~\quarkt.
+Le \emph{dilepton} ne provient donc pas non plus d'une seule particule.
+\par
+Comme cela est visible sur la figure~\ref{fig-distributions_mml_mttot_2017_tt_btag},
+ces processus forment une queue de distribution à haute masse plus importante avec \mml\ qu'avec \mTtot.
+Ces événements de bruit de fond se retrouvent ainsi dans la région de signal.
+En effet, le signal d'un boson de Higgs supplémentaire de masse \SI{400}{\GeV} se trouve
+entre \num{120} et \SI{500}{\GeV} avec \mTtot\
+avec un maximum à \SI{300}{\GeV}
+et
+entre \num{200} et \SI{650}{\GeV} avec \mml\
+avec un maximum à \SI{400}{\GeV}.
+Le signal est donc effectivement à la valeur de la masse du boson de Higgs supplémentaire avec \mml,
+mais plus d'événements de bruit de fond se trouvent également à cet endroit.
+Cet effet se retrouve sur le rapport au bruit de fond, moindre avec \mml\ qu'avec \mTtot.
+\par
+Un bon estimateur de la masse d'une résonance n'est donc pas forcément une bonne variable discriminante.
+L'utilisation de \mml\ en tant que telle dans l'analyse introduite au chapitre~\refChHTT\ n'est donc pas pertinente.
+Elle le peut toutefois pour d'autres analyses comme celles axées sur le modèle standard par exemple.
+Certaines d'entre elles utilisent l'algorithme \SVFIT~\cite{SVFit_Bianchini_2014} afin d'estimer
+la masse d'une particule se désintégrant en paire de leptons tau.
+\subsection{Comparaison de \mml\ à \msv}
+Au sein de la collaboration CMS, l'algorithme \SVFIT~\cite{SVFit_Bianchini_2014} a en effet le même objectif que notre modèle B",
+bien que la méthode employée soit différente.
+Nous avons donc souhaité comparer
+les valeurs de \mml\ prédites par B"
+aux valeurs de \msv\ fournies par \SVFIT.
+\subsubsection{Distributions inclusives}
+La figure~\ref{fig-svfit_vs_ml_2017}
+montre les distributions inclusives, \ie\ sur tous les événements de chaque catégorie, de \msv\ et \mml\ en 2017 dans les canaux \tauh\tauh, \ele\tauh\ et \ele\mu.
+\begin{figure}[p]
+\centering
+
+\subcaptionbox{\msv, canal \tauh\tauh.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff}{tt}{m_sv_puppi}}
+\hfill
+\subcaptionbox{\mml, canal \tauh\tauh.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff}{tt}{ml_mass}}
+
+\subcaptionbox{\msv, canal \ele\tauh.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff}{et}{m_sv_puppi}}
+\hfill
+\subcaptionbox{\mml, canal \ele\tauh.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff}{et}{ml_mass}}
+
+\subcaptionbox{\msv, canal \ele\mu.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff}{em}{m_sv_puppi}}
+\hfill
+\subcaptionbox{\mml, canal \ele\mu.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff}{em}{ml_mass}}
+
+\caption{Distributions de \msv\ et \mml\ en 2017 dans les canaux \tauh\tauh, \ele\tauh\ et \ele\mu.}
+\label{fig-svfit_vs_ml_2017}
+\end{figure}
+Ces distributions sont deux à deux très similaires,
+ce qui est attendu car \msv\ comme \mml\ sont deux estimateurs de la même grandeurs physique.
+Les \ftauhs\ sont toutefois prédits à des masses plus élevées par B" que par \SVFIT.
+\subsubsection{Distributions par catégories}
+
+\begin{figure}[h]
+\centering
+
+\def\localch{tt}
+\def\tmpcat{10}
+\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
+\hfill
+\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+
+\def\localch{tt}
+\def\tmpcat{17}
+\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
+\hfill
+\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+
+\def\localch{mt}
+\def\tmpcat{11}
+\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
+\hfill
+\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+
+\def\localch{mt}
+\def\tmpcat{12}
+\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
+\hfill
+\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+
+\def\localch{et}
+\def\tmpcat{11}
+\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
+\hfill
+\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+
+\def\localch{et}
+\def\tmpcat{12}
+\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
+\hfill
+\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+
+\def\localch{mt}
+\subcaptionbox{\msv\ pour $\mml>\SI{250}{\GeV}$, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff_high_ml_mass}{\localch}{m_sv_puppi}}
+\hfill
+\subcaptionbox{\mml\ pour $\msv>\SI{250}{\GeV}$, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff_high_m_sv_puppi}{\localch}{ml_mass}}
+
+\def\localch{et}
+\subcaptionbox{\msv\ pour $\mml>\SI{250}{\GeV}$, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff_high_ml_mass}{\localch}{m_sv_puppi}}
+\hfill
+\subcaptionbox{\mml\ pour $\msv>\SI{250}{\GeV}$, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff_high_m_sv_puppi}{\localch}{ml_mass}}
+
+\def\localch{em}
+\subcaptionbox{\msv\ pour $\mml>\SI{250}{\GeV}$, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff_high_ml_mass}{\localch}{m_sv_puppi}}
+\hfill
+\subcaptionbox{\mml\ pour $\msv>\SI{250}{\GeV}$, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff_high_m_sv_puppi}{\localch}{ml_mass}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_high_values_cut_2017}
+\end{figure}
+
+
+
+\subsubsection{Vitesses d'exécution}
+
+Run~III = bcp d'evts!
+
+
+\input{\PhDthesisdir/plots_and_images/my_plots/ML/benchmark_vs_SVFit/benchmark-fr-pyplot.pgf}
