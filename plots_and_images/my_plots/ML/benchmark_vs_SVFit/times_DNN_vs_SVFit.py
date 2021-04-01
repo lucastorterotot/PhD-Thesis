@@ -7,6 +7,7 @@ import ltLaTeXpyplot as lt
 
 # Créer la figure
 fig = lt.ltFigure(name='benchmark', width_frac = .7)
+fig_fr = lt.ltFigure(name='benchmark-fr', width_frac = .7)
 
 # Définir les grandeurs
 
@@ -222,8 +223,17 @@ fig.addgraph(
     x_scaling = 'log', y_scaling = 'log',
     y_min = 1, y_max = 3e3,
 )
+fig_fr.addgraph(
+    'graph1',
+    x_label="Quantité d'événements",
+    y_label="Temps d'éxécution par événement (ms)", show_legend=True, legend_on_side=False,
+    x_ticks_step = 2,
+    x_scaling = 'log', y_scaling = 'log',
+    y_min = 1, y_max = 3e3,
+)
 
 plots = {}
+plots_fr = {}
 stats = {
     #"U+S CPU time" : Ctimes,
     "User CPU time" : Utimes,
@@ -231,16 +241,27 @@ stats = {
     #"Wall Clock time" : WCtimes,
     #"Real time" : Dtimes
 }
+fr_for_d = {
+    "U+S CPU time" : "CPU total",
+    "User CPU time" : "CPU",
+    "System CPU time" : "CPU système",
+    "Wall Clock time" : "",
+    "Real time" : "réel"
+}
 
 i = 0
 for d in stats :
     for s in Scripts:
         k = "{} {}".format(s, d)
+        k_fr = "{}, temps {}".format(s, fr_for_d[d])
         plots[k] = lt.ltPlotFct(Nevents, [1e3 * stats[d][s][N]/N for N in Nevents], label=k, color="C{}".format(i))
+        plots_fr[k] = lt.ltPlotFct(Nevents, [1e3 * stats[d][s][N]/N for N in Nevents], label=k_fr, color="C{}".format(i))
         fig.addplot(plots[k], 'graph1')
+        fig_fr.addplot(plots_fr[k], 'graph1')
         i += 1
 
 # Sauvegarder la figure
 fig.save()
-
 fig.save(format='pdf')
+fig_fr.save()
+fig_fr.save(format='pdf')
