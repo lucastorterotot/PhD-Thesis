@@ -227,14 +227,69 @@ Le signal est donc effectivement à la valeur de la masse du boson de Higgs supp
 mais plus d'événements de bruit de fond se trouvent également à cet endroit.
 Cet effet se retrouve sur le rapport au bruit de fond, moindre avec \mml\ qu'avec \mTtot.
 \par
-Un bon estimateur de la masse d'une résonance n'est donc pas forcément une bonne variable discriminante.
-L'utilisation de \mml\ en tant que telle dans l'analyse introduite au chapitre~\refChHTT\ n'est donc pas pertinente.
-Elle le peut toutefois pour d'autres analyses comme celles axées sur le modèle standard par exemple.
-Certaines d'entre elles utilisent l'algorithme \SVFIT~\cite{SVFit_Bianchini_2014} afin d'estimer
-la masse d'une particule se désintégrant en paire de leptons tau.
+Un effet intéressant est la meilleure séparation par \mml\ que par \mTtot\ des événements
+des données encapsulées ($\mu\to\tau$ embedded), décrite dans le chapitre~\refChHTT,
+vis-à-vis des \ftauhs\ ($\text{Jet}\to\tauh$).
+Les données encapsulées décrivent principalement le boson~\Zboson\ et quelques événements \ttbar.
+Dans le cas de \mTtot,
+leur distribution est 
+largement étalée
+jusqu'à \SI{300}{\GeV},
+avec un maximum d'événements de \SI{20}{\GeV^{-1}} à \SI{95}{\GeV}.
+La distribution des valeurs de \mml\ sur ces mêmes événements
+exhibe deux ensembles.
+Le premier forme un pic
+avec un maximum d'événements de \SI{30}{\GeV^{-1}} à \SI{90}{\GeV},
+il s'agit du signal du boson~\Zboson.
+Le second se situe à plus haute masse,
+jusqu'à \SI{600}{\GeV},
+avec un maximum d'événements de \SI{7}{\GeV^{-1}} à environ \SI{200}{\GeV}.
+Ce groupe peut correspondre à la composante \ttbar\ des données encapsulées.
+Pour le vérifier, la figure~\ref{fig-distributions_mml_mttot_2017_tt_nobtag}
+montre les distributions de \mTtot\ et \mml\ pour la catégorie \CATnobtag\ du canal \tauh\tauh,
+où l'exclusion des événements \ttbar\ est réalisée par le rejet des jets issus de quarks~\quarkb.
+La distribution de \mml\ dans les données encapsulées ne montre pas deux parties comme dans la catégories \CATbtag,
+ce qui confirme cette hypothèse.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Distribution de \mTtot.}[.475\textwidth]
+{\plotHTTshapes{mt_tot}{mssm_classic}{2017}{tt}{32}{prefit_linear_nosignal_blinded_efr}}
+\hfill
+\subcaptionbox{Distribution de \mml.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{mssm_classic}{2017}{tt}{32}{prefit_linear_nosignal_blinded_efr}}
+
+\caption[Distributions de \mTtot\ et \mml\ en 2017 dans la catégorie \CATnobtag\ du canal \tauh\tauh.]{Distributions de \mTtot\ et \mml\ en 2017 dans la catégorie \CATnobtag\ du canal \tauh\tauh. L'ordre de l'empilement des histogrammes des données encapsulées et des \ftauhs\ est inversé afin de faciliter la discussion sur la forme de celui des données encapsulées.}
+\label{fig-distributions_mml_mttot_2017_tt_nobtag}
+\end{figure}
+\par
+Notre modèle est donc en mesure de mieux identifier le boson~\Zboson\ que \mTtot.
+Cet effet est également présent dans les autres canaux, par exemple le canal \mu\tauh,
+dont les distributions de \mTtot\ et \mml\ sont données dans la catégorie \CATbsm\ \CATnobtag\ \CATloosemt\ pour l'année 2017 en figure~\ref{fig-distributions_mml_mttot_2017_mt_BSM_nobtag_loosemt}.
+Le composante du boson~\Zboson\ apparaît nettement avec \mml.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Distribution de \mTtot.}[.475\textwidth]
+{\plotHTTshapes{mt_tot}{mssm_vs_sm_h125}{2017}{mt}{33}{prefit_linear_nosignal_blinded}}
+\hfill
+\subcaptionbox{Distribution de \mml.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{mssm_vs_sm_h125}{2017}{mt}{33}{prefit_linear_nosignal_blinded}}
+
+\caption[Distributions de \mTtot\ et \mml\ en 2017 dans la catégorie \CATbsm\ \CATnobtag\ \CATloosemt\ du canal \mu\tauh.]{Distributions de \mTtot\ et \mml\ en 2017 dans la catégorie \CATbsm\ \CATnobtag\ \CATloosemt\ du canal \mu\tauh.}
+\label{fig-distributions_mml_mttot_2017_mt_BSM_nobtag_loosemt}
+\end{figure}
+\par
+Or, les coupures de sélection pour les catégories \CATbsm\ contiennent
+$\mCutForCategories \geq \SI{250}{\GeV}$.
+Notre modèle identifie ainsi des événements correspondant au boson~\Zboson,
+de masse \SI{91.2}{\GeV},
+alors que \SVFIT\ les estime au-delà de \SI{250}{\GeV}.
 \subsection{Comparaison de \mml\ à \msv}
-Au sein de la collaboration CMS, l'algorithme \SVFIT~\cite{SVFit_Bianchini_2014} a en effet le même objectif que notre modèle B",
+Au sein de la collaboration CMS, l'algorithme \SVFIT~\cite{SVFit_Bianchini_2014} a le même objectif que notre modèle B",
+estimer la masse d'une particule se désintégrant en paire de leptons tau,
 bien que la méthode employée soit différente.
+Cependant, nous avons observé précédemment que certains événements estimés au-delà de \SI{250}{\GeV} par \SVFIT\ semblent correspondre au boson~\Zboson\ de masse \SI{91.2}{\GeV} selon notre modèle.
 Nous avons donc souhaité comparer
 les valeurs de \mml\ prédites par B"
 aux valeurs de \msv\ fournies par \SVFIT.
@@ -268,98 +323,12 @@ montre les distributions inclusives, \ie\ sur tous les événements de chaque ca
 Ces distributions sont deux à deux très similaires,
 ce qui est attendu car \msv\ comme \mml\ sont deux estimateurs de la même grandeurs physique.
 Les \ftauhs\ sont toutefois prédits à des masses plus élevées par B" que par \SVFIT.
-\subsubsection{Distributions par catégories}
-
-\begin{figure}[h]
-\centering
-
-\def\localch{tt}
-\def\tmpcat{10}
-\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
-\hfill
-\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
-
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
-\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-
-\def\localch{tt}
-\def\tmpcat{17}
-\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
-\hfill
-\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
-
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
-\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-
-\def\localch{mt}
-\def\tmpcat{11}
-\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
-\hfill
-\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
-
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
-\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-
-\def\localch{mt}
-\def\tmpcat{12}
-\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
-\hfill
-\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
-
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
-\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-
-\def\localch{et}
-\def\tmpcat{11}
-\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
-\hfill
-\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
-
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
-\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-
-\def\localch{et}
-\def\tmpcat{12}
-\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
-\hfill
-\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear}}
-
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
-\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
-\end{figure}
-
+\subsubsection{Distributions en conflit}
+Les distributions dites \og en conflit \fg{} entre \msv\ et \mml\
+sont celles où la valeur d'une de ces deux masses est supérieure à \SI{250}{\GeV}
+alors que celle de la seconde est inférieure à cette même valeur.
+La figure~\ref{fig-svfit_vs_ml_high_values_cut_2017}
+montre ces distributions pour les canaux \mu\tauh, \ele\tauh\ et \ele\mu\ en 2017.
 \begin{figure}[p]
 \centering
 
@@ -387,6 +356,100 @@ Les \ftauhs\ sont toutefois prédits à des masses plus élevées par B" que par
 %\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
 \label{fig-svfit_vs_ml_high_values_cut_2017}
 \end{figure}
+
+\subsubsection{Distributions par catégories}
+
+\begin{figure}[h]
+\centering
+
+\def\localch{tt}
+\def\tmpcat{10}
+\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+\hfill
+\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+
+\def\localch{tt}
+\def\tmpcat{17}
+\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+\hfill
+\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+
+\def\localch{mt}
+\def\tmpcat{11}
+\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+\hfill
+\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+
+\def\localch{mt}
+\def\tmpcat{12}
+\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+\hfill
+\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+
+\def\localch{et}
+\def\tmpcat{11}
+\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+\hfill
+\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+
+\def\localch{et}
+\def\tmpcat{12}
+\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+\hfill
+\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+
+%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+\end{figure}
+
+
 
 
 
