@@ -1,9 +1,9 @@
 \section{Utilisation du modèle dans les analyses CMS}\label{chapter-ML-section-use_HTT}
 Dans cette section, l'utilisation du modèle B" introduit dans la section~\ref{chapter-ML-section-discussion} sur les événements de l'analyse présentée dans le chapitre~\refChHTT\ est discutée.
 Ce modèle issu du ML est conçu pour prédire la masse de la particule se désintégrant en paire de leptons tau.
-Nous noterons donc \mml\ la variable correspondant à la prédiction de B".
+Ces prédictions sont notées \mml.
 \subsection{Utilisation de \mml\ comme variable discriminante}
-\subsubsection{Performances de \mml\ et de \mTtot}
+\subsubsection{Performances de \mml\ et de \mTtot\ en tant qu'estimateurs de la masse}
 Comme exposé au chapitre~\refChHTT,
 il est nécessaire de définir une variable discriminante
 permettant de différentier le signal et le bruit de fond.
@@ -15,19 +15,19 @@ C'est pourquoi
 \mTtot\ est la variable discriminante
 utilisée dans l'analyse du chapitre~\refChHTT.
 \par
-Or, les valeurs de \mml\ doivent correspondre à la masse de la particule se désintégrant en paire de leptons tau.
+Les valeurs de \mml\ doivent correspondre à la masse de la particule se désintégrant en paire de leptons tau.
 La prédiction de notre modèle
 pourrait donc servir directement de variable discriminante.
-Il est possible de comparer \mml\ à \mTtot\ en considérant que \mTtot\ correspond aux prédictions d'un autre DNN, par exemple.
+Il est possible de comparer \mml\ à \mTtot\ en considérant \mTtot\ comme étant les prédictions d'un autre modèle.
+Les méthodes utilisées afin de comparer les DNNs entre eux peuvent ainsi être réexploitées.
 Selon le groupe de canaux considéré, le nombre de neutrinos dans l'état final change.
 Il y en a
 2 pour le canal hadronique \tauh\tauh,
 3 pour les canaux semi-leptoniques $\ell\tauh$ et
 4 dans les canaux leptoniques $\ell\ell$.
-La comparaison est ainsi réalisée pour chacun de ces groupes séparément.
+La comparaison est réalisée pour chacun de ces groupes séparément.
 \par
 La figure~\ref{fig-BpprimevsMTTOT-resp} montre les réponses de \mml\ et de \mTtot.
-Cette comparaison est réalisée sur la figure~\ref{fig-BpprimevsMTTOT}.
 \begin{figure}[p]
 \centering
 
@@ -48,19 +48,21 @@ Cette comparaison est réalisée sur la figure~\ref{fig-BpprimevsMTTOT}.
 \subcaptionbox{Réponse de \mml, canal $\ell\ell$.\label{subfig-resp-Bpprime-BpprimevsMTTOT-ll}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/selected_NNs_FastSim/DeepTau-inclusive-1TeV/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/plots_up_to_800/channel_ll/model_response-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
 
-\caption{Comparaison des réponses de \mml et \mTtot.}
+\caption{Comparaison des réponses de \mTtot\ et \mml.}
 \label{fig-BpprimevsMTTOT-resp}
 \end{figure}
-Il apparaît que les valeurs de \mTtot\ ne sont pas du tout concordantes avec la masse du boson initial, car la réponse de \mTtot\ est différente de 1 dans le cas général.
+La réponse de \mTtot\ est différente de 1 sur la quasi-totalité de la gamme de masse,
+les valeurs de \mTtot\ ne sont donc pas du tout concordantes avec la masse $m_{\higgsML}$ du boson initial.
 Dans chacun des trois groupes,
 cette réponse diminue lorsque $m_{\higgsML}$ augmente jusqu'à environ \SI{400}{\GeV} où elle stagne
 à \num{0.72} dans le canal \tauh\tauh,
 \num{0.61} pour $\ell\tauh$
 et
 \num{0.45} pour $\ell\ell$.
-\par
+Cet écart à haute masse est ainsi d'autant plus important qu'il y a de neutrinos dans l'état final.
 Cependant, \mTtot\ n'a pas pour but d'estimer $m_{\higgsML}$.
 Il s'agit uniquement d'une variable discriminante.
+\par
 Une seconde comparaison, basée sur les résolutions relatives de \mTtot\ et \mml, est présentée en figure~\ref{fig-BpprimevsMTTOT-reso}.
 \begin{figure}[p]
 \centering
@@ -83,49 +85,35 @@ Une seconde comparaison, basée sur les résolutions relatives de \mTtot\ et \mm
 \subcaptionbox{Résolution relative de \mml, canal $\ell\ell$.\label{subfig-reso-Bpprime-BpprimevsMTTOT-ll}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/selected_NNs_FastSim/DeepTau-inclusive-1TeV/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/plots_up_to_800/channel_ll/model_response_calibrated-NN-activation-softplus-batch_size-2048-mapesqrt_b-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
 
-\caption{Comparaison des résolutions relatives de \mml et \mTtot.}
+\caption{Comparaison des résolutions relatives de \mTtot\ et \mml.}
 \label{fig-BpprimevsMTTOT-reso}
 \end{figure}
+Les valeurs de ces résolutions sont données dans le tableau~\ref{tab-BpprimevsMTTOT-reso}
+pour quelques points et domaines de masse.
+\begin{table}[h]
+\centering
+\begin{tabular}{ccccccc}
+\toprule
+Canal & Variable & Figure & $\leq\SI{80}{\GeV}$ & \SI{90}{\GeV} & \SI{125}{\GeV} & $>\SI{200}{\GeV}$ \\
+\midrule
+\tauh\tauh & \mTtot & \ref{subfig-reso-MTTOT-BpprimevsMTTOT-tt} & 70 & 50 & 22 & 27 \\
+& \mml & \ref{subfig-reso-Bpprime-BpprimevsMTTOT-tt} & 30 & 25 & 18 & 20 \\
+\midrule
+$\ell\tauh$ & \mTtot & \ref{subfig-reso-MTTOT-BpprimevsMTTOT-lt} & 45 & 33 & 25 & 35 \\
+& \mml & \ref{subfig-reso-Bpprime-BpprimevsMTTOT-lt} & 22 & 20 & 22 & 20 à 28 \\
+\midrule
+$\ell\ell$ & \mTtot & \ref{subfig-reso-MTTOT-BpprimevsMTTOT-ll} & 37 & 28 & 27 & 35 à 45 \\
+& \mml & \ref{subfig-reso-Bpprime-BpprimevsMTTOT-ll} & 20 & 23 & 30 & 35 à 40 \\
+\bottomrule
+\end{tabular}
+\caption{Résolutions relatives en \SI{}{\%} de \mTtot\ et \mml\ pour différentes valeurs de $m_{\higgsML}$.}
+\label{tab-BpprimevsMTTOT-reso}
+\end{table}
 \par
-Dans le canal \tauh\tauh,
-la résolution relative de \mml\ sur $m_{\higgsML}$,
-figure~\ref{subfig-reso-Bpprime-BpprimevsMTTOT-tt},
-est
-d'environ \SI{30}{\%} à \SI{70}{\GeV}
-et de \SI{20}{\%} sur le reste de la gamme de masse.
-Celle de \mTtot,
-figure~\ref{subfig-reso-MTTOT-BpprimevsMTTOT-tt},
-d'environ \SI{70}{\%} à \SI{70}{\GeV}
-et de \SI{27}{\%} sur le reste de la gamme de masse.
-L'utilisation de \mml\ présente ainsi un gain important en termes de résolution,
-en particulier en dessous de \SI{100}{\GeV}, région dans laquelle se trouve le boson~\Zboson.
-\par
-Dans les canaux $\ell\tauh$,
-la résolution relative de \mml\ sur $m_{\higgsML}$,
-figure~\ref{subfig-reso-Bpprime-BpprimevsMTTOT-lt},
-est
-comprise entre \num{20} et \SI{28}{\%}
-alors que
-celle de \mTtot,
-figure~\ref{subfig-reso-MTTOT-BpprimevsMTTOT-lt},
-est supérieure à \SI{25}{\%};
-de l'ordre de \SI{35}{\%} à haute masse et
-\SI{40}{\%} à basse masse.
-\par
-Dans les canaux $\ell\ell$,
-la résolution relative de \mml\ sur $m_{\higgsML}$,
-figure~\ref{subfig-reso-Bpprime-BpprimevsMTTOT-ll},
-est
-comprise entre \num{20} et \SI{37}{\%}
-alors que
-celle de \mTtot,
-figure~\ref{subfig-reso-MTTOT-BpprimevsMTTOT-ll},
-est de \SI{30}{\%} à basse masse et augmente
-jusqu'à \SI{40}{\%} à haute masse.
-\par
-À l'exception de la région proche de $m_{\higgsML}=\SI{140}{\GeV}$ dans les canaux $\ell\ell$,
-où elle est légèrement supérieure,
-la résolution de \mml\ est systématiquement inférieure à celle de \mTtot, \ie\ meilleure.
+La résolution de \mml\ est systématiquement inférieure à celle de \mTtot, \ie\ meilleure,
+à l'exception de la région du boson de Higgs \higgs\ (\SI{125}{\GeV}) dans les canaux $\ell\ell$
+où elle est légèrement supérieure.
+L’utilisation de \mml présente ainsi un gain important en termes de résolution.
 C'est pourquoi l'utilisation de \mml\ au lieu de \mTtot\ en tant que variable discriminante pour l'analyse du chapitre~\refChHTT\ semble envisageable.
 \subsubsection{Limites d'exclusion avec \mml}
 L'analyse indépendante du modèle introduite au chapitre~\refChHTT\ a été réalisée
@@ -142,12 +130,12 @@ pour les processus $\gluon\gluon\to\Phi\to\tau\tau$ et $\gluon\gluon\to\quarkb\a
 \subcaptionbox{Processus $\gluon\gluon\to\Phi\to\tau\tau$.\label{subfig-model_indep_2017_mml-ggh}}[.475\textwidth]
 {\plotHTTModelIndepLimits{mssm_classic_ml}{2017}{ggH}{_vs_mTtot_expOnly}}
 \hfill
-\subcaptionbox{Processus $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$.\label{subfig-model_indep_2017_mml-ggh}}[.475\textwidth]
+\subcaptionbox{Processus $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$.\label{subfig-model_indep_2017_mml-bbh}}[.475\textwidth]
 {\plotHTTModelIndepLimits{mssm_classic_ml}{2017}{bbH}{_vs_mTtot_expOnly}}
 
 % 106 120 130 140 160 180 200 250 300 350 400 450 500 600 700 800 900 1000 ...
 
-\caption{Limites d'exclusion indépendantes du modèle physique attendues avec \mml\ en tant que variable discriminante obtenues avec l'année 2017.}
+\caption[Limites d'exclusion indépendantes avec \mml\ en 2017.]{Limites d'exclusion indépendantes du modèle physique attendues avec \mml\ en tant que variable discriminante obtenues avec l'année 2017. Les limites obtenues avec \mTtot\ sont également données (\emph{With \mTtot}).}
 \label{fig-model_indep_2017_mml}
 \end{figure}
 \par
@@ -206,7 +194,6 @@ par exemple s'ils proviennent bien d'une même particule,
 alors il s'agit d'un processus physique autre qu'une désintégration en paire de leptons tau,
 par exemple $\Higgs\to\quarkb\antiquarkb$,
 ce pour quoi B" n'est pas entraîné.
-\par
 Les événements \ttbar\ peuvent présenter des objets physiques dans l'état final équivalents
 au processus $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$.
 Toutefois, les éléments du \emph{dilepton} construit dans les événements \ttbar\
@@ -228,7 +215,7 @@ mais plus d'événements de bruit de fond se trouvent également à cet endroit.
 Cet effet se retrouve sur le rapport au bruit de fond, moindre avec \mml\ qu'avec \mTtot.
 \par
 Un effet intéressant est la meilleure séparation par \mml\ que par \mTtot\ des événements
-des données encapsulées ($\mu\to\tau$ embedded), décrite dans le chapitre~\refChHTT,
+des données encapsulées ($\mu\to\tau$ embedded), décrites dans le chapitre~\refChHTT,
 vis-à-vis des \ftauhs\ ($\text{Jet}\to\tauh$).
 Les données encapsulées décrivent principalement le boson~\Zboson\ et quelques événements \ttbar.
 Dans le cas de \mTtot,
@@ -263,10 +250,13 @@ ce qui confirme cette hypothèse.
 \label{fig-distributions_mml_mttot_2017_tt_nobtag}
 \end{figure}
 \par
-Notre modèle est donc en mesure de mieux identifier le boson~\Zboson\ que \mTtot.
-Cet effet est également présent dans les autres canaux, par exemple le canal \mu\tauh,
+Notre modèle est donc en mesure de séparer les composantes du boson~\Zboson\ et \ttbar\ des données encapsulées du canal \tauh\tauh,
+bien qu'il n'ait pas été entraîné dans ce but,
+alors que \mTtot\ ne le permet pas.
+De plus, le signal du boson~\Zboson\ est mieux séparée des événements \ftauhs.
+Cette séparation est également présente dans les autres canaux, par exemple le canal \mu\tauh,
 dont les distributions de \mTtot\ et \mml\ sont données dans la catégorie \CATbsm\ \CATnobtag\ \CATloosemt\ pour l'année 2017 en figure~\ref{fig-distributions_mml_mttot_2017_mt_BSM_nobtag_loosemt}.
-Le composante du boson~\Zboson\ apparaît nettement avec \mml.
+La composante du boson~\Zboson\ apparaît nettement avec \mml\ aux alentours de \SI{100}{\GeV}, alors qu'elle est confondue avec les \ftauhs\ d'après \mTtot.
 \begin{figure}[h]
 \centering
 
@@ -279,10 +269,9 @@ Le composante du boson~\Zboson\ apparaît nettement avec \mml.
 \caption[Distributions de \mTtot\ et \mml\ en 2017 dans la catégorie \CATbsm\ \CATnobtag\ \CATloosemt\ du canal \mu\tauh.]{Distributions de \mTtot\ et \mml\ en 2017 dans la catégorie \CATbsm\ \CATnobtag\ \CATloosemt\ du canal \mu\tauh.}
 \label{fig-distributions_mml_mttot_2017_mt_BSM_nobtag_loosemt}
 \end{figure}
-\par
-Or, les coupures de sélection pour les catégories \CATbsm\ contiennent
+Or, la sélection des événements pour les catégories \CATbsm\ contient en particulier la coupure
 $\mCutForCategories \geq \SI{250}{\GeV}$.
-Notre modèle identifie ainsi des événements correspondant au boson~\Zboson,
+Notre modèle identifie donc des événements correspondant au boson~\Zboson,
 de masse \SI{91.2}{\GeV},
 alors que \SVFIT\ les estime au-delà de \SI{250}{\GeV}.
 \subsection{Comparaison de \mml\ à \msv}
@@ -292,7 +281,7 @@ bien que la méthode employée soit différente.
 Cependant, nous avons observé précédemment que certains événements estimés au-delà de \SI{250}{\GeV} par \SVFIT\ semblent correspondre au boson~\Zboson\ de masse \SI{91.2}{\GeV} selon notre modèle.
 Nous avons donc souhaité comparer
 les valeurs de \mml\ prédites par B"
-aux valeurs de \msv\ fournies par \SVFIT.
+à celles de \msv\ fournies par \SVFIT.
 \subsubsection{Distributions inclusives}
 La figure~\ref{fig-svfit_vs_ml_2017}
 montre les distributions inclusives, \ie\ sur tous les événements de chaque catégorie, de \msv\ et \mml\ en 2017 dans les canaux \tauh\tauh, \ele\tauh\ et \ele\mu.
@@ -321,14 +310,38 @@ montre les distributions inclusives, \ie\ sur tous les événements de chaque ca
 \label{fig-svfit_vs_ml_2017}
 \end{figure}
 Ces distributions sont deux à deux très similaires,
-ce qui est attendu car \msv\ comme \mml\ sont deux estimateurs de la même grandeurs physique.
-Les \ftauhs\ sont toutefois prédits à des masses plus élevées par B" que par \SVFIT.
-\subsubsection{Distributions en conflit}
-Les distributions dites \og en conflit \fg{} entre \msv\ et \mml\
-sont celles où la valeur d'une de ces deux masses est supérieure à \SI{250}{\GeV}
-alors que celle de la seconde est inférieure à cette même valeur.
-La figure~\ref{fig-svfit_vs_ml_high_values_cut_2017}
-montre ces distributions pour les canaux \mu\tauh, \ele\tauh\ et \ele\mu\ en 2017.
+ce qui est attendu car \msv\ comme \mml\ sont deux estimateurs de la même grandeur physique.
+Les \ftauhs\ sont toutefois prédits à des masses légèrement plus élevées par B" que par \SVFIT.
+Il en résulte des queues de distribution à haute masse plus importantes avec \mml,
+effet déjà observé lors de la comparaison de \mml\ à \mTtot.
+Ces comparaison sur l'ensemble des topologies d'événements d'un canal ne permet pas de comparer B" et \SVFIT\ plus en détails.
+C'est pourquoi des comparaisons sur des sous-ensembles d'événements sont réalisées dans les sections suivantes.
+\subsubsection{Distributions des événements de haute masse}
+Notre modèle identifie des événements correspondant au boson~\Zboson\ parmi ceux que \SVFIT\ estime au-delà de \SI{250}{\GeV}.
+Il y a donc un désaccord entre les deux estimateurs.
+Toutefois, \SVFIT\ pourrait aussi trouver un signal à basse masse parmi les événements estimés à haute masse par B".
+Pour le vérifier,
+les distributions de \mml\ sur les événements tels que $\msv>\SI{250}{\GeV}$
+sont représentées
+en figure~\ref{fig-svfit_vs_ml_high_values_cut_2017-tt}
+pour le canal \tauh\tauh\ et
+en figure~\ref{fig-svfit_vs_ml_high_values_cut_2017}
+pour les canaux \mu\tauh, \ele\tauh\ et \ele\mu\ en 2017,
+en regard des
+distributions de \msv\ sur les événements tels que $\mml>\SI{250}{\GeV}$.
+\begin{figure}[h]
+\centering
+
+\def\localch{tt}
+\subcaptionbox{\msv\ pour $\mml>\SI{250}{\GeV}$, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff_high_ml_mass}{\localch}{m_sv_puppi}}
+\hfill
+\subcaptionbox{\mml\ pour $\msv>\SI{250}{\GeV}$, canal \GetChannelStr{\localch}.}[.475\textwidth]
+{\plotHTTcontrol{2017}{emb_ff_high_m_sv_puppi}{\localch}{ml_mass}}
+
+\caption{Distributions de \msv\ et \mml\ en 2017 sur les événements de haute masse du canal \tauh\tauh.}
+\label{fig-svfit_vs_ml_high_values_cut_2017-tt}
+\end{figure}
 \begin{figure}[p]
 \centering
 
@@ -353,12 +366,38 @@ montre ces distributions pour les canaux \mu\tauh, \ele\tauh\ et \ele\mu\ en 201
 \subcaptionbox{\mml\ pour $\msv>\SI{250}{\GeV}$, canal \GetChannelStr{\localch}.}[.475\textwidth]
 {\plotHTTcontrol{2017}{emb_ff_high_m_sv_puppi}{\localch}{ml_mass}}
 
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\caption{Distributions de \msv\ et \mml\ en 2017 sur les événements de haute masse des canaux \mu\tauh, \ele\tauh\ et \ele\mu.}
 \label{fig-svfit_vs_ml_high_values_cut_2017}
 \end{figure}
-
-\subsubsection{Distributions par catégories}
-
+\par
+Dans le canal \tauh\tauh, aucune différence particulière n'est constatée entre \mml\ et \msv\
+hormis la queue à haute masse plus important de \mml\ déjà observée.
+Dans les autres canaux cependant,
+les distributions de \mml\ confirment que
+B" parvient à trouver des événements correspondant au boson~\Zboson\
+alors que \SVFIT\ les estime au-delà de \SI{250}{\GeV}.
+Les distributions de \msv\ en revanche ne font apparaître aucun signal en particulier parmi les événements
+estimés au-delà de \SI{250}{\GeV} par B".
+Des investigations plus poussées peuvent être menées en sélectionnant des topologies particulières d'événements.
+\subsubsection{Distributions par topologies}
+Les distributions de \msv\ et \mml\ sont comparées dans le cas de topologies spécifiques d'événements.
+Ces topologies correspondent à certaines catégories de l'analyse du boson de Higgs du modèle standard dans sa désintégration en paire de leptons tau
+n'utilisant pas de réseau de neurones pour obtenir une variable discriminante~\cite{sm_categories}.
+\par
+La figure~\ref{fig-svfit_vs_ml_2017-tt-10}
+correspond aux événements du canal \tauh\tauh\
+sans jets
+et
+tels que la distance $\Delta R$ entre les deux éléments du \emph{dilepton} dans le plan $(\eta,\phi)$ soit inférieure à \num{3.2}.
+Avec \msv,
+le signal du boson~\Zboson\
+est
+situé au-dessus de \SI{100}{\GeV}
+et
+est complètement mélangé avec les \ftauhs.
+En revanche, le passage à \mml\ a pour effet
+de décaler les \ftauhs\ d'une dizaine de \SI{}{\GeV} vers les hautes valeurs
+alors que le signal du \Zboson\ est en partie estimé à plus basse masse.
 \begin{figure}[h]
 \centering
 
@@ -370,10 +409,20 @@ montre ces distributions pour les canaux \mu\tauh, \ele\tauh\ et \ele\mu\ en 201
 \subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
 {\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
 
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\caption[Distributions de \msv\ et \mml\ en 2017 sur des événements de topologie particulière.]{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements sans jets et tels que la distance $\Delta R$ entre les deux éléments du \emph{dilepton} dans le plan $(\eta,\phi)$ soit inférieure à \num{3.2}.}
 \label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
 \end{figure}
-
+\par
+Cet effet est encore plus visible dans le cas des événements vérifiant l'une des deux conditions suivantes:
+\begin{itemize}
+\item moins de deux jets et tels que $\Delta R\geq\num{3.2}$;
+\item au moins deux jets et tels que $\Delta R\geq\num{2.5}$;
+\end{itemize}
+dont les distributions de \msv\ et \mml\ sont données en figure~\ref{fig-svfit_vs_ml_2017-tt-17}.
+Dans ce cas,
+la distribution de \msv\ sur les données encapsulées est complètement confondue avec celle des \ftauhs,
+tandis que les valeurs de \mml\ font apparaître un signal aux alentours de \SI{100}{\GeV}
+correspondant au boson~\Zboson, sa masse étant donc surestimée de \SI{10}{\GeV} environ.
 \begin{figure}[h]
 \centering
 
@@ -385,77 +434,126 @@ montre ces distributions pour les canaux \mu\tauh, \ele\tauh\ et \ele\mu\ en 201
 \subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
 {\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
 
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\caption[Distributions de \msv\ et \mml\ en 2017 sur des événements de topologie particulière.]{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements contenant moins de deux jets et tels que la distance $\Delta R$ entre les deux éléments du \emph{dilepton} dans le plan $(\eta,\phi)$ soit supérieure à \num{3.2} ou contenant au moins deux jets et $\Delta R\geq\num{2.5}$.}
 \label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
 \end{figure}
-
+%
+%\begin{figure}[h]
+%\centering
+%
+%\def\localch{mt}
+%\def\tmpcat{11}
+%\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+%{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+%\hfill
+%\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+%{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+%
+%\caption[Distributions de \msv\ et \mml\ en 2017 sur des événements de topologie particulière.]{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements sans jets et tels que la masse transverse de $L_1$ soit comprise entre \num{40} et \SI{70}{\GeV}.}
+%\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+%\end{figure}
+%
+%\begin{figure}[h]
+%\centering
+%
+%\def\localch{mt}
+%\def\tmpcat{12}
+%\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
+%{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+%\hfill
+%\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
+%{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+%
+%\caption[Distributions de \msv\ et \mml\ en 2017 sur des événements de topologie particulière.]{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements contenant au moins un jet et tels que la distance $\Delta R$ entre les deux éléments du \emph{dilepton} dans le plan $(\eta,\phi)$ soit supérieure à \num{2.5}.}
+%\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
+%\end{figure}
+\par
+La sensibilité de B" au boson de Higgs du modèle standard \higgs\ est comparable avec celle de \SVFIT.
+Par exemple,
+avec les événements du canal \mu\tauh\
+contenant au moins deux jets
+avec la masse invariante des deux jets principaux \mjj\ inférieure à \SI{350}{\GeV}
+et
+tels que 
+la distance $\Delta R$ entre les deux éléments du \emph{dilepton} dans le plan $(\eta,\phi)$ soit inférieure à \num{2.5},
+les distributions de \msv\ et \mml\ en figure~\ref{fig-svfit_vs_ml_2017-mt-16}
+montrent
+un rapport au bruit de fond similaire pour le signal associé à \higgs.
 \begin{figure}[h]
 \centering
 
 \def\localch{mt}
-\def\tmpcat{11}
+\def\tmpcat{16}
 \subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_blinded}}
 \hfill
 \subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_blinded}}
 
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\caption[Distributions de \msv\ et \mml\ en 2017 sur des événements de topologie particulière.]{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements contenant au moins deux jets avec la masse invariante des deux jets principaux \mjj\ inférieure à \SI{350}{\GeV} et tels que la distance $\Delta R$ entre les deux éléments du \emph{dilepton} dans le plan $(\eta,\phi)$ soit inférieure à \num{2.5}.}
 \label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
 \end{figure}
-
+\par
+Lorsque \mjj\ est supérieure à \SI{1}{\TeV} en revanche,
+en figure~\ref{fig-svfit_vs_ml_2017-mt-18},
+la distribution du signal de \higgs\
+est plus étalée avec \mml\ qu'avec \msv.
+Il en résulte une sensibilité diminuée.
 \begin{figure}[h]
 \centering
 
 \def\localch{mt}
-\def\tmpcat{12}
+\def\tmpcat{18}
 \subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_blinded}}
 \hfill
 \subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
+{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_blinded}}
 
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
+\caption[Distributions de \msv\ et \mml\ en 2017 sur des événements de topologie particulière.]{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements contenant au moins deux jets avec la masse invariante des deux jets principaux \mjj\ supérieure à \SI{1}{\TeV} et tels que la distance $\Delta R$ entre les deux éléments du \emph{dilepton} dans le plan $(\eta,\phi)$ soit inférieure à \num{2.5}.}
 \label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
 \end{figure}
-
-\begin{figure}[h]
-\centering
-
-\def\localch{et}
-\def\tmpcat{11}
-\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
-\hfill
-\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
-
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
-\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-
-\def\localch{et}
-\def\tmpcat{12}
-\subcaptionbox{\msv, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
-\hfill
-\subcaptionbox{\mml, canal \GetChannelStr{\localch}.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\localch}{\tmpcat}{prefit_linear_nosignal_blinded}}
-
-%\caption{Distributions de \msv\ et \mml\ en 2017 dans le canal \GetChannelStr{\localch} avec les événements tels que •.}
-\label{fig-svfit_vs_ml_2017-\localch-\tmpcat}
-\end{figure}
-
-
-
-
-
+\par
+Notre modèle propose donc des estimations de la masse des particules se désintégrant en paires de leptons tau
+comparables à \SVFIT, actuellement utilisé au sein de la collaboration CMS.
+Selon les topologies des événements considérés,
+la description du boson de Higgs \higgs\ est similaire.
+Celle du boson~\Zboson\ est parfois meilleure avec notre modèle.
 \subsubsection{Vitesses d'exécution}
-
-Run~III = bcp d'evts!
-
-
+L'algorithme de \SVFIT\ est connu pour être relativement long en termes d'exécution.
+Cela provient de la démarche de \SVFIT\
+qui consiste à réaliser un ajustement de la valeur de \msv\ aux observables de chaque événement.
+Plus de détails sur cette méthode sont disponibles dans la référence~\cite{SVFit_Bianchini_2014}.
+Dans le cas d'un DNN, l'ajustement en fonction des variables d'entrées est réalisé une fois pour toutes lors de l'entraînement du modèle.
+Le DNN B" a été entraîné en 15 minutes environ.
+Puis, l'obtention des prédictions \mml\ de B" consiste à appliquer la fonction $F$ de B" aux variables d'entrée.
+La figure~\ref{fig-SVFIT_vs_DNN_time}
+compare les temps d'exécution moyens par événements de deux scripts,
+l'un en C++ pour obtenir les valeurs de \msv,
+l'autre en Python pour obtenir celles de \mml.
+\begin{figure}[h]
+\centering
 \input{\PhDthesisdir/plots_and_images/my_plots/ML/benchmark_vs_SVFit/benchmark-fr-pyplot.pgf}
+\caption{Temps nécessaire à l'obtention des prédictions de masse avec \SVFIT\ et avec le DNN B".}
+\label{fig-SVFIT_vs_DNN_time}
+\end{figure}
+\par
+Pour 10 événements ou moins à traiter,
+le script de \SVFIT\ est plus rapide que celui du DNN.
+Ceci est dû au langage utilisé ainsi qu'au temps de chargement du DNN.
+Cependant, une quantité si faible d'événements à traiter est rarement rencontrée dans les analyses du Run~II à CMS
+où le nombre d'événements se compte au moins en millions.
+Sur la figure~\ref{fig-SVFIT_vs_DNN_time},
+le temps moyen par événement
+pour chacun des deux scripts stagne à partir de
+\num{100} événements avec \SVFIT\
+et
+\num{10000} avec le DNN.
+Le script de \SVFIT\ nécessite \SI{110}{\milli\second} par événement
+contre
+seulement \SI{1.71}{\milli\second} avec le DNN.
+\par
+Les prédictions de notre modèle sont donc 60 fois plus rapides que celles de \SVFIT.
+Dans le contexte des prochains Runs du LHC et surtout du HL-LHC,
+l'augmentation de la luminosité et donc du nombre d'événements à traiter
+rend l'utilisation d'un DNN à la place de \SVFIT\ pertinente dans l'optique de minimiser les temps d'exécution des analyses.
