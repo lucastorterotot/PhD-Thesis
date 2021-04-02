@@ -5,15 +5,15 @@ La librairie
 (\emph{eXtreme Gradient Boosting})
 permet de construire des
 arbres de décision améliorés.
-De nombreuses compétitions Kaggle~\cite{kaggle_challenge} ont été remportées grâce eux.
-Ils présentent l'avantage d'être généralement plus à entraîner que des réseaux de neurones présentés section~\ref{chapter-ML-section-DNN},
+De nombreuses compétitions Kaggle~\cite{kaggle_challenge} ont été remportées grâce à eux.
+Ils présentent l'avantage d'être généralement plus rapides à entraîner que les réseaux de neurones présentés section~\ref{chapter-ML-section-DNN},
 et peuvent fournir des prédictions même si une des entrées est manquante, ce qui n'est pas le cas des réseaux de neurones.
 \subsection{Arbres de décision}
-Les arbres de décision sont une succession de questions,
+Un arbre de décision (non amélioré) est une succession de questions
 dont les réponses mènent à un résultat final,
 comme illustré sur la figure~\ref{fig-decision_tree_schema}.
-Chaque réponse à une question créé une \og branche \fg{} (en bleu),
-les réponses finales sont les \og feuilles \fg{} (en rouge et vert).
+Chaque réponse à une question créé une \og branche \fg{} menant à une nouvelle question (en bleu)
+ou à une réponse finale sur une \og feuille \fg{} (en rouge et vert).
 \begin{figure}[h]
 \centering\small
 \begin{tikzpicture}
@@ -95,16 +95,16 @@ Le gain $G$ obtenu par la création de deux nouvelles branches $b_1$ et $b_2$ s'
 G = S_{b_1} + S_{b_2} - S_{b_1+b_2}
 \end{equation}
 avec
-$S_{b_1+b_2}$ la similarité du jeu de donnée non séparé,
-$S_{b_1}$ ($S_{b_2}$) la similarité du jeu de donnée se retrouvant dans la branche $b_1$ ($b_2$).
+$S_{b_1+b_2}$ la similarité du jeu de données non séparé,
+$S_{b_1}$ ($S_{b_2}$) la similarité du jeu de données se retrouvant dans la branche $b_1$ ($b_2$).
 La condition retenue pour former les deux branches est celle présentant le gain le plus élevé.
 Ce processus est alors itéré sur chacune des nouvelles branches, jusqu'à ce que:
 \begin{itemize}
-\item le gain soit inférieur à $\gamma$;
-\item la profondeur de l'arbre (nombre de conditions successives) est supérieure à \MaxDepth.
-\item la quantité d'échantillons dans une branche est inférieure à \MinChildWeight.
+\item le gain soit inférieur à une valeur $\gamma$ fixée;
+\item la profondeur de l'arbre soit égale à une valeur \MaxDepth\ fixée;
+\item la quantité d'échantillons dans une branche soit inférieure à une valeur \MinChildWeight\ fixée.
 \end{itemize}
-Les paramètres $\gamma$, \MaxDepth\ et \MinChildWeight, fixés par l'utilisateur, sont nommés \og hyper-paramètres \fg.
+Les paramètres $\gamma$, \MaxDepth\ et \MinChildWeight, choisis par l'utilisateur, sont nommés \og hyper-paramètres \fg.
 Ils ne doivent pas être confondus avec les paramètres propres à l'arbre, déterminés lors de la construction des branches.
 %Par défaut, $\gamma=0$ et $\MinChildWeight=1$.
 \subsection{\emph{Gradient Boosting}}\label{chapter-ML-section-XGB-grad_boost}
@@ -126,9 +126,15 @@ et
 $F_{k-1}$ la fonction du modèle global issu de l'étape ${k-1}$,
 $F_0$ étant égale à $M_0$, l'arbre de décision obtenu sans \emph{Gradient Boosting}.
 Le modèle $M_k$ corrige donc l'écart résiduel des prédictions $\set{\ypredi}$ du modèle global à $\set{\ytruei}$.
-Les prédictions $F_k$ du modèle global s'expriment alors
+Les prédictions $F_k$ du modèle global s'expriment donc
 \begin{equation}
-\ypredi = F_k(\vec{x}_i) = F_{k-1}(\vec{x}_i) + \eta\,M_k(\vec{x}_i)
+\ypredi
+=
+F_k(\vec{x}_i)
+=
+F_{k-1}(\vec{x}_i) + \eta\,M_k(\vec{x}_i)
+=
+M_0(\vec{x}_i) + \eta \sum_{l=1}^{k} M_l(\vec{x}_i)
 \end{equation}
 avec
 $\eta$ le taux d'apprentissage, inférieur à 1, permettant de corriger progressivement l'écart résiduel.
@@ -138,7 +144,7 @@ Les grandeurs $\eta$ et \Nestimators\ sont également des hyper-paramètres.
 \subsection{Fonction de coût et \emph{Gradient Descent}}\label{chapter-ML-section-loss}
 Une fonction de coût (\emph{loss function}) compare les prédictions d'un modèle aux valeurs vraies.
 Elle doit être différentiable et est définie de manière à être minimale lorsque les prédictions sont égales aux valeurs vraies, \ie\ lorsque le modèle est parfait.
-Les fonctions de coûts les plus répandues sont:
+Les fonctions de coût les plus répandues sont:
 \begin{description}
 \item[MSE] \emph{Mean Squared Error} ou erreur quadratique moyenne,
 \begin{equation}
@@ -183,7 +189,7 @@ La construction d'un modèle, aussi appelé \og entraînement \fg,
 est un processus itératif
 visant à minimiser la fonction de coût.
 Dans le cas des arbres de décision améliorés créés avec \XGBOOST,
-l'entraînement cesse lorsque le nombre d'estimateur maximal est atteint, lorsqu'il est renseigné.
+l'entraînement cesse lorsque le nombre d'estimateur maximal est atteint. %, lorsqu'il est renseigné.
 Dans tous les cas, il est légitime de se demander si le modèle obtenu à la fin de l'entraînement est optimal.
 \par
 Il faut que l'entraînement soit suffisamment long pour que le modèle propose les prédictions les plus précises possible.
@@ -205,7 +211,7 @@ L'intérêt du jeu de validation est illustré sur la figure~\ref{fig-underfitti
 Un modèle sous-entraîné ou dont l'entraînement est optimal présente des erreurs similaires dans les deux jeux de données.
 Dans le cas d'un surentraînement, les erreurs continuent à diminuer sur le jeu d'entraînement, mais pas sur le jeu de validation.
 Une fonction d'évaluation $E$, éventuellement égale à la fonction de coût \Loss, permet de quantifier ces erreurs et de mettre fin à l'entraînement avant de surentraîner le modèle.
-Il s'agit de l'arrêt prématuré (\emph{early stopping}).
+Il s'agit de l'arrêt prématuré.
 \begin{figure}[h]
 \centering
 \input{\PhDthesisdir/plots_and_images/my_plots/ML/overfitting_and_early_stopping/examples-pyplot.pgf}

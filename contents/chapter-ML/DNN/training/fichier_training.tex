@@ -19,7 +19,7 @@ N_\text{params.}
 soit près de deux millions.
 Les termes \og $+1$ \fg{} correspondent aux biais $b$ à ajouter au nombre d'entrées des neurones.
 \subsubsection{Initiation des paramètres}
-Les biais $b_i$ sont initialement fixés à 0,
+Les biais $b$ sont initialement fixés à 0,
 les poids $w_i$ à une valeur constante donnée ou aléatoirement selon une loi de probabilité.
 Le mode d'initiation est un hyper-paramètre du modèle.
 Lors de ces travaux, nous avons testé les lois normale et uniforme.
@@ -62,9 +62,10 @@ un petit mini-lot
 et
 une bonne probabilité de couvrir une large gamme de masse au sein d'un mini-lot.
 \subsubsection{Algorithmes d'optimisation}\label{chapter-ML-section-DNN-training-optimizers}
-Plusieurs algorithmes d'optimisation existent~\cite{DNN}, présentés ci-après.
+Plusieurs algorithmes d'optimisation existent~\cite{DNN}, présentés de manière non exhaustive ci-après.
 Le premier, SGD, est l'adaptation directe du \emph{Gradient Descent} aux mini-lots.
-Cependant, fixer le taux d'apprentissage $\eta$ est ardu et les modèles y sont très sensibles~\cite{DNN}.
+Cependant, le choix d'une valeur optimale du taux d'apprentissage $\eta$ est ardu.
+Or, les modèles y sont très sensibles~\cite{DNN}.
 C'est pourquoi d'autres algorithmes d'optimisation ont été développés.
 \paragraph{\emph{Stochastic Gradient Descent} (SGD)} \cite{SGD}
 L'algorithme SGD applique le principe du \emph{Gradient Descent} en estimant le gradient de la fonction de coût par une moyenne sur le mini-lot.
@@ -98,7 +99,7 @@ prise en compte à travers une vitesse $\vec{v}$ définie initialement par l'uti
 \alpha v_p[t-1] - \eta_k \average{\pdv{\Loss}{p} [t]}_\text{mini-lot}
 \end{align}
 avec
-$t$ le numéro de l'itération de l'entraînement
+$t$ l'indice d'itération ou indice temporel de l'entraînement,
 et
 $0\leq\alpha<1$ le paramètre des moments.
 La mise à jour des paramètres lors de l'itération $t$ se fait alors selon
@@ -137,10 +138,10 @@ Une décroissance exponentielle de la mémoire des gradients passés est mise en
 \begin{equation}
 r_p \to \rho \, r_p + (1-\rho)\average{\pdv{\Loss}{p}}_\text{mini-lot}^2
 \end{equation}
-où $0<\rho<1$ est le tau de diminution de la mémoire.
+où $0<\rho<1$ est le taux de diminution de la mémoire.
 RMSProp est ainsi une version de AdaGrad dont la mémoire est plus adaptée à la situation locale.
 \paragraph{\emph{Adaptive Delta} (Adadelta)}
-À l'instar de RMSProp, Adadelta est une modification de AdaGrad visant à modifier l'effet de mémoire.
+À l'instar de RMSProp, Adadelta est une modification de AdaGrad visant à améliorer l'effet de mémoire.
 La variable $r_p$ est mise à jour par~\eqref{eq-AdaGrad_memory}.
 Cependant, la valeur précédente de $r_p$ est également utilisée lors de la mise à jour de $p$.
 Ainsi, lors de l'itération $t$,
@@ -151,11 +152,11 @@ p [t-1] \to p [t] = p[t-1] - \frac{\sqrt{r_p[t-1]}+\delta}{\sqrt{r_p[t]}+\delta}
 Il n'y a donc pas besoin de définir un taux d'apprentissage initial avec Adadelta.
 \paragraph{\emph{Adaptive Moments} (Adam)} \cite{adam,DNN}
 L'algorithme Adam
-combine
-la méthode des moments
+est une combinaison
+de la méthode des moments
 et
-RMSProp.
-il adapte donc le taux d'apprentissage pour chaque paramètre à chaque mini-lot.
+de RMSProp.
+Il adapte donc le taux d'apprentissage pour chaque paramètre à chaque mini-lot.
 Pour cela sont définis initialement:
 \begin{itemize}
 \item le pas $\epsilon=\num{0.001}$;
