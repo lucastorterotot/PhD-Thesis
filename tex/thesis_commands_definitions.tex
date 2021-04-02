@@ -597,22 +597,22 @@
     \def\localcat{$\Njets=0, \Delta R < \num{3.2}$}
   }{}
   \ifthenelse{\equal{#6}{11}}{
-    \def\localcat{$\Njets=1, \num{2.5} \leq \Delta R < \num{3.2}, \pT(\tau\tau) < \num{100}$}
+    \def\localcat{$\Njets=1, \num{2.5} \leq \Delta R < \num{3.2}, \pT(\tau\tau) < \SI{100}{\GeV}$}
   }{}
   \ifthenelse{\equal{#6}{12}}{
-    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \pT(\tau\tau) < \num{100}$}
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \pT(\tau\tau) < \SI{100}{\GeV}$}
   }{}
   \ifthenelse{\equal{#6}{13}}{
-    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \pT(\tau\tau) \geq \num{100}$}
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \pT(\tau\tau) \geq \SI{100}{\GeV}$}
   }{}
   \ifthenelse{\equal{#6}{14}}{
-    \def\localcat{$\Njets\geq2, \Delta R < \num{2.5}, \mjj>\num{350}, \Detajj\geq4$}
+    \def\localcat{$\Njets\geq2, \Delta R < \num{2.5}, \mjj>\SI{350}{\GeV}, \Detajj\geq4$}
   }{}
   \ifthenelse{\equal{#6}{15}}{
-    \def\localcat{$\Njets\geq2, \Delta R < \num{2.5}, \mjj>\num{350}, \Detajj<4$}
+    \def\localcat{$\Njets\geq2, \Delta R < \num{2.5}, \mjj>\SI{350}{\GeV}, \Detajj<4$}
   }{}
   \ifthenelse{\equal{#6}{16}}{
-    \def\localcat{$\Njets\geq2, \Delta R < \num{2.5}, \mjj<\num{350}$}
+    \def\localcat{$\Njets\geq2, \Delta R < \num{2.5}, \mjj<\SI{350}{\GeV}$}
   }{}
   \ifthenelse{\equal{#6}{17}}{
     \def\localcat{$\binom{\Njets\geq2, \Delta R \geq \num{2.5}}{\Njets<2, \Delta R \geq \num{3.2}}$}
@@ -630,22 +630,23 @@
     \def\localcat{$\Njets\geq1, \Delta R \geq \num{2.5}$}
   }{}
   \ifthenelse{\equal{#6}{13}}{
-    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \pT(\tau\tau) < \num{120}$}
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \pT(\tau\tau) < \SI{120}{\GeV}$}
   }{}
   \ifthenelse{\equal{#6}{14}}{
-    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \num{120} < \pT(\tau\tau) < \num{200}$}
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \SI{120}{\GeV} < \pT(\tau\tau) < \SI{200}$}
   }{}
   \ifthenelse{\equal{#6}{15}}{
-    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \pT(\tau\tau) > \num{200}$}
+    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \pT(\tau\tau) > \SI{200}{\GeV}$}
   }{}
   \ifthenelse{\equal{#6}{16}}{
-    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \mjj < \num{350}$}
+    \def\localcat{$\Njets\geq2, \Delta R < \num{2.5}, \mjj < \SI{350}{\GeV}$}
+    \def\localcat{$\Delta R < \num{2.5}, \mjj < \SI{350}{\GeV}$}
   }{}
   \ifthenelse{\equal{#6}{17}}{
-    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \num{350} < \mjj < \num{1000}$}
+    \def\localcat{$\Njets\geq2, \Delta R < \num{2.5}, \SI{350}{\GeV} < \mjj < \SI{1}{\TeV}$}
   }{}
   \ifthenelse{\equal{#6}{18}}{
-    \def\localcat{$\Njets=1, \Delta R < \num{2.5}, \mjj > \num{1000}$}
+    \def\localcat{$\Njets\geq2, \Delta R < \num{2.5}, \mjj > \SI{1}{\TeV}$}
   }{}
 }{}
 
@@ -663,22 +664,22 @@
     \def\localcat{$\Njets=0, \Dzeta > -10, \pT(\tau\tau) < 10$}
   }{}
   \ifthenelse{\equal{#6}{14}}{
-    \def\localcat{$\Njets=1, \num{120} < \pT(\tau\tau) < \num{200}$}
+    \def\localcat{$\Njets=1, \SI{120} < \pT(\tau\tau) < \SI{200}$}
   }{}
   \ifthenelse{\equal{#6}{15}}{
-    \def\localcat{$\Njets=1, \num{40} < \pT(\tau\tau) < \num{120}$}
+    \def\localcat{$\Njets=1, \SI{40} < \pT(\tau\tau) < \SI{120}$}
   }{}
   \ifthenelse{\equal{#6}{16}}{
-    \def\localcat{$\Njets=1, \pT(\tau\tau) > \num{200}$}
+    \def\localcat{$\Njets=1, \pT(\tau\tau) > \SI{200}$}
   }{}
   \ifthenelse{\equal{#6}{17}}{
-    \def\localcat{$\Njets=1, \pT(\tau\tau) < \num{40}$}
+    \def\localcat{$\Njets=1, \pT(\tau\tau) < \SI{40}$}
   }{}
   \ifthenelse{\equal{#6}{18}}{
-    \def\localcat{$\Njets\geq2, \mjj > \num{350}$}
+    \def\localcat{$\Njets\geq2, \mjj > \SI{350}$}
   }{}
   \ifthenelse{\equal{#6}{19}}{
-    \def\localcat{$\Njets\geq2, \mjj < \num{350}$}
+    \def\localcat{$\Njets\geq2, \mjj < \SI{350}$}
   }{}
 }{}
 
