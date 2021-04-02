@@ -98,7 +98,7 @@ figure~\ref{subfig-reso-MTTOT-BpprimevsMTTOT-tt},
 d'environ \SI{70}{\%} à \SI{70}{\GeV}
 et de \SI{27}{\%} sur le reste de la gamme de masse.
 L'utilisation de \mml\ présente ainsi un gain important en termes de résolution,
-en particulier en dessous de \SI{100}{\GeV}, région dans laquelle se trouve le boson \Zboson.
+en particulier en dessous de \SI{100}{\GeV}, région dans laquelle se trouve le boson~\Zboson.
 \par
 Dans les canaux $\ell\tauh$,
 la résolution relative de \mml\ sur $m_{\higgsML}$,
@@ -127,66 +127,71 @@ jusqu'à \SI{40}{\%} à haute masse.
 où elle est légèrement supérieure,
 la résolution de \mml\ est systématiquement inférieure à celle de \mTtot, \ie\ meilleure.
 C'est pourquoi l'utilisation de \mml\ au lieu de \mTtot\ en tant que variable discriminante pour l'analyse du chapitre~\refChHTT\ semble envisageable.
-\subsubsection{Résultats avec \mml}
+\subsubsection{Limites d'exclusion avec \mml}
 L'analyse indépendante du modèle introduite au chapitre~\refChHTT\ a été réalisée
 sur l'année 2017
-avec \mml\ et \mTtot\ comme variables discriminantes,
+avec \mTtot\ et \mml\ comme variables discriminantes,
 sans aucun autre changement.
-Les résultats obtenus sont donnés en figure~\ref{fig-model_indep_2017_mml}
+Les résultats attendus,
+\ie\ dans le cas où les données observées correspondent exactement à l'estimation du bruit de fond,
+sont donnés en figure~\ref{fig-model_indep_2017_mml}
 pour les processus $\gluon\gluon\to\Phi\to\tau\tau$ et $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$.
 \begin{figure}[h]
 \centering
 
-\subcaptionbox{Processus $\gluon\gluon\to\Phi\to\tau\tau$.}[.475\textwidth]
+\subcaptionbox{Processus $\gluon\gluon\to\Phi\to\tau\tau$.\label{subfig-model_indep_2017_mml-ggh}}[.475\textwidth]
 {\plotHTTModelIndepLimits{mssm_classic_ml}{2017}{ggH}{_vs_mTtot_expOnly}}
 \hfill
-\subcaptionbox{Processus $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$.}[.475\textwidth]
+\subcaptionbox{Processus $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$.\label{subfig-model_indep_2017_mml-ggh}}[.475\textwidth]
 {\plotHTTModelIndepLimits{mssm_classic_ml}{2017}{bbH}{_vs_mTtot_expOnly}}
 
 % 106 120 130 140 160 180 200 250 300 350 400 450 500 600 700 800 900 1000 ...
 
-\caption{Limites d'exclusion indépendantes du modèle physique avec \mml\ en tant que variable discriminante obtenue avec l'année 2017.}
+\caption{Limites d'exclusion indépendantes du modèle physique attendues avec \mml\ en tant que variable discriminante obtenues avec l'année 2017.}
 \label{fig-model_indep_2017_mml}
 \end{figure}
 \par
-Pour le processus $\gluon\gluon\to\Phi\to\tau\tau$
-à $m_\Phi=\SI{100}{\GeV}$,
-\mml\ permet d'exclure les valeurs de $\sigma\times\BR$ jusqu'à \SI{10}{\pico\barn}
-contre \SI{30}{\pico\barn} avec \mTtot.
-À \SI{140}{\GeV}, les performances de \mml\ et \mTtot\ sont équivalentes.
-De \num{150} à \SI{700}{\GeV}, \mTtot\ permet en revanche d'exclure jusqu'à des valeurs trois fois plus basses de $\sigma\times\BR$ que ne permet de le faire \mml.
-Au-delà, les deux variables sont équivalentes.
-Dans le cas du processus $\gluon\gluon\to\quarkb\antiquarkb\Phi\to\tau\tau$,
-l'utilisation de \mml\ ne permet pas d'améliorer les limites d'exclusion.
-\par
-Afin d'interpréter ces résultats, il est possible de se référer aux distributions de \mml\ et \mTtot.
+Les limites d'exclusion avec \mml\ sont équivalentes à celles données par \mTtot\
+dans la limite de l'incertitude à $\pm1\sigma$
+sur toute la gamme de masse étudiée.
+À basse masse,
+$m_\Phi<\SI{180}{\GeV}$ pour $\gluon\gluon\Phi$ en figure~\ref{subfig-model_indep_2017_mml-ggh}
+et
+$m_\Phi<\SI{250}{\GeV}$ pour $\quarkb\antiquarkb\Phi$ en figure~\ref{subfig-model_indep_2017_mml-bbh},
+\mml\ est un peu plus performante que \mTtot.
+Pour des masses plus élevée et jusqu'à \SI{1}{\TeV},
+c'est en revanche \mTtot\ qui donne des résultats légèrement meilleurs.
+Au-delà, les deux variables ont les mêmes performances.
+Un bon estimateur de la masse d'une résonance n'est donc pas forcément une bonne variable discriminante.
+\subsubsection{Distributions de \mml\ et de \mTtot}
+Afin d'interpréter ces résultats, il est possible de se référer aux distributions de \mTtot\ et \mml.
 La figure~\ref{fig-distributions_mml_mttot_2017_tt_btag} les présente pour la catégorie \CATbtag\ du canal \tauh\tauh.
 D'autres distributions sont disponibles dans l'annexe~\refApHTTshapes.
 \begin{figure}[h]
 \centering
 
 \subcaptionbox{Distribution de \mTtot.}[.475\textwidth]
-{\plotHTTshapes{mt_tot}{mssm_classic}{2017}{tt}{35}{prefit_linear_blinded_rawsig}}
+{\plotHTTshapes{mt_tot}{mssm_classic}{2017}{tt}{35}{prefit_linear_blinded_rawsig_efr}}
 \hfill
 \subcaptionbox{Distribution de \mml.}[.475\textwidth]
-{\plotHTTshapes{m_ml}{mssm_classic}{2017}{tt}{35}{prefit_linear_blinded_rawsig}}
+{\plotHTTshapes{m_ml}{mssm_classic}{2017}{tt}{35}{prefit_linear_blinded_rawsig_efr}}
 
-\caption[Distributions de \mTtot\ et \mml\ en 2017 dans la catégorie \CATbtag\ du canal \tauh\tauh.]{Distributions de \mTtot\ et \mml\ en 2017 dans la catégorie \CATbtag\ du canal \tauh\tauh. Un signal correspondant à un boson de Higgs supplémentaire de masse \SI{400}{\GeV} est ajouté à titre d'illustration.}
+\caption[Distributions de \mTtot\ et \mml\ en 2017 dans la catégorie \CATbtag\ du canal \tauh\tauh.]{Distributions de \mTtot\ et \mml\ en 2017 dans la catégorie \CATbtag\ du canal \tauh\tauh. Un signal correspondant à un boson de Higgs supplémentaire de masse \SI{400}{\GeV} est ajouté à titre d'illustration. L'ordre de l'empilement des histogrammes des données encapsulées et des \ftauhs\ est inversé afin de faciliter la discussion sur la forme de celui des données encapsulées.}
 \label{fig-distributions_mml_mttot_2017_tt_btag}
 \end{figure}
 \par
 À haute masse,
+au-delà de \SI{1}{\TeV},
 l'effet de la statistique est dominant
 à cause de la faible quantité d'événements présents.
 C'est pourquoi les deux variables donnent des résultats équivalents.
 Pour les masses intermédiaires en revanche,
-et en particulier dans l'intervalle de \num{200} à \SI{500}{\GeV},
 l'avantage de \mTtot\ sur \mml\ provient de la présence des processus où
 le \emph{dilepton} construit n'est pas pertinent,
 en particulier:
 \begin{itemize}
 \item les \ftauhs, où un jet est identifié à tort comme un \tauh;
-\item le processus \ttbar, où la désintégration par interaction faible des quarks~\quarkt\ imite celle des leptons tau.
+\item le processus \ttbar, où la désintégration des quarks~\quarkt\ imite en partie celle des leptons tau.
 \end{itemize}
 En effet, dans ces processus,
 les objets physiques constituant le \emph{dilepton}
