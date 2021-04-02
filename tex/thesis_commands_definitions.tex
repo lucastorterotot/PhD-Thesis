@@ -621,10 +621,10 @@
 
 \ifthenelse{\equal{#5}{mt}\or\equal{#5}{et}}{
   \ifthenelse{\equal{#6}{10}}{
-    \def\localcat{$\Njets=0, \mT^{\localLA} < 40$}
+    \def\localcat{$\Njets=0, \CATtightmt$}
   }{}
   \ifthenelse{\equal{#6}{11}}{
-    \def\localcat{$\Njets=0, 40 < \mT^{\localLA} < 70$}
+    \def\localcat{$\Njets=0, \CATloosemt$}
   }{}
   \ifthenelse{\equal{#6}{12}}{
     \def\localcat{$\Njets\geq1, \Delta R \geq \num{2.5}$}
