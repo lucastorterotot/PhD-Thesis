@@ -28,8 +28,8 @@ Les hyper-paramètres des DNNs sont:
 \end{itemize}
 \par
 Les modèles entraînés ont pour but de prédire la masse générée du boson de Higgs $m_{\higgsML}$.
-Une représentation graphique possible afin de montrer les performances d'un modèle serait de représenter ses prédictions \ypred\ en fonction de \ytrue, dans un histogramme à deux dimensions.
-La figure~\ref{subfig-pred_vs_ans_2d_histo_example} montre un tel histogramme pour un de nos modèles.
+Une représentation graphique possible afin de montrer les performances d'un modèle est de représenter ses prédictions \ypred\ en fonction de \ytrue\ dans un histogramme à deux dimensions
+comme sur la figure~\ref{subfig-pred_vs_ans_2d_histo_example}.
 L'objectif des modèles est alors de se rapprocher autant que possible de la première bissectrice, tracée en rouge.
 Toutefois
 la large gamme explorée, de \num{50} à \SI{800}{\GeV}, rend difficile
@@ -100,8 +100,8 @@ L'utilisation de variables supplémentaires demande,
 en plus de la mise en place de leur obtention,
 de reprendre potentiellement de longues étapes de calculs.
 Se restreindre à un sous-ensemble des variables d'entrée,
-si cela ne dégrade pas la qualité des modèles,
-pourrait donc faciliter l'intégration de nos modèles.
+si cela ne dégrade pas la qualité de nos modèles,
+pourrait donc faciliter leur intégration dans des analyses.
 \par
 Les sous-ensembles des variables d'entrée sont définis par les restrictions suivantes:
 \begin{itemize}
@@ -372,11 +372,12 @@ se situent majoritairement à $\LossMAPE<\num{21}$
 alors que ceux
 entraînés avec $\Loss=\LossMSE$
 sont plutôt dans la région $\LossMAPE>\num{20}$.
-Enfin, les valeurs de \LossMAPE\ les plus basses sont atteintes par les modèles entraînés avec cette même fonction de coût.
-Il n'est donc pas pertinent d'affirmer que \LossMAPE\ est préférable d'après les résultats de la figure~\ref{subfig-loss-mape}.
+Les valeurs les plus basses sont obtenues sur les modèles entraînés avec \LossMAPE.
+Or, l'évaluation est basée sur \LossMAPE\ elle-même,
+il n'est donc pas équitable de se baser uniquement sur la figure~\ref{subfig-loss-mape}
+pour affirmer que \LossMAPE\ peut être préférable à \LossMAE\ ou \LossMSE.
 \par
-Afin de compléter ces comparaisons,
-la figure~\ref{subfig-loss-mae} représente l'évaluation des DNNs par \LossMAE.
+La figure~\ref{subfig-loss-mae} représente l'évaluation des DNNs par \LossMAE.
 La distribution obtenue avec les DNNs entraînés avec $\Loss=\LossMSE$
 s'étend de \SI{65}{\GeV} à près de \SI{10}{\GeV} avec un pic à \SI{71}{\GeV}.
 En revanche, de nombreux modèles entraînés avec \LossMAE\ ou \LossMAPE\
@@ -412,12 +413,12 @@ selon les métriques
 \LossMAPE\ sur toute la gamme de masse et \OneSigmaWidth\ à basse masse
 sont représentées sur la figure~\ref{fig-optimizer}.
 Les deux groupes observés dans les sections précédentes sont identifiés comme étant les modèles entraînés respectivement par Adam et Adadelta.
-Dans le cadre de nos travaux, nous avons initialement utilisé Adam jusqu'à sélectionner
+Dans le cadre de nos travaux, lors de la recherche de la combinaison optimale d'hyper-paramètres,
+nous avons initialement utilisé Adam jusqu'à sélectionner
 le jeu de variables d'entrée (section~\ref{chapter-ML-section-hyperparameters-inputs})
 et
 la fonction de coût (section~\ref{chapter-ML-section-hyperparameters-loss}) à utiliser.
-C'est pourquoi ces deux groupes liés à Adam et Adadelta n'apparaissent que dans certains ensembles de modèles.
-Lors de la sélection finale, nous avons choisi de reprendre tous les modèles dès la début de la procédure.
+C'est pourquoi ces deux groupes liés à Adam et Adadelta n'apparaissent que dans certaines sélections de modèles.
 \begin{figure}[h]
 \centering
 
@@ -479,7 +480,7 @@ La position du modèle final sélectionné est également indiquée.
 \par
 Les regroupements définis par une valeur fixée d'un seul hyper-paramètre ne montrent aucune corrélation
 avec les valeurs des métriques d'évaluation utilisées.
-La méthode employée jusqu'ici pour sélectionner les hyper-paramètres ne permet donc pas de conclure.
+La méthode employée jusqu'ici ne permet donc pas de conclure sur le choix d'une valeur pour un hyper-paramètre.
 Nous avons alors choisi d'utiliser la procédure suivante:
 \begin{enumerate}
 \item Déterminer la valeur maximale $x_\text{max}^\text{métrique $m$}$, sur l'ensemble des modèles sélectionnés, de chacune des métriques d'évaluation $m$ utilisées.
