@@ -548,6 +548,12 @@ G & 4 & \num{1400} & gu & Softplus \\
 \label{fig-reponse_model_B_to_G}
 \end{figure}
 \par
+La même procédure appliquée à tous les modèles entraînés mène à une liste
+ne contenant que des DNNs,
+utilisant majoritairement les 27 variables d'entrée,
+tous entraînés par Adam avec comme fonction de coût \LossMAPE,
+ce qui confirme que nos choix d'hyper-paramètres précédents sont pertinents.
+\par
 Aucun modèle avec $N_L\in\set{2,5}$ n'est sélectionné.
 Pour 4 modèles, $N_L=3$.
 Le nombre de neurones par couche cachée est de \num{1000} pour 4 modèles sur 7, dont 3 sur les 4 avec $N_L=3$.
