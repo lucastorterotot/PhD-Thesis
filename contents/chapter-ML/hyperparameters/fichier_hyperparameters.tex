@@ -565,34 +565,53 @@ Le modèle F conserve une réponse proche de 1 jusqu'à environ \SI{500}{\GeV}, 
 Le modèle B a des hyper-paramètres \og consensus \fg,
 \ie\ que chacune des valeurs de ses hyper-paramètres correspond à la valeur la plus représentée dans la sélection.
 C'est à partir de ce modèle que nous avons choisi de continuer notre étude.
-Les hyper-paramètres sont donc:
-\begin{itemize}
-\item 3 couches cachées;
-\item \num{1000} neurones par couche cachée;
-\item fonction d'activation Softplus, $x\mapsto\ln(1+\eexp{x})$;
-\item algorithme d'optimisation Adam, présenté en section~\ref{chapter-ML-section-DNN-training-optimizers};
-\item fonction de coût MAPE, définie équation~\eqref{eq-loss_MAPE};
-\item initiation des poids selon le mode \og Glorot Uniforme \fg~\cite{glorot};
-\item la liste des 27 variables d'entrée égale à celle donnée en section~\ref{chapter-ML-section-evt_gen-inputs}.
-\end{itemize}
-En comparaison, le DNN de \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929} a pour hyper-paramètres:
-\begin{itemize}
-\item 4 couches cachées;
-\item \num{200} neurones par couche cachée;
-\item fonction d'activation ReLU y compris pour la couche de sortie;
-\item algorithme d'optimisation Adam;
-\item fonction de coût MSE, définie équation~\eqref{eq-loss_MSE};
-\item 17 variables d'entrée:
-\begin{itemize}
-\item les impulsions, énergies et masses invariantes de $L_1$ et $L_2$:\\
-$\pT^{L_1}$, $\eta^{L_1}$, $\phi^{L_1}$, $E^{L_1}$, $\minv^{L_1}$,
-$\pT^{L_2}$, $\eta^{L_2}$, $\phi^{L_2}$, $E^{L_2}$, $\minv^{L_2}$;
-\item l'énergie transverse manquante:\\
-\MET, $\phi^{\MET}$;
-\item la masse colinéaire du système di-\tau, $m_\text{coll}$, définie dans~\cite{BARTSCHI201929};
-\item 4 booléens donnant le type de canal (hadronique, semi-leptonique ou leptonique).
-\end{itemize}
-\end{itemize}
+Les hyper-paramètres sélectionnés sont donnés dans le tableau~\ref{tab-compare_DNN_to_BARTSCHI201929}
+avec une comparaison à ceux utilisés par \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929}.
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Hyper-paramètre & Notre DNN & DNN de \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929}\\
+\midrule
+Nombre de couches cachées $N_L$ & 3 & 4 \\
+Neurones par couche cachée $N_N$ & 1000 & 200 \\
+Fonction d'activation & Softplus & ReLU \\
+Algorithme d'optimisation & Adam & Adam \\
+Fonction de coût & \LossMAPE & \LossMSE \\
+Initiation des poids & \og Glorot Uniforme \fg~\cite{glorot} & ? \\
+Nombre d'entrées & 27 (voir section~\ref{chapter-ML-section-evt_gen-inputs}) & 17 (voir~\cite{BARTSCHI201929}) \\
+\bottomrule
+\end{tabular}
+\caption[Comparaison de nos hyper-paramètres à ceux de \citeauthor{BARTSCHI201929}.]{Comparaison de nos hyper-paramètres à ceux de \citeauthor{BARTSCHI201929}. Le mode d'initiation des poids utilisé par \citeauthor{BARTSCHI201929} n'est pas donné dans leur article.}
+\label{tab-compare_DNN_to_BARTSCHI201929}
+\end{table}
+%\begin{itemize}
+%\item 3 couches cachées;
+%\item \num{1000} neurones par couche cachée;
+%\item fonction d'activation Softplus, $x\mapsto\ln(1+\eexp{x})$;
+%\item algorithme d'optimisation Adam, présenté en section~\ref{chapter-ML-section-DNN-training-optimizers};
+%\item fonction de coût MAPE, définie équation~\eqref{eq-loss_MAPE};
+%\item initiation des poids selon le mode \og Glorot Uniforme \fg~\cite{glorot};
+%\item la liste des 27 variables d'entrée égale à celle donnée en section~\ref{chapter-ML-section-evt_gen-inputs}.
+%\end{itemize}
+%En comparaison, le DNN de \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929} a pour hyper-paramètres:
+%\begin{itemize}
+%\item 4 couches cachées;
+%\item \num{200} neurones par couche cachée;
+%\item fonction d'activation ReLU y compris pour la couche de sortie;
+%\item algorithme d'optimisation Adam;
+%\item fonction de coût MSE, définie équation~\eqref{eq-loss_MSE};
+%\item 17 variables d'entrée:
+%\begin{itemize}
+%\item les impulsions, énergies et masses invariantes de $L_1$ et $L_2$:\\
+%$\pT^{L_1}$, $\eta^{L_1}$, $\phi^{L_1}$, $E^{L_1}$, $\minv^{L_1}$,
+%$\pT^{L_2}$, $\eta^{L_2}$, $\phi^{L_2}$, $E^{L_2}$, $\minv^{L_2}$;
+%\item l'énergie transverse manquante:\\
+%\MET, $\phi^{\MET}$;
+%\item la masse colinéaire du système di-\tau, $m_\text{coll}$, définie dans~\cite{BARTSCHI201929};
+%\item 4 booléens donnant le type de canal (hadronique, semi-leptonique ou leptonique).
+%\end{itemize}
+%\end{itemize}
 
 %\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_reduced-full_mape.pdf}
 %\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/global_comparisons/DNN_structures_all-full_mape.pdf}
