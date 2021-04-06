@@ -91,6 +91,17 @@ De plus, quatre domaines de masse sont définis:
 \end{itemize}
 Ils permettent de comparer les performances des modèles sur certaines gammes de masse uniquement.
 Sauf contre-indication, toute la gamme de masse est considérée.
+\par
+Face à l'immense quantité de combinaisons différentes d'hyper-paramètres, toutes n'ont pas été créées.
+Nous avons en revanche entraîné suffisamment de modèles afin d'observer les distributions des différentes métriques d'évaluation
+pour des groupes de modèles ayant une valeur donnée d'un hyper-paramètre.
+La comparaison des différentes distributions permet dans un premier temps de
+voir quelles valeurs d'hyper-paramètres donnent des modèles moins performants
+et ainsi se rapprocher d'une combinaison optimale,
+comme l'exposent les sections~\ref{chapter-ML-section-hyperparameters-inputs} à~\ref{chapter-ML-section-hyperparameters-opti}.
+Une fois certains hyper-paramètres fixés,
+la sélection finale d'un seul modèle est réalisée selon la procédure
+présentée en section~\ref{chapter-ML-section-hyperparameters-others}.
 \subsection{Variables d'entrée}\label{chapter-ML-section-hyperparameters-inputs}
 Les différentes variables d'entrée considérées sont listées dans la section~\ref{chapter-ML-section-evt_gen-inputs}.
 La plupart de celles-ci sont généralement déjà exploitées dans les analyses en cours.
