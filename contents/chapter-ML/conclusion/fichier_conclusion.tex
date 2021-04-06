@@ -1,4 +1,35 @@
 \section{Conclusion}\label{chapter-ML-section-conclusion}
+Le \emph{Machine Learning} (ML) est une branche de l'Intelligence Artificielle (IA)
+permettant d'obtenir des modèles pouvant réaliser des classifications ou des régressions.
+De tels modèles sont déjà exploités en physique des particules.
+\par
+Nous avons étudié la possibilité de prédire la masse d'une résonance se désintégrant en paire de leptons tau grâce au ML.
+En effet, la phénoménologie de ces événements ne permet pas d'obtenir la masse invariante totale du système dans l'état final.
+Des travaux réalisés par \todo{citation and discussion here}
+À partir d'événements simulés par nos soins à l'aide de \FASTSIM,
+nous avons donc construit et entraîné
+des arbres de décision améliorés à l'aide de la librairie \XGBOOST\
+et
+des réseaux de neurones profonds à l'aide des librairies \KERAS\ et \TENSORFLOW.
+Le principe et l'entraînement de ces types de modèle ont été présentés.
+\par
+De nombreuses combinaisons d'hyper-paramètres,
+propriétés des modèles régissant par exemple leur structure interne,
+ont été étudiées et comparées.
+Il en ressort que certaines variables d'entrée sont des informations pertinentes pour les modèles
+afin d'estimer plus fidèlement la masse de la résonance.
+Les réseaux de neurones
+proposent de meilleures performances que
+les arbres de décision améliorés
+d'après les métriques d'évaluation que nous avons utilisé,
+en particulier pour les valeurs de masse de la résonance correspondant aux bosons~\Zboson\ et \higgs\ du modèle standard.
+Les performances des réseaux de neurones dépendent également fortement de l'algorithme d'optimisation utilisé lors de l'entraînement.
+\par
+Une fois une combinaison performante d'hyper-paramètres trouvée,
+divers effets sur les prédictions du modèle B correspondant ont été étudiés.
+L'empilement ... \todo{continue here}
+
+
 
 
 pas que ggH pour entraînement
