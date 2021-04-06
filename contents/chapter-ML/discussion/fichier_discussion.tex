@@ -36,12 +36,18 @@ La réponse moyenne du modèle est de $\num{1.00}\pm\num{0.05}$ pour $m_{\higgsM
 Cependant, la réponse de \Bnpu\ est dégradée sur des événements contenant du PU, figure~\ref{subfig-reponse_model_PU_01}.
 La réponse moyenne se situe en effet à \num{1.3} à $m_{\higgsML}=\SI{100}{\GeV}$ et diminue à \num{0.9} à $m_{\higgsML}=\SI{800}{\GeV}$ avec PU contre \num{1.05} et \num{0.9} sans PU.
 La résolution relative à basse masse est de l'ordre de \SI{30}{\%} avec PU.
-Plus $m_{\higgsML}$ est faible,
-plus basse est l'énergie portée par $L_1$ et $L_2$, issue de la masse de \higgsML.
-Alors, les particules du PU sont compétitives, en termes de propriétés cinématiques, avec $L_1$ et $L_2$.
-Lors de la sélection des événements et de la construction du \emph{dilepton} présentée au chapitre~\refChHTT,
-il est ainsi possible que les particules utilisées en tant que $L_1$ ou $L_2$ soient en réalité issues du PU et non de la désintégration de \higgsML.
-Plus $m_{\higgsML}$ augmente, moins le PU est compétitif, d'où l'atténuation de l'effet sur la réponse observée du modèle.
+\par
+Le PU peut être considéré comme un bruit blanc, dont l'énergie moyenne est reliée à \Npu.
+L'énergie portée par $L_1$ et $L_2$, les éléments visibles de la désintégration de \higgsML,
+est en revanche reliée à $m_{\higgsML}$.
+À haute masse, l'énergie de $L_1$ et $L_2$ est grande par rapport à celle du PU.
+Les prédictions de \Bnpu\ ne sont alors pas perturbées,
+menant à des performances similaires à celles du cas sans PU.
+Lorsque $m_{\higgsML}$ diminue,
+l'énergie disponible pour $L_1$ et $L_2$ est moindre
+et
+le bruit de PU est alors compétitif.
+Le modèle \Bnpu\ n'est pas entraîné pour traiter ce bruit et ses prédictions sont perturbées.
 Il est donc primordial d'inclure le PU dans l'entraînement dans l'optique d'une utilisation de nos modèles dans les analyses de CMS.
 \par
 La réponse du modèle B, entraîné avec PU, peut être comparée
