@@ -161,7 +161,6 @@ leur présence modifie la réponse du modèle
 qui augmente jusqu'à \SI{20}{\%}
 pour des masses entre \SI{100}{\GeV} et \SI{600}{\GeV}.
 L'effet le plus important se situe à très basse masse où la résolution est fortement dégradée.
-La figure~\ref{fig-diffs_fakes_B_tt-lt-ll} montre la différence $\ypred-\ytrue$ entre les prédictions du modèle B et la valeur vraie de $m_{\higgsML}$ pour des valeurs de $m_{\higgsML}$ entre \num{50} et \SI{200}{\GeV} sur chacun des trois groupes de canaux et pour les deux ensembles de sélection des \tauh.
 \begin{figure}[p]
 \centering
 
@@ -190,11 +189,12 @@ La figure~\ref{fig-diffs_fakes_B_tt-lt-ll} montre la différence $\ypred-\ytrue$
 \label{fig-diffs_fakes_B_tt-lt-ll}
 \end{figure}
 \par
-Les différences observée pour les canaux leptoniques ($\ell\ell$),
+La figure~\ref{fig-diffs_fakes_B_tt-lt-ll} montre la différence $\ypred-\ytrue$ entre les prédictions du modèle B et la valeur vraie de $m_{\higgsML}$ pour des valeurs de $m_{\higgsML}$ entre \num{50} et \SI{200}{\GeV} sur chacun des trois groupes de canaux et pour les deux ensembles de sélection des \tauh.
+Les différences observées pour les canaux leptoniques ($\ell\ell$),
 figures~\ref{subfig-diffs_B_few_fakes_ll} et~\ref{subfig-diffs_B_more_fakes_ll},
-sont bien moins importantes que dans les autres canaux.
+sont moins importantes que dans les autres canaux.
 Les canaux leptoniques ne comportent aucun \tauh, seule la sélection des événements est modifiée.
-Un objet physique identifié comme un \tauh\ par le BDT et non par \DEEPTAU\ peut en effet basculer d'un canal à l'autre, si le \tauh\ identifié par le BDT permet de construire un \emph{dilepton}.
+Un objet physique identifié comme un \tauh\ par le BDT et non par \DEEPTAU\ peut en effet faire basculer l'événement d'un canal à l'autre, si le \tauh\ identifié par le BDT permet de construire un \emph{dilepton}.
 \par
 Dans le cas des canaux semi-leptoniques ($\ell\tauh$),
 la différence entre \ypred\ de B et \ytrue\ à basse masse est en moyenne inférieure à \SI{10}{\GeV}
@@ -227,7 +227,7 @@ et en particulier dans la région des bosons
 \Zboson\ ($m_{\Zboson}=\SI{91.2}{\GeV}$)
 et
 \higgs\ ($m_{\higgs}=\SI{125.1}{\GeV}$).
-L'inclusion des \ftauhs\ dans l'entraînement est non trivial, car la masse à prédire n'est pas définie,
+L'inclusion des \ftauhs\ dans l'entraînement est non triviale, car la masse à prédire n'est pas définie,
 les \ftauhs\ n'étant pas des objets physiques provenant de \higgsML.
 \subsection{Effet de la séparation des canaux}
 \def\Bchsplit#1{\ifthenelse{\equal{#1}{x}}{$\text{B}^{#1}$}{$\text{B}^\text{\GetChannelStr{#1}}$}}
@@ -345,7 +345,7 @@ Canal $x$ & \multicolumn{2}{c}{Modèle \Bchsplit{x}} & \multicolumn{2}{c}{Modèl
 \ele\ele & 20 & 50 & 10 & 30\\
 \bottomrule
 \end{tabular}
-\caption[Résolutions relatives de différents modèles.]{Résolutions relatives minimale et maximale sur des intervalles de \SI{10}{\GeV} pour \Bchsplit{mm}, \Bchsplit{em} ou \Bchsplit{ee} et B.}
+\caption[Résolutions relatives de différents modèles.]{Résolutions relatives minimales et maximales sur des intervalles de \SI{10}{\GeV} pour \Bchsplit{mm}, \Bchsplit{em} ou \Bchsplit{ee} et B.}
 \label{tab-reso-rel-B-ll}
 \end{table}
 \par
@@ -472,11 +472,13 @@ Le même effet de transition entre PFMET et \PUPPI MET qu'avec B est observable 
 Cependant,
 la réponse moyenne de B avec \PUPPI MET (figure~\ref{subfig-reponse_model_train_on_Puppi_test_on_Puppi})
 est égale à $\num{1.00}\pm\num{0.05}$ de \SI{80}{\GeV} à \SI{425}{\GeV},
-alors que ce n'est la cas que de \SI{200}{\GeV} à \SI{425}{\GeV}
+alors que ce n'est le cas que de \SI{200}{\GeV} à \SI{425}{\GeV}
 pour \Bpf\ avec PFMET (figure~\ref{subfig-reponse_model_train_on_PF_test_on_PF}).
 De plus, la réponse moyenne de B avec PFMET (figure~\ref{subfig-reponse_model_train_on_Puppi_test_on_PF})
 est plus proche de 1 pour $m_{\higgsML}\simeq\SI{100}{\GeV}$
 que celle de \Bpf\ avec PFMET (figure~\ref{subfig-reponse_model_train_on_PF_test_on_PF}).
+Pour les analyses utilisant PFMET,
+le modèle B basé sur \PUPPI MET est donc recommande, plutôt que \Bpf.
 \subsection{Effet de l'intervalle de masse}
 \subsubsection{Étendue de l'intervalle}
 \def\Bsmr{$\text{B}^\text{200-500}$}
@@ -547,7 +549,7 @@ le premier quantile inférieur (limite basse de la bande verte $\pm1\sigma$) pas
 \label{fig-B-boundaries_effect}
 \end{figure}
 \par
-Ainsi, $m_{\higgsML}$ est sur-estimée à basse masse
+Ainsi, $m_{\higgsML}$ est surestimée à basse masse
 et
 sous-estimée à haute masse.
 Il s'agit de l'effet de bord de l'intervalle de masse.
@@ -584,16 +586,18 @@ la valeur de \ypred\ minimisant la fonction de coût sur cette distribution.
 Nous obtenons dans ce cas une valeur proche de \SI{400}{\GeV}, ce qui est correct.
 %Il est à noter que certains événements générés à $m_{\higgsML}=\SI{800}{\GeV}$ font partie de cette famille, ce qui est lié à la résolution du modèle.
 \par
-Au niveau des bords de l'intervalle en revanche,
-figure~\ref{subfig-true_at_pred_750} pour celui de haute masse par exemple,
+Au niveau du bord à haute masse,
+figure~\ref{subfig-true_at_pred_750},
 l'absence d'événements au-delà de \SI{800}{\GeV} donne une distribution tronquée de \ytrue\ pour une famille donnée.
 Seule l'extrémité à basse masse de la queue de la distribution est présente.
-Par conséquent, le DNN ne connaît que les basses masses de cette famille
-et la minimisation de la fonction de coût mène à des prédictions plus basses.
-Il est donc tout à fait cohérent qu'il sous-estime la masse de ces événements.
+Par conséquent,
+le DNN ne connaît que les basses masses de cette famille,
+il est ainsi tout à fait cohérent qu'il en sous-estime la masse.
+La minimisation de la fonction de coût mène donc à des prédictions biaisées.
 Si les événements au-delà de \SI{800}{\GeV} étaient présents dans cette famille,
-la distribution apparaîtrait décalée vers la droite, \ie\ vers les hautes masses,
+la distribution serait plus étendue vers les hautes masses,
 et la minimisation de la fonction de coût mènerait donc le DNN à prédire une masse plus élevée.
+L'effet est inversé pour le bord à basse masse, d'où la surestimation.
 \paragraph{Principe de la correction}
 La minimisation de la fonction de coût est donc réalisée correctement, mais sur des familles d'événements tronquées.
 Afin de contrer cet effet,
@@ -640,24 +644,25 @@ zone d'exclusion à haute masse;
 zone d'exclusion à basse masse;
 \item[Zone 5] zone centrale.
 \end{description}
-Ces zones sont illustrées en figure~\ref{fig-B-boundaries_effect-mirrored_cut-areas}.
-\begin{figure}[h]
+\begin{wrapfigure}{R}{.45\textwidth}
 \centering
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/custom_loss-illustrations/areas.tex}
 \caption{Zones considérées pour l'entraînement.}
 \label{fig-B-boundaries_effect-mirrored_cut-areas}
-\end{figure}
-\par
+\end{wrapfigure}
+\par\noindent
+Ces zones sont illustrées en figure~\ref{fig-B-boundaries_effect-mirrored_cut-areas}.
 Dans la zone centrale, la fonction de coût est utilisée de manière classique, sans changement.
 Dans les zones 3 et 4 d'exclusion en revanche,
 afin de ne pas prendre en compte les événements comme prévu afin de symétriser les bords de l'intervalle d'entraînement au sein d'une famille,
 la fonction de coût est rendue égale à zéro.
 En d'autres termes, nous procédons au changement
+$\Loss=\LossMAPE\to\Loss'$ avec
 \begin{equation}
-\Loss \to \Loss' = \LossMAPE \times
+\Loss' = \LossMAPE \times
 \left\lbrace
 \begin{aligned}
-0 \quad & \text{si le point $(\ytrue, \ypred)$ est dans les zones 3 ou 4}\\
+0 \quad & \text{si $(\ytrue, \ypred)\in$ zones 3 ou 4}\\
 1 \quad & \text{sinon}
 \end{aligned}
 \right.
