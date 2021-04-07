@@ -1,18 +1,23 @@
 \section{Conclusion}\label{chapter-ML-section-conclusion}
 Le \emph{Machine Learning} (ML) est une branche de l'Intelligence Artificielle (IA)
 permettant d'obtenir des modèles pouvant réaliser des classifications ou des régressions.
-De tels modèles sont déjà exploités en physique des particules.
+De tels modèles sont déjà exploités en physique des particules afin de réaliser diverses tâches,
+comme l'identification des jets issus de quarks~\quarkb\ par exemple.
 \par
 Nous avons étudié la possibilité de prédire la masse d'une résonance se désintégrant en paire de leptons tau grâce au ML.
 En effet, la phénoménologie de ces événements ne permet pas d'obtenir la masse invariante totale du système dans l'état final.
-Des travaux réalisés par \todo{citation and discussion here}
+Les travaux réalisés par \citeauthor{BARTSCHI201929} sur ce sujet donnent des résultats prometteurs,
+mais l'empilement n'y est pas pris en compte et la modélisation du détecteur CMS approximée.
 À partir d'événements simulés par nos soins à l'aide de \FASTSIM,
-nous avons donc construit et entraîné
-des arbres de décision améliorés à l'aide de la librairie \XGBOOST\
-et
-des réseaux de neurones profonds à l'aide des librairies \KERAS\ et \TENSORFLOW.
-Le principe et l'entraînement de ces types de modèle ont été présentés.
+nous avons pris en compte l'empilement et modélisé le détecteur plus précisément.
 \par
+Nous avons construit et entraîné
+des arbres de décision améliorés
+à l'aide de la librairie \XGBOOST\
+et
+des réseaux de neurones profonds
+à l'aide des librairies \KERAS\ et \TENSORFLOW.
+Le principe et l'entraînement de ces types de modèle ont été présentés.
 De nombreuses combinaisons d'hyper-paramètres,
 propriétés des modèles régissant par exemple leur structure interne,
 ont été étudiées et comparées.
@@ -25,20 +30,67 @@ d'après les métriques d'évaluation que nous avons utilisé,
 en particulier pour les valeurs de masse de la résonance correspondant aux bosons~\Zboson\ et \higgs\ du modèle standard.
 Les performances des réseaux de neurones dépendent également fortement de l'algorithme d'optimisation utilisé lors de l'entraînement.
 \par
-Une fois une combinaison performante d'hyper-paramètres trouvée,
-divers effets sur les prédictions du modèle B correspondant ont été étudiés.
-L'empilement ... \todo{continue here}
-
-
-
-
-pas que ggH pour entraînement
-
-L'utilisation de \mml\ en tant que telle dans l'analyse introduite au chapitre~\refChHTT\ n'est donc pas pertinente.
-Elle le peut toutefois pour d'autres analyses comme celles axées sur le modèle standard par exemple.
-
-
-Une note d'analyse (CMS AN 2021/054) \cite{CMS-NOTE-2021-054} est en cours de rédaction.
-Les scripts utilisés pour la génération des événements peuvent être consultés~\cite{fastsim_ece},
-tout comme ceux permettant d'entraîner les modèles étudiés~\cite{DL_for_HTT_mass}.
-Enfin, le modèle issu de ces travaux peut être récupéré~\cite{DiTau_ML_mass} et utilisé dans d'autres analyses.
+Nous avons alors déterminé une combinaison performante d'hyper-paramètres correspondant au modèle B.
+Divers effets sur ses prédictions ont été étudiés.
+Ainsi, l'empilement doit être pris en compte lors de l'entraînement.
+\par
+Un effet majeur sur la précision des prédictions est lié à la reconstruction des particules.
+Dans le cas d'une reconstruction parfaite des particules,
+\ie\ en utilisant les objets générés correspondants au lieu des objets reconstruits,
+la résolution relative sur la masse de la résonance est de \SI{3}{\%}
+contre \num{20} à \SI{25}{\%} sinon.
+De plus, les \ftauhs\ perturbent les prédictions des modèles à basse masse,
+en particulier dans la région des bosons~\Zboson\ et~\higgs.
+Cependant, l'entraînement de modèles spécifiques aux différents canaux ou aux différentes phénoménologies de canaux n'apporte pas de gain en termes de précision des prédictions.
+L'utilisation de la PFMET au lieu de la \PUPPI MET a un effet négligeable sur les prédictions du modèle face à sa résolution.
+\par
+La gamme de masse explorée lors de l'entraînement définit la zone utile du modèle, ses prédictions étant en bonne approximation restreintes à cet intervalle.
+Cependant, il n'est pas possible d'étendre cet intervalle à l'infini
+et des effets de bord apparaissent sur les prédictions du modèle.
+Nous avons modifié la fonction de coût afin de rejeter dynamiquement certains événements de l'entraînement pour réduire cet effet de bord avec succès.
+La nouvelle fonction de coût ne respecte pas la condition d'être nulle uniquement si la prédiction \ypred\ est égale à la valeur vraie \ytrue,
+toutefois le nouveau modèle B' obtenu donne des prédictions plus proches de \ytrue.
+L'exploitation de la queue à hautes valeurs de la distribution de la masse de la résonance, objectif des prédictions des modèles,
+a permis d'améliorer encore les prédictions moyennes obtenues avec le modèle B".
+\par
+La prédiction du modèle B", \mml, a été utilisée en tant que variable discriminante à la place de \mTtot\ pour obtenir les limites d'exclusion indépendantes du modèle de l'analyse présentée dans le chapitre~\refChHTT\ sur l'année 2017.
+Malgré des valeurs plus proches de la vraie masse de la résonance
+ainsi qu'une meilleure résolution que \mTtot, \mml\
+ne permet pas de repousser les limites d'exclusion obtenues.
+Ceci est dû aux processus physiques tels que les \ftauhs\ ne correspondant pas à une résonance se désintégrant en paire de leptons tau
+mais passant les critères de sélection des événements appliqués.
+L'utilisation de \mml\ en tant que variable discriminante pour la recherche de bosons de Higgs supplémentaires de haute masse n'est donc pas pertinente.
+D'autres analyses peuvent en revanche bénéficier de ce projet.
+Son utilisation dans un autre but que d'obtenir une variable discriminante est également envisageable,
+par exemple pour la sélection des événements.
+\par
+Notre modèle permet en effet de mieux séparer les événements $\Zboson\to\tau\tau$ des \ftauhs\ que \mTtot.
+De plus, une comparaison des valeurs de \mml\ à celles de \msv, obtenues par l'algorithme \SVFIT\ déjà utilisé par la collaboration CMS,
+a permis de mettre en lumière une meilleure description du boson~\Zboson\ par notre modèle.
+En effet, certains événements $\Zboson\to\tau\tau$ sont prédits au-delà de \SI{250}{\GeV} par \SVFIT,
+alors que la masse du \Zboson\ est de \SI{91.2}{\GeV}.
+Parmi ces événements, notre modèle en prédit aux alentours de \SI{100}{\GeV}, ce qui est plus proche de la valeur vraie.
+L'effet inverse,
+\ie\ des événements tels que $\mml>\SI{250}{\GeV}$ alors que $\msv\simeq\SI{100}{\GeV}$ pour le boson~\Zboson,
+n'est pas observé.
+La sensibilité au boson de Higgs du modèle standard~\higgs\ est similaire avec \msv\ ou \mml\ dans certaines topologies d'événements.
+Pour d'autres, le signal de \higgs\ est plus étendu avec \mml\ qu'avec \msv, donnant une sensibilité moindre.
+L'utilisation de processus physiques plus variés pour entraîner les modèles pourrait améliorer leurs prédictions sur de telles topologies.
+Des performances en termes de résolution similaires voir meilleurs que celles de \SVFIT\ sont donc envisageables avec des réseaux de neurones.
+\par
+Le temps nécessaire pour obtenir les prédictions de notre modèle est 60 fois plus court qu'avec \SVFIT.
+Les futures analyses de la collaboration CMS utiliseront de plus grandes quantité d'événements,
+l'utilisation des réseaux de neurones au lieu de \SVFIT\ présente donc un intérêt certain afin de minimiser leur coût computationnel.
+\par
+Le modèle B" développé au cours de ma thèse~\cite{DL_for_HTT_mass} peut être récupéré~\cite{DiTau_ML_mass} et utilisé dans d'autres analyses.
+Le groupe en charge de
+l'analyse des événements avec une paire de leptons tau dans le cadre du NMSSM (\emph{Next to MSSM}),
+modèle contenant sept bosons de Higgs contre cinq dans le MSSM introduit au chapitre~\refChMSSM,
+a déjà manifesté un intérêt pour notre modèle.
+De même,
+l'utilisation de B" pour l'analyse des événements $\higgs\higgs\to\quarkb\antiquarkb\tau\tau$,
+\ie\
+avec deux bosons de Higgs dont l'un se désintègre en paire de quarks~\quarkb\
+et l'autre en paire de leptons tau,
+est déjà étudiée.
+La topologie de ces événements, différente des événements contenant uniquement $\higgs\to\tau\tau$, permet de tester notre modèle dans des situations inédites.
