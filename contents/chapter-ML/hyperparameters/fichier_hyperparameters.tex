@@ -415,20 +415,20 @@ La sélection d'un modèle est donc réalisée parmi ceux ayant comme fonction d
 \subsection{Algorithme d'optimisation}\label{chapter-ML-section-hyperparameters-opti}
 Les algorithmes d'optimisation sont présentés dans la section~\ref{chapter-ML-section-DNN-training-optimizers}.
 L'algorithme SGD ne permet pas aux modèles de converger, il est donc exclu de nos investigations.
-Deux algorithmes sont comparés, Adadelta et Adam.
+Deux algorithmes sont comparés, AdaDelta et Adam.
 \par
 Les évaluations des DNNs précédemment sélectionnés,
 regroupés d'après l'algorithme d'optimisation utilisé lors de leurs entraînements,
 selon les métriques
 \LossMAPE\ sur toute la gamme de masse et \OneSigmaWidth\ à basse masse
 sont représentées sur la figure~\ref{fig-optimizer}.
-Les deux groupes observés dans les sections précédentes sont identifiés comme étant les modèles entraînés respectivement par Adam et Adadelta.
+Les deux groupes observés dans les sections précédentes sont identifiés comme étant les modèles entraînés respectivement par Adam et AdaDelta.
 Dans le cadre de nos travaux, lors de la recherche de la combinaison optimale d'hyper-paramètres,
 nous avons initialement utilisé Adam jusqu'à sélectionner
 le jeu de variables d'entrée (section~\ref{chapter-ML-section-hyperparameters-inputs})
 et
 la fonction de coût (section~\ref{chapter-ML-section-hyperparameters-loss}) à utiliser.
-C'est pourquoi ces deux groupes liés à Adam et Adadelta n'apparaissent que dans certaines sélections de modèles.
+C'est pourquoi ces deux groupes liés à Adam et AdaDelta n'apparaissent que dans certaines sélections de modèles.
 \begin{figure}[h]
 \centering
 
@@ -445,17 +445,17 @@ C'est pourquoi ces deux groupes liés à Adam et Adadelta n'apparaissent que dan
 Sur la figure~\ref{subfig-optimizer-mape},
 les modèles optimisés par Adam présentent un score de \LossMAPE\
 entre \num{17.5} et \num{20}
-alors que ceux optimisés par Adadelta se situent
+alors que ceux optimisés par AdaDelta se situent
 entre \num{22.2} et \num{24.3}.
-L'optimisation par Adam semble donc meilleure que celle par Adadelta.
+L'optimisation par Adam semble donc meilleure que celle par AdaDelta.
 L'évaluation à basse masse par \OneSigmaWidth\ sur la figure~\ref{subfig-optimizer-low_1sigma}
 confirme cette observation.
 Les modèles optimisés par Adam se situent en effet
 entre \num{0.35} et \num{0.48},
-ceux optimisés par Adadelta
+ceux optimisés par AdaDelta
 entre \num{0.49} et \num{0.64}.
 \par
-L'algorithme d'optimisation Adam donne de meilleurs modèles qu'Adadelta.
+L'algorithme d'optimisation Adam donne de meilleurs modèles qu'AdaDelta.
 \subsection{Autres hyper-paramètres}\label{chapter-ML-section-hyperparameters-others}
 Les hyper-paramètres restant à être fixés ainsi que les valeurs explorées sont:
 \begin{itemize}

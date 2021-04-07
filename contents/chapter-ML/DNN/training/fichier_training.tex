@@ -111,8 +111,8 @@ p[t-1] + v_p[t]
 p[t-1] + \alpha v_p[t-1] - \eta_k \average{\pdv{\Loss}{p} [t]}_\text{mini-lot}
 \mend
 \end{equation}
-\paragraph{\emph{Adaptive Gradient} (Adagrad)} \cite{adagrad}
-L'algorithme Adagrad adapte le taux d'apprentissage individuellement pour chaque paramètre $p$
+\paragraph{\emph{Adaptive Gradient} (AdaGrad)} \cite{adagrad}
+L'algorithme AdaGrad adapte le taux d'apprentissage individuellement pour chaque paramètre $p$
 à l'aide d'une
 variable de mémoire $\vec{r}$.
 Elle est initialement définie à $\vec{0}$ et est modifiée à chaque mini-lot selon
@@ -140,8 +140,8 @@ r_p \to \rho \, r_p + (1-\rho)\average{\pdv{\Loss}{p}}_\text{mini-lot}^2
 \end{equation}
 où $0<\rho<1$ est le taux de diminution de la mémoire.
 RMSProp est ainsi une version de AdaGrad dont la mémoire est plus adaptée à la situation locale.
-\paragraph{\emph{Adaptive Delta} (Adadelta)}
-À l'instar de RMSProp, Adadelta est une modification de AdaGrad visant à améliorer l'effet de mémoire.
+\paragraph{\emph{Adaptive Delta} (AdaDelta)}
+À l'instar de RMSProp, AdaDelta est une modification de AdaGrad visant à améliorer l'effet de mémoire.
 La variable $r_p$ est mise à jour par~\eqref{eq-AdaGrad_memory}.
 Cependant, la valeur précédente de $r_p$ est également utilisée lors de la mise à jour de $p$.
 Ainsi, lors de l'itération $t$,
@@ -149,7 +149,7 @@ Ainsi, lors de l'itération $t$,
 p [t-1] \to p [t] = p[t-1] - \frac{\sqrt{r_p[t-1]}+\delta}{\sqrt{r_p[t]}+\delta} \average{\pdv{\Loss}{p} [t]}_\text{mini-lot}
 \mend
 \end{equation}
-Il n'y a donc pas besoin de définir un taux d'apprentissage initial avec Adadelta.
+Il n'y a donc pas besoin de définir un taux d'apprentissage initial avec AdaDelta.
 \paragraph{\emph{Adaptive Moments} (Adam)} \cite{adam,DNN}
 L'algorithme Adam
 est une combinaison
