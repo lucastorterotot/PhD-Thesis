@@ -990,8 +990,10 @@ Il est requis que $\Dzeta \geq \num{-35}$ afin de s'assurer que la région de si
 
 \newcommand{\LeptonVetoesExtra}[6]{#1 tel que $\pT^{#2} > \SI{#3}{\GeV}$, $\abs{\eta^{#2}} < \num{#4}$, passant le #5 et d'isolation \RelIsoBelow{#2}{#6}}
 \newcommand{\LeptonVetoesExtraMuon}{\LeptonVetoesExtra{de muon}{\mu}{10}{2.4}{\MediumMuonID}{0.3}}
+\newcommand{\LeptonVetoesExtraMuonMuMu}{\LeptonVetoesExtra{de muon supplémentaire}{\mu}{10}{2.4}{\MediumMuonID}{0.3}}
 \newcommand{\LeptonVetoesSecondMuon}{\LeptonVetoesExtra{de second muon}{\mu}{10}{2.4}{\MediumMuonID}{0.3}}
 \newcommand{\LeptonVetoesExtraEle}{\LeptonVetoesExtra{d'électron}{\ele}{10}{2.5}{\NinetyNineEleMVA}{0.3}}
+\newcommand{\LeptonVetoesExtraEleEleEle}{\LeptonVetoesExtra{d'électron supplémentaire}{\ele}{10}{2.5}{\NinetyNineEleMVA}{0.3}}
 \newcommand{\LeptonVetoesSecondEle}{\LeptonVetoesExtra{de second électron}{\ele}{10}{2.5}{\NinetyNineEleMVA}{0.3}}
 
 \newcommand{\LeptonVetoesPair}[7]{de paire #1 de charges opposées avec $\Delta R > \num{#2}$, tous deux vérifiant $\pT^{#3} > \SI{#4}{\GeV}$, $\abs{\eta^{#3}} < \num{#5}$, passant le #6, de paramètres d'impact $d_z < \SI{0.2}{\centi\meter}$ et $d_{xy} < \SI{0.045}{\centi\meter}$ et d'isolation \RelIsoBelow{#3}{#7}}
