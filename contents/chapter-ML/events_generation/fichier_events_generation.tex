@@ -15,12 +15,14 @@ Dans le contexte de la collaboration CMS, nous avons utilisé \FASTSIM~\cite{Fas
 Cet outil permet de procéder à l'ensemble de la simulation des événements introduite chapitre~\refChLHCCMS,
 de la génération du processus physique à la reconstruction des objets physiques par le détecteur.
 \par
+Les données simulées correspondent à des collisions de protons
+avec une énergie dans le centre de masse de \SI{13}{\TeV}.
 Les processus physiques sont générés par
 \PYTHIA~8~\cite{pythia8.2}
 avec les réglages CUEP8M1~\cite{tunes_2016,tunes_2019}.
-L'énergie dans le centre de masse est de \SI{13}{\TeV}.
 Pour ne pas générer d'événements indésirables,
-seules les collisions créant un boson de Higgs par fusion de gluons, mode dominant pour le modèle standard, sont autorisées.
+seules les collisions créant le boson \higgsML\ par fusion de gluons sont autorisées.
+Dans le cas du boson de Higgs du modèle standard \higgs, il s'agit du mode de production dominant.
 De plus, le rapport de branchement $\BR(\higgsML\to\tau\tau)$ est fixé à 1,
 \ie\ que \higgsML\ se désintègre forcément en paires de leptons taus.
 \begin{wrapfigure}{R}{.45\textwidth}
@@ -43,14 +45,15 @@ S'il est possible d'appliquer des poids aux événements afin d'équilibrer l'en
 plus d'événements sont générés à basse masse afin d'obtenir des topologies d'événements variées malgré la faible efficacité de sélection.
 Ainsi, la quantité d'événements générés pour chaque valeur de $m_{\higgsML}$ est de:
 \begin{itemize}
-\item \num{60000} pour $ \num{50} \leq m_{\higgsML} < \num{300} $;
-\item \num{20000} pour $ \num{300} \leq m_{\higgsML} < \num{500} $;
-\item \num{10000} pour $ \num{500} \leq m_{\higgsML} \leq \num{800}$.
+\item \num{60000} pour $ \SI{50}{\GeV} \leq m_{\higgsML} < \SI{300}{\GeV} $;
+\item \num{20000} pour $ \SI{300}{\GeV} \leq m_{\higgsML} < \SI{500}{\GeV} $;
+\item \num{10000} pour $ \SI{500}{\GeV} \leq m_{\higgsML} \leq \SI{800}{\GeV}$.
 \end{itemize}
 \par
 L'empilement est modélisé par superposition du signal $\higgsML\to\tau\tau$ à des événements dits de \og biais minimum \fg~\cite{pythia8.2}.
 Il s'agit d'événements pouvant contenir des interactions dures, mais n'activant pas de \HLTpath.
 La quantité d'empilement ajoutée à l'événement $\higgsML\to\tau\tau$ suit le profil de l'année 2017.
+Les conditions des collisions simulées sont ainsi identiques à celles de l'année 2017 au LHC.
 \newpage
 \subsection{Sélection des événements}\label{chapter-ML-section-evt_gen-selection}
 \subsubsection{Canaux \tauh\tauh, \mu\tauh, \ele\tauh\ et \ele\mu}
@@ -88,8 +91,8 @@ Ce choix permet d'obtenir un modèle dont les prédictions auront non seulement 
 \paragraph{Vétos de leptons supplémentaires}
 \LeptonVetoes
 \begin{itemize}
-    \item \LeptonVetoesSecondMuon;
-    \item \LeptonVetoesSecondEle, l'électron devant \PassConversionVeto\ et \LessTwoMissingHitsVertex.
+    \item \LeptonVetoesExtraMuonMuMu;
+    \item \LeptonVetoesExtraEle, l'électron devant \PassConversionVeto\ et \LessTwoMissingHitsVertex.
 \end{itemize}
 \subsubsection{Canal \ele\ele}
 \paragraph{Sélection des électrons}
@@ -108,8 +111,8 @@ Ce choix permet d'obtenir un modèle dont les prédictions auront non seulement 
 \paragraph{Vétos de leptons supplémentaires}
 \LeptonVetoes
 \begin{itemize}
-    \item \LeptonVetoesSecondMuon;
-    \item \LeptonVetoesSecondEle, l'électron devant \PassConversionVeto\ et \LessTwoMissingHitsVertex.
+    \item \LeptonVetoesExtraMuon;
+    \item \LeptonVetoesExtraEleEleEle, l'électron devant \PassConversionVeto\ et \LessTwoMissingHitsVertex.
 \end{itemize}
 \subsection{Événements obtenus et pondération}
 Plus de 22 millions d'événements ont été générés.
@@ -153,9 +156,9 @@ Ces événements sont de plus séparés en trois groupes selon les proportions s
 \end{itemize}
 \par
 Afin de réaliser un entraînement équitable entre les différentes valeurs de $m_{\higgsML}$, un poids est associé à chaque événement de manière à ce que la distribution pondérée de $m_{\higgsML}$ soit plate.
-La distribution pondérée de $m_{\higgsML}$ sur les événements utilisés pour l'entraînement des modèles est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-weighted-is_train}.
+Cette distribution sur les événements utilisés pour l'entraînement des modèles est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-weighted-is_train}.
 \subsection{Cible et variables d'entrée des modèles}\label{chapter-ML-section-evt_gen-inputs}
-La cible des modèle est la masse de la particule générée \higgsML\ se désintégrant en paire de leptons tau.
+La cible des modèles est la masse de la particule générée \higgsML\ se désintégrant en paire de leptons tau.
 Un tel événement est illustré sur la figure~\ref{fig-model_inputs-fgraph-H-BBtautau_mutau_small}.
 Les variables d'entrée doivent être des observables accessibles expérimentalement,
 \ie\ issues de la reconstruction des événements présentée dans le chapitre~\refChLHCCMS.

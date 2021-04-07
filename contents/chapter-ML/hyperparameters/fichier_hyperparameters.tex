@@ -34,9 +34,9 @@ Toutefois
 la large gamme explorée, de \num{50} à \SI{800}{\GeV}, rend difficile
 la visualisation des performances à basse masse.
 Or, cette région est importante car elle contient les bosons \Zboson\ et \higgs\ du modèle standard.
-La réponse $r$ du modèle, définie comme
+La réponse $R$ du modèle, définie comme
 \begin{equation}
-r = \frac{\ypred}{\ytrue} = \frac{F(\vec{x})}{m_{\higgsML}}
+R = \frac{\ypred}{\ytrue} = \frac{F(\vec{x})}{m_{\higgsML}}
 \mend[,]
 \end{equation}
 permet de ramener l'objectif des modèles à 1 sur toute la gamme de masse.
@@ -44,8 +44,11 @@ La réponse du même modèle est ainsi représentée sur la figure~\ref{subfig-m
 Pour chaque intervalle de \SI{10}{\GeV} sur $m_{\higgsML}$,
 la distribution de $r$ est déterminée.
 La valeur moyenne et la médiane de cette distribution sont données,
-et ainsi que le premier ($\pm1\sigma$) et le second quantile ($\pm2\sigma$).
-Une évaluation quantifiée des modèles reste nécessaire.
+ainsi que les largeurs à $\pm1\sigma$ et $\pm2\sigma$,
+correspondant respectivement aux zones contenant \num{68} et \SI{95}{\%} des valeurs de $R$ les plus proches de la médiane.
+Ces zones sont déterminées de manière indépendantes sur les valeurs inférieures et supérieures à la médiane,
+elles peuvent donc être asymétriques.
+%Une évaluation quantifiée des modèles reste nécessaire.
 \begin{figure}[h]
 \centering
 
@@ -60,26 +63,28 @@ Une évaluation quantifiée des modèles reste nécessaire.
 \end{figure}
 \par
 Il est difficile de définir un seul score quantifiant la qualité d'un modèle.
-Plusieurs métriques sont considérées afin d'évaluer les modèles:
+Plusieurs métriques sont considérées afin de l'évaluer:
 \begin{itemize}
 \item les valeurs de
 \LossMSE,
 \LossMAE,
 \LossMAPE;
-\item la résolution relative des modèles,
-ou \og largeur à $1\sigma$ \fg,
+\item la largeur de $-1\sigma$ à $+1\sigma$ de la réponse $R$ du modèle,
 notée \OneSigmaWidth,
-estimée par
+égale à
 la moyenne
+sur des intervalles de \SI{10}{\GeV} sur $\ytrue=m_{\higgsML}$
 de
-la largeur du premier quantile de la distribution de la réponse $r$ des modèles
-sur des intervalles de \SI{10}{\GeV} sur $\ytrue=m_{\higgsML}$,
+la distance entre
+les écarts-types supérieur et inférieur
+de la distribution de $R$,
 \ie
 \begin{equation}
-\OneSigmaWidth = \Average{\eval{\sigma\left(\frac{\ypred}{\ytrue}\right)}_{\ytrue\in [n, n+1]\times\SI{10}{\GeV}}}_n
+\OneSigmaWidth = \Average{\eval{\left[\sigma_+\left(\frac{\ypred}{\ytrue}\right)-\sigma_-\left(\frac{\ypred}{\ytrue}\right)\right]}_{\ytrue\in [n, n+1]\times\SI{10}{\GeV}}}_n
 \mend
 \end{equation}
-Il s'agit donc de la moyenne de la largeur verticale des bandes vertes ($\pm1\sigma$) sur les graphiques des réponses des modèles comme celui de la figure~\ref{subfig-model_response_example}.
+Il s'agit donc de la moyenne de la largeur verticale des bandes vertes ($\pm1\sigma$) sur les graphiques des réponses des modèles comme celui de la figure~\ref{subfig-model_response_example},
+aussi égale à deux fois la résolution relative du modèle.
 \end{itemize}
 Pour toutes ces métriques, l'objectif est la plus petite valeur possible.
 De plus, quatre domaines de masse sont définis:
@@ -371,7 +376,7 @@ le premier
 entre \SI{7.9e3}{\GeV^2} et \SI{10e3}{\GeV^2},
 le second
 entre \SI{13e3}{\GeV^2} et \SI{16e3}{\GeV^2}.
-La fonction de coût \LossMAE\ semble ainsi préférable à \LossMSE\ lorsque la comparaison de fait sur \LossMSE\ elle-même.
+La fonction de coût \LossMAE\ semble ainsi préférable à \LossMSE\ lorsque la comparaison se fait sur \LossMSE\ elle-même.
 Il est en revanche plus difficile de conclure quant à \LossMAPE.
 \par
 L'évaluation par \LossMAPE, figure~\ref{subfig-loss-mape},
@@ -570,8 +575,8 @@ Le nombre de neurones par couche cachée est de \num{1000} pour 4 modèles sur 7
 Le WI le plus représenté est Glorot uniforme (5/7).
 Les FA sont disparates, chacune apparaissant une ou deux fois dans la sélection.
 \par
-Chacun de ces modèles présente une réponse proche de 1 entre \num{70} et \SI{400}{\GeV} avec une résolution à $\pm1\sigma$ de l'ordre de \SI{22}{\%} à basse masse et \SI{10}{\%} à haute masse.
-Le modèle F conserve une réponse proche de 1 jusqu'à environ \SI{500}{\GeV}, cependant se résolution à basse masse en légèrement dégradée par rapport aux autres modèles.
+Chacun de ces modèles présente une réponse proche de 1 entre \num{70} et \SI{400}{\GeV} avec une résolution relative de l'ordre de \SI{22}{\%} à basse masse et \SI{10}{\%} à haute masse.
+Le modèle F conserve une réponse proche de 1 jusqu'à environ \SI{500}{\GeV}, cependant sa résolution à basse masse est légèrement dégradée par rapport aux autres modèles.
 Le modèle B a des hyper-paramètres \og consensus \fg,
 \ie\ que chacune des valeurs de ses hyper-paramètres correspond à la valeur la plus représentée dans la sélection.
 C'est à partir de ce modèle que nous avons choisi de continuer notre étude.

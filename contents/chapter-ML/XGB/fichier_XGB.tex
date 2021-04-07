@@ -140,9 +140,10 @@ avec
 $\eta$ le taux d'apprentissage, inférieur à 1, permettant de corriger progressivement l'écart résiduel.
 L'itération s'arrête lorsque le nombre maximal d'estimateurs \Nestimators\ est atteint.
 Les grandeurs $\eta$ et \Nestimators\ sont également des hyper-paramètres.
+Le modèle global obtenu est ici un arbre de décision amélioré.
 %\emph{The Elements of statistical learning} : Trees have one aspect that prevents them from bering the ideal tool for predictive learning, namely inaccuracy. --> they work great with the data used to create them, but they are not flexible when it comes to classifying new samples...
 \subsection{Fonction de coût et \emph{Gradient Descent}}\label{chapter-ML-section-loss}
-Une fonction de coût (\emph{loss function}) compare les prédictions d'un modèle aux valeurs vraies.
+Une fonction de coût compare les prédictions d'un modèle aux valeurs vraies.
 Elle doit être différentiable et est définie de manière à être minimale lorsque les prédictions sont égales aux valeurs vraies, \ie\ lorsque le modèle est parfait.
 Les fonctions de coût les plus répandues sont:
 \begin{description}
@@ -181,7 +182,7 @@ en considérant que l'objectif de $M_k$ est de prédire
 - \grad_{F_{k-1}(\vec{x}_i)} \left(\Loss(\ytruei, F_{k-1}(\vec{x}_i))\right)
 \end{equation}
 avec \Loss\ une fonction de coût quelconque.
-Il s'agit du \emph{Gradient Descent},
+Il s'agit du \emph{Gradient Descent}~\cite{cauchy_1847},
 où l'objectif est de minimiser \Loss.
 La fonction de coût est un hyper-paramètre du modèle.
 \subsection{Sous-entraînement et surentraînement}

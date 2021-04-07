@@ -17,9 +17,9 @@ l'empilement (PU, \emph{Pile-Up}) n'est pas considéré.
 Nous avons donc souhaité déterminer l'effet du PU sur les prédictions de notre modèle.
 Pour cela, les mêmes événements que ceux décrits en section~\ref{chapter-ML-section-evt_gen} ont été générés sans PU.
 Un DNN, noté \Bnpu, est entraîné sur ces événements sans PU.
-Les hyper-paramètres de \Bnpu\ sont ceux de B, à l'exception des variables d'entrées auxquelles \Npu\ est retiré, car $\Npu=0$ pour tous les événements sans PU.
+Les hyper-paramètres de \Bnpu\ sont ceux de B, à l'exception des variables d'entrée auxquelles \Npu\ est retiré, car $\Npu=0$ pour tous les événements sans PU.
 La réponse de \Bnpu\ sur les événements de test sans PU est représentée sur la figure~\ref{subfig-reponse_model_PU_00}.
-La réponse moyenne du modèle est de $\num{1.00}\pm\num{0.05}$ pour $m_{\higgsML}$ entre \SI{80}{\GeV} et \SI{600}{\GeV} avec une résolution à $\pm1\sigma$ de l'ordre de \SI{22}{\%} à basse masse et \SI{10}{\%} à haute masse.
+La réponse moyenne du modèle est de $\num{1.00}\pm\num{0.05}$ pour $m_{\higgsML}$ entre \SI{80}{\GeV} et \SI{600}{\GeV} avec une résolution relative de l'ordre de \SI{22}{\%} à basse masse et \SI{10}{\%} à haute masse.
 \begin{figure}[h]
 \centering
 
@@ -212,7 +212,7 @@ Il s'agit donc de la contribution des \ftauhs.
 Dans le canal \tauh\tauh,
 figures~\ref{subfig-diffs_B_few_fakes_tt} et~\ref{subfig-diffs_B_more_fakes_tt},
 un effet similaire existe.
-La résolution relative est toujours de l'ordre de \SI{22}{\%},
+La résolution relative est toujours de l'ordre de \SI{22}{\%} au-delà de \SI{100}{\GeV},
 mais la présence des \ftauhs\ mène à une surestimation moyenne de \SI{30}{\GeV} pour $m_{\higgsML}>\SI{110}{\GeV}$
 et pouvant aller jusqu'à \SI{100}{\GeV} pour $m_{\higgsML}\simeq\SI{50}{\GeV}$, soit une erreur de \SI{200}{\%}.
 La dégradation de la résolution à très basse masse commence dès \SI{100}{\GeV}, au lieu de \SI{70}{\GeV} pour les canaux $\ell\tauh$.
@@ -478,7 +478,7 @@ De plus, la réponse moyenne de B avec PFMET (figure~\ref{subfig-reponse_model_t
 est plus proche de 1 pour $m_{\higgsML}\simeq\SI{100}{\GeV}$
 que celle de \Bpf\ avec PFMET (figure~\ref{subfig-reponse_model_train_on_PF_test_on_PF}).
 Pour les analyses utilisant PFMET,
-le modèle B basé sur \PUPPI MET est donc recommande, plutôt que \Bpf.
+le modèle B basé sur \PUPPI MET est donc recommandé plutôt que \Bpf.
 \subsection{Effet de l'intervalle de masse}
 \subsubsection{Étendue de l'intervalle}
 \def\Bsmr{$\text{B}^\text{200-500}$}
@@ -535,7 +535,7 @@ De même, la réponse moyenne de B à basse masse, figure~\ref{subfig-reponse_mo
 est de $\num{1.01}\pm\num{0.01}$ pour $\SI{80}{\GeV}<m_{\higgsML}<\SI{200}{\GeV}$.
 En dessous de \SI{80}{\GeV}, la réponse moyenne augmente
 et
-le premier quantile inférieur (limite basse de la bande verte $\pm1\sigma$) passe de \num{0.8} à \num{1.0}.
+la limite de l'écart-type inférieur (limite basse de la bande verte $\pm1\sigma$) passe de \num{0.8} à \num{1.0}.
 \begin{figure}[h]
 \centering
 
@@ -555,7 +555,7 @@ sous-estimée à haute masse.
 Il s'agit de l'effet de bord de l'intervalle de masse.
 L'interprétation de cet effet est la suivante.
 Chaque ensemble d'événements prédits à une valeur de \ypred\ donnée est une même famille du point de vue du DNN.
-En termes de classification en un nombre infinie de catégories au lieu de régression, cela revient à dire qu'une famille est donc une catégorie identifiée.
+En termes de classification en un nombre infini de catégories au lieu de régression, cela revient à dire qu'une famille est donc une catégorie identifiée.
 Sur la figure~\ref{fig-B-boundaries_effect-true_at_pred}
 sont représentées les distributions de $\ytrue=m_{\higgsML}$
 pour des valeurs de $\ypred$ la masse prédite par le modèle de
