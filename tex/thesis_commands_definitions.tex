@@ -718,6 +718,12 @@
     \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
     \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
   }{}
+  \ifthenelse{\equal{#6}{16}\and\equal{#4}{2018}}{ % 2018 misc, zll
+    \def\localCMSdisclaimerAX{6.5}
+    \def\localCMSdisclaimerAY{7.05}
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
+  }{}
   \ifthenelse{\equal{#6}{20}}{
     \def\localCMSdisclaimerAX{6.5}
     \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
@@ -728,14 +734,25 @@
     \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
     \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
   }{}
+  \ifthenelse{\equal{#6}{21}}{ % fakes
+    \def\localCMSdisclaimerAX{6.5}
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
+  }{}
   \ifthenelse{\equal{#6}{15}\and\equal{#4}{2016}}{ % 2016 zll
     \def\localCMSdisclaimerAX{3.65}
     \def\localCMSdisclaimerAY{7.05}
     \def\localCMSdisclaimerBX{5.05}
     \def\localCMSdisclaimerBY{7.05}
   }{}
+  \ifthenelse{\equal{#6}{15}\and\equal{#4}{2018}}{ % 2018 zll
+    \def\localCMSdisclaimerAX{6.5}
+    \def\localCMSdisclaimerAY{7.05}
+    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
+    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
+  }{}
   \ifthenelse{\equal{#6}{15}\and\equal{#4}{2016}\and\equal{#5}{et}}{ % 2016 zll in et
-    \def\localCMSdisclaimerAX{1.95}
+    \def\localCMSdisclaimerAX{6.5}
     \def\localCMSdisclaimerAY{7.05}
     \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
     \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
