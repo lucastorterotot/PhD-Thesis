@@ -25,18 +25,30 @@ pousse à les unifier.
 \label{fig-fgraph-ff_WW}
 \end{figure}
 \par L'interaction électromagnétique repose sur l'invariance de jauge sous les transformations locale du groupe $U(1)_{em}$.
-Dans le cas de l'interaction électrofaible, ce groupe de symétrie est $SU(2)_L \times U(1)_Y$. Dans un premier temps, seul le cas de $SU(2)_L$ avec les leptons est traité et permet de soulever toute la richesse supplémentaire de ce groupe par rapport à $U(1)$. Ensuite, $SU(2)_L \times U(1)_Y$ est abordé, toujours avec les leptons. Puis, les traitement des quarks est présenté, donnant alors une description de l'interaction électrofaible.
+Dans le cas de l'interaction électrofaible, ce groupe de symétrie est $SU(2)_L \times U(1)_Y$.
+\par
+Dans un premier temps, seul le cas de $SU(2)_L$ avec les leptons est traité et permet de soulever toute la richesse supplémentaire de ce groupe par rapport à $U(1)$.
+Ensuite, $SU(2)_L \times U(1)_Y$ est abordé, toujours avec les leptons.
+Puis, les traitement des quarks est présenté, donnant alors une description de l'interaction électrofaible.
 \subsubsection{Symétrie $SU(2)_L$ et chiralité}\label{chapter-MS-MSSM-section-formalisme-subsec-EW-SU2_L}
 Une des propriétés les plus importantes de l'interaction faible est de violer la symétrie de parité, notée $P$.
-La symétrie $P$ consiste à remplacer une des trois coordonnées spatiales par son opposé, comme le passage d'un objet à son image par un miroir le ferait.
+La symétrie $P$ consiste à remplacer une des trois coordonnées spatiales par son opposé, comme le fait un miroir.
 La violation de $P$ par l'interaction faible, observée expérimentalement avec les désintégrations $\beta$~\cite{Wu_P_violation}, peut être expliquée en considérant que les couplages aux bosons \Wboson\ ne se font qu'avec certains états de chiralité.
-\par Dans les termes de couplage du lagrangien, un facteur $\gamma^\mu$ correspond à un couplage vectoriel, comme pour l'électromagnétisme. Un facteur $\gamma^\mu \gamma^5$ correspond quant à lui à un couplage vectoriel axial. Un facteur $\gamma^\mu (1\pm\gamma^5)$ somme ainsi un vecteur à un vecteur axial, ce qui implique une violation de la symétrie de parité.
-Les expériences montrent que les bosons \Wboson\ ne sont couplés qu'aux fermions de chiralité gauche et aux antifermions de chiralité droite.
-Or, il est possible de projeter un spineur $\psi$ afin d'obtenir sa composante de chiralité gauche $\psi_L$ à l'aide du projecteur chiral $\gamma^5$,
+\par
+La chiralité est une propriété des particules.
+Pour un fermion décrit par un spineur $\psi$,
+elle peut être droite (\emph{right}) ou gauche (\emph{left}).
+La composante de chiralité gauche $\psi_L$ s'obtient à l'aide du projecteur chiral $\gamma^5$ selon
 \begin{equation}
 \psi_L = \frac{1}{2}(1-\gamma^5)\psi
-\mend
+\mend[,]
 \label{eq-projo_L}
+\end{equation}
+celle de chiralité gauche $\psi_R$ selon
+\begin{equation}
+\psi_R = \frac{1}{2}(1+\gamma^5)\psi
+\mend
+\label{eq-projo_R}
 \end{equation}
 Pour les antiparticules décrites par $\bar{\psi}=\psi^\dagger \gamma^0$,
 \begin{equation}
@@ -47,18 +59,20 @@ Pour les antiparticules décrites par $\bar{\psi}=\psi^\dagger \gamma^0$,
 = \psi^\dagger \gamma^0 \frac{1}{2} (1+\gamma^5)
 = \bar{\psi}_R
 \mend[,]
-\label{eq-projo_R}
 \end{equation}
-d'où le couplage entre fermions de chiralité gauche et antifermions de chiralité droite.
+et de même, $\overline{\psi_R} = \bar{\psi}_L$.
+\par
+Les expériences montrent que les bosons \Wboson\ ne sont couplés qu'aux fermions de chiralité gauche et aux antifermions de chiralité droite, ce qui correspond à introduire un facteur $\gamma^\mu(1-\gamma^5)$ aux termes de couplage correspondants dans le lagrangien.
 Dans la notation $SU(2)_L$, $L$ signifie ainsi \emph{left}.
-Les couplages du boson \Zboson\ ne sont pas purement en $(1-\gamma^5)$, il est alors également couplé aux fermions de chiralité droite et aux antifermions de chiralité gauche.
+Les couplages étant différents selon l'état de parité, la symétrie $P$ est violée.
+Les couplages du boson \Zboson\ ne sont pas purement en $(1-\gamma^5)$, il est donc quand même couplé aux fermions de chiralité droite et aux antifermions de chiralité gauche.
 Ce comportement du \Zboson\ peut être expliqué dans le cadre de la force électrofaible, la force faible à elle seule ne permet pas d'en rendre compte.
 \par La violation de $P$ par l'interaction faible a également pour conséquence la violation de $C$, la symétrie de charge.
 En effet, $C$ change une particule de chiralité gauche en une antiparticule de même chiralité, dont les couplages aux bosons de l'interaction faible ne sont pas les mêmes.
 En revanche, la symétrie $CP$ change une particule de chiralité gauche en une antiparticule de chiralité droite, ce qui semble être conservé par l'interaction faible.
-L'étude des désintégrations des kaons a toutefois montré que l'interaction faible viole également la symétrie $CP$~\cite{Fitch_Cronin_CP_violation}, ce qui a pu être expliquée théoriquement en postulant l'existence d'une troisième génération de quarks~\cite{CKM_KM} observée depuis.
-\par L'introduction de la symétrie $SU(2)_L$ amène un nouveau nombre quantique, l'\og isospin faible \fg, noté $I$. Il se comporte mathématiquement comme le spin des particules, d'où son nom \emph{iso}spin.
-Les fermions de chiralité gauche sont rassemblés en doublet d'isospin faible $I=\frac{1}{2}$, les fermions de chiralité droite en singlets d'isospin faible $I=0$. Ces derniers sont ainsi invariants sous les transformations de $SU(2)_L$, ce qui se traduit physiquement par une insensibilité à l'interaction faible.
+L'étude des désintégrations des kaons a toutefois montré que l'interaction faible viole également la symétrie $CP$~\cite{Fitch_Cronin_CP_violation}, ce qui a pu être expliqué théoriquement en postulant l'existence d'une troisième génération de quarks~\cite{CKM_KM} observée depuis.
+\par L'introduction de la symétrie $SU(2)_L$ amène un nouveau nombre quantique, l'\og isospin faible \fg, noté $I$. Il se comporte mathématiquement comme le spin des particules, d'où son nom. % \emph{iso}spin.
+Les fermions de chiralité gauche sont rassemblés en doublets d'isospin faible $I=\frac{1}{2}$, les fermions de chiralité droite en singlets d'isospin faible $I=0$. Ces derniers sont ainsi invariants sous les transformations de $SU(2)_L$, ce qui se traduit physiquement par une insensibilité à l'interaction faible.
 \par
 Les fermions peuvent être de chiralité droite ou gauche.
 Dans le cadre actuel du modèle standard, les neutrinos existent toutefois uniquement avec une chiralité gauche.
