@@ -39,11 +39,8 @@ Mesurer avec précision les paramètres de la matrice CKM permet de tester la pr
 Dans le lagrangien du modèle standard~\eqref{eq-SM_lagrangian}, les neutrinos ne possèdent pas de masse.
 Or, des oscillations entre saveurs de neutrinos ont été observées~\cite{neutrino_oscillations_1,neutrino_oscillations_2}.
 Ces oscillations impliquent d'une part que les neutrinos possèdent une masse, et d'autre part que les états propres de l'interaction faible ne sont pas les états propres de masse des neutrinos.
-\par Donner une masse aux neutrinos demande d'introduire des neutrinos de chiralité droite, non présents dans le modèle standard.
-Des telles particules, par construction, n'interagissent ni par interaction forte (pas de charge de couleur), ni par interaction électromagnétique (pas de charge électrique), ni par interaction faible (particules de chiralité droite).
-Plusieurs hypothèses, comme le mécanisme de Seesaw~\cite{neutrino_masses_1,neutrino_masses_2,neutrino_masses_3,neutrino_masses_4,neutrino_masses_5}, sont avancées afin de décrire de tels neutrinos stériles.
-Il n'existe à ce jour aucun résultat expérimental permettant de conclure sur la validité de ces hypothèses.
-\par Les états propres de l'interaction faible des neutrinos peuvent être reliés à leurs états propres de masse à l'aide de la matrice PMNS~\cite{PMNS_MNS}, pour Pontecorvo, Maki, Nakagawa et Sakata, analogue à la matrice CKM introduite dans la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW-quarks}.
+\par
+Les états propres de l'interaction faible des neutrinos peuvent être reliés à leurs états propres de masse à l'aide de la matrice PMNS~\cite{PMNS_MNS}, pour Pontecorvo, Maki, Nakagawa et Sakata, analogue à la matrice CKM introduite dans la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW-quarks}.
 Dans ce cas,
 \begin{equation}
 \begin{pmatrix}
@@ -61,9 +58,24 @@ U_{\ele 1} & U_{\mu 2} & U_{\tau 3} \\
 \mend[,]
 \end{equation}
 où $\nuele$, $\numu$ et $\nutau$ sont les états propres de l'interaction faible et $\neutrino_1$, $\neutrino_2$ et $\neutrino_3$ ceux de masse.
+La masse des neutrinos peut être obtenue par deux extensions différentes du modèle standard.
+\par
+La première consiste à introduire des neutrinos de chiralité droite.
+Des telles particules, par construction, n'interagissent ni par interaction forte (pas de charge de couleur), ni par interaction électromagnétique (pas de charge électrique), ni par interaction faible (particules de chiralité droite).
+Plusieurs hypothèses, comme le mécanisme de Seesaw~\cite{neutrino_masses_1,neutrino_masses_2,neutrino_masses_3,neutrino_masses_4,neutrino_masses_5}, sont avancées afin de décrire de tels neutrinos stériles.
+Il n'existe à ce jour aucun résultat expérimental permettant de conclure sur la validité de ces hypothèses.
+\par
+La seconde revient à considérer que les neutrinos sont des particules de Majorana,
+\ie\ qu'ils sont leurs propres antiparticules~\cite{majorana1,majorana2}.
+Dans ce cas, les antineutrinos sont des neutrinos.
+Des neutrinos de chiralité droite sont ainsi naturellement introduits, rendant possible le terme de masse dans le lagrangien.
+Cependant, des neutrinos de Majorana peuvent violer la conservation du nombre de leptons lors de certains processus physiques.
+En particulier, la double désintégration $\beta$ sans neutrinos~\cite{neutrinoless_double_beta,PhysRevD.25.2951} est alors possible,
+mais ce phénomène n'a pas été observé.
 % Issues just with this model in this state
 \paragraph{Ajustement fin}
-Le calcul de la masse du boson de Higgs demande d'introduire des diagrammes de Feynman avec des boucles, comme ceux de la figure~\ref{fig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loops}.
+Les couplages du boson de Higgs aux particules rendent possible l'existence des diagrammes de la figure~\ref{fig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loops}.
+Le calcul de la masse du boson de Higgs demande doit les prendre en compte.
 \begin{figure}[h]
 \centering
 \subcaptionbox{Quark top.\label{subfig-chapter-MS-MSSM-section-succes_limites-subsec-limites-Higgs_loop_fermion}}[.3\textwidth]
@@ -88,15 +100,16 @@ Le calcul de la masse du boson de Higgs demande d'introduire des diagrammes de F
 où
 $y_{\quarkt}^2$ est la constante de couplage de Yukawa du quark top défini équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-subsubsec-fermions-Yukawa_couplings},
 $g$ la constante de couplage de l'interaction associée au boson vecteur considéré,
-$\lambda$ la paramètre du terme quadratique du potentiel de Higgs~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_potential} et
+$\lambda$ le paramètre du terme quadratique du potentiel de Higgs~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_potential} et
 $\Lambda$ l'échelle d'énergie de la \og nouvelle physique \fg, \ie\ l'échelle d'énergie où le modèle standard n'est plus valable.
 \par La masse du boson de Higgs s'exprime alors
 \begin{equation}
 m_{\higgs}^2 = m_{\higgs 0}^2 -\frac{3}{8\pi^2} y_{\quarkt}^2 \Lambda^2  +\frac{1}{16\pi^2} g^2 \Lambda^2 + \frac{1}{16\pi^2} \lambda^2 \Lambda^2 + \ldots
 \end{equation}
 Le boson de Higgs a été observé avec une masse de $\num{125.10}\pm\num{0.14}\usp\SI{}{\GeV}$.
-Or, les corrections sont de l'ordre du \SI{}{\TeV}.
-Les paramètres dont elles dépendent devraient donc être ajustés jusqu'à la 32\up{e} décimale, ce qui semble peu naturel.
+Or, les corrections précédentes sont de l'ordre du \SI{}{\TeV}.
+De plus, si d'autres particules plus massives existent, les corrections supplémentaires sont une à une encore plus importantes mais doivent toujours donner une masse de \SI{125}{\GeV}.
+Les paramètres dont toutes ces corrections dépendent doivent alors être ajustés au moins jusqu'à la 32\up{e} décimale, ce qui semble peu naturel.
 \paragraph{Nombre de paramètres libres}
 Le modèle standard tel que décrit dans la section~\ref{chapter-MS-MSSM-section-formalisme} comporte 19 paramètres libres, listés dans le tableau~\ref{tab-19_free_SM_parameters}.
 Une théorie comportant moins de paramètres libres propose plus de prédictions, sur la masse des particules par exemple, ce qui permet de réaliser plus de comparaisons aux données expérimentales.
