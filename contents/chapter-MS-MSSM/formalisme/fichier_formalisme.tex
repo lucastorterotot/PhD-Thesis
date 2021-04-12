@@ -1,46 +1,32 @@
 \section{Formalisme théorique et interactions}\label{chapter-MS-MSSM-section-formalisme}
-Il ne suffit pas de lister les particules fondamentales pour obtenir un modèle, il faut également décrire leur comportement, \ie\ leur évolution à travers le temps et l'espace.
+Il ne suffit pas de lister les particules fondamentales pour obtenir un modèle, il faut également décrire leur dynamique, \ie\ la façon dont ces particules interagissent. 
 Pour cela, le modèle standard se base sur la théorie quantique des champs. Une particule n'est pas un \og objet ponctuel \fg{} comme en mécanique classique, mais une excitation d'un champ quantique relativiste. Il s'agit alors de décrire l'évolution de ces excitations.
-\par Les lois de la mécanique classique ne sauraient remplir ce rôle.
+\par
+%Les lois de la mécanique classique ne sauraient remplir ce rôle.
 Le comportement des particules fondamentales est obtenu par l'application des équations d'Euler-Lagrange au lagrangien du modèle standard.
 Afin de comprendre pourquoi ce formalisme mathématique permet effectivement d'obtenir l'évolution des champs quantiques relativistes décrivant les particules, la section suivante consiste en une brève introduction du lagrangien dans le cas de la mécanique classique, suivie d'une généralisation au cas du modèle standard.
-\begin{wrapfigure}{R}{7cm}
-\centering
-\begin{tikzpicture}
-\draw [thick, domain=0:4,samples=100,smooth] coordinate (A) plot(\x, {\x/5*2+1-cos(\x/5*360)}) coordinate (B) ;
-\fill (A) circle (1pt);
-\fill (B) circle (1pt);
-\draw (A) node [left] {$A$};
-\draw (B) node [right] {$B$};
-\draw [->] (-.7,-.2)--+(5.5,0) node [right] {$t$};
-\draw [->] (-.7,-.2)--+(0,3.5) node [above] {$x$};
-
-\draw (0,-.1)--+(0,-.2) node [below] {$0$};
-\draw (4,-.1)--+(0,-.2) node [below] {$\tau$};
-\end{tikzpicture}
-\caption[Une particule se déplace au cours du temps.]{Une particule se déplace au cours du temps d'un point $A$ à un point $B$ le long d'une dimension $x$.}
-\label{fig-ptc_classique_ptA_to_pt_B}
-\end{wrapfigure}
-\subsection{Lagrangien et équation d'Euler-Lagrange}\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien}
-\subsubsection{Lagrangien en mécanique Newtonienne}\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien-subsubsec-lagrangien_meca_classique}
-Soit une particule de masse $m$, soumise à une force $F$, se déplaçant dans le temps le long d'une dimension $x$, d'un point $A$ à $t=0$ à un point $B$ à $t=\tau$, comme illustré sur la figure~\ref{fig-ptc_classique_ptA_to_pt_B}.
+\subsection{Introduction au formalisme du lagrangien}\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien}
+\subsubsection{Lagrangien et principe de moindre action}%\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien-subsubsec-lagrangien_meca_classique}
+Soit une particule de masse $m$, soumise à une force $F$ prise ici constante à des fins d'illustration, se déplaçant dans le temps le long d'une dimension $x$, d'un point $A$ à $t=0$ à un point $B$ à $t=\tau$, comme illustré sur la figure~\ref{fig-ptc_classique_ptA_to_pt_B}.
 \par 
-Comme cela est enseigné dès les premiers cours de physique, la trajectoire de cette particule peut être déterminée à l'aide du principe fondamental de la dynamique, ou seconde loi de Newton, qui s'exprime simplement dans ce cas sous la forme
+La trajectoire de cette particule peut être déterminée à l'aide du principe fondamental de la dynamique, ou seconde loi de Newton, qui s'exprime simplement dans ce cas sous la forme
 \begin{equation}
 m\dv[2]{x}{t} = F
 \mend
 \end{equation}
-La position de la particule à tout instant est alors obtenue.
-\begin{wrapfigure}{R}{7cm}
+La position de la particule à tout instant est alors obtenue par double intégration selon le temps,
+\begin{equation}
+x (t) = x_0 + v_0 t + \frac{1}{2}\frac{F}{m}t^2
+\end{equation}
+avec
+$x_0$ et $v_0$ les position et vitesse de la particule à l'instant $t=0$.
+\begin{figure}[h]
 \centering
-\begin{tikzpicture}
-\draw [domain=0:4,samples=100,smooth] coordinate (A) plot(\x, {\x/5*2+1-cos(\x/5*360)}) coordinate (B) ;
-\draw [dashed, domain=0:4,samples=10,smooth] plot(\x, {\x/5*2+1-cos(\x/5*360)+(rand)*\x*(4-\x)/5});
-%\draw [dotted] (A) -- (B) ;
-%\draw [dotted] (A) to[out=90, in=190] (B) ;
-%\draw [dotted] (A) to[out=0, in=90] (B) ;
-%\draw [dotted] (A) to[out=30, in=135] (B) ;
-%\draw [dotted] (A) to[out=90, in=-90] (B) ;
+
+\subcaptionbox{Particule classique.\label{fig-ptc_classique_ptA_to_pt_B}}[.45\textwidth]
+{\begin{tikzpicture}
+\draw [thick, domain=0:4,samples=100,smooth] plot(\x, {16/5-\x*\x/5}) coordinate (B) ;
+\draw (0, 16/5) coordinate (A);
 \fill (A) circle (1pt);
 \fill (B) circle (1pt);
 \draw (A) node [left] {$A$};
@@ -50,13 +36,42 @@ La position de la particule à tout instant est alors obtenue.
 
 \draw (0,-.1)--+(0,-.2) node [below] {$0$};
 \draw (4,-.1)--+(0,-.2) node [below] {$\tau$};
-\end{tikzpicture}
-\caption[Variation de la trajectoire d'une particule.]{Variation de la trajectoire d'une particule se déplaçant au cours du temps d'un point $A$ à un point $B$.}
-\label{fig-ptc_quantique_ptA_to_pt_B}
-\end{wrapfigure}
-\par Or, cette méthode ne permet pas de décrire le comportement des particules fondamentales. En effet, à leur échelle, la mécanique quantique prévaut et il n'est pas possible, lorsque l'on observe une particule à un point $A$ puis à un point $B$, de déterminer la trajectoire exacte suivie par cette particule.
-La particule peut suivre la trajectoire déterminée avec la mécanique classique, \ie\ celle de la figure~\ref{fig-ptc_classique_ptA_to_pt_B}, comme toute autre trajectoire reliant $A$ à $B$, comme illustré sur la figure~\ref{fig-ptc_quantique_ptA_to_pt_B}.
-\par Si le principe fondamental de la dynamique tel que formulé par Newton ne tient plus dans le contexte de la mécanique quantique, il existe un autre principe physique toujours en place, la conservation de l'énergie. Dans le cas de la particule précédemment décrit, il s'agit de la somme de son énergie cinétique $T$ et de son énergie potentielle $V$, \ie
+\end{tikzpicture}}
+\hfill
+\subcaptionbox{Particule quantique.\label{fig-ptc_quantique_ptA_to_pt_B}}[.45\textwidth]
+{\begin{tikzpicture}
+\draw [domain=0:4,samples=100,smooth] plot(\x, {16/5-\x*\x/5}) coordinate (B) ;
+\draw [dashed, domain=0:4,samples=10,smooth] plot(\x, {16/5-\x*\x/5+(rand)*\x*(4-\x)/5});
+\draw (0, 16/5) coordinate (A);
+\draw [dotted] (A) to [out=0, in = 90] (2,1.5) arc (360:90:.5) to [out=0, in = 90] (B);
+\fill (A) circle (1pt);
+\fill (B) circle (1pt);
+\draw (A) node [left] {$A$};
+\draw (B) node [right] {$B$};
+\draw [->] (-.7,-.2)--+(5.5,0) node [right] {$t$};
+\draw [->] (-.7,-.2)--+(0,3.5) node [above] {$x$};
+
+\draw (0,-.1)--+(0,-.2) node [below] {$0$};
+\draw (4,-.1)--+(0,-.2) node [below] {$\tau$};
+\end{tikzpicture}}
+
+\caption[Trajectoires d'une particule.]{Trajectoires d'une particule se déplaçant au cours du temps d'un point $A$ à un point $B$.}
+\label{fig-ptc_ptA_to_pt_B}
+\end{figure}
+\par
+Or, cette méthode ne permet pas de décrire le comportement des particules fondamentales.
+En effet, à leur échelle, la mécanique quantique prévaut et il n'est pas possible, lorsque l'on observe une particule à un point $A$ puis à un point $B$, de déterminer la trajectoire exacte suivie par cette particule.
+En effet,
+une particule quantique détectée
+en $A$ à $t=0$ puis en $B$ à $t=\tau$
+a suivi \emph{toutes les trajectoires} reliant ces deux points
+aussi farfelues soient-elles,
+y compris celles revenant en arrière dans le temps,
+comme illustré en figure~\ref{fig-ptc_quantique_ptA_to_pt_B}.
+Utiliser une loi pouvant donner $x(t)$ n'est donc pas pertinent en mécanique quantique.
+\par
+Il existe toutefois un autre principe physique toujours en place en mécanique quantique, la conservation de l'énergie.
+Dans le cas de la particule précédemment décrit, il s'agit de la somme de son énergie cinétique $T$ et de son énergie potentielle $V$, \ie
 \begin{equation}
 E = T + V = \cste
 \end{equation}
@@ -74,26 +89,27 @@ avec, en notant $\dot{x}=\dv{x}{t}$,
 \end{equation}
 \par
 Lorsque la trajectoire suivie par la particule varie par rapport à la trajectoire déterminée par la mécanique Newtonienne, ce qui est le cas en mécanique quantique, ces grandeurs sont modifiées.
-La variation de la valeur moyenne de l'énergie potentielle s'exprime
+La variation de la valeur moyenne de l'énergie potentielle s'exprime à partir de la dérivée fonctionnelle
 \begin{equation}
-\fdv{\average{V}}{x(t')}
-= \frac{1}{\tau}\int_0^\tau \fdv{V(x(t))}{x(t')} \dd{t}
-= \frac{1}{\tau}\int_0^\tau \dv{V(x(t))}{x(t)}\delta(t-t') \dd{t}
-= \frac{1}{\tau}\eval{\dv{V}{x(t)}}_{t=t'}
-= -\frac{1}{\tau}F(x(t'))
+\fdv{\average{V}}{x(t)}
+= \frac{1}{\tau}\int_0^\tau \fdv{V(x(t'))}{x(t)} \dd{t'}
+= \frac{1}{\tau}\int_0^\tau \dv{V(x(t'))}{x(t')}\delta(t'-t) \dd{t'}
+= \frac{1}{\tau}\eval{\dv{V}{x(t)}}_{t'=t}
+= -\frac{1}{\tau}F(x(t))
 \end{equation}
-car la force $F$ est à $V$ par $F = - \dv{V}{x}$.
+car la force $F$ est reliée à $V$ par $F = - \dv{V}{x}$.
 De même, l'énergie cinétique moyenne varie selon
 \begin{align}
-\fdv{\average{T}}{x(t')}
+\fdv{\average{T}}{x(t)}
 &
-= \frac{1}{\tau}\int_0^\tau \fdv{T(\dot{x}(t))}{x(t')} \dd{t}
-=\frac{1}{\tau}\int_0^\tau \dv{T(\dot{x}(t))}{x(t)}\delta'(t-t') \dd{t}
-=-\frac{1}{\tau}\int_0^\tau \delta(t-t') \dv{t}(\dv{T(\dot{x}(t))}{\dot{x}(t)}) \dd{t}
+= \frac{1}{\tau}\int_0^\tau \fdv{T(\dot{x}(t'))}{x(t)} \dd{t'}
+=\frac{1}{\tau}\int_0^\tau \dv{T(\dot{x}(t'))}{x(t')}\delta'(t'-t) \dd{t'}
+=-\frac{1}{\tau}\int_0^\tau \delta(t'-t) \dv{t'}(\dv{T(\dot{x}(t'))}{\dot{x}(t')}) \dd{t'}
 \nonumber
 \\&
-=-\frac{1}{\tau}\eval{\dv{t}(\dv{T(\dot{x}(t))}{\dot{x}(t)})}_{t=t'}
-=-\frac{1}{\tau}m\eval{\dv[2]{x}{t}}_{t=t'}
+=-\frac{1}{\tau}\eval{\dv{t'}(\dv{T(\dot{x}(t'))}{\dot{x}(t')})}_{t'=t}
+=-\frac{1}{\tau}m\eval{\dv[2]{x}{{t'}}}_{t'=t}
+=-\frac{1}{\tau}m{\dv[2]{x}{t}}(t)
 \end{align}
 car pour une particule de masse $m$, en mécanique newtonienne, $T = \frac{1}{2}m\left(\dv{x}{t}\right)^2$.
 \par
@@ -101,45 +117,64 @@ Le long de la trajectoire classique, le principe fondamental de la dynamique est
 \begin{equation}
 m\dv[2]{x}{t} = F
 \Leftrightarrow
-\fdv{\average{T}}{x(t')} = \fdv{\average{V}}{x(t')}
+\fdv{\average{T}}{x(t)} = \fdv{\average{V}}{x(t)}
 \Leftrightarrow
-\fdv{x(t')}(\average{T}-\average{V}) = 0 \label{eq-fdv_x_T-V_is_0}
-\mend
+\fdv{x(t)}(\average{T}-\average{V}) = 0 \label{eq-fdv_x_T-V_is_0}
+\mend[,]
 \end{equation}
-Ainsi, la différence entre l'énergie cinétique et l'énergie potentielle du système étudié semble jouer un rôle particulier lorsque l'on s'intéresse aux différentes trajectoires possibles pour ce système. Le lagrangien $L$ du système étudié est alors défini comme
+\ie\ que
+la différence entre l'énergie cinétique et l'énergie potentielle du système étudié
+est stationnaire le long de la trajectoire classique.
+Cette différence est
+le lagrangien $L$,
 \begin{equation}
 L = T-V
 \mend
 \end{equation}
-\subsubsection{Équation d'Euler-Lagrange}\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien-subsubsec-euler-lagrange}
 L'intégrale au cours du temps du lagrangien est appelée action et est définie comme
 \begin{equation}
 S = \int_0^\tau\dd{t}L
 \mend
 \end{equation}
-%Pour une particule quantique, toute trajectoire est possible pour aller d'un point $A$ à un point $B$. Afin de déterminer l'évolution au cours du temps d'une telle particule, il faut sommer toutes ces trajectoires, chacune étant associée à un facteur de phase
-%\begin{equation}
-%\exp(iS/\hbar)\mend
-%\end{equation}
-%Pour la plupart des trajectoires, ce facteur de phase donne des contributions qui s'annulent.
 Compte-tenu de l'équation~\eqref{eq-fdv_x_T-V_is_0}, l'action vérifie pour la trajectoire classique
 \begin{equation}
-\fdv{S}{x(t')}=0
+\fdv{S}{x(t)}=0
 \mend[,]
 \end{equation}
-ce qui est connu sous le nom de principe de moindre action. Or,
+ce qui est connu sous le nom de principe de moindre action.
+\subsubsection{Cas de la mécanique quantique}%\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien-subsubsec-euler-lagrange}
+En mécanique quantique,
+la probabilité $P(B,\tau|A,0)$ d'observer la particule en $B$ à $t=\tau$ sachant qu'elle était en $A$ à $t=0$
+s'exprime à partir de l'opérateur $\hat{U}$ d'évolution temporelle,
 \begin{equation}
-\fdv{S}{x(t')}
-= \int_0^\tau\dd{t} \left[ \fdv{L}{x(t)}\delta(t-t') + \fdv{L}{\dot{x}(t)}\delta'(t-t')\right]
-= \fdv{L}{x(t')} - \dv{t}\fdv{L}{\dot{x}(t')}
+P(B,\tau|A,0) = \abs{ \bbraket{B}{\hat{U}(\tau,0)}{A} }^2
+\mend
+\end{equation}
+Or, lors du calcul de l'amplitude $\bbraket{B}{\hat{U}(\tau,0)}{A}$,
+chacune des trajectoires possibles apporte une contribution
+avec un facteur de phase s'exprimant
+\begin{equation}
+\exp( \im S / \hbar )
+\end{equation}
+avec $S$ l'action de la trajectoire
+et
+$\hbar$ la constante de Planck réduite.
+Il est ainsi pertinent de déterminer les variations de $S$ lorsque la trajectoire de la particule est modifiée.
+\par
+Ces variations s'expriment
+\begin{equation}
+\fdv{S}{x(t)}
+= \int_0^\tau\dd{t'} \left[ \fdv{L}{x(t')}\delta(t'-t) + \fdv{L}{\dot{x}(t')}\delta'(t'-t)\right]
+= \fdv{L}{x(t)} - \dv{t}\fdv{L}{\dot{x}(t)}
 \mend[,]
 \end{equation}
-ce qui implique
+ce qui permet de ré-exprimer le principe de moindre action sous la forme
 \begin{equation}
-\fdv{L}{x(t')} - \dv{t}\fdv{L}{\dot{x}(t')} = 0
+\fdv{L}{x(t)} - \dv{t}\fdv{L}{\dot{x}(t)} = 0
 \mend
 \end{equation}
 Cette équation est l'équation d'Euler-Lagrange et permet d'obtenir toutes les équations du mouvement du système, \ie\ de décrire son évolution au cours du temps.
+Connaître le lagrangien permet donc de décrire l'évolution des particules.
 
 \subsubsection{Lagrangien, champs et symétries}\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien-subsubsec-lagrangien_champs_symetries}
 Le raisonnement précédent peut se généraliser à un espace à une dimension temporelle et trois dimensions spatiales.
@@ -149,8 +184,9 @@ L = \int\dd[3]{x}\Lcal
 \msep
 S = \int\dd[4]{x}\Lcal
 \end{equation}
-où $x$ désigne la coordonnée dans l'espace de Minkowski, \ie\ l'espace-temps à quatre dimensions.
-Soit à présent une densité lagrangienne dépendant d'un champ $\phi(x)$ et de ses dérivées $\partial_\mu\phi(x)$.
+où $x$ désigne la coordonnée dans l'espace-temps de Minkowski, \ie\ l'espace-temps à quatre dimensions.
+Soit à présent une densité lagrangienne dépendant d'un champ $\phi(x)$ et de ses dérivées $\partial_\mu\phi(x)$,
+avec $\partial_\mu$ la dérivée partielle par rapport à la coordonnée $\mu$ dans l'espace-temps de Minkowski.
 Alors,
 \begin{equation}
 S = \int\dd[4]{x}\Lcal(\phi(x),\partial_\mu\phi(x))
