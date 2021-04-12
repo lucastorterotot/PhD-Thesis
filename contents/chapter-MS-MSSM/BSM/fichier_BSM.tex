@@ -1,14 +1,16 @@
 \section{Au-delà du modèle standard}\label{chapter-MS-MSSM-section-BSM}
 Le modèle standard souffre ainsi de lacunes malgré ses prédictions précises.
 Des modèles sont développés afin de les combler, ils sont dits \og au-delà \fg{} du modèle standard (BSM, \emph{Beyond Standard Model}).
-Un des modèles BSM les plus prometteurs est la supersymétrie (SUSY), présentée dans la section~\ref{chapter-MS-MSSM-section-BSM-subsec-SUSY}.
-La SUSY nécessite d'introduire un second doublet de Higgs, elle est ainsi un cas particulier de modèle à deux doublets de Higgs (2HDM, \emph{2 Higgs Doublets Model}).
+Un de ces modèles BSM est la supersymétrie (SUSY).
+La section~\ref{chapter-MS-MSSM-section-BSM-subsec-SUSY} présente la SUSY et motive l'introduction d'un second doublet de Higgs.
+La SUSY est en effet un cas particulier de modèle à deux doublets de Higgs (2HDM, \emph{2 Higgs Doublets Model}).
 Les 2HDM sont abordés dans la section~\ref{chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl}.
 Puis, le modèle le plus simple de SUSY, l'extension supersymétrique minimale du modèle standard (MSSM, \emph{Minimal Supersymmetric extension of Standard Model}), est présenté section~\ref{chapter-MS-MSSM-section-BSM-subsec-MSSM}.
 \subsection{La supersymétrie}\label{chapter-MS-MSSM-section-BSM-subsec-SUSY}
 La supersymétrie (SUSY)~\cite{susy_golfand,susy_wess,MARTIN_1998} introduit une nouvelle symétrie entre fermions et bosons.
 Ces deux types de particules ne sont plus indépendants, ce sont des saveurs, ou manifestations, d'un champ quantique plus complexe.
-À chaque particule du modèle standard correspond alors une nouvelle particule du fait de cette symétrie, nommée \og superpartenaire \fg.
+Du fait de cette symétrie,
+à chaque particule du modèle standard correspond une nouvelle particule ou \og superpartenaire \fg.
 Les fermions du modèle standard ont des superpartenaires de spin entier, \ie\ des bosons, les \og sfermions \fg.
 Les bosons du modèle standard ont des superpartenaires de spin demi-entier, \ie\ des fermions, les \og bosinos \fg.
 Une particule et son superpartenaire ont les mêmes nombres quantiques à l'exception de leurs spins.
@@ -22,8 +24,7 @@ P_R = (-1)^{3(B-L)-2s}
 où $s$ correspond au spin de la particule.
 Les particules du modèle standard possèdent une parité $R$ égale à $1$, leurs superpartenaires une parité $R$ égale à $-1$.
 La conservation de cette nouvelle parité permet non seulement de garder le proton stable, mais rend également stable la particule supersymétrique de plus basse masse, notée LSP (\emph{Lightest Supersymmetric Particle}).
-\par La SUSY est un des modèles BSM les plus prometteurs.
-Ce type de modèle permet en effet de résoudre, s'il est confirmé expérimentalement, de nombreuses lacunes du modèle standard.
+\par La SUSY permet résoudre de nombreuses lacunes du modèle standard.
 Les trois forces fondamentales décrites par le modèle standard pourraient être unifiées grâce à ce modèle.
 Dans la section~\ref{chapter-MS-MSSM-section-formalisme-subsec-EW}, l'unification des forces électromagnétique et faible est déjà réalisée.
 Toutefois, la force électrofaible et la force forte ne semblent pas s'unifier à haute énergie.
@@ -37,11 +38,13 @@ Cependant, le potentiel supersymétrique contenant les termes de Yukawa, nécess
 Un second doublet de Higgs, couplé aux fermions d'isospin faible haut, doit nécessairement être introduit~\cite{Nagashima_BSM,Higgs_hunter_guide}.
 La SUSY est donc un cas particulier de modèle à deux doublets de Higgs.
 \subsection{Modèles à deux doublets de Higgs}\label{chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl}
-%Dans le cadre du modèle standard, le secteur du Higgs comporte un doublet de Higgs complexe, défini par~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_doublet}.
-%Il existe alors un seul boson de Higgs, \higgs, boson scalaire neutre observé en 2012~\cite{ATLAS_Higgs_discovery,CMS_Higgs_discovery,CMS_Higgs_discovery_2013,ATLAS-CMS-Higgs_combined_1,ATLAS-CMS-Higgs_combined_2}.
-\par Les modèles à deux doublets de Higgs (2HDM, \emph{2 Higgs Doublets Model}) introduisent un second doublet de Higgs.
-Ainsi, au lieu d'avoir uniquement le doublet $\phi$ défini par~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_doublet}, il en existe deux, $\phi_1$ et $\phi_2$.
-Le potentiel de Higgs~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_potential} du modèle standard est remplacé par le potentiel scalaire le plus général possible brisant spontanément $SU(2)_L \times U(1)_Y$ en $U(1)_{em}$~\cite{Higgs_hunter_guide,Higgs_hunter_guide_errata},
+Dans les modèles à deux doublets de Higgs (2HDM),
+le doublet de Higgs du modèle standard $\phi$ défini par~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_doublet}
+est remplacé par 2 doublets $\phi_1$ et $\phi_2$
+et
+le potentiel de Higgs~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-SM_Higgs_potential}
+par
+le potentiel scalaire le plus général possible brisant spontanément $SU(2)_L \times U(1)_Y$ en $U(1)_{em}$~\cite{Higgs_hunter_guide,Higgs_hunter_guide_errata},
 \begin{multline}
 V(\phi_1,\phi_2)
 = \lambda_1 \left(\phi_1^\dagger\phi_1 - \frac{1}{2} v_1^2\right)^2
@@ -54,11 +57,12 @@ V(\phi_1,\phi_2)
 + \lambda_6 \left[ \Im(\phi_1^\dagger\phi_2) - \frac{1}{2} v_1v_2\sin\xi \right]^2
 \\
 + \lambda_7 \left[ \Re(\phi_1^\dagger\phi_2) - \frac{1}{2} v_1v_2\cos\xi \right]\left[ \Im(\phi_1^\dagger\phi_2) - \frac{1}{2} v_1v_2\sin\xi \right]
-\mend
+\mend[,]
 \label{eq-chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl-Higgs_potential}
 \end{multline}
+où $\lambda_i$, $i\in\set{1,\ldots,7}$ et $\xi$ sont des paramètres du modèle à valeurs réelles.
+Dans le cas de la SUSY, $\lambda_5=\lambda_6$.
 Le dernier terme de~\eqref{eq-chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl-Higgs_potential} peut être éliminé en redéfinissant les phases des champs scalaires.
-Les paramètres $\lambda_i$ sont réels et dans le cas de la SUSY, $\lambda_5=\lambda_6$.
 Dans le cas $\sin\xi\neq0$, le secteur de Higgs du modèle viole la symétrie $CP$,
 ce cas est abordé dans la section~\ref{chapter-MS-MSSM-section-BSM-subsec-CPV}.
 Le minimum du potentiel ainsi construit est tel que
@@ -149,7 +153,7 @@ Afin d'être compatible avec ce fait expérimental~\cite{Higgs_hunter_guide},
 \item soit les masses des bosons de Higgs sont élevées, de l'ordre du \SI{}{\TeV}, supprimant ainsi suffisamment le FCNC pour rester dans les limites observées;
 \item soit tous les fermions portant une même charge électrique ne sont couplés qu'à un seul doublet de Higgs au plus.
 \end{itemize}
-La masse du Higgs du modèle standard n'étant pas de l'ordre du \SI{}{\TeV}, la seconde option est choisie.
+La masse du boson de Higgs du modèle standard n'étant pas de l'ordre du \SI{}{\TeV}, la seconde option est choisie.
 \begin{wraptable}{R}{.5\textwidth}
 \centering
 \begin{tabular}{rccc}
@@ -174,9 +178,8 @@ Ces modèles, par rapport à d'autres possibilités explorées, apportent le moi
 Enfin, ils doivent être introduits dans les modèles supersymétriques pour que ceux-ci respectent les observations expérimentales.
 \subsection{L'extension supersymétrique minimale du modèle standard}\label{chapter-MS-MSSM-section-BSM-subsec-MSSM}
 L'extension supersymétrique minimale du modèle standard ou MSSM~\cite{mssm_fayet1,mssm_fayet2}
-est un modèle supersymétrique et donc, à ce titre, un cas particulier de modèle à deux doublets de Higgs.
-Il s'agit du modèle le plus simple permettant d'introduire la supersymétrie tout en étant compatible avec les observations expérimentales à ce jour.
-Dans le MSSM, les deux doublets de Higgs s'expriment en fonction de $\phi_1$ et $\phi_2$ introduits dans la section traitant de la supersymétrie comme~\cite{Higgs_hunter_guide}
+est le modèle le plus simple permettant d'introduire la supersymétrie tout en étant compatible avec les observations expérimentales à ce jour.
+Dans le MSSM, les deux doublets de Higgs s'expriment en fonction de $\phi_1$ et $\phi_2$ introduits dans la section~\ref{chapter-MS-MSSM-section-BSM-subsec-dbl_H_dbl} comme~\cite{Higgs_hunter_guide}
 \begin{equation}
 \Higgs_d
 =
@@ -289,11 +292,12 @@ m_S = \sqrt{m_{\squarkt_1}m_{\squarkt_2}}
 \end{equation}
 est l'échelle d'énergie de la SUSY, définie comme la moyenne géométrique des masses des stops.
 Il existe en effet deux états propres de masse du stop, $\squarkt_1$ et $\squarkt_2$, mélanges des stops de chiralité droite et gauche.
-La présence de nombreux paramètres libres du MSSM mène à proposer des \og scénario \fg{} dans lesquels les paramètres intervenant dans les corrections d'ordres supérieurs sont fixés~\cite{Carena_2013,Bagnaschi_2019}.
+La présence de nombreux paramètres libres du MSSM mène à proposer des scénarios dans lesquels les paramètres intervenant dans les corrections d'ordres supérieurs sont fixés~\cite{Carena_2013,Bagnaschi_2019}.
 Il ne reste alors que deux paramètres libres, $m_{\HiggsA}$ et $\tan\beta$.
 Les valeurs des masses corrigées de \higgs, \Higgs\ et \Higgspm\ sont tracées sur la figure~\ref{fig-Higgs_corrected_masses_as_fct_of_mA_and_tanbeta} en fonction de $m_{\HiggsA}$ pour $\tan\beta=3$ et $30$ dans le cas de mélange maximal du stop avec $m_{\squarkt}=\SI{2}{\TeV}$ et les autres paramètres de la SUSY fixés à \SI{1}{\TeV}~\cite{Nagashima_BSM}.
 Ainsi, pour $m_{\HiggsA} \lesssim \SI{125}{\GeV}$, \Higgs\ joue le rôle du modèle standard et il existe un Higgs léger.
 Pour $m_{\HiggsA} \gtrsim \SI{125}{\GeV}$, \higgs\ joue le rôle du modèle standard et les bosons de Higgs supplémentaires sont de masses plus élevées.
+Dans ce cas, $m_{\Higgs}\simeq m_{\HiggsA}$.
 \begin{figure}[h]
 \centering
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_Nagashima_BSM/fig_1-9.tex}

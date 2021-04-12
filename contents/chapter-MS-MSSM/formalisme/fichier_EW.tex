@@ -2,8 +2,13 @@
 Le modèle standard décrit les interactions électromagnétique et faible comme deux facettes d'une seule et même interaction qui les unifie, l'interaction électrofaible, notée \og EW \fg{} pour \emph{electroweak}.
 L'interaction électrofaible a été développée à partir des travaux de \citeauthor{Glashow_EW}~\cite{Glashow_EW}, \citeauthor{Salam_EW}~\cite{Salam_EW} et \citeauthor{Weinberg_leptons_model}~\cite{Weinberg_leptons_model}, récompensés à ce titre par le prix Nobel de physique en 1979.
 \par Une des raisons pour unifier ces deux forces provient du calcul de la section efficace de production de paire $\Wbosonplus\Wbosonminus$.
-La section efficace d'un processus physique ainsi que son lien avec le nombre d'événements de ce processus est abordé dans le chapitre~\refChLHCCMS.
-Pour obtenir cette section efficace sans avoir de divergence, ce qui ne saurait représenter la réalité physique, il est nécessaire de considérer les diagrammes des figures~\ref{subfig-fgraph-ff_WW1}, \ref{subfig-fgraph-ff_WW2} et~\ref{subfig-fgraph-ff_WW3}. L'analogie entre les diagrammes~\ref{subfig-fgraph-ff_WW1} et~\ref{subfig-fgraph-ff_WW3} pousse ainsi à unifier les deux forces.
+Le lien entre la section efficace d'un processus physique et le nombre d'événements de ce processus est introduit dans le chapitre~\refChLHCCMS.
+La section efficace ne peut pas être infinie, ce ne saurait correspondre à la réalité physique.
+Or, sans considérer chacun des diagrammes de la figure~\ref{fig-fgraph-ff_WW} pour ce calcul,
+la section efficace de production de paire $\Wbosonplus\Wbosonminus$ est infinie.
+La prise en compte des interactions électromagnétique, figure~\ref{subfig-fgraph-ff_WW1},
+et faible, figures~\ref{subfig-fgraph-ff_WW2} et~\ref{subfig-fgraph-ff_WW3},
+pousse à les unifier.
 \begin{figure}[h]
 \centering
 \vspace{\baselineskip}
@@ -89,7 +94,9 @@ Ces générateurs sont des matrices $2\times2$ s'identifiant aux matrices de Pau
 Toutefois, ces générateurs agissent dans le cas de $SU(2)_L$ sur les doublets d'isospin faible alors que les matrices de Pauli agissent sur le spin d'un fermion.
 Afin d'éviter les confusions, la notation $\tau$ est utilisée.
 L'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-spineur} est l'analogue directe de l'équation~\eqref{eq-chapter-MS-MSSM-section-formalisme-subsec-QED-tr_jauge-spineur}.
-\par Afin de simplifier les calculs qui suivent, seules les transformations infinitésimales sont considérées. En effet, $SU(2)$ est un groupe non abélien. Cela signifie deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que soient appliqués $a$ puis $b$ ou $b$ puis $a$, \ie\ $ab-ba\neq0$. Ainsi, des termes supplémentaires apparaissent, ou plutôt ne se simplifient pas entre eux. Les transformations précédentes sous leurs formes infinitésimales, \ie\ au premier ordre en $\bm{\alpha}$, s'expriment
+\par Afin de simplifier les calculs qui suivent, seules les transformations infinitésimales sont considérées. En effet, $SU(2)$ est un groupe non abélien. Cela signifie que deux transformations successives $a$ et $b$ de ce groupe ne donnent pas le même résultat selon que soient appliquées $a$ puis $b$ ou $b$ puis $a$, \ie\ $ab-ba\neq0$.
+%Ainsi, des termes supplémentaires apparaissent, ou plutôt ne se simplifient pas entre eux.
+Les transformations précédentes sous leurs formes infinitésimales, \ie\ au premier ordre en $\bm{\alpha}$, s'expriment
 \begin{equation}
 \psi \to \left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi
 \msep
@@ -104,16 +111,19 @@ Les termes du lagrangien du fermion libre, introduit dans l'équation~\eqref{eq-
 =-m\bar{\psi}\psi+\Order{\alpha^2}
 \end{equation}
 et
-\begin{equation}
+\begin{align}
 \im\bar{\psi} \gamma^\mu\partial_\mu \psi
+&
 \to
 \im \bar{\psi}\left(1-\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\gamma^\mu\partial_\mu \left(\left(1+\frac{\im}{2}\bm{\tau}\cdot\bm{\alpha}(x)\right)\psi\right)
+\nonumber\\&\hphantom{\to}
 =
 \im \bar{\psi}\gamma^\mu\partial_\mu \psi
 -
 \bar{\psi}\frac{1}{2}\bm{\tau}\cdot\gamma^\mu\partial_\mu\bm{\alpha}(x) \psi+\Order{\alpha^2}
+\mend[,]
 \label{eq-chapter-MS-MSSM-section-formalisme-subsec-EW-tr_jauge-terme_cinetique}
-\end{equation}
+\end{align}
 ce qui fait apparaître, sur le même principe qu'avec l'interaction électromagnétique, un terme supplémentaire brisant l'invariance de jauge du lagrangien.
 Une nouvelle dérivée covariante peut être définie afin de rétablir l'invariance de jauge,
 \begin{equation}

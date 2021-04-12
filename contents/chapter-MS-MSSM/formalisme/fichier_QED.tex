@@ -7,7 +7,7 @@ Le lagrangien libre d'un fermion, \ie\ le lagrangien décrivant le comportement 
 = \im \bar{\psi} \gamma^\mu\partial_\mu \psi - m \bar{\psi}\psi
 \label{eq-lagrangien_fermion_libre_partial}
 \end{equation}
-où la notation \og slash \fg{} pour un objet $k$ signifie $\slashed{k} = \gamma^\mu k_\mu$, $\im$ est l'unité imaginaire ($\im^2=-1$), $\psi$ le spineur de Dirac correspondant au champ fermionique, $\bar{\psi}=\psi^\dagger\gamma^0$ son adjoint de Dirac, $\psi^\dagger$ étant l'adjoint de $\psi$, $\gamma^\mu$ les matrices de Dirac, définies dans l'annexe~\refApMath, $\partial_\mu$ la dérivée partielle par rapport à la coordonnée $\mu$ dans l'espace-temps de Minkowski et $m$ la masse de la particule considérée.
+où la notation \og slash \fg{} pour un objet $k$ signifie $\slashed{k} = \gamma^\mu k_\mu$, $\psi$ le spineur de Dirac correspondant au champ fermionique, $\bar{\psi}=\psi^\dagger\gamma^0$ son adjoint de Dirac, $\psi^\dagger$ étant l'adjoint de $\psi$, $\gamma^\mu$ les matrices de Dirac, définies dans l'annexe~\refApMath\ et $m$ la masse de la particule considérée.
 Le terme $\gamma^\mu \partial_\mu$, par convention de sommation d'Einstein exposée dans l'annexe~\refApMath, correspond à une somme sur les différentes valeur de $\mu$.
 \par Le lagrangien $\Lcal_{\text{fermion libre}}$ est invariant sous une transformation globale du groupe $U(1)_{em}$, \ie\ lorsque la transformation suivante est appliquée au spineur $\psi$
 \begin{equation}
@@ -23,21 +23,21 @@ En effet, sous une telle transformation,
 \end{equation}
 et
 \begin{equation}
-\bar{\psi} \gamma^\mu\partial_\mu \psi
+\im\bar{\psi} \gamma^\mu\partial_\mu \psi
 \to
-\bar{\psi}\eexp{-\im Q\alpha}
+\im\bar{\psi}\eexp{-\im Q\alpha}
 \gamma^\mu\partial_\mu
 \left(\eexp{\im Q\alpha}\psi\right)
 =
-\bar{\psi}\eexp{-\im Q\alpha}
+\im\bar{\psi}\eexp{-\im Q\alpha}
 \eexp{\im Q\alpha}
 \gamma^\mu\partial_\mu
 \left(\psi\vphantom{\psi\eexp{\im Q\alpha}}\right)
 +
-\bar{\psi}\eexp{-\im Q\alpha}
+\im\bar{\psi}\eexp{-\im Q\alpha}
 \gamma^\mu
 \cancel{\partial_\mu \left(\eexp{\im Q\alpha}\vphantom{\psi\eexp{\im Q\alpha}}\right)}\psi
-= \bar{\psi} \gamma^\mu\partial_\mu \psi
+= \im\bar{\psi} \gamma^\mu\partial_\mu \psi
 \end{equation}
 car $\alpha$ ne dépend pas de l'espace-temps pour une transformation globale.
 \par En revanche, pour une transformation locale, %\ie\ lorsque $\alpha$ dépend de la position dans l'espace-temps, %d'une part la physique ne doit pas être modifiée et d'autre part

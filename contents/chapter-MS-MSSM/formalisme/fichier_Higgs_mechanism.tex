@@ -83,7 +83,7 @@ Alors, à la position d'équilibre,
 \right.
 \mend
 \end{equation}
-Ainsi, dans le cas où $\mu^2<0$, le potentiel possède une infinité de minimums, situés sur un cercle de rayon $\frac{\abs{v}}{\sqrt{2}}$, comme cela est visible sur la figure~\ref{fig-rpztation_3d_V_Higgs}. La forme de ce potentiel n'est pas sans rappeler celle d'un chapeau mexicain.
+Ainsi, dans le cas où $\mu^2<0$, le potentiel possède une infinité de minimums, situés sur un cercle de rayon $\frac{\abs{v}}{\sqrt{2}}$, comme cela est visible sur la figure~\ref{fig-rpztation_3d_V_Higgs}. La forme de ce potentiel n'est pas sans rappeler celle d'un sombrero.
 \begin{figure}[h]
 \centering
 \input{\PhDthesisdir/plots_and_images/Higgs_potential/fig-pyplot.pgf}
@@ -104,7 +104,10 @@ ce qui implique le phénomène de brisure spontanée de symétrie.
 %\end{equation}
 %où $\bm{\theta}(x)$ et $\rho(x)$ sont quatre champs réels et $f$ une constante de normalisation.
 %Sous cette forme, $\bm{\theta}(x)$ contient trois des quatre degrés de liberté du doublet de Higgs $\phi$ et $\rho(x)$ le quatrième.
-\par Le minimum de potentiel pour $V$ étant dégénéré, \ie\ qu'il y a une infinité de points au minimum, il est possible de briser la symétrie avec n'importe lequel de ces points. Alors, les observables physiques s'obtiennent en réalisant un développement limité autour du point choisi.
+\par
+Le minimum de potentiel pour $V$ dégénéré, \ie\ qu'il y a une infinité de points correspondant au minimum de $V$.
+Il est possible de briser la symétrie avec n'importe lequel de ces points.
+Les observables physiques s'obtiennent alors en réalisant un développement limité autour du point choisi.
 Le choix le plus simple est nommé \og jauge unitaire \fg.
 Dans ce cas, %$\bm{\theta}(x)=0$ et l'on peut écrire
 \begin{equation}
@@ -133,7 +136,8 @@ Lorsque l'expression~\eqref{eq-phi_after_SSB} de $\phi$ est injectée dans $\Lca
 + \Order{\higgs^2}
 \mend
 \end{align}
-Il est possible de développer cette expression et d'identifier les termes quadratiques qui correspondent à des termes de masse pour les bosons physiques, tout en obtenant les combinaisons des champs leurs correspondant,
+Il est possible de développer cette expression et d'identifier les termes quadratiques qui correspondent à des termes de masse pour les bosons physiques, tout en obtenant les combinaisons des champs leurs correspondant.
+Trois bosons massifs sont obtenus, \Wbosonplus, \Wbosonminus\ et \Zboson,
 \begin{align}
 &
 \text{bosons \Wbosonpm:}
@@ -144,22 +148,46 @@ m_{\Wboson} &= \frac{1}{2} v g_I
 \mend[,]
 \\
 &
-\text{photon \photon:}
-&
-A_\mu &= \frac{g_Y W_\mu^3 + g_I B_\mu}{\sqrt{g_I^2 + g_Y^2}}
-\msep&
-m_A &= 0
-\mend[,]
-\\
-&
 \text{boson \Zboson:}
 &
 Z_\mu &= \frac{g_I W_\mu^3 - g_Y B_\mu}{\sqrt{g_I^2 + g_Y^2}}
 \msep&
 m_{\Zboson} &= \frac{1}{2} v \sqrt{g_I^2 + g_Y^2}
+\label{eq-Z_boson_from_higgs}
 \mend
 \end{align}
-Ces équations peuvent être réécrites en introduisant l'angle de mélange faible noté $\theta_W$~\cite{GLASHOW1961579}, tel que
+Or, il existe quatre champs quantiques, $W_\mu^i$ ($i\in\set{1,2,3}$) et $B_\mu$.
+Un quatrième boson peut donc être défini.
+Il correspond au photon \photon, sans masse,
+\begin{align}
+&
+\text{photon \photon:}
+&
+A_\mu &= \frac{g_Y W_\mu^3 + g_I B_\mu}{\sqrt{g_I^2 + g_Y^2}}
+\msep&
+m_A &= 0
+\mend
+\end{align}
+Cette combinaison étant fixée par la construction d'une matrice unitaire $\mathcal{M}_{\photon\Zboson}$ reliant les champs
+$A_\mu$ et $Z_\mu$
+à
+$B_\mu$ et $W_\mu^3$,
+\begin{equation}
+\begin{pmatrix}
+A_\mu \\ Z_\mu
+\end{pmatrix}
+=
+\mathcal{M}_{\photon\Zboson}
+\begin{pmatrix}
+B_\mu \\ W_\mu^3
+\end{pmatrix}
+\msep
+\mathcal{M}_{\photon\Zboson} = \begin{pmatrix}
+\cos \theta_W & \sin \theta_W\\
+- \sin \theta_W & \cos \theta_W
+\end{pmatrix}
+\end{equation}
+avec $\theta_W$ l'angle de mélange faible~\cite{GLASHOW1961579}, tel que
 \begin{equation}
 \cos\theta_W = \frac{g_I}{\sqrt{g_I^2 + g_Y^2}}
 \msep
@@ -167,7 +195,7 @@ Ces équations peuvent être réécrites en introduisant l'angle de mélange fai
 \mend
 \label{eq-chapter-MS-MSSM-section-formalisme-subsec-Higgs_mechanism-thetaW}
 \end{equation}
-Alors,
+Alors, les champs $A_\mu$ et $Z_\mu$ s'expriment
 \begin{align}
 &
 \text{photon \photon:}
@@ -203,12 +231,15 @@ Le champ de Higgs peut également interagir avec les fermions. Une telle interac
 = - \frac{m\sqrt{2}}{v} \left( \bar{\psi}_L \phi \psi_R + \bar{\psi}_R \phi^\dagger \psi_L \right)
 \mend[,]
 \end{equation}
-donnant après la brisure spontanée de symétrie précédemment décrite les termes de masse pour les fermions d'isospin faible bas,
+donnant après la brisure spontanée de symétrie précédemment décrite les termes de masse pour les fermions d'isospin faible bas
+ainsi que le terme d'interaction entre le fermion et le boson de Higgs \higgs,
 \begin{equation}
 \Lcal_\text{Yukawa} = - m \bar{\psi}\psi + \frac{m}{v} \bar{\psi} h \psi
 \mend
 \end{equation}
-En effet, la brisure de symétrie dans le cas de la jauge unitaire~\eqref{eq-phi_after_SSB} laisse la composante d'isospin faible haut du champ de Higgs nulle.
+En particulier, l'intensité du couplage entre le fermion et le boson de Higgs est proportionnelle à la masse $m$ du fermion.
+\par
+La brisure de symétrie dans le cas de la jauge unitaire~\eqref{eq-phi_after_SSB} laisse la composante d'isospin faible haut du champ de Higgs nulle.
 Ce formalisme permet donc d'obtenir les termes de masse pour les leptons chargés. Les neutrinos étant considérés dans le lagrangien du modèle standard comme des particules de masses nulles, l'ensemble des leptons est donc traité à ce stade.
 \par Dans le cas des quarks en revanche, il faut obtenir des termes de masse pour les quarks d'isospin faible haut. Pour cela, il est possible d'introduire le conjugué de charge du champ de Higgs,
 \begin{equation}
