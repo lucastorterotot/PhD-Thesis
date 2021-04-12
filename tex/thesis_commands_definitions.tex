@@ -693,7 +693,7 @@
 % CMS disclaimer
 \def\localCMSdisclaimerAX{1.95}
 \def\localCMSdisclaimerAY{7.05}
-\def\localCMSdisclaimerBX{3.35}
+\def\localCMSdisclaimerBX{4.30}
 \def\localCMSdisclaimerBY{7.05}
 \ifthenelse{\equal{#5}{tt}}{ % tt
   \ifthenelse{\equal{#6}{21}\or\equal{#6}{20}\or\equal{#6}{16}}{ % fake, EMB, misc
@@ -773,6 +773,12 @@
     \def\localCMSdisclaimerAX{6.5}
     \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
     \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
+  }{}
+  \ifthenelse{\equal{#6}{16}}{ % misc
+    \def\localCMSdisclaimerAX{1.95}
+    \def\localCMSdisclaimerAY{7.05}
+    \def\localCMSdisclaimerBX{3.35}
+    \def\localCMSdisclaimerBY{7.05}
   }{}
 }{}
 \ifthenelse{\equal{#7}{prefit}}{
