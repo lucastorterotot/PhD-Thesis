@@ -1,6 +1,6 @@
 \section{Introduction}\label{chapter-ML-section-intro}
 L'utilisation de l'intelligence artificielle (IA) s'est grandement développée au cours des dernières années.
-L'IA est la capacité qu'ont des programmes à prendre des décisions, selon les informations qui leurs sont données par exemple sur leur environnement, de manière à maximiser leurs chances de réussite.
+L'IA est l'ensemble des théories et des techniques développant des programmes informatiques complexes capables de simuler certains traits de l'intelligence humaine tels que le raisonnement et l'apprentissage.
 L'entreprise Google DeepMind a par exemple développé AlphaGo~\cite{alphago},
 un programme destiné à jouer au jeu de Go,
 qui a battu en 2016 le champion du monde de la discipline 4 à 1.
@@ -12,7 +12,7 @@ sans pour autant être programmé explicitement pour réaliser cette tâche.
 Pour y parvenir,
 les jeux de données d'entraînement comprennent les informations $\set{\vec{x}_i}$ à donner au modèle
 ainsi que les \og bonnes réponses \fg\ $\set{\ytruei}$ qu'il doit fournir en sortie.
-L'objectif du modèle est donc de donner une fonction $F$ approximant celle reliant les entrées $\set{\vec{x}_i}$ aux cibles $\set{\ytruei}$.
+L'objectif est donc d'obtenir un modèle agissant comme une fonction $F$ approximant celle reliant les entrées $\set{\vec{x}_i}$ aux cibles $\set{\ytruei}$.
 Il peut alors donner une prédiction \ypred\ sur une nouvelle entré $\vec{x}$ selon $\ypred=F(\vec{x})$.
 La tâche du modèle est:
 \begin{description}
@@ -20,7 +20,7 @@ La tâche du modèle est:
 \item[une régression] lorsque $y$ est continue, par exemple estimer le prix d'un bien immobilier~\cite{house_prices_regression}.
 \end{description}
 \par
-Les applications du ML à la physique des particules sont variées et proposent de nombreux sujets d'étude~\cite{Gael_thesis,scham_moritz_2020_21993,kopf_tanja_2019_21500,Baldi_2015}.
+Les applications du ML à la physique des particules sont variées et font l'objet de nombreux sujets d'étude~\cite{Gael_thesis,scham_moritz_2020_21993,kopf_tanja_2019_21500,Baldi_2015}.
 Dans les chapitres précédents, le ML est déjà activement utilisé pour diverses tâches:
 \begin{itemize}
 \item identification des jets issus de quarks~\quarkb\ (\quarkb-\emph{tagging}) avec \DeepCSV~\cite{jet_flavor_deep_nn,Sirunyan_heavy_flavor_jets_2018,DeepJet};
