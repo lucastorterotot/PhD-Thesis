@@ -1,7 +1,7 @@
 \section{Événements utilisés}\label{chapter-ML-section-evt_gen}
 %Utiliser les mêmes données simulées que dans les analyses de physique afin d'entraîner les modèles introduirait un biais.
-L'objectif des modèles à entraîner est de reconstruire la masse des particules se désintégrant en paire de leptons~\tau.
-Il s'agit d'une tâche de régression, il faut donc entraîner les modèles sur le plus de valeurs différentes possible.
+L'objectif est de reconstruire la masse des particules se désintégrant en paire de leptons~\tau.
+Il s'agit donc d'une tâche de régression.
 Dans l'optique d'une utilisation dans les analyses telles que celle présentée dans le chapitre~\refChHTT,
 il a été choisi d'utiliser des événements
 $\higgsML\to\tau\tau$
@@ -10,7 +10,9 @@ où \higgsML\ est le boson de Higgs du modèle standard \higgs\ dont la masse es
 La cible du modèle est donc la masse $m_{\higgsML}$.
 \subsection{Génération avec \FASTSIM}\label{chapter-ML-section-evt_gen-FASTSIM}
 Nous avons généré nos propres données simulées~\cite{fastsim_ece}
-afin d'obtenir des événements indépendants de ceux utilisés dans les analyses.
+afin d'obtenir
+une distribution continue des valeurs de $m_{\higgsML}$
+et suffisamment d'événements pour chaque point de masse.
 Dans le contexte de la collaboration CMS, nous avons utilisé \FASTSIM~\cite{FastSim_2011,FastSim_2014,FastSim_2017_1,FastSim_2017_2}.
 Cet outil permet de procéder à l'ensemble de la simulation des événements introduite chapitre~\refChLHCCMS,
 de la génération du processus physique à la reconstruction des objets physiques par le détecteur.
@@ -20,27 +22,46 @@ avec une énergie dans le centre de masse de \SI{13}{\TeV}.
 Les processus physiques sont générés par
 \PYTHIA~8~\cite{pythia8.2}
 avec les réglages CUEP8M1~\cite{tunes_2016,tunes_2019}.
-Pour ne pas générer d'événements indésirables,
-seules les collisions créant le boson \higgsML\ par fusion de gluons sont autorisées.
-Dans le cas du boson de Higgs du modèle standard \higgs, il s'agit du mode de production dominant.
+La production du boson \higgsML\ se fait par fusion de gluons,
+il s'agit du mode de production dominant dans le cas du boson de Higgs du modèle standard \higgs.
 De plus, le rapport de branchement $\BR(\higgsML\to\tau\tau)$ est fixé à 1,
 \ie\ que \higgsML\ se désintègre forcément en paires de leptons~\tau.
-\begin{wrapfigure}{R}{.45\textwidth}
-\centering
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau_1000/analysis_cuts_efficiency.pdf}
-\caption[Efficacité de sélection des événements.]{Efficacité de sélection des événements pour $m_{\higgsML}\in\llbracket \num{50} , \num{800} \rrbracket \usp \SI{}{\GeV}$ dans les différents canaux et pour tous les canaux.}
-\label{fig-analysis_cuts_efficiency}
-\end{wrapfigure}
+Tous les événements obtenus sont donc bien du type $\higgsML\to\tau\tau$.
 \par
 La masse de \higgsML\ varie de \num{50} à \SI{800}{\GeV} par pas de \SI{1}{\GeV}.
 Il est important d'utiliser l'intervalle le plus étendu possible, il correspond à la gamme utile des modèles obtenus.
 L'effet de l'étendue de cet intervalle est discuté dans la section~\ref{chapter-ML-section-discussion}.
-Lorsque $m_{\higgsML}$ est supérieure à \SI{800}{\GeV}, les propriétés de \higgsML, basées sur celles de \higgs, ne permettent pas d'obtenir des valeurs de $m_{\higgsML}$ cohérentes avec la méthode de génération utilisée.
-Nous ne considérerons pas de masse plus haute.
-Bien qu'il soit possible pour une particule de se désintégrer en deux~\tau\ dès que sa masse est plus élevée que $2\,m_{\tau} = \SI{3.5}{\GeV}$,
-la sélection des événements présentée dans la section~\ref{chapter-ML-section-evt_gen-selection} rejette plus de \SI{99}{\%} des événements lorsque $m_{\higgsML} < \SI{50}{\GeV}$.
-Nous ne considérerons pas de masse plus basse.
-L'efficacité des sélections appliquées est représentée sur la figure~\ref{fig-analysis_cuts_efficiency}.
+\par
+Il n'est pas possible, par la méthode que nous utilisons, de générer des événements avec $m_{\higgsML}\gtrsim\SI{1}{\TeV}$.
+Cela est dû à la largeur $\Gamma_{\higgs}$ de \higgs, représentée figure~\ref{fig-_Higgs_xsec_book_3-SM_Width} en fonction de $m_{\higgs}$.
+La largeur d'une particule est liée à sa durée de vie $\tau$ selon
+\begin{equation}
+\Gamma = \frac{\hbar}{\tau}
+\mend
+\end{equation}
+Ainsi, plus une particule se désintègre rapidement, plus sa largeur est importante.
+Le principe de Heisenberg mène alors à une incertitude sur la masse, due à la durée de vie $\tau$, égale à $\Gamma$.
+Or, vers \SI{1}{\TeV}, $\Gamma_{\higgsML}\simeq m_{\higgsML}$.
+C'est pourquoi la génération de tels événements est compromise avec \higgsML\ défini comme \higgs\ avec une masse modifiée.
+Nous générons donc uniquement des événements en-deçà de \SI{800}{\GeV}.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Largeur du boson de Higgs du modèle standard~\cite{Higgs_xsec_book_3}.\label{fig-_Higgs_xsec_book_3-SM_Width}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_Higgs_xsec_book_3/SM_Width.pdf}}
+
+\subcaptionbox{Efficacité de sélection des événements pour $m_{\higgsML}\in\llbracket \num{50} , \num{800} \rrbracket \usp \SI{}{\GeV}$ dans les différents canaux et pour tous les canaux.\label{fig-analysis_cuts_efficiency}}[.45\textwidth]
+{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau_1000/analysis_cuts_efficiency.pdf}}
+
+\caption{Origine des limites haute (gauche) et basse (droite) de l'intervalle de masse utilisé.}
+\end{figure}
+\par
+%Bien qu'il soit possible pour une particule de se désintégrer en deux~\tau\ dès que sa masse est plus élevée que $2\,m_{\tau} = \SI{3.5}{\GeV}$,
+La sélection des événements est présentée dans la section~\ref{chapter-ML-section-evt_gen-selection}.
+Son efficacité est représentée sur la figure~\ref{fig-analysis_cuts_efficiency}.
+Plus de \SI{99}{\%} des événements sont rejetés lorsque $m_{\higgsML} < \SI{50}{\GeV}$.
+Nous ne considérerons donc pas de masse plus basse.
+\par
 S'il est possible d'appliquer des poids aux événements afin d'équilibrer l'entraînement sur l'ensemble des valeurs de la cible,
 plus d'événements sont générés à basse masse afin d'obtenir des topologies d'événements variées malgré la faible efficacité de sélection.
 Ainsi, la quantité d'événements générés pour chaque valeur de $m_{\higgsML}$ est de:
@@ -52,24 +73,23 @@ Ainsi, la quantité d'événements générés pour chaque valeur de $m_{\higgsML
 \par
 L'empilement est modélisé par superposition du signal $\higgsML\to\tau\tau$ à des événements dits de \og biais minimum \fg~\cite{pythia8.2}.
 Il s'agit d'événements pouvant contenir des interactions dures, mais n'activant pas de \HLTpath.
-La quantité d'empilement ajoutée à l'événement $\higgsML\to\tau\tau$ suit le profil de l'année 2017.
+La quantité d'empilement ajoutée à l'événement $\higgsML\to\tau\tau$ suit le profil d'empilement de l'année 2017.
 Les conditions des collisions simulées sont ainsi identiques à celles de l'année 2017 au LHC.
 \newpage
 \subsection{Sélection des événements}\label{chapter-ML-section-evt_gen-selection}
 \subsubsection{Canaux \tauh\tauh, \mu\tauh, \ele\tauh\ et \ele\mu}
 Dans le cas des canaux
 \tauh\tauh, \mu\tauh, \ele\tauh\ et \ele\mu,
-la sélection des événements se fait comme exposé dans le chapitre~\refChHTT\ pour l'année 2017,
-à l'exception des coupures sur:
+la sélection des événements se fait comme exposé dans le chapitre~\refChHTT\ pour l'année 2017.
+Afin d'obtenir un modèle dont les prédictions auront non seulement un sens dans les régions de contrôle et de détermination, les coupures sur
 \begin{itemize}
 \item $\mT^{(\mu)}$ dans le canal \mu\tauh;
 \item $\mT^{(\ele)}$ dans le canal \ele\tauh;
-\item $\Dzeta$ dans le canal \ele\mu;
+\item $\Dzeta$ dans le canal \ele\mu
 \end{itemize}
-servant à séparer la région de signal des régions de contrôle et de détermination.
+ne sont pas appliquées.
 La construction du \emph{dilepton} est inchangée.
 La correspondance des objets du \emph{dilepton} avec ceux ayant activé le \HLTpath\ n'est pas vérifiée.
-Ce choix permet d'obtenir un modèle dont les prédictions auront non seulement un sens dans les régions de contrôle et de détermination, mais aussi plus facilement dans le contexte d'autres analyses dans lesquelles les sélections peuvent différer.
 %\par
 %En plus des canaux listés ci-dessus, nous avons également sélectionné des événements des canaux \mu\mu\ et \ele\ele,
 %selon les procédures présentées ci-après.
@@ -131,15 +151,6 @@ représentée sur la figure~\ref{fig-_Higgs_xsec_book_3-SM_Width} en fonction de
 
 \caption[Distributions de la masse générée de \higgsML.]{Distributions de la masse générée de \higgsML.}
 \label{fig-distribution-inclusive-Higgs_mass_gen-raw-all_events}
-\end{figure}
-\begin{figure}[h]
-\centering
-
-\vspace{\baselineskip}
-
-\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_Higgs_xsec_book_3/SM_Width.pdf}
-\caption[Largeur du boson de Higgs du modèle standard.]{Largeur du boson de Higgs du modèle standard~\cite{Higgs_xsec_book_3}.}
-\label{fig-_Higgs_xsec_book_3-SM_Width}
 \end{figure}
 La largeur à \SI{800}{\GeV} est ainsi d'environ \SI{300}{\GeV}.
 Le réglage $m_{\higgsML} = \SI{800}{\GeV}$ donne donc des événements contenant un boson dont la masse effective se situe entre \num{500} et \SI{1100}{\GeV}, d'où la queue de la distribution observée à haute masse sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-raw-all_events}.
