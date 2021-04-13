@@ -19,7 +19,7 @@ Pour cela, les mêmes événements que ceux décrits en section~\ref{chapter-ML-
 Un DNN, noté \Bnpu, est entraîné sur ces événements sans PU.
 Les hyper-paramètres de \Bnpu\ sont ceux de B, à l'exception des variables d'entrée auxquelles \Npu\ est retiré, car $\Npu=0$ pour tous les événements sans PU.
 La réponse de \Bnpu\ sur les événements de test sans PU est représentée sur la figure~\ref{subfig-reponse_model_PU_00}.
-La réponse moyenne du modèle est de $\num{1.00}\pm\num{0.05}$ pour $m_{\higgsML}$ entre \SI{80}{\GeV} et \SI{600}{\GeV} avec une résolution relative de l'ordre de \SI{22}{\%} à basse masse et \SI{10}{\%} à haute masse.
+La réponse moyenne du modèle est de $\num{1.00}\pm\num{0.05}$ pour $m_{\higgsML}$ entre \SI{70}{\GeV} et \SI{600}{\GeV} avec une résolution relative de l'ordre de \SI{22}{\%} à basse masse et \SI{10}{\%} à haute masse.
 \begin{figure}[h]
 \centering
 
@@ -34,8 +34,8 @@ La réponse moyenne du modèle est de $\num{1.00}\pm\num{0.05}$ pour $m_{\higgsM
 \end{figure}
 \par
 Cependant, la réponse de \Bnpu\ est dégradée sur des événements contenant du PU, figure~\ref{subfig-reponse_model_PU_01}.
-La réponse moyenne se situe en effet à \num{1.3} à $m_{\higgsML}=\SI{100}{\GeV}$ et diminue à \num{0.9} à $m_{\higgsML}=\SI{800}{\GeV}$ avec PU contre \num{1.05} et \num{0.9} sans PU.
-La résolution relative à basse masse est de l'ordre de \SI{30}{\%} avec PU.
+La réponse médiane se situe en effet à \num{1.13} à $m_{\higgsML}=\SI{100}{\GeV}$ et diminue à \num{0.83} à $m_{\higgsML}=\SI{800}{\GeV}$ avec PU contre \num{1.00} et \num{0.83} sans PU.
+La résolution relative à basse masse est de l'ordre de \SI{25}{\%} avec PU.
 \par
 Le PU peut être considéré comme un bruit blanc, dont l'énergie moyenne est reliée à \Npu.
 L'énergie portée par $L_1$ et $L_2$, les éléments visibles de la désintégration de \higgsML,
@@ -305,15 +305,18 @@ comparées à celles de B sur les mêmes canaux.
 \end{figure}
 \par
 Dans le canal \tauh\tauh,
-la réponse est \SI{10}{\%} plus basse pour \Bchsplit{tt} (figure~\ref{subfig-reponse_model_train_on_tt_test_on_tt}) que pour B (figure~\ref{subfig-reponse_model_train_on_inclusive_test_on_tt})
-pour $m_{\higgsML}>\SI{100}{\GeV}$.
-À basse masse,
-le comportement des deux modèles est similaire:
+la réponse de \Bchsplit{tt}, figure~\ref{subfig-reponse_model_train_on_tt_test_on_tt},
+est plus proche de 1 que celle de B, figure~\ref{subfig-reponse_model_train_on_inclusive_test_on_tt},
+entre \num{200} et \SI{450}{\GeV}.
+Au-delà, elle est jusqu'à \SI{3}{\%} plus basse.
+Pour les basses masses, elle est en revanche jusqu'à \SI{10}{\%} plus haute.
+Le comportement des modèles est toutefois similaire dans cette région:
 une baisse locale de la réponse est observable pour $m_{\higgsML}\simeq\SI{80}{\GeV}$.
 La coupure sur l'impulsion transverse des \tauh\ étant de \SI{40}{\GeV} pour chacun des deux \tauh,
 il s'agit probablement d'une transition entre
 les événements avec une majorité de vrais \tauh\ ($m_{\higgsML}>\SI{80}{\GeV}$)
 et ceux avec une contamination importante par les \ftauhs\ ($m_{\higgsML}<\SI{80}{\GeV}$).
+Le modèle \Bchsplit{tt} est donc difficilement entraîné dans cette région de masse.
 Pour \Bchsplit{tt} et B, la résolution relative sur le canal \tauh\tauh\ est de \SI{20}{\%}.
 \par
 Le modèle \Bchsplit{mt},
