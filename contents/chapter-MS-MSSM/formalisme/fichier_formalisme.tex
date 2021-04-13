@@ -9,7 +9,7 @@ Afin de comprendre pourquoi ce formalisme mathématique permet effectivement d'o
 \subsubsection{Lagrangien et principe de moindre action}%\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien-subsubsec-lagrangien_meca_classique}
 Soit une particule de masse $m$, soumise à une force $F$ prise ici constante à des fins d'illustration, se déplaçant dans le temps le long d'une dimension $x$, d'un point $A$ à $t=0$ à un point $B$ à $t=\tau$, comme illustré sur la figure~\ref{fig-ptc_classique_ptA_to_pt_B}.
 \par 
-La trajectoire de cette particule peut être déterminée à l'aide du principe fondamental de la dynamique, ou seconde loi de Newton, qui s'exprime simplement dans ce cas sous la forme
+La trajectoire de cette particule peut être déterminée à l'aide du principe fondamental de la dynamique, ou seconde loi de Newton, qui s'exprime dans ce cas sous la forme
 \begin{equation}
 m\dv[2]{x}{t} = F
 \mend
@@ -72,7 +72,7 @@ comme illustré en figure~\ref{fig-ptc_quantique_ptA_to_pt_B}.
 Utiliser une loi pouvant donner $x(t)$ n'est donc pas pertinent en mécanique quantique.
 \par
 Il existe toutefois un autre principe physique toujours en place en mécanique quantique, la conservation de l'énergie.
-Dans le cas de la particule précédemment décrit, il s'agit de la somme de son énergie cinétique $T$ et de son énergie potentielle $V$, \ie
+Dans le cas de la particule précédemment décrite, il s'agit de la somme de son énergie cinétique $T$ et de son énergie potentielle $V$, \ie
 \begin{equation}
 E = T + V = \cste
 \end{equation}
@@ -189,25 +189,25 @@ L = \int\dd[3]{x}\Lcal
 S = \int\dd[4]{x}\Lcal
 \end{equation}
 où $x$ désigne la coordonnée dans l'espace-temps de Minkowski, \ie\ l'espace-temps à quatre dimensions.
-Soit à présent une densité lagrangienne dépendant d'un champ $\phi(x)$ et de ses dérivées $\partial_\mu\phi(x)$,
-avec $\partial_\mu$ la dérivée partielle par rapport à la coordonnée $\mu$ dans l'espace-temps de Minkowski.
-Alors,
+Si la densité lagrangienne dépendant d'un champ $\phi(x)$ et de ses dérivées $\partial_\mu\phi(x)$,
+avec $\partial_\mu$ la dérivée partielle par rapport à la coordonnée $\mu$ dans l'espace-temps de Minkowski,
+alors
 \begin{equation}
 S = \int\dd[4]{x}\Lcal(\phi(x),\partial_\mu\phi(x))
 \end{equation}
 et du principe de moindre action résultent les équations d'Euler-Lagrange pour \Lcal,
+une pour chaque valeur possible de $\mu$,
 \begin{equation}
 \fdv{S}{\phi}
 =
 \pdv{\Lcal}{\phi} - \partial_\mu\pdv{\Lcal}{(\partial_\mu\phi)} = 0
 \mend
 \end{equation}
-Il s'agit à présent de déterminer la densité lagrangienne \Lcal\ du modèle standard.
-Par la suite, la densité lagrangienne \Lcal\ est nommée \og lagrangien \fg{} dans un souci de praticité.
+Il s'agit à présent de déterminer la densité lagrangienne \Lcal, communément nommée lagrangien du modèle standard.
 \par Un champ quantique peut subir une transformation de jauge locale. Une telle transformation doit laisser la physique inchangée, ainsi le lagrangien du modèle standard est construit pour être invariant sous les transformations de jauges locales du groupe de symétrie
 \begin{equation}
 SU(3)_C \times SU(2)_L \times U(1)_Y
-\mend
+\mend[,]
 \label{eq-symmetries_lagrangien_SM}
 \end{equation}
 De cette construction résultent les interactions fondamentales, discutées ci-après.
