@@ -1,6 +1,6 @@
 \section{Événements utilisés}\label{chapter-ML-section-evt_gen}
 %Utiliser les mêmes données simulées que dans les analyses de physique afin d'entraîner les modèles introduirait un biais.
-L'objectif des modèles à entraîner est de reconstruire la masse des particules se désintégrant en paire de leptons \tau.
+L'objectif des modèles à entraîner est de reconstruire la masse des particules se désintégrant en paire de leptons~\tau.
 Il s'agit d'une tâche de régression, il faut donc entraîner les modèles sur le plus de valeurs différentes possible.
 Dans l'optique d'une utilisation dans les analyses telles que celle présentée dans le chapitre~\refChHTT,
 il a été choisi d'utiliser des événements
@@ -24,7 +24,7 @@ Pour ne pas générer d'événements indésirables,
 seules les collisions créant le boson \higgsML\ par fusion de gluons sont autorisées.
 Dans le cas du boson de Higgs du modèle standard \higgs, il s'agit du mode de production dominant.
 De plus, le rapport de branchement $\BR(\higgsML\to\tau\tau)$ est fixé à 1,
-\ie\ que \higgsML\ se désintègre forcément en paires de leptons \tau.
+\ie\ que \higgsML\ se désintègre forcément en paires de leptons~\tau.
 \begin{wrapfigure}{R}{.45\textwidth}
 \centering
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau_1000/analysis_cuts_efficiency.pdf}
@@ -37,7 +37,7 @@ Il est important d'utiliser l'intervalle le plus étendu possible, il correspond
 L'effet de l'étendue de cet intervalle est discuté dans la section~\ref{chapter-ML-section-discussion}.
 Lorsque $m_{\higgsML}$ est supérieure à \SI{800}{\GeV}, les propriétés de \higgsML, basées sur celles de \higgs, ne permettent pas d'obtenir des valeurs de $m_{\higgsML}$ cohérentes avec la méthode de génération utilisée.
 Nous ne considérerons pas de masse plus haute.
-Bien qu'il soit possible pour une particule de se désintégrer en deux \tau\ dès que sa masse est plus élevée que $2\,m_{\tau} = \SI{3.5}{\GeV}$,
+Bien qu'il soit possible pour une particule de se désintégrer en deux~\tau\ dès que sa masse est plus élevée que $2\,m_{\tau} = \SI{3.5}{\GeV}$,
 la sélection des événements présentée dans la section~\ref{chapter-ML-section-evt_gen-selection} rejette plus de \SI{99}{\%} des événements lorsque $m_{\higgsML} < \SI{50}{\GeV}$.
 Nous ne considérerons pas de masse plus basse.
 L'efficacité des sélections appliquées est représentée sur la figure~\ref{fig-analysis_cuts_efficiency}.
@@ -158,7 +158,7 @@ Ces événements sont de plus séparés en trois groupes selon les proportions s
 Afin de réaliser un entraînement équitable entre les différentes valeurs de $m_{\higgsML}$, un poids est associé à chaque événement de manière à ce que la distribution pondérée de $m_{\higgsML}$ soit plate.
 Cette distribution sur les événements utilisés pour l'entraînement des modèles est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-weighted-is_train}.
 \subsection{Cible et variables d'entrée des modèles}\label{chapter-ML-section-evt_gen-inputs}
-La cible des modèles est la masse de la particule générée \higgsML\ se désintégrant en paire de leptons \tau.
+La cible des modèles est la masse de la particule générée \higgsML\ se désintégrant en paire de leptons~\tau.
 Un tel événement est illustré sur la figure~\ref{fig-model_inputs-fgraph-H-BBtautau_mutau_small}.
 Les variables d'entrée doivent être des observables accessibles expérimentalement,
 \ie\ issues de la reconstruction des événements présentée dans le chapitre~\refChLHCCMS.
@@ -171,7 +171,7 @@ Les variables d'entrée doivent être des observables accessibles expérimentale
 \par
 Les variables considérées sont:
 \begin{itemize}
-\item les impulsions de $L_1$ et $L_2$ les produits de désintégration visibles des \tau,
+\item les impulsions de $L_1$ et $L_2$ les produits de désintégration visibles des~\tau,
 \ie\ le muon et le \tauh\ dans l'exemple de la figure~\ref{fig-model_inputs-fgraph-H-BBtautau_mutau_small}:\\
 $\pT^{L_1}$, $\eta^{L_1}$, $\phi^{L_1}$,
 $\pT^{L_2}$, $\eta^{L_2}$, $\phi^{L_2}$;
