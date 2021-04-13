@@ -59,8 +59,9 @@ $x_0$ et $v_0$ les position et vitesse de la particule à l'instant $t=0$.
 \label{fig-ptc_ptA_to_pt_B}
 \end{figure}
 \par
-Or, cette méthode ne permet pas de décrire le comportement des particules fondamentales.
-En effet, à leur échelle, la mécanique quantique prévaut et il n'est pas possible, lorsque l'on observe une particule à un point $A$ puis à un point $B$, de déterminer la trajectoire exacte suivie par cette particule.
+Or, cette méthode ne permet pas de décrire le comportement des particules fondamentales
+car à leur échelle la mécanique quantique prévaut.
+Il n'est alors pas possible, lorsque l'on observe une particule à un point $A$ puis à un point $B$, de déterminer la trajectoire exacte suivie par cette particule.
 En effet,
 une particule quantique détectée
 en $A$ à $t=0$ puis en $B$ à $t=\tau$
@@ -94,7 +95,7 @@ La variation de la valeur moyenne de l'énergie potentielle s'exprime à partir 
 \fdv{\average{V}}{x(t)}
 = \frac{1}{\tau}\int_0^\tau \fdv{V(x(t'))}{x(t)} \dd{t'}
 = \frac{1}{\tau}\int_0^\tau \dv{V(x(t'))}{x(t')}\delta(t'-t) \dd{t'}
-= \frac{1}{\tau}\eval{\dv{V}{x(t)}}_{t'=t}
+= \frac{1}{\tau}\eval{\dv{V}{x(t')}}_{t'=t}
 = -\frac{1}{\tau}F(x(t))
 \end{equation}
 car la force $F$ est reliée à $V$ par $F = - \dv{V}{x}$.
@@ -140,6 +141,7 @@ Compte-tenu de l'équation~\eqref{eq-fdv_x_T-V_is_0}, l'action vérifie pour la 
 \begin{equation}
 \fdv{S}{x(t)}=0
 \mend[,]
+\label{eq-pp_moindre_action}
 \end{equation}
 ce qui est connu sous le nom de principe de moindre action.
 \subsubsection{Cas de la mécanique quantique}%\label{chapter-MS-MSSM-section-formalisme-subsec-into_lagrangien-subsubsec-euler-lagrange}
@@ -166,9 +168,11 @@ Ces variations s'expriment
 \fdv{S}{x(t)}
 = \int_0^\tau\dd{t'} \left[ \fdv{L}{x(t')}\delta(t'-t) + \fdv{L}{\dot{x}(t')}\delta'(t'-t)\right]
 = \fdv{L}{x(t)} - \dv{t}\fdv{L}{\dot{x}(t)}
-\mend[,]
+\mend
 \end{equation}
-ce qui permet de ré-exprimer le principe de moindre action sous la forme
+Cette quantité est nulle autour de la trajectoire classique d'après le principe de moindre action~\eqref{eq-pp_moindre_action}.
+La phase est alors stationnaire, ce qui permet aux trajectoires quantiques proches de la trajectoire classique de contribuer plus fortement à l'amplitude.
+Le principe de moindre action peut se ré-exprimer avec le lagrangien $L$ selon
 \begin{equation}
 \fdv{L}{x(t)} - \dv{t}\fdv{L}{\dot{x}(t)} = 0
 \mend
