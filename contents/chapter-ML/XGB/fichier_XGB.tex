@@ -8,12 +8,12 @@ arbres de décision améliorés.
 De nombreuses compétitions Kaggle~\cite{kaggle_challenge} ont été remportées grâce à eux.
 Ils présentent l'avantage d'être généralement plus rapides à entraîner que les réseaux de neurones présentés section~\ref{chapter-ML-section-DNN},
 et peuvent fournir des prédictions même si une des entrées est manquante, ce qui n'est pas le cas des réseaux de neurones.
-\subsection{Arbres de décision}
+\subsection{Arbres de décision}\label{chapter-ML-section-XGB-decision_trees}
 Un arbre de décision (non amélioré) est une succession de questions
 dont les réponses mènent à un résultat final,
 comme illustré sur la figure~\ref{fig-decision_tree_schema}.
 Chaque réponse à une question créé une \og branche \fg{} menant à une nouvelle question (en bleu)
-ou à une réponse finale sur une \og feuille \fg{} (en rouge et vert).
+ou à une réponse finale sur une \og feuille \fg{} (en vert).
 \begin{figure}[h]
 \centering\small
 \begin{tikzpicture}
@@ -23,16 +23,16 @@ ou à une réponse finale sur une \og feuille \fg{} (en rouge et vert).
 \node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (A1) at (3.125*\DeltaX,0*\DeltaY) {Est-ce le weekend ?\vphantom{Àq}};
 
 \node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (B1) at (1.625*\DeltaX,-1*\DeltaY) {Réunion ou cours dans l'agenda ?\vphantom{Àq}};
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (B2) at (4.625*\DeltaX,-1*\DeltaY) {se reposer\vphantom{Àq}};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (B2) at (4.625*\DeltaX,-1*\DeltaY) {se reposer\vphantom{Àq}};
 
 \node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (C1) at (.5*\DeltaX,-2*\DeltaY) {Résultats disponibles ?\vphantom{Àq}};
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (C2) at (2.75*\DeltaX,-2*\DeltaY) {y aller\vphantom{Àq}};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (C2) at (2.75*\DeltaX,-2*\DeltaY) {y aller\vphantom{Àq}};
 
 \node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (D1) at (-2*\DeltaX,-3*\DeltaY) {Calculs en cours ?\vphantom{Àq}};
 \node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (D2) at (2.75*\DeltaX,-3*\DeltaY) {Retours sur le manuscrit ?\vphantom{Àq}};
 
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (E1) at (-3*\DeltaX,-4*\DeltaY) {les lancer\vphantom{Àq}};
-\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorred1] (E2) at (-1*\DeltaX,-4*\DeltaY) {les contrôler\vphantom{Àq}};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (E1) at (-3*\DeltaX,-4*\DeltaY) {les lancer\vphantom{Àq}};
+\node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (E2) at (-1*\DeltaX,-4*\DeltaY) {les contrôler\vphantom{Àq}};
 \node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorblue1] (E3) at (1.5*\DeltaX,-4*\DeltaY) {Chapitre terminé ?\vphantom{Àq}};
 \node [draw, thick, rectangle, rounded corners = 5pt, fill = ltcolorgreen1] (E4) at (4*\DeltaX,-4*\DeltaY) {les appliquer\vphantom{Àq}};
 
@@ -82,22 +82,27 @@ ou à une réponse finale sur une \og feuille \fg{} (en rouge et vert).
 \par
 De tels arbres peuvent être utilisés avec des variables numériques.
 Dans ce cas, les questions consistent en une condition sur l'une des variables, par exemple $\pT^{\mu} > \SI{50}{\GeV}$.
-Le choix de la variable ($\pT^{\mu}$) et de la coupure correspondante (\SI{50}{\GeV}) à utiliser pour former deux nouvelles branches $b_1$ (condition fausse) et $b_2$ (condition vraie) se base sur la similarité $S$, définie comme
+Le choix de la variable ($\pT^{\mu}$) et de la coupure correspondante (\SI{50}{\GeV}) à utiliser pour former deux nouvelles branches $b_1$ (condition fausse) et $b_2$ (condition vraie) se base sur la similarité $S$.
+Il s'agit d'une variable quantifiant les écarts d'une liste de valeurs $y_i$ à la moyenne de celles-ci $\average{y}$.
+Elle est définie comme
 \begin{equation}
-S = \frac{1}{N\,n} \left(\sum_{i=1}^N \sum_{j=1}^n x_{j,i} \right)^2
+S = \frac{1}{N} \left(\sum_{i=1}^N r_{i} \right)^2
+\msep
+r_i = y_i - \frac{1}{N} \sum_{j=1}^N y_j = y_i - \average{y}
 \end{equation}
-où $N$ est la taille du jeu de données d'entraînement (quantité d'échantillons),
-$n$ le nombre de variables d'entrée différentes
-et $x_{j,i}$ la valeur de la variable $x_j$ dans le $i$\up{e} échantillon.
+où $N$ est la taille de la liste de valeurs,
+$r_i$ le résiduel de $y_i$
+et $y_{i}$ la $i$\up{e} valeur de $y$.
 \par
 Le gain $G$ obtenu par la création de deux nouvelles branches $b_1$ et $b_2$ s'exprime
 \begin{equation}
 G = S_{b_1} + S_{b_2} - S_{b_1+b_2}
 \end{equation}
 avec
-$S_{b_1+b_2}$ la similarité du jeu de données non séparé,
-$S_{b_1}$ ($S_{b_2}$) la similarité du jeu de données se retrouvant dans la branche $b_1$ ($b_2$).
+$S_{b_1+b_2}$ la similarité de la liste non séparée,
+$S_{b_1}$ ($S_{b_2}$) la similarité de la liste se retrouvant dans la branche $b_1$ ($b_2$).
 La condition retenue pour former les deux branches est celle présentant le gain le plus élevé.
+Cela revient à définir deux sous-listes dans lesquelles les valeurs de $y$ sont proches les unes des autres.
 Ce processus est alors itéré sur chacune des nouvelles branches, jusqu'à ce que:
 \begin{itemize}
 \item le gain soit inférieur à une valeur $\gamma$ fixée;
@@ -114,18 +119,19 @@ ici des arbres de décision,
 pour obtenir un modèle global plus robuste.
 La construction se fait de manière itérative.
 \par
-À chaque étape $k\geq1$,
-un arbre de décision $M_k$ nommé estimateur est construit avec pour objectif de prédire
+La première étape consiste à créer un arbre de décision, noté $M_0$, comme exposé dans la section~\ref{chapter-ML-section-XGB-decision_trees}.
+La fonction associée à ce modèle est $F_0$.
+Puis à chaque étape $k\geq1$,
+un arbre de décision $M_k$ est construit avec pour objectif de prédire,
+pour une entrée $\vec{x}_i$,
 \begin{equation}
 \ytruei - F_{k-1}(\vec{x}_i)
 \end{equation}
-pour une entrée $\vec{x}_i$,
 avec
-\ytruei\ la valeur que doit prédire le modèle global pour l'entrée $\vec{x}_i$
+\ytruei\ la valeur que doit prédire le modèle global %pour l'entrée $\vec{x}_i$
 et
-$F_{k-1}$ la fonction du modèle global issu de l'étape ${k-1}$,
-$F_0$ étant égale à $M_0$, l'arbre de décision obtenu sans \emph{Gradient Boosting}.
-Le modèle $M_k$ corrige donc l'écart résiduel des prédictions $\set{\ypredi}$ du modèle global à $\set{\ytruei}$.
+$F_{k-1}$ la fonction du modèle issu de l'étape ${k-1}$.
+Le modèle $M_k$ corrige donc l'écart résiduel des prédictions $\set{\ypredi}$ du modèle $F_{k-1}$ à $\set{\ytruei}$.
 Les prédictions $F_k$ du modèle global s'expriment donc
 \begin{equation}
 \ypredi
