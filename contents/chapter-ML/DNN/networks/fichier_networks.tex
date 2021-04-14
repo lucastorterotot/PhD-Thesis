@@ -5,25 +5,26 @@ Nous utilisons ici,
 comme dans les travaux de \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929},
 une architecture
 normale profonde à propagation avant complètement connectée (\emph{normal deep feedforward fully-connected}),
+représentée sur la figure~\ref{fig-neural_network_fr},
 \ie\ avec:
 \begin{itemize}
 \item des neurones répartis en couches (normale);
 \item plusieurs couches \og cachées \fg, situées entre les couches d'entrée et de sortie (profonde);
 \item toutes les sorties de la couche $k-1$ utilisées comme entrées de chacun des neurones de la couche $k$ (à propagation avant complètement connectée).
 \end{itemize}
-Le nombre de neurones par couche cachée \NNeurons\ est pris constant.
-Le nombre de couches cachées est noté \NLayers.
+Le nombre de neurones par couche cachée est noté \NNeurons,
+le nombre de couches cachées \NLayers.
 Le NN ayant une structure profonde, il s'agit d'un DNN (\emph{Deep Neural Network}).
-\par
-La tâche du réseau est une régression sur une seule grandeur, $m_{\higgsML}$, à partir de $n$ variables d'entrée $x_j$, $j\in\set{1,\ldots,n}$.
-La couche de sortie est donc composée d'un seul neurone dont la fonction d'activation est l'identité.
-La couche d'entrée comporte $n$ neurones, chacun ayant une entrée correspondant à une variable avec un poids de 1, un biais de zéro et identité comme fonction d'activation.
-Il s'agit donc d'une couche d'adaptation entre le nombre d'entrées $n_\text{in}$ et le nombre de neurones dans la couche suivante \NNeurons.
-La fonction d'activation des neurones des couches cachées est identique, plusieurs possibilités sont essayées dans la section~\ref{chapter-ML-section-hyperparameters}.
-La structure obtenue est représentée sur la figure~\ref{fig-neural_network_fr}.
 \begin{figure}[h]
 \centering
 \input{\PhDthesisdir/plots_and_images/my_plots/ML/neural_network/neural_network_fr.tex}
 \caption[Structure d'un réseau de neurones.]{Structure normale profonde à propagation avant complètement connectée d'un réseau de neurones. Une couche d'entrée comporte autant de neurones que de variables $x_i$. La couche de sortie en comporte autant que de valeurs à donner, \ie\ une. Les fonctions d'activation de ces deux couches sont linéaires. Entre elles se trouvent \NLayers\ couches cachées, chacune contenant \NNeurons\ neurones. Diverses fonctions d'activation peuvent être utilisées dans les couches cachées.}
 \label{fig-neural_network_fr}
 \end{figure}
+\par
+La tâche du réseau est une régression vers une seule grandeur, $m_{\higgsML}$, à partir de $n$ variables d'entrée $x_j$, $j\in\set{1,\ldots,n}$.
+La couche de sortie est donc composée d'un seul neurone dont la fonction d'activation est l'identité.
+La couche d'entrée comporte $n$ neurones, chacun se contentant de transmettre la variable d'entrée correspondante.
+Il s'agit donc d'une couche d'adaptation entre le nombre d'entrées $n_\text{in}$ et le nombre de neurones dans la couche suivante \NNeurons.
+Tous les neurones des couches cachées ont la même fonction d'activation.
+Plusieurs fonctions d'activation sont testées dans la section~\ref{chapter-ML-section-hyperparameters}.
