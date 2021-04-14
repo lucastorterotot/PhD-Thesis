@@ -1,0 +1,46 @@
+\subsection{Sous-entraînement et surentraînement}
+Un modèle doit être suffisamment complexe,
+\ie\ proposer suffisamment de paramètres réglables à l'entraînement,
+afin de pouvoir réaliser sa tâche.
+Sinon, ses prédictions ne sont qu'approximatives, voire fausses.
+Par exemple,
+en utilisant une droite affine comme modèle, \ie\ avec deux paramètres,
+il est difficile de prédire correctement
+une loi polynomiale de degré 2, régie par trois paramètres.
+Or, le nombre d'itérations d'entraînement nécessaires à l'optimisation d'un modèle augmente avec sa complexité.
+Avec une quantité limitée d'itérations, le modèle est sous-entraîné.
+Il est donc nécessaire d'en avoir suffisamment lors de l'entraînement.
+\par
+Au fur et à mesure des itérations,
+la valeur de la fonction de coût appliquée au jeu de données d'entraînement diminue.
+Elle peut donc être un indicateur de l'amélioration des prédictions du modèle d'une itération à une autre.
+Arrivé à un plateau, le modèle est optimisé et l'entraînement s'arrête.
+\par
+Cette approche masquerait toutefois une spécialisation du modèle ou surentraînement.
+Prédire parfaitement $\set{\ytruei}$ sur le jeu de données d'entraînement,
+ce qui correspond à une fonction de coût nulle,
+n'est pas équivalent à être optimal sur des données inédites.
+Or, le but est justement d'utiliser le modèle sur ces dernières.
+Un autre modèle, moins complexe ou entraîné avec moins d'itérations,
+peut donc donner de meilleures prédictions sur des données inédites.
+\par
+Afin d'éviter le surentraînement,
+il est possible d'utiliser un jeu de données dit de \og validation \fg,
+non utilisé pour régler les paramètres du modèle.
+L'intérêt du jeu de validation est illustré sur la figure~\ref{fig-underfitting_and_overfitting}.
+Un modèle sous-entraîné ou dont l'entraînement est optimal présente des erreurs similaires dans les deux jeux de données.
+Dans le cas d'un surentraînement, les erreurs continuent à diminuer sur le jeu d'entraînement, mais pas sur le jeu de validation.
+Une fonction d'évaluation $E$, éventuellement égale à la fonction de coût \Loss, permet de quantifier ces erreurs et de mettre fin à l'entraînement avant de surentraîner le modèle.
+Il s'agit de l'arrêt prématuré.
+La condition activant cet arrêt est un \og hyper-paramètre \fg{} du modèle.
+Les hyper-paramètres,
+à ne pas confondre avec les paramètres modifiés lors de l'entraînement,
+sont fixés par l'utilisateur et propres au modèle.
+\begin{figure}[h]
+\centering
+\input{\PhDthesisdir/plots_and_images/my_plots/ML/overfitting_and_early_stopping/examples-pyplot.pgf}
+\caption[Illustrations du sous-entraînement et du surentraînement.]{Illustrations du sous-entraînement et du surentraînement.
+Un même modèle est trop peu (gauche), suffisamment (milieu) ou trop entraîné (droite). Ses prédictions (ordonnées) en fonction de l'entrée (abscisses) sont tracées en vert.
+Le jeu de données d'entraînement (de validation) est représenté par des croix bleues (rouges) sur la ligne du haut (bas).}
+\label{fig-underfitting_and_overfitting}
+\end{figure}

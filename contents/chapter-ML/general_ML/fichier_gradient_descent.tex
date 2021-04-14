@@ -1,0 +1,19 @@
+\subsection{Entraînement et descente de gradient}\label{chapter-ML-section-gradient_descent}
+Un modèle peut être vu comme une fonction paramétrique $F$
+dont l'application à une entrée $\vec{x}$
+donne une prédiction $\ypred=F(\vec{x})$.
+%Les paramètres du modèle sont ceux de la fonction $F$.
+L'entraînement consiste à régler les paramètres du modèle
+afin d'obtenir des prédictions cohérentes avec les valeurs vraies du jeu de données d'entraînement.
+\par
+La fonction de coût \Loss\ est minimale lorsque les prédictions du modèle sont parfaites.
+Il s'agit donc de trouver le minimum de \Loss\ dans l'espace à $D$ dimensions formé par les $D=N_\text{params.}$ paramètres à régler.
+Cela peut être fait de manière itérative par descente de gradient~\cite{cauchy_1847}.
+Il s'agit d'une méthode itérative qui détermine le gradient de \Loss, $\grad(\Loss)$, autour de la \og position \fg{} du modèle dans l'espace à $D$ dimensions.
+Chaque paramètre $p$ est alors modifié selon
+\begin{equation}
+p \to p - \eta \grad(\Loss) \cdot \bvec_p = p - \eta \pdv{\Loss}{p}
+\end{equation}
+avec $\eta$ le taux d'apprentissage,
+\ie\ que la position du modèle est déplacée en suivant la pente du gradient vers un point plus bas.
+Le taux d'apprentissage est généralement pris entre 0 et 1.

@@ -1,0 +1,24 @@
+\subsection{Fonction de coût}\label{chapter-ML-section-loss}
+Une fonction de coût compare les prédictions d'un modèle aux valeurs vraies de la cible.
+Elle doit être différentiable et est définie de manière à être minimale lorsque les prédictions sont égales aux valeurs vraies, \ie\ lorsque le modèle est parfait.
+Les fonctions de coût les plus répandues sont:
+\begin{description}
+\item[MSE] \emph{Mean Squared Error} ou erreur quadratique moyenne,
+\begin{equation}
+\LossMSE(\set{\ytruei}, \set{\ypredi}) = \frac{1}{2N} \sum_{i=1}^N \left( \ypredi - \ytruei \right)^2
+\label{eq-loss_MSE}
+\mend[;]
+\end{equation}
+\item[MAE] \emph{Mean Absolute Error} ou erreur absolue moyenne,
+\begin{equation}
+\LossMAE(\set{\ytruei}, \set{\ypredi}) = \frac{1}{N} \sum_{i=1}^N \left| \ypredi - \ytruei \right|
+\label{eq-loss_MAE}
+\mend[;]
+\end{equation}
+\item[MAPE] \emph{Mean Absolute Percentile Error} ou erreur absolue relative moyenne,
+\begin{equation}
+\LossMAPE(\set{\ytruei}, \set{\ypredi}) = \frac{100}{N} \sum_{i=1}^N \left| \frac{\ypredi - \ytruei}{\ytruei} \right|
+\label{eq-loss_MAPE}
+\mend
+\end{equation}
+\end{description}

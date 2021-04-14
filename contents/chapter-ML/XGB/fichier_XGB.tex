@@ -109,11 +109,10 @@ Ce processus est alors itéré sur chacune des nouvelles branches, jusqu'à ce q
 \item la profondeur de l'arbre soit égale à une valeur \MaxDepth\ fixée;
 \item la quantité d'échantillons dans une branche soit inférieure à une valeur \MinChildWeight\ fixée.
 \end{itemize}
-Les paramètres $\gamma$, \MaxDepth\ et \MinChildWeight, choisis par l'utilisateur, sont nommés \og hyper-paramètres \fg.
-Ils ne doivent pas être confondus avec les paramètres propres à l'arbre, déterminés lors de la construction des branches.
+Les paramètres $\gamma$, \MaxDepth\ et \MinChildWeight, choisis par l'utilisateur, sont des hyper-paramètres.
 %Par défaut, $\gamma=0$ et $\MinChildWeight=1$.
-\subsection{\emph{Gradient Boosting}}\label{chapter-ML-section-XGB-grad_boost}
-La technique du \emph{Gradient Boosting} consiste en
+\subsection{\emph{Gradient Boosting} et descente de gradient}\label{chapter-ML-section-XGB-grad_boost}
+La technique du \emph{Gradient Boosting} est
 l'utilisation de modèles simples,
 ici des arbres de décision,
 pour obtenir un modèle global plus robuste.
@@ -148,85 +147,31 @@ L'itération s'arrête lorsque le nombre maximal d'estimateurs \Nestimators\ est
 Les grandeurs $\eta$ et \Nestimators\ sont également des hyper-paramètres.
 Le modèle global obtenu est ici un arbre de décision amélioré.
 %\emph{The Elements of statistical learning} : Trees have one aspect that prevents them from bering the ideal tool for predictive learning, namely inaccuracy. --> they work great with the data used to create them, but they are not flexible when it comes to classifying new samples...
-\subsection{Fonction de coût et \emph{Gradient Descent}}\label{chapter-ML-section-loss}
-Une fonction de coût compare les prédictions d'un modèle aux valeurs vraies.
-Elle doit être différentiable et est définie de manière à être minimale lorsque les prédictions sont égales aux valeurs vraies, \ie\ lorsque le modèle est parfait.
-Les fonctions de coût les plus répandues sont:
-\begin{description}
-\item[MSE] \emph{Mean Squared Error} ou erreur quadratique moyenne,
+\par
+La dérivée partielle de \LossMSE\
+par rapport à \ypredi\
+s'exprime
 \begin{equation}
-\LossMSE(\set{\ytruei}, \set{\ypredi}) = \frac{1}{2N} \sum_{i=1}^N \left( \ypredi - \ytruei \right)^2
-\label{eq-loss_MSE}
-\mend[;]
-\end{equation}
-\item[MAE] \emph{Mean Absolute Error} ou erreur absolue moyenne,
-\begin{equation}
-\LossMAE(\set{\ytruei}, \set{\ypredi}) = \frac{1}{N} \sum_{i=1}^N \left| \ypredi - \ytruei \right|
-\label{eq-loss_MAE}
-\mend[;]
-\end{equation}
-\item[MAPE] \emph{Mean Absolute Percentile Error} ou erreur absolue relative moyenne,
-\begin{equation}
-\LossMAPE(\set{\ytruei}, \set{\ypredi}) = \frac{100}{N} \sum_{i=1}^N \left| \frac{\ypredi - \ytruei}{\ytruei} \right|
-\label{eq-loss_MAPE}
+\pdv{\LossMSE(\ytruei, \ypredi)}{\ypredi} = \ypredi - \ytruei
 \mend
 \end{equation}
-\end{description}
-\par
-L'objectif du modèle $M_k$ défini dans la section précédente est de prédire, pour $\vec{x}_i$,
+Ainsi, la cible de $M_k$ défini précédemment est
 \begin{equation}
 \ytruei - F_{k-1}(\vec{x}_i)
 =
 - \pdv{\LossMSE(\ytruei, F_{k-1}(\vec{x}_i))}{F_{k-1}(\vec{x}_i)}
-\mend
+\mend[,]
 \end{equation}
-Il est ainsi possible de généraliser le \emph{Gradient Boosting}
-en considérant que l'objectif de $M_k$ est de prédire
+ce qui revient à appliquer la descente de gradient avec $\Loss=\LossMSE$.
+À partir de ce constat,
+il est possible de généraliser le \emph{Gradient Boosting}
+en considérant que la cible de $M_k$ est
 \begin{equation}
 - \pdv{\Loss(\ytruei, F_{k-1}(\vec{x}_i))}{F_{k-1}(\vec{x}_i)}
 =
 - \grad_{F_{k-1}(\vec{x}_i)} \left(\Loss(\ytruei, F_{k-1}(\vec{x}_i))\right)
 \end{equation}
 avec \Loss\ une fonction de coût quelconque.
-Il s'agit du \emph{Gradient Descent}~\cite{cauchy_1847},
-où l'objectif est de minimiser \Loss.
-La fonction de coût est un hyper-paramètre du modèle.
-\subsection{Sous-entraînement et surentraînement}
-La construction d'un modèle, aussi appelé \og entraînement \fg,
-est un processus itératif
-visant à minimiser la fonction de coût.
-Dans le cas des arbres de décision améliorés créés avec \XGBOOST,
-l'entraînement cesse lorsque le nombre d'estimateur maximal est atteint. %, lorsqu'il est renseigné.
-Dans tous les cas, il est légitime de se demander si le modèle obtenu à la fin de l'entraînement est optimal.
 \par
-Il faut que l'entraînement soit suffisamment long pour que le modèle propose les prédictions les plus précises possible.
-Autrement dit, il faut que le modèle ait le temps d'apprendre.
-S'il ne l'a pas, les prédictions ne sont pas aussi précises qu'elles pourraient l'être, c'est le sous-entraînement.
-La valeur de la fonction de coût appliquée au jeu de données d'entraînement diminuant lors de l'apprentissage,
-un critère pourrait être de l'utiliser afin de déterminer si le modèle apprend encore ou non.
-Arrivé à un plateau, le modèle ne s'améliore plus et l'entraînement s'arrête.
-\par
-Cette approche masquerait toutefois une spécialisation du modèle.
-En effet, un modèle peut apprendre à prédire parfaitement $\set{\ytruei}$ sur le jeu de données d'entraînement,
-ce qui correspond à une fonction de coût nulle,
-mais être moins bon qu'un modèle entraîné moins longtemps lorsqu'il est utilisé sur d'autres données.
-C'est le surentraînement.
-Cet effet peut être évité en utilisant un jeu de données dit de \og validation \fg,
-non utilisé pour régler les paramètres du modèle.
-\par
-L'intérêt du jeu de validation est illustré sur la figure~\ref{fig-underfitting_and_overfitting}.
-Un modèle sous-entraîné ou dont l'entraînement est optimal présente des erreurs similaires dans les deux jeux de données.
-Dans le cas d'un surentraînement, les erreurs continuent à diminuer sur le jeu d'entraînement, mais pas sur le jeu de validation.
-Une fonction d'évaluation $E$, éventuellement égale à la fonction de coût \Loss, permet de quantifier ces erreurs et de mettre fin à l'entraînement avant de surentraîner le modèle.
-Il s'agit de l'arrêt prématuré.
-\begin{figure}[h]
-\centering
-\input{\PhDthesisdir/plots_and_images/my_plots/ML/overfitting_and_early_stopping/examples-pyplot.pgf}
-\caption[Illustrations du sous-entraînement et du surentraînement.]{Illustrations du sous-entraînement et du surentraînement.
-Un même modèle est peu (gauche), suffisamment (milieu) ou trop entraîné (droite). Ses prédictions (ordonnées) en fonction de l'entrée (abscisses) sont tracées en vert.
-Le jeu de données d'entraînement (de validation) est représenté par des croix bleues (rouges) sur la ligne du haut (bas).}
-\label{fig-underfitting_and_overfitting}
-\end{figure}
-\par
-Dans le cas des arbres de décision améliorés, une itération de l'entraînement consiste en l'ajout d'un estimateur, comme exposé dans la section~\ref{chapter-ML-section-XGB-grad_boost}.
+Une itération de l'entraînement consiste ainsi en l'ajout d'un estimateur au modèle.
 Un arrêt prématuré est réalisé lorsque l'erreur quadratique moyenne ne diminue pas sur le jeu de validation pendant 5 itérations.

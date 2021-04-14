@@ -26,21 +26,7 @@ Lors de ces travaux, nous avons testé les lois normale et uniforme.
 Dans le cas des DNNs, ces modes d'initiation peuvent être améliorés par la méthode de \citeauthor{glorot}~\cite{glorot} afin de faciliter l'entraînement.
 Il s'agit alors des lois \og Glorot uniforme \fg{} et \og Glorot normale \fg, également testées.
 \subsubsection{Fonction de coût et optimisation des paramètres}
-Les modifications apportées aux paramètres ont pour objectif l'amélioration des prédictions du modèle.
-La qualité de ces prédictions est quantifiée par une fonction de coût \Loss\ à minimiser, comme exposé section~\ref{chapter-ML-section-loss}.
-Il s'agit donc de trouver le minimum de \Loss\ dans l'espace à $D$ dimensions formé par les $D=N_\text{params.}$ paramètres à régler.
-Cela peut être fait de manière itérative par \emph{Gradient Descent}.
-\par
-Le \emph{Gradient Descent}~\cite{cauchy_1847} détermine le gradient de \Loss, $\grad(\Loss)$, autour de la \og position \fg{} du modèle dans l'espace à $D$ dimensions.
-Chaque paramètre $p$ ($w_i$ et $b$ de chaque neurone) est alors modifié selon
-\begin{equation}
-p \to p - \eta \grad(\Loss) \cdot \bvec_p = p - \eta \pdv{\Loss}{p}
-\end{equation}
-avec $\eta$ le taux d'apprentissage,
-\ie\ que la position du modèle est déplacée en suivant la pente du gradient vers un point plus bas.
-Le taux d'apprentissage est généralement pris entre 0 et 1.
-\par
-La modification des paramètres du NN pourrait être réalisée ainsi pour chaque événement du jeu de données d'entraînement.
+La modification des paramètres du NN pourrait être réalisée \todo{ainsi} pour chaque événement du jeu de données d'entraînement.
 Or, la nature des données à analyser peut mener à une stagnation, si deux événements donnent modifications opposées.
 Afin d'éviter ce phénomène, la mise à jour des paramètres se fait à partir de \og mini-lots \fg, introduits section~\ref{chapter-ML-section-DNN-training-minibatch}.
 Des algorithmes d'optimisation, adaptés aux mini-lots et dérivés du \emph{Gradient Descent}, sont présentés section~\ref{chapter-ML-section-DNN-training-optimizers}.
