@@ -17,8 +17,8 @@ Les hyper-paramètres des XGBs, introduits section~\ref{chapter-ML-section-XGB},
 \end{itemize}
 Les hyper-paramètres des DNNs, introduits section~\ref{chapter-ML-section-DNN}, sont:
 \begin{itemize}
-\item le nombre de couches cachées $N_L$;
-\item le nombre de neurones par couche cachée $N_N$;
+\item le nombre de couches cachées \NLayers;
+\item le nombre de neurones par couche cachée \NNeurons;
 \item la fonction d'activation des neurones des couches cachées;
 \item l'algorithme d'optimisation;
 \item la fonction de coût \Loss;
@@ -464,8 +464,8 @@ L'algorithme d'optimisation Adam donne de meilleurs modèles qu'AdaDelta.
 \subsection{Autres hyper-paramètres}\label{chapter-ML-section-hyperparameters-others}
 Les hyper-paramètres restant à être fixés ainsi que les valeurs explorées sont:
 \begin{itemize}
-\item le nombre de couches cachées $N_L$, 2 à 5;
-\item le nombre de neurones par couche cachée $N_N$, \num{200} à \num{2000} par pas de \num{100};
+\item le nombre de couches cachées \NLayers, 2 à 5;
+\item le nombre de neurones par couche cachée \NNeurons, \num{200} à \num{2000} par pas de \num{100};
 \item le mode d'initiation des poids (WI), uniforme (u), normale (n), Glorot uniforme (gu), Glorot normale (gn);
 \item la fonction d'activation (FA) des neurones des couches cachées, ReLU, SELU, ELU, Softplus.
 \end{itemize}
@@ -476,15 +476,15 @@ utilisant les 27 variables d'entrée
 et
 entraînés par Adam avec $\Loss=\LossMAPE$,
 regroupés respectivement par
-$N_L$, $N_N$, mode d'initiation des poids et fonction d'activation
+\NLayers, \NNeurons, mode d'initiation des poids et fonction d'activation
 sont données sur les
 figures~\ref{fig-N_layers}, \ref{fig-N_neurons}, \ref{fig-w_init_mode} et~\ref{fig-activation} respectivement.
 La position du modèle final sélectionné est également indiquée.
 \def\localHP{N_layers}
-\def\localHPlong{$N_L$}
+\def\localHPlong{\NLayers}
 \input{\PhDthesisdir/contents/chapter-ML/hyperparameters/last_hyperparams_shortcut.tex}
 \def\localHP{N_neurons}
-\def\localHPlong{$N_N$}
+\def\localHPlong{\NNeurons}
 \input{\PhDthesisdir/contents/chapter-ML/hyperparameters/last_hyperparams_shortcut.tex}
 \def\localHP{w_init_mode}
 \def\localHPlong{le mode d'initiation des poids}
@@ -513,7 +513,7 @@ Leurs réponses dont données sur les figures~\ref{subfig-reponse_model_A} et~\r
 \centering
 \begin{tabular}{ccccc}
 \toprule
-Modèle & $N_L$ & $N_N$ & WI & FA \\
+Modèle & \NLayers & \NNeurons & WI & FA \\
 \midrule
 A & 3 & \num{1000} & gu & ELU \\
 B & 3 & \num{1000} & gu & Softplus \\
@@ -569,9 +569,9 @@ utilisant majoritairement les 27 variables d'entrée,
 tous entraînés par Adam avec comme fonction de coût \LossMAPE,
 ce qui confirme que nos choix d'hyper-paramètres précédents sont pertinents.
 \par
-Aucun modèle avec $N_L\in\set{2,5}$ n'est sélectionné.
-Pour 4 modèles, $N_L=3$.
-Le nombre de neurones par couche cachée est de \num{1000} pour 4 modèles sur 7, dont 3 sur les 4 avec $N_L=3$.
+Aucun modèle avec $\NLayers\in\set{2,5}$ n'est sélectionné.
+Pour 4 modèles, $\NLayers=3$.
+Le nombre de neurones par couche cachée est de \num{1000} pour 4 modèles sur 7, dont 3 sur les 4 avec $\NLayers=3$.
 Le WI le plus représenté est Glorot uniforme (5/7).
 Les FA sont disparates, chacune apparaissant une ou deux fois dans la sélection.
 \par
@@ -588,8 +588,8 @@ avec une comparaison à ceux utilisés par \citeauthor{BARTSCHI201929}~\cite{BAR
 \toprule
 Hyper-paramètre & Notre DNN & DNN de \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929}\\
 \midrule
-Nombre de couches cachées $N_L$ & 3 & 4 \\
-Neurones par couche cachée $N_N$ & 1000 & 200 \\
+Nombre de couches cachées \NLayers & 3 & 4 \\
+Neurones par couche cachée \NNeurons & 1000 & 200 \\
 Fonction d'activation & Softplus & ReLU \\
 Algorithme d'optimisation & Adam & Adam \\
 Fonction de coût & \LossMAPE & \LossMSE \\

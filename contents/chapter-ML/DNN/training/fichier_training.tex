@@ -3,12 +3,12 @@ L'entraînement d'un NN est le réglage des paramètres des neurones du réseau 
 Il s'agit des poids $w_i$ et du biais $b$.
 Pour un DNN avec
 $n_\text{in} = \num{27}$ variables d'entrée,
-$N_L = \num{3}$ couches cachées
-de $N_N = \num{1000}$ neurones,
+$\NLayers = \num{3}$ couches cachées
+de $\NNeurons = \num{1000}$ neurones,
 le nombre de paramètres est ainsi de
 \begin{align}
 N_\text{params.}
-&= \underbrace{N_N \times (n_\text{in} + 1)}_\text{couche cachée 1} \!\!\!&\!\!\!+\,\,\,& \underbrace{(N_L -1)\times N_N \times(N_N+1)}_\text{autres couches cachées} \!\!\!&\!\!\!+\,\,\,& \underbrace{N_N +1\vphantom{()}}_\text{couche de sortie}
+&= \underbrace{\NNeurons \times (n_\text{in} + 1)}_\text{couche cachée 1} \!\!\!&\!\!\!+\,\,\,& \underbrace{(\NLayers -1)\times \NNeurons \times(\NNeurons+1)}_\text{autres couches cachées} \!\!\!&\!\!\!+\,\,\,& \underbrace{\NNeurons +1\vphantom{()}}_\text{couche de sortie}
 \nonumber\\&
 =
 \num{28000} \!\!\!&\!\!\!+\,\,\,& 2\times\num{1001000} \!\!\!&\!\!\!+\,\,\,& \num{1001}
