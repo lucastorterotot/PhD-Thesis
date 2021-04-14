@@ -18,12 +18,12 @@ N_\text{params.}
 \end{align}
 soit près de deux millions.
 Les termes \og $+1$ \fg{} correspondent aux biais $b$ à ajouter au nombre d'entrées des neurones.
-\subsubsection{Initiation des paramètres}
+\subsubsection{Initialisation des paramètres}
 Les biais $b$ sont initialement fixés à 0,
 les poids $w_i$ à une valeur constante donnée ou aléatoirement selon une loi de probabilité.
-Le mode d'initiation est un hyper-paramètre du modèle.
+Le mode d'initialisation est un hyper-paramètre du modèle.
 Lors de ces travaux, nous avons testé les lois normale et uniforme.
-Dans le cas des DNNs, ces modes d'initiation peuvent être améliorés par la méthode de \citeauthor{glorot}~\cite{glorot} afin de faciliter l'entraînement.
+Dans le cas des DNNs, ces modes d'initialisation peuvent être améliorés par la méthode de \citeauthor{glorot}~\cite{glorot} afin de faciliter l'entraînement.
 Il s'agit alors des lois \og Glorot uniforme \fg{} et \og Glorot normale \fg, également testées.
 \subsubsection{Fonction de coût et optimisation des paramètres}
 La modification des paramètres du NN pourrait être réalisée \todo{ainsi} pour chaque événement du jeu de données d'entraînement.
@@ -159,7 +159,7 @@ v_p \to \rho_1 v_p + (1-\rho_1) \average{\pdv{\Loss}{p}}_\text{mini-lot}
 r_p \to \rho_2 r_p + (1-\rho_2) \average{\pdv{\Loss}{p}}_\text{mini-lot}^2
 \mend
 \end{equation}
-Le biais d'initiation des moments est corrigé en appliquant
+Le biais d'initialisation des moments est corrigé en appliquant
 \begin{equation}
 t \to t+1
 \msep

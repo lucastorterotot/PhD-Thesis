@@ -22,7 +22,7 @@ Les hyper-paramètres des DNNs, introduits section~\ref{chapter-ML-section-DNN},
 \item la fonction d'activation des neurones des couches cachées;
 \item l'algorithme d'optimisation;
 \item la fonction de coût \Loss;
-\item le mode d'initiation des poids;
+\item le mode d'initialisation des poids;
 \item la liste des variables d'entrée.
 \end{itemize}
 \par
@@ -466,7 +466,7 @@ Les hyper-paramètres restant à être fixés ainsi que les valeurs explorées s
 \begin{itemize}
 \item le nombre de couches cachées \NLayers, 2 à 5;
 \item le nombre de neurones par couche cachée \NNeurons, \num{200} à \num{2000} par pas de \num{100};
-\item le mode d'initiation des poids (WI), uniforme (u), normale (n), Glorot uniforme (gu), Glorot normale (gn);
+\item le mode d'initialisation des poids (WI), uniforme (u), normale (n), Glorot uniforme (gu), Glorot normale (gn);
 \item la fonction d'activation (FA) des neurones des couches cachées, ReLU, SELU, ELU, Softplus.
 \end{itemize}
 Les évaluations
@@ -476,7 +476,7 @@ utilisant les 27 variables d'entrée
 et
 entraînés par Adam avec $\Loss=\LossMAPE$,
 regroupés respectivement par
-\NLayers, \NNeurons, mode d'initiation des poids et fonction d'activation
+\NLayers, \NNeurons, mode d'initialisation des poids et fonction d'activation
 sont données sur les
 figures~\ref{fig-N_layers}, \ref{fig-N_neurons}, \ref{fig-w_init_mode} et~\ref{fig-activation} respectivement.
 La position du modèle final sélectionné est également indiquée.
@@ -487,7 +487,7 @@ La position du modèle final sélectionné est également indiquée.
 \def\localHPlong{\NNeurons}
 \input{\PhDthesisdir/contents/chapter-ML/hyperparameters/last_hyperparams_shortcut.tex}
 \def\localHP{w_init_mode}
-\def\localHPlong{le mode d'initiation des poids}
+\def\localHPlong{le mode d'initialisation des poids}
 \input{\PhDthesisdir/contents/chapter-ML/hyperparameters/last_hyperparams_shortcut.tex}
 \def\localHP{activation}
 \def\localHPlong{la fonction d'activation}
@@ -593,11 +593,11 @@ Neurones par couche cachée \NNeurons & 1000 & 200 \\
 Fonction d'activation & Softplus & ReLU \\
 Algorithme d'optimisation & Adam & Adam \\
 Fonction de coût & \LossMAPE & \LossMSE \\
-Initiation des poids & \og Glorot Uniforme \fg~\cite{glorot} & ? \\
+Initialisation des poids & \og Glorot Uniforme \fg~\cite{glorot} & ? \\
 Nombre d'entrées & 27 (voir section~\ref{chapter-ML-section-evt_gen-inputs}) & 17 (voir~\cite{BARTSCHI201929}) \\
 \bottomrule
 \end{tabular}
-\caption[Comparaison de nos hyper-paramètres à ceux de \citeauthor{BARTSCHI201929}.]{Comparaison de nos hyper-paramètres à ceux de \citeauthor{BARTSCHI201929}. Le mode d'initiation des poids utilisé par \citeauthor{BARTSCHI201929} n'est pas donné dans leur article.}
+\caption[Comparaison de nos hyper-paramètres à ceux de \citeauthor{BARTSCHI201929}.]{Comparaison de nos hyper-paramètres à ceux de \citeauthor{BARTSCHI201929}. Le mode d'initialisation des poids utilisé par \citeauthor{BARTSCHI201929} n'est pas donné dans leur article.}
 \label{tab-compare_DNN_to_BARTSCHI201929}
 \end{table}
 %\begin{itemize}
@@ -606,7 +606,7 @@ Nombre d'entrées & 27 (voir section~\ref{chapter-ML-section-evt_gen-inputs}) & 
 %\item fonction d'activation Softplus, $x\mapsto\ln(1+\eexp{x})$;
 %\item algorithme d'optimisation Adam, présenté en section~\ref{chapter-ML-section-DNN-training-optimizers};
 %\item fonction de coût MAPE, définie équation~\eqref{eq-loss_MAPE};
-%\item initiation des poids selon le mode \og Glorot Uniforme \fg~\cite{glorot};
+%\item initialisation des poids selon le mode \og Glorot Uniforme \fg~\cite{glorot};
 %\item la liste des 27 variables d'entrée égale à celle donnée en section~\ref{chapter-ML-section-evt_gen-inputs}.
 %\end{itemize}
 %En comparaison, le DNN de \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929} a pour hyper-paramètres:
