@@ -8,7 +8,7 @@ et
 une fonction $f$ dite d'\og activation \fg, discutée section~\ref{chapter-ML-section-DNN-neuron-activ_fct}.
 Les poids $w_j$ et le biais $b$ sont les paramètres du neurone,
 la fonction d'activation est un hyper-paramètre.
-La sortie $s$ du neurone s'exprime
+La sortie $s$ du neurone s'exprime comme
 \begin{equation}
 s = f\left(\sum_{j=1}^n w_jx_j + b\right)
 \mend
@@ -21,8 +21,8 @@ Le fonctionnement d'un neurone est résumé sur la figure~\ref{fig-chapter-ML-se
 \label{fig-chapter-ML-section-DNN-neuron-neuron_structure}
 \end{figure}
 \subsubsection{Fonctions d'activation}\label{chapter-ML-section-DNN-neuron-activ_fct}
-En principe, toute fonction définie sur l'ensemble d'existence des entrées $x_j$ peut être utilisée comme fonction d'activation.
-Celles-ci étant généralement à valeurs réelles et unidimensionnelles, les fonctions sont définies sur $\mathbb{R}$.
+En principe, toute fonction définie sur l'ensemble d'existence de chacune des entrées $x_j$ peut être utilisée comme fonction d'activation.
+Elles sont ainsi définies sur $\mathbb{R}$.
 Les plus utilisées sont:
 \begin{figure}[p]
 \centering
@@ -67,7 +67,7 @@ Les plus utilisées sont:
 \begin{equation}
 \mathrm{sig}
 :x\mapsto
-\frac{\eexp{x}}{1+\eexp{x}} = \frac{1}{1+\eexp{-x}}
+\frac{1}{1+\eexp{-x}}
 \label{eq-act_fct-sig}
 \mend[;]
 \end{equation}

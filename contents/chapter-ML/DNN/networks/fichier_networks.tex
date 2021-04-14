@@ -8,12 +8,8 @@ normale profonde à propagation avant complètement connectée (\emph{normal dee
 \ie\ avec:
 \begin{itemize}
 \item des neurones répartis en couches (normale);
-\item plusieurs couches \og cachées \fg, situées entre celles d'entrée et de sortie (profonde);
-\item les entrées des neurones de la couche $k$:
-\begin{itemize}
-\item prises parmi les sorties de ceux de la couche $k-1$ (à propagation avant),
-\item étant toutes les sorties de ceux de la couche $k-1$ (complètement connectée).
-\end{itemize}
+\item plusieurs couches \og cachées \fg, situées entre les couches d'entrée et de sortie (profonde);
+\item toutes les sorties de la couche $k-1$ utilisées comme entrées de chacun des neurones de la couche $k$ (à propagation avant complètement connectée).
 \end{itemize}
 Le nombre de neurones par couche cachée $N_N$ est pris constant.
 Le nombre de couches cachées est noté $N_L$.
