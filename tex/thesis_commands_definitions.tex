@@ -699,73 +699,36 @@
 \def\localCMSdisclaimerBX{4.30}
 \def\localCMSdisclaimerBY{7.05}
 \ifthenelse{\equal{#5}{tt}}{ % tt
-  \ifthenelse{\equal{#6}{21}\or\equal{#6}{20}\or\equal{#6}{16}}{ % fake, EMB, misc
+  \ifthenelse{\equal{#6}{20}\or\equal{#6}{16}}{ % EMB, misc
     \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
     \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
   }{}
-  \ifthenelse{\equal{#6}{21}\and\equal{#4}{2016}}{ % 2016 fake
+  \ifthenelse{\equal{#6}{21}}{
     \def\localCMSdisclaimerAX{3.65}
-    \def\localCMSdisclaimerAY{7.05}
     \def\localCMSdisclaimerBX{5.05}
-    \def\localCMSdisclaimerBY{7.05}
-  }{}
-  \ifthenelse{\equal{#6}{21}\and\equal{#4}{2018}}{ % 2018 fake
-    \def\localCMSdisclaimerAX{3.65}
-    \def\localCMSdisclaimerAY{7.05}
-    \def\localCMSdisclaimerBX{5.05}
-    \def\localCMSdisclaimerBY{7.05}
   }{}
 }{}
 \ifthenelse{\equal{#5}{mt}\or\equal{#5}{et}}{ % semi-leptonic
-  \ifthenelse{\equal{#6}{21}\or\equal{#6}{16}\or\equal{#6}{13}\or\equal{#6}{15}}{
+  \ifthenelse{\equal{#6}{13}}{ % ttbar
     \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
     \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
   }{}
-  \ifthenelse{\equal{#6}{16}\and\equal{#4}{2018}}{ % 2018 misc, zll
-    \def\localCMSdisclaimerAX{6.5}
-    \def\localCMSdisclaimerAY{7.05}
-    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
-    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
-  }{}
-  \ifthenelse{\equal{#6}{20}}{
+  \ifthenelse{\equal{#6}{21}\or\equal{#6}{20}\or\equal{#6}{16}\or\equal{#6}{15}}{ % fakes, emb, misc, zll
     \def\localCMSdisclaimerAX{6.5}
     \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
     \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
   }{}
-  \ifthenelse{\equal{#6}{16}\and\equal{#4}{2016}\and\equal{#5}{et}}{ % 2016 misc in et
-    \def\localCMSdisclaimerAX{6.5}
+  \ifthenelse{\equal{#6}{16}\and\equal{#5}{mt}}{ % misc in mt
+    \def\localCMSdisclaimerAX{1.95}
     \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
     \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
   }{}
-  \ifthenelse{\equal{#6}{21}}{ % fakes
-    \def\localCMSdisclaimerAX{6.5}
-    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
-    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
-  }{}
-  \ifthenelse{\equal{#6}{15}\and\equal{#4}{2016}}{ % 2016 zll
+  \ifthenelse{\equal{#6}{15}\and\equal{#4}{2016}\and\equal{#5}{mt}}{ % 2016 zll in mt
     \def\localCMSdisclaimerAX{3.65}
     \def\localCMSdisclaimerAY{7.05}
     \def\localCMSdisclaimerBX{5.05}
     \def\localCMSdisclaimerBY{7.05}
   }{}
-  \ifthenelse{\equal{#6}{15}\and\equal{#4}{2018}}{ % 2018 zll
-    \def\localCMSdisclaimerAX{6.5}
-    \def\localCMSdisclaimerAY{7.05}
-    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
-    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
-  }{}
-  \ifthenelse{\equal{#6}{15}\and\equal{#4}{2016}\and\equal{#5}{et}}{ % 2016 zll in et
-    \def\localCMSdisclaimerAX{6.5}
-    \def\localCMSdisclaimerAY{7.05}
-    \def\localCMSdisclaimerBX{\localCMSdisclaimerAX}
-    \def\localCMSdisclaimerBY{\localCMSdisclaimerAY-.55}
-  }{}
-%  \ifthenelse{\equal{#6}{15}\and\equal{#4}{2016}}{ % 2016 emb
-%    \def\localCMSdisclaimerAX{1.95}
-%    \def\localCMSdisclaimerAY{7.05}
-%    \def\localCMSdisclaimerBX{3.35}
-%    \def\localCMSdisclaimerBY{7.05}
-%  }{}
 }{}
 \ifthenelse{\equal{#5}{em}}{ % em
   \ifthenelse{\equal{#6}{20}\or\equal{#6}{19}\or\equal{#6}{14}}{ % EMB, diboson, qcd
