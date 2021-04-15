@@ -7,67 +7,67 @@ de la séparation des canaux et
 de l'intervalle de masse
 sur les prédictions de masse
 sont discutées ci-après.
-Lors de notre étude, ces effets ont été observés en parallèle de l'exploration des hyper-paramètres présentée en section~\ref{chapter-ML-section-hyperparameters} avec des modèles divers.
+Lors de cette thèse, ces effets ont été étudiés en parallèle de l'exploration des hyper-paramètres présentée en section~\ref{chapter-ML-section-hyperparameters} avec des modèles divers.
 À des fins de cohérence dans la comparaison des effets,
 nous utilisons ici le modèle B sélectionné précédemment comme référence.
 \subsection{Effet de l'empilement}
 \def\Bnpu{$\text{B}^\text{0PU}$}
 Dans les travaux de \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929},
 l'empilement (PU, \emph{Pile-Up}) n'est pas considéré.
-Nous avons donc souhaité déterminer l'effet du PU sur les prédictions de notre modèle.
-Pour cela, les mêmes événements que ceux décrits en section~\ref{chapter-ML-section-evt_gen} ont été générés sans PU.
-Un DNN, noté \Bnpu, est entraîné sur ces événements sans PU.
-Les hyper-paramètres de \Bnpu\ sont ceux de B, à l'exception des variables d'entrée auxquelles \Npu\ est retiré, car $\Npu=0$ pour tous les événements sans PU.
-La réponse de \Bnpu\ sur les événements de test sans PU est représentée sur la figure~\ref{subfig-reponse_model_PU_00}.
+Nous avons donc souhaité déterminer l'effet de l'empilement sur les prédictions de notre modèle.
+Pour cela, les mêmes événements que ceux décrits en section~\ref{chapter-ML-section-evt_gen} ont été générés sans empilement.
+Un DNN, noté \Bnpu, est entraîné sur ces événements sans empilement.
+Les hyper-paramètres de \Bnpu\ sont ceux de B, à l'exception des variables d'entrée auxquelles \Npu\ est retiré, car $\Npu=0$ pour tous les événements sans empilement.
+La réponse de \Bnpu\ sur les événements de test sans empilement est représentée sur la figure~\ref{subfig-reponse_model_PU_00}.
 La réponse moyenne du modèle est de $\num{1.00}\pm\num{0.05}$ pour $m_{\higgsML}$ entre \SI{70}{\GeV} et \SI{600}{\GeV} avec une résolution relative de l'ordre de \SI{22}{\%} à basse masse et \SI{10}{\%} à haute masse.
 \begin{figure}[h]
 \centering
 
-\subcaptionbox{Réponse de \Bnpu\ sur les événements sans PU.\label{subfig-reponse_model_PU_00}}[.45\textwidth]
+\subcaptionbox{Réponse de \Bnpu\ sur les événements sans empilement.\label{subfig-reponse_model_PU_00}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/PU/trained_wo_PU_wo_Npu/test_wo_PU/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
 \hfill
-\subcaptionbox{Réponse de \Bnpu\ sur les événements avec PU.\label{subfig-reponse_model_PU_01}}[.45\textwidth]
+\subcaptionbox{Réponse de \Bnpu\ sur les événements avec empilement.\label{subfig-reponse_model_PU_01}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/PU/trained_wo_PU_wo_Npu/test_on_PU/model_response-NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
 
-\caption{Réponses du modèle \Bnpu\ sur les événements sans et avec PU.}
+\caption{Réponses du modèle \Bnpu\ sur les événements sans et avec empilement.}
 \label{fig-reponse_model_0PU}
 \end{figure}
 \par
-Cependant, la réponse de \Bnpu\ est dégradée sur des événements contenant du PU, figure~\ref{subfig-reponse_model_PU_01}.
-La réponse médiane se situe en effet à \num{1.13} à $m_{\higgsML}=\SI{100}{\GeV}$ et diminue à \num{0.83} à $m_{\higgsML}=\SI{800}{\GeV}$ avec PU contre \num{1.00} et \num{0.83} sans PU.
-La résolution relative à basse masse est de l'ordre de \SI{25}{\%} avec PU.
+Cependant, la réponse de \Bnpu\ est dégradée sur des événements contenant de l'empilement, figure~\ref{subfig-reponse_model_PU_01}.
+La réponse médiane se situe en effet à \num{1.13} à $m_{\higgsML}=\SI{100}{\GeV}$ et diminue à \num{0.83} à $m_{\higgsML}=\SI{800}{\GeV}$ avec empilement contre \num{1.00} et \num{0.83} sans empilement.
+La résolution relative à basse masse est de l'ordre de \SI{25}{\%} avec empilement.
 \par
-Le PU peut être considéré comme un bruit blanc, dont l'énergie moyenne est reliée à \Npu.
+L'empilement peut être considéré comme un bruit blanc, dont l'énergie moyenne est reliée à \Npu.
 L'énergie portée par $L_1$ et $L_2$, les éléments visibles de la désintégration de \higgsML,
 est en revanche reliée à $m_{\higgsML}$.
-À haute masse, l'énergie de $L_1$ et $L_2$ est grande par rapport à celle du PU.
+À haute masse, l'énergie de $L_1$ et $L_2$ est grande par rapport à celle de l'empilement.
 Les prédictions de \Bnpu\ ne sont alors pas perturbées,
-menant à des performances similaires à celles du cas sans PU.
+menant à des performances similaires à celles du cas sans empilement.
 Lorsque $m_{\higgsML}$ diminue,
 l'énergie disponible pour $L_1$ et $L_2$ est moindre
 et
-le bruit de PU est alors compétitif.
+le bruit d'empilement est alors compétitif.
 Le modèle \Bnpu\ n'est pas entraîné pour traiter ce bruit et ses prédictions sont perturbées.
-Il est donc primordial d'inclure le PU dans l'entraînement dans l'optique d'une utilisation de nos modèles dans les analyses de CMS.
+Il est donc primordial d'inclure l'empilement dans l'entraînement dans l'optique d'une utilisation de nos modèles dans les analyses de CMS.
 \par
-La réponse du modèle B, entraîné avec PU, peut être comparée
-dans le cas d'événements sans PU, figure~\ref{subfig-reponse_model_PU_10},
-au cas d'événements avec PU, figure~\ref{subfig-reponse_model_PU_11} (identique à~\ref{subfig-reponse_model_B}).
-Le profil de PU utilisé pour générer les événements d'entraînement est celui de l'année 2017.
-Or, il apparaît que le modèle B est peu sensible au retrait du PU, les réponses étant similaires sur les figure~\ref{subfig-reponse_model_PU_10} et~\ref{subfig-reponse_model_PU_11}.
-L'utilisation de B sur des événements dont le profil de PU est légèrement différent de celui de l'année 2017,
+La réponse du modèle B, entraîné avec empilement, peut être comparée
+dans le cas d'événements sans empilement, figure~\ref{subfig-reponse_model_PU_10},
+au cas d'événements avec empilement, figure~\ref{subfig-reponse_model_PU_11} (identique à~\ref{subfig-reponse_model_B}).
+Le profil d'empilement utilisé pour générer les événements d'entraînement est celui de l'année 2017.
+Or, il apparaît que le modèle B est peu sensible au retrait de l'empilement, les réponses étant similaires sur les figure~\ref{subfig-reponse_model_PU_10} et~\ref{subfig-reponse_model_PU_11}.
+L'utilisation de B sur des événements dont le profil d'empilement est légèrement différent de celui de l'année 2017,
 comme c'est le cas pour les autres années du Run~II (2016, 2018)
 est ainsi directement envisageable.
 \begin{figure}[h]
 \centering
 
-\subcaptionbox{Réponse de B sur les événements sans PU.\label{subfig-reponse_model_PU_10}}[.45\textwidth]
+\subcaptionbox{Réponse de B sur les événements sans empilement.\label{subfig-reponse_model_PU_10}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/DNNs_for_discussion/PU/trained_on_PU/test_wo_PU/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
 \hfill
-\subcaptionbox{Réponse de B sur les événements avec PU.\label{subfig-reponse_model_PU_11}}[.45\textwidth]
+\subcaptionbox{Réponse de B sur les événements avec empilement.\label{subfig-reponse_model_PU_11}}[.45\textwidth]
 {\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/trained_NNs_FastSim/DeepTau-inclusive/PuppiMET_with_METcov_j1j2jr_Nnu_Npu/model_response-NN-ADAM_glorot_uniform-activation-softplus-batch_size-2048-mape-Adadelta-u-inclusive-3-layers-1000-neurons.pdf}\vspace{-.5\baselineskip}}
 
-\caption{Réponses du modèle B sur les événements sans et avec PU.}
+\caption{Réponses du modèle B sur les événements sans et avec empilement.}
 \label{fig-reponse_model_1PU}
 \end{figure}
 \subsection{Effet de la reconstruction des particules}
@@ -77,6 +77,7 @@ Son effet peut être caractérisé par l'étude du modèle \Bgenleg,
 ayant les mêmes hyper-paramètres que B mais entraîné en utilisant les objets générés au lieu de ceux reconstruits pour $L_1$, $L_2$ et \MET, \ie\ pour les trois objets physiques liés à la désintégration des leptons~\tau\ (deux parties visibles $L_1$ et $L_2$ et \MET\ pour les neutrinos).
 En particulier, les valeurs de $\vpT^{L_1}$, $\vpT^{L_2}$ et \vMET\ correspondent exactement à la réalité.
 Il s'agit donc du cas où les objets physiques issus de \higgsML\ sont parfaitement reconstruits.
+Toutes les autres variables, y compris la matrice de covariance de \MET, restent celles obtenues avec les objets reconstruits.
 \par
 La figure~\ref{fig-reponse_model_1GENleg} montre les réponses du modèle \Bgenleg\ sur les événements avec reconstruction parfaite et réelle.
 Dans le cas d'une reconstruction parfaite,
@@ -190,17 +191,18 @@ L'effet le plus important se situe à très basse masse où la résolution est f
 \end{figure}
 \par
 La figure~\ref{fig-diffs_fakes_B_tt-lt-ll} montre la différence $\ypred-\ytrue$ entre les prédictions du modèle B et la valeur vraie de $m_{\higgsML}$ pour des valeurs de $m_{\higgsML}$ entre \num{50} et \SI{200}{\GeV} sur chacun des trois groupes de canaux et pour les deux ensembles de sélection des \tauh.
-Les différences observées pour les canaux leptoniques ($\ell\ell$),
+Dans les canaux leptoniques ($\ell\ell$),
 figures~\ref{subfig-diffs_B_few_fakes_ll} et~\ref{subfig-diffs_B_more_fakes_ll},
-sont moins importantes que dans les autres canaux.
-Les canaux leptoniques ne comportent aucun \tauh, seule la sélection des événements est modifiée.
+l'effet de la sélection des \tauh\
+est moindre que dans les autres canaux.
+Il n'y a en effet aucun \tauh\ dans le dilepton, seule la sélection des événements est modifiée.
 Un objet physique identifié comme un \tauh\ par le BDT et non par \DEEPTAU\ peut en effet faire basculer l'événement d'un canal à l'autre, si le \tauh\ identifié par le BDT permet de construire un dilepton.
 \par
 Dans le cas des canaux semi-leptoniques ($\ell\tauh$),
 la différence entre \ypred\ de B et \ytrue\ à basse masse est en moyenne inférieure à \SI{10}{\GeV}
 pour une sélection des \tauh\ par \DEEPTAU, figure~\ref{subfig-diffs_B_few_fakes_lt}.
 La résolution relative est quant à elle inférieure à \SI{25}{\%}.
-Lors les \tauh\ sont identifiés par le BDT,
+Lorsque les \tauh\ sont identifiés par le BDT,
 figure~\ref{subfig-diffs_B_more_fakes_lt},
 le modèle surestime $m_{\higgsML}$ de \SI{25}{\GeV} en moyenne pour $\SI{70}{\GeV} < m_{\higgsML} < \SI{200}{\GeV}$
 et de près de \SI{40}{\GeV} à $m_{\higgsML}=\SI{50}{\GeV}$.
@@ -511,8 +513,7 @@ montre que les prédictions du modèle sont contenues dans l'intervalle d'entra�
 à quelques exceptions près.
 Dans l'intervalle d'entraînement, les prédictions sont cohérentes avec $m_{\higgsML}$,
 la population de l'histogramme est proche de la première bissectrice ($\ypred=\ytrue$) en rouge.
-En dehors de cet intervalle,
-le comportement du modèle est proche d'une classification.
+%En dehors de cet intervalle, le comportement du modèle est proche d'une classification.
 Les événements
 avec $m_{\higgsML}<\SI{200}{\GeV}$ sont prédits vers \SI{230}{\GeV}
 et ceux 
@@ -561,7 +562,7 @@ Chaque ensemble d'événements prédits à une valeur de \ypred\ donnée est une
 En termes de classification en un nombre infini de catégories au lieu de régression, cela revient à dire qu'une famille est donc une catégorie identifiée.
 Sur la figure~\ref{fig-B-boundaries_effect-true_at_pred}
 sont représentées les distributions de $\ytrue=m_{\higgsML}$
-pour des valeurs de $\ypred$ la masse prédite par le modèle de
+pour des valeurs de la masse prédite par le modèle $\ypred$ de
 \num{400} (figure~\ref{subfig-true_at_pred_400}) et \SI{750}{\GeV} (figure~\ref{subfig-true_at_pred_750})
 à $\pm\SI{5}{\GeV}$.
 Il s'agit donc de tranches horizontales de l'histogramme de la figure~\ref{subfig-pred_vs_answ_B-boundaries_effect},

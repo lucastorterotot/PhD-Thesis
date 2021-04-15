@@ -26,7 +26,7 @@ Les hyper-paramètres des DNNs, introduits section~\ref{chapter-ML-section-DNN},
 \item la liste des variables d'entrée.
 \end{itemize}
 \par
-Les modèles entraînés ont pour but de prédire la masse générée du boson de Higgs $m_{\higgsML}$.
+Les modèles ont pour but de prédire la masse générée du boson de Higgs $m_{\higgsML}$.
 Une représentation graphique possible afin de montrer les performances d'un modèle est de représenter ses prédictions \ypred\ en fonction de \ytrue\ dans un histogramme à deux dimensions
 comme sur la figure~\ref{subfig-pred_vs_ans_2d_histo_example}.
 L'objectif des modèles est alors de se rapprocher autant que possible de la première bissectrice, tracée en rouge.
@@ -108,17 +108,16 @@ Une fois certains hyper-paramètres fixés,
 la sélection finale d'un seul modèle est réalisée selon la procédure
 présentée en section~\ref{chapter-ML-section-hyperparameters-others}.
 \subsection{Variables d'entrée}\label{chapter-ML-section-hyperparameters-inputs}
-Les différentes variables d'entrée considérées sont listées dans la section~\ref{chapter-ML-section-evt_gen-inputs}.
-La plupart de celles-ci sont généralement déjà exploitées dans les analyses en cours.
-Ce n'est toutefois pas garanti, en particulier pour les variables relatives à l'activité hadronique additionnelle.
-L'utilisation de variables supplémentaires demande,
-en plus de la mise en place de leur obtention,
-de reprendre potentiellement de longues étapes de calculs.
-Se restreindre à un sous-ensemble des variables d'entrée,
+Utiliser le moins de variables d'entrée possible,
 si cela ne dégrade pas la qualité de nos modèles,
-pourrait donc faciliter leur intégration dans des analyses.
+pourrait faciliter leur intégration dans les analyses de CMS.
+En effet,
+si toutes les variables d'entrée considérées listées section~\ref{chapter-ML-section-evt_gen-inputs}
+sont généralement déjà exploitées dans les analyses en cours,
+ce n'est toutefois pas toujours le cas, en particulier pour les variables relatives à l'activité hadronique additionnelle.
+Il est donc pertinent de déterminer les variables dont les modèles peuvent aisément se passer.
 \par
-Les sous-ensembles des variables d'entrée sont définis par les restrictions suivantes:
+Pour cela, des sous-ensembles des variables d'entrée sont définis par les restrictions suivantes:
 \begin{itemize}
 \item sans \Npu: la variable \Npu\ n'est pas utilisée;
 \item sans \Nnu: la variable \Nnu\ n'est pas utilisée;
@@ -127,16 +126,16 @@ Les sous-ensembles des variables d'entrée sont définis par les restrictions su
 \item sans \mT: les masses transverses ne sont pas utilisées;
 \item sans METcov: la matrice de covariance de \MET\ n'est pas utilisée.
 \end{itemize}
-L'application de plusieurs de ces restrictions est également testée.
+L'application de plusieurs de ces restrictions simultanément est également testée.
 \par
-Les performances modèles entraînés avec les différents ensembles de variables d'entrée sont données
+Les performances des modèles entraînés avec les différents ensembles de variables d'entrée sont données
 figure~\ref{fig-XGB_inputs} pour les XGBs
 et
 figure~\ref{fig-DNN_inputs}
 pour les DNNs.
 Les modèles concernés par plusieurs restrictions sont comptés de manière pondérée dans chaque groupe correspondant à une restriction unique.
 Par exemple, un modèle soumis à la restriction \og sans \Npu\ \fg{} et \og sans \Nnu\ \fg{} a un poids de $\frac{1}{2}$ dans chacun de ces deux groupes.
-Une pondération par la quantité de modèles dans chaque groupe est de plus appliquée pour supprimer le biais lié à la quantité accrue de modèles dans le groupe sans restrictions.
+%Une pondération par la quantité de modèles dans chaque groupe est de plus appliquée pour supprimer le biais lié à la quantité accrue de modèles dans le groupe sans restrictions.
 Les histogrammes ainsi créés sont superposés.
 Il est alors possible de voir les contributions de chacune des restrictions aux valeurs obtenues sur la métrique d'évaluation illustrée.
 \begin{figure}[h]
@@ -190,7 +189,7 @@ exhibent une distribution de \OneSigmaWidth\ légèrement décalée vers de plus
 \par
 Dans le cas des DNNs,
 la distribution de la métrique \LossMAPE, en figure~\ref{subfig-DNN_inputs-mape},
-contient des valeurs situées entre \num{17.5} et \num{25}.
+contient des valeurs situées majoritairement entre \num{17.5} et \num{25}.
 Les DNNs n'utilisant pas \Nnu\
 se situent à $\LossMAPE>\num{18}$.
 Cette variable permet aux modèles de différencier les canaux
@@ -296,6 +295,8 @@ Cependant,
 les performances des modèles
 à basse masse, \ie\ pour $m_{\higgsML} < \SI{150}{\GeV}$,
 sont importantes car c'est dans cette gamme de masse que se trouvent les bosons \Zboson\ et \higgs\ du modèle standard.
+En particulier, il faut s'assurer que le signal du~\Zboson\ présente une queue à haute masse, \ie\ dans la région de signal des bosons de Higgs.
+Dans le cadre des analyses telles que celle présentée au chapitre~\refChHTT, le \Zboson\ est en effet un bruit de fond important.
 Sur la figure~\ref{subfig-DNN_vs_XGB-low_1sigma},
 l'évaluation à basse masse par \OneSigmaWidth\
 les XGBs ont un score de $\num{0.70}\pm\num{0.15}$
@@ -479,7 +480,10 @@ regroupés respectivement par
 \NLayers, \NNeurons, mode d'initialisation des poids et fonction d'activation
 sont données sur les
 figures~\ref{fig-N_layers}, \ref{fig-N_neurons}, \ref{fig-w_init_mode} et~\ref{fig-activation} respectivement.
-La position du modèle final sélectionné est également indiquée.
+Les distributions des scores pour les métriques d'évaluation y étant présentées
+sont semblables pour tous les groupes de modèles formés par
+une valeur fixée d'un de ces hyper-paramètres.
+La méthode employée jusqu'ici ne permet donc pas de conclure sur le choix d'une valeur pour un hyper-paramètre.
 \def\localHP{N_layers}
 \def\localHPlong{\NLayers}
 \input{\PhDthesisdir/contents/chapter-ML/hyperparameters/last_hyperparams_shortcut.tex}
@@ -493,10 +497,13 @@ La position du modèle final sélectionné est également indiquée.
 \def\localHPlong{la fonction d'activation}
 \input{\PhDthesisdir/contents/chapter-ML/hyperparameters/last_hyperparams_shortcut.tex}
 \par
-Les regroupements définis par une valeur fixée d'un seul hyper-paramètre ne montrent aucune corrélation
-avec les valeurs des métriques d'évaluation utilisées.
-La méthode employée jusqu'ici ne permet donc pas de conclure sur le choix d'une valeur pour un hyper-paramètre.
-Nous avons alors choisi d'utiliser la procédure suivante:
+Nous avons alors choisi
+de sélectionner un modèle
+parmi ceux restant à ce stade
+à l'aide d'une procédure itérative
+rejetant tout modèle avec un score élevé selon une des métriques d'évaluation
+jusqu'à ce qu'il n'en reste que 10 au plus.
+Cette procédure est la suivante:
 \begin{enumerate}
 \item Déterminer la valeur maximale $x_\text{max}^\text{métrique $m$}$, sur l'ensemble des modèles sélectionnés, de chacune des métriques d'évaluation $m$ utilisées.
 La valeur maximale autorisée $x_\text{OK}^\text{métrique $m$}$ pour la métrique $m$ est initialement fixée à $x_\text{max}^\text{métrique $m$}$;
