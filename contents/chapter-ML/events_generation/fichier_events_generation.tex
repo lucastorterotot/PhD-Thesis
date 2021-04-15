@@ -1,5 +1,4 @@
-\section{Événements utilisés}\label{chapter-ML-section-evt_gen}
-%Utiliser les mêmes données simulées que dans les analyses de physique afin d'entraîner les modèles introduirait un biais.
+\section{Événements utilisés ou échantillons}\label{chapter-ML-section-evt_gen}
 L'objectif est de reconstruire la masse des particules se désintégrant en paire de leptons~\tau.
 Il s'agit donc d'une tâche de régression.
 Dans l'optique d'une utilisation dans les analyses telles que celle présentée dans le chapitre~\refChHTT,
@@ -8,11 +7,12 @@ $\higgsML\to\tau\tau$
 où \higgsML\ est le boson de Higgs du modèle standard \higgs\ dont la masse est modifiée,
 à l'instar de ce qu'ont fait \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929}.
 La cible du modèle est donc la masse $m_{\higgsML}$.
+Un événement est, dans la terminologie du ML, un \og échantillon \fg.
 \subsection{Génération avec \FASTSIM}\label{chapter-ML-section-evt_gen-FASTSIM}
 Nous avons généré nos propres données simulées~\cite{fastsim_ece}
 afin d'obtenir
 une distribution continue des valeurs de $m_{\higgsML}$
-et suffisamment d'événements pour chaque point de masse.
+et suffisamment d'échantillons pour chaque point de masse.
 Dans le contexte de la collaboration CMS, nous avons utilisé \FASTSIM~\cite{FastSim_2011,FastSim_2014,FastSim_2017_1,FastSim_2017_2}.
 Cet outil permet de procéder à l'ensemble de la simulation des événements introduite chapitre~\refChLHCCMS,
 de la génération du processus physique à la reconstruction des objets physiques par le détecteur.
@@ -62,7 +62,7 @@ Son efficacité est représentée sur la figure~\ref{fig-analysis_cuts_efficienc
 Plus de \SI{99}{\%} des événements sont rejetés lorsque $m_{\higgsML} < \SI{50}{\GeV}$.
 Nous ne considérerons donc pas de masse plus basse.
 \par
-S'il est possible d'appliquer des poids aux événements afin d'équilibrer l'entraînement sur l'ensemble des valeurs de la cible,
+S'il est possible d'appliquer des poids aux échantillons afin d'équilibrer l'entraînement sur l'ensemble des valeurs de la cible,
 plus d'événements sont générés à basse masse afin d'obtenir des topologies d'événements variées malgré la faible efficacité de sélection.
 Ainsi, la quantité d'événements générés pour chaque valeur de $m_{\higgsML}$ est de:
 \begin{itemize}
@@ -170,14 +170,14 @@ d'où la disparition de la queue à haute masse sur la figure~\ref{subfig-distri
 \par
 Ces événements sont de plus séparés en trois groupes selon les proportions suivantes:
 \begin{itemize}
-\item \SI{70}{\%} pour l'entraînement. Ce sont ces événements que les modèles pourront exploiter afin d'apprendre à prédire correctement $m_{\higgsML}$;
-\item \SI{20}{\%} pour la validation. Ces événements permettent de vérifier qu'il n'y a pas de surentraînement, \ie\ que le modèle ne se spécialise pas vis-à-vis du jeu d'entraînement;
-\item \SI{10}{\%} pour les tests. Ces événements ne sont pas utilisés lors des entraînements et permettent donc de tester les modèles sur des données inédites. Sauf contre-indication, les figures sont toutes obtenues avec ce groupe d'événements.
+\item \SI{70}{\%} pour l'entraînement. Ce sont ces échantillons que les modèles pourront exploiter afin d'apprendre à prédire correctement $m_{\higgsML}$;
+\item \SI{20}{\%} pour la validation. Ces échantillons permettent de vérifier qu'il n'y a pas de surentraînement, \ie\ que le modèle ne se spécialise pas vis-à-vis du jeu d'entraînement;
+\item \SI{10}{\%} pour les tests. Ces échantillons ne sont pas utilisés lors des entraînements et permettent donc de tester les modèles sur des données inédites. Sauf contre-indication, les figures sont toutes obtenues avec ce groupe d'échantillons.
 \end{itemize}
-La répartition des événements dans ces trois groupes est faite de manière aléatoire.
+La répartition des échantillons dans ces trois groupes est faite de manière aléatoire.
 \par
-Afin de réaliser un entraînement équitable entre les différentes valeurs de $m_{\higgsML}$, un poids est associé à chaque événement de manière à ce que la distribution pondérée de $m_{\higgsML}$ soit plate dans chacun des trois groupes précédemment définis.
-Cette distribution sur les événements utilisés pour l'entraînement des modèles est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-weighted-is_train}.
+Afin de réaliser un entraînement équitable entre les différentes valeurs de $m_{\higgsML}$, un poids est associé à chaque échantillon de manière à ce que la distribution pondérée de $m_{\higgsML}$ soit plate dans chacun des trois groupes précédemment définis.
+Cette distribution sur les échantillons utilisés pour l'entraînement des modèles est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-weighted-is_train}.
 \subsection{Cible et variables d'entrée des modèles}\label{chapter-ML-section-evt_gen-inputs}
 La cible des modèles est la masse de la particule générée \higgsML\ se désintégrant en paire de leptons~\tau.
 Un tel événement est illustré sur la figure~\ref{fig-model_inputs-fgraph-H-BBtautau_mutau_small}.

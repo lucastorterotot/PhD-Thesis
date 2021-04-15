@@ -1,19 +1,53 @@
-\subsection{Entraînement et descente de gradient}\label{chapter-ML-section-gradient_descent}
+\subsection{Entraînement, descente de gradient et mini-lots}\label{chapter-ML-section-gradient_descent}
 Un modèle peut être vu comme une fonction paramétrique $F$
 dont l'application à une entrée $\vec{x}$
 donne une prédiction $\ypred=F(\vec{x})$.
 %Les paramètres du modèle sont ceux de la fonction $F$.
 L'entraînement consiste à régler les paramètres du modèle
-afin d'obtenir des prédictions cohérentes avec les valeurs vraies du jeu de données d'entraînement.
+afin d'obtenir des prédictions fidèles aux valeurs vraies du jeu de données d'entraînement.
 \par
 La fonction de coût \Loss\ est minimale lorsque les prédictions du modèle sont parfaites.
 Il s'agit donc de trouver le minimum de \Loss\ dans l'espace à $D$ dimensions formé par les $D=N_\text{params.}$ paramètres à régler.
-Cela peut être fait de manière itérative par descente de gradient~\cite{cauchy_1847}.
+Cela peut être fait de manière itérative par descente de gradient (GD, \emph{Gradient Descent}) \cite{cauchy_1847}.
 Il s'agit d'une méthode itérative qui détermine le gradient de \Loss, $\grad(\Loss)$, autour de la \og position \fg{} du modèle dans l'espace à $D$ dimensions.
 Chaque paramètre $p$ est alors modifié selon
 \begin{equation}
-p \to p - \eta \grad(\Loss) \cdot \bvec_p = p - \eta \pdv{\Loss}{p}
+p \to p - \eta \grad(\Loss(\set{\ytruei}, \set{\ypredi})) \cdot \bvec_p = p - \eta \pdv{\Loss(\set{\ytruei}, \set{\ypredi})}{p}
 \end{equation}
 avec $\eta$ le taux d'apprentissage,
-\ie\ que la position du modèle est déplacée en suivant la pente du gradient vers un point plus bas.
-Le taux d'apprentissage est généralement pris entre 0 et 1.
+et
+$\Loss(\set{\ytruei}, \set{\ypredi})$
+la fonction de coût évaluée sur l'ensemble du jeu de données d'entraînement.
+%La position du modèle est donc déplacée en suivant la pente du gradient vers un point plus bas.
+Le taux d'apprentissage est généralement pris entre \num{e-5} et \num{0.5}.
+\par
+Toutefois, l'évaluation du gradient de la fonction de coût sur l'ensemble du jeu de donnée d'entraînement,
+contenant éventuellement plusieurs millions d'échantillons comme c'est le cas dans cette thèse,
+nécessite d'importantes ressources computationnelles (en l'occurrence, de la mémoire vive).
+La descente de gradient stochastique (SGD, \emph{Stochastic Gradient Descent})
+consiste alors à évaluer le gradient de \Loss\ pour chaque échantillon.
+Cependant, le SGD amène de fortes fluctuations le long de la descente,
+ce qui ralenti l'entraînement.
+De plus, ces mêmes fluctuations une fois proche du minimum mènent à une précision dégradée des prédictions.
+\par
+Afin d'éviter ce phénomène,
+le \emph{batch}~GD (BGD) \cite{SGD}
+évalue le gradient de la fonction de coût
+par une moyenne
+sur un \og mini-lot \fg{} (\emph{mini-batch}), sous-ensemble du jeu de données de taille fixée.
+Les fluctuations lors de la descente sont moindres quand dans le cas de SGD.
+Cette moyenne introduit un bruit dû à la composition aléatoire des mini-lots
+qui reste non nul même une fois le minimum de \Loss\ atteint.
+Cela permet de s'échapper des minimums locaux, mais dégrade la précision une fois au minimum global.
+\par
+Une \og époque \fg{} de l'entraînement correspond à une utilisation de tous les mini-lots, \ie\ de tous les échantillons du jeu de données, pour modifier les paramètres du modèle.
+Pour ne pas biaiser l'entraînement à cause de l'ordre du jeu de données,
+il est mélangé aléatoirement à chaque nouvelle époque.
+La composition des mini-lots est donc également aléatoire.
+La taille des mini-lots est fixée à $2^{11}=\num{2048}$ événements.
+Une taille de la forme $2^n$ permet d'optimiser l'utilisation des GPUs (\emph{Graphics Processing Unit}) sur lesquels l'entraînement se fait~\cite{DNN}.
+Les points de masse générés étant les entiers entre \num{50} et \SI{800}{\GeV}, soit \num{750} points de masse,
+\num{2048} événements pris au hasard est un compromis entre
+un petit mini-lot
+et
+une bonne probabilité de couvrir une large gamme de masse au sein d'un mini-lot.

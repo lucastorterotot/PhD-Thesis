@@ -25,40 +25,27 @@ Le mode d'initialisation est un hyper-paramètre du modèle.
 Lors de ces travaux, nous avons testé les lois normale et uniforme.
 Dans le cas des DNNs, ces modes d'initialisation peuvent être améliorés par la méthode de \citeauthor{glorot}~\cite{glorot} afin de faciliter l'entraînement.
 Il s'agit alors des lois \og Glorot uniforme \fg{} et \og Glorot normale \fg, également testées.
-\subsubsection{Fonction de coût et optimisation des paramètres}
-La modification des paramètres du NN pourrait être réalisée \todo{ainsi} pour chaque événement du jeu de données d'entraînement.
-Or, la nature des données à analyser peut mener à une stagnation, si deux événements donnent modifications opposées.
-Afin d'éviter ce phénomène, la mise à jour des paramètres se fait à partir de \og mini-lots \fg, introduits section~\ref{chapter-ML-section-DNN-training-minibatch}.
-Des algorithmes d'optimisation, adaptés aux mini-lots et dérivés du \emph{Gradient Descent}, sont présentés section~\ref{chapter-ML-section-DNN-training-optimizers}.
-\subsubsection{Mini-lots et époques}\label{chapter-ML-section-DNN-training-minibatch}
-Un mini-lot est un sous-ensemble du jeu de données.
-L'entraînement se base alors sur la moyenne du gradient de la fonction de coût sur le mini-lot, au lieu de la valeur de ce gradient pour chaque événement.
-\par
-Une \og époque \fg{} de l'entraînement correspond à une utilisation de tous les mini-lots, \ie\ de tous les événements du jeu de données, pour modifier les paramètres du NN.
-Le nombre maximal d'époques autorisé est de \num{500}, avec un arrêt prématuré au bout de \num{20} époques sans diminution de l'erreur absolue moyenne sur les données de validation.
-\par
-Pour ne pas biaiser l'entraînement à cause de l'ordre du jeu de données,
-il est mélangé aléatoirement à chaque nouvelle époque.
-La composition des mini-lots est donc également aléatoire.
-La taille des mini-lots est fixée à $2^{11}=\num{2048}$ événements.
-Une taille de la forme $2^n$ permet d'optimiser l'utilisation des GPUs (\emph{Graphics Processing Unit}) sur lesquels l'entraînement se fait~\cite{DNN}.
-Les points de masse générés étant les entiers entre \num{50} et \SI{800}{\GeV}, soit \num{750} points de masse,
-\num{2048} événements pris au hasard est un compromis entre
-un petit mini-lot
-et
-une bonne probabilité de couvrir une large gamme de masse au sein d'un mini-lot.
-\subsubsection{Algorithmes d'optimisation}\label{chapter-ML-section-DNN-training-optimizers}
+\subsubsection{Optimisation des paramètres}\label{chapter-ML-section-DNN-training-optimizers}
+L'optimisation des paramètres est réalisée
+en utilisant les mini-lots introduits en section~\ref{chapter-ML-section-gradient_descent}.
+Un maximum de \num{500} époques est autorisé,
+avec un arrêt prématuré au bout de \num{20} époques sans diminution de l'erreur absolue moyenne (\LossMAE) sur les données de validation.
+%\par
 Plusieurs algorithmes d'optimisation existent~\cite{DNN}, présentés de manière non exhaustive ci-après.
-Le premier, SGD, est l'adaptation directe du \emph{Gradient Descent} aux mini-lots.
-Cependant, le choix d'une valeur optimale du taux d'apprentissage $\eta$ est ardu.
-Or, les modèles y sont très sensibles~\cite{DNN}.
-C'est pourquoi d'autres algorithmes d'optimisation ont été développés.
-\paragraph{\emph{Stochastic Gradient Descent} (SGD)} \cite{SGD}
-L'algorithme SGD applique le principe du \emph{Gradient Descent} en estimant le gradient de la fonction de coût par une moyenne sur le mini-lot.
-Cette moyenne introduit un bruit dû à la composition aléatoire des mini-lots
-qui reste non nul même une fois le minimum de \Loss\ atteint.
-Pour palier cet effet, le taux d'apprentissage $\eta$ peut être diminué à chaque époque~\cite{DNN}.
-La condition sur les taux d'apprentissage $\eta_k$ avec $k$ l'époque afin de s'assurer de la convergence du modèle optimisé par SGD est
+%Le premier, BGD~\cite{SGD}, est introduit section~\ref{chapter-ML-section-gradient_descent}.
+%Cependant, le choix d'une valeur optimale du taux d'apprentissage $\eta$ est ardu.
+%Or, les modèles y sont très sensibles~\cite{DNN}.
+%C'est pourquoi d'autres algorithmes d'optimisation ont été développés.
+\paragraph{\emph{Batch Gradient Descent} (BGD)} \cite{SGD}
+L'algorithme BGD,
+déjà introduit en section~\ref{chapter-ML-section-gradient_descent},
+applique la méthode de descente de gradient
+sur les mini-lots.
+Le bruit dû à la composition aléatoire des mini-lots
+permet de s'échapper des minimums locaux
+mais dégrade la précision une fois au minimum global.
+Pour palier cet effet, le taux d'apprentissage $\eta$ peut être diminué à chaque époque.
+La condition sur les taux d'apprentissage $\eta_k$ avec $k$ l'époque afin de s'assurer de la convergence du modèle optimisé par BGD est~\cite{DNN}
 \begin{equation}
 \sum_{k=1}^\infty \eta_k = \infty
 \msep
@@ -67,10 +54,10 @@ La condition sur les taux d'apprentissage $\eta_k$ avec $k$ l'époque afin de s'
 \end{equation}
 La mise à jour des paramètres à la fin d'un mini-lot pendant l'époque $k$ est alors réalisée selon
 \begin{equation}
-p \to p - \eta_k \average{\grad(\Loss)}_\text{mini-lot} \cdot \bvec_p = p - \eta_k \average{\pdv{\Loss}{p}}_\text{mini-lot}
+p \to p - \eta_k \average{\grad(\Loss)}_\text{mini-lot} \cdot \bvec_p = p - \eta_k \Average{\pdv{\Loss}{p}}_\text{mini-lot}
 \mend
 \end{equation}
-\paragraph{SGD avec moments} \cite{DNN}
+\paragraph{BGD avec moments} \cite{DNN}
 Les moments sont une \og mémoire \fg{} des valeurs du gradient de la fonction de coût des époques précédentes.
 Ce peut être vu comme une inertie du mouvement du modèle dans l'espace des paramètres,
 prise en compte à travers une vitesse $\vec{v}$ définie initialement par l'utilisateur et mise à jour à chaque mini-lot selon
@@ -82,7 +69,7 @@ prise en compte à travers une vitesse $\vec{v}$ définie initialement par l'uti
 \Rightarrow
 \vec{v}[t]\cdot\bvec_p = v_p[t]
 &=
-\alpha v_p[t-1] - \eta_k \average{\pdv{\Loss}{p} [t]}_\text{mini-lot}
+\alpha v_p[t-1] - \eta_k \Average{\pdv{\Loss}{p} [t]}_\text{mini-lot}
 \end{align}
 avec
 $t$ l'indice d'itération ou indice temporel de l'entraînement,
@@ -94,7 +81,7 @@ p [t-1] \to p[t]
 =
 p[t-1] + v_p[t]
 =
-p[t-1] + \alpha v_p[t-1] - \eta_k \average{\pdv{\Loss}{p} [t]}_\text{mini-lot}
+p[t-1] + \alpha v_p[t-1] - \eta_k \Average{\pdv{\Loss}{p} [t]}_\text{mini-lot}
 \mend
 \end{equation}
 \paragraph{\emph{Adaptive Gradient} (AdaGrad)} \cite{adagrad}
@@ -103,13 +90,13 @@ L'algorithme AdaGrad adapte le taux d'apprentissage individuellement pour chaque
 variable de mémoire $\vec{r}$.
 Elle est initialement définie à $\vec{0}$ et est modifiée à chaque mini-lot selon
 \begin{equation}
-\vec{r}\cdot\bvec_p = r_p \to r_p + \average{\pdv{\Loss}{p}}_\text{mini-lot}^2
+\vec{r}\cdot\bvec_p = r_p \to r_p + \Average{\pdv{\Loss}{p}}_\text{mini-lot}^2
 \label{eq-AdaGrad_memory}
 \mend
 \end{equation}
 La mise à jour des paramètres se fait alors selon
 \begin{equation}
-p \to p - \eta \frac{1}{\sqrt{r_p}+\delta} \average{\pdv{\Loss}{p}}_\text{mini-lot}
+p \to p - \eta \frac{1}{\sqrt{r_p}+\delta} \Average{\pdv{\Loss}{p}}_\text{mini-lot}
 \end{equation}
 où $\delta$ est une variable de régularisation évitant les divisions par zéro.
 Le taux d'apprentissage effectif pour le paramètre $p$
@@ -122,7 +109,7 @@ Cependant, l'accumulation depuis le début de l'entraînement des gradients au c
 L'algorithme RMSProp consiste en une légère modification de AdaGrad.
 Une décroissance exponentielle de la mémoire des gradients passés est mise en place en remplaçant~\eqref{eq-AdaGrad_memory} par
 \begin{equation}
-r_p \to \rho \, r_p + (1-\rho)\average{\pdv{\Loss}{p}}_\text{mini-lot}^2
+r_p \to \rho \, r_p + (1-\rho)\Average{\pdv{\Loss}{p}}_\text{mini-lot}^2
 \end{equation}
 où $0<\rho<1$ est le taux de diminution de la mémoire.
 RMSProp est ainsi une version de AdaGrad dont la mémoire est plus adaptée à la situation locale.
@@ -132,7 +119,7 @@ La variable $r_p$ est mise à jour par~\eqref{eq-AdaGrad_memory}.
 Cependant, la valeur précédente de $r_p$ est également utilisée lors de la mise à jour de $p$.
 Ainsi, lors de l'itération $t$,
 \begin{equation}
-p [t-1] \to p [t] = p[t-1] - \frac{\sqrt{r_p[t-1]}+\delta}{\sqrt{r_p[t]}+\delta} \average{\pdv{\Loss}{p} [t]}_\text{mini-lot}
+p [t-1] \to p [t] = p[t-1] - \frac{\sqrt{r_p[t-1]}+\delta}{\sqrt{r_p[t]}+\delta} \Average{\pdv{\Loss}{p} [t]}_\text{mini-lot}
 \mend
 \end{equation}
 Il n'y a donc pas besoin de définir un taux d'apprentissage initial avec AdaDelta.
@@ -153,10 +140,10 @@ Pour cela sont définis initialement:
 Puis, à chaque mini-lot, les moments sont redéfinis selon
 \begin{equation}
 \vec{v}\cdot\bvec_p =
-v_p \to \rho_1 v_p + (1-\rho_1) \average{\pdv{\Loss}{p}}_\text{mini-lot}
+v_p \to \rho_1 v_p + (1-\rho_1) \Average{\pdv{\Loss}{p}}_\text{mini-lot}
 \msep
 \vec{r}\cdot\bvec_p =
-r_p \to \rho_2 r_p + (1-\rho_2) \average{\pdv{\Loss}{p}}_\text{mini-lot}^2
+r_p \to \rho_2 r_p + (1-\rho_2) \Average{\pdv{\Loss}{p}}_\text{mini-lot}^2
 \mend
 \end{equation}
 Le biais d'initialisation des moments est corrigé en appliquant
