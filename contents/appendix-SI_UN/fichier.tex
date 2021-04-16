@@ -1,0 +1,71 @@
+\chapter*{Systèmes d'unités}\label{appendix-SI_UN}
+Le système d'unité utilisé dans cette thèse
+est le système dit \og naturel \fg{} (UN).
+différent du système international (SI) \cite{BIPM_SI_9}
+largement utilisé à travers le monde.
+À chaque grandeur physique correspond une dimension,
+basée sur les sept dimensions et unités fondamentales du SI:
+\begin{itemize}
+\item le temps \dimT, en seconde;
+\item la longueur \dimL, en mètre;
+\item la masse \dimM, en kilogramme;
+\item le courant électrique \dimI, en ampère;
+\item la température \dimtemp, en kelvin;
+\item la quantité de matière \dimN, en mole;
+\item l'intensité lumineuse \dimJ, en candela.
+\end{itemize}
+La définition des sept unités fondamentales repose sur autant de constantes physiques dont la valeur est fixée par convention.
+Ainsi,
+la seconde est fixée par la fréquence de la transition hyperfine du césium $\Delta \nu_{\ce{Cs}} = \SI{9192631770}{\hertz}$.
+Le mètre peut alors être défini à partir de la vitesse de la lumière dans le vide $c=\SI{2999792458}{\meter.\second^{-1}}$.
+Puis,
+le kilogramme est obtenu grâce à ce deux premières unités et la constante de Planck $h = \SI{6.62607015e-34}{\joule.\second}$.
+\par
+Cependant, en physique des particules,
+ces unités ne sont pas adaptées aux échelles des grandeurs physiques exploitées.
+C'est pourquoi un autre système d'unités, dites naturelles, (UN) est utilisé dans lequel
+$\hbar=c=1$.
+Les dimensions fondamentales de masse, longueur et temps
+sont remplacées par les dimensions de
+$\hbar$, $c$ et d'énergie en \GeV,
+avec $\hbar = \frac{h}{2\pi}$
+et
+$\SI{1}{\GeV} = \SI{e9}{\eV} = \num{e9} \times e \times \SI{1}{\volt}$,
+$e$ étant la charge électrique élémentaire.
+Ce changement de dimensions fondamentales permet toujours de décrire toutes les grandeurs physiques,
+comme un changement de système de coordonnées permet toujours de décrire toutes les positions possibles.
+\par
+Dans le UN,
+une masse s'exprime ainsi en \SI{}{\GeV.\clumunit^{-2}},
+une longueur en \SI{}{\hbarunit.\clumunit.\GeV^{-1}},
+une durée en \SI{}{\hbarunit.\GeV^{-1}},
+etc.
+Par abus de langage, comme $\hbar=c=1$,
+les facteurs $\hbar$ et $c$ sont omis.
+Une masse s'exprime alors en \SI{}{\GeV}, ce qui devrait pourtant correspondre à une énergie.
+Par exemple,
+l'électron possède une masse de
+\SI{9.11e-31}{\kilo\gram},
+soit
+\SI{511}{\keV}.
+Le tableau~\ref{tab-SI_UN} résume le passage entre
+(\dimM, \dimL, \dimT), ($\hbar$, $c$, \SI{}{\GeV}) et ($\hbar=c=1$, \SI{}{\GeV}).
+\begin{table}[h]
+\centering
+\def\clumunit{\text{$c$}}
+\def\hbarunit{\text{$\hbar$}}
+\begin{tabularx}{\textwidth}{lYYYl}
+\toprule
+Grandeur & \multicolumn{3}{c}{Dimensions: (\dimM, \dimL, \dimT), ($\hbar$, $c$, \SI{}{\GeV}), ($\hbar=c=1$, \SI{}{\GeV})} & Conversion $\text{SI}\rightarrow\text{UN}$\\
+\midrule
+Masse & \dimM & \SI{}{\GeV.\clumunit^{-2}} & \SI{}{\GeV} & $\SI{1}{\kilo\gram} = \SI{5.61e26}{\GeV}$ \\
+Longueur & \dimL & \SI{}{\hbarunit.\clumunit.\GeV^{-1}} & \SI{}{\GeV^{-1}} & $\SI{1}{\meter} = \SI{5.07e15}{\GeV^{-1}}$ \\
+Durée & \dimT & \SI{}{\hbarunit.\GeV^{-1}} & \SI{}{\GeV^{-1}} & $\SI{1}{\second} = \SI{1.52e24}{\GeV^{-1}}$ \\
+Énergie & $\dimM \dimL^2 \dimT^{-2}$ & \SI{}{\GeV} & \SI{}{\GeV} & $\SI{1}{\joule} = \frac{\num{e-3}}{\num{1.6e-19}} \usp \SI{}{\GeV}$\\
+Impulsion & $\dimM \dimL \dimT^{-1}$ & \SI{}{\GeV.\clumunit^{-1}} & \SI{}{\GeV} & $\SI{1}{\kilo\gram.\meter.\second^{-1}} = \SI{1.87e18}{\GeV}$ \\
+\bottomrule
+\end{tabularx}
+\caption[Équivalence entre les systèmes d'unités international et naturel.]{Équivalence entre les systèmes d'unités international et naturel pour quelques grandeurs physiques.}
+\label{tab-SI_UN}
+\end{table}
+
