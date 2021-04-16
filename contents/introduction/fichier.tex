@@ -1,31 +1,123 @@
 \chapter*{Introduction}\label{chapter-introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-MS = th description ptcs et interactions
-
-50+ ans echanges th et expé
-
-MAIS matière et énergie noire, asymétrie matière antimat., ... BSM
-
-LHC!
-
-CMS
-
-\og ce qui suit dans ce manuscrit \fg{} 
-
-\begin{table}
-\centering
-\def\clumunit{\text{$c$}}
-\def\hbarunit{\text{$\hbar$}}
-\begin{tabularx}{\textwidth}{lYYYl}
-\toprule
-Grandeur & \multicolumn{3}{c}{Dimensions: (\dimM, \dimL, \dimT), ($\hbar$, $c$, \SI{}{\GeV}), ($\hbar=c=1$, \SI{}{\GeV})} & Conversion $\text{SI}\leftrightarrow\text{UN}$\\
-\midrule
-Masse & \dimM & \SI{}{\GeV.\clumunit^{-2}} & \SI{}{\GeV} & $\SI{1}{\kilo\gram} = \SI{5.61e26}{\GeV}$ \\
-Longueur & \dimL & \SI{}{\hbarunit.\clumunit.\GeV^{-1}} & \SI{}{\GeV^{-1}} & $\SI{1}{\meter} = \SI{5.07e15}{\GeV^{-1}}$ \\
-Durée & \dimT & \SI{}{\hbarunit.\GeV^{-1}} & \SI{}{\GeV^{-1}} & $\SI{1}{\second} = \SI{1.52e24}{\GeV^{-1}}$ \\
-Énergie & $\dimM \dimL^2 \dimT^{-2}$ & \SI{}{\GeV} & \SI{}{\GeV} & $\SI{1}{\joule} = \frac{\num{e-3}}{\num{1.6e-19}} \usp \SI{}{\GeV}$\\
-Impulsion & $\dimM \dimL \dimT^{-1}$ & \SI{}{\GeV.\clumunit^{-1}} & \SI{}{\GeV} & $\SI{1}{\kilo\gram.\meter.\second^{-1}} = \SI{1.87e18}{\GeV}$ \\
-\bottomrule
-\end{tabularx}
-\end{table}
+La physique est une science dont le but est de
+comprendre et modéliser les phénomènes régissant l'Univers.
+Les propriétés des objets dépendant de celles de leurs constituants,
+la description la plus fondamentale de l'Univers s'appuie sur la bonne compréhension
+du comportement des constituants de la matière et de leurs interactions.
+\par
+Les avancées scientifiques, théoriques et expérimentales,
+ont dévoilé la nature de la matière à des échelles de plus en plus fines.
+Tout objet est un arrangement d'atomes, dont la taille est de l'ordre de
+\SI{1}{\angstrom}, soit \SI{e-10}{\meter}.
+Ils sont eux-mêmes constitués d'un noyau atomique d'environ \SI{e-15}{\meter},
+autour duquel se trouve un nuage d'électrons.
+Ce noyau est lui-même constitué de protons et de neutrons,
+eux-même constitués de quarks~\quarku\ et~\quarkd.
+À ce jour, il n'a pas été observé de sous-structure aux quarks ou au électrons.
+De telles particules sont dites fondamentales.
+\par
+La physique des particules, aussi nommée physique des hautes énergies, étudie les constituants élémentaires de la matière.
+Plus de 50 ans d'échanges entre prédictions théoriques et résultats expérimentaux
+ont permis de mettre en place dès les années 1960 le modèle standard,
+%qui est une théorie quantique des champs basée sur l'invariance de jauge locale.
+présenté dans le chapitre~\refChMSSM.
+Ce modèle a par exemple permis de prédire l'existence
+du quark~\quarkt,
+des gluons,
+des bosons~\Wboson\ et~\Zboson\
+ou encore
+du boson de Higgs,
+parfois plusieurs années avant leur observation.
+\par
+Cependant,
+malgré plusieurs décennies de prédictions expérimentalement vérifiées,
+ce modèle n'explique pas toutes les observations réalisées.
+Par exemple,
+il ne prédit pas l'existence de la matière noire,
+dont des preuves de sa présence dans l'Univers
+sont issues d'études cosmologiques.
+Les neutrinos du modèle standard sont sans masse,
+or 
+leurs oscillations sont une preuve qu'ils en possèdent une.
+D'autres lacunes sont encore inhérentes à ce modèle,
+dont
+de nombreuses extensions sont proposées afin de les combler.
+L'une d'entre elles est l'extension supersymétrique minimale du modèle standard, ou MSSM,
+également présentée dans le chapitre~\refChMSSM.
+\par
+Afin de tester la validité du modèle standard et des nouvelles théories allant au-delà,
+divers dispositifs expérimentaux ont été mis au point
+tels que
+le Grand Collisionneur de Hadrons (LHC, \emph{Large Hadron Collider})
+du CERN.
+Il permet, entre autres, de faire entrer en collision des protons.
+Lors de cet événement,
+l'énergie cinétique des protons
+peut être convertie en masse,
+celle-ci correspondant alors à d'autres particules,
+par exemple le boson de Higgs.
+\par
+Les particules issues des collisions sont pour la plupart instables.
+Elles se désintègrent alors en d'autres particules,
+qu'il est possible d'observer à l'aide de détecteurs tels que
+le Solénoïde Compact à Muons (CMS, \emph{Compact Muon Solenoid}),
+présenté dans le chapitre~\refChLHCCMS.
+À partir de l'observation de leurs produits de désintégration,
+il est possible d'étudier la présence et les propriétés des particules issues des collisions.
+Le détecteur CMS a ainsi participé à la découverte du boson de Higgs en 2012.
+\par
+La bonne caractérisation des objets physiques mesurés par CMS est un enjeu majeur
+pour réaliser des analyses de qualité.
+Le chapitre~\refChJERC\ présente la calibration en énergie des jets.
+Ces objets physiques complexes, constitués de plusieurs particules,
+sont une manifestation des quarks et des gluons.
+Les incertitudes systématiques liées aux jets sont dominantes dans plusieurs analyses,
+leur bonne calibration est donc cruciale.
+Lors de ma thèse, j'ai analysé des événements \Gjets\
+où l'énergie du photon (\photon) permet de déterminer celle du jet.
+Les résultats obtenus
+concernent les données enregistré en 2018 et en 2017-UL,
+\ie\ dans un second traitement de l'année 2017.
+Ils sont utilisés dans la calibration officielle de CMS
+et donc dans toutes les analyses publiées par la collaboration.
+\par
+D'après le MSSM,
+il existe cinq bosons de Higgs.
+L'un d'entre eux, \higgs, correspond au boson scalaire découvert en 2012.
+Parmi les quatre supplémentaires, deux sont chargés, \Higgsplus\ et \Higgsminus.
+Les deux autres sont neutres,
+l'un scalaire, \Higgs,
+l'autre pseudo-scalaire, \HiggsA.
+L'observation de ces deux 
+bosons supplémentaires
+serait une preuve directe d'une nouvelle physique au-delà du modèle standard.
+Leurs masses respectives sont plus élevées que celle de \higgs\
+et vraisemblablement proches,
+c'est pourquoi cette thèse porte sur la
+recherche de bosons de Higgs supplémentaires de haute masse.
+Leur canal de désintégration le plus prometteur,
+vu la phénoménologie de ces bosons au LHC,
+est la paire de leptons~\tau.
+Dans ce contexte,
+l'analyse des événements enregistrés par la collaboration CMS de 2016 à 2018
+est présentée dans le chapitre~\refChHTT.
+\par
+Toutefois,
+les leptons~\tau\ ne sont pas stables
+et se désintègrent avant d'entrer dans le détecteur CMS.
+Lors de ce processus,
+des neutrinos sont produits.
+Or, ces derniers sont invisibles pour le détecteur,
+il est donc impossible de mesurer toutes les particules de l'état final.
+Les développements récents de l'intelligence artificielle
+et plus particulièrement du \emph{machine learning}
+proposent de nouveaux outils tels que les réseaux de neurones.
+Le chapitre~\refChML\ étudie
+la reconstruction de la masse d'une particule se désintégrant en paire de leptons~\tau.
+L'application du modèle obtenu dans cette thèse
+dans l'analyse du chapitre~\refChHTT\ est discutée.
+Une comparaison avec
+à l'algorithme actuellement utilisé par la collaboration CMS
+est également réalisée.
