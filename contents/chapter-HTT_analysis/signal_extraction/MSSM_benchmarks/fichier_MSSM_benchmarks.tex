@@ -2,26 +2,35 @@
 Les résultats de l'analyse sont interprétés dans le cadre de scénarios de référence~\cite{Bagnaschi_2019}
 respectant les limites fixées par les expériences du LEP, du Tevatron et du LHC.
 En particulier, un des bosons de Higgs scalaire doit jouer le rôle du boson découvert en 2012 avec une masse de $\num{125}\pm\SI{3}{\GeV}$.
-\subsubsection{Scénarios sans violation de $CP$}
+\subsubsection{Scénario $M_{\higgs}^{125}$}\label{chapter-HTT_analysis-section-signal_extraction-benchmarks-mh125}
+Dans le scénario $M_{\higgs}^{125}$,
+les masses des superpartenaires sont suffisamment élevées
+pour que les processus physiques de production et de désintégration
+des bosons de Higgs soient peu affectés par leur présence~\cite{Bagnaschi_2019}.
+En particulier, les couplages de \higgs\ aux superpartenaires
+sont faible par rapport à ceux aux particules du modèle standard
+et
+\Higgs\ et \HiggsA, lorsque leurs masses sont inférieures à \SI{2}{\TeV},
+se désintègrent uniquement en particules du modèle standard.
+\par
 Comme exposé dans le chapitre~\refChMSSM,
 les deux paramètres permettant de décrire au premier ordre les bosons de Higgs dans le MSSM
 sont $m_{\HiggsA}$ et $\tan\beta$,
-pris comme paramètres libres dans ces scénarios.
-Les autres paramètres, fixés par les scénarios utilisés, sont:
+pris comme paramètres libres.
+Les autres sont fixés~\cite{Bagnaschi_2019}:
 \begin{itemize}
-\item l'échelle d'énergie de la SUSY $m_S$, définie au chapitre~\refChMSSM;
-\item le paramètre de masse des Higgsinos $\mu$;
-\item le paramètre de masse des \emph{gauginos} du groupe $U(1)$, $M_1$;
-\item le paramètre de masse des \emph{gauginos} du groupe $SU(2)$, $M_2$;
-\item le paramètre de mélange du stop, $X_t$;
-\item les constantes de couplage trilinéaire entre les Higgs et le stop, le sbottom et le stau, respectivement $A_t$, $A_b$ et $A_\tau$;
-\item la masse du gluino, $m_{\gluino}$;
-\item la masse du stau, $m_{\stau}$.
+\item les paramètres de masse des squarks de troisième génération $M_{Q_3}$, $M_{U_3}$ et $M_{D_3}$ pris à \SI{1.5}{\TeV};
+\item les paramètres de masse des sleptons de troisième génération $M_{L_3}$ et $M_{E_3}$ pris à \SI{2}{\TeV};
+\item le paramètre de masse des Higgsinos $\mu=\SI{1}{\TeV}$;
+\item les paramètres de masse des \emph{gauginos} $M_1=\SI{1}{\TeV}$, $M_2=\SI{1}{\TeV}$ et $M_3=\SI{2.5}{\TeV}$;
+\item le paramètre de mélange du stop, $X_t=\SI{2.8}{\TeV}$;
+\item les constantes de couplage trilinéaire entre les Higgs et le stop, le sbottom et le stau, respectivement $A_t$, $A_b$ et $A_\tau$, prises égales entre elles.
 \end{itemize}
 \par
-Les scénarios de~\cite{Bagnaschi_2019} utilisés dans cette analyse sont:
-
-\todo{put the list!}
+Le groupe en charge de la physique des bosons de Higgs au LHC
+fourni en fonction de $m_{\HiggsA}$ et $\tan\beta$
+les masses des bosons de Higgs, sections efficaces de production, rapports de branchement et incertitudes théoriques
+associés de ce scénario~\cite{MSSMneutralHiggsTwiki}.
 %- Fig. 36: Do you intend to give MSSM results also for the negative mu scenarios (hopefully yes)?
 %
 %%GREEN%
@@ -34,8 +43,6 @@ Les scénarios de~\cite{Bagnaschi_2019} utilisés dans cette analyse sont:
 %All other scenarios can and will be added as additional material on short circuite with the Higgs PAG conveners. 
 %This choice may also be changed in favour of the negative mu scenarios, to be decided later in the review process.
 %%ENDCOLOR%
-
-Pour chacun d'entre-eux, les masses des bosons de Higgs, sections efficaces de production, rapports de branchement et incertitudes théoriques sont fournis en fonction de $m_{\HiggsA}$ et $\tan\beta$~\cite{MSSMneutralHiggsTwiki}.
 %The neutral MSSM Higgs boson production cross sections and the corresponding uncertainties
 %are provided by the LHC Higgs Cross Section Group [66]. The program S US H I [67] has been
 %used to calculate cross-sections for the gluon-fusion process and the 5 flavour b-associated
@@ -85,9 +92,9 @@ Pour chacun d'entre-eux, les masses des bosons de Higgs, sections efficaces de p
 %in the standard model and its supersymmetric extension”, Comput. Phys. Commun. 108
 %(1998) 56–74, doi:10.1016/S0010-4655(97)00123-9, arXiv:hep-ph/9704448.
 \par
-Le signal du MSSM attendu (hypothèse \hypSB) est celui de $\higgsMSSM+\Higgs+\HiggsA$, \higgsMSSM\ étant le boson de Higgs léger du MSSM jouant le rôle du boson découvert en 2012 et interprété comme celui du modèle standard (SM).
-En particulier, les propriétés de \higgsMSSM\ peuvent différer de celles données par le SM.
-Pour chacun d'entre eux, la forme du signal est obtenue à partir des valeurs de $m_{\HiggsA}$ et $\tan\beta$.
+Le signal du MSSM attendu (hypothèse \hypSB) est celui de $\higgsMSSM+\Higgs+\HiggsA$, \higgsMSSM\ étant le boson de Higgs léger du MSSM jouant le rôle du boson découvert en 2012 et interprété comme celui du modèle standard (\higgsSM).
+En particulier, les propriétés de \higgsMSSM\ peuvent différer de celles de \higgsSM.
+Pour \higgsMSSM, \Higgs\ et \HiggsA, la forme du signal est obtenue à partir des valeurs de $m_{\HiggsA}$ et $\tan\beta$.
 Une combinaison linéaire donne le signal total $\Phi\in\set{\higgsMSSM,\Higgs,\HiggsA}\to\tau\tau$ attendu.
 \par
 Les modes de production considérés sont:
@@ -149,7 +156,7 @@ Catégorie & & $\gluon\gluon\higgs$, VBF, VH & $\quarkb\antiquarkb\higgs$ & \Hig
 \caption{Présences attendues des contributions au signal dans les catégories.}
 \label{tab-sign_in_cats_expected}
 \end{table}
-\subsubsection{Cas du scénario avec violation de $CP$}
+\subsubsection{Scénario $M_{\Higgs_1}^{125}(\text{CPV})$}
 Le boson de Higgs du modèle standard \higgsSM\ est prédit comme étant purement $CP$-pair,
 ce qui est également le cas du boson de Higgs \higgsMSSM\ du MSSM sans violation de $CP$.
 Dans ce cas, \Higgs\ est également $CP$-pair et \HiggsA\ est $CP$-impair,
@@ -157,9 +164,28 @@ tous ces bosons sont donc des états propres de $CP$.
 \par
 Cependant, comme exposé au chapitre~\refChMSSM,
 une violation de $CP$ peut apparaître avec les bosons de Higgs.
-Dans ce cas, les états propres de masse de ces bosons sont, par masses croissantes,
+Le scénario $M_{\Higgs_1}^{125}(\text{CPV})$ correspond à ce cas de figure.
+Les paramètres fixes sont~\cite{Bagnaschi_2019}:
+\begin{itemize}
+\item les paramètres de masse des squarks de troisième génération $M_{Q_3}$, $M_{U_3}$ et $M_{D_3}$ pris à \SI{2}{\TeV};
+\item les paramètres de masse des sleptons de troisième génération $M_{L_3}$ et $M_{E_3}$ pris à \SI{2}{\TeV};
+\item le paramètre de masse des Higgsinos $\mu=\SI{1.65}{\TeV}$;
+\item les paramètres de masse des \emph{gauginos} $M_1=\SI{1}{\TeV}$, $M_2=\SI{1}{\TeV}$ et $M_3=\SI{2.5}{\TeV}$;
+\item les constantes de couplage trilinéaire entre les Higgs et le stop, le sbottom et le stau, respectivement $A_t$, $A_b$ et $A_\tau$, prises telles que
+\begin{equation}
+\abs{A_t} = \mu\cot\beta+\SI{2.8}{\TeV}
+\msep
+\phi_{A_t} = \frac{2\pi}{15}
+\msep
+A_b = A_\tau = \abs{A_t}
+\mend
+\end{equation}
+\end{itemize}
+La phase $\phi_{A_t}$ non nulle mène à des états propres de masse
+pour les bosons de Higgs neutres différents des états propres de $CP$.
+Les états propres de masse de ces bosons sont, par masses croissantes,
 $\Higgs_1$, $\Higgs_2$ et $\Higgs_3$.
-Il s'agit d'états $CP$ mixtes,
+Il s'agit donc d'états $CP$ mixtes,
 \ie\ avec une composante $CP$-paire et une $CP$-impaire.
 Dans le cadre de la recherche de bosons supplémentaires de haute masse,
 le rôle du boson de Higgs déjà observé \higgs\ est pris par $\Higgs_1$.
@@ -170,14 +196,13 @@ Les événements avec une paire de leptons~\tau\ peuvent être étudiés à cett
 basées sur les propriétés cinématiques des particules de l'état final.
 \par
 Dans le cadre de l'analyse menée dans cette thèse,
-l'hypothèse du MSSM avec violation de $CP$
-est testée par rapport à celle du modèle standard de manière similaire
-au cas des scénarios sans violation de $CP$.
+le scénario $M_{\Higgs_1}^{125}(\text{CPV})$ est testé de manière similaire à $M_{\higgs}^{125}$.
 Cependant,
 le signal du MSSM considéré est
 $\Phi\in\set{\Higgs_1,\Higgs_2,\Higgs_3}\to\tau\tau$.
-Le paramètre $m_{\HiggsA}$ est alors remplacé par $m_{\Higgspm}$ la masse des bosons de Higgs chargés.
-Enfin, des interférences entre $\Higgs_2$ et $\Higgs_3$ sont attendues et peuvent mener à des limites d'exclusion plus faibles.
+De plus, comme \HiggsA\ n'est pas un état propre de masse,
+le paramètre $m_{\HiggsA}$ est remplacé par la masse des bosons de Higgs chargés $m_{\Higgspm}$.
+Enfin, des interférences entre $\Higgs_2$ et $\Higgs_3$ sont attendues dans une partie de l'espace des phases et peuvent mener à des limites d'exclusion plus faibles.
 L'implémentation du traitement de ce scénario à partir des données fournies en fonction de $m_{\Higgspm}$ et $\tan\beta$~\cite{MSSMneutralHiggsTwiki}
 est une de mes contributions à cette analyse.
 %\cite{CMS-NOTE-2019-192,Goodsell_cpv,Arbey_cpv,Carena_cpv}
