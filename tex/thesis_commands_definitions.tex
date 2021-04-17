@@ -241,7 +241,7 @@
 \newcommand{\GETplotHTTModelDepLimitsINFOS}[3][\HTTplotsdir]{%
 
 \def\localxaxislabelptc{\HiggsA}
-\ifthenelse{\equal{#2}{mssm_vs_sm_CPV}}{
+\ifthenelse{\equal{#2}{mssm_vs_sm_CPV}\or\equal{#2}{mssm_vs_sm_CPV-new_categories}}{
   \def\localxaxislabelptc{\Higgspm}
 }{}
 
