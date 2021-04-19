@@ -112,6 +112,7 @@ Or, ces événements frontaliers sont ceux dont la probabilité d'appartenir à 
 Il est donc pertinent d'utiliser les valeurs de sortie du réseau pour définir une variable discriminante.
 Le choix fait est d'utiliser la plus grande probabilité parmi celles données par le réseau, \ie\ la probabilité d'appartenir à la catégorie dans laquelle le réseau estime que cet événement fait partie.
 Cette variable est dénommée \og score \fg{} et notée \NNscore.
+À titre d'illustration, les distributions obtenues pour le canal \ele\mu\ en 2017 sont représentées en figure~\ref{fig-NNscore_distribs_exemple}.
 \begin{wrapfigure}{R}{.45\textwidth}
 \centering
 \includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2019-177/fig67.png}
@@ -120,8 +121,10 @@ Cette variable est dénommée \og score \fg{} et notée \NNscore.
 \end{wrapfigure}
 \par
 Des événements de signal peuvent être difficilement classés dans une unique catégorie de signal, \texttt{ggh} ou \texttt{qqh}.
-Dans ce cas, leurs scores sont bas pour ces catégories et ils pourraient être catégorisés comme bruit de fond par le réseau de neurones.
-Afin de conserver autant que possible de tels événements hors des catégories de bruit de fond,
+Dans ce cas, leurs scores sont bas pour ces catégories et ils
+se retrouvent dans un segment de l'histogramme contenant d'avantage de bruit de fond
+que s'ils avaient obtenu un score plus élevé.
+Afin de limiter cet effet,
 la solution trouvée~\cite{CMS-NOTE-2019-177} est de créer une catégorie globale $\CATxxh=\texttt{ggh} + \texttt{qqh}$.
 Le score dans cette catégorie \CATxxh\ est alors bidimensionnel, chaque dimension correspondant à un des deux scores des catégories \texttt{ggh} et \texttt{qqh}.
 Pour obtenir un histogramme à une dimension, une réduction est réalisée tel qu'illustré figure~\ref{fig-67-CMS-NOTE-2019-177}.
@@ -141,5 +144,3 @@ C'est pourquoi les distributions peuvent montrer des segmentations variables, en
 %tion and to sort events by it. Here we use the value of the largest probability, which was used to
 %assign the category, for further discrimination within the same category. We call this quantity
 %exclusive probability or just the NN score.
-\par
-À titre d'illustration, les distributions obtenues pour le canal \ele\mu\ en 2017 sont représentées en figure~\ref{fig-NNscore_distribs_exemple}.

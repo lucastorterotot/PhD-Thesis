@@ -51,7 +51,7 @@ Pour chacune de ces sources, un \fakefactor\ est alors déterminé, selon l'équ
 Du fait de la séparation de la CR en plusieurs DR, l'universalité n'est alors plus complètement garantie.
 Des corrections résiduelles sont appliquées afin de corriger le biais introduit par la séparation en DR.
 \par
-Le \fakefactor\ global est ainsi la moyenne des \fakefactors\ obtenus pour chaque source, avec comme coefficients les fractions $f$ d'événements de ces sources dans la AR, \ie
+Le \fakefactor\ global est ainsi la moyenne de ceux obtenus pour chaque source, avec comme coefficients les fractions $f$ d'événements de ces sources dans la AR, \ie
 \begin{equation}
 \FF = \sum_i f_i \cdot \FF_i
 \msep
@@ -91,8 +91,8 @@ La méthode des \fakefactors\ est résumée figure~\ref{fig-chapter-HTT_analysis
 La DR QCD est définie de la même manière que la SR à l'exception du critère sur les charges électriques des éléments du dilepton.
 En effet, ceux-ci doivent être de charges opposées (OS, \emph{Opposite Signs}) dans la SR car les bosons de Higgs recherchés étant neutres, la charge globale du dilepton doit, par conservation, être nulle.
 Pour la DR QCD, ces charges doivent être de même signe (SS, \emph{Same Sign}).
-Dans le cas des canaux $\ell\tauh$, il est de plus requis que $I_\text{rel}^{\ell} > \num{0.05}$ afin de réduire les contribution de processus donnant des électrons ou des muons sans objet physique pertinent pour les \fakefactors.
-Les contributions d'autres processus à la DR est soustraite grâce à l'utilisation de données simulées.
+Dans le cas des canaux $\ell\tauh$, il est de plus requis que $I_\text{rel}^{\ell} > \num{0.05}$ afin de réduire les contributions de processus donnant des électrons ou des muons sans objet physique pertinent pour les \fakefactors.
+Les contributions d'autres processus à la DR sont soustraites grâce à l'utilisation de données simulées.
 Pour le canal \tauh\tauh, le \fakefactor\ $\FF_Q$ est déterminé uniquement pour le premier \tauh\ (de plus haut \pT).
 \par
 Le \fakefactor\ $\FF_Q$ est mesuré séparément pour:
@@ -106,7 +106,7 @@ et dans chacun de ces deux cas pour
 \item $\num{1.25} \leq \pT^\text{jet}/\pT^{\tauh} < \num{1.5}$;
 \item $\num{1.5} \leq \pT^\text{jet}/\pT^{\tauh}$.
 \end{itemize}
-Pour ces six catégories, la dépendance en $\pT^{\tauh}$ de $\FF_Q$ est modélisée polynôme de degré 3 ajusté aux mesures pour $\pT^{\tauh}<\SI{200}{\GeV}$.
+Pour ces six catégories, la dépendance en $\pT^{\tauh}$ de $\FF_Q$ est modélisée par un polynôme de degré 3 ajusté aux mesures pour $\pT^{\tauh}<\SI{200}{\GeV}$.
 \par
 Dans le cas du canal \tauh\tauh, peu d'événements sont disponibles pour $\pT^{\tauh}\geq\SI{200}{\GeV}$.
 Le \fakefactor\ $\FF_Q$ est ainsi fixé à la valeur mesurée pour $\pT^\text{jet}/\pT^{\tauh} \geq \num{1.5}$ et à la valeur à \SI{200}{\GeV} du polynôme pour $\pT^\text{jet}/\pT^{\tauh} < \num{1.5}$.
@@ -135,7 +135,7 @@ La DR \Wjets\ ne concerne que les canaux semi-leptoniques.
 Elle est définie de la même manière que la SR à l'exception de la coupure sur la masse transverse du lepton qui doit ici être supérieure à \SI{70}{\GeV}, alors qu'elle est inférieure à cette même valeur dans la SR.
 Il est de plus requis que $\Nbjets=0$ afin de supprimer la contamination par les événements \ttbar.
 Les contributions d'autres processus physiques à la DR sont soustraites par l'utilisation directe de données simulées.
-Le bruit de fond QCD à retirer est obtenu à partir des données réelles avec les charges électriques des éléments du dilepton de même signe, auxquelles sont soustraites les autres bruits de fond avec charges électriques de même signe, y compris \Wjets, obtenus par simulation directe.
+Le bruit de fond QCD à retirer est obtenu à partir des données réelles avec les charges électriques des éléments du dilepton de même signe, auxquelles sont soustraits les autres bruits de fond avec charges électriques de même signe, y compris \Wjets, obtenus par simulation directe.
 Un facteur correctif de \num{1.1} est appliqué aux données à retirer, correspondant au rapport observé d'événements avec charges opposées sur événements avec charges de même signe.
 \par
 Le \fakefactor\ $\FF_W$ est mesuré séparément pour:
@@ -149,7 +149,7 @@ et dans chacun de ces deux cas pour
 \item $\num{1.25} \leq \pT^\text{jet}/\pT^{\tauh} < \num{1.5}$;
 \item $\num{1.5} \leq \pT^\text{jet}/\pT^{\tauh}$.
 \end{itemize}
-Pour ces six catégories, la dépendance en $\pT^{\tauh}$ de $\FF_Q$ est modélisée polynôme de degré 3 ajusté aux mesures pour $\pT^{\tauh}<\SI{140}{\GeV}$.
+Pour ces six catégories, la dépendance en $\pT^{\tauh}$ de $\FF_W$ est modélisée par un polynôme de degré 3 ajusté aux mesures pour $\pT^{\tauh}<\SI{140}{\GeV}$.
 \par
 Dans cette DR également, peu d'événements sont disponibles pour $\pT^{\tauh}\geq\SI{140}{\GeV}$.
 La même logique que pour $\FF_Q$, détaillée précédemment, est suivie sur la valeur de $\FF_W$ à utiliser.
@@ -162,7 +162,7 @@ Ce \fakefactor\ est alors obtenu à partir de données simulées.
 \par
 Le \fakefactor\ $\FF_W$ peut également être mesuré à partir de données simulées uniquement.
 Un écart de \num{10} à \SI{20}{\%} avec le \fakefactor\ obtenu à partir des données réelles est observé.
-La contribution \ttbar\ étant faible par rapport aux autres bruits de fond rend négligeable le biais introduit par l'utilisation de données simulées face aux incertitudes sur les \fakefactors.
+La contribution \ttbar\ étant faible par rapport aux autres bruits de fond, le biais introduit par l'utilisation de données simulées est négligeable face aux incertitudes sur les \fakefactors.
 \par
 Le \fakefactor\ $\FF_t$ est mesuré séparément pour:
 \begin{itemize}
@@ -185,8 +185,15 @@ L'ajustement obtenu pour $\FF_t$ sur le canal \mu\tauh\ en 2018 est illustré fi
 \label{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-WJ-ttbar}
 \end{figure}
 \subsubsection{Corrections résiduelles}
-Afin de valider les \fakefactors\ obtenus, ces derniers sont appliqués aux DRs pour les événements avec les mêmes points de fonctionnement de l'algorithme \DEEPTAU.
-Les prédictions obtenues par les \fakefactors\ doivent alors correspondre aux observations brutes, \ie\ sans leur application.
+Afin de valider les \fakefactors\ obtenus,
+ces derniers sont appliqués aux événements des DRs
+sélectionnés avec les points de fonctionnement de l'algorithme \DEEPTAU\
+utilisés dans la SR.
+Les distributions
+des prédictions obtenues par les \fakefactors\ appliqués aux données réelles
+et
+celles des données réelles
+doivent alors coïncider.
 Les écarts résiduels donnent la correction à appliquer, paramétrisée en fonction:
 \begin{itemize}
 \item du nombre de jets \Nprebjets\ identifiés comme issus de quarks~\quarkb, \Nbjets;

@@ -1,8 +1,10 @@
 \section{Corrections}\label{chapter-HTT_analysis-section-corrections}
-Dans le but d'améliorer la description des données réelles par les données simulées et encapsulées, des corrections sont appliquées à ces dernières.
-Elles sont obtenues à partir d'analyses annexes.
+Dans le but d'améliorer la description des données réelles par les données simulées et encapsulées, des corrections
+obtenues à partir d'analyses annexes
+leur sont appliquées.
 Les corrections usuelles sont présentées dans le chapitre~\refChLHCCMS.
 Des corrections spécifiques à cette analyse sont également appliquées.
+Elles sont présentées ci-après.
 \subsection{Efficacité des \HLTpaths}
 \paragraph{Efficacité des \HLTpaths\ des \tauh\ (\emph{\tauh\ trigger scale factors})}
 L'efficacité des \HLTpaths\ est mesurée à partir d'une méthode \og balise et sonde \fg{}  (\emph{tag and probe}).
@@ -21,22 +23,23 @@ Le facteur d'échelle correctif $SF$ à appliquer aux événements simulés est 
 SF = \frac{\epsilon(\text{données réelles})}{\epsilon(\text{données simulées})}
 \mend
 \end{equation}
-Dans le cas des données encapsulé, le dénominateur est l'efficacité obtenue avec les \tauh\ simulés.
+Dans le cas des données encapsulées, le dénominateur est l'efficacité obtenue avec les \tauh\ simulés.
 Les efficacités et le facteur d'échelle sont déterminés en fonction des propriétés cinématiques du \tauh\ ($\pT, \eta, \phi$).
 L'efficacité des \HLTpaths\ \HLTDoubleTau\ est obtenue comme étant le produit des efficacité de chacun des deux \tauh.
 \par
-L'efficacité combinée des \HLTpaths\ \HLTSingleTau\ et \HLTSingleMu\ dans le canal \mu\tauh (\HLTSingleEle\ dans le canal \ele\tauh) est obtenue selon
+L'efficacité combinée des \HLTpaths\ \HLTSingleTau\ et \HLTSingleMu\ dans le canal \mu\tauh\ (\HLTSingleEle\ dans le canal \ele\tauh) est obtenue selon
 \begin{equation}
 \epsilon = \epsilon(1\tauh) + \epsilon(1\ell) - \epsilon(1\tauh) \times \epsilon(1\ell)
 \end{equation}
 où $\ell$ correspond au muon (à l'électron).
-Dans le cas du canal \tauh\tauh, la présence de deux \tauh\ impose une formule plus complexe pour déterminer l'efficacité combinée des \HLTpaths\ \HLTSingleTau\ et \HLTDoubleTau\,
+Dans le cas du canal \tauh\tauh, la présence de deux \tauh\ impose une formule plus complexe pour déterminer l'efficacité combinée des \HLTpaths\ \HLTSingleTau\ et \HLTDoubleTau,
 \begin{align}
 \epsilon &= \epsilon(2\tauh) + \epsilon(\tauh1) + \epsilon(\tauh2)
 \nonumber\\ & \hphantom{=}
 - \epsilon(2\tauh + \tauh1) - \epsilon(2\tauh + \tauh1) - \epsilon(\tauh1+\tauh2)
 \nonumber\\ & \hphantom{=}
 + \epsilon(2\tauh + \tauh1 + \tauh2)
+\mend[,]
 \end{align}
 où $2\tauh$ signifie \HLTDoubleTau,
 $\tauh1$ \HLTSingleTau\ appliqué au \tauh\ de plus haut \pT\ et

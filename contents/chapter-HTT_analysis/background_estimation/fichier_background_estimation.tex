@@ -80,10 +80,10 @@ Pour tous les processus à part QCD, des jeux de données simulées par généra
 Toutefois, une large partie des bruits de fond est estimée à partir des données réelles, ce qui permet d'améliorer l'accord entre données réelles et estimation du bruit de fond tout en réduisant les incertitudes systématiques.
 Tous les événements simulés contenant deux authentiques (\emph{genuine}) leptons~\tau\ sont ainsi remplacés par les données encapsulées (\emph{embedded}) présentées dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-embedding}.
 Les événements $\Zboson\to\tau\tau$ sont ainsi couverts par cette méthode mais également une partie des bruits de fond \ttbar\ et Diboson.
-De plus, la contribution du bruit de fond QCD dans le canal \ele\mu\ est estimée à partir d'une région de contrôle où les charges électriques de l'électron et du muons sont de même signe.
+De plus, la contribution du bruit de fond QCD dans le canal \ele\mu\ est estimée à partir d'une région de contrôle où les charges électriques de l'électron et du muon sont de même signe.
 Cette méthode est dénommée \og QCD SS \fg{} (\emph{Same Sign}) et est exposée dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-QCD-SS}.
-Enfin, les événements contenant au moins un jet identifié à tort comme provenant d'un lepton~\tau\ est décrit par la méthode des facteurs de faux (\emph{Fake Factors}) décrite section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
-Tous les autres bruits de fond sont estimés par des données simulées.
+Enfin, les événements contenant au moins un jet identifié à tort comme provenant d'un lepton~\tau\ sont estimés par la méthode des facteurs de faux (\emph{Fake Factors}) décrite section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
+Tous les autres bruits de fond sont modélisés par des données simulées.
 Les jeux de données ainsi utilisés dans l'analyse sont donnés dans l'annexe~\refApHTTdatasets.
 \par
 Afin de séparer les contributions estimées à partir des différentes techniques et de procéder à ces remplacements de manière cohérente, les événements simulés sont répartis selon la provenance des produits de désintégration visibles des leptons~\tau\ au niveau générateur.
@@ -104,7 +104,7 @@ Les définitions exactes de chacun de ces cas de figure sont données dans le ta
 Un \tauh\ généré est reconstruit à partir des produits de désintégration générés visibles hors électrons et muons.
 Seuls les produits de désintégration du lepton~\tau\ généré tels que \inlinecode{python}{IsPrompt == True} sont considérés.
 Il est de plus requis que l'impulsion transverse de ce \tauh\ généré reconstruit soit supérieure à \SI{15}{\GeV} afin d'éviter la limite de reconstruction des \tauh\ et d'éliminer des faux électrons et muons issus des \tauh.
-Dans le cas des électrons et muons natifs, la coupure $\pT > \SI{8}{\GeV}$ permet de supprimer les leptons issus dus au FSR $\photon\to\ell^+\ell^-$.
+Dans le cas des électrons et muons natifs, la coupure $\pT > \SI{8}{\GeV}$ permet de supprimer les leptons issus du FSR $\photon\to\ell^+\ell^-$.
 Le FSR est introduit au chapitre~\refChJERC.
 Les remplacements des événements simulés se font ainsi sur la base des valeurs de \inlinecode{python}{gen_match}, donnés dans le tableau~\ref{tab-chapter-HTT_analysis-gen_match_values}, pour $L_1$ et $L_2$ selon les coupures données dans le tableau~\ref{tab-chapter-HTT_analysis-gen_match_cuts}.
 \begin{table}[h]

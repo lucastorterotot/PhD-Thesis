@@ -18,7 +18,7 @@ où
 \begin{itemize}
 \item $\nu_i$ est le nombre d'événements attendus dans ce segment dans l'hypothèse \hypSB, \ie
 \begin{equation}
-\nu_i(\mu,\theta) = \mu \, s(\theta) + b(\theta)
+\nu_i(\mu,\theta) = \mu \, s_i(\theta) + b_i(\theta)
 \end{equation}
 avec
 $s$ le nombre d'événements de signal
@@ -40,7 +40,7 @@ Les contraintes sur les incertitudes correspondant à des facteurs multiplicatif
 \begin{equation}
 \eval{\Constraint(\theta, \tilde{\theta})}_{\text{facteurs}}
 =
-\frac{1}{\sqrt{2\pi}\ln\kappa}\,\frac{1}{\theta}\,\exp(-\frac{(\ln(\theta/\tilde{\theta})^2}{2(\ln\kappa)^2})
+\frac{1}{\sqrt{2\pi}\ln\kappa}\,\frac{1}{\theta}\,\exp(-\frac{(\ln(\theta/\tilde{\theta}))^2}{2(\ln\kappa)^2})
 \end{equation}
 où $\kappa$ vaut $1+x$ avec $x$ l'incertitude relative sur l'observable contrainte.
 Par exemple, pour une incertitude de \SI{10}{\%}, $\kappa=\num{1.10}$.
@@ -97,7 +97,7 @@ c = \left\lbrace
 \right.
 \end{equation}
 L'interpolation~\eqref{eq-h_interpolation} est réalisée lors de la maximisation de la fonction de vraisemblance.
-\subsubsection{Incertitudes statistiques}
+\subsubsection{Incertitudes statistiques}\label{chapter-HTT_analysis-section-signal_extraction-likelihood-stat_uncs}
 \paragraph{Principe}
 L'incertitude statistique dans les distributions des variables discriminantes et prise en compte par la méthode de Barlow-Beeston~\cite{BarlowBeeston,BarlowBeeston2}.
 La quantité d'événements dans chaque segment peut varier dans l'incertitude statistique type, ce qui revient à créer une incertitude de forme.
