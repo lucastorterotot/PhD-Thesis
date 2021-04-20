@@ -63,14 +63,18 @@
 \newcommand{\refChHTT}{\ifref{chapter-HTT_analysis}{\ref{chapter-HTT_analysis}}{4}}
 \newcommand{\refChML}{\ifref{chapter-ML}{\ref{chapter-ML}}{5}}
 
+
+\newcommand{\refApHTTctrlplotsLETTER}{G}
+\newcommand{\refApHTTshapesLETTER}{H}
+
 \newcommand{\refApUNSI}{\ifref{annexe-SI_UN}{\ref{annexe-SI_UN}}{A}}
 \newcommand{\refApMath}{\ifref{annexe-maths}{\ref{annexe-maths}}{B}}
 \newcommand{\refApFmf}{\ifref{annexe-fmf}{\ref{annexe-fmf}}{C}}
 \newcommand{\refApJERCdatasets}{\ifref{annexe-datasets-GJets}{\ref{annexe-datasets-GJets}}{D}}
 \newcommand{\refApHTTdatasets}{\ifref{annexe-datasets-HTT}{\ref{annexe-datasets-HTT}}{E}}
 \newcommand{\refApHTTtrg}{\ifref{annexe-triggers-HTT}{\ref{annexe-triggers-HTT}}{F}}
-\newcommand{\refApHTTctrlplots}{\ifref{annexe-control_plots-HTT}{\ref{annexe-control_plots-HTT}}{G}}
-\newcommand{\refApHTTshapes}{\ifref{annexe-discriminating_variables-HTT}{\ref{annexe-discriminating_variables-HTT}}{H}}
+\newcommand{\refApHTTctrlplots}{\ifref{annexe-control_plots-HTT}{\ref{annexe-control_plots-HTT}}{\refApHTTctrlplotsLETTER}}
+\newcommand{\refApHTTshapes}{\ifref{annexe-discriminating_variables-HTT}{\ref{annexe-discriminating_variables-HTT}}{\refApHTTshapesLETTER}}
 
 % Parties du détecteur
 \newcommand{\CMSBarrel}{\emph{Barrel}}

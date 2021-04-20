@@ -1,0 +1,53 @@
+\RequirePackage[log-declarations=false]{xparse}
+\usepackage[none,nabla,seccolor,ppl,nosorting,minitoc]{ltstyle}
+\usepackage{cmstransversetikz}
+\input{\PhDthesisdir/tex/thesis_commands_definitions.tex}
+\addbibresource{\PhDthesisdir/bib/Bibliographie_PhD_Torterotot.bib}
+
+\institute[UCBL]{Université Claude Bernard Lyon 1} % possède une version courte optionnelle
+\def\insertlabo{Institut de Physique des 2 Infinis de Lyon}
+\def\insertshortlabo{IP2I}
+
+\title{Recherche de bosons de Higgs supplémentaires de haute masse se désintégrant en paire de taus dans l'expérience CMS au LHC à l'aide du \emph{Machine Learning}}
+\matiere{Thèse de doctorat}
+\author[L. \textsc{Torterotot}]{Lucas \textsc{Torterotot}}
+\date{\todo{XX xxxx} 2021}
+\imgcover{}
+\editionsettings{}
+\publisher{}
+
+\begin{document}
+\ifthenelse{\equal{\PRINTABLE}{false}}{\def\ifref#1#2#3{#2}}{}
+\pagestyle{empty}
+\input{\PhDthesisdir/contents/titlepage_0/fichier.tex}
+\cleardoublepage
+\pagestyle{empty}
+\input{\PhDthesisdir/contents/titlepage/fichier.tex}
+\cleardoublepage
+~\vfill
+\begin{flushright}
+\todo{À ...}
+\end{flushright}
+\vfill\vfill~
+\cleardoublepage
+\chapter*{Remerciements}\thispagestyle{empty}\pagestyle{empty}
+\input{\PhDthesisdir/contents/remerciements/fichier.tex}
+\cleardoublepage
+\chapter*{Résumé}\thispagestyle{empty}\pagestyle{empty}
+\input{\PhDthesisdir/contents/resume/resume_FR.tex}
+\chapter*{Abstract}\thispagestyle{empty}\pagestyle{empty}
+\input{\PhDthesisdir/contents/resume/resume_EN.tex}
+\cleardoublepage
+\frontmatter
+\tableofcontents
+\listoffigures
+\listoftables
+\mainmatter
+\input{\PhDthesisdir/contents/introduction/fichier.tex}
+\input{\PhDthesisdir/contents/chapters_list.tex}
+\input{\PhDthesisdir/contents/conclusion/fichier.tex}
+\appendix\def\minitoc{}
+\input{\PhDthesisdir/contents/appendix_list.tex}
+\backmatter
+\printbibliographyREF
+\end{document}

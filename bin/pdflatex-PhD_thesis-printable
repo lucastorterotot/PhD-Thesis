@@ -2,6 +2,6 @@
 
 cd $lt_PhD_thesis_dir/
 
-pdflatex_complete_sequence $lt_PhD_thesis_dir/tex/LT-These-main
+pdflatex_complete_sequence $lt_PhD_thesis_dir/tex/LT-These-main-print
 check_LaTeX_logs
 for f in $(ls *.log | grep -ve LT-These-main) ; do rm $f ; done
