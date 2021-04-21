@@ -6,11 +6,96 @@ Recherche de bosons de Higgs supplémentaires de haute masse se désintégrant e
 \end{center}
 \bigskip
 
-Résumé
+Malgré plusieurs décennies de prédictions expérimentalement vérifiées,
+le modèle standard (SM) souffre de lacunes
+que des théories allant au-delà (BSM, \emph{Beyond SM})
+tentent de combler.
+L'extension supersymétrique minimale du modèle standard (MSSM)
+est l'une d'entre-elles
+et
+prédit l'existence de cinq bosons de Higgs dont trois neutres,
+\higgs\ devant correspondre au boson du SM découvert en 2012
+et~\Higgs\ et~\HiggsA\ supplémentaires.
+\par
+Dans ce contexte,
+les événements récoltés par la collaboration CMS
+de 2016 à 2018
+lors des collisions de protons du LHC
+avec une énergie dans le centre de masse de \SI{13}{\TeV},
+correspondant à une luminosité intégrée de \SI{137}{\femto\barn^{-1}},
+sont exploités dans cette thèse.
+La phénoménologie du MSSM au LHC
+motive le choix des événements avec une paire de leptons~\tau\ pour la recherche de~\Higgs\ et~\HiggsA.
+\par
+Les jets sont des objets physiques omniprésents lors des collisions au LHC.
+Leur calibration à l'aide d'événements contenant un photon et un jet (\Gjet) est présentée ainsi que les résultats obtenus pour l'année 2018.
+Cette étude,
+également réalisée pour l'année 2017-UL,
+est directement utilisée par la collaboration CMS dans la calibration officielle
+de l'énergie des jets.
+\par
+La bonne reconstruction des objets physiques permet de réaliser des analyses de qualité.
+En particulier, les jets issus de quarks~\quarkb\ sont utilisés afin d'augmenter la sensibilité de l'analyse
+des événements avec une paire de leptons~\tau\ aux bosons~\Higgs\ et~\HiggsA.
+Aucun excès significatif par rapport aux bruits de fond attendus n'est observé.
+Des limites d'exclusion sur le produit de la section efficace de production de~\Higgs\ et~\HiggsA\ avec leur rapport de branchement aux leptons~\tau\ sont données
+en fonction de leur masse
+pour les modes de production par fusion de gluon ou en association avec des quarks~\quarkb.
+Ces limites sont comprises entre
+\SI{10}{\pico\barn} à \SI{110}{\GeV}
+et
+\SI{e-3}{\pico\barn} à \SI{3.2}{\TeV}
+pour la fusion de gluons
+et entre
+\SI{0.4}{\pico\barn} à \SI{110}{\GeV}
+et
+\SI{8e-4}{\pico\barn} à \SI{3.2}{\TeV}
+en association avec des quarks~\quarkb.
+Dans le scénario $M_{\higgs}^{125}$,
+ces limites se traduisent en une région d'exclusion dans le plan $(m_{\HiggsA},\tan\beta)$.
+Les valeurs de $m_{\HiggsA}$ inférieures à \SI{600}{\GeV} sont exclues.
+Cette limite passe à
+%\SI{1}{\TeV} pour $\tan\beta\gtrsim\num{10}$ et
+\SI{2}{\TeV} pour $\tan\beta\gtrsim\num{50}$.
+Dans le scénario $M_{\Higgs_1}^{125}(\text{CPV})$,
+cette région est donnée dans le plan $(m_{\Higgspm},\tan\beta)$.
+Les valeurs de $m_{\Higgspm}$ inférieures à \SI{400}{\GeV} sont exclues.
+Lorsque
+$\tan\beta\simeq\num{20}$,
+l'exclusion s'étend jusqu'à
+$m_{\Higgspm} \simeq \SI{1.4}{\TeV}$.
+\par
+La reconstruction de la masse d'une paire de leptons~\tau\
+est cruciale pour les analyses
+%en contenant dans l'état final, en particulier celles
+où un boson~\Zboson\ ou de Higgs se désintègre en $\antitau\leptau$.
+Cette tâche est compliquée par la présence de neutrinos issus des désintégrations des~\tau,
+invisibles dans le détecteur.
+Une solution est apportée par
+le \emph{Machine Learning}
+et en particulier les réseaux de neurones profonds.
+Le modèle obtenu dans cette thèse permet
+de reconstruire la masse d'un boson se désintégrant en paire de~\tau\
+de \SI{50}{\GeV} à \SI{800}{\GeV}
+avec une résolution de
+\SI{20}{\%} à \SI{50}{\GeV},
+\SI{26}{\%} à \SI{250}{\GeV} et
+\SI{22}{\%} à \SI{800}{\GeV}.
+Ce modèle est
+60 fois plus rapide
+et propose une meilleure description du boson~\Zboson\
+que l'algorithme \SVFIT\ actuellement utilisé au sein de la collaboration CMS.
 
 \vfill
 
 \textbf{\Large Mots clés}\\
-...
+Higgs,
+CMS,
+Jets,
+Calibration,
+Tau,
+Reconstruction de la masse,
+Réseau de neurones,
+Régression.
 
 \vfill
