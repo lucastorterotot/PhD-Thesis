@@ -4,7 +4,9 @@
 Les particules chargées laissent des traces de leur passage dans le trajectographe et, dans le cas des muons, dans les chambres à muons.
 Le trajectographe, présenté section~\ref{chapter-LHC-section-CMS-subsec-tracker}, ne donne pas de traces continues mais des points de passage de ces particules.
 \par
-Les traces des particules sont reconstruites à partir de ces points de passage à l'aide d'une méthode itérative~\cite{particle-flow,track_reco}.
+Les traces des particules sont alors reconstruites
+%à partir de ces points de passage
+à l'aide d'une méthode itérative~\cite{particle-flow,track_reco}.
 Un détecteur de traces par combinaison basé sur un filtre de Kalman (KF) \cite{Kalman_filter} reconstruit les traces selon la procédure suivante:
 \begin{enumerate}
 \item Une trajectoire initiale est générée à partir d'un ajustement à quelques points de passages.
@@ -27,7 +29,7 @@ La position et la valeur du dépôt d'énergie sont utilisés afin de détermine
 Cependant, à cause de l'épaisseur du trajectographe, les électrons émettent avant de parvenir au ECAL une fraction de leur énergie par \emph{bremsstrahlung}, \ie\ sous forme de photons.
 Les performances de reconstruction des électrons dépendent ainsi fortement de la capacité à identifier ces photons et mesurer leurs énergies.
 Les dépôts d'énergie dans le ECAL (\emph{clusters}) dus à l'électron et aux photons potentiellement issus du \emph{bremsstrahlung} sont regroupés en un \emph{supercluster}.
-Le \emph{supercluster} est construit à partir des dépôts du ECAL se situant dans une fenêtre fine en $\eta$ et plus large en $\phi$ afin de prendre en compte la courbure de la trajectoire de l'électron due au champ magnétique.
+Le \emph{supercluster} est construit à partir des dépôts du ECAL se situant dans une fenêtre plus large en $\phi$ qu'en $\eta$ afin de prendre en compte la courbure de la trajectoire de l'électron due au champ magnétique.
 \par
 Dans le cas des électrons contenus dans les jets, en revanche, un biais apparaît à cause des autres particules du jet situées à proximité de l'électron.
 Cet effet mène à un fort taux de mauvaise reconstruction.
@@ -56,7 +58,7 @@ Trois types de muons peuvent être définis:
 \par
 Lorsque des hadrons chargés arrivent au HCAL, ils se désintègrent en une gerbe hadronique.
 Si des éléments de cette gerbe parviennent à traverser le HCAL (\emph{punch-through}), ils donnent un signal dans les chambres à muons.
-Des critères d'identification sont alors appliqués aux traces afin de réduire les muons reconstruits à partir de hadrons.
+Des critères d'identification sont alors appliqués aux traces afin de réduire la quantité de muons reconstruits à partir de hadrons.
 Ils sont abordés dans la section~\ref{chapter-LHC-section-evt_reco-subsec-ptc_ID}.
 \paragraph{Interactions avec le matériau du trajectographe}
 Des interactions entre les particules issues des collisions et le matériau du trajectographe peuvent mener

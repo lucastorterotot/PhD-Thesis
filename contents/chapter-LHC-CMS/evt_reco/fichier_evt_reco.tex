@@ -1,5 +1,5 @@
 \section{Reconstruction des événements}\label{chapter-LHC-section-evt_reco}
-L'analyse des événements à partir des signaux bruts issus du détecteur n'est pas aisée, qu'il s'agisse de données réelles ou de simulées.
+L'analyse des événements à partir des signaux bruts issus du détecteur n'est pas aisée, qu'il s'agisse de données réelles ou simulées.
 Une interprétation de ces signaux en termes de particules physiques donne un point de départ beaucoup plus accessible.
 %En effet, ces signaux sont comme des \og symptômes \fg{} du passage des particules dans le détecteur.
 %La reconstruction des événements consiste donc en un \og diagnostic \fg{} de l'événement.
@@ -8,13 +8,12 @@ Son rôle est de déterminer quelles particules sont issues de la collision éta
 Cette reconstruction est réalisée de manière identique dans les données réelles et simulées.
 \par
 Les signaux caractéristiques des différents types de particules dans le plan transverse du détecteur CMS sont illustrées sur la figure~\ref{fig-chapter-LHC-section-evt_reco-cms_slice}.
-Dans toute la suite de ce manuscrit, les schémas des événements dans le détecteur utilisent la même présentation que sur la figure~\ref{fig-chapter-LHC-section-evt_reco-cms_slice}, en particulier pour les couleurs des sous-détecteurs et des particules.
 Il s'agit de la conséquence directe de la description du détecteur de la section~\ref{chapter-LHC-section-CMS}.
 La plupart des particules laissent des signaux dans plusieurs sous-détecteurs.
 Pour une particule donnée, ces signaux doivent donc présenter une corrélation.
 \begin{figure}[b]
 \includegraphics[width=\textwidth]{\PhDthesisdir/plots_and_images/CMS_slices/own/all_ptcs.tex}
-\caption[Coupe transverse schématique du détecteur CMS.]{Coupe transverse schématique du détecteur CMS et signaux caractéristiques laissés par les particules. Les hadrons forment un dépôt dans le HCAL. Les hadrons chargés présentent de plus une trace dans le trajectographe dont l'extrapolation doit passer par ce dépôt. De même, les photons et électrons forment un dépôt dans le ECAL et les électrons présentent une trace dans le trajectographe dont l'extrapolation doit passer par ce dépôt. Enfin, les muons se propagent à travers tout le détecteur et laissent une trace dans les chambres à muons dont l'extrapolation doit correspondre à une trace du trajectographe. Réalisé à l'aide de CMSTransverseTikZ~\cite{CMSTransverseTikZ}.}
+\caption[Coupe transverse schématique du détecteur CMS.]{Coupe transverse schématique du détecteur CMS et signaux caractéristiques laissés par les particules. Les hadrons forment un dépôt dans le HCAL. Les hadrons chargés présentent de plus une trace dans le trajectographe dont l'extrapolation doit passer par ce dépôt. De même, les photons et électrons forment un dépôt dans le ECAL et les électrons présentent une trace dans le trajectographe dont l'extrapolation doit passer par ce dépôt. Enfin, les muons se propagent à travers tout le détecteur et laissent une trace dans les chambres à muons dont l'extrapolation doit correspondre à une trace du trajectographe. Dans toute la suite de ce manuscrit, les schémas des événements dans le détecteur utilisent la même présentation, en particulier pour les couleurs des sous-détecteurs et des particules. Réalisé à l'aide de CMSTransverseTikZ~\cite{CMSTransverseTikZ}.}
 \label{fig-chapter-LHC-section-evt_reco-cms_slice}
 \end{figure}
 \par La reconstruction des événements se fait ainsi en combinant les informations issues des différents sous-détecteurs.

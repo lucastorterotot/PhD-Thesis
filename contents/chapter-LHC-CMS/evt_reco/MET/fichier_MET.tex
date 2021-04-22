@@ -3,11 +3,11 @@ Des neutrinos peuvent être produits lors des collisions.
 Or, ces particules se propagent sans laisser de signal dans le détecteur, elles sont donc invisibles.
 Toutefois, lorsque de telles particules sont produites en association avec des particules détectées, leur présence peut être déduite du déséquilibre dans l'impulsion totale des particules de l'événement~\cite{CMS-PAS-JME-17-001}.
 \par
-La phénoménologie des collisions de protons est discutée dans la section~\ref{chapter-LHC-section-LHC-subsec-pp_collisions}.
-Dans l'état initial,
+Lors d'une collision de protons, dans l'état initial,
 la composante longitudinale de l'impulsion est inconnue
 et
-l'impulsion totale dans le plan transverse est nulle.
+l'impulsion totale dans le plan transverse est nulle
+comme discuté dans la section~\ref{chapter-LHC-section-LHC-subsec-pp_collisions}.
 Par conservation, l'impulsion totale dans le plan transverse est nulle dans l'état final.
 Les neutrinos n'étant pas détectés, leurs impulsions transverses sont manquantes dans le bilan de l'état final.
 L'observable définie afin de quantifier ce manque est
@@ -26,13 +26,12 @@ La somme des impulsions transverses des particules invisibles doit compenser cel
 \Leftrightarrow
 \sum_{\substack{\text{particules}\\\text{invisibles}}} \vpT = -\sum_{\substack{\text{particules}\\\text{reconstruites}}} \vpT \mend
 \end{equation}
-\par La MET issue de l'algorithme de \PF\ est ainsi définie comme
+\par La MET issue de l'algorithme de \PF\ représente ainsi l'impulsion transverse totale des particules invisibles est définie comme
 \begin{equation}
 \vMET(\text{\PF}) = -\sum_{i\in\set{\text{particules}}} \vpT^{i}
 \mend[,]
 \end{equation}
-où les particules sont celles reconstruites par l'algorithme de \PF,
-et représente l'impulsion transverse totale des particules invisibles.
+où les particules sont celles reconstruites par l'algorithme de \PF.
 Cette définition, simple, est toutefois sensible aux particules issues de l'empilement.
 Afin de réduire l'effet de l'empilement, l'algorithme \PUPPI\ a été développé.
 \paragraph{MET issue de l'algorithme \PUPPI}

@@ -1,17 +1,18 @@
 \section{Le LHC: \emph{Large Hadron Collider}}\label{chapter-LHC-section-LHC}
 Le Grand Collisionneur de Hadrons (LHC, \emph{Large Hadron Collider})~\cite{LHC_paper1,LHC_paper2,LHC_paper3} est le plus grand et le plus puissant accélérateur de particules au monde.
 Son tracé ainsi que ceux du \emph{Booster}, du PS et du SPS sont illustrés sur la figure~\ref{fig-CERN_map}.
-Le LHC est installé dans le même tunnel que le LEP, il s'agit donc d'un accélérateur circulaire de \SI{27}{\kilo\meter} de circonférence, situé entre \num{50} et \SI{100}{\meter} sous la frontière franco-suisse.
-\par Le LHC permet de réaliser des collisions proton-proton, proton-ion lourd et ion lourd-ion lourd.
-Les collisions d'ions lourds permettent de reproduire les conditions des premiers instants de l'Univers après le \emph{Big Bang} et sont principalement étudiées par l'expérience ALICE, une des quatre grandes expériences du LHC présentées dans la section~\ref{chapter-LHC-section-LHC-subsec-experiments}.
+Le LHC est installé dans le même tunnel que le LEP, il s'agit donc d'un accélérateur circulaire de \SI{27}{\kilo\meter} de circonférence, situé entre \num{50} et \SI{100}{\meter} de profondeur sous la frontière franco-suisse.
+%\par
+Le LHC permet de réaliser des collisions proton-proton, proton-ion lourd et ion lourd-ion lourd.
+%Les collisions d'ions lourds permettent de reproduire les conditions des premiers instants de l'Univers après le \emph{Big Bang} et sont principalement étudiées par l'expérience ALICE, une des quatre grandes expériences du LHC présentées dans la section~\ref{chapter-LHC-section-LHC-subsec-experiments}.
 Dans tous les cas, deux faisceaux de particules sont accélérés en sens inverses.
 Seules les collisions de protons sont considérées dans cette thèse.
 \subsection{Exploitation du LHC}\label{chapter-LHC-section-LHC-subsec-LHC_runs}
 Le fonctionnement du LHC peut être divisé en plusieurs périodes ou \emph{runs}.
-Chaque \emph{run} du LHC présente différentes caractéristiques, en particulier l'énergie dans le centre de masse des collisions.
+Chaque \emph{run} présente différentes caractéristiques, en particulier l'énergie dans le centre de masse des collisions.
 Le tableau~\ref{tab-LHC_runs} résume les différents \emph{runs} du LHC, passés et à venir.
-Chaque \emph{run} est lui-même divisé par année civile, des arrêts techniques étant faits en période hivernale.
-Enfin, une année civile est subdivisée en plusieurs périodes (A, B, C, etc.) entre lesquelles les conditions expérimentales peuvent varier, comme la nature des particules entrant en collision.
+Chaque \emph{run} est lui-même divisé par année civile, des arrêts techniques ayant lieu en période hivernale.
+Enfin, une année civile est subdivisée en plusieurs périodes entre lesquelles les conditions expérimentales comme la nature des particules entrant en collision peuvent varier.
 \begin{table}[h]
 \centering
 \begin{tabular}{cccc}
@@ -21,7 +22,7 @@ Run & Période & Énergie dans le centre de masse & Luminosité proton-proton\\
 I & 2011-2012 & 7 à \SI{8}{\TeV} & \SI{30}{\femto\barn^{-1}} \\
 II & 2016-2018 & \SI{13}{\TeV} & \SI{190}{\femto\barn^{-1}} \\
 III & 2022-2024 & 13 à \SI{14}{\TeV} & \SI{350}{\femto\barn^{-1}}? \\
-IV & 2027-2030 & \SI{14}{\TeV} & \multirow{2}{*}{\SI{3000}{\femto\barn^{-1}}?}\\
+IV & 2027-2030 & \SI{14}{\TeV} & \multirow{2}{*}{$\displaystyle \left. \vphantom{\text{À}^\text{À}q_q} \right\rbrace \SI{3000}{\femto\barn^{-1}}$?}\\
 V & 2032-2034 & \SI{14}{\TeV} & \\
 \bottomrule
 \end{tabular}
@@ -53,16 +54,16 @@ Cette courbure s'obtient grâce à un champ magnétique de \SI{8.33}{\tesla} gé
 \label{fig-proton_mer_quarks_fmf}
 \end{wrapfigure}
 Les protons ne sont pas des particules fondamentales, ils possèdent une sous-structure.
-En tant que baryons, les protons sont donc des hadrons dont la composition moyenne est de trois quarks dits \og de valence \fg{}, en l'occurrence deux \emph{up} et un \emph{down}.
+En tant que baryons, les protons sont des hadrons composés en moyenne de trois quarks dits \og de valence \fg{}, deux \emph{up} et un \emph{down}.
 Cependant, ces quarks échangent des gluons virtuels par l'intermédiaire de l'interaction forte.
 Ces gluons peuvent se matérialiser en paires \quark\antiquark, comme illustré sur la figure~\ref{fig-proton_mer_quarks_fmf}.
 Au sein des protons, d'autres partons (quarks et gluons) que les trois quarks~\quarku, \quarku\ et~\quarkd\ de valence peuvent donc être présents.
-Ces particules additionnelles forment la \og mer \fg{} dans laquelle se trouvent ainsi des gluons, des antiquarks et des quarks de saveurs lourdes.
-\par Chacun des constituants du proton porte une fraction $x$ de l'énergie totale du proton.
+Ces particules additionnelles forment la \og mer \fg{} dans laquelle se trouvent des gluons, des antiquarks et des quarks, y compris de saveurs lourdes.
+\par Chacun des constituants du proton porte une fraction $x$ de son énergie totale.
 La probabilité pour qu'un parton $i$ du proton porte une fraction $x_i$ de l'énergie peut être décrite à l'aide des fonctions de distribution partoniques (PDF, \emph{Parton Distribution Functions}).
 Ces fonctions sont obtenues par ajustement des données expérimentales~\cite{Gao_2018,Ball_2015} et sont représentées sur la figure~\ref{fig-proton_PDFs}.
-Les partons de la mer portent généralement une faible fraction de l'énergie.
-La fraction d'énergie la plus probable portée par un quark de valence est de \num{10} à \SI{20}{\%} selon l'échelle d'énergie.
+Les partons de la mer portent individuellement une faible fraction de l'énergie.
+Un quark de valence porte statistiquement \num{10} à \SI{20}{\%} de l'énergie du proton.
 L'ensemble des quarks de valence porte ainsi \num{30} à \SI{60}{\%} seulement de l'énergie totale du proton.
 Dans le cas du proton, les quarks de valence~\quarku\ portent environ deux fois plus d'énergie que les quarks de valence~\quarkd, ce qui est cohérent avec la structure moyenne (\quarku\quarku\quarkd) du proton.
 \begin{figure}[t]
@@ -84,7 +85,7 @@ Une collision de partons à \SI{13}{\TeV} est ainsi peu probable au LHC, toutefo
 Enfin, les constituants des protons n'interagissent pas tous forcément lors de la collision.
 Des fragments résiduels de protons continuent ainsi leur trajet le long du tube de faisceau et sont inaccessibles pour des détecteurs comme CMS.
 \subsubsection{Faisceaux et paquets de protons}
-La dimension spatiale des protons, de l'ordre du femtomètre (\SI{e-15}{\meter}) ne permet pas de les faire se collisionner un à un de manière efficace.
+La dimension spatiale des protons, de l'ordre du femtomètre (\SI{e-15}{\meter}), ne permet pas de les faire entrer en collision un à un de manière efficace.
 Au LHC, deux faisceaux de protons sont ainsi accélérés, chacun dans un sens.
 Les protons y sont regroupés par paquets espacés temporellement de \SI{25}{\nano\second} lors du Run~II.
 \par La formation et le maintient de ces paquets est rendue possible par l'utilisation des cavités radiofréquence.
@@ -96,9 +97,9 @@ Avant les premières collisions, un paquet comporte \num{1.15e11} protons.
 Les paquets font environ \SI{30}{\centi\meter} de long.
 Lorsqu'ils circulent dans le LHC, leur diamètre est de l'ordre du millimètre mais au niveau des points de collisions, un ensemble de champs magnétiques réduit ce diamètre à \SI{16}{\micro\meter}.
 \par Le passage des \num{1.15e11} protons d'un paquet d'un faisceau du LHC à travers la surface de \SI{16}{\micro\meter} de diamètre, combiné au passage d'un paquet de l'autre faisceau, permet d'obtenir des collisions entre protons.
-Il s'agit de collisions dans lesquelles les constituants des protons interagissent et créent de nouvelles particules par conservation de l'énergie.
+Au cours de celles-ci, les constituants des protons interagissent et créent de nouvelles particules par conservation de l'énergie.
 Les faisceaux du LHC sont stables une dizaine d'heures, pendant lesquelles des collisions surviennent 40 millions de fois par seconde.
-La luminosité permet de rendre compte de la quantité de collisions réalisées.
+La luminosité, introduite dans la section~\ref{chapter-LHC-section-LHC-subsec-lumi} ci-après, permet de rendre compte de la quantité de collisions réalisées.
 \subsection{Luminosité, nombre d'événements et statistiques}\label{chapter-LHC-section-LHC-subsec-lumi}
 La quantité d'événements $\dd{N}_i$ issus d'un processus physique $i$ de section efficace $\sigma_i$ pendant une durée $\dd{t}$ s'exprime
 \begin{equation}
@@ -119,7 +120,7 @@ $\nu$ la fréquence de révolution des paquets dans l'anneau du LHC,
 $n_p$ le nombre de paquets,
 $N_p$ le nombre de protons par paquet,
 $\epsilon_n$ l'émittance transverse, qui permet de mesurer le parallélisme des faisceaux,
-$\beta^*$ la fonction d'amplitude mesurant la distance entre le point de croisement des faisceaux et le lieu où un faisceau est deux fois plus large,
+$\beta^*$ la fonction d'amplitude mesurant la distance entre le point de croisement des faisceaux et le lieu où un faisceau est deux fois plus large et
 $\ell_x$ et $\ell_y$ les dimensions transverses du faisceau au point d'interaction.
 La luminosité instantanée est donc favorisée par une faible largeur du faisceau au niveau des points d'interactions.
 \par
@@ -134,14 +135,14 @@ N_i = \lumi \sigma_i
 Dans le cas des recherches de nouvelles particules, l'écart entre les observations effectives d'une part et attendues dans l'hypothèse où aucun phénomène nouveau n'est présent d'autre part est quantifié en termes de nombre de déviations standards.
 En l'absence de nouvelle physique, une déviation serait due à des fluctuations statistiques.
 Il est alors peu probable d'obtenir une grande déviation.
-Il est ainsi considéré qu'un phénomène, par exemple une nouvelle particule, est observé à partir de cinq déviations standards ($5\sigma$) ou plus, ce qui correspond à une probabilité de réaliser cette observation uniquement à cause de fluctuations d'une sur deux millions.
+Il est ainsi considéré qu'un phénomène, par exemple une nouvelle particule, est observé à partir de cinq déviations standard ($5\sigma$) ou plus, ce qui correspond à une probabilité de réaliser cette observation uniquement à cause de fluctuations d'une sur deux millions.
 \par
-Les incertitudes jouent un rôle majeur dans la quantification du nombre de déviations standards observées.
+Les incertitudes jouent un rôle majeur dans la quantification du nombre de déviations standard observées.
 Il est important de bien les déterminer et de les minimiser autant que possible.
-L'incertitude systématique peut être réduite en concevant des expériences les plus précises possibles.
-L'incertitude statistique relative peut être réduite en augmentant le nombre d'événements correspondant au phénomène étudié.
-Les conditions favorables aux découvertes sont donc celles où la luminosité ou la section efficace du processus étudié sont importants.
-Si un tel écart n'est pas observé, il est alors possible de proposer des limites sur les valeurs des sections efficaces des processus en jeu, limites au-delà desquelles l'écart aurait été observé.
+L'incertitude systématique peut être limitée en concevant des expériences les plus précises possibles.
+L'incertitude statistique relative peut être diminuée en augmentant le nombre d'événements correspondant au phénomène étudié.
+Les conditions favorables aux découvertes sont donc celles dans lesquelles la luminosité ou la section efficace du processus étudié sont importants.
+En l'absence d'un écart significatif entre prédictions et observations, il est possible de proposer des limites sur les valeurs des sections efficaces des processus en jeu, limites au-delà desquelles l'écart aurait été observé.
 \par Les figures~\ref{subfig-CMS_int_lumi_2016}, \ref{subfig-CMS_int_lumi_2017} et~\ref{subfig-CMS_int_lumi_2018} présentent les luminosités totales délivrées par le LHC et enregistrées par le détecteur CMS en fonction du temps lors du Run~II.
 Les luminosités y sont exprimées en inverse femtobarn.
 Le barn ($\SI{1}{\barn}=\SI{e-28}{\meter^2}$) est une unité qui permet d'obtenir des valeurs numériques pour la luminosité plus abordables qu'avec les unités usuelles du système international.
@@ -195,7 +196,7 @@ Les figures~\ref{subfig-CMS_PU_profile_16}, \ref{subfig-CMS_PU_profile_17} et~\r
 \par À chaque collision correspond un vertex, lieu effectif de la rencontre entre les deux protons.
 Pour chacun des vertex de l'événement, la somme des impulsions transverses (\pT) au carré des traces de particules chargées détectées en provenance de ce vertex est calculée.
 Le vertex principal est choisi comme étant le vertex présentant la plus grande valeur de cette somme.
-Les autres vertex sont considérés comme des vertex d'empilement et sont en général peu intéressants dans les analyses expérimentales.
+Les autres sont considérés comme des vertex d'empilement et sont en général peu intéressants dans les analyses expérimentales.
 \par Toutefois, les particules provenant des vertex d'empilement laissent elles aussi des signaux dans le détecteur, en plus des signaux d'intérêts.
 Par conséquent, elles viennent perturber la mesure des phénomènes se produisant au vertex principal.
 \subsubsection{L'empilement asynchrone}
@@ -205,7 +206,7 @@ Or, le détecteur peut présenter ponctuellement un temps de réponse supérieur
 Les signaux de sortie du détecteur pour un événement donné peuvent donc être superposés avec ceux de l'événement suivant, ou précédant selon le point de vue.
 \subsection{Les expériences du LHC}\label{chapter-LHC-section-LHC-subsec-experiments}
 Il existe sept expériences au LHC.
-Parmi elles, quatre sont de \og grandes expériences \fg{} et se situent chacune aux points d'interactions de l'anneau afin d'étudier les collisions qui y sont produites.
+Parmi elles, quatre sont de \og grandes expériences \fg{} et se situent chacune à un des points d'interactions de l'anneau afin d'étudier les collisions qui y sont produites.
 \begin{description}
 \item[ALICE]\cite{alice_paper}, \emph{A Large Ion Collider Experiment}, est une expérience conçue pour étudier le déconfinement des quarks et des gluons à l'aide de collisions d'ions lourds. Ces études permettent de mieux comprendre le fonctionnement de la chromodynamique quantique ou QCD. Elle est installée au point~2 et réutilise l'aimant octogonal rouge très caractéristique de l'expérience L3 du LEP.
 \item[ATLAS]\cite{atlas_paper}, \emph{A Toroidal LHC ApparatuS}, est une expérience généraliste avec un éventail d'études très large, allant des mesures de précision des paramètres du modèle standard à la recherche de nouvelle physique. Ce détecteur se trouve au point~1 du LHC.

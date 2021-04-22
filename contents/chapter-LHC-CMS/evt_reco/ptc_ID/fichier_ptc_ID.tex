@@ -66,12 +66,15 @@ I^{i}
 \label{eq-muons-reliso}
 \end{equation}
 \par
-Dans le cas où un objet physique est considéré à tort comme étant un muon, par exemple un hadron chargé présentant un \emph{punch-through}, le dépôt de ce hadron chargé dans le HCAL mène à une valeur de $I^{\mu}$ plus élevée.
-De plus, des muons peuvent par exemple être produits lors de la désintégration de quarks de saveur lourde.
+Lorsqu'un objet physique est considéré à tort comme étant un muon,
+la valeur de $I^{\mu}$ est plus élevée.
+C'est le cas par exemple pour un hadron chargé présentant un \emph{punch-through},
+dont le dépôt dans le HCAL augmente $I^{\mu}$.
+De plus, des muons peuvent être produits lors de la désintégration de quarks de saveur lourde.
 Ces désintégrations sont accompagnées de jets, comme exposé dans le chapitre~\refChMSSM.
-Ces muons font donc partie du jet et ne sont pas issus de la collision initiale.
+Ces muons font alors partie du jet et ne sont pas issus de la collision initiale.
 La présence du jet mène également à de plus hautes valeurs de $I^{\mu}$.
-L'isolation permet donc de rejeter de tels muons (mal identifiés ou issus de jets).
+L'isolation permet donc de rejeter des muons mal identifiés ou issus de jets.
 \paragraph{Critères d'identification des muons}
 Il est possible de définir un critère de qualité sur l'objet reconstruit devant correspondre à un muon à partir des propriétés des éléments d'identification du \PF.
 Il s'agit du \muonID~\cite{CMS-MUO-16-001,cmsMediumMuon}.
@@ -95,19 +98,17 @@ En particulier, le \emph{Medium} \muonID\ est utilisé dans l'analyse présenté
 \begin{itemize}
 \item le muon passe le \emph{loose} \muonID;
 \item au moins \SI{80}{\%} des signaux du trajectographe associés au muon sont valides.
-\end{itemize}
-De plus, un des deux ensembles de critères suivants doit être respecté:
+\item s'il s'agit d'un muon global:
 \begin{itemize}
-\item le muon est un muon global;
-\item l'ajustement de la trajectoire vérifie $\chi^2/\Ndof<3$, avec \Ndof\ le nombre de degrés de liberté de l'ajustement;
-\item l'accord entre le muon seul et le muon du trajectographe issus des mêmes éléments de reconstruction que le muon global vérifie $\chi^2<12$;
-\item la compatibilité avec une déviation du muon due au matériel du détecteur (\emph{kink finder}) vérifie $\chi^2<20$;
+\item l'ajustement de la trajectoire vérifie $\chi^2/\Ndof<3$, avec \Ndof\ le nombre de degrés de liberté de l'ajustement,
+\item l'accord entre le muon seul et le muon du trajectographe issus des mêmes éléments de reconstruction que le muon global vérifie $\chi^2<12$,
+\item la compatibilité avec une déviation du muon due au matériel du détecteur (\emph{kink finder}) vérifie $\chi^2<20$,
 \item la compatibilité du segment est supérieure à \num{0.303};
 \end{itemize}
-ou
+\item s'il s'agit d'un muon du trajectographe:
 \begin{itemize}
-\item le muon est un muon du trajectographe;
 \item la compatibilité du segment est supérieure à \num{0.451}.
+\end{itemize}
 \end{itemize}
 \subparagraph{\emph{Tight} \muonID} (exigence stricte)
 \begin{itemize}
@@ -186,19 +187,18 @@ Les valeurs des aires effectives utilisées sont présentées dans le tableau~\r
 \paragraph{Critères d'identification des électrons}
 Deux critères d'identification des électrons existent.
 Le premier est issu d'une analyse multivariée (MVA, \emph{MultiVariate Analysis}), le second est obtenu à partir de coupures (\emph{cuts}) sur certaines variables.
-\subparagraph{\EleIDMVA}
+\subparagraph{\ELEIDMVA}
 Ce critère est basé sur un arbre de décision (BDT, \emph{Bossted Decision Tree}) \cite{cmsElectronMVA}.
-Le BDT est entraîné sur des événements $\text{Drell-Yan ($\Zboson/\photon^*$)} + \text{jets}$ simulés à l'aide de \MADGRAPH~\cite{madgraph5}.
-L'entraînement se fait à l'aide de \XGBOOST~\cite{xgboost}.
+Le BDT est entraîné à l'aide de \XGBOOST~\cite{xgboost} sur des événements $\text{Drell-Yan ($\Zboson/\photon^*$)} + \text{jets}$ simulés à l'aide de \MADGRAPH~\cite{madgraph5}.
 Les variables prises en compte sont:
 \begin{itemize}
 \item l'impulsion transverse de l'électron $\pT^{\ele}$;
 \item la pseudo-rapidité du \emph{supercluster};
 \item la densité d'énergie issue de l'empilement dans l'événement $\rho$;
 
-\item l'étalement en $\eta$ et en $\phi$ du dépôt d'énergie dans le ECAL, $\sigma_{i\eta i\eta}$ et $\sigma_{i\phi i\phi}$ où $i\eta$ et $i\phi$ correspondent au nombre entier désignant le cristal du calorimètre;
-\item la circularité du dépôt d'énergie, $1- E_{1\times5}/E_{5\times5}$, où $ E_{1\times5}$ et $E_{5\times5}$ correspondent respectivement aux énergies dans une région de $1\times5$ et $5\times5$ cristaux centré sur le cristal contenant le plus d'énergie dans le \emph{supercluster};
-\item $R_9 = \frac{E_{3\times3}}{E_{SC}}$, où $E_{SC}$ est l'énergie contenue dans le \emph{supercluster};
+\item les étalements en $\eta$ et en $\phi$ du dépôt d'énergie dans le ECAL, $\sigma_{i\eta i\eta}$ et $\sigma_{i\phi i\phi}$ où $i\eta$ et $i\phi$ correspondent au nombre entier désignant le cristal du calorimètre;
+\item la circularité du dépôt d'énergie, $1- E_{1\times5}/E_{5\times5}$, où $ E_{1\times5}$ et $E_{5\times5}$ correspondent respectivement aux énergies dans une région de $1\times5$ et $5\times5$ cristaux centrée sur le cristal contenant le plus d'énergie dans le \emph{supercluster};
+\item $R_9 = \frac{E_{3\times3}}{E_{SC}}$, où $ E_{3\times3}$ correspond à l'énergie dans une région de $3\times3$ cristaux centrée sur le cristal contenant le plus d'énergie dans le \emph{supercluster} et $E_{SC}$ est l'énergie contenue dans le \emph{supercluster};
 \item $H/E_{SC}$ où $H$ est l'énergie hadronique située dans un cône de $\Delta R < \num{0.15}$ autour de l'électron;
 \item $E_{SC}^\text{PS}/E_{SC}^\text{raw}$ le rapport de l'énergie du \emph{supercluster} située dans le \emph{PreShower} sur son énergie totale non corrigée;
 \item la largeur du \emph{supercluster}, $\Delta \eta_{SC}$ et $\Delta \phi_{SC}$;
@@ -208,12 +208,12 @@ Les variables prises en compte sont:
 \item le $\chi^2$ de l'ajustement de la trajectoire GSF (\emph{GSFtrack});%. Le \emph{Gaussian Sum Filter} est une méthode de traitement du signal~\cite{GSF};
 \item le nombre de \emph{hits} utilisés pour l'ajustement de la trajectoire GSF, $N^\text{GSF}$;
 \item le nombre attendu de \emph{hits} manquants, $N_\text{lost}^\text{GSF}$;
-\item la fraction d'énergie perdue par \emph{bremsstrahlung}, $f_\text{brem} = 1-p_\text{out}/p_\text{in}$ où
-$p_\text{in}$ est l'impulsion de l'électron obtenue d'après la courbe de sa trajectoire près du vertex primaire et
-$p_\text{out}$ l'impulsion de l'électron obtenue d'après la courbe de sa trajectoire près de la surface de ECAL;
+\item la fraction d'énergie perdue par \emph{bremsstrahlung}, $f_\text{brem} = 1-p_\text{out}/p_\text{in}$,
+avec $p_\text{in}$ et $p_\text{out}$
+les impulsions de l'électron obtenue d'après la courbe de sa trajectoire près du vertex primaire et près de la surface du ECAL respectivement;
 
 \item $E_{SC}/p_\text{in}$;
-\item $E_{\PF}/p_\text{in}$ avec $E_{\PF}$ est l'énergie du \emph{supercluster} le plus proche du point d'entrée de l'électron dans le ECAL;
+\item $E_{\PF}/p_\text{in}$, où $E_{\PF}$ est l'énergie du \emph{supercluster} le plus proche du point d'entrée de l'électron dans le ECAL;
 \item les écarts $\Delta\eta_\text{in}$ et $\Delta\phi_\text{in}$ entre le \emph{supercluster} et la direction de la trace associée à l'électron au niveau du vertex primaire;
 \item l'écart $\Delta\eta_\text{out}$ entre le \emph{supercluster} et la direction de la trace associée à l'électron au niveau de la surface du ECAL;
 \item $1/E_{\ele}-1/p_{\ele}$ où $E_{\ele}$ est l'énergie de l'électron et $p_{\ele}$ son impulsion;
@@ -223,18 +223,18 @@ $p_\text{out}$ l'impulsion de l'électron obtenue d'après la courbe de sa traje
 \par
 Le point de fonctionnement à \SI{90}{\%} d'efficacité est défini à partir d'une valeur minimale de sortie du BDT.
 Cette valeur dépend de $\pT^{\ele}$ et $\eta^{\ele}$ ainsi que de l'année de prise de données.
-\subparagraph{\CutBasedEleID}
+\subparagraph{\CUTBASEDELEID}
 Ce critère d'identification consiste en une liste de coupures (\emph{cut}) sur certaines variables.
 Les valeurs de ces coupures dépendent du point de fonctionnement.
 Dans l'analyse présentée chapitre~\refChHTT, seul le point de fonctionnement \og veto \fg{} est utilisé, les coupures associées sont listées dans le tableau~\ref{tab-CutBasedEleIDVeto}.
 Les variables utilisées sont définies précédemment, à l'exception de:
 \begin{itemize}
 \item $\abs{\Delta\eta_\text{in}^\text{seed}}$ l'écart en $\eta$ entre le point d'entrée de l'électron dans le ECAL et la position du \emph{supercluster} identifié par l'algorithme de \PF;
-\item $I_\text{rel}^{\Delta\beta}$ l'isolation relative de l'électron obtenue avec la même formule que pour les muons~\eqref{eq-muons-reliso}, à l'exception de la taille du cône valant ici $R_{\ele}=\num{0.3}$.
+\item $I_\text{rel}^{\Delta\beta}$ l'isolation relative de l'électron obtenue de façon analogue à celle des muons~\eqref{eq-muons-reliso}, à l'exception de la taille du cône valant ici $R_{\ele}=\num{0.3}$.
 \end{itemize}
 \begin{table}[h]
 \centering
-\begin{tabular}{ccc}
+\begin{tabular}{lll}
 \toprule
 Variable & $\abs{\eta^{\ele}} < \num{1.479}$ & $\abs{\eta^{\ele}} \geq \num{1.479}$ \\
 \midrule
@@ -252,7 +252,7 @@ veto de conversion & passé & passé \\
 \label{tab-CutBasedEleIDVeto}
 \end{table}
 \paragraph{Isolation des photons}
-L'isolation des photons est définie séparément vis-à-vis
+L'isolation des photons est définie vis-à-vis
 des hadrons chargés,
 des hadrons neutres et
 des autres photons
@@ -320,7 +320,7 @@ $I^{/CH}_\text{rel}$ & \num{1.694} & \num{2.089} & \num{1.141} & \num{1.051} & \
 L'identification des électrons et des photons isolés se base sur les éléments d'identification du \PF\ du trajectographe et du ECAL.
 Lors de leur traversée du trajectographe, les électrons émettent des photons par \emph{bremsstrahlung}.
 De plus, les photons se convertissent en paires $\antielectron\electron$, ces électrons étant également sujets au \emph{bremsstrahlung}, etc.
-C'est pour cela qu'électrons et photons isolés sont traités de manières similaires pour leur reconstruction.
+Pour cette raison, électrons et photons isolés sont traités de manières similaires pour leur reconstruction.
 \par Un candidat électron est défini lorsqu'une trace du trajectographe, extrapolée jusqu'au ECAL, est associée à un dépôt d'énergie, si ce dépôt n'est pas lui-même relié à trois autres traces ou plus.
 Les candidats photons isolés correspondent aux dépôts du ECAL avec une énergie transverse supérieure à \SI{10}{\GeV} n'étant pas associés à une trace.
 Pour tous ces candidats, la somme des énergies mesurées dans les cellules du HCAL se situant dans un cône de rayon $\Delta R$ inférieur à \num{0.15} dans le plan $(\eta,\phi)$ ne doit pas correspondre à plus de \SI{10}{\%} de l'énergie du dépôt du ECAL.
@@ -329,9 +329,9 @@ Les traces identifiées comme celles de conversions de photons et les dépôts d
 %Les définitions exactes de ces critères varient d'une année à l'autre en fonction des performances du détecteur et plusieurs niveaux d'exigence existent.
 Les éléments d'identification du \PF\ utilisés pour reconstruire les électrons et photons isolés sont retirés dans la suite du processus de reconstruction de l'événement.
 \subsubsection{Hadrons et photons non isolés}
-Les muons, électrons et photons isolés ayant été identifiés et reconstruits, seuls les hadrons et les photons non isolés issus de la formation des jets et de l'hadronisation sont encore à être reconstruits.
+Une fois les muons, électrons et photons isolés identifiés et reconstruits restent les hadrons et les photons non isolés issus de la formation des jets et de l'hadronisation.
 Ces particules sont généralement détectées comme des hadrons chargés (\pionpm, \Kaonpm, protons), des hadrons neutres (\Kaonlong, neutrons), des photons non isolés (désintégrations des \pionnull) et plus rarement comme des muons (désintégrations de hadrons lourds).
-La formation des jets ainsi que l'hadronisation sont détaillées dans le chapitre~\refChMSSM.
+%La formation des jets ainsi que l'hadronisation sont détaillées dans le chapitre~\refChMSSM.
 \par Dans la région d'acceptation du trajectographe ($\abs{\eta}<\num{2.5}$), les photons non isolés et les hadrons neutres sont reconstruits respectivement à partir des dépôts d'énergie dans les ECAL et HCAL non associés à une trace.
 Une priorité est donnée aux photons dans la mesure où \SI{25}{\%} de l'énergie des jets est portée par ces particules alors que seulement \SI{3}{\%} de l'énergie des jets est déposée dans le ECAL par les hadrons neutres.
 Au-delà de l'acceptation du trajectographe, il n'est pas possible de faire la distinction entre hadrons neutres et chargés.
@@ -340,7 +340,11 @@ Les autres dépôts du ECAL sont considérés comme dus à des photons.
 \par Les hadrons chargés sont identifiés à partir des agglomérats restant dans le HCAL, associés aux traces dans le trajectographe non utilisées pour l'identification des particules précédentes.
 Ces traces peuvent elles-mêmes être reliées à un agglomérat résiduel du ECAL.
 Pour chaque bloc du \PF\ ainsi construit, l'énergie dans les calorimètres est comparée à la somme des impulsions des traces.
-Si un excès est observé avec les calorimètres, il est interprété comme la présence d'une particule neutre supplémentaire.
-Si cet excès est inférieur à l'énergie dans le ECAL et plus grand que \SI{500}{\MeV}, alors la particule neutre est considérée comme étant un photon d'énergie égale à cet excès.
-Sinon, l'énergie dans le ECAL donne un photon et si la partie de l'excès dans le HCAL est supérieure à \SI{1}{\GeV}, un hadron neutre est également considéré.
+Un excès d'énergie d'après les calorimètres est interprété comme la présence d'une particule neutre supplémentaire.
+Si la valeur de cet excès est inférieure à l'énergie contenue dans le ECAL et supérieure à \SI{500}{\MeV},
+alors cette particule neutre supplémentaire est considérée comme étant un photon dont l'énergie est égale à l'excès.
+Sinon,
+l'énergie dans le ECAL est identifiée comme un photon
+et si la partie de l'excès contenue dans le HCAL est supérieure à \SI{1}{\GeV},
+un hadron neutre est également identifié.
 Puis, à partir de l'énergie calorimétrique restante, chaque trace du bloc du \PF\ donne un hadron chargé.

@@ -3,8 +3,8 @@
 \begin{tikzpicture}
 \input{\PhDthesisdir/plots_and_images/CERN_and_LHC/CERN_LHC_map-scale-bg.tex}
 
-\def\LHCcolor{ltcolorred3}
-\def\LEPcolor{ltcolorcyan3}
+\def\LHCcolor{ltcolorred}
+\def\LEPcolor{ltcolorcyan}
 \def\RingPtcolor{black}
 
 %\foreach \coord in {1,2,3,4,5,6,7,8,32}{
@@ -30,7 +30,7 @@
 \fill[\LEPcolor] (\coord) --+ (110:4pt) arc (110:110+180:4pt);
 }
 
-\draw (9,3.6) node {\bfseries\textsl{LHC}};
-\draw (-2,3.6) node {\bfseries\textsl{LEP}};
+\draw (9,3.6) node {\color{\LHCcolor}\LARGE\bfseries\textsl{LHC}};
+\draw (-2,3.6) node {\color{\LEPcolor}\LARGE\bfseries\textsl{LEP}};
 
 \end{tikzpicture}
