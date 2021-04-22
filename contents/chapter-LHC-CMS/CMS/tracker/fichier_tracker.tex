@@ -14,6 +14,18 @@ Elle comporte à présent quatre couches de pixels dans la partie \CMSbarrel\ à
 Dans les \CMSendcaps, les disques ont également été repensés afin d'obtenir quatre points de passage pour les traces telles que $\abs{\eta}<\num{2.5}$.
 Une comparaison des trajectographes à pixels utilisés en 2016 (Phase-0) et à partir de 2017 (Phase-1) est illustrée sur la figure~\ref{fig-chapter-LHC-section-CMS-subsec-tracker-2017-upgrade}.
 Cette modification du détecteur permet d'améliorer la reconstruction des vertex ainsi que l'efficacité de l'identification de jets issus de quarks~\quarkb.
+\par
+De \num{20} à \SI{116}{\centi\meter} de rayon se trouve le trajectographe à piste, lui-même composé de trois sous-parties.
+La première de ces sous-parties comporte un \CMSbarrel\ (TIB, \emph{Tracker Inner Barrel}) de quatre couches et trois disques (TID, \emph{Tracker Inner Disks}) vers l'avant.
+Les pistes dans ces couches sont parallèles au faisceau dans le TIB et axiales dans les TID.
+Elles permettent d'obtenir une résolution de \SI{23}{\micro\meter} et \SI{35}{\micro\meter} respectivement~\cite{cms_paper}.
+Le TIB et les TID sont entourés par le \CMSbarrel\ du trajectographe externe (TOB, \emph{Tracker Outer Barrel}) de six couches.
+Le TOB a une résolution de \SI{53}{\micro\meter} pour ses quatre premières couches et de \SI{35}{\micro\meter} ensuite~\cite{cms_paper}.
+Enfin, les \CMSendcaps\ du trajectographe externe (TEC, \emph{Tracker EndCaps}) se situent aux extrémités du dispositif.
+\par
+Les trajectoires des particules chargées sont alors reconstruites par un ajustement aux différents points de passage dans le trajectographe.
+À partir de ces trajectoires, il est possible de déterminer le signe de la charge électrique et l'impulsion transverse des particules à l'aide de l'équation~\eqref{eq-chapter-LHC-section-CMS-subsec-solenoide-rayon_courbure}.
+Les résolutions obtenues sur les impulsions transverses des muons et des particules chargées à l'aide du trajectographe sont présentées sur la figure~\ref{fig-chapter-LHC-section-CMS-subsec-tracker-pT-resolution}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-TRK-17-001/CMS-TRK-17-001_Figure_001-a.pdf}
@@ -22,21 +34,10 @@ Cette modification du détecteur permet d'améliorer la reconstruction des verte
 \end{figure}
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\linewidth]{\PhDthesisdir/plots_and_images/from_cms_trk_upgrade_2017/fig2.png}
+\includegraphics[width=0.9\linewidth]{\PhDthesisdir/plots_and_images/from_cms_trk_upgrade_2017/fig2.png}
 \caption[Comparaison des trajectographes à pixels utilisés en 2016 et à partir de 2017.]{Comparaison des trajectographes à pixels utilisés en 2016 (Phase-0, en bas) et à partir de 2017 (Phase-1, en haut) \cite{CMS-TDR-11,cms_trk_upgrade_2017}.}
 \label{fig-chapter-LHC-section-CMS-subsec-tracker-2017-upgrade}
 \end{figure}
-\par De \num{20} à \SI{116}{\centi\meter} de rayon se trouve le trajectographe à piste, lui-même composé de trois sous-parties.
-La première de ces sous-parties comporte un \CMSbarrel\ (TIB, \emph{Tracker Inner Barrel}) de quatre couches et trois disques (TID, \emph{Tracker Inner Disks}) vers l'avant.
-Les pistes dans ces couches sont parallèles au faisceau dans le TIB et axiales dans les TID.
-Ils permettent d'obtenir une résolution de \SI{23}{\micro\meter} et \SI{35}{\micro\meter} respectivement~\cite{cms_paper}.
-Le TIB et les TID sont entourés par le \CMSbarrel\ du trajectographe externe (TOB, \emph{Tracker Outer Barrel}) de six couches.
-Le TOB a une résolution de \SI{53}{\micro\meter} pour ses quatre premières couches et de \SI{35}{\micro\meter} ensuite~\cite{cms_paper}.
-Enfin, les \CMSendcaps\ du trajectographe externe (TEC, \emph{Tracker EndCaps}) se situent aux extrémités du dispositif.
-\par
-Les trajectoires des particules chargées sont alors reconstruites par un ajustement aux différents points de passage dans le trajectographe.
-À partir de ces trajectoires, il est possible de déterminer le signe de la charge électrique et l'impulsion transverse des particules à l'aide de l'équation~\eqref{eq-chapter-LHC-section-CMS-subsec-solenoide-rayon_courbure}.
-Les résolutions obtenues sur les impulsions transverses des muons et de particules chargées à l'aide du trajectographe sont présentées sur la figure~\ref{fig-chapter-LHC-section-CMS-subsec-tracker-pT-resolution}.
 \begin{figure}[h]
 \centering
 \subcaptionbox{Résolution pour des muons seuls et isolés.\label{subfig-chapter-LHC-section-CMS-subsec-tracker-pT-resolution-muons}}[.45\textwidth]
