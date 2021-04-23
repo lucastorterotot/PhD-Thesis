@@ -85,6 +85,79 @@ une meilleure description du boson~\Zboson\ et une sensibilité au boson de Higg
 équivalente
 dans certaines topologies d'événements,
 tout en étant 60 fois plus rapide à fournir ces estimations.
+Avec l'augmentation considérable de la quantité d'événements à traiter
+dans les futures analyses de physique des particules,
+la rapidité du DNN par rapport à \SVFIT\
+est un atout majeur.
 \par
-
-prospects
+L'entraînement du DNN est basé sur des événements
+où un boson de Higgs \higgsML\ de masse variable est produit par fusion de gluons.
+%Il s'agit du mode dominant de production de \higgs.
+L'exploitation d'autres modes de production
+pourrait améliorer les performances
+du DNN sur les topologies correspondantes.
+Il est de plus envisageable d'inclure
+des événements correspondant expressément au boson~\Zboson\
+et aux modes de production associés,
+en plus de ceux pour lesquels $m_{\higgsML}\simeq m_{\Zboson}$,
+pour augmenter encore le pouvoir discriminant du DNN
+déjà plus important que celui de \mTtot\
+dans cette région de l'espace des phases.
+%\par
+La prise en compte des fausses paires de leptons~\tau\
+dans l'entraînement
+n'est pas triviale
+car il n'est pas possible de définir une valeur physique de masse à prédire
+dans ce cas.
+% ttbar case?
+\par
+L'utilisation du DNN issu des travaux de cette thèse
+est déjà envisagé dans deux analyses de la collaboration CMS.
+La première est l'analyse des événements avec une paire de leptons~\tau\
+dans le cadre du NMSSM (\emph{Next to MSSM}),
+théorie plus complexe que le MSSM dans laquelle existent sept bosons de Higgs au lieu de cinq.
+La topologie des événements y est la même que dans l'analyse menée dans cette thèse,
+l'implémentation du DNN est donc directe.
+La seconde porte sur les événements avec deux bosons de Higgs du SM (\higgs),
+l'un se désintégrant en paire de~\tau\
+et l'autre en paire de quarks~\quarkb\
+($\higgs\higgs\to\quarkb\antiquarkb\tau\tau$).
+%Dans le cas \og non résonnant \fg,
+%\ie\ où les deux bosons de Higgs sont produits par tout processus physique,
+L'utilisation du DNN n'est pas directe à cause de la présence des deux jets de quarks~\quarkb,
+situation inédite par rapport aux travaux menés dans cette thèse.
+La prise en compte de ces jets dans les variables d'entrée du DNN n'est pas triviale
+et
+les études actuelles menées par le groupe en charge de cette analyse
+tendent à montrer une dégradation des performances par rapport au simple cas $\higgsML\to\tau\tau$
+pour lequel il est conçu.
+Comme exprimé précédemment,
+inclure des événements $\higgs\higgs\to\quarkb\antiquarkb\tau\tau$
+dans l'entraînement du DNN pourrait remédier à cette dégradation.
+Une piste prometteuse est d'étudier l'effet du boson de Higgs se désintégrant en $\quarkb\antiquarkb$ sur le recul de celui donnant la paire de~\tau.
+\par
+Dans l'optique de l'analyse \og résonnante \fg{} des événements
+$\higgs\higgs\to\quarkb\antiquarkb\tau\tau$,
+\ie\ lorsque les deux bosons \higgs\ sont eux-mêmes issus d'une seule particule initiale,
+il est envisageable de créer un autre DNN
+spécialement conçu pour prédire directement la masse de celle-ci.
+Par rapport au DNN utilisé pour les événements $\higgsML\to\tau\tau$,
+la liste des variables d'entrée pourrait être complétée
+par des observables liées aux quarks~\quarkb\ et aux jets résultants.
+\par
+L'utilisation d'un DNN, ou plus généralement du \emph{Machine Learning}, afin d'estimer la masse d'une résonance se désintégrant en paire de leptons~\tau\
+est ainsi très prometteuse.
+Les analyses futures, en particulier lors du Run~III dès 2022,
+pourraient bénéficier d'une meilleure résolution et d'une vitesse accrue par rapport aux outils actuels.
+Ces avancées pourraient mener
+à des mesures encore plus précises des paramètres du SM,
+à mieux contraindre les modèles BSM tels que le MSSM et le NMSSM
+voire
+à l'observation d'une nouvelle physique.
+De tels résultats permettront aux théoriciens de formuler de nouveaux modèles
+plus complets
+et plus à même de décrire l'Univers
+que l'actuel SM,
+qui seront eux-mêmes expérimentalement testés,
+perpétuant ainsi la marche scientifique
+ayant déjà mené avec succès à de nombreuses découvertes.
