@@ -1,2 +1,90 @@
 \chapter*{Conclusion}\label{chapter-conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
+
+L'extension supersymétrique minimale du modèle standard (MSSM)
+introduite au chapitre~\refChMSSM\
+est une des théories visant à combler les lacunes du modèle standard (SM),
+par exemple l'existence de la matière noire.
+Dans le MSSM,
+quatre bosons de Higgs additionnels par rapport au SM sont présents,
+dont deux neutres.
+Leur phénoménologie dans les collisionneurs tels que le LHC
+favorise le canal de désintégration en paire de leptons~\tau\
+pour la recherche d'un signal indiquant leur présence,
+qui serait une preuve de l'existence d'une nouvelle physique
+au-delà du SM (BSM).
+\par
+Les travaux réalisés lors de cette thèse
+exploitent les données expérimentales
+récoltées par le détecteur CMS
+lors des collisions de protons du Run~II du LHC
+à une énergie dans le centre de masse de \SI{13}{\TeV},
+correspondant à une luminosité intégrée de \SI{137}{\femto\barn^{-1}}.
+Le détecteur CMS a été présenté dans le chapitre~\refChLHCCMS.
+Les particules issues des collisions y laissent des signaux lors de leur passage.
+Ceux-ci sont utilisés pour reconstruire les particules correspondantes.
+Les propriétés de ces dernières permettent d'étudier les processus physiques
+ayant eu lieu lors de la collision initiale.
+\par
+La signature expérimentale
+d'un parton issu de la collision, \ie\ un quark ou un gluon,
+est un jet.
+Il s'agit d'un objet physique complexe
+composé de plusieurs particules.
+De nombreuses analyses de la collaboration CMS exploitent les jets
+et
+les incertitudes liées à leur énergie sont généralement parmi les plus importantes.
+La bonne caractérisation de ces objets physiques est donc cruciale.
+Dans cette thèse,
+les événements contenant un photon et un jet (\Gjet)
+sont utilisés afin de calibrer les jets en énergie.
+Les résultats obtenus pour les années 2018 et 2017-UL,
+présentés dans le chapitre~\refChJERC,
+sont exploités dans la calibration officielle de la collaboration.
+\par
+La recherche de bosons de Higgs supplémentaires de haute masse se désintégrant en paire de taus
+a été présentée dans le chapitre~\refChHTT.
+L'estimation des bruits de fond dus aux processus du SM
+est majoritairement obtenue à partir des données observées elles-mêmes.
+Plusieurs catégories d'événements sont définies afin d'augmenter la sensibilité de l'analyse aux bosons de Higgs prévus par le MSSM.
+Aucune déviation significative par rapport aux prédictions SM n'est observée
+dans
+les distributions des variables discriminantes des différentes catégories.
+Des limites hautes ont alors été déterminées par la méthode \CLS\ sur la section efficace de production des bosons de Higgs neutres supplémentaires du MSSM, multipliée par leur rapport de branchement à la désintégration en paire de leptons~\tau.
+Une région d'exclusion du MSSM en faveur du SM,
+déterminée dans le plan $(m_{\HiggsA},\tan\beta)$ pour le scénario $M_{\higgs}^{125}$
+permet d'exclure
+$m_{\HiggsA} < \SI{600}{\GeV}$.
+Dans le cas du scénario $M_{\Higgs_1}^{125}(\text{CPV})$,
+la région donnée dans le plan $(m_{\Higgspm},\tan\beta)$
+exclut
+$m_{\Higgspm} < \SI{400}{\GeV}$.
+\par
+Les neutrinos issus des désintégrations des leptons~\tau\
+sont invisibles dans les détecteurs du LHC.
+L'incertitude inhérente due à l'impossibilité de les mesurer
+dégrade la précision et les performances des analyses.
+Les travaux présentés dans le chapitre~\refChML\
+ont permis d'obtenir un réseaux de neurones profond (DNN)
+capable de reconstruire la masse d'une particule se désintégrant en paire de leptons~\tau\
+entre \SI{50}{\GeV} et \SI{800}{\GeV}
+avec une précision de \num{20} à \SI{25}{\%}.
+Une avancée majeure par rapport aux précédentes études est l'inclusion de l'empilement dans l'entraînement du DNN
+qui peut alors être directement exploité dans les analyses de CMS.
+Malgré une meilleure résolution sur le signal des bosons de Higgs du MSSM que la variable discriminante actuellement utilisée dans l'analyse du chapitre~\refChHTT,
+ce modèle ne permet pas d'étendre les limites d'exclusion obtenues.
+Ceci est dû aux contributions des fausses paires de leptons~\tau,
+dont l'estimation de la masse par le DNN se retrouve dans la région de signal du MSSM.
+Un bon estimateur de masse n'est donc pas forcément une bonne variable discriminante.
+Cependant,
+ce DNN permet de séparer le signal du boson~\Zboson\ de celui des processus \ttbar.
+Il pourrait donc déjà bénéficier à d'autres analyses.
+De plus,
+une comparaison de ses estimations de masse à celles de l'algorithme \SVFIT\ utilisé par la collaboration CMS montre
+une meilleure description du boson~\Zboson\ et une sensibilité au boson de Higgs du modèle standard
+équivalente
+dans certaines topologies d'événements,
+tout en étant 60 fois plus rapide à fournir ces estimations.
+\par
+
+prospects
