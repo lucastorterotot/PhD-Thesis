@@ -1,0 +1,40 @@
+\begin{fmffile}{VBFH-tautau_mutau-nu_in_red}\fmfstraight
+\begin{fmfchar*}(50,30)
+  \fmfleft{qa,qb}
+  \fmfright{qc,nu1,upq,doq,muout,antinumu,nu2,qd}
+  \fmf{fermion}{qa,v1,v12}
+  \fmf{fermion}{qb,v2,v22}
+  \fmf{phantom,tension=3}{qa,v1}
+  \fmf{phantom,tension=3}{qb,v2}
+  \fmf{plain}{v12,qc}
+  \fmf{plain}{v22,qd}
+  \fmffreeze
+  \fmf{phantom}{v1,v3,v2}
+  \fmffreeze
+  \fmf{boson, label=$\Wboson,, \Zboson$, l.side=left}{v1,v3}
+  \fmf{boson, label=$\Wboson,, \Zboson$, l.side=right}{v2,v3}
+  \fmf{dashes, label=$\Higgs$, l.side=left, tension=8}{v3,v}
+  \fmf{fermion, label=$\antitau$, l.side=left, tension=4}{t1d,v}
+  \fmf{fermion, label=$\leptau$, l.side=left, tension=4}{v,t2d}
+  \fmf{fermion, tension=3}{nu1,t1d}
+  \fmf{boson, tension=2}{t1d,W1d}
+  \fmf{phantom}{doq,W1d,upq}
+  \fmf{fermion, tension=3}{t2d,nu2}
+  \fmf{boson, tension=2}{t2d,W2d}
+  \fmf{fermion}{antinumu,W2d,muout}
+  \fmffreeze 
+  \fmf{plain}{W1d,upq}
+  \fmflabel{$\color{ltcolorred}\bm{\antinutau}$}{nu1}
+  \fmflabel{$\color{ltcolorred}\bm{\nutau}$}{nu2}
+  \fmflabel{$\color{\muoncolor}\bm{\muon}$}{muout}
+  \fmflabel{$\color{ltcolorred}\bm{\antinumu}$}{antinumu}
+  %\fmflabel{$\antiquarkd$}{doq}
+  \fmflabel{$\color{\tauhcolor}\bm{\tauh}$}{upq}
+  \fmflabel{\quark}{qa}
+  \fmflabel{\quark}{qb}
+  \fmflabel{\color{\jetcolor}jet}{qc}
+  \fmflabel{\color{\jetcolor}jet}{qd}
+  \fmfdot{v1,v2,v3,v,t1d,t2d,W1d,W2d}
+  \fmfblob{.07w}{v12,v22,W1d}
+\end{fmfchar*}
+\end{fmffile}
