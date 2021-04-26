@@ -1,7 +1,42 @@
 \begin{frame}
 \frametitle{\mTtot\ distributions}
 
+\begin{minipage}[c]{.49\textwidth}
 
+\manip Backgrounds = SM expectations:
+\submanip DY $\Zboson\to\tau\tau$ and some \ttbar\ in \colorbox{\EMBcolor}{$\mu\to\tau$ embedded}
+\submanip QCD, \Wjets\ and some \ttbar\ in \colorbox{\FAKEScolor}{$\text{Jet}\to\tauh$}
+\submanip $\Zboson\to\ele\ele$ + $\Zboson\to\mu\mu$ in \colorbox{\ZLLcolor}{$\Zboson\to\ell\ell$}
+\submanip Remaining \ttbar\ in \colorbox{\TTBARcolor}{\ttbar}
+\submanip Other small backgrounds in \colorbox{\DIBcolor}{Diboson}
+
+\manip MSSM \Higgs\ with $m=\SI{400}{\GeV}$ expected \tikzmarknode{signal.}{nodesignal}
+
+\manip Compare to observed events (black dots).
+
+%\vspace{\baselineskip}
+%
+%\manip Lots of work to obtain this!
+%\submanip simulated events
+%\submanip detector issues
+%\submanip uncertainties measured
+%\manip Collaboration with KIT (Germany)
+%
+%\vspace{\baselineskip}
+
+\manip Data/Bkg agreement $\to$ exclusion limits.
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.49\textwidth}
+\begin{center}
+\vspace{-\baselineskip}
+\plotHTTshapes{mt_tot}{mssm_classic}{2018}{tt}{32}{prefit}
+\end{center}
+\end{minipage}
+
+\begin{tikzpicture}[overlay, remember picture]
+\draw [ltcolorred, very thick, -latex] (nodesignal) to [out=0, in=-165] (11.45,5);
+\end{tikzpicture}
 \end{frame}
 
 \begin{frame}
