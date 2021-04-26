@@ -1,20 +1,20 @@
 \begin{frame}
-\frametitle{Backgrounds: Drell-Yan}
+%\frametitle{Backgrounds: Drell-Yan}
 
+~
 \begin{minipage}[c]{.45\textwidth}
 \begin{block}{Drell-Yan (especially $\Zboson\to\tau\tau$)\vphantom{ÀQj}}
 \begin{center}
+\vspace{\baselineskip}
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/BG/fgraph-DY_small.tex}
+\vspace{\baselineskip}
+
 \begin{tikzpicture}
 \clip (-.4\textwidth,-.2\textwidth) rectangle (.4\textwidth,.25\textwidth);
 \fill (0,0) circle (2pt);
 \printantimuon{7}{10}
 \printtauh{9}{150}
 \end{tikzpicture}
-
-\vspace{-\baselineskip}
-
-\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/BG/fgraph-DY_small.tex}
-\vspace{\baselineskip}
 \end{center}
 \end{block}
 \end{minipage}
@@ -22,20 +22,20 @@
 \begin{minipage}[c]{.45\textwidth}
 \begin{block}{$\Higgs\to\tau\tau\to\mu\tauh$\vphantom{ÀQj}}
 \begin{center}
+\vspace{\baselineskip}
+\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/BG/fgraph-H-tautau_mutau_small.tex}
+\vspace{\baselineskip}
+
 \begin{tikzpicture}
 \clip (-.4\textwidth,-.2\textwidth) rectangle (.4\textwidth,.25\textwidth);
 \fill (0,0) circle (2pt);
 \printantimuon{7}{10}
 \printtauh{9}{150}
 \end{tikzpicture}
-
-\vspace{-\baselineskip}
-
-\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/BG/fgraph-H-tautau_mutau_small.tex}
-\vspace{\baselineskip}
 \end{center}
 \end{block}
 \end{minipage}
+~
 
 %\begin{block}{}
 %\begin{itemize}
@@ -62,4 +62,12 @@
 %\end{minipage}
 %\end{block}
 
+\begin{tikzpicture}[overlay, remember picture]
+
+\foreach \xpos in {.415\textwidth, .945\textwidth}
+{
+  \draw [ltcolorred, very thick] (\xpos, .625\textheight) ellipse (.5 and 1.75);
+  \draw [ltcolorred, thick, -latex] (\xpos+.02\textwidth, .43\textheight) to [out = -70, in = 40] +(-130:1.5);
+}
+\end{tikzpicture}
 \end{frame}
