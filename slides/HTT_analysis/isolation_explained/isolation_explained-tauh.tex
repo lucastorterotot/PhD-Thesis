@@ -1,0 +1,40 @@
+\begin{frame}
+\frametitle{Particles isolation -- qualitatively}
+\begin{center}
+\begin{tikzpicture}
+\begin{scope}
+\clip (-\graphw/2,-\graphh/2.1) rectangle (\graphw/2,\graphh/2.1);
+
+\drawCMS
+
+\printmuondeposit{7}{10}
+\printmuon{7}{10}
+
+
+\printjetdeposit{9}{-60}
+\printmuondeposit{7}{-60}
+\printjet{9}{-60}
+\printmuonnolabel{7}{-60}
+
+\printtauhdeposit{9}{150}
+\printtauh{9}{150}
+
+\printjetdeposit{9}{-150}
+\printjetfakenolabel{9}{-150}
+
+\printDR{0.4}{150}
+\printDR{0.4}{-150}
+\end{scope}
+
+\draw (110:\ECALrout) node [text depth=0pt] (rt) {\textbf{real \tauh:}};
+\draw (rt.east) node [right, text depth=0pt] {few tracks = isolated};
+\draw (-125:1.1*\Solenrin) node (ft) {\textbf{${\text{jet}\to\tauh}$}};
+\draw (ft) node [below] {\textbf{= \ftauh}};
+\draw (ft.east) node [below right, text depth=0pt] {more tracks = not isolated};
+
+\draw [ltcolorred, thick, -latex] (rt) to [out = -60, in = 45] (140:.9*\trackerrout);
+\draw [ltcolorred, thick, -latex] (ft.east) to [out = 20, in = -50] (-140:.9*\trackerrout);
+
+\end{tikzpicture}
+\end{center}
+\end{frame}
