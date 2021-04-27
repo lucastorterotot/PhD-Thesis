@@ -44,10 +44,10 @@
 }
 
 \renewcommand{\plotHTTModelDepLimits}[3][\HTTplotsdir]{%
-\begin{tikzpicture}%
+\begin{tikzpicture}[scale=0.95]%
 \begin{scope}
 \clip (.5,.55) -- (.5,7.11) -- (7.675,7.11) -- (7.675,.55) -- cycle ;
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.85cm]{\PhDthesisdir/plots_and_images/my_plots/#1/limits/#2/mssm_mh125_#2#3.pdf}};
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=7.4575cm]{\PhDthesisdir/plots_and_images/my_plots/#1/limits/#2/mssm_mh125_#2#3.pdf}};
 \end{scope}
 
 \GETplotHTTModelDepLimitsINFOS[#1]{#2}{#3}
