@@ -1,7 +1,7 @@
 \begin{frame}
 \frametitle{\mTtot\ distributions}
 
-\begin{minipage}[c]{.49\textwidth}
+\begin{minipage}[t]{.49\textwidth}
 
 \manip Backgrounds = SM expectations:
 \submanip DY $\Zboson\to\tau\tau$ and some \ttbar\ in \colorbox{\EMBcolor}{$\mu\to\tau$ embedded}
@@ -10,9 +10,9 @@
 \submanip Remaining \ttbar\ in \colorbox{\TTBARcolor}{\ttbar}
 \submanip Other small backgrounds in \colorbox{\DIBcolor}{Diboson}
 
-\manip MSSM \Higgs\ with $m=\SI{400}{\GeV}$ expected \tikzmarknode{signal.}{nodesignal}
+\only<2->{\manip MSSM \Higgs\ with $m=\SI{400}{\GeV}$ expected \tikzmarknode{signal.}{nodesignal}}
 
-\manip Compare to observed events (black dots).
+\only<3->{\manip Compare to observed events (black dots).}
 
 %\vspace{\baselineskip}
 %
@@ -24,29 +24,104 @@
 %
 %\vspace{\baselineskip}
 
-\manip Data/Bkg agreement $\to$ exclusion limits.
+\only<5->{\manip Data/Bkg agreement $\to$ \textbf{exclusion limits}.}
 \end{minipage}
 \hfill
-\begin{minipage}[c]{.49\textwidth}
+\begin{minipage}[t]{.49\textwidth}
 \begin{center}
-\vspace{-\baselineskip}
-\plotHTTshapes{mt_tot}{mssm_classic}{2018}{tt}{32}{prefit}
+\vspace{-2\baselineskip}
+
+\only<1-2>{\plotHTTshapes{mt_tot}{mssm_classic}{2018}{tt}{32}{prefit_blinded}}
+\only<3->{\plotHTTshapes{mt_tot}{mssm_classic}{2018}{tt}{32}{prefit}}
 \end{center}
 \end{minipage}
 
 \begin{tikzpicture}[overlay, remember picture]
+\only<2>{
 \draw [ltcolorred, very thick, -latex] (nodesignal) to [out=0, in=-165] (11.45,5);
+}
+\only<4>{
+\fill [white, opacity=.9] (0,0) rectangle (.5\textwidth, .85\textheight);
+\draw (.025\textwidth, .7\textheight) node [right, text depth=0pt] (A) {\manip \textbf{Lot} of hard work to obtain this:};
+\draw (A.north) node [above] {\textbf{Not \emph{just} a plot!}};
+
+\foreach \txt in {simulated events, detector issues, uncertainties measured}{
+\draw (A.south west) node [below right] (A) {\submanip \txt};
+}
+\draw (A.south west) node [below right] (A) {\manip Collaborative work:};
+\foreach \txt in {Karlsruhe Institute of Technology (DE), Imperial College (UK), DESY (DE), IP2I (FR)}{
+\draw (A.south west) node [below right] (A) {\submanip \txt};
+}
+}
 \end{tikzpicture}
 \end{frame}
 
 \begin{frame}
-\frametitle{Exclusion limits}
+%\frametitle{Exclusion limits}
 \beamercite{CLs_method}
 
+\begin{minipage}[c]{.49\textwidth}
+\begin{center}
+\only<1-5>{\plotHTTModelIndepLimits{mssm_classic}{combined}{ggH}{_cmb}}
+\only<6->{\plotHTTModelIndepLimits{mssm_classic}{combined}{ggH}{_cmb_vs_CMS_ATLAS}}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.49\textwidth}
+\begin{center}
+\only<1-4>{\plotHTTshapes{mt_tot}{mssm_classic}{2018}{tt}{32}{prefit}}
+\only<5>{\plotHTTModelIndepLimits{mssm_classic}{combined}{bbH}{_cmb}}
+\only<6->{\plotHTTModelIndepLimits{mssm_classic}{combined}{bbH}{_cmb_vs_CMS_ATLAS}}
+\end{center}
+\end{minipage}
+
+\begin{tikzpicture}[overlay, remember picture]
+\only<1-3>{
+\draw [ltcolorred, very thick] (.935\textwidth, .5\textheight) circle (.4) ;
+\draw [ltcolorred, thick, dotted] (3.56,1) --+ (0, 3.9);
+}
+
+\only<2-3>{
+\draw [ltcolorred, very thick, latex-] (11.45, 4.8) --+ (0, -.4);
+\draw [ltcolorred, very thick, latex-] (11.45, 5.1) --+ (0, .4);
+}
+
+\only<3>{
+\draw [ltcolorred, very thick] (11.45,4.95) ellipse (.3 and .6) ;
+\draw [ltcolorred, very thick, -latex] (11.15,4.95) to [out=-180, in = 0] (3.56,4) ;
+}
+
+\only<4>{
+\draw [ltcolorred] (3.56,4) node [right] {Would have been seen} ;
+\draw [ltcolorred] (3.56,2) node [left] {Can't tell} ;
+}
+\end{tikzpicture}
 \end{frame}
 
 \begin{frame}
-\frametitle{Model-dependant limits}
+%\frametitle{Model-dependant limits}
 
+\begin{minipage}[c]{.49\textwidth}
+\only<1>{\manip Model dependent limits:
+\submanip Fix high-order MSSM parameter,
+\submanip Explore $(m_{\HiggsA},\tan\beta)$ plane,
+\submanip Do data stick more to SM or MSSM?}
+\only<2>{
+\begin{center}
+\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/from_Nagashima_BSM/fig_1-9.tex}
+\end{center}
+}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.49\textwidth}
+\begin{center}
+\plotHTTModelDepLimits{mssm_vs_sm_h125}{_vs_CMS}
+\end{center}
+\end{minipage}
+
+\begin{tikzpicture}[overlay, remember picture]
+\draw [ltcolorred] (10.5,4) node {data = more SM-like} ;
+\draw [ltcolorred] (14,2.5) node {Can't tell} ;
+\end{tikzpicture}
 
 \end{frame}
