@@ -11,9 +11,23 @@ Les produits de désintégration visibles des leptons~\tau\ sont notés $L_1$ et
 La correspondance de $L_1$ et $L_2$ aux \tauh, muons ou électrons suit l'ordre de notation du canal, par exemple $\mu\tauh=L_1L_2$.
 Dans le cas d'un canal symétrique (\tauh\tauh, \mu\mu, \ele\ele), $\pT^{L_1}>\pT^{L_2}$.
 Pour $L_1$ comme $L_2$, une liste de candidats est obtenue à partir des particules reconstruites auxquelles sont appliquées des coupures détaillées dans les sections qui suivent pour chacun des canaux.
+\par
 À partir de ces deux listes de candidats, des paires $L_1L_2$ compatibles avec le cas de figure $\Higgs\to\tau\tau\to L_1L_2$ sont formées.
+En particulier, $L_1$ et $L_2$ sont de charges électriques opposées.
 Une paire $L_1L_2$ est un dilepton.
-Un seul des dileptons candidats est retenu selon la logique exposée dans la section~\ref{chapter-HTT_analysis-section-offline-dilepton}.
+Il est de plus requis que $L_1$ et $L_2$ soient séparés d'une distance $\Delta R$ dans le plan $(\eta,\phi)$ 
+supérieure à \num{0.5} dans les canaux \tauh\tauh, \mu\tauh\ et \ele\tauh\
+et
+supérieure à \num{0.3} dans le canal \ele\mu.
+Si aucun dilepton n'est formé, l'événement est rejeté.
+Si plusieurs dileptons peuvent être formés,
+un seul d'entre eux est sélectionné selon la procédure suivante:
+\begin{enumerate}
+    \item préférer une paire avec $L_1$ le plus isolé possible ($L_2$ pour le canal \ele\mu);
+    \item en cas d'égalité, préférer une paire avec $L_1$ de plus haut \pT\ ($L_2$ pour le canal \ele\mu);
+    \item en cas d'égalité, préférer une paire avec $L_2$ le plus isolé possible ($L_1$ pour le canal \ele\mu);
+    \item en cas d'égalité, préférer une paire avec $L_2$ de plus haut \pT\ ($L_1$ pour le canal \ele\mu).
+\end{enumerate}
 \par
 Il est nécessaire de s'assurer, à cause de l'utilisation de canaux différents, qu'un événement donné ne peut être sélectionné dans le traitement de plusieurs canaux.
 Pour cela, après avoir sélectionné le dilepton, des vetos sur la présence de leptons supplémentaires à ceux du dilepton sont appliqués.
@@ -37,10 +51,6 @@ La sélection des candidats $L_1$ et $L_2$, la construction des dileptons et la 
             \item \PassDeepTau{moyen}{medium}{vs jet}.
         \end{itemize}
 \end{itemize}
-\paragraph{Sélection du dilepton}
-\AtLeastOneOSPair{\tauh\tauh}
-\DeltaRPair{0.5}
-\IfMoreOnePair
 \paragraph{Correspondance du dilepton avec les \HLTpaths}
 Les deux \tauh\ \FromPairMatchToHLTObjects{}
 Trois \HLTregionsDefined:
@@ -84,10 +94,6 @@ Les \tauh\ ne sont considérés comme correspondant aux objets HLT qu'à conditi
             \item \PassDeepTau{moyen}{medium}{vs jet}.
         \end{itemize}
 \end{itemize}
-\paragraph{Sélection du dilepton}
-\AtLeastOneOSPair{\mu\tauh}
-\DeltaRPair{0.5}
-\IfMoreOnePair
 \paragraph{Correspondance du dilepton avec les \HLTpaths}
 Le muon et le \tauh\ \FromPairMatchToHLTObjects{}
 Deux \HLTregionsDefined:
@@ -136,10 +142,6 @@ Dans le cas de l'utilisation du \HLTpath\ \HLTMuTauCross{}, le \tauh\ doit de pl
             \item \PassDeepTau{moyen}{medium}{vs jet}.
         \end{itemize}
 \end{itemize}
-\paragraph{Sélection du dilepton}
-\AtLeastOneOSPair{\ele\tauh}
-\DeltaRPair{0.5}
-\IfMoreOnePair
 \paragraph{Correspondance du dilepton avec les \HLTpaths}
 L'électron et le \tauh\ \FromPairMatchToHLTObjects{}
 Deux \HLTregionsDefined:
@@ -186,10 +188,6 @@ Dans le cas de l'utilisation du \HLTpath\ \HLTEleTauCross{}, le \tauh\ doit de p
     \item \LessTwoMissingHitsVertex;
     \item \PassConversionVeto.
 \end{itemize}
-\paragraph{Sélection du dilepton}
-\AtLeastOneOSPair{\mu\ele}
-\DeltaRPair{0.3}
-\IfMoreOnePair
 \paragraph{Correspondance du dilepton avec les \HLTpaths}
 L'électron et le muon \FromPairMatchToHLTObjects{}
 \input{\PhDthesisdir/contents/chapter-HTT_analysis/selection/offline/dz_filter_2016GH_EleMu_channel.tex}
@@ -201,13 +199,3 @@ L'électron et le muon \FromPairMatchToHLTObjects{}
     \item \LeptonVetoesSecondMuon;
     \item \LeptonVetoesSecondEle, l'électron devant \PassConversionVeto\ et \LessTwoMissingHitsVertex.
 \end{itemize}
-
-\subsubsection{Sélection d'un unique dilepton}\label{chapter-HTT_analysis-section-offline-dilepton}
-Il est possible d'obtenir plusieurs candidats dilepton après application des coupures précédemment exposées.
-Dans ce cas, une seule et unique paire est conservée à l'aide des étapes de réjection suivantes:
-\begin{enumerate}
-    \item préférer une paire avec $L_1$ le plus isolé possible ($L_2$ pour le canal \ele\mu);
-    \item en cas d'égalité, préférer une paire avec $L_1$ de plus haut \pT\ ($L_2$ pour le canal \ele\mu);
-    \item en cas d'égalité, préférer une paire avec $L_2$ le plus isolé possible ($L_1$ pour le canal \ele\mu);
-    \item en cas d'égalité, préférer une paire avec $L_2$ de plus haut \pT\ ($L_1$ pour le canal \ele\mu).
-\end{enumerate}
