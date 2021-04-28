@@ -6,25 +6,65 @@ Les corrections usuelles sont présentées dans le chapitre~\refChLHCCMS.
 Des corrections spécifiques à cette analyse sont également appliquées.
 Elles sont présentées ci-après.
 \subsection{Efficacité des \HLTpaths}
+\paragraph{Efficacité des \HLTpaths\ des muons et des électrons (\emph{lepton trigger scale factors})}
+L'efficacité des \HLTpaths\ des leptons (muons et électrons) est déterminée dans les données réelles et simulées en fonction de l'impulsion transverse et de la pseudo-rapidité du lepton
+par une méthode \og balise et sonde \fg{} (\emph{tag and probe})
+sur des événements $\Zboson\to\ell\ell$ \cite{CMS-NOTE-2020-014} où $\ell$ est un électron ou bien un muon.
+La balise, un des deux $\ell$, permet de déterminer la quantité totale d'événements.
+La sonde est l'autre $\ell$.
+L'efficacité $\epsilon$ d'un \HLTpath\ \HLTSingleEle\ ou \HLTSingleMu\ alors est donnée par
+\begin{equation}
+\epsilon = \frac{N_\text{pass}}{N_\text{pass}+N_\text{fail}}
+\end{equation}
+avec
+$N_\text{pass}$ le nombre d'événement dans lesquels balise et sonde activent le \HLTpath\
+et
+$N_\text{fail}$ où seule la balise l'active.
+Ces critères sont donnés dans la référence~\cite{CMS-NOTE-2020-014}.
+\par
+Les efficacités des \HLTpaths\ \HLTMuTauCross\ et \HLTEleTauCross\
+sont déterminées par combinaison avec celles des \HLTSingleTau\ 
+tel qu'exposé ci-après.
 \paragraph{Efficacité des \HLTpaths\ des \tauh\ (\emph{\tauh\ trigger scale factors})}
-L'efficacité des \HLTpaths\ est mesurée à partir d'une méthode \og balise et sonde \fg{}  (\emph{tag and probe}).
-La balise (\emph{tag}) est un \tauh\ respectant les critères de sélection utilisés dans l'analyse et correspondant au \tauh\ ayant activé le \HLTpath.
-La sonde (\emph{probe}) est tout \tauh\ respectant les critères de sélection utilisés dans l'analyse, à l'exception du \tauh\ \emph{tag}.
-L'efficacité $\epsilon$ du \HLTpath\ est alors
+L'efficacité des \HLTpaths\ est mesurée à partir d'une méthode
+similaire à celle utilisée
+pour la détermination de
+l'efficacité d'identification des \tauh~\cite{CMS-NOTE-2019-163}.
+Les événements exploités sont ceux contenant un boson~\Wboson\ hautement virtuel,
+tel que $m_{\Wboson^*}\geq\SI{200}{\GeV}$,
+se désintégrant selon $\Wboson^* \to \tau\nutau$.
+Il est requis que le $\Wboson^*$ soit produit avec une faible impulsion transverse,
+ce qui permet de rejeter les jets directement issus de l'événement dure.
+Les événements sélectionnés comportent ainsi
+un \tauh\ d'impulsion équilibrée avec \vMET.
+\par
+Le bruit de fond principal provient des événements
+dans lesquels un jet est identifié à tort comme un \tauh.
+Il est estimé par la méthode des \fakefactors\ décrite en section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
+Les autres bruits de fond sont estimés par des simulations.
+\par
+Les données réelles sont sélectionnées à partir d'un \HLTpath\ basé sur \MET~\cite{CMS-NOTE-2019-163,CMS-NOTE-2020-218}.
+Les modélisations du signal $\Wboson^* \to \tau\nutau$ et des bruits de fond sont ajustées à ces données réelles par \COMBINE.
+Puis, l'estimation des bruits de fond leur est retirée afin d'obtenir uniquement la contribution des événements $\Wboson^* \to \tau\nutau$.
+Les quantités d'événements $\Wboson^* \to \tau\nutau$ dans les données réelles et simulées sont ainsi obtenues.
+\par
+Les \HLTpaths\ \HLTSingleTau\ utilisés dans l'analyse sont donnés en annexe~\refApHTTtrg.
+Leur efficacité $\epsilon$ est donnée par
 \begin{equation}
 \epsilon = \frac{N_\text{pass}}{N_\text{total}}
 \end{equation}
-où
-$N_\text{pass}$ est le nombre de \emph{probe} correspondant au \tauh\ ayant activé au moins un des \HLTpaths\ \HLTSingleTau\ utilisé
+avec
+$N_\text{pass}$ le nombre d'événements $\Wboson^* \to \tau\nutau$ où le \tauh\ correspond à
+l'objet physique ayant activé au moins un des \HLTpaths\ \HLTSingleTau\ utilisés
 et
-$N_\text{total}$ le nombre total de \emph{probe}.
+$N_\text{total}$ le nombre total d'événements.
 Le facteur d'échelle correctif $SF$ à appliquer aux événements simulés est ainsi
 \begin{equation}
 SF = \frac{\epsilon(\text{données réelles})}{\epsilon(\text{données simulées})}
 \mend
 \end{equation}
-Dans le cas des données encapsulées, le dénominateur est l'efficacité obtenue avec les \tauh\ simulés.
-Les efficacités et le facteur d'échelle sont déterminés en fonction des propriétés cinématiques du \tauh\ ($\pT, \eta, \phi$).
+%Dans le cas des données encapsulées, le dénominateur est l'efficacité obtenue avec les \tauh\ simulés.
+Les efficacités et le facteur d'échelle sont déterminés en fonction de l'impulsion transverse du \tauh.
 L'efficacité des \HLTpaths\ \HLTDoubleTau\ est obtenue comme étant le produit des efficacité de chacun des deux \tauh.
 \par
 L'efficacité combinée des \HLTpaths\ \HLTSingleTau\ et \HLTSingleMu\ dans le canal \mu\tauh\ (\HLTSingleEle\ dans le canal \ele\tauh) est obtenue selon
@@ -44,9 +84,6 @@ Dans le cas du canal \tauh\tauh, la présence de deux \tauh\ impose une formule 
 où $2\tauh$ signifie \HLTDoubleTau,
 $\tauh1$ \HLTSingleTau\ appliqué au \tauh\ de plus haut \pT\ et
 $\tauh2$ \HLTSingleTau\ appliqué à l'autre \tauh.
-\paragraph{Efficacité des \HLTpaths\ des muons et des électrons (\emph{lepton trigger scale factors})}
-De manière similaire au cas des \tauh, l'efficacité des \HLTpaths\ des leptons (muons et électrons) est déterminée dans les données réelles et simulées en fonction de l'impulsion transverse et de la pseudo-rapidité du lepton.
-Cette démarche est réalisée pour les \HLTpaths\ \HLTSingleMu, \HLTSingleEle, \HLTMuTauCross\ et \HLTEleTauCross.
 \subsection{Impulsions des particules générées}
 \paragraph{Repondération de l'impulsion transverse et de la masse du boson \Zboson\ (\emph{DY \pT-mass reweighting})}
 Les impulsions transverses ainsi que la masse invariante des leptons issus de la désintégration du boson \Zboson\ sont corrigées
