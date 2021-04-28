@@ -14,10 +14,11 @@ L'observable définie afin de quantifier ce manque est
 l'énergie transverse manquante (MET, \emph{Missing Transverse Energy}).
 Bien que son nom mentionne une énergie, il s'agit bien d'une impulsion.
 \par
-%La MET peut être déterminée à partir de l'algorithme de \PF\ (PF MET)
-%ou
-%par l'algorithme \PUPPI\ (\PUPPI\ MET).
-\paragraph{MET issue de l'algorithme de \PF}
+La MET peut être déterminée à partir de l'algorithme de \PF\ (PF MET)
+ou
+par l'algorithme \PUPPI\ (\PUPPI\ MET).
+Il s'agit de la MET brute, à laquelle la calibration en énergie des jets détaillée au chapitre~\refChJERC\ doit être propagée.
+\paragraph{MET brute issue de l'algorithme de \PF}
 La somme des impulsions transverses des particules invisibles doit compenser celle des particules reconstruites, \ie
 \begin{equation}
 \sum_{\substack{\text{toutes les}\\\text{particules}}} \vpT = \vec{0}
@@ -26,7 +27,7 @@ La somme des impulsions transverses des particules invisibles doit compenser cel
 \Leftrightarrow
 \sum_{\substack{\text{particules}\\\text{invisibles}}} \vpT = -\sum_{\substack{\text{particules}\\\text{reconstruites}}} \vpT \mend
 \end{equation}
-\par La MET issue de l'algorithme de \PF\ représente ainsi l'impulsion transverse totale des particules invisibles et est définie comme
+\par La MET brute issue de l'algorithme de \PF\ représente ainsi l'impulsion transverse totale des particules invisibles et est définie comme
 \begin{equation}
 \vMET(\text{\PF}) = -\sum_{i\in\set{\text{particules}}} \vpT^{i}
 \mend[,]
@@ -34,7 +35,7 @@ La somme des impulsions transverses des particules invisibles doit compenser cel
 où les particules sont celles reconstruites par l'algorithme de \PF.
 Cette définition, simple, est toutefois sensible aux particules issues de l'empilement.
 Afin de réduire l'effet de l'empilement, l'algorithme \PUPPI\ a été développé.
-\paragraph{MET issue de l'algorithme \PUPPI}
+\paragraph{MET brute issue de l'algorithme \PUPPI}
 La MET peut également être estimée par l'algorithme \PUPPI\ (\emph{PileUp Per Particle Identification}) \cite{PUPPI}.
 La \og \PUPPI MET \fg{} obtenue est moins sensible à l'empilement (\emph{pileup}) que la MET issue de l'algorithme de \PF\ (PFMET).
 L'algorithme \PUPPI\ exploite en effet des informations sur:
@@ -54,3 +55,14 @@ Plus de détails dans la détermination de $w_i$ sont disponibles dans les réf�
 \vMET(\text{\PUPPI}) = -\sum_{i\in\set{\text{particules}}} w_i\,\vpT^{i}
 \mend
 \end{equation}
+\paragraph{Propagation de la calibration en énergie des jets à \MET}
+La calibration en énergie des jets, abordée dans le chapitre~\refChJERC, doit être propagée à \MET\ afin de conserver une description cohérente des événements.
+Il s'agit de la correction dite de \og type~I \fg{} \cite{CMS_WorkBookMetAnalysis},
+réalisée selon
+\begin{equation}
+\vMET(\text{Type~I}) = \vMET(\text{brute}) - \sum_{i\in\set{\text{jets}}} \left( \vpT^i_\cali) - \vpT^i_\reco) \right)
+\end{equation}
+où
+\og \reco \fg{} correspond aux observables avant calibration
+et
+\og \cali \fg{} après.

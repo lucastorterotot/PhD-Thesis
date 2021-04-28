@@ -8,16 +8,24 @@
 \label{fig-fgraph-tau_to_tauh}
 \end{wrapfigure}
 Lors d'une désintégration hadronique d'un lepton~\tau, une paire de quarks est émise.
-Il s'en suit donc un processus d'hadronisation, phénomène à l'origine de la formation des jets.
+Il s'ensuit donc un processus d'hadronisation, phénomène à l'origine de la formation des jets.
 Du lepton~\tau\ résulte alors un ensemble de hadrons, comme illustré sur la figure~\ref{fig-fgraph-tau_to_tauh}.
 Ces hadrons, en général trois ou moins, sont éventuellement accompagnés de particules neutres, principalement des \pionnull.
 Ces derniers se désintégrant majoritairement en deux photons.
 L'ensemble de ces particule forme un \og tau hadronique \fg, noté \tauh, et est initialement identifié comme un jet.
 \subsubsection{Obtention de candidats}
-L'identification des \tauh\ est réalisée par l'algorithme \emph{Hadrons Plus Strips} (HPS)~\cite{Khachatryan:2015dfa,Sirunyan:2018pgf} à partir des jets reconstruits par l'algorithme de \PF\ vérifiant $\pT>\SI{14}{\GeV}$ et $\abs{\eta}<\num{2.5}$.
+L'identification des \tauh\ est réalisée par l'algorithme \emph{Hadrons Plus Strips} (HPS)~\cite{Khachatryan:2015dfa,Sirunyan:2018pgf} à partir des jets reconstruits par l'algorithme de \PF\ contenant au moins un hadron chargé et vérifiant $\pT>\SI{14}{\GeV}$ et $\abs{\eta}<\num{2.5}$.
 Les hadrons chargés contenus dans le jet initial tels que $\pT>\SI{0.5}{\GeV}$ et de paramètre d'impact transverse $d_{xy}<\SI{0.1}{\centi\meter}$ vis-à-vis du vertex primaire principal sont utilisés pour former des candidats \tauh.
 \par
-Afin d'identifier les dépôts d'énergie dans le ECAL dus aux \pionnull, les photons et les électrons contenus dans le jet initial sont regroupés en bandes (\emph{strips}).
+%a ce stade, on ne parle plus de depots d'energie dans le ECAL mais de photons. 
+%Apres le PF, on ne parle plus que de particules. 
+%Ces photons peuvent provenir soit des pi0 directement, soit indirectement : pi0 -> gamma -> e+e- -> photons. 
+%cf PF paper
+Des \pionnull\ sont souvent présents dans les désintégrations hadroniques des~\tau.
+Or, ces derniers se désintègrent à leur tour selon $\pionnull\to\photon\photon$.
+Les photons sont eux-mêmes susceptibles de se convertir en paires $\positron\electron$.
+Afin d'estimer les \pionnull\ présents,
+les photons et les électrons contenus dans le jet initial sont regroupés en bandes (\emph{strips}).
 La construction d'une bande est un procédé itératif:
 \begin{enumerate}
 \item Une bande est créée à partir de l'électron ou du photon ($\ele/\photon$) de plus haut \pT\ contenu dans le jet initial et n'ayant pas déjà été associé à une bande. La position de cette particule dans le plan $(\eta,\phi)$, ainsi que son \pT, sont associés à la bande.
@@ -81,7 +89,9 @@ Il est possible d'obtenir plusieurs candidats \tauh\ au sein d'un même jet.
 Des critères de qualité sur les candidats leur sont alors imposés.
 \par
 Par conservation, la somme des charges électriques des hadrons contenus dans le candidat \tauh\ doit valoir $\pm1$.
-Ces hadrons chargés doivent de plus être contenus dans le cône dit \og de signal \fg{} défini et contraint selon
+Ces hadrons chargés doivent de plus être contenus dans le cône dit \og de signal \fg{},
+centré sur la direction de l'impulsion du candidat \tauh\
+et dont la largeur est définie et contrainte selon
 \begin{equation}
 \Delta R_\text{sig} = \frac{\SI{3}{\GeV}}{\pT^{\tauh}}
 \msep

@@ -52,7 +52,7 @@ Enfin, la modélisation de l'électronique et du système de déclenchement donn
 Cette simulation du détecteur est basée sur le logiciel
 \GEANTfour~\cite{geant4_2003,geant4_2006,geant4_2016}.
 La prise en compte de la totalité des éléments du détecteur (câblage interne, système de refroidissement, éléments de structure, etc.) permet d'obtenir des résultats fidèles à la réalité.
-Les signaux simulés ainsi obtenus sont alors traités, comme dans le cas des données réelles, par l'algorithme de \emph{Particle Flow}, abordé dans la section précédente, permettant de reconstruire l'événement physique.
+Les signaux simulés ainsi obtenus sont alors traités, comme dans le cas des données réelles, par l'algorithme de \emph{Particle Flow} permettant de reconstruire l'événement physique, puis par les algorithmes de reconstruction des objets de haut niveau, comme exposé dans la section~\ref{chapter-LHC-section-evt_reco}.
 \subsection{Corrections apportées aux simulations}
 Des écarts résiduels entre les données simulées et la réalité qu'elles doivent décrire existent et sont mesurés par des analysés dédiées.
 Ces analyses fournissent alors des corrections à appliquer aux simulations.
@@ -243,7 +243,8 @@ DM & 2016 & 2017 & 2018\\
 \end{table}
 \subsubsection{Énergie transverse manquante}
 \paragraph{Propagation des corrections à \MET}
-La correction en énergie des différentes particules et des jets doit être propagée à \MET\ afin de conserver une description cohérente des événements.
+À l'instar de la calibration en énergie des jets,
+la correction en énergie des différentes particules et des jets doit être propagée à \MET\ afin de conserver une description cohérente des événements.
 Cette propagation est faite selon
 \begin{equation}
 \vMET(\text{corr.}) = \vMET(\text{non corr.}) - \sum_{i\in\set{\text{particules}}} \left( \vpT^i(\text{corr.}) - \vpT^i(\text{non corr.}) \right)

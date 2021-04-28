@@ -7,11 +7,12 @@ L'association des éléments dus à une particule est limitée par~\cite{particl
 \item le nombre de particules par unité d'angle solide;
 \item la quantité de matière traversée par les particules en amont des calorimètres ou, le cas échéant, des chambres à muons, pouvant dévier la particule~\cite{moliere_scat_1,moliere_scat_2}.
 \end{itemize}
-\par Un algorithme teste les paires d'éléments de reconstruction possibles.
-Afin de limiter les temps de calcul, seules les paires d'éléments les plus proches entre eux selon un arbre de recherche multidimentionnel~\cite{bentley} sont considérées.
+\par Un algorithme teste les associations possibles d'éléments de reconstruction provenant de différents sous-détecteurs.
+Afin de limiter les temps de calcul, seules les associations d'éléments les plus proches entre eux selon un arbre de recherche multidimentionnel~\cite{bentley} sont considérées.
 Des conditions supplémentaires sont requises afin d'associer deux éléments et sont détaillées dans les sections suivantes.
 La distance définie par l'arbre de recherche multidimentionnel permet de quantifier la qualité de cette association.
-Une association d'élément constitue un \og bloc \fg{} du \PF.
+Une association d'élément constitue un \og bloc \fg{} du \PF,
+dont chacun des éléments est relié aux autres, directement par une association ou indirectement par un élément associé commun.
 Les blocs servent de base à la reconstruction des objets physiques, dont l'identification en tant que particule d'un type donné dépend de critères spécifiques.
 Ces différents types de particules sont détaillés dans les sections qui suivent.
 %\par
