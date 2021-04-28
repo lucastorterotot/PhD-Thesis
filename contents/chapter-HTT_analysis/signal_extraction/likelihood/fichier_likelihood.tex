@@ -1,16 +1,16 @@
 \subsection{Modèle de vraisemblance}\label{chapter-HTT_analysis-section-signal_extraction-likelihood}
 % AN 2013 171, p. 31
 La fonction de vraisemblance \LKH\ à maximiser est définie par
-le produit des probabilités poissoniennes $\Poisson (n_i | \nu_i(\mu,\theta))$ d'observer $n_i$ événements dans chaque segment $i$ de l'histogramme de la variable discriminante utilisée
+le produit des probabilités poissoniennes $\Poisson (n_i | \nu_i(\mu,\vec{\theta}))$ d'observer $n_i$ événements dans chaque segment $i$ de l'histogramme de la variable discriminante utilisée
 selon
 \begin{equation}
-\LKH(n_i | \mu,\theta)
+\LKH(n_i | \mu,\vec{\theta})
 =
-\prod_i \Poisson(n_i | \nu_i(\mu,\theta))
+\prod_i \Poisson(n_i | \nu_i(\mu,\vec{\theta}))
 \cdot
 \prod_j \Constraint(\theta_j, \tilde{\theta}_j)
 \msep
-\Poisson(n_i | \nu_i(\mu,\theta))
+\Poisson(n_i | \nu_i(\mu,\vec{\theta}))
 =
 \frac{\nu_i^{n_i}}{{n_i}!}\eexp{-\nu_i}
 \end{equation}
@@ -18,7 +18,7 @@ où
 \begin{itemize}
 \item $\nu_i$ est le nombre d'événements attendus dans ce segment dans l'hypothèse \hypSB, \ie
 \begin{equation}
-\nu_i(\mu,\theta) = \mu \, s_i(\theta) + b_i(\theta)
+\nu_i(\mu,\vec{\theta}) = \mu \, s_i(\vec{\theta}) + b_i(\vec{\theta})
 \end{equation}
 avec
 $s$ le nombre d'événements de signal
@@ -27,7 +27,7 @@ $b$ le nombre d'événements de bruit de fond.
 Lorsque $\mu=0$, $\nu_i$ correspond donc au nombre d'événements attendus dans l'hypothèse \hypB;
 \item $\mu$ est le modificateur d'intensité du signal (\emph{signal strength modifier}).
 Il représente la fréquence du signal, indéterminée, par rapport à une section efficace de référence, par exemple la section efficace de production du boson de Higgs \higgs;
-\item $\theta$ est un paramètre de nuisance correspondant à une source d'incertitude présentée section~\ref{chapter-HTT_analysis-section-systematics}.
+\item $\vec{\theta}$ sont les paramètres de nuisance correspondant aux sources d'incertitude présentées section~\ref{chapter-HTT_analysis-section-systematics}.
 Les variations de ces paramètres changent la quantité d'événements de signal $s_i$ et de bruit de fond $b_i$ attendus dans le segment $i$;
 \item $j$ est un indice courant sur les différentes contraintes \Constraint\ connues sur les paramètres de nuisance.
 Chacune de ces contraintes représente la probabilité que ce paramètre prenne la valeur $\theta_j$, sachant que la meilleure estimation de ce dernier est $\tilde{\theta}_j$, obtenue par des mesures annexes.
