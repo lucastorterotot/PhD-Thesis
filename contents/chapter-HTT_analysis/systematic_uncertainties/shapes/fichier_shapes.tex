@@ -44,7 +44,7 @@ Les différentes années sont non corrélées.
 \paragraph{\MET\ non regroupée (\emph{MET unclustered uncertainty})}
 L'algorithme de \PF\ introduit dans le chapitre~\refChLHCCMS\ peut fournir des objets physiques candidats n'étant pas identifiés comme des muons, électrons, photons, hadrons ou jets.
 Il s'agit par exemple de particules de très bas \pT.
-Les signaux dans le détecteur correspondant sous toutefois utilisés dans le calcul de \MET, il s'agit de l'énergie transverse manquante non regroupée (\emph{MET unclustered}).
+Ces candidats sous toutefois utilisés dans le calcul de \MET, il s'agit de l'énergie transverse manquante non regroupée (\emph{MET unclustered}).
 L'incertitude sur cette observable est appliquée à toutes les données simulées non concernées par la correction de recul de \MET\ comme le recommande le \POG\ \emph{JetMET}~\cite{MET_corrections}.
 Les différentes années sont non corrélées.
 \paragraph{Énergie des jets (\emph{jet energy scale})}
@@ -94,7 +94,7 @@ Dans les canaux \mu\tauh\ et \ele\tauh, ces incertitudes sont:
 Cette estimation utilisée dans le canal \ele\mu\ comporte dix sources d'incertitudes, dues aux facteurs d'extrapolations des ajustement à des polynômes d'ordre 2.
 Elles sont non corrélées entre les années.
 \paragraph{Incertitudes de segmentation (\emph{bin-by-bin uncertainties})}
-Les incertitudes de forme dues à la statistique des bruits de fond suite à l'utilisation conjointe des données simulées, encapsulées et réelles dans leur estimation sont prises en compte par la fonction \inlinecode{bash}{autoMCstats} de \COMBINE, l'outil de combination statistique de la collaboration CMS basé sur \ROOSTATS~\cite{RooStats}.
+Les incertitudes de forme dues à la statistique des bruits de fond suite à l'utilisation conjointe des données simulées, encapsulées et réelles dans leur estimation sont prises en compte par la fonction \inlinecode{bash}{autoMCstats} de \COMBINE.
 \paragraph{Incertitudes théoriques}
 Dans le cas du processus $\gluon\gluon\to\Phi\to\tau\tau$, en particulier dans les cas de basse masse,
 les variations du paramètre \inlinecode{bash}{hdamp} du générateur de \POWHEG\ ainsi que

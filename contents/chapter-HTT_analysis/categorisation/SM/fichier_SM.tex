@@ -16,12 +16,14 @@ Les variables d'entrée du réseau les plus importantes sont:
 \item la masse invariante du système des deux jets principaux \mjj;
 \item la distance dans le plan $(\eta,\phi)$ entre les deux jets principaux \Detajj;
 \item l'impulsion transverse totale des deux principaux jets de l'événement;
-\item la masse du dilepton estimée par \SVFIT, \msv;
+\item la masse du dilepton estimée par \SVFIT~\cite{SVFit_Bianchini_2014},
+un estimateur de la masse d'une particule se désintégrant en paire de leptons~\tau\ par ajustement d'un profil de vraisemblance,
+\msv;
 \item la masse invariante du dilepton, \mvis;
 \item l'impulsion transverse du dilepton, \pTvis.
 \end{itemize}
 Le réseau est constitué de deux couches cachées de 200 neurones chacune, complètement connectées.
-Leur fonction d'activation est la tangente hyperbolique, fonction permettant d'obtenir des réseaux dont la tâche est de réaliser une catégorisation.
+Leur fonction d'activation est la tangente hyperbolique.
 \par
 Afin de permettre une catégorisation plus poussée qu'une simple discrimination signal ou bruit de fond, la couche de sortie du réseau contient autant de neurones que de catégories souhaitées.
 Ce réseau fournit donc un vecteur et non un scalaire.

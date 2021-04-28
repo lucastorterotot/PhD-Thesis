@@ -24,17 +24,17 @@ la limite haute sur \mT\ pour la catégorie \CATloosemt\ étant appliquée afin 
 Les facteurs de faux sont abordés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
 La majorité des événements de signal, en particulier pour \Higgs\ et \HiggsA\ de basse masse, se trouve dans la catégorie \CATtightmt.
 La catégorie \CATloosemt\ permet quant à elle d'augmenter l'acceptation du signal pour $m_{\Higgs,\HiggsA} > \SI{700}{\GeV}$.
-La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT} illustre ces coupures sur $\mT^{\ell}$ dans le cas du canal \ele\tauh\ pour l'année 2018.
+La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT} illustre ces coupures sur $\mT^{\ell}$ dans le cas du canal \ele\tauh\ pour l'année 2016.
 \begin{figure}[h]
 \centering
 
 \subcaptionbox{Catégorisation basée sur $\mT^{\ell}$.\label{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT}}[.475\textwidth]
-{\plotHTTcontrolCATmt{2018}{emb_ff}{et}}
+{\plotHTTcontrolCATmt{2016}{emb_ff}{et}}
 \hfill
 \subcaptionbox{Catégorisation basée sur \Dzeta.\label{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-Dz}}[.475\textwidth]
-{\plotHTTcontrolCATdz{2018}{emb_ff}{em}}
+{\plotHTTcontrolCATdz{2016}{emb_ff}{em}}
 
-\caption[Illustrations des catégorisations basées sur $\mT^{\ell}$ et \Dzeta]{Illustrations des catégorisations basées sur $\mT^{\ell}$ et \Dzeta, respectivement sur les événements des canaux \ele\tauh\ et \ele\mu\ de l'année 2018.}
+\caption[Illustrations des catégorisations basées sur $\mT^{\ell}$ et \Dzeta]{Illustrations des catégorisations basées sur $\mT^{\ell}$ et \Dzeta, respectivement sur les événements des canaux \ele\tauh\ et \ele\mu\ de l'année 2016.}
 \label{fig-chapter-HTT_analysis-section-categorisation-BSM-subcats}
 \end{figure}
 \paragraph{Canal \ele\mu}
@@ -94,8 +94,8 @@ Les catégories \CATbsm\ correspondant à la région de signal (SR), \ie\ en deh
 \label{fig-chapter-HTT_analysis-section-categorisation-BSM-cats_recap}
 \end{figure}
 \subsubsection{Variable discriminante}
-La masse invariante permet d'estimer mathématiquement, par un calcul de physique relativiste, la masse d'une particule à partir des propriétés cinématiques de chacun des ses produits de désintégration.
-Cette observable est donc un choix pertinent de variable discriminante.
+La masse invariante d'une particule peut être obtenue par un calcul de relativité restreinte à partir des propriétés cinématiques de chacun des ses produits de désintégration.
+Cette observable doit correspondre à la masse de cette particule et est donc un choix pertinent de variable discriminante.
 Elle est ainsi utilisée, par exemple, dans l'analyse $\higgs\to\Zboson\Zboson\to4\ell$~\cite{CMS-PAS-HIG-13-002}.
 \par
 Cependant, dans l'analyse $\Higgs\to\tau\tau$, l'état final comporte deux à quatre neutrinos issus des désintégrations des leptons~\tau.
@@ -117,7 +117,8 @@ Il est donc impossible de déterminer la masse invariante totale de ce système.
 \end{figure}
 \par
 L'énergie transverse manquante, introduite dans le chapitre~\refChLHCCMS, correspond à la somme des impulsions transverses de toutes les particules invisibles de l'événement.
-Alors, sauf défaut du détecteur menant à une mauvaise reconstruction des particules visibles,
+Alors, pour un détecteur sans défaut dont l'acceptation spatiale est totale,
+\ie\ avec une reconstruction parfaite de toutes les particules hormis les neutrinos,
 \begin{equation}
 \vMET = \sum_{\nu_i} \vpT^{\nu_i}
 \end{equation}

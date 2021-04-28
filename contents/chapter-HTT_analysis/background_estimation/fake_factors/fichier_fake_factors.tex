@@ -3,15 +3,16 @@ La méthode des facteurs de faux (\emph{fake factors}) a pour but de fournir, en
 De tels jets sont notés \og \ftauh \fg{} dans la suite.
 \par
 Cette méthode est ainsi appliquée aux canaux contenant des \tauh\ dans l'état final, \ie\ les canaux complètement hadronique (\tauh\tauh) et semi-leptoniques ($\ell\tauh$ où $\ell\in\set{\ele,\mu}$).
-Les \ftauhs\ représentent près de \SI{70}{\%} des événements dans le canal \tauh\tauh, \SI{38}{\%} dans le canal \mu\tauh\ et \SI{68}{\%} dans le canal \ele\tauh~\cite{CMS-NOTE-2018-257,CMS-NOTE-2019-170}.
+Après la sélection détaillée dans la section~\ref{chapter-HTT_analysis-section-selection},
+les \ftauhs\ représentent près de \SI{70}{\%} des événements dans le canal \tauh\tauh, \SI{38}{\%} dans le canal \mu\tauh\ et \SI{68}{\%} dans le canal \ele\tauh~\cite{CMS-NOTE-2018-257,CMS-NOTE-2019-170}.
 Les processus physiques responsables des \ftauhs\ sont majoritairement QCD, \Wjets\ et \ttbar.
 Dans le canal \tauh\tauh, près de \SI{93}{\%} des \ftauhs\ proviennent du bruit de fond QCD.
 Dans les canaux $\ell\tauh$, environ \SI{70}{\%} des \ftauhs\ sont issus du bruit de fond \Wjets.
 Les autres sources de \ftauhs, non traités par cette méthode, sont les événements $\Zboson\to\tau\tau$ avec un jet identifié comme un \tauh, couverts par la méthode décrite section~\ref{chapter-HTT_analysis-section-bg_estimation-embedding}, et Diboson, ce dernier type de processus ne contribuant que de l'ordre du pourcent au total des \ftauhs.
 \par
 Les \ftauhs\ sont particulièrement difficiles à modéliser dans les simulations~\cite{CMS-NOTE-2018-257,CMS-NOTE-2019-170}.
-De plus, le faible de taux de mauvaise identification des \tauh, inférieur à \SI{1}{\%}, impliquerait l'utilisation de larges jeux de données simulées afin d'obtenir de faibles incertitudes statistiques.
-C'est en particulier le cas dans les régions de l'espace des phases contenant des bosons de Higgs lourds, ce que recherche cette analyse.
+De plus, le faible taux de mauvaise identification des \tauh, inférieur à \SI{1}{\%}, impliquerait l'utilisation de larges jeux de données simulées afin d'obtenir de faibles incertitudes statistiques.
+C'est en particulier le cas dans les régions de l'espace des phases contenant des bosons de Higgs lourds, recherchés dans cette analyse.
 La méthode des \fakefactors\ se basant presque exclusivement sur les données collectées, les incertitudes inhérentes aux simulations deviennent négligeables face aux autres sources d'incertitudes.
 De plus, l'efficacité statistique de cette modélisation est directement liée à la luminosité intégrée, sans nécessiter de données simulées correspondantes.
 \subsubsection{Principe de base}
@@ -44,7 +45,7 @@ n_{j\to\tauh} = n_\text{AR} \cdot \FF
 l'hypothèse étant l'universalité, \ie\ que le \fakefactor\ mesuré dans la CR est supposé identique à celui de la AR.
 \subsubsection{Prise en compte des différentes sources de \ftauhs}
 La composition des jets n'est pas la même selon le processus physique dont proviennent les \ftauhs.
-Il existe donc différentes probabilités pour un jet de donner un \ftauh.
+Il existe donc différentes probabilités pour un jet de donner un \ftauh\ suivant le processus physique.
 Dans le cas du canal \tauh\tauh, seul le bruit de fond QCD est traité par les \fakefactors.
 Pour les canaux semi-leptoniques, trois sources de \ftauhs\ sont considérées, QCD, \Wjets\ et \ttbar.
 Pour chacune de ces sources, un \fakefactor\ est alors déterminé, selon l'équation~\eqref{eq-chapter-HTT_analysis-section-bg_estimation-FF_method-FF_def_global}, à partir d'une région de détermination (DR, \emph{Determination Region}) dédiée, définie ci-après.
@@ -199,13 +200,13 @@ Les écarts résiduels donnent la correction à appliquer, paramétrisée en fon
 \item du nombre de jets \Nprebjets\ identifiés comme issus de quarks~\quarkb, \Nbjets;
 \item de l'impulsion transverse du lepton $\ell\in\set{\ele,\mu}$ pour les canaux semi-leptoniques, $\pT^{\ell}$;
 \item de l'isolation du lepton $\ell\in\set{\ele,\mu}$ pour les canaux semi-leptoniques, $I^{\ell}$;
-\item de la quantité d'énergie transverse manquante alignée avec le \tauh\ pour les événements QCD, $C_Q$,
+\item de la fraction d'énergie transverse manquante alignée avec le \tauh\ pour les événements QCD, $C_Q$,
 \begin{equation}
 C_Q = \frac{\MET}{\pT^{\tauh}} \cos(\Delta\phi(\vMET, \vpT^{\tauh}))
 \mend[;]
 \label{eq-FF_CQ_def}
 \end{equation}
-\item de la quantité d'énergie transverse manquante alignée avec le \tauh\ pour les événements \Wjets, $C_W$,
+\item de la fraction d'énergie transverse manquante alignée avec le \tauh\ pour les événements \Wjets, $C_W$,
 \begin{equation}
 C_W = \frac{\norm{\vMET + \vpT^{\ell}}}{\pT^{\tauh}} \cos(\Delta\phi(\vMET + \vpT^{\ell}, \vpT^{\tauh}))
 \mend[,]

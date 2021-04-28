@@ -8,11 +8,10 @@ Les jets utilisés sont ceux obtenus à partir des particules restantes à l'aid
 \par
 Ces jets doivent également passer les critères d'identification présentés dans le chapitre~\refChLHCCMS.
 L'identification des jets issus de quarks~\quarkb\ (\quarkb-\emph{tagging}) est réalisée par l'algorithme \DeepCSV~\cite{Sirunyan_heavy_flavor_jets_2018,DeepJet}.
-Les jets tels que $\pT > \SI{20}{\GeV}$ et $\abs{\eta}<\num{2.4} (\num{2.5})$ en 2016 (2017, 2018) sont considérés comme issus d'un \quarkb\ si leur score est supérieur à \num{0.3093} (2016), \num{0.3033} (2017) ou \num{0.2770} (2018).
-Les jets non identifiés comme issus d'un \quarkb\ ne sont retenus que si $\pT > \SI{30}{\GeV}$ et $\abs{\eta}<\num{4.7}$.
-\par
-De plus, afin d'exclure les électrons, muons et taus hadroniques de la liste des jets, il est requis que les jets soient distants du dilepton de $\Delta R > \num{0.5}$.
-Le dilepton est défini dans la section~\ref{chapter-HTT_analysis-section-offline_selection}.
+Les jets tels que $\pT > \SI{20}{\GeV}$ et $\abs{\eta}<\num{2.4} (\num{2.5})$ en 2016 (2017, 2018) sont considérés comme issus d'un \quarkb\ si leur score est supérieur à \num{0.3093} en 2016, \num{0.3033} en 2017 et \num{0.2770} en 2018.
+De plus, tout jet tel que $\pT > \SI{30}{\GeV}$ et $\abs{\eta}<\num{4.7}$ est retenu.
+%\par
+Afin d'exclure les électrons, muons et taus hadroniques de la liste des jets, il est requis que les jets soient distants du dilepton de $\Delta R > \num{0.5}$.
 \par
 Lors de la prise de données en 2017, le \CMSendcap\ du ECAL présentait un bruit important, perturbant la reconstruction des jets.
 Conformément aux recommandations du \POG\ (\emph{Physics Object Group}, groupe responsable d'un objet physique) \emph{JetMET}, les jets reconstruits tels que $\num{2.65} < \abs{\eta} < \num{3.139}$ ayant une impulsion transverse avant correction inférieure à \SI{50}{\GeV} sont rejetés.
