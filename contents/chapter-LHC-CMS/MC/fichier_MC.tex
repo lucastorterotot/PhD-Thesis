@@ -281,21 +281,3 @@ L'accord entre observation et modélisation, décrit par le rapport (obs/exp), e
 \caption[Effet de la correction de recul de \MET.]{Effet de la correction de recul de \MET\ sur une sélection d'événements $\Zboson\to\mu\mu$ en 2017~\cite{MET_recoil_Alexei}.}
 \label{fig-MET_recoil_Alexei}
 \end{figure}
-\subsubsection{Impulsions des particules générées}
-\paragraph{Repondération de l'impulsion transverse et de la masse du boson \Zboson\ (\emph{DY \pT-mass reweighting})}
-Les impulsions transverses ainsi que la masse invariante des leptons issus de la désintégration du boson \Zboson\ sont corrigées
-dans les événements simulés Drell-Yan.
-Ces corrections sont déterminées dans une région de contrôle $\Zboson\to\mu\mu$ et n'introduisent pas de modification du nombre total d'événements.
-\paragraph{Repondération de l'impulsion transverse du quark~\quarkt\ (\emph{top \pT\ reweighting})}
-La modélisation du bruit de fond \ttbar\ est corrigée afin que les données simulées au NLO correspondent au NNLO.
-Pour cela, la distribution en \pT\ des quarks~\quarkt\ est pondérée.
-Le poids à appliquer à un quark~\quarkt, déterminé par le groupe \quarkt\antiquarkt\Higgs, s'exprime en fonction de l'impulsion transverse du quark~\quarkt\ en \SI{}{\GeV} selon
-\begin{equation}
-\omega = \exp(\num{0.088} - \num{8.7e-4}\times\pT + \num{9.2e-7}\times\pT^2)
-\mend
-\end{equation}
-Le poids total à appliquer aux événements \ttbar\ contenant deux quarks~\quarkt\ est alors
-\begin{equation}
-\omega(\text{total}) = \sqrt{\omega(1) \times \omega(2)}
-\mend
-\end{equation}

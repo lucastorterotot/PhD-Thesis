@@ -47,7 +47,24 @@ $\tauh2$ \HLTSingleTau\ appliqué à l'autre \tauh.
 \paragraph{Efficacité des \HLTpaths\ des muons et des électrons (\emph{lepton trigger scale factors})}
 De manière similaire au cas des \tauh, l'efficacité des \HLTpaths\ des leptons (muons et électrons) est déterminée dans les données réelles et simulées en fonction de l'impulsion transverse et de la pseudo-rapidité du lepton.
 Cette démarche est réalisée pour les \HLTpaths\ \HLTSingleMu, \HLTSingleEle, \HLTMuTauCross\ et \HLTEleTauCross.
-\subsection{Repondération de l'impulsion transverse du boson de Higgs}
+\subsection{Impulsions des particules générées}
+\paragraph{Repondération de l'impulsion transverse et de la masse du boson \Zboson\ (\emph{DY \pT-mass reweighting})}
+Les impulsions transverses ainsi que la masse invariante des leptons issus de la désintégration du boson \Zboson\ sont corrigées
+dans les événements simulés Drell-Yan.
+Ces corrections sont déterminées dans une région de contrôle $\Zboson\to\mu\mu$ et n'introduisent pas de modification du nombre total d'événements.
+\paragraph{Repondération de l'impulsion transverse du quark~\quarkt\ (\emph{top \pT\ reweighting})}
+La modélisation du bruit de fond \ttbar\ est corrigée afin que les données simulées au NLO correspondent au NNLO.
+Pour cela, la distribution en \pT\ des quarks~\quarkt\ est pondérée.
+Le poids à appliquer à un quark~\quarkt, déterminé par le groupe \quarkt\antiquarkt\Higgs, s'exprime en fonction de l'impulsion transverse du quark~\quarkt\ en \SI{}{\GeV} selon
+\begin{equation}
+\omega = \exp(\num{0.088} - \num{8.7e-4}\times\pT + \num{9.2e-7}\times\pT^2)
+\mend
+\end{equation}
+Le poids total à appliquer aux événements \ttbar\ contenant deux quarks~\quarkt\ est alors
+\begin{equation}
+\omega(\text{total}) = \sqrt{\omega(1) \times \omega(2)}
+\mend
+\end{equation}
 \begin{wrapfigure}{R}{5cm}
 \vspace{\baselineskip}
 \centering
@@ -55,7 +72,7 @@ Cette démarche est réalisée pour les \HLTpaths\ \HLTSingleMu, \HLTSingleEle, 
 \caption[Production de boson de Higgs du MSSM par fusion de gluons.]{Diagramme de Feynman de production de boson de Higgs dans le cadre du MSSM par fusion de gluons (\gluon\gluon\Higgs).}
 \label{fig-chapter-HTT_analysis-section-corrections-fgraph-gg_loop_hHA}
 \end{wrapfigure}
-\par
+\paragraph{Repondération de l'impulsion transverse du boson de Higgs}
 Au premier ordre non nul (LO, \emph{Leading Order}), les propriétés cinématiques du signal ne dépendent que de la masse du boson de Higgs, ce qui est couvert par la variété des jeux de données utilisés, listés dans l'annexe~\refApHTTdatasets.
 Cependant, à l'ordre supérieur (NLO, \emph{Next-to Leading Order}),
 ce n'est plus vrai dans le cas du processus $\gluon\gluon\Higgs$,
