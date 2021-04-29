@@ -73,15 +73,15 @@ with plt.xkcd():
     plt.plot(x_dense, over_model_y, color='C2', linewidth=1)
 
     ax4 = plt.subplot(2,3,4)
-    plt.plot(x, y_noise_2, marker='.', color='C3', linewidth=0)
+    plt.plot(x, y_noise_2, marker='.', color='C1', linewidth=0)
     plt.plot(x, under_model_y, color='C2', linewidth=1)
 
     ax5 = plt.subplot(2,3,5)
-    plt.plot(x, y_noise_2, marker='.', color='C3', linewidth=0)
+    plt.plot(x, y_noise_2, marker='.', color='C1', linewidth=0)
     plt.plot(x, y_true, color='C2', linewidth=1)
 
     ax6 = plt.subplot(2,3,6)
-    plt.plot(x, y_noise_2, marker='.', color='C3', linewidth=0)
+    plt.plot(x, y_noise_2, marker='.', color='C1', linewidth=0)
     plt.plot(x_dense, over_model_y, color='C2', linewidth=1)
 
     axs = [ax1, ax2, ax3, ax4, ax5, ax6]

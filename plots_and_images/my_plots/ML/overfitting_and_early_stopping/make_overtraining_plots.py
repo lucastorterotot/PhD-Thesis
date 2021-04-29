@@ -72,7 +72,7 @@ with plt.xkcd():
 
     txt1.remove()
 
-    ln2, = plt.plot(xs, ys_test, label='Non-training data', color="C3")
+    ln2, = plt.plot(xs, ys_test, label='Non-training data', color="C1")
 
     plt.legend()
     fig.savefig(image_name.format(n_saves_counter))
@@ -129,7 +129,7 @@ with plt.xkcd():
     ys_train = 0.25 + 0.75*np.exp(-5*xs/xs[-1])
     ys_test = ys_train * (1+.1*xs/xs[-1])
     plt.plot(xs, ys_train, label='Training data', color="C0")
-    plt.plot(xs, ys_test, label='Non-training data', color="C3")
+    plt.plot(xs, ys_test, label='Non-training data', color="C1")
 
     txt8 = plt.annotate(
         'Tune model parameters!',
