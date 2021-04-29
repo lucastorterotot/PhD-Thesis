@@ -11,17 +11,95 @@
 \section{$\Higgs\to\tau\tau$ analysis}
 \input{\PhDthesisdir/slides/HTT_analysis/fichier_slides_HTT_analysis.tex}
 
+\subsection*{}
+\section*{}
 \begin{frame}
-\manip Remember: invariant mass not available in di-\tau\ events (neutrinos).
-\submanip Using \mTtot\ instead, but this is \textbf{not} the mass!
-\submanip Difficult to know $\Zboson$ or $\Higgs$ $\to\tau\tau$...
 
-\vfill
+\begin{minipage}[t]{.45\textwidth}
+\manip Remember: invariant mass not fully available:
+\submanip neutrinos in di-\tau\ events.
+\pause
+\begin{block}{What's here}
+\begin{center}
+{\small (e.g. VBF Higgs production + decay to \tau\tau, \mu\tauh\ channel)}
 
+\vspace{.5\baselineskip}
+
+    \begin{tikzpicture}[scale=.8]
+        \clip (-.5\linewidth,-.3\linewidth) rectangle (.5\linewidth,.3\linewidth);
+
+        %\drawCMS
+
+        %\printantimuondeposit{21}{15}
+        \printantimuon{21}{15}
+        
+        \printneutrino[\antinutau]{30}
+        \printneutrino[\numu]{-10}
+
+        %\printjetdeposit{50}{170}
+        \printjet{50}{170}
+
+        %\printbigjetdeposit{150}{-50}
+        \printbigjet{150}{-50}
+
+        %\printtauhdeposit{15}{-150}
+        \printtauh{15}{-150}
+        
+        \printneutrino[\nutau]{127}
+    \end{tikzpicture}
+\end{center}
+\end{block}
+
+\only<4->{
 \manip It would be great to have a di-\tau\ mass estimator!
-\submanip What about \emph{machine learning}?
+\submanip What about \emph{\textbf{machine learning}}?
+}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.45\textwidth}
+\vspace{-\baselineskip}
+\begin{block}{What CMS sees}
+\begin{center}
+\begin{center}
+    \begin{tikzpicture}[scale=.45]
+        \clip (0,0) circle (\muonroutd);
+
+        \drawCMS
+
+        \printantimuondeposit{21}{15}
+        \printantimuontrk{21}{15}
+%        \printantimuon{21}{15}
+
+        \printjetdeposit{50}{170}
+        \printjettrk{50}{170}
+%        \printjetnolabel{50}{170}
+
+        \printbigjetdeposit{150}{-50}
+        \printbigjettrk{150}{-50}
+%        \printbigjetnolabel{150}{-50}
+
+        \printtauhdeposit{15}{-150}
+        \printtauhtrk{15}{-150}
+%        \printtauh{15}{-150}
+        
+        \draw [thick, ltcolorred, -latex] (0,0) --+ (75:.3\linewidth) node [right] {\vMET};
+    \end{tikzpicture}
+\end{center}
+\end{center}
+\end{block}
+\end{minipage}
+
+\begin{tikzpicture}[overlay, remember picture]
+\only<-2>{
+\fill [white] (.5\textwidth, -.1\textheight) rectangle (1.1\textwidth, .975\textheight);
+}
+\end{tikzpicture}
 \end{frame}
 
 \subsection*{}
 \section{Machine learning}
 \input{\PhDthesisdir/slides/ML/fichier_slides_ML.tex}
+
+\subsection*{}
+\section*{Conclusion \& prospects}
+\input{\PhDthesisdir/slides/fichier_slides_conclusion.tex}
