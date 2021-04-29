@@ -6,7 +6,7 @@ import numpy as np
 import ltLaTeXpyplot as lt
 
 # Créer la figure
-fig = lt.ltFigure(name='benchmark', width_frac = .7)
+fig = lt.ltFigure(name='benchmark', width_frac = .6)
 fig_fr = lt.ltFigure(name='benchmark-fr', width_frac = .7)
 
 # Définir les grandeurs
