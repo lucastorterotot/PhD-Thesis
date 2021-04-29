@@ -52,7 +52,7 @@ with plt.xkcd():
     ax.set_ylim([0, 1])
     arrowed_spines(ax, arrowLength=1, labels=('',''))
 
-    plt.xlabel('Amount of training')
+    plt.xlabel('Training iterations')
     plt.ylabel('Loss value')
 
     xs = np.arange(0,100,1)
