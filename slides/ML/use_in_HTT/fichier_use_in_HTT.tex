@@ -1,0 +1,241 @@
+\begin{frame}
+
+\begin{minipage}[c]{.45\textwidth}
+\manip Proceed to the search for massive Higgs boson $\Phi$ with di-\tau\ events
+on the 2017 era.
+\manip Use \mml\ as discriminating variable.
+\manip Not really better than with \mTtot... Why?
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.5\textwidth}
+\begin{center}
+\plotHTTModelIndepLimits{mssm_classic_ml}{2017}{ggH}{_vs_mTtot_expOnly}
+\end{center}
+\end{minipage}
+\end{frame}
+
+\begin{frame}
+
+\manip Large \colorbox{ltcolorgreen2}{\ftauhs} high mass \tikzmarknode{tails}{A} falling into the signal region $\Rightarrow$ lowered signal to background ratio.
+
+\begin{minipage}[c]{.49\textwidth}
+\begin{center}
+\plotHTTshapes{mt_tot}{mssm_classic}{2017}{tt}{35}{prefit_linear_blinded_rawsig_efr}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.49\textwidth}
+\begin{center}
+\plotHTTshapes{m_ml}{mssm_classic}{2017}{tt}{35}{prefit_linear_blinded_rawsig_efr}
+\end{center}
+\end{minipage}
+
+\begin{tikzpicture}[overlay, remember picture]
+\draw (.225\textwidth,.4\textheight) coordinate (B);
+\draw (.775\textwidth,.4\textheight) coordinate (C);
+
+%\draw [ltcolorred, thick, -latex] (A.south) to [out = -90, in = 90] (B);
+\draw [ltcolorred, thick, -latex] (A.south) to [out = -90, in = 90] (C);
+
+\draw [ltcolorred] (B) node [right] {OK here};
+\draw [ltcolorred] (C) node [right] {more bkgs here};
+\end{tikzpicture}
+
+\vspace{-5pt}
+\end{frame}
+
+\begin{frame}
+
+\manip \textbf{BUT} \colorbox{ltcolororange2}{\Zboson}/\colorbox{ltcolorviolet2}{\ttbar} separation! See the two \mml\ embedded components, not present with \mTtot.
+\vphantom{\colorbox{ltcolorgreen2}{\ftauhs}}
+
+\begin{minipage}[c]{.49\textwidth}
+\begin{center}
+\plotHTTshapes{mt_tot}{mssm_classic}{2017}{tt}{35}{prefit_linear_blinded_rawsig_efr}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.49\textwidth}
+\begin{center}
+\plotHTTshapes{m_ml}{mssm_classic}{2017}{tt}{35}{prefit_linear_blinded_rawsig_efr}
+\end{center}
+\end{minipage}
+
+\begin{tikzpicture}[overlay, remember picture]
+\draw [ltcoloryellow4] (.225\textwidth,.4\textheight) node [right] {$\Zboson+\ttbar$ mixed};
+\draw [ltcoloryellow4, thick, -latex] (.225\textwidth,.4\textheight) --+ (-170:1);
+
+\draw (.625\textwidth,.5\textheight) coordinate (B);
+\draw (.7\textwidth,.375\textheight) coordinate (C);
+
+\fill [thick, ltcolororange, opacity=.5] (B) ellipse (.5 and 1);
+\draw [thick, ltcolororange4] (B) ellipse (.5 and 1);
+\draw [ltcolororange4] (B) node {\large\Zboson};
+\fill [thick, ltcolorviolet, opacity=.5] (C) ellipse (.85 and .3);
+\draw [thick, ltcolorviolet4] (C) ellipse (.85 and .3);
+\draw [ltcolorviolet4] (C) node {\large\ttbar};
+\end{tikzpicture}
+
+\vspace{-5pt}
+\end{frame}
+
+\begin{frame}
+
+\manip Visible in other categories too. But here, the \SVFIT\ mass is above \SI{250}{\GeV} and our model sees a \Zboson\ signal!
+\vphantom{\colorbox{ltcolorgreen2}{\ftauhs}}
+
+\begin{minipage}[c]{.49\textwidth}
+\begin{center}
+\plotHTTshapes{mt_tot}{mssm_vs_sm_h125}{2017}{mt}{33}{prefit_linear_nosignal_blinded}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.49\textwidth}
+\begin{center}
+\plotHTTshapes{m_ml}{mssm_vs_sm_h125}{2017}{mt}{33}{prefit_linear_nosignal_blinded}
+\end{center}
+\end{minipage}
+
+\begin{tikzpicture}[overlay, remember picture]
+\draw (.125\textwidth,.6\textheight) coordinate (B);
+\draw (.17\textwidth,.375\textheight) coordinate (C);
+\draw (.13\textwidth,.475\textheight) coordinate (D);
+
+\fill [thick, ltcolororange, opacity=.5] (B) ellipse (.6 and .4);
+\draw [thick, ltcolororange4] (B) ellipse (.6 and .4);
+\draw [ltcolororange4] (B) node {\large\Zboson};
+\fill [thick, ltcolorviolet, opacity=.5] (C) ellipse (.75 and .3);
+\draw [thick, ltcolorviolet4] (C) ellipse (.75 and .3);
+\draw [ltcolorviolet4] (C) node {\large\ttbar};
+\fill [thick, ltcolorgreen, opacity=.5] (D) ellipse (.5 and .4);
+\draw [thick, ltcolorgreen4] (D) ellipse (.5 and .4);
+\draw [ltcolorgreen4] (D) node {fakes};
+
+\draw (.6\textwidth,.4\textheight) coordinate (B);
+\draw (.71\textwidth,.375\textheight) coordinate (C);
+\draw (.705\textwidth,.5\textheight) coordinate (D);
+
+\fill [thick, ltcolororange, opacity=.5] (B) ellipse (.5 and .5);
+\draw [thick, ltcolororange4] (B) ellipse (.5 and .5);
+\draw [ltcolororange4] (B) node {\large\Zboson};
+\fill [thick, ltcolorviolet, opacity=.5] (C) ellipse (.75 and .3);
+\draw [thick, ltcolorviolet4] (C) ellipse (.75 and .3);
+\draw [ltcolorviolet4] (C) node {\large\ttbar};
+\fill [thick, ltcolorgreen, opacity=.5] (D) ellipse (.4 and .5);
+\draw [thick, ltcolorgreen4] (D) ellipse (.4 and .5);
+\draw [ltcolorgreen4] (D) node {fakes};
+\end{tikzpicture}
+
+\vspace{-5pt}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+Let's compare the \SVFIT\ predictions \msv\ to our model's ones \mml.
+\end{center}
+\end{frame}
+
+%\begin{frame}
+%\manip Study on the 2017 era.
+%\submanip Use the MSSM $\Higgs\to\tau\tau$ analysis selection ({\color{CERNblue}\href{https://cms.cern.ch/iCMS/jsp/db_notes/noteInfo.jsp?cmsnoteid=CMS\%5C\%20AN-2020/218}{CMS AN 2020/218}}).
+%
+%\manip Compare:
+%\submanip the \SVFIT\ mass \msv\ (left plots),
+%\submanip our ML model predictions \mml\ (right plots).
+%\end{frame}
+
+%\def\channel{mt}
+%\begin{frame}
+%
+%{\Large~\hfill\msv\hfill\hfill\mml\hfill~}\vspace{-1.2\baselineskip}
+%
+%\plotHTTcontrol{2017}{emb_ff}{\channel}{m_sv_puppi}
+%\hfill
+%\plotHTTcontrol{2017}{emb_ff}{\channel}{ml_mass}
+%
+%\manip \textbf{\emph{vs} \msv:} Same looking shapes, expected. Better Data-Bkg agreement with \mml!
+%\end{frame}
+
+\def\tmpchannel{mt}
+\def\tmpcat{16}
+\begin{frame}
+
+\manip \textbf{Similar SM Higgs signal sensitivity}, small (expected) overestimation from our model.
+
+%{\Large~\hfill\msv\hfill\hfill\mml\hfill~}\vspace{-1.2\baselineskip}
+
+\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\tmpchannel}{\tmpcat}{prefit_linear}
+\hfill
+\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\tmpchannel}{\tmpcat}{prefit_linear}
+\end{frame}
+\def\tmpcat{12}
+\begin{frame}
+
+\manip \textbf{Better DY estimations} (peak at \SI{100}{\GeV} for \msv, \SI{92}{\GeV} for \mml) and fakes at higher masses!
+
+%{\Large~\hfill\msv\hfill\hfill\mml\hfill~}\vspace{-1.2\baselineskip}
+
+\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\tmpchannel}{\tmpcat}{prefit_linear}
+\hfill
+\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\tmpchannel}{\tmpcat}{prefit_linear}
+\end{frame}
+
+\def\tmpchannel{tt}
+%\def\tmpcat{10}
+%\begin{frame}
+%
+%%{\Large~\hfill\msv\hfill\hfill\mml\hfill~}\vspace{-1.2\baselineskip}
+%
+%\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\tmpchannel}{\tmpcat}{prefit_linear}
+%\hfill
+%\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\tmpchannel}{\tmpcat}{prefit_linear}
+%
+%\manip \textbf{\emph{vs} \mTtot:} DY \emph{vs} jets faking \tauh\ discrimination! (DNN not trained in this scope)
+%\end{frame}
+\def\tmpcat{17}
+\begin{frame}
+
+\manip Our model finds $\Zboson\to\tau\tau$ events when \SVFIT\ does not!
+
+%{\Large~\hfill\msv\hfill\hfill\mml\hfill~}\vspace{-1.2\baselineskip}
+
+\plotHTTshapes{m_sv}{cut_based_sm}{2017}{\tmpchannel}{\tmpcat}{prefit_linear}
+\hfill
+\plotHTTshapes{m_ml}{cut_based_sm}{2017}{\tmpchannel}{\tmpcat}{prefit_linear}
+\end{frame}
+
+%\begin{frame}
+%
+%\manip Our model finds \Zboson\ in events predicted above \SI{250}{\GeV} by official CMS \SVFIT!
+%
+%\begin{minipage}[c]{.45\textwidth}
+%\begin{center}
+%\plotHTTcontrol{2017}{emb_ff_high_ml_mass}{em}{m_sv_puppi}
+%\end{center}
+%\end{minipage}
+%\hfill
+%\begin{minipage}[c]{.5\textwidth}
+%\begin{center}
+%\plotHTTcontrol{2017}{emb_ff_high_m_sv_puppi}{em}{ml_mass}
+%\end{center}
+%\end{minipage}
+%\end{frame}
+
+\begin{frame}
+
+\manip Computing time: DNN (Python) is $\sim60\times$ faster than \SVFIT\ (C++)!
+
+\begin{minipage}[c]{.3\textwidth}
+\manip \SVFIT:
+\submanip fit to find the best mass
+\submanip for each event
+\manip DNN:
+\submanip fit done once (training)
+\submanip apply the DNN formula
+\end{minipage}
+\begin{minipage}[c]{.69\textwidth}
+\begin{center}
+\input{\homedir/Documents/PhD-Thesis/plots_and_images/my_plots/ML/benchmark_vs_SVFit/benchmark-pyplot.pgf}
+\end{center}
+\end{minipage}
+\end{frame}
