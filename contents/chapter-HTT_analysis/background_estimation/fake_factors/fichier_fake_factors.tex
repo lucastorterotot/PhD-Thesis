@@ -130,6 +130,12 @@ la valeur mesurée est utilisée sur l'intervalle $[140, \infty[\usp\SI{}{\GeV}$
 %\caption[Ajustement de $\FF_Q$ dans le canal \mu\tauh\ en 2018.]{Ajustement de $\FF_Q$ dans le canal \mu\tauh\ en 2018~\cite{CMS-NOTE-2020-218}.}
 %\label{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-FFQ_fit}
 %\end{figure}
+\begin{wrapfigure}[20]{R}{.46\textwidth}
+\centering
+\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_fit_jet_pt_med_1jet_pt_2_ff_wjets_mt_2018.tex}
+\caption[Ajustement de $\FF_W$ dans le canal \mu\tauh\ en 2018.]{Ajustement de $\FF_W$ dans le canal \mu\tauh\ en 2018~\cite{CMS-NOTE-2020-218}.}
+\label{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-WJ}
+\end{wrapfigure}
 \paragraph{\Wjets}
 La DR \Wjets\ ne concerne que les canaux semi-leptoniques.
 Elle est définie de la même manière que la SR à l'exception de la coupure sur la masse transverse du lepton qui doit ici être supérieure à \SI{70}{\GeV}, alors qu'elle est inférieure à cette même valeur dans la SR.
@@ -154,6 +160,12 @@ Dans cette DR également, peu d'événements sont disponibles pour $\pT^{\tauh}\
 La même logique que pour $\FF_Q$, détaillée précédemment, est suivie sur la valeur de $\FF_W$ à utiliser.
 L'ajustement obtenu pour $\FF_W$ sur le canal \mu\tauh\ en 2018 est illustré figure~\ref{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-WJ} pour $\Nprebjets\geq1$ et $\num{1.25} \leq \pT^\text{jet}/\pT^{\tauh} < \num{1.5}$.
 Il y apparaît l'effet du traitement de la région à haut $\pT^{\tauh}$.
+\begin{wrapfigure}[20]{R}{.46\textwidth}
+\centering
+\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_fit_jet_pt_low_inclusive_pt_2_ff_ttbar_mc_mt_2018.tex}
+\caption[Ajustement de $\FF_t$ dans le canal \mu\tauh\ en 2018.]{Ajustement de $\FF_t$ dans le canal \mu\tauh\ en 2018~\cite{CMS-NOTE-2020-218}.}
+\label{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-ttbar}
+\end{wrapfigure}
 \paragraph{\ttbar}
 La DR \ttbar\ ne concerne que les canaux semi-leptoniques.
 Il n'est pas possible de définir une DR issue des données suffisamment pure pour mesurer $\FF_t$.
@@ -163,7 +175,7 @@ Le \fakefactor\ $\FF_W$ peut également être mesuré à partir de données simu
 Un écart de \num{10} à \SI{20}{\%} avec le \fakefactor\ obtenu à partir des données réelles est observé.
 La contribution \ttbar\ étant faible par rapport aux autres bruits de fond, le biais introduit par l'utilisation de données simulées est négligeable face aux incertitudes sur les \fakefactors.
 \par
-Le \fakefactor\ $\FF_t$ est mesuré séparément pour:
+Le \fakefactor\ $\FF_t$ est mesuré pour:
 \begin{itemize}
 \item $\pT^\text{jet}/\pT^{\tauh} < \num{1.25}$;
 \item $\num{1.25} \leq \pT^\text{jet}/\pT^{\tauh} < \num{1.5}$;
@@ -171,18 +183,6 @@ Le \fakefactor\ $\FF_t$ est mesuré séparément pour:
 \end{itemize}
 sans séparation en \Nprebjets, la majorité des événements \ttbar\ vérifiant $\Nprebjets\geq1$.
 L'ajustement obtenu pour $\FF_t$ sur le canal \mu\tauh\ en 2018 est illustré figure~\ref{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-ttbar} pour $\pT^\text{jet}/\pT^{\tauh} < \num{1.25}$.
-\begin{figure}[h]
-\centering
-
-\subcaptionbox{Ajustement de $\FF_W$.\label{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-WJ}}[.45\textwidth]
-{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_fit_jet_pt_med_1jet_pt_2_ff_wjets_mt_2018.tex}}
-\hfill
-\subcaptionbox{Ajustement de $\FF_t$.\label{subfig-chapter-HTT_analysis-section-bg_estimation-FF_method-ttbar}}[.45\textwidth]
-{\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/from_CMS-NOTE-2020-218/ff_fit_jet_pt_low_inclusive_pt_2_ff_ttbar_mc_mt_2018.tex}}
-
-\caption[Ajustements de $\FF_W$ et $\FF_t$ dans le canal \mu\tauh\ en 2018.]{Ajustements de $\FF_W$ et $\FF_t$ dans le canal \mu\tauh\ en 2018~\cite{CMS-NOTE-2020-218}.}
-\label{fig-chapter-HTT_analysis-section-bg_estimation-FF_method-WJ-ttbar}
-\end{figure}
 \subsubsection{Corrections résiduelles}
 Afin de valider les \fakefactors\ obtenus,
 ces derniers sont appliqués aux événements des DRs
