@@ -3,8 +3,8 @@ Train = optimize parameters ($w_1, w_2, \ldots, w_n, b$) for each neuron.
 
 \manip Get a \textbf{training dataset} = examples of inputs $\vec{x}_i$ with corresponding outputs $y_i$
 \manip Compare the model predictions $F(\vec{x}_i)$ to the true values $y_i$
-\submanip Define a \textbf{loss function} $L$ such that its minimum is reached when $F(\vec{x}_i) = y_i$
-\submanip Change the parameters a bit, aiming at minimizing $L\left( F(\vec{x}_i), y_i \right)$
+\submanip Define a \textbf{loss function} $\Loss$ such that its minimum is reached when $F(\vec{x}_i) = y_i$
+\submanip Change the parameters a bit, aiming at minimizing $\Loss\left( F(\vec{x}_i), y_i \right)$
 \submanip Repeat
 \begin{center}
 When to stop training?

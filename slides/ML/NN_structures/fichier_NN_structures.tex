@@ -5,7 +5,7 @@
 \def\linkN#1#2{
 \draw [-latex] (#1) -- (#2);
 }
-\begin{frame}
+\begin{frame}{(Deep) Neural Networks}
 \begin{center}
 \begin{tikzpicture}
 
@@ -65,27 +65,6 @@
 
 \end{tikzpicture}
 
-\eg\ $\NLayers =3$ and $\NNeurons =1000$
+%\manip For us, $\NLayers =3$ and $\NNeurons =1000$.
 \end{center}
-\end{frame}
-
-\begin{frame}{Grid search: hyperparameters}
-
-\begin{center}
-\begin{tabular}{ll}
-\toprule
-Hyperparameter & Values\\
-\midrule
-Hidden layers & from 2 to 5\\
-Neurons per layers & from 500 to 2000 (per setps of 100)\\
-Loss function & MAPE, MSE\\
-Activation function & ReLU, ELU, SELU\\
-Optimizer & Adam, AdaDelta, SGD\\
-Weights initialisation & uniform, normal\\
-\bottomrule
-\end{tabular}
-\end{center}
-
-+ different sets of input variables
-
 \end{frame}

@@ -10,24 +10,25 @@
 %\subsection*{NN training}
 \input{\PhDthesisdir/slides/ML/NN_training/fichier_NN_training.tex}
 
-\subsection*{NN for HTT}
-
-\begin{frame}
-\fullcite{BARTSCHI201929}
-\end{frame}
-
-\input{\PhDthesisdir/slides/ML/ML_for_HTT/ML_for_HTT.tex}
-
 \begin{frame}
 \begin{center}
-\large What about input variables?
+\includegraphics[width=\graphw,height=\graphh,keepaspectratio]{\PhDthesisdir/plots_and_images/my_plots/ML/overfitting_and_early_stopping/myloss.png}
 \end{center}
+\begin{tikzpicture}[overlay, remember picture]
+\draw [ltcolorred] (.55\textwidth, .8\textheight) node {\textbf{The same plot in real life!}} ;
+
+\draw [ltcolorred] (.375\textwidth, .2\textheight) node (A) {\small Improvements by training} ;
+\draw (.4\textwidth, .45\textheight) coordinate (B);
+\draw [ltcolorred, thick, -latex] (A) to [out = 110, in = -135] (B);
+
+\draw [ltcolorred] (.65\textwidth, .45\textheight) node (A) {\small No more improvement on validation:} ;
+\draw [ltcolorred] (A.south) node [below] (A) {\small early stopping} ;
+\draw (.8\textwidth, .25\textheight) coordinate (B);
+\draw [ltcolorred, thick, -latex] (A.east) to [out = -15, in = 90] (B);
+\end{tikzpicture}
+\vspace{-1pt}
 \end{frame}
 
-%\subsection*{Event topology}
-\input{\PhDthesisdir/slides/ML/phenomenology/fichier_event_topology.tex}
-
-%\subsection*{ML models inputs}
-\input{\PhDthesisdir/slides/ML/phenomenology/fichier_ML_models_inputs.tex}
-
-\input{\PhDthesisdir/slides/ML/results/fichier_results.tex}
+\subsection*{DNN for HTT}
+\input{\PhDthesisdir/slides/ML/ML_for_HTT/ML_for_HTT.tex}
+\input{\PhDthesisdir/slides/ML/use_in_HTT/fichier_use_in_HTT.tex}
