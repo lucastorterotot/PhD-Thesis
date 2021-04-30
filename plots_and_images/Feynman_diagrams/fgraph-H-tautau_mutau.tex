@@ -7,16 +7,18 @@
   \fmf{fermion, label=$\leptau$, l.side=left, tension=4}{v,t2d}
   \fmf{fermion, tension=3}{nu1,t1d}
   \fmf{boson, label=$\Wbosonplus$, l.side=left, tension=2}{t1d,W1d}
-  \fmf{fermion}{doq,W1d,upq}
+  \fmf{phantom}{doq,W1d,upq}
   \fmf{fermion, tension=3}{t2d,nu2}
   \fmf{boson, label=$\Wbosonminus$, tension=2}{t2d,W2d}
   \fmf{fermion}{antinumu,W2d,muout}
+  \fmffreeze
+  \fmf{plain}{W1d,upq}
   \fmflabel{$\antinutau$}{nu1}
   \fmflabel{$\nutau$}{nu2}
   \fmflabel{$\muon$}{muout}
   \fmflabel{$\antinumu$}{antinumu}
-  \fmflabel{$\antiquarkd$}{doq}
-  \fmflabel{$\quarku$}{upq}
-  \fmfdot{v,t1d,t2d,W1d,W2d}
+  \fmflabel{$\tauh$}{upq}
+  \fmfdot{v,t1d,t2d,W2d}
+  \fmfblob{.07w}{W1d}
 \end{fmfchar*}
 \end{fmffile}
