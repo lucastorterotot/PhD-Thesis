@@ -18,14 +18,79 @@ les données observées (points noirs) sont comparées à la modélisation des b
 Les bandes grisées correspondent à l'incertitude statistique totale sur le bruit de fond.
 Le rapport au bruit de fond est donné dans la partie inférieure des graphiques.
 
-\encadre[ltcolorred]{Certaines de ces distributions de contrôle, en particulier:
+\bigskip
+\par
+Ces distributions montrent un bon accord entre données observées et estimations des bruits de fond,
+à l'exception:
 \begin{itemize}
-\item le nombre de vertex d'empilement;
-\item la pseudo-rapidité du \tauh\ de plus haut \pT;
-\item les jets issus de quarks~\quarkb;
+\item des pseudo-rapidités des \tauh, $\eta(\tauh)$;
+%\item de la quantité de jets issus de quarks~\quarkb;
+\item du nombre de vertex d'empilement \Npu.
 \end{itemize}
-présentent un mauvais accord entre données observées et estimations.
-De plus amples investigations seront menées en vue de la soutenance.}
+Les membres du groupe de l'analyse MSSM \HAtoTauTau\ 
+ont récemment été mis au courant des écarts observés
+et de plus amples investigations sont prévues.
+Ci-après, les pistes envisagées sont présentées.
+\paragraph{Pseudo-rapidités des \tauh}
+L'écart observé pourrait être réduit
+en utilisant des \fakefactors\ dépendants de $\eta(\tauh)$,
+ce qui n'est pas le cas actuellement.
+D'autres variables dépendant directement de la pseudo-rapidité d'un \tauh\ telles que
+la distance $\Delta R$ entre les deux éléments du dilepton
+montrent également des écarts entre
+données observées et estimation des bruits de fond,
+potentiellement dus à ceux sur $\eta(\tauh)$.
+L'effet attendu sur
+la variable discriminante \mTtot\ 
+est faible,
+cette dernière étant fonction d'impulsions transverses et d'angles azimutaux.
+Une étude plus approfondie sur la corrélation de \mTtot\ avec $\eta(\tauh)$
+ainsi que l'effet de l'utilisation de \fakefactors\ dépendants de $\eta(\tauh)$ sur les distributions de \mTtot\
+permettrait de quantifier cet effet.
+\paragraph{Nombre de vertex d'empilement}
+%Les distributions de \Npu\
+%montrent un mauvais accord entre données observées et estimations des bruits de fond.
+L'effet de la mauvaise modélisation de \Npu\ constatée dans les distributions de contrôle
+devrait être marginal sur \mTtot,
+car cette observable ne dépend pas de \Npu.
+Les autres sources d'incertitudes sur \mTtot\ permettent alors de couvrir cet effet.
+Les valeurs de \mml, \ie\ des prédictions du réseau de neurones présenté au chapitre~\refChML,
+dépendent de \Npu.
+Les bons accords
+entre observations et estimations des bruits de fond
+obtenus sur les distributions de \mml\
+montrent que cette observable semble peu affectée par la mauvaise modélisation de \Npu.
+Ainsi,
+l'effet limité de \Npu\ sur les variables discriminantes utilisées
+permet de conserver des résultats finaux pertinent
+bien que l'écart sur \Npu\
+entre observations et estimations des bruits de fond
+puisse être de l'ordre de \SI{40}{\%}.
+Plusieurs effets peuvent causer un tel écart sur les distributions de \Npu:
+\subparagraph{Modélisation des \HLTpaths\ dans les données encapsulées}
+Les données encapsulées,
+introduites dans le chapitre~\refChHTT,
+sont des hybrides entre données réelles et simulées.
+Les \HLTpaths\ activés proviennent de la partie simulée uniquement,
+\ie\ d'un événement vide à l'exception des leptons~\tau\ qui remplacent les muons.
+Or, l'empilement provient de la partie réelle des données encapsulées
+et l'acceptation des \HLTpaths\ en dépend.
+Actuellement,
+des facteurs correctifs sont appliqués en fonction des propriétés cinématiques des \tau\
+mais ils ne dépendent pas de \Npu.
+Ainsi, les distributions de \Npu\ peuvent être biaisées dans les données encapsulées.
+\subparagraph{Dépendance en \Npu\ de l'identification des \tauh}
+L'identification d'un \tauh\ dépend de son isolation,
+elle-même sensible à l'empilement.
+Différents points de fonctionnement
+d'identification des \tauh\ sont utilisés dans le cadre des \fakefactors,
+introduits au chapitre~\refChHTT.
+Ces derniers ne sont pas déterminés en fonction de \Npu,
+ce qui peut introduire un biais.
+\subparagraph{Modélisation de \Npu\ dans les données simulées}
+Un désaccord sur \Npu\ est bien attendu entre données réelles et simulées
+et ces dernières sont pondérées afin de le corriger, comme exposé au chapitre~\refChLHCCMS.
+Toutefois, cette pondération ne permet pas d'obtenir un accord parfait.
 
 \def\EMBFFchoice{emb_ff}
 \input{\PhDthesisdir/contents/appendix-control_plots-HTT/fichier_base.tex}
