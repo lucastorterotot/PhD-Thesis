@@ -1,0 +1,89 @@
+\ifthenelse{\equal{\PRINTABLE}{false}}{
+\chapter{Ajustement des paramètres de nuisance -- $\Higgs\to\tau\tau$}\label{annexe-impacts-HTT}
+
+Les paramètres de nuisance introduits au chapitre~\refChHTT\
+sont ajustés par \COMBINE, l'outil de combination statistique utilisé par la collaboration CMS basé sur \ROOSTATS~\cite{RooStats}.
+\par
+Dans cette annexe,
+les valeurs prises par ces paramètres après ajustement $\hat{\theta}$ (\emph{pulls})
+ainsi que l'incertitude sur cette valeur
+sont donnés en termes de nombre de déviations standard $\Delta \theta$
+par rapport à la valeur nominale $\theta_0$.
+Leur effet sur le paramètre d'intérêt,
+en l'occurrence le modificateur d'intensité du signal $\mu = r_{\gluon\gluon\Higgs}$,
+est donné par les bandes rouges et bleues.
+Elles correspondent respectivement aux
+effets corrélé et anti-corrélé
+du paramètre de nuisance sur $\mu$ ($\pm1\sigma$ impact).
+
+% era channel page
+\newcommand{\inputimpacts}[5][\HTTplotsdir]{
+\begin{figure}[p]
+\centering
+\begin{tikzpicture}
+
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth, page=#4]{\PhDthesisdir/plots_and_images/my_plots/#1/impacts/mssm_classic/#2_#3_ggH_400_impacts.pdf}};
+
+\fill [white] (9,0) rectangle (15, 1.05);
+\fill [white] (9.7,0) rectangle (10,1.12);
+\draw (9.35, .75) node {\Large $(\hat{\theta}-\theta_0)/\Delta\theta$};
+\draw (14.75, .75) node {\Large $\Delta$};
+
+\fill [white] (6.5,22.8) rectangle (11, 23.6);
+\draw (11.5, 22.8) node [above left] {\LARGE CMS Data -- \WorkInProgress};
+
+\draw (.5\textwidth, 0) node [below] {\large Année #2, canal \GetChannelStr{#3}, page #4/#5};
+\end{tikzpicture}
+\end{figure}
+}
+
+\inputimpacts{2016}{tt}{1}{1}
+\inputimpacts{2016}{mt}{1}{3}
+\inputimpacts{2016}{mt}{2}{3}
+\inputimpacts{2016}{mt}{3}{3}
+\inputimpacts{2016}{et}{1}{3}
+\inputimpacts{2016}{et}{2}{3}
+\inputimpacts{2016}{et}{3}{3}
+\inputimpacts{2016}{em}{1}{1}
+
+\inputimpacts{2017}{tt}{1}{4}
+\inputimpacts{2017}{tt}{2}{4}
+\inputimpacts{2017}{tt}{3}{4}
+\inputimpacts{2017}{tt}{4}{4}
+\inputimpacts{2017}{mt}{1}{2}
+\inputimpacts{2017}{mt}{2}{2}
+\inputimpacts{2017}{et}{1}{4}
+\inputimpacts{2017}{et}{2}{4}
+\inputimpacts{2017}{et}{3}{4}
+\inputimpacts{2017}{et}{4}{4}
+\inputimpacts{2017}{em}{1}{5}
+\inputimpacts{2017}{em}{2}{5}
+\inputimpacts{2017}{em}{3}{5}
+\inputimpacts{2017}{em}{4}{5}
+\inputimpacts{2017}{em}{5}{5}
+
+\inputimpacts{2018}{tt}{1}{4}
+\inputimpacts{2018}{tt}{2}{4}
+\inputimpacts{2018}{tt}{3}{4}
+\inputimpacts{2018}{tt}{4}{4}
+\inputimpacts{2018}{mt}{1}{6}
+\inputimpacts{2018}{mt}{2}{6}
+\inputimpacts{2018}{mt}{3}{6}
+\inputimpacts{2018}{mt}{4}{6}
+\inputimpacts{2018}{mt}{5}{6}
+\inputimpacts{2018}{mt}{6}{6}
+\inputimpacts{2018}{et}{1}{6}
+\inputimpacts{2018}{et}{2}{6}
+\inputimpacts{2018}{et}{3}{6}
+\inputimpacts{2018}{et}{4}{6}
+\inputimpacts{2018}{et}{5}{6}
+\inputimpacts{2018}{et}{6}{6}
+\inputimpacts{2018}{em}{1}{5}
+\inputimpacts{2018}{em}{2}{5}
+\inputimpacts{2018}{em}{3}{5}
+\inputimpacts{2018}{em}{4}{5}
+\inputimpacts{2018}{em}{5}{5}
+
+}{
+\addtocontents{toc}{\protect\contentsline {chapter}{\numberline {\refApHTTimpactsLETTER}Ajustement des paramètres de nuisance -- $\Higgs\to\tau\tau$}{voir version en ligne}{0}}
+}
