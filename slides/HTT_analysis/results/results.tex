@@ -10,7 +10,7 @@
 \submanip Remaining \ttbar\ in \colorbox{\TTBARcolor}{\ttbar}
 \submanip Other small backgrounds in \colorbox{\DIBcolor}{Diboson}
 
-\only<2->{\manip MSSM \Higgs\ with $m=\SI{400}{\GeV}$ expected \tikzmarknode{signal.}{nodesignal}}
+\only<2->{\manip \Higgs\ at \SI{400}{\GeV} expected $\sigma\times\BR=\SI{1}{\pico\barn}$ \tikzmarknode{signal.}{nodesignal}}
 
 \only<3->{\manip Compare to observed events (black dots).}
 
@@ -24,7 +24,7 @@
 %
 %\vspace{\baselineskip}
 
-\only<5->{\manip Data/Bkg agreement $\to$ \textbf{exclusion limits}.}
+\only<5->{\manip Data/Bkg agreement $\to$ \textbf{exclusion limits} on $\sigma\times\BR$}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{.49\textwidth}
@@ -62,36 +62,39 @@
 
 \begin{minipage}[c]{.49\textwidth}
 \begin{center}
-\only<1-5>{\plotHTTModelIndepLimits{mssm_classic}{combined}{ggH}{_cmb}}
-\only<6->{\plotHTTModelIndepLimits{mssm_classic}{combined}{ggH}{_cmb_vs_CMS_ATLAS}}
+\only<1-6>{\plotHTTModelIndepLimits{mssm_classic}{combined}{ggH}{_cmb}}
+\only<7->{\plotHTTModelIndepLimits{mssm_classic}{combined}{ggH}{_cmb_vs_CMS_ATLAS}}
 \end{center}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{.49\textwidth}
 \begin{center}
-\only<1-4>{\plotHTTshapes{mt_tot}{mssm_classic}{2018}{tt}{32}{prefit}}
-\only<5>{\plotHTTModelIndepLimits{mssm_classic}{combined}{bbH}{_cmb}}
-\only<6->{\plotHTTModelIndepLimits{mssm_classic}{combined}{bbH}{_cmb_vs_CMS_ATLAS}}
+\only<1-5>{\plotHTTshapes{mt_tot}{mssm_classic}{2018}{tt}{32}{prefit}}
+\only<6>{\plotHTTModelIndepLimits{mssm_classic}{combined}{bbH}{_cmb}}
+\only<7->{\plotHTTModelIndepLimits{mssm_classic}{combined}{bbH}{_cmb_vs_CMS_ATLAS}}
 \end{center}
 \end{minipage}
 
 \begin{tikzpicture}[overlay, remember picture]
-\only<1-3>{
+\only<2-4>{
 \draw [ltcolorred, very thick] (.935\textwidth, .5\textheight) circle (.4) ;
 \draw [ltcolorred, thick, dotted] (3.56,1) --+ (0, 3.9);
 }
 
-\only<2-3>{
+\only<3-4>{
 \draw [ltcolorred, very thick, latex-] (11.45, 4.8) --+ (0, -.4);
-\draw [ltcolorred, very thick, latex-] (11.45, 5.1) --+ (0, .4);
-}
-
-\only<3>{
-\draw [ltcolorred, very thick] (11.45,4.95) ellipse (.3 and .6) ;
-\draw [ltcolorred, very thick, -latex] (11.15,4.95) to [out=-180, in = 0] (3.56,4) ;
+\draw [ltcolorred, very thick, latex-] (11.45, 5.1) --+ (0, .4) node [above] {\small $\sigma\times\BR=\SI{1}{\pico\barn}$};
 }
 
 \only<4>{
+\def\ypos{4.28}
+\draw [ltcolorred, thick, dotted] (1.3, \ypos) --+ (6,0);
+\draw [ltcolorred, very thick] (11.45,4.95) ellipse (.3 and .6) ;
+\fill [ltcolororange] (3.56,\ypos) circle (3pt) ;
+\draw [ltcolorred, very thick, -latex] (11.15,4.95) to [out=-180, in = 0] (3.56,\ypos) ;
+}
+
+\only<5>{
 \draw [ltcolorred] (3.56,4) node [right] {Would have been seen} ;
 \draw [ltcolorred] (3.56,2) node [left] {Can't tell} ;
 }
