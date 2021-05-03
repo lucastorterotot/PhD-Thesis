@@ -265,6 +265,14 @@
   \def\localxaxislabelptc{\Higgspm}
 }{}
 
+\def\localcats{}
+\ifthenelse{\equal{#2}{mssm_vs_sm_h125}\or\equal{#2}{mssm_vs_sm}\or\equal{#2}{mssm_vs_sm_heavy}\or\equal{#2}{mssm_vs_sm_CPV-new_categories}}{
+  \def\localcats{\CATsm+\CATbsm}
+}{}
+\ifthenelse{\equal{#2}{mssm_vs_sm_classic}\or\equal{#2}{mssm_vs_sm_CPV}}{
+  \def\localcats{\CATbsm\ only}
+}{}
+
 \def\localxaxislabel{$m_{\localxaxislabelptc}$ (\SI{}{\GeV})}
 \def\localyaxislabel{$\tan\beta$}
 
@@ -287,7 +295,10 @@
 
 % CMS disclaimer
 \draw (.8, 7) node [above right] {\scriptsize CMS Data\vphantom{Àq,}};
-\draw (2.35, 7) node [below, text width=1cm] {\centering\scriptsize \WorkInProgress\par};
+\draw (2.35, 7) node [below left, text width=1cm] {\centering\scriptsize \WorkInProgress\par};
+
+% cats
+\draw (2.35, 6.6) node [right] {\scriptsize \localcats};
 \end{tikzpicture}%
 }
 
