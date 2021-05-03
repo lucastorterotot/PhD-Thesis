@@ -71,24 +71,12 @@ La présence d'un signal pour expliquer cet excès est donc peu probable.
 \subsection{Limites du scénario $M_{\higgs}^{125}$}
 Les limites d'exclusion dans le plan $(m_{\HiggsA},\tan\beta)$ du scénario $M_{\higgs}^{125}$
 sont données en figure~\ref{fig-model_dep}.
-Dans le cas de la figure~\ref{subfig-model_dep-mssm_vs_sm_h125},
-ces limites sont obtenues telle que décrit dans la section~\ref{chapter-HTT_analysis-section-signal_extraction-benchmarks-mh125}.
 Sur la figure~\ref{subfig-model_dep-mssm_vs_sm_heavy},
 le signal recherché est uniquement composé des contributions des bosons supplémentaires \Higgs\ et \HiggsA.
-Alors, seules les catégories \CATbsm\ sont exploitées, sans combinaison avec les catégories \CATsm.
-\begin{figure}[h]
-\centering
-
-\subcaptionbox{Limites d'exclusion obtenues en considérant un signal $\Phi\in\set{\higgs,\Higgs,\HiggsA}\to\tau\tau$ avec la catégorisation combinée $\CATsm + \CATbsm$ décrite section~\ref{chapter-HTT_analysis-section-categorisation-SM_and_BSM}.\label{subfig-model_dep-mssm_vs_sm_h125}}[.475\textwidth]
-{\plotHTTModelDepLimits{mssm_vs_sm_h125}{_vs_CMS}}
-\hfill
-\subcaptionbox{Limites d'exclusion obtenues en considérant un signal $\Phi\in\set{\Higgs,\HiggsA}\to\tau\tau$ avec la catégorisation classique \CATbsm\ décrite section~\ref{chapter-HTT_analysis-section-categorisation-BSM}.\label{subfig-model_dep-mssm_vs_sm_heavy}}[.475\textwidth]
-{\plotHTTModelDepLimits{mssm_vs_sm_heavy}{}}
-
-\caption[Limites d'exclusion du scénario $M_{\higgs}^{125}$.]{Limites d'exclusion du scénario $M_{\higgs}^{125}$ obtenues avec l'intégralité des données du Run~II récoltées par CMS. Dans le cas de la figure~\ref{subfig-model_dep-mssm_vs_sm_h125}, les précédents résultats~\cite{CMS-PAS-HIG-17-020} obtenus avec les données de l'année 2016 sont également donnés (CMS 2016).}
-\label{fig-model_dep}
-\end{figure}
-\par
+Seules les catégories \CATbsm\ sont exploitées, sans combinaison avec les catégories \CATsm.
+Dans le cas de la figure~\ref{subfig-model_dep-mssm_vs_sm_h125},
+ces limites sont obtenues telle que décrit dans la section~\ref{chapter-HTT_analysis-section-signal_extraction-benchmarks-mh125},
+\ie\ avec combinaison des catégories \CATbsm\ et \CATsm.
 La zone hachurée en rouge ($m_{\higgsMSSM}\neq\num{125}\pm\SI{3}{\GeV}$) est forcément exclue,
 car le boson \higgsMSSM\ n'y possède pas une masse compatible avec le boson découvert en 2012.
 La zone bleue correspond à la région de l'espace des phases pour laquelle
@@ -96,35 +84,48 @@ l'hypothèse \hypSB\ correspondant au MSSM
 est rejetée en faveur de
 l'hypothèse \hypB\ correspondant au \SM\
 d'après les données observées.
+\begin{figure}[h]
+\centering
+
+\subcaptionbox{Limites d'exclusion obtenues en considérant un signal $\Phi\in\set{\Higgs,\HiggsA}\to\tau\tau$ avec la catégorisation classique \CATbsm\ décrite section~\ref{chapter-HTT_analysis-section-categorisation-BSM}.\label{subfig-model_dep-mssm_vs_sm_heavy}}[.475\textwidth]
+{\plotHTTModelDepLimits{mssm_vs_sm_heavy}{}}
+\hfill
+\subcaptionbox{Limites d'exclusion obtenues en considérant un signal $\Phi\in\set{\higgs,\Higgs,\HiggsA}\to\tau\tau$ avec la catégorisation combinée $\CATsm + \CATbsm$ décrite section~\ref{chapter-HTT_analysis-section-categorisation-SM_and_BSM}.\label{subfig-model_dep-mssm_vs_sm_h125}}[.475\textwidth]
+{\plotHTTModelDepLimits{mssm_vs_sm_h125}{_vs_CMS_ATLAS}}
+
+\caption[Limites d'exclusion du scénario $M_{\higgs}^{125}$.]{Limites d'exclusion du scénario $M_{\higgs}^{125}$ obtenues avec l'intégralité des données du Run~II récoltées par CMS. Dans le cas de la figure~\ref{subfig-model_dep-mssm_vs_sm_h125}, les précédents résultats~\cite{CMS-PAS-HIG-17-020} obtenus avec les données de l'année 2016 sont également donnés (CMS 2016).}
+\label{fig-model_dep}
+\end{figure}
+\par
+La comparaison des figures~\ref{subfig-model_dep-mssm_vs_sm_heavy} et~\ref{subfig-model_dep-mssm_vs_sm_h125}
+montre l'effet de la combinaison des catégories \CATbsm\ et \CATsm.
+L'effet majeur de cette combinaison est l'extension de la zone d'exclusion observée aux basses valeurs de $\tan\beta$.
+Dans cette région de l'espace des phases, la masse de \higgsMSSM\ est en effet incompatible avec les données expérimentales.
+Bien que cette région soit exclue par la zone hachurée,
+cela montre que la prise en compte des propriétés de \higgsMSSM\
+et leur comparaison à celles de \higgs\ observé permet d'obtenir de meilleurs résultats.
+De plus, les limites observées à $\tan\beta\simeq\num{10}$ sont plus étendues,
+bien que toujours compatibles avec limites attendues à $2\sigma$
+peu sensibles à la combinaison des catégories dans cette région de l'espace de phases.
+%\par
 Sur la figure~\ref{subfig-model_dep-mssm_vs_sm_h125},
 %pour $\tan\beta<\num{10}$,
 les valeurs de $m_{\HiggsA}$ inférieures à \SI{600}{\GeV} sont exclues.
 Cette limite passe à \SI{1}{\TeV} pour $\tan\beta\gtrsim\num{10}$,
 et \SI{2}{\TeV} pour $\tan\beta\gtrsim\num{50}$.
-\par
-La figure~\ref{subfig-model_dep-mssm_vs_sm_heavy} montre les limites d'exclusion obtenues
-en considérant uniquement les contributions des bosons supplémentaires \Higgs\ et \HiggsA\ au signal recherché.
-L'effet majeur est la suppression de la zone d'exclusion observée aux basses valeurs de $\tan\beta$.
-Dans cette région de l'espace des phases, la masse de \higgsMSSM\ est en effet incompatible avec les données expérimentales.
-Bien que cette région soit exclue par la zone hachurée,
-cela montre que la prise en compte des propriétés de \higgsMSSM\
-et leur comparaison à celles de \higgs\ observé permet d'obtenir de meilleurs résultats.
-%De plus, les limites à $\tan\beta\simeq\num{10}$ sont également moins étendues dans ce cas.
 \subsection[Limites du scénario $M_{\Higgs_1}^{125}$ avec violation de $CP$]{Limites du scénario $M_{\Higgs_1}^{125}(\text{CPV})$}
-Les limites d'exclusion dans le plan $(m_{\Higgspm},\tan\beta)$ du scénario $M_{\Higgs_1}^{125}(\text{CPV})$
-sont données en figure~\ref{fig-model_dep-CPV}.
+\begin{wrapfigure}[16]{R}{.475\textwidth}
+\vspace{-3\baselineskip}
+\centering
+\plotHTTModelDepLimits{mssm_vs_sm_CPV-new_categories}{}
+\caption[Limites d'exclusion du scénario $M_{\Higgs_1}^{125}(\text{CPV})$.]{Limites d'exclusion du scénario $M_{\Higgs_1}^{125}$ $(\text{CPV})$ dans le plan $(m_{\Higgspm},\tan\beta)$ obtenues avec l'intégralité des données du Run~II récoltées par CMS.}
+\label{fig-model_dep-CPV}
+\end{wrapfigure}
+Les limites d'exclusion du scénario $M_{\Higgs_1}^{125}(\text{CPV})$ dans le plan $(m_{\Higgspm},\tan\beta)$
+sont données en figure \ref{fig-model_dep-CPV}.
 Dans la région $\tan\beta\simeq\num{9}$ et $m_{\Higgspm}\simeq\SI{700}{\GeV}$,
 elles sont affectées par les interférences entre $\Higgs_2$ et $\Higgs_3$.
 Ces interférences destructives donnent un signal atténué, réduisant la sensibilité de l'analyse.
-\begin{figure}[h]
-\centering
-
-\plotHTTModelDepLimits{mssm_vs_sm_CPV-new_categories}{}
-
-\caption[Limites d'exclusion du scénario $M_{\Higgs_1}^{125}(\text{CPV})$.]{Limites d'exclusion dans le plan $(m_{\Higgspm},\tan\beta)$ du scénario $M_{\Higgs_1}^{125}(\text{CPV})$ obtenues avec l'intégralité des données du Run~II récoltées par CMS.}
-\label{fig-model_dep-CPV}
-\end{figure}
-\par
 %Les données observées excluent toutefois toute la région $\tan\beta\gtrsim\num{8}$.
 %Ainsi, le seul domaine de validité du scénario $M_{\Higgs_1}^{125}(\text{CPV})$
 %se situe à $m_{\Higgspm}>\SI{600}{\GeV}$ et $\num{5.5}\lesssim\tan\beta\lesssim\num{8.5}$.
