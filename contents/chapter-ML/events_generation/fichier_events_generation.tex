@@ -76,16 +76,6 @@ Il s'agit d'événements pouvant contenir des interactions dures, mais n'activan
 La quantité d'empilement ajoutée à l'événement $\higgsML\to\tau\tau$ suit le profil d'empilement de l'année 2017.
 Les conditions des collisions simulées sont ainsi identiques à celles de l'année 2017 au LHC.
 \subsection{Sélection des événements}\label{chapter-ML-section-evt_gen-selection}
-\subsubsection{Jets}
-À l'instar de l'analyse présentée au chapitre~\refChHTT,
-les jets sont
-soumis à la procédure de CHS~\cite{CMS-PAS-JME-14-001} décrite dans le chapitre~\refChJERC\
-et
-reconstruits par l'algorithme anti-\kT~\cite{Cacciari_antikT} avec un paramètre $R=\num{0.4}$.
-Ces jets doivent également passer les critères d'identification présentés dans le chapitre~\refChLHCCMS.
-L'identification des jets issus de quarks~\quarkb\ (\quarkb-\emph{tagging}) est réalisée par l'algorithme \DeepCSV~\cite{Sirunyan_heavy_flavor_jets_2018,DeepJet}.
-Les jets tels que $\pT > \SI{20}{\GeV}$ et $\abs{\eta}<\num{2.5}$ sont considérés comme issus d'un \quarkb\ si leur score est supérieur à \num{0.3033}.
-Les jets non identifiés comme issus d'un \quarkb\ ne sont retenus que si $\pT > \SI{30}{\GeV}$ et $\abs{\eta}<\num{4.7}$.
 \subsubsection{Canaux \tauh\tauh, \mu\tauh, \ele\tauh\ et \ele\mu}
 Dans le cas des canaux
 \tauh\tauh, \mu\tauh, \ele\tauh\ et \ele\mu,
@@ -143,6 +133,16 @@ La correspondance des objets du dilepton avec ceux ayant activé le \HLTpath\ n'
     \item \LeptonVetoesExtraMuon;
     \item \LeptonVetoesExtraEleEleEle, l'électron devant \PassConversionVeto\ et \LessTwoMissingHitsVertex.
 \end{itemize}
+\subsubsection{Jets}
+À l'instar de l'analyse présentée au chapitre~\refChHTT,
+les jets sont
+soumis à la procédure de CHS~\cite{CMS-PAS-JME-14-001} décrite dans le chapitre~\refChJERC\
+et
+reconstruits par l'algorithme anti-\kT~\cite{Cacciari_antikT} avec un paramètre $R=\num{0.4}$.
+Ces jets doivent également passer les critères d'identification présentés dans le chapitre~\refChLHCCMS.
+L'identification des jets issus de quarks~\quarkb\ (\quarkb-\emph{tagging}) est réalisée par l'algorithme \DeepCSV~\cite{Sirunyan_heavy_flavor_jets_2018,DeepJet}.
+Les jets tels que $\pT > \SI{20}{\GeV}$ et $\abs{\eta}<\num{2.5}$ sont considérés comme issus d'un \quarkb\ si leur score est supérieur à \num{0.3033}.
+Les jets non identifiés comme issus d'un \quarkb\ ne sont retenus que si $\pT > \SI{30}{\GeV}$ et $\abs{\eta}<\num{4.7}$.
 \subsection{Événements obtenus et pondération}
 Environ 3 millions ont été sélectionnés selon les critères présentés précédemment parmi plus de 22 millions générés.
 La distribution de $m_{\higgsML}$ dans les événements sélectionnés est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-raw-all_events}.
