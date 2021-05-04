@@ -1,27 +1,27 @@
 \section{Introduction}\label{chapter-ML-section-intro}
 L'utilisation de l'intelligence artificielle (IA) s'est grandement développée au cours des dernières années.
-L'IA est l'ensemble des théories et des techniques développant des programmes informatiques complexes capables de simuler certains traits de l'intelligence humaine tels que le raisonnement et l'apprentissage.
+L'IA regroupe l'ensemble des théories et des techniques développant des programmes informatiques complexes capables de simuler certains traits de l'intelligence humaine tels que le raisonnement et l'apprentissage.
 L'entreprise Google DeepMind a par exemple développé AlphaGo~\cite{alphago},
 un programme destiné à jouer au jeu de Go,
 qui a battu en 2016 le champion du monde de la discipline 4 à 1.
 \par
 Le \emph{machine learning} (ML) est une branche de l'IA
-dans laquelle un modèle (algorithme ou programme) s'améliore à réaliser une tâche par
+dans laquelle un modèle (algorithme ou programme) s'améliore dans la réalisation d'une tâche par
 accumulation d'expérience sur des jeux de données d'entraînement,
-sans pour autant être programmé explicitement pour réaliser cette tâche.
+sans pour autant être programmé explicitement pour effectuer cette tâche.
 Pour y parvenir,
 les jeux de données d'entraînement comprennent les informations $\set{\vec{x}_i}$ à donner au modèle
 ainsi que les \og bonnes réponses \fg\ $\set{\ytruei}$ qu'il doit fournir en sortie.
 L'objectif est donc d'obtenir un modèle agissant comme une fonction $F$ approximant celle reliant les entrées $\set{\vec{x}_i}$ aux cibles $\set{\ytruei}$.
 Il peut alors donner une prédiction \ypred\ sur une nouvelle entré $\vec{x}$ selon $\ypred=F(\vec{x})$.
-La tâche du modèle est:
+La tâche du modèle peut être:
 \begin{description}
 \item[une classification] lorsque $y$ est discrète, par exemple lorsqu'il s'agit de déterminer si une image représente un chat ou un chien~\cite{datafrog_img_reco};
 \item[une régression] lorsque $y$ est continue, par exemple estimer le prix d'un bien immobilier~\cite{house_prices_regression}.
 \end{description}
 \par
 Les applications du ML à la physique des particules sont variées et font l'objet de nombreux sujets d'étude~\cite{Gael_thesis,scham_moritz_2020_21993,kopf_tanja_2019_21500,Baldi_2015}.
-Dans les chapitres précédents, le ML est déjà activement utilisé pour diverses tâches:
+Dans les chapitres précédents, le ML est déjà utilisé pour diverses tâches:
 \begin{itemize}
 \item identification des jets issus de quarks~\quarkb\ (\quarkb-\emph{tagging}) avec \DeepCSV~\cite{jet_flavor_deep_nn,Sirunyan_heavy_flavor_jets_2018,DeepJet};
 \item identification des taus hadroniques avec \DEEPTAU~\cite{CMS-DP-2019-033};
@@ -29,7 +29,7 @@ Dans les chapitres précédents, le ML est déjà activement utilisé pour diver
 \end{itemize}
 \par
 Dans les événements $\Higgs\to\tau\tau$ présentés au chapitre~\refChMSSM,
-et plus généralement lors de tout processus physique $X\to\tau\tau$ où une particule $X$ se désintègre en paire de leptons~\tau,
+et plus généralement lors de tout processus physique $X\to\tau\tau$ où une particule $X$ donne une paire de leptons~\tau,
 des neutrinos sont émis lors des désintégrations des~\tau.
 Or, ils sont invisibles dans les détecteurs tels que CMS ou ATLAS.
 Il est donc impossible de déterminer la masse invariante totale du système $\tau\tau$ issu de $X$.
@@ -37,7 +37,7 @@ Plusieurs méthodes ont été développées afin de reconstruire la masse du sys
 Dans le cadre des analyses $\Higgs\to\tau\tau$, la collaboration CMS utilise \SVFIT~\cite{SVFit_Bianchini_2014}.
 \par
 La reconstruction la masse de la particule $X$, ou résonance, se désintégrant en paire de leptons~\tau\ grâce au \emph{machine learning}
-a été étudiée par \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929} dans le cas où $X$ est un boson de Higgs avec une masse entre \num{80} et \SI{300}{\GeV}.
+a été étudiée par \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929} dans le cas où $X$ est un boson de Higgs avec une masse comprise entre \num{80} et \SI{300}{\GeV}.
 Ils ont obtenu une résolution de \SI{8.4}{\%} sur la masse du Higgs, contre \SI{17}{\%} avec \SVFIT.
 De plus, le temps de calcul nécessaire à l'obtention de la masse est moindre avec le ML.
 L'utilisation du ML est donc très prometteuse.
@@ -56,12 +56,9 @@ Bien qu'il ne s'agisse pas de la simulation complète basée sur \GEANTfour~\cit
 De plus, l'empilement est pris en compte.
 Les modèles obtenus sont ainsi directement utilisables dans de réelles analyses, telles que celle présentée dans le chapitre~\refChHTT.
 \par
-La section~\ref{chapter-ML-section-general_ML} introduit des concepts communs aux deux types de modèle étudiés:
-\begin{itemize}
-\item des arbres de décision améliorés, introduits section~\ref{chapter-ML-section-XGB};
-\item des réseaux de neurones profonds, introduits section~\ref{chapter-ML-section-DNN}.
-\end{itemize}
-La comparaison des modèles obtenus et la sélection de l'un d'entre eux est présentée section~\ref{chapter-ML-section-hyperparameters}.
+La section~\ref{chapter-ML-section-general_ML} introduit des concepts communs aux deux types de modèles étudiés.
+Les arbres de décision améliorés et les réseaux de neurones profonds sont ensuite introduits dans les sections~\ref{chapter-ML-section-XGB} et~\ref{chapter-ML-section-DNN} respectivement.
+La comparaison des modèles obtenus et les raisons du choix de l'un d'entre eux sont présentées section~\ref{chapter-ML-section-hyperparameters}.
 Dans la section~\ref{chapter-ML-section-discussion},
 divers effets sur les performances du modèle sélectionné sont discutés,
 en particulier la prise en compte de l'empilement.
@@ -70,4 +67,4 @@ Enfin, l'utilisation en conditions réelles du modèle issu de ces travaux dans 
 Une note d'analyse \cite{CMS-NOTE-2021-054} est en cours de rédaction.
 Les scripts utilisés pour la génération des événements peuvent être consultés~\cite{fastsim_ece},
 tout comme ceux permettant d'entraîner les modèles étudiés~\cite{DL_for_HTT_mass}.
-Enfin, le modèle issu de ces travaux peut être récupéré~\cite{DiTau_ML_mass} et utilisé dans d'autres analyses.
+Le modèle issu de ces travaux est disponible~\cite{DiTau_ML_mass} pour pouvoir être utilisé dans d'autres analyses.

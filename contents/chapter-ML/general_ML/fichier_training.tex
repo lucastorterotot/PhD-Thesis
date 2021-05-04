@@ -2,21 +2,21 @@
 Un modèle doit être suffisamment complexe,
 \ie\ proposer suffisamment de paramètres réglables à l'entraînement,
 afin de pouvoir réaliser sa tâche.
-Sinon, ses prédictions ne sont qu'approximatives, voire fausses.
+Dans le cas contraire, ses prédictions ne sont qu'approximatives, voire fausses.
 Par exemple,
 en utilisant une droite affine comme modèle, \ie\ avec deux paramètres,
 il est difficile de prédire correctement
 une loi polynomiale de degré 2, régie par trois paramètres.
 Or, le nombre d'itérations d'entraînement nécessaires à l'optimisation d'un modèle augmente avec sa complexité.
 Avec une quantité limitée d'itérations, le modèle est sous-entraîné.
-Il est donc nécessaire d'en avoir suffisamment lors de l'entraînement.
+Il est donc nécessaire d'en avoir suffisamment.
 \par
 Au fur et à mesure des itérations,
 la valeur de la fonction de coût appliquée au jeu de données d'entraînement diminue.
 Elle peut donc être un indicateur de l'amélioration des prédictions du modèle d'une itération à une autre.
 Arrivé à un plateau, le modèle est optimisé et l'entraînement s'arrête.
 \par
-Cette approche masquerait toutefois une spécialisation du modèle ou surentraînement.
+Cette approche masque toutefois une spécialisation du modèle ou surentraînement.
 Prédire parfaitement $\set{\ytruei}$ sur le jeu de données d'entraînement,
 ce qui correspond à une fonction de coût nulle,
 n'est pas équivalent à être optimal sur des données inédites.

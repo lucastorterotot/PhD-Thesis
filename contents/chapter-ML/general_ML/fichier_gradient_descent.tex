@@ -24,8 +24,9 @@ Le taux d'apprentissage est généralement pris entre \num{e-5} et \num{0.5}.
 Toutefois, l'évaluation du gradient de la fonction de coût sur l'ensemble du jeu de donnée d'entraînement,
 contenant éventuellement plusieurs millions d'échantillons comme c'est le cas dans cette thèse,
 nécessite d'importantes ressources computationnelles (en l'occurrence, de la mémoire vive).
-La descente de gradient stochastique (SGD, \emph{Stochastic Gradient Descent})
-consiste alors à évaluer le gradient de \Loss\ pour chaque échantillon.
+Afin de pallier à ce problème,
+la descente de gradient stochastique (SGD, \emph{Stochastic Gradient Descent})
+évalue le gradient de \Loss\ individuellement pour chaque échantillon.
 Cependant, le SGD amène de fortes fluctuations le long de la descente,
 ce qui ralenti l'entraînement.
 De plus, ces mêmes fluctuations une fois proche du minimum mènent à une précision dégradée des prédictions.
@@ -44,7 +45,7 @@ Une \og époque \fg{} de l'entraînement correspond à une utilisation de tous l
 Pour ne pas biaiser l'entraînement à cause de l'ordre du jeu de données,
 il est mélangé aléatoirement à chaque nouvelle époque.
 La composition des mini-lots est donc également aléatoire.
-La taille des mini-lots est fixée à $2^{11}=\num{2048}$ événements.
+Leur taille est fixée à $2^{11}=\num{2048}$ événements.
 Une taille de la forme $2^n$ permet d'optimiser l'utilisation des GPUs (\emph{Graphics Processing Unit}) sur lesquels l'entraînement se fait~\cite{DNN}.
 Les points de masse générés étant les entiers entre \num{50} et \SI{800}{\GeV}, soit \num{750} points de masse,
 \num{2048} événements pris au hasard est un compromis entre

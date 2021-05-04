@@ -94,7 +94,7 @@ Elle est initialement définie à $\vec{0}$ et est modifiée à chaque mini-lot 
 \label{eq-AdaGrad_memory}
 \mend
 \end{equation}
-La mise à jour des paramètres se fait alors selon
+La mise à jour des paramètres se fait alors suivant
 \begin{equation}
 p \to p - \eta \frac{1}{\sqrt{r_p}+\delta} \Average{\pdv{\Loss}{p}}_\text{mini-lot}
 \end{equation}

@@ -1,5 +1,5 @@
 \section{Événements utilisés ou échantillons}\label{chapter-ML-section-evt_gen}
-L'objectif est de reconstruire la masse des particules se désintégrant en paire de leptons~\tau.
+L'objectif de cette étude est de reconstruire la masse des particules se désintégrant en paire de leptons~\tau.
 Il s'agit donc d'une tâche de régression.
 Dans l'optique d'une utilisation dans les analyses telles que celle présentée dans le chapitre~\refChHTT,
 il a été choisi d'utiliser des événements
@@ -15,7 +15,7 @@ une distribution continue des valeurs de $m_{\higgsML}$
 et suffisamment d'échantillons pour chaque point de masse.
 Dans le contexte de la collaboration CMS, nous avons utilisé \FASTSIM~\cite{FastSim_2011,FastSim_2014,FastSim_2017_1,FastSim_2017_2}.
 Cet outil permet de procéder à l'ensemble de la simulation des événements introduite chapitre~\refChLHCCMS,
-de la génération du processus physique à la reconstruction des objets physiques par le détecteur.
+de la génération du processus initial à la reconstruction des objets physiques par le détecteur.
 \par
 Les données simulées correspondent à des collisions de protons
 avec une énergie dans le centre de masse de \SI{13}{\TeV}.
@@ -90,7 +90,7 @@ Les jets non identifiés comme issus d'un \quarkb\ ne sont retenus que si $\pT >
 Dans le cas des canaux
 \tauh\tauh, \mu\tauh, \ele\tauh\ et \ele\mu,
 la sélection des événements se fait comme exposé dans le chapitre~\refChHTT\ pour l'année 2017.
-Afin d'obtenir un modèle dont les prédictions auront non seulement un sens dans les régions de contrôle et de détermination, les coupures sur
+Afin d'obtenir un modèle dont les prédictions auront non seulement un sens dans la région de signal, mais aussi dans les régions de contrôle et de détermination, les coupures sur
 \begin{itemize}
 \item $\mT^{(\mu)}$ dans le canal \mu\tauh;
 \item $\mT^{(\ele)}$ dans le canal \ele\tauh;
@@ -144,10 +144,9 @@ La correspondance des objets du dilepton avec ceux ayant activé le \HLTpath\ n'
     \item \LeptonVetoesExtraEleEleEle, l'électron devant \PassConversionVeto\ et \LessTwoMissingHitsVertex.
 \end{itemize}
 \subsection{Événements obtenus et pondération}
-Plus de 22 millions d'événements ont été générés.
-Environ 3 millions sont sélectionnés selon les critères présentés précédemment.
-La distribution de $m_{\higgsML}$ dans ces événements sélectionnés est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-raw-all_events}.
-Quelques événements présentent des valeurs de $m_{\higgsML}$ au-delà de \SI{800}{\GeV}, cet effet est dû à la largeur de cette particule,
+Environ 3 millions ont été sélectionnés selon les critères présentés précédemment parmi plus de 22 millions générés.
+La distribution de $m_{\higgsML}$ dans les événements sélectionnés est représentée sur la figure~\ref{subfig-distribution-inclusive-Higgs_mass_gen-raw-all_events}.
+Certains présentent des valeurs de $m_{\higgsML}$ au-delà de \SI{800}{\GeV}, cet effet est dû à la largeur de cette particule,
 représentée sur la figure~\ref{fig-_Higgs_xsec_book_3-SM_Width} en fonction de sa masse.
 \begin{figure}[h]
 \centering
@@ -192,13 +191,13 @@ Les variables d'entrée doivent être des observables accessibles expérimentale
 \par
 Les variables considérées sont:
 \begin{itemize}
-\item les impulsions de $L_1$ et $L_2$ les produits de désintégration visibles des~\tau,
-\ie\ le muon et le \tauh\ dans l'exemple de la figure~\ref{fig-model_inputs-fgraph-H-BBtautau_mutau_small}:\\
+\item les impulsions de $L_1$ et $L_2$, les produits de désintégration visibles des~\tau,
+\ie\ le muon et le \tauh\ dans l'exemple de la figure~\ref{fig-model_inputs-fgraph-H-BBtautau_mutau_small}:
 $\pT^{L_1}$, $\eta^{L_1}$, $\phi^{L_1}$,
 $\pT^{L_2}$, $\eta^{L_2}$, $\phi^{L_2}$;
-\item l'énergie transverse manquante pour rendre compte de la présence des neutrinos:\\
+\item l'énergie transverse manquante pour rendre compte de la présence des neutrinos:
 \MET, $\phi^{\MET}$, obtenus par l'algorithme \PUPPI~\cite{PUPPI};
-\item la matrice $M$ de covariance de \MET, rendant compte de l'incertitude sur la mesure de \MET:\\
+\item la matrice $M$ de covariance de \MET, rendant compte de l'incertitude sur la mesure de \MET:
 $M_{xx}$, $M_{xy}$, $M_{yy}$;
 \item le nombre attendu de neutrinos lié à l'état final identifié \Nnu,
 déterminé à partir du canal obtenu par la sélection des événements, \ie\ sans utilisation des informations générées;
@@ -216,10 +215,10 @@ définies par
 \mTtot = \sqrt{\mT^2 {(L_1,\MET)} + \mT^2 {(L_2,\MET)} + \mT^2 {(L_1,L_2)}}
 \mend[;]
 \end{equation}
-\item les impulsions des deux jets principaux (de plus haut \pT) présents dans l'événement:\\
+\item les impulsions des deux jets principaux (de plus hauts \pT) présents dans l'événement:
 $\pT^\text{jet 1}$, $\eta^\text{jet 1}$, $\phi^\text{jet 1}$,
 $\pT^\text{jet 2}$, $\eta^\text{jet 2}$, $\phi^\text{jet 2}$;
-\item l'Activité Hadronique Additionnelle (AHA), définie par la somme des impulsions des jets autres que les deux principaux:\\
+\item l'Activité Hadronique Additionnelle (AHA), définie par la somme des impulsions des jets autres que les deux principaux:
 $\pT^{\AddHadAct}$, $\eta^{\AddHadAct}$, $\phi^{\AddHadAct}$ avec
 \begin{equation}
 \vec{p}^{\AddHadAct} = \sum_\text{jet $i$, $i > 2$} \vec{p}^\text{jet $i$}
@@ -228,4 +227,4 @@ $\pT^{\AddHadAct}$, $\eta^{\AddHadAct}$, $\phi^{\AddHadAct}$ avec
 \item la quantité de jets utilisés pour déterminer $\vec{p}^{\AddHadAct}$, \Njetsr;
 \item le nombre de vertex principaux d'empilement, \Npu.
 \end{itemize}
-Des modèles sont entraînés sur l'ensemble de ces 27 variables ainsi que sur des sous-ensembles de cette liste.
+Des modèles ont été entraînés sur l'ensemble de ces 27 variables ainsi que sur des sous-ensembles de cette liste.

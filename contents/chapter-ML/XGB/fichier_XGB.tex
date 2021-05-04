@@ -7,7 +7,7 @@ permet de construire des
 arbres de décision améliorés.
 De nombreuses compétitions Kaggle~\cite{kaggle_challenge} ont été remportées grâce à eux.
 Ils présentent l'avantage d'être généralement plus rapides à entraîner que les réseaux de neurones présentés section~\ref{chapter-ML-section-DNN},
-et peuvent fournir des prédictions même si une des entrées est manquante, ce qui n'est pas le cas des réseaux de neurones.
+et peuvent fournir des prédictions même si une des variables d'entrée est manquante, ce qui n'est pas le cas des réseaux de neurones.
 \subsection{Arbres de décision}\label{chapter-ML-section-XGB-decision_trees}
 Un arbre de décision (non amélioré) est une succession de questions
 dont les réponses mènent à un résultat final,
@@ -81,7 +81,7 @@ ou à une réponse finale sur une \og feuille \fg{} (en vert).
 \end{figure}
 \par
 De tels arbres peuvent être utilisés avec des variables numériques.
-Dans ce cas, les questions consistent en une condition sur l'une des variables, par exemple $\pT^{\mu} > \SI{50}{\GeV}$.
+Dans ce cas, chaque question consiste en une condition sur l'une des variables, par exemple $\pT^{\mu} > \SI{50}{\GeV}$.
 Le choix de la variable ($\pT^{\mu}$) et de la coupure correspondante (\SI{50}{\GeV}) à utiliser pour former deux nouvelles branches $b_1$ (condition fausse) et $b_2$ (condition vraie) se base sur la similarité $S$.
 Il s'agit d'une variable quantifiant les écarts d'une liste de valeurs $y_i$ à la moyenne de celles-ci $\average{y}$.
 Elle est définie comme
