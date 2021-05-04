@@ -12,7 +12,10 @@ x = np.linspace(0,1,20)
 y_true = 0.3*x + 0.5*(x-.5)**2 + 0.075*np.exp(-50*(x-0.65)**2)
 y_noise = y_true + 0.015*np.random.normal(size=len(y_true))
 
-under_model_y = 0.3317879836849671 * x + 0.04601663644888622
+p1 = 0.3317879836849671
+p2 = 0.04601663644888622
+
+under_model_y = p1 * x + p2
 
 from scipy.interpolate import interp1d
 over_model_fct = interp1d(x,y_noise, kind='cubic')
@@ -20,6 +23,18 @@ x_dense = np.linspace(0,1,200)
 over_model_y = over_model_fct(x_dense)
 
 y_noise_2 = y_true + 0.019*np.random.normal(size=len(y_true))
+
+def LossMSE(a,b):
+    return 0.5*((b-a)**2).mean()
+
+errors = {
+    1 : LossMSE(y_noise, under_model_y),
+    2 : LossMSE(y_noise, y_true),
+    3 : LossMSE(y_noise, over_model_fct(x)),
+    4 : LossMSE(y_noise_2, under_model_y),
+    5 : LossMSE(y_noise_2, y_true),
+    6 : LossMSE(y_noise_2, over_model_fct(x))
+}
 
 def arrowed_spines(ax=None, arrowLength=30, labels=('X', 'Y'), arrowStyle='<|-'):
     xlabel, ylabel = labels
@@ -96,6 +111,12 @@ with plt.xkcd():
         ax.set_xlabel(x_labels[index-1])
         ax.set_ylabel(y_labels[index-1])
         arrowed_spines(ax, arrowLength=1, labels=('',''))
+
+        ax.annotate(
+            r"MSE = "+str(np.round(errors[index]*10**4,3)),
+            xy=(.1,.8),
+            xycoords='axes fraction'
+        )
 
     plt.savefig("examples_xkcd.png")
     
