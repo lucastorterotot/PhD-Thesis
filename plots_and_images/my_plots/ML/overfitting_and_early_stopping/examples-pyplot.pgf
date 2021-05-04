@@ -1535,6 +1535,12 @@
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=0.476396in,y=2.845786in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont MSE \(\displaystyle = \num{7.822}\)}%
+\end{pgfscope}%
+\begin{pgfscope}%
 \pgfsetbuttcap%
 \pgfsetmiterjoin%
 \definecolor{currentfill}{rgb}{1.000000,1.000000,1.000000}%
@@ -2902,6 +2908,12 @@
 \pgfpathmoveto{\pgfqpoint{1.985066in}{3.109158in}}%
 \pgfpathlineto{\pgfqpoint{3.494698in}{3.109158in}}%
 \pgfusepath{stroke}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=2.136029in,y=2.845786in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont MSE \(\displaystyle = \num{1.381}\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -4380,6 +4392,12 @@
 \pgfpathmoveto{\pgfqpoint{3.644698in}{3.109158in}}%
 \pgfpathlineto{\pgfqpoint{5.154331in}{3.109158in}}%
 \pgfusepath{stroke}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=3.795661in,y=2.845786in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont MSE \(\displaystyle = \num{0.0}\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -5881,6 +5899,12 @@
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=0.476396in,y=1.378923in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont MSE \(\displaystyle = \num{8.147}\)}%
+\end{pgfscope}%
+\begin{pgfscope}%
 \pgfsetbuttcap%
 \pgfsetmiterjoin%
 \definecolor{currentfill}{rgb}{1.000000,1.000000,1.000000}%
@@ -7216,6 +7240,12 @@
 \pgfpathmoveto{\pgfqpoint{1.985066in}{1.642296in}}%
 \pgfpathlineto{\pgfqpoint{3.494698in}{1.642296in}}%
 \pgfusepath{stroke}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=2.136029in,y=1.378923in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont MSE \(\displaystyle = \num{1.173}\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -8700,6 +8730,12 @@
 \pgfpathmoveto{\pgfqpoint{3.644698in}{1.642296in}}%
 \pgfpathlineto{\pgfqpoint{5.154331in}{1.642296in}}%
 \pgfusepath{stroke}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=3.795661in,y=1.378923in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont MSE \(\displaystyle = \num{2.664}\)}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%
