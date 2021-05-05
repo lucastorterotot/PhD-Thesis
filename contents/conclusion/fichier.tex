@@ -24,8 +24,8 @@ lors des collisions de protons du Run~II du LHC
 à une énergie dans le centre de masse de \SI{13}{\TeV},
 correspondant à une luminosité intégrée de \SI{137}{\femto\barn^{-1}}.
 Le détecteur CMS a été présenté dans le chapitre~\refChLHCCMS.
-Les particules issues des collisions y laissent des signaux lors de leur passage.
-Ceux-ci sont utilisés pour reconstruire les particules correspondantes.
+Les particules issues des collisions y laissent des signaux lors de leur passage,
+utilisés pour reconstruire les particules correspondantes.
 Les propriétés de ces dernières permettent d'étudier les processus physiques
 ayant eu lieu lors de la collision initiale.
 \par
@@ -105,7 +105,7 @@ la rapidité du DNN par rapport à \SVFIT\
 est un atout majeur.
 \par
 L'entraînement du DNN est basé sur des événements
-où un boson de Higgs \higgsML\ de masse variable est produit par fusion de gluons.
+dans lesquels un boson de Higgs \higgsML\ de masse variable est produit par fusion de gluons.
 %Il s'agit du mode dominant de production de \higgs.
 L'exploitation d'autres modes de production
 pourrait améliorer les performances
@@ -131,16 +131,16 @@ La première est l'analyse des événements avec une paire de leptons~\tau\
 dans le cadre du NMSSM (\emph{Next to MSSM}),
 théorie plus complexe que le MSSM dans laquelle existent sept bosons de Higgs au lieu de cinq.
 La topologie des événements y est la même que dans l'analyse menée dans cette thèse,
-l'implémentation du DNN est donc directe.
+l'implémentation de notre modèle est donc directe.
 La seconde porte sur les événements avec deux bosons de Higgs du SM (\higgs),
 l'un se désintégrant en paire de~\tau\
 et l'autre en paire de quarks~\quarkb\
 ($\higgs\higgs\to\quarkb\antiquarkb\tau\tau$).
 %Dans le cas \og non résonnant \fg,
 %\ie\ où les deux bosons de Higgs sont produits par tout processus physique,
-L'utilisation du DNN n'est pas directe à cause de la présence des deux jets de quarks~\quarkb,
+L'utilisation du DNN y est plus complexe à cause de la présence des deux jets de quarks~\quarkb,
 situation inédite par rapport aux travaux menés dans cette thèse.
-La prise en compte de ces jets dans les variables d'entrée du DNN n'est pas triviale
+La prise en compte de ces jets dans les variables d'entrée du réseau de neurones n'est pas triviale
 et
 les études actuelles menées par le groupe en charge de cette analyse
 tendent à montrer une dégradation des performances par rapport au simple cas $\higgsML\to\tau\tau$
@@ -168,7 +168,7 @@ Ces avancées pourraient mener
 à mieux contraindre les modèles BSM tels que le MSSM et le NMSSM
 voire
 à l'observation d'une nouvelle physique.
-De tels résultats permettront aux théoriciens de formuler de nouveaux modèles
+De tels résultats permettraient aux théoriciens de formuler de nouveaux modèles
 plus complets
 et plus à même de décrire l'Univers
 que l'actuel SM,
