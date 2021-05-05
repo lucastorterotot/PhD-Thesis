@@ -1,25 +1,20 @@
 \section{Discussions}\label{chapter-ML-section-discussion}
-Les effets
-de l'empilement,
-de la reconstruction des particules,
-des faux taus hadroniques,
-de la séparation des canaux et
-de l'intervalle de masse
-sur les prédictions de masse
-sont discutées ci-après.
-Lors de cette thèse, ces effets ont été étudiés en parallèle de l'exploration des hyper-paramètres présentée en section~\ref{chapter-ML-section-hyperparameters} avec des modèles divers.
+Lors de cette thèse,
+en parallèle de l'exploration des hyper-paramètres présentée en section~\ref{chapter-ML-section-hyperparameters},
+les effets de différents facteurs ont été étudiés.
 À des fins de cohérence dans la comparaison des effets,
 nous utilisons ici le modèle B sélectionné précédemment comme référence.
 \subsection{Effet de l'empilement}
 \def\Bnpu{$\text{B}^\text{0PU}$}
 Dans les travaux de \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929},
 l'empilement (PU, \emph{Pile-Up}) n'est pas considéré.
-Nous avons donc souhaité déterminer l'effet de l'empilement sur les prédictions de notre modèle.
+Nous avons donc souhaité déterminer son effet sur les prédictions de notre modèle.
 Pour cela, les mêmes événements que ceux décrits en section~\ref{chapter-ML-section-evt_gen} ont été générés sans empilement.
 Un DNN, noté \Bnpu, est entraîné sur ces événements sans empilement.
-Les hyper-paramètres de \Bnpu\ sont ceux de B, à l'exception des variables d'entrée auxquelles \Npu\ est retiré, car $\Npu=0$ pour tous les événements sans empilement.
-La réponse de \Bnpu\ sur les événements de test sans empilement est représentée sur la figure~\ref{subfig-reponse_model_PU_00}.
-La réponse moyenne du modèle est de $\num{1.00}\pm\num{0.05}$ pour $m_{\higgsML}$ entre \SI{70}{\GeV} et \SI{600}{\GeV} avec une résolution relative de l'ordre de \SI{22}{\%} à basse masse et \SI{10}{\%} à haute masse.
+Les hyper-paramètres de \Bnpu\ sont identiques à ceux de B, à l'exception des variables d'entrée auxquelles \Npu\ est retiré, car $\Npu=0$ pour tous les événements sans empilement.
+La réponse de \Bnpu\ sur ces événements est représentée sur la figure~\ref{subfig-reponse_model_PU_00}.
+Sa moyenne est de $\num{1.00}\pm\num{0.05}$ pour $m_{\higgsML}$ entre \SI{70}{\GeV} et \SI{600}{\GeV} avec une résolution relative de l'ordre de \SI{22}{\%} à basse masse et \SI{10}{\%} à haute masse.
+Ces performances sont donc similaires à celles de B sur les événements avec empilement.
 \begin{figure}[h]
 \centering
 
@@ -40,23 +35,24 @@ La résolution relative à basse masse est de l'ordre de \SI{25}{\%} avec empile
 L'empilement peut être considéré comme un bruit blanc, dont l'énergie moyenne est reliée à \Npu.
 L'énergie portée par $L_1$ et $L_2$, les éléments visibles de la désintégration de \higgsML,
 est en revanche reliée à $m_{\higgsML}$.
-À haute masse, l'énergie de $L_1$ et $L_2$ est grande par rapport à celle de l'empilement.
+À haute masse, elle est grande par rapport à celle de l'empilement.
 Les prédictions de \Bnpu\ ne sont alors pas perturbées,
 menant à des performances similaires à celles du cas sans empilement.
 Lorsque $m_{\higgsML}$ diminue,
 l'énergie disponible pour $L_1$ et $L_2$ est moindre
 et
-le bruit d'empilement est alors compétitif.
+le bruit d'empilement devient significatif.
 Le modèle \Bnpu\ n'est pas entraîné pour traiter ce bruit et ses prédictions sont perturbées.
 Il est donc primordial d'inclure l'empilement dans l'entraînement dans l'optique d'une utilisation de nos modèles dans les analyses de CMS.
 \par
-La réponse du modèle B, entraîné avec empilement, peut être comparée
+La réponse du modèle B
 dans le cas d'événements sans empilement, figure~\ref{subfig-reponse_model_PU_10},
-au cas d'événements avec empilement, figure~\ref{subfig-reponse_model_PU_11} (identique à~\ref{subfig-reponse_model_B}).
+peut être comparée
+à celle sur les événements en contenant, figure~\ref{subfig-reponse_model_PU_11} (identique à~\ref{subfig-reponse_model_B}).
 Le profil d'empilement utilisé pour générer les événements d'entraînement est celui de l'année 2017.
-Or, il apparaît que le modèle B est peu sensible au retrait de l'empilement, les réponses étant similaires sur les figure~\ref{subfig-reponse_model_PU_10} et~\ref{subfig-reponse_model_PU_11}.
+Il apparaît que le modèle B est peu sensible au retrait de l'empilement, les réponses étant similaires sur les figures~\ref{subfig-reponse_model_PU_10} et~\ref{subfig-reponse_model_PU_11}.
 L'utilisation de B sur des événements dont le profil d'empilement est légèrement différent de celui de l'année 2017,
-comme c'est le cas pour les autres années du Run~II (2016, 2018)
+comme c'est le cas pour les autres années du Run~II (2016, 2018),
 est ainsi directement envisageable.
 \begin{figure}[h]
 \centering
@@ -74,15 +70,15 @@ est ainsi directement envisageable.
 \def\Bgenleg{$\text{B}^\text{gen}$}
 La reconstruction des particules est présentée dans le chapitre~\refChLHCCMS.
 Son effet peut être caractérisé par l'étude du modèle \Bgenleg,
-ayant les mêmes hyper-paramètres que B mais entraîné en utilisant les objets générés au lieu de ceux reconstruits pour $L_1$, $L_2$ et \MET, \ie\ pour les trois objets physiques liés à la désintégration des leptons~\tau\ (deux parties visibles $L_1$ et $L_2$ et \MET\ pour les neutrinos).
+ayant les mêmes hyper-paramètres que B, mais entraîné en utilisant les objets générés au lieu de ceux reconstruits pour $L_1$, $L_2$ et \MET, \ie\ pour les trois objets physiques liés à la désintégration des leptons~\tau\ (deux parties visibles $L_1$ et $L_2$ et \MET\ pour les neutrinos).
 En particulier, les valeurs de $\vpT^{L_1}$, $\vpT^{L_2}$ et \vMET\ correspondent exactement à la réalité.
-Il s'agit donc du cas où les objets physiques issus de \higgsML\ sont parfaitement reconstruits.
+Il s'agit donc du cas dans lequel les objets physiques issus de \higgsML\ sont parfaitement reconstruits.
 Toutes les autres variables, y compris la matrice de covariance de \MET, restent celles obtenues avec les objets reconstruits.
 \par
 La figure~\ref{fig-reponse_model_1GENleg} montre les réponses du modèle \Bgenleg\ sur les événements avec reconstruction parfaite et réelle.
 Dans le cas d'une reconstruction parfaite,
 la réponse médiane de \Bgenleg\ est de l'ordre de $\num{1.01}\pm\num{0.02}$ de \num{70} à \SI{800}{\GeV}.
-La résolution relative est quant à elle de l'ordre de \SI{3}{\%} soit près de sept fois mieux que B.
+La résolution relative est quant à elle de l'ordre de \SI{3}{\%}, soit près de sept fois mieux que B.
 \begin{figure}[h]
 \centering
 
@@ -218,9 +214,9 @@ un effet similaire existe.
 La résolution relative est toujours de l'ordre de \SI{22}{\%} au-delà de \SI{100}{\GeV},
 mais la présence des \ftauhs\ mène à une surestimation moyenne de \SI{30}{\GeV} pour $m_{\higgsML}>\SI{110}{\GeV}$
 et pouvant aller jusqu'à \SI{100}{\GeV} pour $m_{\higgsML}\simeq\SI{50}{\GeV}$, soit une erreur de \SI{200}{\%}.
-La dégradation de la résolution à très basse masse commence dès \SI{100}{\GeV}, au lieu de \SI{70}{\GeV} pour les canaux $\ell\tauh$.
-L'effet des \ftauhs\ est donc plus important que dans les canaux $\ell\tauh$,
-ce qui s'explique facilement par la présence de deux \tauh\ au lieu d'un seul.
+La dégradation de la résolution à très basse masse s'étend jusqu'à \SI{100}{\GeV}, au lieu de \SI{70}{\GeV} pour les canaux $\ell\tauh$.
+L'effet des \ftauhs\ est donc plus important que dans les autres canaux,
+ce qui s'explique facilement par la présence de deux \tauh.
 Pour $m_{\higgsML}=\SI{50}{\GeV}$, la résolution de B sur les événements avec \DEEPTAU\ est également mauvaise.
 La sélection des \tauh\ se fait avec $\pT>\SI{40}{\GeV}$, ce qui est difficile à obtenir pour $m_{\higgsML}=\SI{50}{\GeV}$.
 Ces événements sont donc peu nombreux et vraisemblablement très contaminés par les \ftauhs.
@@ -331,7 +327,7 @@ pour des masses inférieures à \SI{400}{\GeV}.
 Le même constat peut être fait dans le cas du canal \ele\tauh,
 figures~\ref{subfig-reponse_model_train_on_et_test_on_et}
 et~\ref{subfig-reponse_model_train_on_inclusive_test_on_et}.
-La réponse moyenne de B est toutefois plus proche de 1 que celle de \Bchsplit{et} sur toute la gamme de masse.
+%La réponse moyenne de B est toutefois plus proche de 1 que celle de \Bchsplit{et} sur toute la gamme de masse.
 \par
 Dans le cas des canaux leptoniques, figure~\ref{fig-mm-em-ee},
 l'utilisation de B plutôt que
@@ -357,7 +353,7 @@ Canal $x$ & \multicolumn{2}{c}{Modèle \Bchsplit{x}} & \multicolumn{2}{c}{Modèl
 \par
 Il semble ainsi préférable d'utiliser un seul modèle global plutôt qu'un modèle par canal.
 Cet effet peut être dû à la statistique plus faible à disposition lors de l'entraînement des DNNs séparément pour chaque canal.
-Un compromis peut être obtenu en séparant non pas par canal, mais par groupe de canal.
+Un compromis peut être obtenu en séparant non pas par canal, mais par groupe de canaux.
 \subsubsection{Séparation en trois groupes}
 En dehors de toute considération de reconstruction des particules,
 la phénoménologie des canaux d'un même groupe
@@ -425,10 +421,10 @@ Le modèle B identifie donc vraisemblablement correctement le groupe de canal gr
 \def\Bpf{$\text{B}^\text{PF}$}
 Dans l'analyse présentée au chapitre~\refChHTT,
 \MET\ est déterminée par l'algorithme \PUPPI~\cite{PUPPI}.
-Il s'agit de la \og \PUPPI MET \fg.
-C'est pourquoi nous avons entraîné les modèles avec \PUPPI MET.
-Toutefois, une autre estimation de \MET\ existe, directement à partir de l'algorithme de \PF.
-C'est la \og PFMET \fg.
+Il s'agit de la \og \PUPPI MET \fg,
+avec laquelle les modèles ont donc été entraînés.
+Toutefois, une autre estimation de \MET\ existe, obtenue directement à partir de l'algorithme de \PF,
+la \og PFMET \fg.
 Ces deux définitions de \MET\ sont introduites dans le chapitre~\refChLHCCMS.
 \par
 Certaines analyses utilisent PFMET plutôt que \PUPPI MET.
@@ -456,11 +452,10 @@ PFMET (figure~\ref{subfig-reponse_model_train_on_Puppi_test_on_PF}).
 L'utilisation de PFMET augmente la réponse de B.
 Cette augmentation est cependant inférieure à \SI{3}{\%}.
 La résolution relative est inchangée.
-Il est donc tout à fait possible d'utiliser le modèle B avec PFMET, bien qu'il soit entraînée avec \PUPPI MET.
+Il est donc tout à fait possible d'utiliser le modèle B avec PFMET, bien qu'il soit entraîné avec \PUPPI MET.
 \par
-La possibilité d'obtenir de meilleures prédictions avec PFMET à l'aide d'un modèle entraîné avec PFMET a également été étudiée.
-Sur la figure~\ref{fig-MET-PF-PUPPI-Bpf},
-le modèle \Bpf\ a les mêmes hyper-paramètres que B mais est donc entraîné directement avec PFMET.
+La possibilité d'obtenir de meilleures prédictions en utilisant PFMET à l'aide du modèle \Bpf\ entraîné directement avec cette définition de \MET\ a également été étudiée.
+La figure~\ref{fig-MET-PF-PUPPI-Bpf} présente les réponses obtenues.
 \begin{figure}[h]
 \centering
 
