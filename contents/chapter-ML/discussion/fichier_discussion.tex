@@ -518,7 +518,7 @@ Un modèle ne peut donc pas être utilisé afin de prédire des masses en dehors
 \par
 Afin d'obtenir un modèle pertinent dans l'optique d'une utilisation dans les analyses de CMS,
 il est donc important d'utiliser un intervalle
-contenant la gamme de masse des particules du modèle standard,
+contenant la gamme de masse des particules du modèle standard se désintégrant en paire de leptons~\tau,
 en particulier des bosons \Zboson\ et \higgs\ à \num{91.2} et \SI{125.1}{\GeV} respectivement.
 Pour une recherche de bosons de Higgs supplémentaires de haute masse,
 la limite supérieure de l'intervalle d'entraînement doit être la plus haute possible.
@@ -670,10 +670,11 @@ $\Loss=\LossMAPE\to\Loss'$ avec
 \end{equation}
 La fonction de coût ainsi obtenue ne respecte pas la condition
 \begin{equation}
-\Loss(\ytrue, \ypred) = 0 \Leftrightarrow \ytrue = \ypred
+\underset{\ypred}{\mathrm{arg\,min}} \big( \Loss(\ytrue, \ypred) \big) = \set{\ytrue}
 \mend[,]
 \end{equation}
-des problèmes de convergence lors de l'entraînement peuvent survenir.
+\ie\ que le minimum de \Loss\ soit atteint lorsque $\ypred=\ytrue$.
+Des problèmes de convergence lors de l'entraînement peuvent alors survenir.
 C'est effectivement ce que nous avons pu observer lors de la mise en place de cette fonction de coût
 avec la condition d'exclusion de la zone 4.
 Nous avons alors choisi de multiplier la valeur de la fonction de coût par \num{0.1} dans la zone 4 au lieu de 0.
