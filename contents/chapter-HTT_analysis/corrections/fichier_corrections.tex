@@ -2,14 +2,15 @@
 Dans le but d'améliorer la description des données réelles par les données simulées et encapsulées, des corrections
 obtenues à partir d'analyses annexes
 leur sont appliquées.
-Les corrections usuelles sont présentées dans le chapitre~\refChLHCCMS.
-Des corrections spécifiques à cette analyse sont également appliquées.
-Elles sont présentées ci-après.
+Outre les corrections usuelles introduites au chapitre~\refChLHCCMS,
+des corrections spécifiques à cette analyse,
+présentées ci-après,
+sont également appliquées.
 \subsection{Efficacité des \HLTpaths}
 \paragraph{Efficacité des \HLTpaths\ des muons et des électrons (\emph{lepton trigger scale factors})}
 L'efficacité des \HLTpaths\ des leptons (muons et électrons) est déterminée dans les données réelles et simulées en fonction de l'impulsion transverse et de la pseudo-rapidité du lepton
 par une méthode \og balise et sonde \fg{} (\emph{tag and probe})
-sur des événements $\Zboson\to\ell\ell$ \cite{CMS-NOTE-2020-014} où $\ell$ est un électron ou bien un muon.
+sur des événements $\Zboson\to\ell\ell$ \cite{CMS-NOTE-2020-014} dans lesquels $\ell$ est un électron ou bien un muon.
 La balise, un des deux $\ell$, permet de déterminer la quantité totale d'événements.
 La sonde est l'autre $\ell$.
 L'efficacité $\epsilon$ d'un \HLTpath\ \HLTSingleEle\ ou \HLTSingleMu\ alors est donnée par
@@ -54,7 +55,7 @@ Leur efficacité $\epsilon$ est donnée par
 \epsilon = \frac{N_\text{pass}}{N_\text{total}}
 \end{equation}
 avec
-$N_\text{pass}$ le nombre d'événements $\Wboson^* \to \tau\nutau$ où le \tauh\ correspond à
+$N_\text{pass}$ le nombre d'événements $\Wboson^* \to \tau\nutau$ dans lesquels le \tauh\ correspond à
 l'objet physique ayant activé au moins un des \HLTpaths\ \HLTSingleTau\ utilisés
 et
 $N_\text{total}$ le nombre total d'événements.
@@ -116,13 +117,13 @@ ce n'est plus vrai dans le cas du processus $\gluon\gluon\Higgs$,
 illustré figure~\ref{fig-chapter-HTT_analysis-section-corrections-fgraph-gg_loop_hHA}.
 \par
 La boucle fermionique du diagramme comporte des contributions provenant des quarks,
-les plus importantes étant celles des quarks~\quarkt\ et~\quarkb\ ainsi que leur interférence notée~\quarkt\quarkb.
-Pour chacune d'entre elles, les distributions des impulsions transverses des bosons de Higgs (\higgs, \Higgs\ ou \HiggsA) sont indépendantes de $\tan\beta$, paramètre introduit dans le chapitre~\refChMSSM.
+les plus importantes étant celles des quarks~\quarkt\ et~\quarkb\ ainsi que de leur interférence notée~\quarkt\quarkb.
+Pour chacune d'entre elles, les distributions des impulsions transverses des bosons de Higgs (\higgs, \Higgs\ ou \HiggsA) ne sont pas dépendantes de $\tan\beta$, paramètre introduit dans le chapitre~\refChMSSM.
 Toutefois, les proportions de ces contributions le sont.
 Ainsi,
 les propriétés cinématiques des bosons de Higgs
 et par conséquent celles des leptons~\tau\
-dépendent de $\tan\beta$.
+varient avec $\tan\beta$.
 \par
 L'effet de $\tan\beta$ étant uniquement dû aux proportions des contributions des quarks à la boucle,
 il est possible d'obtenir les distributions en \pT\ des bosons de Higgs au NLO
@@ -130,7 +131,7 @@ il est possible d'obtenir les distributions en \pT\ des bosons de Higgs au NLO
 pour chaque point de masse utilisé
 selon les méthodes introduites dans les références~\cite{Bagnaschi:2015qta,Bagnaschi:2015bop}.
 \par
-D'une part, une simulation de référence par point de masse est réalisée.
+D'une part, une simulation de référence est réalisée par point de masse.
 La génération de ces événements est faite au NLO à l'aide du module \texttt{gg\_H\_2HDM} de \POWHEG~\cite{Alioli:2010xd},
 les gerbes partoniques, l'hadronisation et l'évenement sous-jacent sont simulés par \PYTHIA~\cite{pythia8.2} et
 la modélisation du détecteur est traitée par \GEANTfour~\cite{geant4_2003,geant4_2006,geant4_2016}.
@@ -155,7 +156,7 @@ Le signal complet du MSSM est obtenu à partir des contributions individuelles e
 \label{eq-2HDM_to_MSSM_xsec}
 \end{align}
 où $\sigma$ peut correspondre à la section efficace inclusive ou différentielle selon une variable donnée,
-$y_{\quarkt}$ et $y_{\quarkb}$ sont les constantes de couplage de Yukawa pour les quarks~\quarkt\ et~\quarkb\ introduites dans le chapitre~\refChMSSM,
-$Q$ l'échelle d'énergie~\cite{Bagnaschi:2015qta,Bagnaschi:2015bop}.
+$y_{\quarkt}$ et $y_{\quarkb}$ sont les constantes de couplage de Yukawa pour les quarks~\quarkt\ et~\quarkb\ introduites dans le chapitre~\refChMSSM\ 
+et $Q$ l'échelle d'énergie~\cite{Bagnaschi:2015qta,Bagnaschi:2015bop}.
 Les trois termes de cette formule correspondent aux contributions~\quarkt, \quarkb\ et~\quarkt\quarkb.
 Les valeurs de $y_{\quarkt}$ et $y_{\quarkb}$ dépendent de $m_{\HiggsA}$ et $\tan\beta$ et sont définies pour chacun des bosons de Higgs (\higgs, \Higgs, \HiggsA).

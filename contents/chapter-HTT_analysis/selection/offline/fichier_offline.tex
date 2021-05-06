@@ -12,15 +12,16 @@ La correspondance de $L_1$ et $L_2$ aux \tauh, muons ou électrons suit l'ordre 
 Dans le cas d'un canal symétrique (\tauh\tauh, \mu\mu, \ele\ele), $\pT^{L_1}>\pT^{L_2}$.
 Pour $L_1$ comme $L_2$, une liste de candidats est obtenue à partir des particules reconstruites auxquelles sont appliquées des coupures détaillées dans les sections qui suivent pour chacun des canaux.
 \par
-Des paires $L_1L_2$ compatibles avec le cas de figure $\Higgs\to\tau\tau\to L_1L_2$ sont formées
+Des dileptons, \ie\ des paires $L_1L_2$,
+sont formés
 à partir de ces deux listes de candidats.
-En particulier, $L_1$ et $L_2$ sont de charges électriques opposées.
-Une paire $L_1L_2$ est un dilepton.
+Pour être compatibles avec le cas de figure $\Higgs\to\tau\tau\to L_1L_2$,
+$L_1$ et $L_2$ doivent être de charges électriques opposées.
 Il est de plus requis que $L_1$ et $L_2$ soient séparés d'une distance $\Delta R$ dans le plan $(\eta,\phi)$ 
 supérieure à \num{0.5} dans les canaux \tauh\tauh, \mu\tauh\ et \ele\tauh\
 et
 supérieure à \num{0.3} dans le canal \ele\mu.
-Si aucun dilepton n'est formé, l'événement est rejeté.
+Si aucun dilepton $L_1L_2$ n'est formé, l'événement est rejeté.
 Si plusieurs dileptons peuvent être formés,
 un seul d'entre eux est sélectionné selon la procédure suivante:
 \begin{enumerate}
@@ -32,7 +33,7 @@ un seul d'entre eux est sélectionné selon la procédure suivante:
 \par
 Il est nécessaire de s'assurer, à cause de l'utilisation de canaux différents, qu'un événement donné ne peut être sélectionné dans le traitement de plusieurs canaux.
 Pour cela, après avoir sélectionné le dilepton, des vetos sur la présence de leptons supplémentaires à ceux du dilepton sont appliqués.
-Ces vetos sont explicités pour chaque canal dans les sections ci-après et sont au moins aussi lâches que les coupures de sélection les plus lâches des leptons de signal, \ie\ ceux utilisés pour les dileptons, de tous les canaux.
+Ces vetos sont explicités pour chaque canal dans les sections ci-après et sont au moins aussi lâches que les coupures de sélection les plus lâches des leptons de signal, \ie\ ceux utilisés pour les dileptons, parmi tous les canaux.
 Ainsi, si un lepton est sélectionné dans un canal pour former un dilepton, alors il déclenche forcément le veto correspondant dans les autres canaux.
 %\par
 %La sélection des candidats $L_1$ et $L_2$, la construction des dileptons et la sélection d'un seul d'entre eux constitue ainsi la sélection finale des événements à analyser.
@@ -107,7 +108,7 @@ Deux \HLTregionsDefined:
 Dans le cas de l'utilisation du \HLTpath\ \HLTMuTauCross{}, le \tauh\ doit de plus:
 \begin{itemize}
     \item correspondre à l'objet HLT;
-    \item $\pT^{\tauh} > \num{25} \, (\num{32}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018).
+    \item vérifier $\pT^{\tauh} > \num{25} \, (\num{32}) \usp \SI{}{\GeV}$ en 2016 (2017, 2018).
 \end{itemize}
 \paragraph{Masse transverse du muon}
 \TransverseMassWjets[footnote]{du muon}{\mu}{mu}
