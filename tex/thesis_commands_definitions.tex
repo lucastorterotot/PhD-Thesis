@@ -860,13 +860,13 @@
 \node[anchor=south west] at (0,0) {\plotHTTcontrol[#1]{#2}{#3}{#4}{mt_1_puppi}};
 
 \foreach \x in {40, 70}{
- \draw [thick, dashed] ({1.25 + (\x-0)/(160-0)*(7.68-1.25)}, 2.8) --+ (0, 5.6-2.8);
- \draw [thick, dashed] ({1.25 + (\x-0)/(160-0)*(7.68-1.25)}, 0.95) --+ (0, 2.2-0.95);
+ \draw [thick, dashed, ltcolorred] ({1.25 + (\x-0)/(160-0)*(7.68-1.25)}, 2.8) --+ (0, 5.6-2.8);
+ \draw [thick, dashed, ltcolorred] ({1.25 + (\x-0)/(160-0)*(7.68-1.25)}, 0.95) --+ (0, 2.2-0.95);
 }
 
-\draw ({1.25 + (20-0)/(160-0)*(7.68-1.25)}, 5.6) node {\tiny \CATtightmt};
-\draw ({1.25 + (55-0)/(160-0)*(7.68-1.25)}, 5.6) node {\tiny \CATloosemt};
-\draw ({1.25 + (115-0)/(160-0)*(7.68-1.25)}, 5.6) node {\tiny DR \Wjets};
+\draw ({1.25 + (20-0)/(160-0)*(7.68-1.25)}, 5.6) node {\tiny\color{ltcolorred} \CATtightmt};
+\draw ({1.25 + (55-0)/(160-0)*(7.68-1.25)}, 5.6) node {\tiny\color{ltcolorred} \CATloosemt};
+\draw ({1.25 + (115-0)/(160-0)*(7.68-1.25)}, 5.6) node {\tiny\color{ltcolorred} DR \Wjets};
 \end{tikzpicture}%
 }
 
@@ -875,14 +875,14 @@
 \node[anchor=south west] at (0,0) {\plotHTTcontrol[#1]{#2}{#3}{#4}{pZetaPuppiMissVis}};
 
 \foreach \x in {-35, -10, 30}{
- \draw [thick, dashed] ({1.25 + (\x+200)/(200+200)*(7.68-1.25)}, 2.8) --+ (0, 5.6-2.8);
- \draw [thick, dashed] ({1.25 + (\x+200)/(200+200)*(7.68-1.25)}, 0.95) --+ (0, 2.2-0.95);
+ \draw [thick, dashed, ltcolorred] ({1.25 + (\x+200)/(200+200)*(7.68-1.25)}, 2.8) --+ (0, 5.6-2.8);
+ \draw [thick, dashed, ltcolorred] ({1.25 + (\x+200)/(200+200)*(7.68-1.25)}, 0.95) --+ (0, 2.2-0.95);
 }
 
-\draw ({1.25 + (-117.5+200)/(200+200)*(7.68-1.25)}, 5.6) node [below] {\tiny CR \ttbar};
-\draw ({1.25 + (-22.5+200)/(200+200)*(7.68-1.25)}, 5.6+.25) node [left, rotate=90] {\tiny \CATlowdz};
-\draw ({1.25 + (20+200)/(200+200)*(7.68-1.25)}, 5.6+.25) node [left, rotate=90] {\tiny \CATmediumdz};
-\draw ({1.25 + (115+200)/(200+200)*(7.68-1.25)}, 5.6) node [below] {\tiny \CAThighdz};
+\draw ({1.25 + (-117.5+200)/(200+200)*(7.68-1.25)}, 5.6) node [below] {\tiny\color{ltcolorred} CR \ttbar};
+\draw ({1.25 + (-22.5+200)/(200+200)*(7.68-1.25)}, 5.6+.25) node [left, rotate=90] {\tiny\color{ltcolorred} \CATlowdz};
+\draw ({1.25 + (20+200)/(200+200)*(7.68-1.25)}, 5.6+.25) node [left, rotate=90] {\tiny\color{ltcolorred} \CATmediumdz};
+\draw ({1.25 + (115+200)/(200+200)*(7.68-1.25)}, 5.6) node [below] {\tiny\color{ltcolorred} \CAThighdz};
 \end{tikzpicture}%
 }
 
