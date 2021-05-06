@@ -632,8 +632,9 @@ elle l'est en revanche pour une valeur prédite plus élevée.
 Le modèle actuel sous-estimant $m_{\higgsML}$ à haute masse,
 cette correction doit donc permettre d'obtenir un nouveau modèle avec une réponse plus proche de 1.
 \paragraph{Modification de la fonction de coût}
-Une coupure symétrique est également mise en place pour à basse masse.
-Cinq zones peuvent être définies dans le plan $(\ytrue, \ypred)$:
+Une coupure symétrique est également mise en place à basse masse en suivant le même principe.
+Cinq zones peuvent alors être définies dans le plan $(\ytrue, \ypred)$
+afin d'appliquer les coupures symétriques aux deux extrémités de l'intervalle de masse:
 \begin{description}
 \item[Zone 1] $\ytrue < \SI{50}{\GeV}$:\\
 absence d'événements due à la masse minimale de l'entraînement;
@@ -655,7 +656,7 @@ zone d'exclusion à basse masse;
 Ces zones sont illustrées en figure~\ref{fig-B-boundaries_effect-mirrored_cut-areas}.
 Dans la zone centrale, la fonction de coût est utilisée de manière classique, sans changement.
 Dans les zones 3 et 4 d'exclusion en revanche,
-afin de ne pas prendre en compte les événements comme prévu afin de symétriser les bords de l'intervalle d'entraînement au sein d'une famille,
+pour ne pas prendre en compte les événements afin de symétriser les bords de l'intervalle d'entraînement au sein d'une famille,
 la fonction de coût est rendue égale à zéro.
 En d'autres termes, nous procédons au changement
 $\Loss=\LossMAPE\to\Loss'$ avec
