@@ -28,19 +28,27 @@ La reconstruction des événements présentée au chapitre~\refChLHCCMS\ peut al
 \begin{tikzpicture}
 \draw (\EmbedPictsWidth/2, \EmbedPictsWidth) node [above] {\EmbedPictsTxtSize Données réelles $\Zboson\to\mu\mu$};
 \node[anchor=south west,inner sep=0] at (0,0) {\frame{\includegraphics[width=\EmbedPictsWidth cm]{\PhDthesisdir/plots_and_images/from_embedding/Z_to_mumu_data.png}}};
+\draw (\EmbedPictsWidth, \EmbedPictsWidth) node (t) [below left] {\EmbedPictsTxtSize 1};
+\draw (t) circle (5.5pt);
 
 \draw [-latex, very thick] (\EmbedPictsWidth+\EmbedPictsMarginX/5, \EmbedPictsWidth/2) -- + (3*\EmbedPictsMarginX/5,0);
 \draw (\EmbedPictsWidth/2+\EmbedPictsWidth+\EmbedPictsMarginX, \EmbedPictsWidth) node [above] {\EmbedPictsTxtSize Supression de la paire $\mu\mu$};
 \node[anchor=south west,inner sep=0] at (\EmbedPictsWidth+\EmbedPictsMarginX,0) {\frame{\includegraphics[width=\EmbedPictsWidth cm]{\PhDthesisdir/plots_and_images/from_embedding/remove_mumu.png}}};
+\draw (2*\EmbedPictsWidth+\EmbedPictsMarginX, \EmbedPictsWidth) node (t) [below left] {\EmbedPictsTxtSize 2};
+\draw (t) circle (5.5pt);
 
 \draw (\EmbedPictsWidth+\EmbedPictsMarginX,-\EmbedPictsWidth/2-\EmbedPictsMarginY) node [above left] {\EmbedPictsTxtSize Simulation des~\tau};
 \draw (\EmbedPictsWidth+\EmbedPictsMarginX,-\EmbedPictsWidth/2-\EmbedPictsMarginY) node [below left] {\EmbedPictsTxtSize ($\vec{p}_{\tau} \Leftrightarrow \vec{p}_{\mu}$)};
 \node[anchor=south west,inner sep=0] at (\EmbedPictsWidth+\EmbedPictsMarginX,-\EmbedPictsWidth-\EmbedPictsMarginY) {\frame{\includegraphics[width=\EmbedPictsWidth cm]{\PhDthesisdir/plots_and_images/from_embedding/Z_to_tautau_simulation.png}}};
+\draw (2*\EmbedPictsWidth+\EmbedPictsMarginX,-\EmbedPictsMarginY) node (t) [below left] {\EmbedPictsTxtSize 3};
+\draw (t) circle (5.5pt);
 
 \draw [-latex, very thick] (2*\EmbedPictsWidth+6*\EmbedPictsMarginX/5, \EmbedPictsWidth/4) -- (2*\EmbedPictsWidth+2*\EmbedPictsMarginX-\EmbedPictsMarginX/5,0);
 \draw [-latex, very thick] (2*\EmbedPictsWidth+6*\EmbedPictsMarginX/5,-\EmbedPictsWidth/4-\EmbedPictsMarginY) -- (2*\EmbedPictsWidth+2*\EmbedPictsMarginX-\EmbedPictsMarginX/5,-\EmbedPictsMarginY);
 \draw (2*\EmbedPictsWidth+2*\EmbedPictsMarginX+\EmbedPictsWidth/2,\EmbedPictsWidth/2-\EmbedPictsMarginY/2) node [above] {\EmbedPictsTxtSize Données encapsulées};
 \node[anchor=south west,inner sep=0] at (2*\EmbedPictsWidth+2*\EmbedPictsMarginX,-\EmbedPictsWidth/2-\EmbedPictsMarginY/2) {\frame{\includegraphics[width=\EmbedPictsWidth cm]{\PhDthesisdir/plots_and_images/from_embedding/embedded_event.png}}};
+\draw (3*\EmbedPictsWidth+2*\EmbedPictsMarginX,\EmbedPictsWidth/2-\EmbedPictsMarginY/2) node (t) [below left] {\EmbedPictsTxtSize 4};
+\draw (t) circle (5.5pt);
 
 \clip (-1,-\EmbedPictsWidth-\EmbedPictsMarginY-.25) rectangle (3*\EmbedPictsWidth+5*\EmbedPictsMarginX/2+.25, \EmbedPictsWidth+.5);
 \end{tikzpicture}
