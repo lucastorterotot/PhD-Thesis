@@ -103,7 +103,7 @@ Il existe six cas de figure différents:
 \end{itemize}
 Les définitions exactes de chacun de ces cas de figure sont données dans le tableau~\ref{tab-chapter-HTT_analysis-gen_match_values}.
 Un \tauh\ généré est reconstruit à partir des produits de désintégration générés visibles hors électrons et muons.
-Seuls les produits de désintégration du lepton~\tau\ généré tels que \inlinecode{python}{IsPrompt == True} sont considérés.
+%Seuls les produits de désintégration du lepton~\tau\ généré tels que \inlinecode{python}{IsPrompt == True} sont considérés.
 Il est de plus requis que l'impulsion transverse de ce \tauh\ généré reconstruit soit supérieure à \SI{15}{\GeV} afin d'éviter la limite de reconstruction des \tauh\ et d'éliminer des faux électrons et muons issus des \tauh.
 Dans le cas des électrons et muons natifs, la coupure $\pT > \SI{8}{\GeV}$ permet de supprimer les leptons issus du FSR (\emph{Final State Radiation}) $\photon\to\ell^+\ell^-$.
 Le FSR est introduit au chapitre~\refChJERC.
@@ -124,7 +124,10 @@ Les remplacements des événements simulés se font ainsi sur la base des valeur
 6 & Faux \tauh, \tauh\ de l'empilement & Tout objet ne rentrant pas dans les catégories 1 à 5\\
 \bottomrule
 \end{tabular}
-\caption[Valeurs prises par {\rm\texttt{gen\_match}}.]{Valeurs prises par \inlinecode{python}{gen_match}.}
+\caption[Valeurs prises par {\rm\texttt{gen\_match}}.]{Valeurs prises par \inlinecode{python}{gen_match}.
+Les particules telles que \inlinecode{python}{IsPrompt == True} proviennent directement de l'événement dur
+et
+celles avec \inlinecode{python}{IsDirectPromptTauDecayProduct == True} sont issues de la désintégration d'un lepton~\tau\ lui-même vérifiant \inlinecode{python}{IsPrompt == True}.}
 \label{tab-chapter-HTT_analysis-gen_match_values}
 \end{table}
 \begin{table}[h]
