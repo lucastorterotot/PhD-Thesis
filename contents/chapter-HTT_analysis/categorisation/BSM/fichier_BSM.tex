@@ -10,18 +10,19 @@ Deux catégories sont ainsi définies:
 \end{itemize}
 Dans le cas des canaux \mu\tauh, \ele\tauh\ et \ele\mu, chacune de ces deux catégories est à nouveau subdivisée.
 \paragraph{Canaux \mu\tauh\ et \ele\tauh}
-Dans ces deux canaux, la masse transverse de $L_1$ (le muon ou l'électron, notés $\ell$) définie par
+Dans ces deux canaux, la masse transverse de $L_1$ (le muon ou l'électron, notés $\ell$),
+définie par
 \begin{equation}
 \mT^{\ell} = \mT(\ell, \MET) = \sqrt{2 \, \pT^{\ell} \, \MET \, (1-\cos\Delta\phi)} \label{eq-mT_def-ell}
 \end{equation}
-avec $\Delta\phi = \phi^{\ell} - \phi^{\MET}$
+avec $\Delta\phi = \phi^{\ell} - \phi^{\MET}$,
 est utilisée afin de définir deux catégories:
 \begin{itemize}
 \item \CATtightmt: $\mT^{\ell} < \SI{40}{\GeV}$;
 \item \CATloosemt: $\SI{40}{\GeV} \leq \mT^{\ell} < \SI{70}{\GeV}$;
 \end{itemize}
 la limite haute sur \mT\ pour la catégorie \CATloosemt\ étant appliquée afin de s'assurer que la région de signal soit orthogonale à la région de détermination (DR) des facteurs de faux des événements $\Wboson+\text{jets}$.
-Les facteurs de faux sont abordés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
+%Les facteurs de faux sont abordés dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
 La majorité des événements de signal, en particulier pour \Higgs\ et \HiggsA\ de basse masse, se trouve dans la catégorie \CATtightmt.
 La catégorie \CATloosemt\ permet quant à elle d'augmenter l'acceptation du signal pour $m_{\Higgs,\HiggsA} > \SI{700}{\GeV}$.
 La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-subcats-mT} illustre ces coupures sur $\mT^{\ell}$ dans le cas du canal \ele\tauh\ pour l'année 2016.
@@ -98,7 +99,7 @@ La masse invariante d'une particule peut être obtenue par un calcul de relativi
 Cette observable doit correspondre à la masse de cette particule et est donc un choix pertinent de variable discriminante.
 Elle est ainsi utilisée, par exemple, dans l'analyse $\higgs\to\Zboson\Zboson\to4\ell$~\cite{CMS-PAS-HIG-13-002}.
 \par
-Cependant, dans l'analyse $\Higgs\to\tau\tau$, l'état final comporte deux à quatre neutrinos issus des désintégrations des leptons~\tau.
+Cependant, dans l'analyse menée ici, l'état final comporte deux à quatre neutrinos issus des désintégrations des leptons~\tau.
 La figure~\ref{subfig-chapter-HTT_analysis-section-categorisation-BSM-fgraph-H-tautau_mutau} illustre le cas du canal \mu\tauh\ dans lequel trois neutrinos sont ainsi présents.
 Or, les neutrinos sont invisibles dans le détecteur CMS.
 Il est donc impossible de déterminer la masse invariante totale de ce système.
@@ -152,7 +153,9 @@ m^2 &= E^2 - p^2
 \mend
 \end{align}
 \par
-La variable discriminante utilisée dans les catégories \CATbsm\ est ainsi \mTtot, définie telle que
+La variable discriminante utilisée dans les catégories \CATbsm\ est ainsi \mTtot,
+la masse transverse totale,
+définie telle que
 \begin{equation}
 \mTtot = \sqrt{\mT^2 (L_1,L_2) + \mT^2 (L_1,\MET) + \mT^2 (L_2,\MET)}
 \label{eq-def_mTtot}

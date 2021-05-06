@@ -1,7 +1,7 @@
 \section{Modélisation du bruit de fond}\label{chapter-HTT_analysis-section-bg_estimation}
 Le bruit de fond est constitué de tous les événements sélectionnés selon la procédure décrite section~\ref{chapter-HTT_analysis-section-selection} mais ne correspondant pas au signal recherché, \ie\ hors $\higgs,\Higgs,\HiggsA\to\tau\tau$.
-Plusieurs processus contribuent ainsi au bruit de fond de cette analyse.
-En effet, ils peuvent donner des états finaux similaires à ceux attendus avec le signal recherché, comme illustré sur la figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-procs}.
+Plusieurs processus y contribuent.
+En effet, ce derniers peuvent donner des états finaux similaires à ceux attendus avec le signal recherché, comme illustré sur la figure~\ref{fig-chapter-HTT_analysis-section-bg_estimation-procs}.
 \begin{figure}[b]
 \centering
 
@@ -59,7 +59,7 @@ La production du \Zboson\ peut se faire par annihilation d'une paire de quarks, 
 Il s'agit des processus \og Drell-Yan \fg.
 Le \Zboson\ peut également être produit par fusion de bosons électrofaibles (EWK, \emph{ElectroWeaK}).
 Dans ce cas, deux jets supplémentaires sont présents dans l'état final.
-\item[$\bm{\Wjets}$] La production d'un boson \Wboson, en particulier dans les canaux semi-leptoniques, où le muon ou l'électron issu de la désintégration du \Wboson\ est associé à un jet identifié à tort comme un \tauh.
+\item[$\bm{\Wjets}$] La production d'un boson \Wboson, en particulier dans les canaux semi-leptoniques, avec le muon ou l'électron issu de la désintégration du \Wboson\ associé à un jet identifié à tort comme un \tauh.
 Ce processus est illustré figure~\ref{subfig-chapter-HTT_analysis-section-bg_estimation-procs-WJ}.
 Le \Wboson\ peut être produit par annihilation d'une paire de quarks, comme sur la figure~\ref{subfig-chapter-HTT_analysis-section-bg_estimation-procs-WJ}, ou par fusion de bosons électrofaibles (EWK).
 \item[$\bm{\ttbar}$] La production d'une paire de quarks~\quarkt, en particulier pour les événements contenant des jets issus de quarks~\quarkb.
@@ -77,12 +77,13 @@ En effet, les leptons~\tau\ se désintègrent par interaction faible en produisa
 La désintégration d'un~\tau\ forme ainsi un état final très similaire à celle d'un \Wboson.
 \par
 Pour tous les processus à part QCD, des jeux de données simulées par générateur Monte-Carlo sont disponibles.
-Toutefois, une large partie des bruits de fond est estimée à partir des données réelles, ce qui permet d'améliorer l'accord entre données réelles et estimation du bruit de fond tout en réduisant les incertitudes systématiques.
-Tous les événements simulés contenant deux authentiques (\emph{genuine}) leptons~\tau\ sont ainsi remplacés par les données encapsulées (\emph{embedded}) présentées dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-embedding}.
+Toutefois, une large partie des bruits de fond est estimée à partir des données réelles,
+ce qui permet d'améliorer l'accord entre ces dernières et l'estimation du bruit de fond tout en réduisant les incertitudes systématiques.
+Tous les événements simulés contenant deux leptons~\tau\ authentiques (\emph{genuine}) sont ainsi remplacés par les données encapsulées (\emph{embedded}) présentées dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-embedding}.
 Les événements $\Zboson\to\tau\tau$ sont ainsi couverts par cette méthode mais également une partie des bruits de fond \ttbar\ et Diboson.
 De plus, la contribution du bruit de fond QCD dans le canal \ele\mu\ est estimée à partir d'une région de contrôle où les charges électriques de l'électron et du muon sont de même signe.
-Cette méthode est dénommée \og QCD SS \fg{} (\emph{Same Sign}) et est exposée dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-QCD-SS}.
-Enfin, les événements contenant au moins un jet identifié à tort comme provenant d'un lepton~\tau\ sont estimés par la méthode des facteurs de faux (\emph{Fake Factors}) décrite section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
+Cette méthode dénommée \og QCD SS \fg{} (\emph{Same Sign}) est exposée dans la section~\ref{chapter-HTT_analysis-section-bg_estimation-QCD-SS}.
+Enfin, la proportion d'événements contenant au moins un jet identifié à tort comme provenant d'un lepton~\tau\ est estimée par la méthode des facteurs de faux (\emph{Fake Factors}) décrite section~\ref{chapter-HTT_analysis-section-bg_estimation-FF_method}.
 Tous les autres bruits de fond sont modélisés par des données simulées.
 Les jeux de données ainsi utilisés dans l'analyse sont donnés dans l'annexe~\refApHTTdatasets.
 \par
@@ -90,7 +91,7 @@ Afin de séparer les contributions estimées à partir des différentes techniqu
 Pour cela, un \emph{generator matching} est appliqué.
 Les particules reconstruites sélectionnées (électrons, muons et taus hadroniques) sont associées à l'objet physique généré le plus proche dans le plan $(\eta, \phi)$ et à moins de $\Delta R = \num{0.2}$.
 Si aucun objet généré ne respecte cette condition, l'objet reconstruit est considéré comme provenant d'un jet.
-Il est ainsi possible de déterminer la provenance de l'objet reconstruit en connaissant la provenance de l'objet généré correspondant.
+Il est ainsi possible de déterminer l'origine de l'objet reconstruit en connaissant la provenance de l'objet généré correspondant.
 Il existe six cas de figure différents:
 \begin{itemize}
 \item électron natif (\emph{prompt electron}), \ie\ un électron ne provenant pas de la désintégration d'un lepton~\tau;
@@ -104,7 +105,7 @@ Les définitions exactes de chacun de ces cas de figure sont données dans le ta
 Un \tauh\ généré est reconstruit à partir des produits de désintégration générés visibles hors électrons et muons.
 Seuls les produits de désintégration du lepton~\tau\ généré tels que \inlinecode{python}{IsPrompt == True} sont considérés.
 Il est de plus requis que l'impulsion transverse de ce \tauh\ généré reconstruit soit supérieure à \SI{15}{\GeV} afin d'éviter la limite de reconstruction des \tauh\ et d'éliminer des faux électrons et muons issus des \tauh.
-Dans le cas des électrons et muons natifs, la coupure $\pT > \SI{8}{\GeV}$ permet de supprimer les leptons issus du FSR $\photon\to\ell^+\ell^-$.
+Dans le cas des électrons et muons natifs, la coupure $\pT > \SI{8}{\GeV}$ permet de supprimer les leptons issus du FSR (\emph{Final State Radiation}) $\photon\to\ell^+\ell^-$.
 Le FSR est introduit au chapitre~\refChJERC.
 Les remplacements des événements simulés se font ainsi sur la base des valeurs de \inlinecode{python}{gen_match}, donnés dans le tableau~\ref{tab-chapter-HTT_analysis-gen_match_values}, pour $L_1$ et $L_2$ selon les coupures données dans le tableau~\ref{tab-chapter-HTT_analysis-gen_match_cuts}.
 \begin{table}[h]

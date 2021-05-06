@@ -42,7 +42,7 @@ où $h_v^\text{X}$ correspond à la distribution de la variable $v$ dans la rég
 La région B est ainsi également nommée région d'application (AR, \emph{Application Region}) du facteur $C/D$.
 \par
 Afin d'augmenter la quantité d'événements exploités, et donc de réduire l'incertitude statistique, la coupure sur \Dzeta\ n'est pas appliquée dans les régions C et D.
-Un facteur $C/D$ global donne une estimation trop peu précise~\cite{CMS-PAS-HIG-18-032} car l'hypothèse d'indépendance de la forme de la distribution n'est pas vérifiée.
+Cependant, un facteur $C/D$ global donne une estimation trop peu précise~\cite{CMS-PAS-HIG-18-032} car l'hypothèse d'indépendance de la forme de la distribution n'est pas vérifiée.
 Afin de corriger cet effet, le facteur $C/D$ est déterminé en fonction de:
 \begin{itemize}
 \item la distance entre l'électron et le muon dans le plan $(\eta,\phi)$, $\Delta R$;
@@ -53,5 +53,9 @@ Afin de corriger cet effet, le facteur $C/D$ est déterminé en fonction de:
 La dépendance en $\Delta R$ est majoritairement due à la contribution \quarkb\antiquarkb\ au bruit de fond QCD.
 Elle est modélisée par un polynôme de degré 2.
 \par
-Pour corriger le biais introduit par le changement de critère d'isolation du muon, le facteur $C/D$ est également déterminé dans le cas d'un électron anti-isolé ($\num{0.15}\leq I_\text{rel}^{\ele} < \num{0.5}$ au lieu de $I_\text{rel}^{\ele} < \num{0.15}$) et d'un muon isolé et pour électron et muon anti-isolés.
+Afin de corriger le biais introduit par le changement de critère d'isolation du muon, le facteur $C/D$ est également déterminé dans les cas de figure suivants:
+\begin{itemize}
+\item électron anti-isolé ($\num{0.15}\leq I_\text{rel}^{\ele} < \num{0.5}$ au lieu de $I_\text{rel}^{\ele} < \num{0.15}$) et muon isolé;
+\item électron et muon anti-isolés.
+\end{itemize}
 Le rapport de ces facteurs donne la correction relative au passage des muons isolés à anti-isolés.

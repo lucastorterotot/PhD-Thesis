@@ -2,11 +2,11 @@
 \subsubsection{Définition des catégories}
 Les catégories \CATsm, introduites dans les références~\cite{CMS-NOTE-2019-177,CMS-NOTE-2019-178}, sont construites dans le but d'étudier le boson de Higgs du \SM\ \higgs\ de masse \SI{125}{\GeV}.
 Cette catégorisation est faite à l'aide d'un réseau de neurones dont l'objectif est de définir différentes catégories d'événements, chacune contenant un processus physique dominant.
-Le principe des réseaux de neurones est abordé plus en détails dans le chapitre~\refChML.
+Le principe des réseaux de neurones est abordé dans le chapitre~\refChML.
 Le réseau utilisé est ici décrit succinctement, plus de détails sont disponibles dans la référence~\cite{CMS-NOTE-2019-178}.
 %AN 2019/177 and 178
 \paragraph{Structure du réseau de neurones}
-Les variables d'entrée du réseau les plus importantes sont:
+Les principales variables d'entrée du réseau sont:
 \begin{itemize}
 \item les impulsions transverses des éléments du dilepton;
 \item la masse transverse du dilepton dans le cas du canal \ele\mu\ ($\mT(\vpT^{\ele}+\vpT^{\mu},\vMET)$);
@@ -27,19 +27,19 @@ Leur fonction d'activation est la tangente hyperbolique.
 \par
 Afin de permettre une catégorisation plus poussée qu'une simple discrimination signal ou bruit de fond, la couche de sortie du réseau contient autant de neurones que de catégories souhaitées.
 Ce réseau fournit donc un vecteur et non un scalaire.
-La fonction d'activation de ces neurones est la fonction exponentielle normalisée ou \emph{Softmax},
+La fonction d'activation de ces neurones de sortie est la fonction exponentielle normalisée ou \emph{Softmax},
 \begin{equation}
 \mathit{Softmax}(\vec{z})_j = \frac{\exp(z_j)}{\sum_{k=1}^n \exp(z_k)}
 \msep
 j\in\set{1,\ldots,K}
 \mend[,]
 \end{equation}
-chaque composante de ce vecteur correspond donc à la probabilité que l'événement appartienne à la catégorie correspondante.
+chaque composante de ce vecteur est alors la probabilité que l'événement appartienne à la catégorie correspondante.
 \paragraph{Catégories obtenues}
 Pour chaque canal, deux catégories de signal existent visant chacune certains modes de production du boson de Higgs:
 \begin{itemize}
 \item \texttt{ggh}: production par fusion de gluons (\gluon\gluon\higgs);
-\item \texttt{qqh}: production par fusion de bosons vecteurs (VBF) et en association avec un boson (VH).
+\item \texttt{qqh}: production par fusion de bosons vecteurs (VBF) ou en association avec un boson (VH).
 \end{itemize}
 Ces modes de production sont introduits dans le chapitre~\refChMSSM.
 \par
@@ -50,7 +50,7 @@ Pour les bruits de fond ayant une faible contribution ou étant peu différentia
 Les différentes catégories ainsi possibles sont listées dans le tableau~\ref{tab-chapter-HTT_analysis-section-categorisation-SM-cats_recap}.
 Le canal \tauh\tauh\ ne devant pas contenir d'électron ni de muons, les processus $\Zboson\to\ell\ell$ ($\ell\in\set{\ele,\mu}$), \ttbar\ et \Wjets\ contribuent peu au bruit de fond, c'est pourquoi il n'existe pas de catégories leur étant dédiées dans ce canal.
 Ils sont donc associés à la catégorie \CATmisc\ pour le canal \tauh\tauh.
-La catégorie \CATmisc\ couvre ainsi les processus
+Celle-ci couvre donc les processus
 $\Zboson\to\ell\ell$, \ttbar, \Wjets\ et Diboson dans le canal \tauh\tauh;
 Diboson dans les canaux \mu\tauh\ et \ele\tauh;
 $\Zboson\to\ell\ell$ et \Wjets\ dans le canal \ele\mu.
@@ -109,7 +109,7 @@ Le réseau de neurones utilisé a pour but de classer les événements selon leu
 De l'entraînement de ce réseau résultent les frontières entre les différentes catégories.
 Les régions frontalières, \ie\ les régions de l'espace des phases dans lesquelles les événements ont de proches probabilités d'appartenir à deux catégories ou plus, sont ainsi délibérément fixées lors de l'entraînement et en dépendent.
 Modifier les paramètres du réseau ou de l'entraînement mène ainsi à des migrations d'événements frontaliers d'une catégorie à une autre.
-Or, ces événements frontaliers sont ceux dont la probabilité d'appartenir à une catégorie ne peut être grande, car dans ce cas cet événement est très caractéristique de cette catégorie.
+Or, ces derniers sont ceux dont la probabilité d'appartenir à une catégorie ne peut être grande, car dans ce cas ils seraient très caractéristiques de cette catégorie.
 \par
 Il est donc pertinent d'utiliser les valeurs de sortie du réseau pour définir une variable discriminante.
 Le choix fait est d'utiliser la plus grande probabilité parmi celles données par le réseau, \ie\ la probabilité d'appartenir à la catégorie dans laquelle le réseau estime que cet événement fait partie.
@@ -122,7 +122,7 @@ Cette variable est dénommée \og score \fg{} et notée \NNscore.
 \label{fig-67-CMS-NOTE-2019-177}
 \end{wrapfigure}
 \par
-Des événements de signal peuvent être difficilement classés dans une unique catégorie de signal, \texttt{ggh} ou \texttt{qqh}.
+Certains événements de signal peuvent être difficilement classés dans une unique catégorie de signal, \texttt{ggh} ou \texttt{qqh}.
 Dans ce cas, leurs scores sont bas pour ces catégories et ils
 se retrouvent dans un segment de l'histogramme contenant d'avantage de bruit de fond
 que s'ils avaient obtenu un score plus élevé.
