@@ -115,13 +115,13 @@ e_\text{tot}^2 = \sum_{j\in\set{i}} e_j^2
 \mend
 \end{equation}
 \item Les processus $i$ sont classés par valeur croissante de $e_i^2/e_\text{tot}^2$.
-\item Dans l'ordre des processus obtenu, les incertitudes statistiques sont supprimées tant que la somme des carrés des incertitudes supprimées est inférieure à une fraction de l'incertitude totale au carré \inlinecode{cpp}{merge_threshold} choisie.
+\item Dans l'ordre des processus obtenu, les incertitudes statistiques sont supprimées tant que la somme de leurs carrés est inférieure à une fraction \inlinecode{cpp}{merge_threshold} choisie de l'incertitude totale au carré.
 \item Les incertitudes restantes sont multipliées par un facteur permettant de conserver une incertitude totale constante.
 \end{enumerate}
 Il s'agit donc de regrouper les incertitudes.
 \paragraph{Contribution personnelle}
 Lors de ma thèse, j'ai observé que l'incertitude totale pouvait varier lors de cette procédure, comme cela est illustré sur la figure~\ref{fig-BBB_issue_2017_mt}.
-Dans le dernier segment, il apparaît clairement sur le rapport données sur bruit de fond que l'incertitude totale sur le bruit de fond est modifiée par le regroupement.
+Dans le dernier segment, il apparaît sur le rapport données sur bruit de fond que l'incertitude totale sur le bruit de fond est modifiée par le regroupement.
 Il s'agissait d'un bug que j'ai identifié et corrigé~\cite{BBB_PR} dans le code de \COMBINE.
 \begin{figure}[h]
 \centering

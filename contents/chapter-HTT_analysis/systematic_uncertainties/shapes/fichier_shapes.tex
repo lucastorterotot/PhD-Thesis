@@ -2,7 +2,7 @@
 %Les incertitudes listées ci-après impliquent des variations de formes des distributions des variables discriminantes.
 \paragraph{Efficacité des \HLTpaths\ des \tauh\ (\emph{\tauh\ trigger efficiency})}
 Cette incertitude est déterminée à partir des facteurs d'échelle définis section~\ref{chapter-HTT_analysis-section-corrections}.
-Des paramètres de nuisance sont définis pour chaque \HLTpath\ et différents modes de désintégration (0, 1 et 2, 10, 11).
+Des paramètres de nuisance sont définis pour chaque \HLTpath\ et différents modes de désintégration (DM, \emph{Decay Modes}). %(0, 1 et 2, 10, 11).
 L'efficacité du \HLTpath\ \HLTDoubleTau\ est de plus déterminée pour les impulsions transverses supérieures et inférieures à \SI{100}{\GeV} afin que l'ajustement réalisé section~\ref{chapter-HTT_analysis-section-signal_extraction} ait plus de liberté vis-à-vis des régions à bas et haut \pT.
 Dans le cas du \HLTpath\ \HLTSingleTau, le manque de statistiques mène à ne définir qu'un seul paramètre de nuisance commun à tous les DMs.
 \par
@@ -11,7 +11,7 @@ Une corrélation de \SI{50}{\%} entre les paramètres de nuisance des données s
 Les paramètres de nuisance sont non corrélés entre les canaux et les années.
 \paragraph{Efficacité des \HLTpaths\ des muons et des électrons (\emph{lepton trigger efficiency})}
 L'incertitude sur l'efficacité des \HLTpaths\ des muons et des électrons est de \SI{2}{\%} par lepton.
-Il s'agit en première approximation d'une incertitude de normalisation, traitée ici comme une incertitude de forme car elle ne concerne que les événements où un \HLTpath\ basé sur ces leptons est utilisé.
+Il s'agit en première approximation d'une incertitude de normalisation, traitée ici comme une incertitude de forme car elle ne concerne que les événements dans lesquels un \HLTpath\ basé sur ces leptons est utilisé.
 \par
 Tous les processus déterminés par simulation ou encapsulation sont concernés.
 Les paramètres de nuisance associés sont non corrélés entre données simulées et encapsulées.
@@ -30,7 +30,7 @@ décorrélée entre les DMs 0, 1, 2 et 10, 11,
 est fournie par le \POG\ \emph{tau}.
 \paragraph{Repondération de l'impulsion transverse et de la masse du boson \Zboson\ (\emph{DY \pT-mass reweighting})}
 L'incertitude est déterminée à partir de la variation entre zéro et deux fois la correction correspondante, introduite dans la section~\ref{chapter-HTT_analysis-section-corrections}.
-La variation à $1\sigma$ utilisée comme incertitude est prise comme étant \SI{10}{\%} de cette variation sur les événements $\Zboson\to\ell\ell$ dans tous les canaux.
+L'incertitude à $1\sigma$ correspond alors à \SI{10}{\%} de cette variation et est appliquée sur les événements $\Zboson\to\ell\ell$ dans tous les canaux.
 Les paramètres de nuisance des années 2017 et 2018 sont corrélés, car les mêmes réglages de simulation sont utilisés (CP5~\cite{tunes_2019}).
 Celui de l'année 2016 est décorrélé.
 \paragraph{Repondération de l'impulsion transverse du quark~\quarkt\ (\emph{top \pT\ reweighting})}
@@ -91,10 +91,10 @@ Dans les canaux \mu\tauh\ et \ele\tauh, ces incertitudes sont:
 \item systématique sur la détermination de $\FF_t$ à partir de données simulées, obtenue à partir de la différence entre $\FF_W$ déterminé avec des données réelles et simulées, corrélée entre les années.
 \end{itemize}
 \paragraph{Estimation du bruit de fond QCD}
-Cette estimation utilisée dans le canal \ele\mu\ comporte dix sources d'incertitudes, dues aux facteurs d'extrapolations des ajustement à des polynômes d'ordre 2.
+Cette estimation, utilisée dans le canal \ele\mu, comporte dix sources d'incertitudes, dues aux facteurs d'extrapolations des ajustement à des polynômes d'ordre 2.
 Elles sont non corrélées entre les années.
 \paragraph{Incertitudes de segmentation (\emph{bin-by-bin uncertainties})}
-Les incertitudes de forme dues à la statistique des bruits de fond suite à l'utilisation conjointe des données simulées, encapsulées et réelles dans leur estimation sont prises en compte par la fonction \inlinecode{bash}{autoMCstats} de \COMBINE.
+Les incertitudes de forme dues à la statistique des bruits de fond suite à l'utilisation conjointe des données simulées, encapsulées et réelles dans leurs estimations sont prises en compte par la fonction \inlinecode{bash}{autoMCstats} de \COMBINE.
 \paragraph{Incertitudes théoriques}
 Dans le cas du processus $\gluon\gluon\to\Phi\to\tau\tau$, en particulier dans les cas de basse masse,
 les variations du paramètre \inlinecode{bash}{hdamp} du générateur de \POWHEG\ ainsi que
