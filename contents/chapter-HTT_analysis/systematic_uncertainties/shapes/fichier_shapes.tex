@@ -44,7 +44,7 @@ Les paramètres de nuisance des différentes années sont non corrélés.
 \paragraph{\MET\ non regroupée (\emph{MET unclustered uncertainty})}
 L'algorithme de \PF\ introduit dans le chapitre~\refChLHCCMS\ peut fournir des objets physiques candidats n'étant pas identifiés comme des muons, électrons, photons, hadrons ou jets.
 Il s'agit par exemple de particules de très bas \pT.
-Ces candidats sous toutefois utilisés dans le calcul de \MET, il s'agit de l'énergie transverse manquante non regroupée (\emph{MET unclustered}).
+Ces candidats sont toutefois utilisés dans le calcul de \MET, il s'agit de l'énergie transverse manquante non regroupée (\emph{MET unclustered}).
 L'incertitude sur cette observable est appliquée à toutes les données simulées non concernées par la correction de recul de \MET\ comme le recommande le \POG\ \emph{JetMET}~\cite{MET_corrections}.
 Les différentes années sont non corrélées.
 \paragraph{Énergie des jets (\emph{jet energy scale})}
@@ -70,7 +70,7 @@ Les années sont non corrélées.
 \paragraph{Contamination \ttbar\ dans les données encapsulées}
 Une partie du bruit de fond \ttbar\ est couvert par les données encapsulées.
 Il s'agit des événements contenant une paire de leptons~\tau\ issus de la désintégration des quarks~\quarkt.
-L'incertitude haute (basse) sur cette contamination est obtenue en ajoutant (soustrayant) \SI{10}{\%} de la fractions d'événements simulés \ttbar\ contenant une paire de leptons~\tau\ aux événements encapsulés.
+L'incertitude haute (basse) sur cette contamination est obtenue en ajoutant (soustrayant) \SI{10}{\%} de la fraction d'événements simulés \ttbar\ contenant une paire de leptons~\tau\ aux événements encapsulés.
 Cette incertitude est corrélée entre les canaux mais pas entre les années, car le \HLTpath\ de sélection de la paire de muons pour les données encapsulées change d'une année à l'autre.
 \paragraph{Bruits de fond estimés par les \fakefactors}
 Différentes sources d'incertitudes sont considérées selon le canal.
@@ -83,8 +83,8 @@ Dans le canal \tauh\tauh, ces incertitudes sont:
 \end{itemize}
 Dans les canaux \mu\tauh\ et \ele\tauh, ces incertitudes sont:
 \begin{itemize}
-\item statistiques sur les mesures des $\FF_i$, déterminées pour chaque région de \Njets\ et $\pT^{\text{jet}}$, non corrélées entre les années ni entre elles;
-\item statistiques sur les corrections résiduelles des $\FF_i$, déterminées pour chaque région de \Njets, non corrélées entre les années ni entre elles;
+\item statistique sur les mesures des $\FF_i$, déterminées pour chaque région de \Njets\ et $\pT^{\text{jet}}$, non corrélées entre les années ni entre elles;
+\item statistique sur les corrections résiduelles des $\FF_i$, déterminées pour chaque région de \Njets, non corrélées entre les années ni entre elles;
 \item systématique sur l'extrapolation OS/SS de $\FF_Q$, l'incertitude haute (basse) est obtenue en appliquant deux (zéro) fois la correction, corrélée entre les années;
 \item systématique sur l'extrapolation isolé/anti-isolé de $\FF_Q$, corrélée entre les années;
 \item systématique sur l'extrapolation de $\mT^{\ell}>\SI{70}{\GeV}$ à $\mT^{\ell}<\SI{70}{\GeV}$ de $\FF_W$, l'incertitude haute (basse) est obtenue en appliquant deux (zéro) fois la correction, corrélée entre les années;
