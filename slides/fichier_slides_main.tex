@@ -30,22 +30,30 @@
 
         %\drawCMS
 
-        %\printantimuondeposit{21}{15}
-        \printantimuon{21}{15}
+        %\printantimuondeposit{21}{50}
+        \printantimuonnolabel{21}{50}
+        \draw (55:\ECALrin) node {\color{\muoncolor}\mu};
         
-        \printneutrino[\antinutau]{30}
-        \printneutrino[\numu]{-10}
+        \printneutrinonolabel{52}
+        \draw (60:\HCALrin) node {\antinutau};
+        \printneutrinonolabel{45}
+        \draw (35:\HCALrin) node {\numu};
+
 
         %\printjetdeposit{50}{170}
-        \printjet{50}{170}
+        \printjetnolabel{50}{170}
+        \draw (170:\HCALrout) node {\color{\jetcolor}jet};
 
         %\printbigjetdeposit{150}{-50}
-        \printbigjet{150}{-50}
+        \printbigjetnolabel{150}{-50}
+        \draw (-40:\HCALrout) node {\color{\jetcolor}jet};
 
         %\printtauhdeposit{15}{-150}
-        \printtauh{15}{-150}
+        \printtauhnolabel{15}{-150}
+        \draw (-135:\HCALrin) node {\color{\tauhcolor}\tauh};
         
-        \printneutrino[\nutau]{127}
+        \printneutrinonolabel{-150}
+        \draw (-155:\HCALrout) node {\nutau};
     \end{tikzpicture}
 \end{center}
 \end{block}
@@ -66,9 +74,9 @@
 
         \drawCMS
 
-        \printantimuondeposit{21}{15}
-        \printantimuontrk{21}{15}
-%        \printantimuon{21}{15}
+        \printantimuondeposit{21}{50}
+        \printantimuontrk{21}{50}
+%        \printantimuon{21}{50}
 
         \printjetdeposit{50}{170}
         \printjettrk{50}{170}
