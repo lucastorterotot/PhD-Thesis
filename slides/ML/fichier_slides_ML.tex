@@ -12,21 +12,21 @@
 
 \begin{frame}
 \begin{center}
-\includegraphics[width=\graphw,height=\graphh,keepaspectratio]{\PhDthesisdir/plots_and_images/my_plots/ML/overfitting_and_early_stopping/myloss.png}
+\input{/home/torterotot/Documents/PhD-Thesis/plots_and_images/my_plots/ML/loss_training_Bsecond/fig-loss_history_EN-pyplot.pgf}
 \end{center}
+
 \begin{tikzpicture}[overlay, remember picture]
-\draw [ltcolorred] (.55\textwidth, .8\textheight) node {\textbf{The same plot in real life!}} ;
+\draw [ltcolorred] (.125\textwidth, .75\textheight) node [rotate=30] {\textbf{The same plot in real life!}} ;
 
-\draw [ltcolorred] (.375\textwidth, .2\textheight) node (A) {\small Improvements by training} ;
-\draw (.4\textwidth, .45\textheight) coordinate (B);
-\draw [ltcolorred, thick, -latex] (A) to [out = 110, in = -135] (B);
+\draw [ltcolorred] (.35\textwidth, .3\textheight) node (A) {\small Improvements by training} ;
+\draw (.45\textwidth, .45\textheight) coordinate (B);
+\draw [ltcolorred, thick, -latex] (A) to [out = 110, in = -165] (B);
 
-\draw [ltcolorred] (.65\textwidth, .45\textheight) node (A) {\small No more improvement on validation:} ;
+\draw [ltcolorred] (.65\textwidth, .65\textheight) node (A) {\small No more improvement on validation:} ;
 \draw [ltcolorred] (A.south) node [below] (A) {\small early stopping} ;
-\draw (.8\textwidth, .25\textheight) coordinate (B);
-\draw [ltcolorred, thick, -latex] (A.east) to [out = -15, in = 90] (B);
+\draw (.775\textwidth, .45\textheight) coordinate (B);
+\draw [ltcolorred, thick, -latex] (A.east) to [out = -15, in = 120] (B);
 \end{tikzpicture}
-\vspace{-1pt}
 \end{frame}
 
 \subsection*{DNN for HTT}
