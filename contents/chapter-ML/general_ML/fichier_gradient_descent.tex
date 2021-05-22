@@ -24,7 +24,7 @@ Le taux d'apprentissage est généralement pris entre \num{e-5} et \num{0.5}.
 Toutefois, l'évaluation du gradient de la fonction de coût sur l'ensemble du jeu de donnée d'entraînement,
 contenant éventuellement plusieurs millions d'échantillons comme c'est le cas dans cette thèse,
 nécessite d'importantes ressources computationnelles (en l'occurrence, de la mémoire vive).
-Afin de pallier à ce problème,
+Afin de pallier ce problème,
 la descente de gradient stochastique (SGD, \emph{Stochastic Gradient Descent})
 évalue le gradient de \Loss\ individuellement pour chaque échantillon.
 Cependant, le SGD amène de fortes fluctuations le long de la descente,
