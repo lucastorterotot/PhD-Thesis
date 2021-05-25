@@ -14,7 +14,7 @@ Cette trajectoire doit être compatible avec celle d'une particule chargée.
 \item L'ensemble des points de passage devant correspondre à cette trajectoire est déterminé.
 Ces points sont obtenus en extrapolant la trajectoire à travers le trajectographe.
 À chaque ajout d'un point de passage, l'ajustement de la trajectoire à l'ensemble des points lui étant associés est mis à jour.
-\item Une fois que l'ensemble des points pouvant être associés à la trajectoire ont été trouvés, un ajustement final est réalisé.
+\item Une fois que l'ensemble des points pouvant être associés à la trajectoire a été trouvé, un ajustement final est réalisé.
 Il permet de déterminer l'ajustement optimal de la trajectoire aux points de passage.
 Les propriétés de la particule chargée (origine, impulsion transverse, direction) sont ainsi déterminées.
 La trace est acceptée ou rejetée selon des critères portant sur les paramètres de l'ajustement final.
@@ -26,7 +26,7 @@ Le taux de mauvaise reconstruction est quant à lui réduit en appliquant des cr
 \subparagraph{Cas des électrons}
 La reconstruction des électrons de haute énergie et isolés vis-à-vis des autres particules est naturellement basée sur les données du ECAL~\cite{electron_reco_8tev}.
 La position et la valeur du dépôt d'énergie sont utilisés afin de déterminer les points de passage attendus dans le trajectographe pour l'électron (ou le positron).
-Cependant, à cause de l'épaisseur du trajectographe, les électrons émettent avant de parvenir au ECAL une fraction de leur énergie par \emph{bremsstrahlung}, \ie\ sous forme de photons.
+Cependant, à cause de l'épaisseur du trajectographe, les électrons émettent, avant de parvenir au ECAL, une fraction de leur énergie par \emph{bremsstrahlung}, \ie\ sous forme de photons.
 Les performances de reconstruction des électrons dépendent ainsi fortement de la capacité à identifier ces photons et mesurer leurs énergies.
 Les dépôts d'énergie dans le ECAL (\emph{clusters}) dus à l'électron et aux photons potentiellement issus du \emph{bremsstrahlung} sont regroupés en un \emph{supercluster}.
 Le \emph{supercluster} est construit à partir des dépôts du ECAL se situant dans une fenêtre plus large en $\phi$ qu'en $\eta$ afin de prendre en compte la courbure de la trajectoire de l'électron due au champ magnétique.
@@ -85,7 +85,7 @@ L'efficacité de reconstruction du vertex principal est ainsi de l'ordre de \SI{
 \subsubsection{Dépôts dans les calorimètres}
 \paragraph{Agglomération}
 L'énergie d'une particule unique se répartit dans plusieurs cellules des calorimètres.
-Les dépôts dans chacunes des cellules sont alors regroupés de proche en proche en agglomérats (\emph{clusters})~\cite{particle-flow}.
+Les dépôts dans chacune des cellules sont alors regroupés de proche en proche en agglomérats (\emph{clusters})~\cite{particle-flow}.
 %Plusieurs raisons existent à cette agglomération:
 %\begin{itemize}
 %\item détecter et mesurer les énergies et directions des particules neutres stables comme les photons et les hadrons neutres;
