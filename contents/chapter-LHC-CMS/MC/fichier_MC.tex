@@ -54,7 +54,7 @@ Cette simulation du détecteur est basée sur le logiciel
 La prise en compte de la totalité des éléments du détecteur (câblage interne, système de refroidissement, éléments de structure, etc.) permet d'obtenir des résultats fidèles à la réalité.
 Les signaux simulés ainsi obtenus sont alors traités, comme dans le cas des données réelles, par l'algorithme de \emph{Particle Flow} permettant de reconstruire l'événement physique, puis par les algorithmes de reconstruction des objets de haut niveau, comme exposé dans la section~\ref{chapter-LHC-section-evt_reco}.
 \subsection{Corrections apportées aux simulations}
-Des écarts résiduels entre les données simulées et la réalité qu'elles doivent décrire existent et sont mesurés par des analysés dédiées.
+Des écarts résiduels entre les données simulées et la réalité qu'elles doivent décrire existent et sont mesurés par des analyses dédiées.
 Ces analyses fournissent alors des corrections à appliquer aux simulations.
 Il existe également des données hybrides, dont les événements sont construits à partir de données réelles et simulées.
 Il s'agit des données dites \og encapsulées \fg{} (\emph{embedded}) présentées dans le chapitre~\refChHTT, pour lesquelles certaines de ces corrections peuvent être différentes de celles à appliquer aux données \SI{100}{\%} simulées.
@@ -65,7 +65,7 @@ Or, la production de ces jeux de données est souvent faite avant la mesure de c
 Afin de corriger la différence sur le profil d'empilement obtenu, un poids est appliqué aux événements simulés afin que ce profil soit cohérent avec celui des données réelles.
 \paragraph{Pondération du \prefiring}
 En 2016 et 2017, le niveau L1 du système de déclenchement de CMS présentait un défaut.
-Dans la partie à haute $\eta$ du ECAL, des objets physique responsables du déclenchement du L1 étaient associés à l'événement précédent, \ie\ celui avant déclenchement.
+Dans la partie à haute $\eta$ du ECAL, des objets physiques responsables du déclenchement du L1 étaient associés à l'événement précédent, \ie\ celui avant déclenchement.
 Seul un événement sur trois consécutifs pouvant être enregistré, l'efficacité de la prise de données est ainsi moindre qu'attendue.
 Les événements avec des jets de hautes valeurs de $\eta$ sont particulièrement touchés par ce phénomène.
 Une pondération est alors appliquée afin de corriger cet effet.
@@ -266,7 +266,7 @@ L'écart à zéro de $U_1$ ainsi que la résolution sur $U_1$ et $U_2$ sont dét
 Les données simulées sont alors corrigées afin de faire correspondre en moyenne ces valeurs à celles observées dans les données réelles.
 Ces moyennes sont déterminées sur des intervalles d'impulsion du \Zboson\ ($[\num{0}, \num{10}[$, $[\num{10}, \num{20}[$, $[\num{20}, \num{30}[$, $[\num{30}, \num{50}[$ et $>\SI{50}{\GeV}$) et du nombre de jets ($\Njets\in\set{0, 1, \geq2}$).
 \par
-L'effet de cette correction sur une sélections d'événements $\Zboson\to\mu\mu$ en 2017 est présenté sur la figure~\ref{fig-MET_recoil_Alexei}.
+L'effet de cette correction sur une sélection d'événements $\Zboson\to\mu\mu$ en 2017 est présenté sur la figure~\ref{fig-MET_recoil_Alexei}.
 Les distributions observées (données réelles) et modélisées (données simulées) de \MET\ y sont tracées.
 L'accord entre observation et modélisation, décrit par le rapport (obs/exp), est sensiblement amélioré par cette correction.
 \begin{figure}[h]
