@@ -13,7 +13,7 @@ Pour y parvenir,
 les jeux de données d'entraînement comprennent les informations $\set{\vec{x}_i}$ à donner au modèle
 ainsi que les \og bonnes réponses \fg\ $\set{\ytruei}$ qu'il doit fournir en sortie.
 L'objectif est donc d'obtenir un modèle agissant comme une fonction $F$ approximant celle reliant les entrées $\set{\vec{x}_i}$ aux cibles $\set{\ytruei}$.
-Il peut alors donner une prédiction \ypred\ sur une nouvelle entré $\vec{x}$ selon $\ypred=F(\vec{x})$.
+Il peut alors donner une prédiction \ypred\ sur une nouvelle entrée $\vec{x}$ selon $\ypred=F(\vec{x})$.
 La tâche du modèle peut être:
 \begin{description}
 \item[une classification] lorsque $y$ est discrète, par exemple lorsqu'il s'agit de déterminer si une image représente un chat ou un chien~\cite{datafrog_img_reco};
@@ -37,7 +37,7 @@ Plusieurs méthodes ont été développées afin de reconstruire la masse du sys
 Dans le cadre des analyses $\Higgs\to\tau\tau$, la collaboration CMS utilise \SVFIT~\cite{SVFit_Bianchini_2014},
 un estimateur de la masse d'une particule se désintégrant en paire de leptons~\tau\ par ajustement d'un profil de vraisemblance.
 \par
-La reconstruction la masse de la particule $X$, ou résonance, se désintégrant en paire de leptons~\tau\ grâce au \emph{machine learning}
+La reconstruction de la masse d'une particule $X$, ou résonance, se désintégrant en paire de leptons~\tau\ grâce au \emph{machine learning}
 a été étudiée par \citeauthor{BARTSCHI201929}~\cite{BARTSCHI201929} dans le cas où $X$ est un boson de Higgs avec une masse comprise entre \num{80} et \SI{300}{\GeV}.
 Ils ont obtenu une résolution de \SI{8.4}{\%} sur la masse du Higgs, contre \SI{17}{\%} avec \SVFIT.
 De plus, le temps de calcul nécessaire à l'obtention de la masse est moindre avec le ML.
@@ -55,7 +55,7 @@ pour modéliser le détecteur CMS.
 Bien qu'il ne s'agisse pas de la simulation complète basée sur \GEANTfour~\cite{geant4_2003,geant4_2006,geant4_2016},
 \FASTSIM\ est bien plus proche de la réalité que \DELPHES.
 De plus, l'empilement est pris en compte.
-Les modèles obtenus sont ainsi directement utilisables dans de réelles analyses, telles que celle présentée dans le chapitre~\refChHTT.
+Les modèles obtenus sont ainsi directement utilisables dans de réelles analyses, telle que celle présentée dans le chapitre~\refChHTT.
 \par
 La section~\ref{chapter-ML-section-general_ML} introduit des concepts communs aux deux types de modèles étudiés.
 Les arbres de décision améliorés et les réseaux de neurones profonds sont ensuite introduits dans les sections~\ref{chapter-ML-section-XGB} et~\ref{chapter-ML-section-DNN} respectivement.
