@@ -16,6 +16,59 @@
 \submanip Very promising as a \SVFIT\ successor.
 \end{frame}
 
-\begin{frame}{\emph{Merci!}}
+\newcounter{txtlines}
+\newcommand{\drawCARD}[5][1]{ % defined coordinate, logo, width, txts
+\draw (#2)+(-.5, .05) coordinate (tmp);
+\setcounter{txtlines}{0}
+\foreach \txt in {#5}{\stepcounter{txtlines}}
+\fill [white, blur shadow={shadow blur steps=5}, rounded corners = 5pt] (#2) rectangle  +(#4, - 8 -\baselineskip*\thetxtlines);
+\fill [white, blur shadow={shadow blur steps=5}, rounded corners = 3pt] (#2)+(#1/2+#4-#1/4, #1/2-#1/4) rectangle  +(- #1/2 +#4-#1/4, - #1/2-#1/4);
+\begin{scope}
+\clip [rounded corners = 3pt] (#2)+(#1/2+#4-#1/4, #1/2-#1/4) rectangle  +(- #1/2 +#4-#1/4, - #1/2-#1/4);
+\draw (#2)+(#4 -#1/4, -#1/4) node {\includegraphics[height= #1 cm, width= #1 cm, keepaspectratio]{#3}} ;
+\end{scope}
+\foreach \txt in {#5}{
+\draw (tmp.west) + (0,-\baselineskip) node [right, text depth=0pt] (tmp) {\submanip \txt \vphantom{Àq}};
+}
 
+\draw (#2) + (0,- 8 -\baselineskip*\thetxtlines -15) coordinate (bottom);
+\draw (#2) + (#4+.5,0) coordinate (right);
+}
+\begin{frame}{\emph{Merci!}}\thispagestyle{empty}
+%\only<2->{\transdissolve}
+%\only<-9>{\transduration{0}}
+\begin{center}
+\begin{tikzpicture}[overlay]
+
+\draw (-1,4.25) coordinate (IP2I);
+\drawCARD{IP2I}{/home/torterotot/Documents/PhD-Thesis/plots_and_images/logos/logo_IP2I.pdf}{4}{Colin,{Gaël, Ece},Hugues,Aurélien,{Jean-François, Grégoire},autres doctorants,groupe CMS,personnels}
+
+\draw (bottom) coordinate (CMS);
+
+\draw (right) coordinate (KIT);
+\drawCARD{KIT}{/home/torterotot/Documents/PhD-Thesis/plots_and_images/logos/KIT.png}{4}{{Günter, Roger},Artur,Sebastian B., Sebastian W., Maximilian, Felix}
+
+\draw (bottom) coordinate (IC);
+\drawCARD{IC}{/home/torterotot/Documents/PhD-Thesis/plots_and_images/logos/IC.jpg}{4}{Daniel,David,Georges}
+
+\draw (bottom) coordinate (DESY);
+\drawCARD{DESY}{/home/torterotot/Documents/PhD-Thesis/plots_and_images/logos/DESY.png}{4}{Aleksei,Mareike}
+
+\draw (bottom) coordinate (HEPHY);
+\drawCARD{HEPHY}{/home/torterotot/Documents/PhD-Thesis/plots_and_images/logos/HEPHY-crop.png}{4}{Janik,Suman}
+
+\drawCARD{CMS}{/home/torterotot/Documents/PhD-Thesis/plots_and_images/logos/CMS_logo.pdf}{4}{équipe des guides,Jacob,Jean,Giuseppe,Juska,Yi,Mikko}
+
+\draw (-4.5,2.25) node (MESRI) {\includegraphics[height=1.2 cm, keepaspectratio]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/logos/ES-R-I_horizontal.pdf}} ;
+
+\draw (MESRI.south) + (0,-.75) node [below left] (PHAST) {\includegraphics[height=1.2 cm, keepaspectratio]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/logos/phast-logo.png}} ;
+
+\draw (MESRI.south) + (0,-.75) node [below right] (UCBL) {\includegraphics[height=1.2 cm, keepaspectratio]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/logos/Planche_UdL_LogoLyon1Sig_CoulCmjnVecto-eps-converted-to.pdf}} ;
+
+\draw (PHAST.south) + (0,-.75) node [below] (CNRS) {\includegraphics[height=1.2 cm, keepaspectratio]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/logos/IN2P3-B_SignV_bleu-eps-converted-to.pdf}} ;
+
+\draw (UCBL.south) + (0,-.75) node [below] (CERN) {\includegraphics[height=1.2 cm, keepaspectratio]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/logos/CERN-logo.jpg}} ;
+
+\end{tikzpicture}
+\end{center}
 \end{frame}
