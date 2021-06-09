@@ -27,10 +27,16 @@ Ces distributions montrent un bon accord entre données observées et estimation
 %\item de la quantité de jets issus de quarks~\quarkb;
 \item du nombre de vertex d'empilement \Npu.
 \end{itemize}
-Les membres du groupe de l'analyse MSSM \HAtoTauTau\ 
-ont récemment été mis au courant des écarts observés
-et de plus amples investigations sont prévues.
-Ci-après, les pistes envisagées sont présentées.
+%Les membres du groupe de l'analyse MSSM \HAtoTauTau\ 
+%ont récemment été mis au courant des écarts observés
+%et de plus amples investigations ont été menées.
+%Ci-après, les pistes envisagées sont présentées.
+\begin{wrapfigure}{R}{.5\textwidth}
+\centering
+\includegraphics[width=.45\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/correlations_studies/2D_histo-predictions-leading_tau_eta_reco.pdf}
+\caption[Distribution de $\abs{\eta}(\tauh)$ en fonction de \mml.]{Distribution de $\abs{\eta}(\tauh)$ en fonction de \mml.}
+\label{fig-2D_histo-predictions-leading_tau_eta_reco}
+\end{wrapfigure}
 \paragraph{Pseudo-rapidités des \tauh}
 L'écart observé pourrait être réduit
 en utilisant des \fakefactors\ dépendants de $\eta(\tauh)$,
@@ -40,13 +46,24 @@ la distance $\Delta R$ entre les deux éléments du dilepton
 montrent également des écarts entre
 données observées et estimation des bruits de fond,
 potentiellement dus à ceux sur $\eta(\tauh)$.
-L'effet attendu sur
-la variable discriminante \mTtot\ 
-est faible,
-cette dernière étant fonction d'impulsions transverses et d'angles azimutaux.
-Une étude plus approfondie sur la corrélation de \mTtot\ avec $\eta(\tauh)$
-ainsi que l'effet de l'utilisation de \fakefactors\ dépendants de $\eta(\tauh)$ sur les distributions de \mTtot\
-permettrait de quantifier cet effet.
+\par
+L'écart sur $\eta(\tauh)$ pourrait avoir un effet sur \mTtot,
+cette dernière étant fonction d'impulsions transverses et d'angles azimutaux,
+car la projection des impulsions dans le plan transverse,
+\begin{equation}
+\pT = \frac{p}{\cosh \eta}
+\mend[,]
+\end{equation}
+fait intervenir $\eta(\tauh)$.
+Cependant, les modélisations des impulsions transverses et des angles azimutaux sont satisfaisantes.
+Les valeurs de \mTtot\ ne sont donc pas affectées par la mauvaise modélisation de $\eta(\tauh)$.
+\par
+Le réseau de neurones B" utilisé afin d'obtenir \mml, présenté au chapitre~\refChML, exploite les valeurs de $\eta(\tauh)$.
+La figure~\ref{fig-2D_histo-predictions-leading_tau_eta_reco} montre la distribution de $\abs{\eta}(\tauh)$ en fonction de \mml.
+Bien que les hautes valeurs de $\abs{\eta}(\tauh)$ soient moins représentées à haute \mml,
+ce qui peut s'expliquer par l'effet de la projection mentionnée précédemment,
+aucune corrélation n'apparaît entre $\abs{\eta}(\tauh)$ et \mml.
+Les valeurs de \mml\ ne semblent donc pas affectées par la mauvaise modélisation de $\eta(\tauh)$.
 \paragraph{Nombre de vertex d'empilement}
 %Les distributions de \Npu\
 %montrent un mauvais accord entre données observées et estimations des bruits de fond.
@@ -54,19 +71,37 @@ L'effet de la mauvaise modélisation de \Npu\ constatée dans les distributions 
 devrait être marginal sur \mTtot,
 car cette observable ne dépend pas de \Npu.
 Les autres sources d'incertitudes sur \mTtot\ permettent alors de couvrir cet effet.
+\par
 Les valeurs de \mml, \ie\ des prédictions du réseau de neurones présenté au chapitre~\refChML,
 dépendent de \Npu.
 Les bons accords
 entre observations et estimations des bruits de fond
 obtenus sur les distributions de \mml\
 montrent que cette observable semble peu affectée par la mauvaise modélisation de \Npu.
+%\par
+La figure~\ref{fig-PU_vars_effect} confirme cette hypothèse.
+Elle représente l'évolution de la réponse du réseau de neurones,
+à basse, moyenne et haute masse ainsi que sur toute la gamme de masse, ces ensembles étant définis au chapitre~\refChML,
+lorsque les valeurs de \Npu\ sont modifiées selon
+\begin{equation}
+\Npu \to \Npu + \Delta\Npu
+\end{equation}
+avec $\Delta\Npu$ compris entre $-5$ et $+5$.
+Les modifications induites sur la réponse du réseau de neurones sont inférieures à \SI{1}{\%} alors que sa résolution relative est de l'ordre de \SI{20}{\%}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=.9\textwidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/correlations_studies/PU_vars_effect.pdf}
+\caption[Variations de la réponse du réseau de neurones en fonction de $\Delta\Npu$.]{Variations de la réponse du réseau de neurones en fonction de $\Delta\Npu$ à basse, moyenne et haute masse ainsi que sur toute la gamme de masse. La résolution à $\pm1\sigma$ est renseignée par les barres verticales.}
+\label{fig-PU_vars_effect}
+\end{figure}
+\par
 Ainsi,
 l'effet limité de \Npu\ sur les variables discriminantes utilisées
 permet de conserver des résultats finaux pertinents
 bien que l'écart sur \Npu\
 entre observations et estimations des bruits de fond
 puisse être de l'ordre de \SI{40}{\%}.
-Plusieurs effets peuvent causer un tel écart sur les distributions de \Npu:
+Plusieurs effets peuvent causer cet écart sur \Npu:
 \subparagraph{Modélisation des \HLTpaths\ dans les données encapsulées}
 Les données encapsulées,
 introduites dans le chapitre~\refChHTT,
