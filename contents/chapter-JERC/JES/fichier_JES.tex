@@ -189,14 +189,17 @@ Afin d'éviter ces effets, tout événement est rejeté s'il comporte un jet sé
 %    Please note that for analyses comparing data to simulation or otherwise relying heavily on simulation, it may be necessary to use the filtering also for MC processing for ensuring avoiding any biases due to angular dependencies etc. In these cases the same data-based filter should be used for data and MC. The maps labelled 'mc' (=pythia) or 'hw' (=herwig) in the JECDatabase are for expert studies only. 
 \paragraph{Sélection sur le chemin de déclenchement}
 Comme expliqué dans le chapitre~\refChLHCCMS, un événement observé par le détecteur CMS est sauvegardé si un chemin de déclenchement (HLT \emph{path}) est activé.
-Dans cette analyse, seuls les événements dont le photon servant d'objet de référence pour la calibration des jets correspond à celui ayant activé le \HLTpath\ pour cet événement sont retenus.
-Or, plus l'impulsion transverse du photon est faible, plus le nombre d'événements pouvant être sauvegardés est importante, si bien que la chaîne d'acquisition arrive à saturation.
-Pour pallier cela, il existe différents \HLTpaths\ en fonction de l'impulsion transverse du photon et pour chacun d'entre eux, seule une fraction des événements les déclenchant est effectivement sauvegardée.
-Cette fraction est nommée \emph{prescale}.
+Dans cette analyse, seuls les événements dont le photon servant d'objet de référence pour la calibration des jets correspond à celui ayant activé le \HLTpath\ 
+%pour cet événement
+sont retenus.
+Or, plus l'impulsion transverse du photon $\pT^{\photon}$ est faible, plus le nombre d'événements pouvant être sauvegardés est importante, si bien que la chaîne d'acquisition arrive à saturation.
+Pour pallier cela, il existe différents \HLTpaths\ selon $\pT^{\photon}$. Pour chacun d'entre eux, seule une fraction des événements les déclenchant est sauvegardée,
+déterminée par le nombre d'événements observés pour un sauvegardé ou \og \emph{prescale} \fg.
+Un \emph{prescale} de \num{100} signifie qu'un événement sur \num{100} est enregistré.
 %À chaque \HLTpath\ correspond ainsi un \emph{prescale}.
-Un intervalle d'impulsion transverse du photon retenu est alors défini pour chaque \HLTpath\ utilisé afin de se placer à son plateau d'efficacité.
+Un intervalle en $\pT$ du photon retenu est défini pour chaque \HLTpath\ utilisé afin de se placer à son plateau d'efficacité.
 Le tableau~\ref{tab-HLT_pT_precales_18_and_17UL} résume ces intervalles et \emph{prescales}.
-Par exemple, un photon d'impulsion transverse \SI{95}{\GeV} doit avoir activé le chemin nommé \inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM}.
+Par exemple, un photon tel que $\pT^{\photon} = \SI{95}{\GeV}$ doit avoir activé le chemin nommé \inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM}.
 \begin{table}[h]
 \centering
 \begin{tabular}{lccc}
@@ -210,12 +213,19 @@ Par exemple, un photon d'impulsion transverse \SI{95}{\GeV} doit avoir activé l
 %\inlinecode{python}{HLT_Photon120_R9Id90_HE10_IsoM} & $[\num{130}, \num{175}[$ & \num{0.125036122867} & \num{0.18787162142132302} \\
 %\inlinecode{python}{HLT_Photon165_R9Id90_HE10_IsoM} & $[\num{175}, \num{230}[$ & \num{0.250030962458} & \num{0.6823580953102895} \\
 %\inlinecode{python}{HLT_Photon200} & $[\num{230}, +\infty$ & \num{1} & \num{1} \\
-\inlinecode{python}{HLT_Photon33} & $[\num{40}, \num{60}[$ & \num{4.01154e-5} & \num{3.43486e-4} \\
-\inlinecode{python}{HLT_Photon50_R9Id90_HE10_IsoM} & $[\num{60}, \num{85}[$ & \num{3.94737e-3} & \num{7.40466e-3} \\
-\inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM} & $[\num{85}, \num{105}[$ & \num{0.0156656} & \num{0.0319552} \\
-\inlinecode{python}{HLT_Photon90_R9Id90_HE10_IsoM} & $[\num{105}, \num{130}[$ & \num{0.0312900} & \num{0.0636323} \\
-\inlinecode{python}{HLT_Photon120_R9Id90_HE10_IsoM} & $[\num{130}, \num{175}[$ & \num{0.125036} & \num{0.187872} \\
-\inlinecode{python}{HLT_Photon165_R9Id90_HE10_IsoM} & $[\num{175}, \num{230}[$ & \num{0.250031} & \num{0.682358} \\
+% \inlinecode{python}{HLT_Photon33} & $[\num{40}, \num{60}[$ & \num{4.01154e-5} & \num{3.43486e-4} \\
+% \inlinecode{python}{HLT_Photon50_R9Id90_HE10_IsoM} & $[\num{60}, \num{85}[$ & \num{3.94737e-3} & \num{7.40466e-3} \\
+% \inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM} & $[\num{85}, \num{105}[$ & \num{0.0156656} & \num{0.0319552} \\
+% \inlinecode{python}{HLT_Photon90_R9Id90_HE10_IsoM} & $[\num{105}, \num{130}[$ & \num{0.0312900} & \num{0.0636323} \\
+% \inlinecode{python}{HLT_Photon120_R9Id90_HE10_IsoM} & $[\num{130}, \num{175}[$ & \num{0.125036} & \num{0.187872} \\
+% \inlinecode{python}{HLT_Photon165_R9Id90_HE10_IsoM} & $[\num{175}, \num{230}[$ & \num{0.250031} & \num{0.682358} \\
+% \inlinecode{python}{HLT_Photon200} & $[\num{230}, +\infty [$ & \num{1} & \num{1} \\
+\inlinecode{python}{HLT_Photon33} & $[\num{40}, \num{60}[$ & \num{24928.1} & \num{2911.33} \\
+\inlinecode{python}{HLT_Photon50_R9Id90_HE10_IsoM} & $[\num{60}, \num{85}[$ & \num{253.333} & \num{135.050} \\
+\inlinecode{python}{HLT_Photon75_R9Id90_HE10_IsoM} & $[\num{85}, \num{105}[$ & \num{63.8340} & \num{31.2939} \\
+\inlinecode{python}{HLT_Photon90_R9Id90_HE10_IsoM} & $[\num{105}, \num{130}[$ & \num{31.9591} & \num{15.7153} \\
+\inlinecode{python}{HLT_Photon120_R9Id90_HE10_IsoM} & $[\num{130}, \num{175}[$ & \num{8} & \num{5.32278} \\
+\inlinecode{python}{HLT_Photon165_R9Id90_HE10_IsoM} & $[\num{175}, \num{230}[$ & \num{4} & \num{1.46551} \\
 \inlinecode{python}{HLT_Photon200} & $[\num{230}, +\infty [$ & \num{1} & \num{1} \\
 \bottomrule
 \end{tabular}
