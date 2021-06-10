@@ -81,7 +81,7 @@ on the 2017 era.
 
 \begin{frame}
 
-\manip Visible in other categories too. But here, the \SVFIT\ mass is above \SI{250}{\GeV} and our model sees a \Zboson\ signal!
+\manip Visible in other categories too. But here, \tikzmarknode{the}{NODEthe} \SVFIT\ mass is above \SI{250}{\GeV} and our model sees a \Zboson\ \tikzmarknode{signal}{NODEsignal}!
 \vphantom{\colorbox{ltcolorgreen2}{\ftauhs}}
 
 \begin{minipage}[c]{.49\textwidth}
@@ -124,6 +124,14 @@ on the 2017 era.
 \fill [thick, ltcolorgreen, opacity=.5] (D) ellipse (.4 and .5);
 \draw [thick, ltcolorgreen4] (D) ellipse (.4 and .5);
 \draw [ltcolorgreen4] (D) node {fakes};
+
+\only<2>{
+\draw [thick, ltcolorred] (B) ellipse (.5 and .5);
+\draw [ultra thick, ltcolorred, latex-] (B)+(75:.5) --+ (75:2);
+\draw (NODEthe.south west)+(-.1,-.1) coordinate (ll);
+\draw (NODEsignal.north east)+(.1,.1) coordinate (ur);
+\draw [very thick, ltcolorred] (ll) rectangle (ur);
+}
 \end{tikzpicture}
 
 \vspace{-5pt}
