@@ -25,7 +25,11 @@
 \fill [white, blur shadow={shadow blur steps=5}, rounded corners = 3pt] (#2)+(#1/2+#4-#1/4, #1/2-#1/4) rectangle  +(- #1/2 +#4-#1/4, - #1/2-#1/4);
 \begin{scope}
 \clip [rounded corners = 3pt] (#2)+(#1/2+#4-#1/4, #1/2-#1/4) rectangle  +(- #1/2 +#4-#1/4, - #1/2-#1/4);
-\draw (#2)+(#4 -#1/4, -#1/4) node {\includegraphics[height= #1 cm, width= #1 cm, keepaspectratio]{#3}} ;
+\ifthenelse{\equal{#3}{CMS_logo.pdf}}{
+\draw (#2)+(#4 -#1/4, -#1/4) node {\includegraphics[height= #1 cm, width= #1 cm, keepaspectratio, trim = 2mm 2mm 2mm 2mm, clip]{\PhDthesisdir/plots_and_images/logos/#3}} ;
+}{
+\draw (#2)+(#4 -#1/4, -#1/4) node {\includegraphics[height= #1 cm, width= #1 cm, keepaspectratio]{\PhDthesisdir/plots_and_images/logos/#3}} ;
+}
 \end{scope}
 \foreach \txt in {#5}{
 \draw (tmp.west) + (0,-\baselineskip) node [right, text depth=0pt] (tmp) {\submanip \txt \vphantom{Àq}};
@@ -41,23 +45,23 @@
 \begin{tikzpicture}[overlay]
 
 \draw (-1,4.25) coordinate (IP2I);
-\drawCARD{IP2I}{\PhDthesisdir/plots_and_images/logos/logo_IP2I.pdf}{4}{Colin,{Gaël, Ece},Hugues,{Aurélien, Antoine L.},{Jean-François, Grégoire},{Corentin, Martin},autres doctorants,groupe CMS,Antoine C.,personnels}
+\drawCARD{IP2I}{logo_IP2I.pdf}{4}{Colin,{Gaël, Ece},Hugues,{Aurélien, Antoine L.},{Jean-François, Grégoire},{Corentin, Martin},autres doctorants,groupe CMS,Antoine C.,personnels}
 
 \draw (bottom) coordinate (CMS);
 
 \draw (right) coordinate (KIT);
-\drawCARD{KIT}{\PhDthesisdir/plots_and_images/logos/KIT.png}{4}{{Günter, Roger},Artur,{Sebastian B., Maximilian}, Sebastian W., Janek, Felix}
+\drawCARD{KIT}{KIT.png}{4}{{Günter, Roger},Artur,{Sebastian B., Maximilian}, Sebastian W., Janek, Felix}
 
 \draw (bottom) coordinate (IC);
-\drawCARD{IC}{\PhDthesisdir/plots_and_images/logos/IC.jpg}{4}{Daniel,David,Georges}
+\drawCARD{IC}{IC.jpg}{4}{Daniel,David,Georges}
 
 \draw (bottom) coordinate (DESY);
-\drawCARD{DESY}{\PhDthesisdir/plots_and_images/logos/DESY.png}{4}{Aleksei,Mareike}
+\drawCARD{DESY}{DESY.png}{4}{Aleksei,Mareike}
 
 \draw (bottom) coordinate (HEPHY);
-\drawCARD{HEPHY}{\PhDthesisdir/plots_and_images/logos/HEPHY-crop.png}{4}{Janik,Suman}
+\drawCARD{HEPHY}{HEPHY-crop.png}{4}{Janik,Suman}
 
-\drawCARD{CMS}{\PhDthesisdir/plots_and_images/logos/CMS_logo.pdf}{4}{équipe des guides,Jacob,Jean,Giuseppe,Juska,Yi,Mikko}
+\drawCARD{CMS}{CMS_logo.pdf}{4}{équipe des guides,Jacob,Jean,Giuseppe,Juska,Yi,Mikko}
 
 \draw (-4.5,2.25) node (MESRI) {\includegraphics[height=1.2 cm, keepaspectratio]{\PhDthesisdir/plots_and_images/logos/ES-R-I_horizontal.pdf}} ;
 
