@@ -1,3 +1,12 @@
+\def\backupslinklabel#1{\label{backups-#1}}
+\def\backupslinkref#1#2{#2~\hyperlink{backups-#1}{\beamerskipbutton{slide~\ref{backups-#1}}}}
+
+\begin{frame}[label=backups]
+
+\backupslinkref{histos}{Histograms}
+
+
+\end{frame}
 
 \begin{frame}
 \todo{JERC}
