@@ -1,0 +1,55 @@
+\begin{tikzpicture}
+\def\JMEfigH{2.5}
+\def\JMEfigW{3.25}
+\def\JMEfigdW{.4}
+\def\JMEfigsW{.125}
+
+\def\deltaX{0}
+
+\fill [ltcolorblue2] (0,0) -- (0,\JMEfigH) -- (\JMEfigW-\JMEfigdW,\JMEfigH) -- (\JMEfigW,\JMEfigH/2) -- (\JMEfigW-\JMEfigdW,0) ;
+
+\draw (0, \JMEfigH/2) node [above right] {\bfseries Reconstructed} node [below right] {\bfseries Jets};
+
+\def\deltaX{\JMEfigW+\JMEfigsW-\JMEfigdW}
+
+\fill [ltcolorviolet2] (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW-2*\JMEfigdW,\JMEfigH);
+\fill [ltcolorviolet3] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW-2*\JMEfigdW,0);
+
+\draw (\deltaX+\JMEfigW/2-\JMEfigdW, \JMEfigH) node [below] {\bfseries Pileup};
+\draw (\deltaX+\JMEfigW/2-\JMEfigdW/2, \JMEfigH/2) node [above] {MC+RC};
+\draw (\deltaX+\JMEfigW/2-\JMEfigdW/2, \JMEfigH/4) node {MC};
+
+\def\deltaX{2*\JMEfigW+2*\JMEfigsW-3*\JMEfigdW}
+
+\fill [ltcolorred2] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigW,\JMEfigH) -- (\deltaX+\JMEfigW+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,0);
+
+\draw (\deltaX+\JMEfigW/2, \JMEfigH) node [below] {\bfseries \, Response $(\pT,\eta)$};
+\draw (\deltaX+\JMEfigW/2+\JMEfigdW, \JMEfigH/2) node {MC};
+
+\def\deltaX{3*\JMEfigW+3*\JMEfigsW-3*\JMEfigdW}
+
+\fill [ltcolororange2] (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH);
+\fill [ltcolororange1] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,0);
+
+\draw (\deltaX+\JMEfigW/2-\JMEfigdW/2, \JMEfigH) node [below] {\bfseries Residuals $(\eta)$};
+\draw (\deltaX+\JMEfigW/2+\JMEfigdW/2, \JMEfigH/2) node [above] {dijet};
+
+\def\deltaX{4*\JMEfigW+4*\JMEfigsW-4*\JMEfigdW}
+
+\fill [ltcolororange2] (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,\JMEfigH);
+\fill [ltcolororange1] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,\JMEfigH/2) -- (\deltaX+\JMEfigW-\JMEfigdW,0);
+
+\draw (\deltaX+\JMEfigW/2-\JMEfigdW/2, \JMEfigH) node [below] {\bfseries \, Residuals $(\pT)$};
+\draw (\deltaX+\JMEfigW/2+\JMEfigdW/2, \JMEfigH/2) node [above] {\!\photon/\Zboson+jet, MJB};
+
+\def\deltaX{6*\JMEfigW+6*\JMEfigsW-5*\JMEfigdW-\JMEfigW/2}
+
+\fill [ltcolorgreen2] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+4*\JMEfigW/5,\JMEfigH) -- (\deltaX+4*\JMEfigW/5,0);
+\draw (\deltaX+4*\JMEfigW/5, \JMEfigH/2) node [above left] {\bfseries Calibrated} node [below left] {\bfseries Jets};
+
+\draw (\JMEfigW,\JMEfigH) node [above right] {\color{ltcolororange}\bfseries\large Applied to data} ;
+\draw [thick, ltcolororange, -latex] (\JMEfigW+3.8,\JMEfigH + .3) -- (3*\JMEfigW+\JMEfigdW,\JMEfigH + .3);
+\draw (\JMEfigW,0) node [below right] {\color{ltcolorblue}\bfseries\large Applied to simulation} ;
+\draw [thick, ltcolorblue, -latex] (\JMEfigW+4.8,-.3) -- (3*\JMEfigW+\JMEfigdW,-.3);
+
+\end{tikzpicture}
