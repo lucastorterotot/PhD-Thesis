@@ -1,78 +1,5 @@
 \begin{frame}
-\frametitle{Neutrinos and missing transverse energy (MET)}
-
-\begin{minipage}[c]{.5\textwidth}
-\begin{center}
-$(\bvec_x, \bvec_y)$ = transverse plane ($\eta=0$)
-
-{\tdplotsetmaincoords{70}{115}
-\tdplotsetrotatedcoords{-90}{-90}{-90}
-\begin{tikzpicture}[tdplot_rotated_coords,scale=1]
-%% base
-\draw [->] (0,0,-3)--(0,0,3) node[above] {$\bvec_z$};
-
-%% CMS barrel
-\draw (0,0,-2.1) circle (1.5);
-\draw (0,0,2.1) circle (1.5);
-\def\CMSphiangle{70}
-\draw ({1.5*cos(\CMSphiangle)},{1.5*sin(\CMSphiangle)},-2.1) --+(0,0,2.1);
-\draw ({1.5*cos(180+\CMSphiangle)},{1.5*sin(180+\CMSphiangle)},-2.1) --+(0,0,2.1);
-
-%% beam
-\draw [ltcolorred, very thick, -latex] (0,0,-2)--(0,0,0);
-
-%% Transverse plane
-\fill [ltcolorblue1] (-2, -2, 0) -- (-2, 2, 0) -- (2, 2, 0) -- (2, -2, 0) -- cycle;
-
-%% base
-\draw [->] (0,0,0)--(1,0,0) node[above] {$\bvec_x$};
-\draw [->] (0,0,0)--(0,1,0) node[above] {$\bvec_y$};
-
-%% vertex primaire
-\fill [ltcolororange] (0,0,0) circle (2pt);
-
-%% CMS barrel
-\draw [dotted] ({1.5*cos(\CMSphiangle)},{1.5*sin(\CMSphiangle)},-2.1) --+(0,0,2.1);
-\draw [dotted] ({1.5*cos(180+\CMSphiangle)},{1.5*sin(180+\CMSphiangle)},-2.1) --+(0,0,2.1);
-\draw ({1.5*cos(\CMSphiangle)},{1.5*sin(\CMSphiangle)},0) --+(0,0,2.1);
-\draw ({1.5*cos(180+\CMSphiangle)},{1.5*sin(180+\CMSphiangle)},0) --+(0,0,2.1);
-
-%% beam
-\draw [dotted] [ltcolorred, very thick, -latex] (0,0,-2)--(0,0,0);
-\draw [ltcolorred, very thick, -latex] (0,0,2)--(0,0,0);
-
-\end{tikzpicture}}
-\end{center}
-\begin{equation*}
-\text{Conserved momentum:}
-\! \sum_\text{initial state} \vpT = \! \sum_\text{final state} \vpT = \vec{0}
-\end{equation*}
-\end{minipage}
-\hfill
-\begin{minipage}[c]{.45\textwidth}
-\begin{center}
-\begin{tikzpicture}
-
-\clip (-\graphw/2,-\graphh/2.1) rectangle (\graphw/2,\graphh/2.1);
-
-\drawCMS
-
-%% base
-\draw [->] (0,0)--(1,0) node[above] {$\bvec_x$};
-\draw [->] (0,0)--(0,1) node[above] {$\bvec_y$};
-
-\printbigjetdeposit{9}{50}
-\printbigjetnolabel{9}{50}
-
-%\draw [thick, -latex, ltcolorviolet] (0,0)--+(-130:{(0.25*\HCALrout+0.75*\HCALrin)}) node [below] {\vMET};
-\end{tikzpicture}
-\end{center}
-\end{minipage}
-
-\end{frame}
-
-\begin{frame}\addtocounter{framenumber}{-1}
-\frametitle{Neutrinos and missing transverse energy (MET)}
+\frametitle{Conserved momentum and neutrinos: missing transverse energy (MET)}
 
 \begin{minipage}[c]{.5\textwidth}
 \begin{center}
@@ -119,9 +46,9 @@ $(\bvec_x, \bvec_y)$ = transverse plane ($\eta=0$)
 \end{tikzpicture}}
 \end{center}
 \begin{equation*}
-\sum_\text{final state} \vpT = \vec{0}
+\! \sum_\text{final state} \!\! \vpT = \!\! \sum_\text{initial state} \!\! \vpT = \vec{0}
 \Rightarrow
-\boxed{\vMET = - \!\! \sum_\text{visible particles} \!\! \vpT}
+\boxed{\vMET = - \!\!\!\!\! \sum_\text{visible particles} \!\!\!\!\! \vpT}
 \end{equation*}
 \end{minipage}
 \hfill
@@ -140,10 +67,14 @@ $(\bvec_x, \bvec_y)$ = transverse plane ($\eta=0$)
 \printbigjetdeposit{9}{50}
 \printbigjetnolabel{9}{50}
 
-
+\only<2>{
 \draw [thick, -latex, ltcolorviolet] (0,0)--+(-130:{(0.25*\HCALrout+0.75*\HCALrin)}) node [below] {\vMET};
+}
 \end{tikzpicture}
 \end{center}
 \end{minipage}
 
+\begin{tikzpicture}[overlay, remember picture]
+\only<1>{\fill [white] (.25\textwidth,0) rectangle (.51\textwidth, .2\textheight);}
+\end{tikzpicture}
 \end{frame}
