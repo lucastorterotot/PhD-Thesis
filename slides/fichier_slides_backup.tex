@@ -1,21 +1,22 @@
 \def\backupslinklabel#1{\label{backups-#1}}
-\def\backupslinkref#1#2{#2~\hyperlink{backups-#1}{\beamerskipbutton{slide~\ref{backups-#1}}}}
+\def\backupslinkref#1#2{\submanip #2~\hyperlink{backups-#1}{\beamerskipbutton{slide~\ref{backups-#1}}}}
 
 \begin{frame}[label=backups]
 
-\todo{link SM, 2HDM, MSSM ?}
-
+\manip Phenomenology:
+\backupslinkref{pheno}{SM, SUSY, 2HDM, $\tan\beta$}
 \backupslinkref{histos}{How histograms unveil particles}
 
-\backupslinkref{JEC}{Jet energy calibration with \Gjets\ events}
+\manip JERC with \Gjets\ events:
+\backupslinkref{JEC}{Jet energy calibration}
+\backupslinkref{JER}{Jet energy resolution}
 
-\backupslinkref{JER}{Jet energy resolution with \Gjets\ events}
-
+\manip MSSM \HAtoTauTau:
 \backupslinkref{trgeffs}{Triggers in the \tauh\tauh\ channel}
-
 \backupslinkref{subleadingFtauh}{\Fakefactors\ for subleading \tauh}
 
-\todo{custom loss}
+\manip Machine Learning:
+\backupslinkref{custom_loss}{Custom loss function for the DNN}
 
 \end{frame}
 
@@ -140,3 +141,5 @@
 \draw (.7\textwidth, .35\textheight) node {\CATbtag};
 \end{tikzpicture}
 \end{frame}
+
+\input{/home/torterotot/Documents/PhD-Thesis/slides/ML/custom_loss/fichier_slides_custom_loss.tex}
