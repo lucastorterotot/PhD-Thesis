@@ -39,3 +39,100 @@
 
 \subsection*{Why histograms}
 \input{\PhDthesisdir/slides/HTT_analysis/histograms_explained/histograms_explained.tex}
+
+\input{\PhDthesisdir/slides/JERC/fichier_slides_JERC.tex}
+
+\subsection*{Triggers efficiencies}
+\begin{frame}
+\backupslinklabel{trgeffs}
+\frametitle{Triggers in the \tauh\tauh\ channel}
+
+\begin{minipage}[c]{.45\textwidth}
+\manip In the manuscript: page 118, formula (4.5)
+\begin{align*}
+\epsilon &=
+{\color{ltcolorblue}\epsilon(2\tauh) + \epsilon(\tauh1) + \epsilon(\tauh2)}
+\nonumber\\ & \hphantom{=}
+{\color{ltcolorgreen}- \epsilon(2\tauh + \tauh1) - \epsilon(2\tauh + \tauh1) - \epsilon(\tauh1+\tauh2)}
+\nonumber\\ & \hphantom{=}
+{\color{ltcolorred}+ \epsilon(2\tauh + \tauh1 + \tauh2)}
+\end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.45\textwidth}
+\begin{center}
+\begin{tikzpicture}
+\def\rcircle{1.5}
+\def\overlappct{.6}
+
+\fill [ltcolorblue2] (-90:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorblue2] (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorblue2] (-90-120:\overlappct*\rcircle) circle (\rcircle);
+
+\begin{scope}
+\clip (-90:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90-120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorgreen2] (-90:\overlappct*\rcircle) circle (\rcircle);
+\end{scope}
+
+\begin{scope}
+\clip (-90:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorgreen2] (-90:\overlappct*\rcircle) circle (\rcircle);
+\end{scope}
+
+\begin{scope}
+\clip (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90-120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorgreen2] (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\end{scope}
+
+\begin{scope}
+\clip (-90:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\clip (-90-120:\overlappct*\rcircle) circle (\rcircle);
+\fill [ltcolorred2] (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\end{scope}
+
+\draw (-90:\overlappct*\rcircle) circle (\rcircle);
+\draw (-90+120:\overlappct*\rcircle) circle (\rcircle);
+\draw (-90-120:\overlappct*\rcircle) circle (\rcircle);
+
+\draw (-90:\overlappct*\rcircle+.5*\rcircle) node {2\tauh} ;
+\draw (-90+120:\overlappct*\rcircle+.5*\rcircle) node {\tauh2} ;
+\draw (-90-120:\overlappct*\rcircle+.5*\rcircle) node {\tau1} ;
+
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\end{frame}
+
+\subsection*{Subleading \ftauh}
+\begin{frame}
+\backupslinklabel{subleadingFtauh}
+\frametitle{\Fakefactors\ for subleading \tauh}
+
+\manip The \tauh\tauh\ \fakefactors\ are measured for the leading \tauh\ candidate only.
+\submanip The subleading one can be either a genuine or fake \tauh.
+
+\manip At this point, underestimation of events in which only the subleading \tauh\ is a fake.
+\submanip Adding these back using MC.
+
+\manip Small fraction of fakes $<\SI{10}{\%}$ in \CATnobtag, $<\SI{30}{\%}$ in \CATbtag\ (due to \ttbar):
+
+~\hfill
+\includegraphics[width=.35\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/from_CMS-NOTE-2020-218/wFakes_over_jetFakes_nobtag.pdf}
+\hfill
+\includegraphics[width=.35\textwidth]{/home/torterotot/Documents/PhD-Thesis/plots_and_images/from_CMS-NOTE-2020-218/wFakes_over_jetFakes_btag.pdf}
+\hfill~
+
+\vspace{-5pt}
+
+\beamercite{CMS-NOTE-2020-218}
+
+\begin{tikzpicture}[overlay, remember picture]
+\draw (.2\textwidth, .35\textheight) node {\CATnobtag};
+\draw (.7\textwidth, .35\textheight) node {\CATbtag};
+\end{tikzpicture}
+\end{frame}
