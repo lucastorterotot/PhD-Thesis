@@ -63,17 +63,21 @@
 
 \begin{minipage}[c]{.49\textwidth}
 \begin{center}
-\only<1-6>{\plotHTTModelIndepLimits{mssm_classic}{combined}{ggH}{_cmb}}
-\only<7->{\plotHTTModelIndepLimits{mssm_classic}{combined}{ggH}{_cmb_vs_CMS_ATLAS}}
+\only<1-5>{\plotHTTModelIndepLimits{mssm_classic}{combined}{ggH}{_cmb}}
+\only<6->{\plotHTTModelIndepLimits{mssm_classic}{combined}{ggH}{_cmb_vs_CMS_ATLAS}}
 \end{center}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{.49\textwidth}
-\begin{center}
-\only<2-5>{\plotHTTshapes{mt_tot}{mssm_classic}{2018}{tt}{32}{prefit}}
-\only<6>{\plotHTTModelIndepLimits{mssm_classic}{combined}{bbH}{_cmb}}
-\only<7->{\plotHTTModelIndepLimits{mssm_classic}{combined}{bbH}{_cmb_vs_CMS_ATLAS}}
-\end{center}
+\only<2-5>{\begin{center}
+\plotHTTshapes{mt_tot}{mssm_classic}{2018}{tt}{32}{prefit}
+\end{center}}
+\only<6->{
+\manip CMS 2016:
+\beamerlocalcite{CMS-PAS-HIG-17-020}
+\manip ATLAS Run~II:
+\beamerlocalcite{ATLAS-MSSM-HTT_2020}
+}
 \end{minipage}
 
 \begin{tikzpicture}[overlay, remember picture]
@@ -110,7 +114,7 @@
 \submanip Fix high-order MSSM parameter,
 \submanip Explore $(m_{\HiggsA},\tan\beta)$ plane,
 \submanip Do data stick more to SM or MSSM?}
-\only<2>{
+\only<2->{
 \begin{center}
 \includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/from_Nagashima_BSM/fig_1-9.tex}
 \end{center}
@@ -126,6 +130,11 @@
 \begin{tikzpicture}[overlay, remember picture]
 \draw [ltcolorred] (10.5,4) node {data = more SM-like} ;
 \draw [ltcolorred] (14,2.5) node {Can't tell} ;
+
+\only<2->{
+\draw [ltcolororange, ultra thick] (12.5, 1) ellipse (2.5 and .5);
+\draw [ltcolororange, ultra thick] (5.5, 3.6) ellipse (2 and .5);
+}
 \end{tikzpicture}
 
 \end{frame}
