@@ -10,7 +10,7 @@ Why do we \textbf{search for...}?
 \item Robust and predictive (top quark, \Wboson, \Zboson\ and one Higgs boson...)
 \item Still not good enough, unable to explain some observations such as:
 \begin{itemize}
-\item dark matter $\longrightarrow$
+\item dark matter \only<2>{$\longrightarrow$}
 \item matter vs antimatter asymmetry
 \item naturalness problem
 \item ...
@@ -22,11 +22,33 @@ Why do we \textbf{search for...}?
 \end{minipage}
 \hfill
 \begin{minipage}[c]{.45\textwidth}
-\begin{center}
+\only<2>{\begin{center}
+\vspace{\baselineskip}
+
 \includegraphics[width=.9\linewidth]{\PhDthesisdir/plots_and_images/from_Clowe_2006/bullet_cluster.png}
-\end{center}
+
+Difference due to \textbf{dark matter}!
+\end{center}}
 \end{minipage}
 \beamercite{Clowe_2006}
+
+\begin{tikzpicture}[overlay]
+\only<2>{
+\draw (.525\textwidth, .65\textheight) node (a) [above right] {Galaxies from:\vphantom{Àq}};
+\draw [ltcolorred] (a.east) node [right] (b) {visible matter\vphantom{Àq}};
+\draw [ltcolorgreen] (b.east) node [right] (c) {gravitational lensing\vphantom{Àq}};
+
+\draw (.75\textwidth, .45\textheight) coordinate (b1);
+\draw (.85\textwidth, .43\textheight) coordinate (b2);
+\draw (.7\textwidth, .325\textheight) coordinate (c1);
+\draw (.9\textwidth, .44\textheight) coordinate (c2);
+
+\draw [ltcolorred3, thick, -latex] (b) -- (b1);
+\draw [ltcolorred3, thick, -latex] (b) -- (b2);
+\draw [ltcolorgreen3, thick, -latex] (c) -- (c1);
+\draw [ltcolorgreen3, thick, -latex] (c) -- (c2);
+}
+\end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Keywords in title}
