@@ -39,6 +39,9 @@ on the 2017 era.
 
 \draw [ltcolorred] (B) node [right] {OK here};
 \draw [ltcolorred] (C) node [right] {more bkgs here};
+
+\draw [ltcolorred] (.775\textwidth, .7\textheight) node {\Large DNN's \mml} ;
+\draw [ltcolorred] (.25\textwidth, .7\textheight) node {\Large\mTtot} ;
 \end{tikzpicture}
 
 \vspace{-5pt}
@@ -210,6 +213,13 @@ on the 2017 era.
 \plotHTTshapes{m_sv}{cut_based_sm}{2017}{\tmpchannel}{\tmpcat}{prefit_linear}
 \hfill
 \plotHTTshapes{m_ml}{cut_based_sm}{2017}{\tmpchannel}{\tmpcat}{prefit_linear}
+
+\begin{tikzpicture}[overlay, remember picture]
+\draw [ltcolorred] (.75\textwidth, .7\textheight) node {\Large \mml} ;
+\draw [ltcolorred] (.2\textwidth, .7\textheight) node {\Large\msv} ;
+\end{tikzpicture}
+
+\vspace{-10pt}
 \end{frame}
 
 %\begin{frame}
