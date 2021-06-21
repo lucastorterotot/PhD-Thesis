@@ -52,66 +52,39 @@ Difference due to \textbf{dark matter}!
 \end{frame}
 
 \begin{frame}{Keywords in title}
-\only<2-4>{\transwipe[direction=270]}
 \begin{center}
 \small
 \begin{tikzpicture}
 \draw (0,0) node [below right] (t1) {Search for\vphantom{Àq}};
-\draw (t1.east) node (t2) [right] {\color{ltcolorcyan}\textbf{additional}\vphantom{Àq}};
-\draw (t2.east) node (t3) [right] {\color{ltcolormagenta}\textbf{heavy}\vphantom{Àq}};
-\draw (t3.east) node (t4) [right] {\color{ltcolorgreen}\textbf{Higgs bosons}\vphantom{Àq}};
-\draw (t4.east) node (t5) [right] {\color{ltcolororange}\textbf{decaying to tau lepton pair}\vphantom{Àq}};
-\draw (t5.east) node (t6) [right] {in the\vphantom{Àq}};
-\draw (t6.east) node (t7) [right] {\color{ltcolorred}\textbf{CMS experiment}\vphantom{Àq}};
-\draw (t7.east) node (t8) [right] {at\vphantom{Àq}};
-\draw (t8.east) node (t9) [right] {\color{ltcolorblue}\textbf{LHC}\vphantom{Àq}};
+\draw (t1.east) node (t2) [right] {\color{ltcolorblue}\textbf{additional heavy Higgs bosons decaying to tau lepton pair}\vphantom{Àq}};
+\draw (t2.east) node (t6) [right] {in the\vphantom{Àq}};
+\draw (t6.east) node (t7) [right] {\color{ltcolorred}\textbf{CMS experiment at LHC}\vphantom{Àq}};
 
 \only<2->{
-\draw [thick, -latex] (t4.south) --+ (0,-.5) node (l1) [below, text depth=0pt] {type of particle};
-\draw [thick, -latex] (l1.south) --+ (0,-.5) node (l2) [below, text depth=0pt] {why this one?};
-
-\draw [thick, -latex] (t3.south) --+ (-.75,-1.35) node (l4) [below, text depth=0pt] {heavier};
-\draw [thick, -latex] (l4.south) --+ (0,-.5) node (l5) [below, text depth=0pt] {not lighter?};
-
-\draw [thick, -latex] (t2.south) --+ (-1.25,-1) node (l6) [below, text depth=0pt] {already one!};
-\draw [thick, dashed, -latex] (l6.south) -- (l4.west);
-
-\draw [thick, -latex] (l5.south) --+ (0,-1) node (l3) [below] {Part~I\vphantom{Àq}};
-\draw [thick, -latex] (l2.south) -- (l3);
-\draw [thick, -latex] (l6.south) -- (l3);
+\draw [thick, ltcolorblue] (t2.south east) -- (t2.south west) ;
+\draw [thick, ltcolorblue, -latex] (t2.south) --+ (0,-1.5) node (l3) [below] {Part~I\vphantom{Àq}};
 \draw  (l3.south) node (l3bis) {\emph{Phenomenology}};
 }
 
 \only<3->{
-\draw  [thick, -latex] (t9.south) --+ (0,-.5) node (l8) [below] {gives "something"};
-\draw  (l8.south) node (l9) {to measure};
-
-\draw  [thick, -latex] (t7.south) --+ (0,-1.15) node (l7a) [below, text depth=0pt] {detector struture};
-\draw  [thick, -latex] (l7a.south) --+ (0,-.5) node (l7) [below, text depth=0pt] {measurements};
-\draw [thick, dashed, -latex] (l9.south) -- (l7.east);
-
-\draw (l7.south east) + (0,-1.2) node (l10) [below] {Part~II\vphantom{Àq}};
-\draw [thick, -latex] (l9.south) -- (l10);
-\draw [thick, -latex] (l7.south) -- (l10);
+\draw [thick, ltcolorred] (t7.south east) -- (t7.south west) ;
+\draw [thick, ltcolorred, -latex] (t7.south) --+ (0,-1.5) node (l10) [below] {Part~II\vphantom{Àq}};
 \draw  (l10.south) node (l10bis) {\emph{Experimental device}};
 }
 
-\only<2->{
-\draw [thick, -latex] (t5.south) --+ (0,-1.35) node (l11) [below, text depth=0pt] {why this case?};
-\draw [thick, -latex] (l11.south west) -- (l3);
-}
 \only<4->{
-\draw [thick, -latex] (l11.south) --+ (0,-1) node (l13) [below, text depth=0pt] {results?};
-\draw [thick, -latex] (l7) -- (l13);
-\draw [thick, -latex] (l13.south) --+ (0,-.5) node (l12) [below] {Part~III\vphantom{Àq}};
-\draw  (l12.south) node (l12bis) {\emph{\HAtoTauTau\ analysis}};
+\draw ($(l3)!0.5!(l10)$) coordinate (middle);
+\draw (middle) + (0, -1.5) node (l12) {Part~III\vphantom{Àq}};
+\draw (l12.south) node (l12bis) {\emph{\HAtoTauTau\ analysis}};
+\draw [thick, -latex] (l3bis) -- (l12.west) ;
+\draw [thick, -latex] (l10bis) -- (l12.east) ;
 }
 
 \only<5->{
-\draw (\textwidth/2,-.75\textheight) node [above] {+ Part~IV: \color{ltcolorviolet}\textbf{with machine learning techniques}};
+\draw (l12bis) + (0, -1.5) node {+ Part~IV: \color{ltcolorviolet}\textbf{with machine learning techniques}};
 }
 
-\draw (.99\textwidth,-.75\textheight) coordinate (a);
+\draw (.5\textwidth,-.75\textheight) coordinate (a);
 \end{tikzpicture}
 \end{center}
 \end{frame}
