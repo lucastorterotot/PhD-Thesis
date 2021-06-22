@@ -63,8 +63,8 @@
 \begin{block}{5 Higgs bosons}
 \begin{center}
 \begin{tabular}{lcc}
-light scalar & \higgs & SM or MSSM\\
-heavy scalar & \Higgs & MSSM or SM\\
+light scalar & \higgs & MSSM or SM\\
+heavy scalar & \Higgs & SM or MSSM\\
 pseudo-scalar & \HiggsA & MSSM\\
 $+$ charged & \Higgsplus & MSSM\\
 $-$ charged & \Higgsminus & MSSM
@@ -91,13 +91,21 @@ $m_{\HiggsA}$ and $\tan\beta$.
 \end{minipage}
 
 \begin{tikzpicture}[overlay]
-\draw [ltcolorviolet] (.85\textwidth, .2\textheight) node {SM Higgs = \higgs};
-\draw [ltcolorviolet] (.85\textwidth, .3\textheight) node {\small We are here!};
-\draw [ltcolorviolet] (.65\textwidth, .2\textheight) node {SM Higgs = \Higgs};
+\only<1>{
+\fill [white] (.5\textwidth, .01\textheight) rectangle (\textwidth, .99\textheight);
+}
+\only<3->{
 \draw [ltcolorred, ultra thick, opacity = .5] (.585\textwidth, .45\textheight) --+ (.36\textwidth, 0);
 \draw [ltcolorred] (.585\textwidth, .45\textheight) node [left] {\SI{125}{\GeV}};
+}
+\only<4->{
 \draw [ltcolorviolet, thick] (.745\textwidth, .6\textheight) --+ (0, -.4\textheight);
+\draw [ltcolorviolet] (.65\textwidth, .2\textheight) node {SM Higgs = \Higgs};
+\draw [ltcolorviolet] (.85\textwidth, .2\textheight) node {SM Higgs = \higgs};
+\draw [ltcolorviolet] (.85\textwidth, .3\textheight) node {\small We are here!};
+}
 \end{tikzpicture}
+\vspace{-10pt}
 \end{frame}
 
 %\begin{frame}
