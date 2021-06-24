@@ -10,24 +10,24 @@
 %\subsection*{NN training}
 \input{\PhDthesisdir/slides/ML/NN_training/fichier_NN_training.tex}
 
-\begin{frame}
-\begin{center}
-\input{\PhDthesisdir/plots_and_images/my_plots/ML/loss_training_Bsecond/fig-loss_history_EN-pyplot.pgf}
-\end{center}
-
-\begin{tikzpicture}[overlay, remember picture]
-%\draw [ltcolorred] (.125\textwidth, .75\textheight) node [rotate=30] {\textbf{The same plot in real life!}} ;
-
-\draw [ltcolorred] (.35\textwidth, .3\textheight) node (A) {\small Improvements by training} ;
-\draw (.45\textwidth, .45\textheight) coordinate (B);
-\draw [ltcolorred, thick, -latex] (A) to [out = 110, in = -165] (B);
-
-\draw [ltcolorred] (.65\textwidth, .65\textheight) node (A) {\small No more improvement on validation:} ;
-\draw [ltcolorred] (A.south) node [below] (A) {\small early stopping} ;
-\draw (.775\textwidth, .45\textheight) coordinate (B);
-\draw [ltcolorred, thick, -latex] (A.east) to [out = -15, in = 120] (B);
-\end{tikzpicture}
-\end{frame}
+%\begin{frame}
+%\begin{center}
+%\input{\PhDthesisdir/plots_and_images/my_plots/ML/loss_training_Bsecond/fig-loss_history_EN-pyplot.pgf}
+%\end{center}
+%
+%\begin{tikzpicture}[overlay, remember picture]
+%%\draw [ltcolorred] (.125\textwidth, .75\textheight) node [rotate=30] {\textbf{The same plot in real life!}} ;
+%
+%\draw [ltcolorred] (.35\textwidth, .3\textheight) node (A) {\small Improvements by training} ;
+%\draw (.45\textwidth, .45\textheight) coordinate (B);
+%\draw [ltcolorred, thick, -latex] (A) to [out = 110, in = -165] (B);
+%
+%\draw [ltcolorred] (.65\textwidth, .65\textheight) node (A) {\small No more improvement on validation:} ;
+%\draw [ltcolorred] (A.south) node [below] (A) {\small early stopping} ;
+%\draw (.775\textwidth, .45\textheight) coordinate (B);
+%\draw [ltcolorred, thick, -latex] (A.east) to [out = -15, in = 120] (B);
+%\end{tikzpicture}
+%\end{frame}
 
 \subsection*{DNN for HTT}
 \input{\PhDthesisdir/slides/ML/ML_for_HTT/ML_for_HTT.tex}
