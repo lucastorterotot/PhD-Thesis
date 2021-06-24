@@ -14,6 +14,7 @@
 \manip MSSM \HAtoTauTau:
 \backupslinkref{trgeffs}{Triggers in the \tauh\tauh\ channel}
 \backupslinkref{subleadingFtauh}{\Fakefactors\ for subleading \tauh}
+\backupslinkref{CPV}{$CP$ violation in the Higgs sector}
 
 \manip Machine Learning:
 \backupslinkref{custom_loss}{Custom loss function for the DNN}
@@ -143,3 +144,77 @@
 \end{frame}
 
 \input{\PhDthesisdir/slides/ML/custom_loss/fichier_slides_custom_loss.tex}
+
+\begin{frame}
+\backupslinklabel{CPV}
+\frametitle{$CP$ violation in the Higgs sector}
+
+\begin{equation*}
+\Lcal_\text{Yukawa}
+= - \frac{m\sqrt{2}}{v} \left( \cos(\varphi) \bar{\psi} \Phi \psi + \sin(\varphi) \bar{\psi} \im\gamma^5 \Phi \psi \right)
+\end{equation*}
+
+\manip No violation case:
+
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+Mix. angle $\varphi$ & State & $J^{CP}$ & Type & Example \\
+\midrule
+$0$ & $CP$-even & $0^{++}$ & Scalar & SM Higgs, MSSM \higgs\ and \Higgs\\
+$\pi/2$ & $CP$-odd & $0^{+-}$ & Pseudo-scalar & MSSM \HiggsA\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\manip What if $\varphi \notin \set{0,\pi/2}$?
+\submanip Mass eigenstates $\neq$ $CP$ eigenstates $\Rightarrow$ mixing!
+
+\begin{center}
+\begin{tabular}{rl}
+$CP$ eigenstates: & \higgs, \Higgs, \HiggsA\\
+Mass eigenstates: & $\Higgs_1$, $\Higgs_2$, $\Higgs_3$
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{$CP$ violation and the $M_{\Higgs_1}^{125}(CPV)$ scenario}
+\beamercite{Bagnaschi_2019}
+
+\begin{minipage}[c]{.49\textwidth}
+\manip Fixed higher-order MSSM parameter, in particular the trilinear Higgs-stop coupling constant:
+\begin{equation*}
+\abs{A_t} = \mu\cot\beta + \SI{2.8}{\TeV}
+\msep
+\phi_{A_t} = \frac{2\pi}{15}
+\end{equation*}
+
+\manip $m_{\HiggsA}$ is replaced by $m_{\Higgspm}$ as first-order parameter.
+
+\manip $\Higgs_1$ should be the observed Higgs, interpreted now as the SM Higgs.
+
+\manip $\Higgs_2$ and $\Higgs_3$ are additionnal wrt. the SM.
+\submanip Interferences lowering \tikzmarknode{sensitivity!}{nodesensitivity}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.49\textwidth}
+\vspace{-17pt}
+\begin{center}
+\plotHTTModelDepLimits{mssm_vs_sm_CPV-new_categories}{}
+\end{center}
+\end{minipage}
+
+\begin{tikzpicture}[overlay, remember picture]
+\draw [ltcolorred] (10.25,4.5) node {Excluded} ;
+
+\draw [ltcolormagenta, very thick, -latex] (nodesensitivity.east) to [out=0, in=-135] (11.25,3);
+
+%\only<2->{
+%\draw [ltcolororange, ultra thick] (12.5, 1) ellipse (2.5 and .5);
+%\draw [ltcolororange, ultra thick] (5.5, 3.6) ellipse (2 and .5);
+%}
+\end{tikzpicture}
+
+\end{frame}
