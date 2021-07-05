@@ -132,7 +132,7 @@ with plt.xkcd():
     plt.plot(xs, ys_test, label='Non-training data', color="C1")
 
     txt8 = plt.annotate(
-        'Tune model parameters!',
+        'Tune model hyperparameters!',
         xy=(25, .7),
     )
     txt9 = plt.annotate(
