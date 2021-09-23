@@ -1,135 +1,135 @@
-\begin{frame}{Build a neural network: target and inputs?}
-
-\begin{minipage}[c]{.49\textwidth}
-\manip Model target: generated Higgs mass.
-\manip Model inputs:
-\submanip $\tau_1$ (here = \muon) and $\tau_2$ (here = \tauh) $\pT, \eta, \phi$;
-\submanip MET $\pT, \phi$;
-\submanip METcov xx, xy and yy;
-\submanip Number of neutrinos from \emph{reco} tau decays;
-\submanip $\mT^{(1,MET)}$, $\mT^{(2,MET)}$, $\mT^{(1,2)}$, \mTtot;
-\submanip jet 1, jet 2 $\pT, \eta, \phi$;
-\submanip Additionnal Hadronic Activity $\pT, \eta, \phi$, \Njetsr;
-\submanip \texttt{npvsGood} $\rightarrow$ how much PU.
-\end{minipage}
-\hfill
-\begin{minipage}[c]{.48\textwidth}
-\begin{block}{$\gluon\gluon\to\Higgs\to\tau\tau\to\mu\tauh$}
-\begin{center}
-
-\vspace{2\baselineskip}
-
-\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/BG/fgraph-H-tautau_mutau_small.tex}
-
-\vspace{2\baselineskip}
-
-\end{center}
-\end{block}
-\end{minipage}
-
-\vfill
-
-\begin{equation*}
-\boxed{\mTtot = \sqrt{\mT^2(\tau_1,\MET) + \mT^2(\tau_2,\MET) + \mT^2(\tau_1,\tau_2)}}
-\msep
-\mT(1,2) = \sqrt{2p_T^{(1)} p_T^{(2)} (1-\cos\Delta\phi)}
-\end{equation*}
-
-\end{frame}
-
-\begin{frame}{Build a neural network: hyperparameters?}
-
-\manip NN hyperparameters (and other tested values):
-% NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons
-\submanip \textbf{Adam} optimizer (Adadelta, SGD),
-\submanip Weight initialized with \textbf{Glorot uniform} (Glorot normal, normal, uniform),
-\submanip Custom \LossMAPEsqrtb\ loss (\LossMAPE, \LossMAE, \LossMSE),
-\submanip \textbf{3} hidden layers (2 to 5),
-\submanip \textbf{1000} neurons per hidden layer (200 to 2000 per steps of 100),
-\submanip \textbf{Softplus} activation function (ReLU, ELU, SELU, Exponential),
-\begin{equation*}
-\mathit{softplus}(x) = \ln(1+\eexp{x})
-\end{equation*}
-\end{frame}
-
-\begin{frame}{Datasets?}
-
-\begin{minipage}[c]{.49\textwidth}
-\manip Generate $\higgsML\to\tau\tau$ events:
-\submanip $\higgsML$ is SM Higgs (pdg ID 25) with a different mass,
-\submanip \higgsML\ produced by gluon fusion,
-\submanip set $\BR(\higgsML\to\tau\tau)=1$ to avoid non di-\tau\ events.
-
-\manip All final states used simultaneously for training:
-\submanip \tauh\tauh, \mu\tauh, \ele\tauh, \mu\mu, \ele\mu, \ele\ele.
-\end{minipage}
-\hfill
-\begin{minipage}[c]{.48\textwidth}
-\def\Higgs{\higgsML}
-\begin{block}{$\gluon\gluon\to\Higgs\to\tau\tau\to\mu\tauh$}
-\begin{center}
-
-\vspace{2\baselineskip}
-
-\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/BG/fgraph-H-tautau_mutau_small.tex}
-
-\vspace{2\baselineskip}
-
-\end{center}
-\end{block}
-\end{minipage}
-\end{frame}
-
-\begin{frame}{Datasets: low mass boundary}
-
-\begin{minipage}[c]{.45\textwidth}
-\manip Event selection:
-\submanip Same as in the MSSM \HAtoTauTau\ analysis,
-\submanip Add \mu\mu\ and \ele\ele\ channels.
-\manip Events amount drops at low mass:
-\submanip due to \pT\ cuts,
-\submanip go down to \SI{50}{\GeV} for $m_{\higgsML}$.
-\end{minipage}
-\hfill
-\begin{minipage}[c]{.45\textwidth}
-\begin{center}
-\includegraphics[width=\linewidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau_1000/analysis_cuts_efficiency-en.pdf}
-\end{center}
-\end{minipage}
-
-\begin{tikzpicture}[overlay, remember picture]
-\draw [ltcolorred] (.2\textwidth, .15\textheight) node (A) {Less than \SI{1}{\%} pass the selection} ;
-
-\draw [ltcolorred, thick] (.665\textwidth, .325\textheight) ellipse (.3 and 1.5);
-
-\draw (.65\textwidth, .35\textheight) coordinate (B);
-\draw [ltcolorred, thick, -latex] (A.east) to [out = 0, in = -170] (B);
-\end{tikzpicture}
-\end{frame}
-
-\begin{frame}{Datasets: high mass boundary}
-
-\beamercite{Higgs_xsec_book_3}
-\begin{minipage}[c]{.52\textwidth}
-\manip Higgs width $\simeq$ Higgs mass \tikzmarknode{around \SI{1}{\TeV}:}{A}
-\submanip can't have coherent mass points using \higgsML,
-\submanip go up to \SI{800}{\GeV} for $m_{\higgsML}$.
-\end{minipage}
-\hfill
-\begin{minipage}[c]{.45\textwidth}
-\vspace{-\baselineskip}
-\begin{center}
-\includegraphics[width=\linewidth]{\PhDthesisdir/plots_and_images/from_Higgs_xsec_book_3/SM_Width.pdf}
-\end{center}
-\end{minipage}
-
-\begin{tikzpicture}[overlay, remember picture]
+%\begin{frame}{Build a neural network: target and inputs?}
+%
+%\begin{minipage}[c]{.49\textwidth}
+%\manip Model target: generated Higgs mass.
+%\manip Model inputs:
+%\submanip $\tau_1$ (here = \muon) and $\tau_2$ (here = \tauh) $\pT, \eta, \phi$;
+%\submanip MET $\pT, \phi$;
+%\submanip METcov xx, xy and yy;
+%\submanip Number of neutrinos from \emph{reco} tau decays;
+%\submanip $\mT^{(1,MET)}$, $\mT^{(2,MET)}$, $\mT^{(1,2)}$, \mTtot;
+%\submanip jet 1, jet 2 $\pT, \eta, \phi$;
+%\submanip Additionnal Hadronic Activity $\pT, \eta, \phi$, \Njetsr;
+%\submanip \texttt{npvsGood} $\rightarrow$ how much PU.
+%\end{minipage}
+%\hfill
+%\begin{minipage}[c]{.48\textwidth}
+%\begin{block}{$\gluon\gluon\to\Higgs\to\tau\tau\to\mu\tauh$}
+%\begin{center}
+%
+%\vspace{2\baselineskip}
+%
+%\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/BG/fgraph-H-tautau_mutau_small.tex}
+%
+%\vspace{2\baselineskip}
+%
+%\end{center}
+%\end{block}
+%\end{minipage}
+%
+%\vfill
+%
+%\begin{equation*}
+%\boxed{\mTtot = \sqrt{\mT^2(\tau_1,\MET) + \mT^2(\tau_2,\MET) + \mT^2(\tau_1,\tau_2)}}
+%\msep
+%\mT(1,2) = \sqrt{2p_T^{(1)} p_T^{(2)} (1-\cos\Delta\phi)}
+%\end{equation*}
+%
+%\end{frame}
+%
+%\begin{frame}{Build a neural network: hyperparameters?}
+%
+%\manip NN hyperparameters (and other tested values):
+%% NN-activation-softplus-batch_size-2048-mape-Adam-gu-inclusive-3-layers-1000-neurons
+%\submanip \textbf{Adam} optimizer (Adadelta, SGD),
+%\submanip Weight initialized with \textbf{Glorot uniform} (Glorot normal, normal, uniform),
+%\submanip Custom \LossMAPEsqrtb\ loss (\LossMAPE, \LossMAE, \LossMSE),
+%\submanip \textbf{3} hidden layers (2 to 5),
+%\submanip \textbf{1000} neurons per hidden layer (200 to 2000 per steps of 100),
+%\submanip \textbf{Softplus} activation function (ReLU, ELU, SELU, Exponential),
+%\begin{equation*}
+%\mathit{softplus}(x) = \ln(1+\eexp{x})
+%\end{equation*}
+%\end{frame}
+%
+%\begin{frame}{Datasets?}
+%
+%\begin{minipage}[c]{.49\textwidth}
+%\manip Generate $\higgsML\to\tau\tau$ events:
+%\submanip $\higgsML$ is SM Higgs (pdg ID 25) with a different mass,
+%\submanip \higgsML\ produced by gluon fusion,
+%\submanip set $\BR(\higgsML\to\tau\tau)=1$ to avoid non di-\tau\ events.
+%
+%\manip All final states used simultaneously for training:
+%\submanip \tauh\tauh, \mu\tauh, \ele\tauh, \mu\mu, \ele\mu, \ele\ele.
+%\end{minipage}
+%\hfill
+%\begin{minipage}[c]{.48\textwidth}
+%\def\Higgs{\higgsML}
+%\begin{block}{$\gluon\gluon\to\Higgs\to\tau\tau\to\mu\tauh$}
+%\begin{center}
+%
+%\vspace{2\baselineskip}
+%
+%\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/BG/fgraph-H-tautau_mutau_small.tex}
+%
+%\vspace{2\baselineskip}
+%
+%\end{center}
+%\end{block}
+%\end{minipage}
+%\end{frame}
+%
+%\begin{frame}{Datasets: low mass boundary}
+%
+%\begin{minipage}[c]{.45\textwidth}
+%\manip Event selection:
+%\submanip Same as in the MSSM \HAtoTauTau\ analysis,
+%\submanip Add \mu\mu\ and \ele\ele\ channels.
+%\manip Events amount drops at low mass:
+%\submanip due to \pT\ cuts,
+%\submanip go down to \SI{50}{\GeV} for $m_{\higgsML}$.
+%\end{minipage}
+%\hfill
+%\begin{minipage}[c]{.45\textwidth}
+%\begin{center}
+%\includegraphics[width=\linewidth]{\PhDthesisdir/plots_and_images/my_plots/ML/from_ML_plots/FastSim_NanoAOD_to_NN/ALL_PU2017/plots_Htt_merged_NanoAODSIM_ALL_PU2017-DeepTau_1000/analysis_cuts_efficiency-en.pdf}
+%\end{center}
+%\end{minipage}
+%
+%\begin{tikzpicture}[overlay, remember picture]
+%\draw [ltcolorred] (.2\textwidth, .15\textheight) node (A) {Less than \SI{1}{\%} pass the selection} ;
+%
 %\draw [ltcolorred, thick] (.665\textwidth, .325\textheight) ellipse (.3 and 1.5);
-
-\draw (.95\textwidth, .775\textheight) coordinate (B);
-\draw [ltcolorred, thick, -latex] (A.east) to [out = 0, in = 175] (B);
-\end{tikzpicture}
-\end{frame}
+%
+%\draw (.65\textwidth, .35\textheight) coordinate (B);
+%\draw [ltcolorred, thick, -latex] (A.east) to [out = 0, in = -170] (B);
+%\end{tikzpicture}
+%\end{frame}
+%
+%\begin{frame}{Datasets: high mass boundary}
+%
+%\beamercite{Higgs_xsec_book_3}
+%\begin{minipage}[c]{.52\textwidth}
+%\manip Higgs width $\simeq$ Higgs mass \tikzmarknode{around \SI{1}{\TeV}:}{A}
+%\submanip can't have coherent mass points using \higgsML,
+%\submanip go up to \SI{800}{\GeV} for $m_{\higgsML}$.
+%\end{minipage}
+%\hfill
+%\begin{minipage}[c]{.45\textwidth}
+%\vspace{-\baselineskip}
+%\begin{center}
+%\includegraphics[width=\linewidth]{\PhDthesisdir/plots_and_images/from_Higgs_xsec_book_3/SM_Width.pdf}
+%\end{center}
+%\end{minipage}
+%
+%\begin{tikzpicture}[overlay, remember picture]
+%%\draw [ltcolorred, thick] (.665\textwidth, .325\textheight) ellipse (.3 and 1.5);
+%
+%\draw (.95\textwidth, .775\textheight) coordinate (B);
+%\draw [ltcolorred, thick, -latex] (A.east) to [out = 0, in = 175] (B);
+%\end{tikzpicture}
+%\end{frame}
 
 \begin{frame}{DNN's \mml\ predictions \emph{vs} \mTtot}
 

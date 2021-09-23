@@ -82,63 +82,63 @@ on the 2017 era.
 \vspace{-5pt}
 \end{frame}
 
-\begin{frame}
-
-\manip Visible in other categories too. But here, \tikzmarknode{the}{NODEthe} \SVFIT\ mass is above \SI{250}{\GeV} and our model sees a \Zboson\ \tikzmarknode{signal}{NODEsignal}!
-\vphantom{\colorbox{ltcolorgreen2}{\ftauhs}}
-
-\begin{minipage}[c]{.49\textwidth}
-\begin{center}
-\plotHTTshapes{mt_tot}{mssm_vs_sm_h125}{2017}{mt}{33}{prefit_linear_nosignal_blinded}
-\end{center}
-\end{minipage}
-\hfill
-\begin{minipage}[c]{.49\textwidth}
-\begin{center}
-\plotHTTshapes{m_ml}{mssm_vs_sm_h125}{2017}{mt}{33}{prefit_linear_nosignal_blinded}
-\end{center}
-\end{minipage}
-
-\begin{tikzpicture}[overlay, remember picture]
-\draw (.125\textwidth,.6\textheight) coordinate (B);
-\draw (.17\textwidth,.375\textheight) coordinate (C);
-\draw (.13\textwidth,.475\textheight) coordinate (D);
-
-\fill [thick, ltcolororange, opacity=.5] (B) ellipse (.6 and .4);
-\draw [thick, ltcolororange4] (B) ellipse (.6 and .4);
-\draw [ltcolororange4] (B) node {\large\Zboson};
-\fill [thick, ltcolorviolet, opacity=.5] (C) ellipse (.75 and .3);
-\draw [thick, ltcolorviolet4] (C) ellipse (.75 and .3);
-\draw [ltcolorviolet4] (C) node {\large\ttbar};
-\fill [thick, ltcolorgreen, opacity=.5] (D) ellipse (.5 and .4);
-\draw [thick, ltcolorgreen4] (D) ellipse (.5 and .4);
-\draw [ltcolorgreen4] (D) node {fakes};
-
-\draw (.6\textwidth,.4\textheight) coordinate (B);
-\draw (.71\textwidth,.375\textheight) coordinate (C);
-\draw (.705\textwidth,.5\textheight) coordinate (D);
-
-\fill [thick, ltcolororange, opacity=.5] (B) ellipse (.5 and .5);
-\draw [thick, ltcolororange4] (B) ellipse (.5 and .5);
-\draw [ltcolororange4] (B) node {\large\Zboson};
-\fill [thick, ltcolorviolet, opacity=.5] (C) ellipse (.75 and .3);
-\draw [thick, ltcolorviolet4] (C) ellipse (.75 and .3);
-\draw [ltcolorviolet4] (C) node {\large\ttbar};
-\fill [thick, ltcolorgreen, opacity=.5] (D) ellipse (.4 and .5);
-\draw [thick, ltcolorgreen4] (D) ellipse (.4 and .5);
-\draw [ltcolorgreen4] (D) node {fakes};
-
-\only<2>{
-\draw [thick, ltcolorred] (B) ellipse (.5 and .5);
-\draw [ultra thick, ltcolorred, latex-] (B)+(75:.5) --+ (75:2);
-\draw (NODEthe.south west)+(-.1,-.1) coordinate (ll);
-\draw (NODEsignal.north east)+(.1,.1) coordinate (ur);
-\draw [very thick, ltcolorred] (ll) rectangle (ur);
-}
-\end{tikzpicture}
-
-\vspace{-5pt}
-\end{frame}
+%\begin{frame}
+%
+%\manip Visible in other categories too. But here, \tikzmarknode{the}{NODEthe} \SVFIT\ mass is above \SI{250}{\GeV} and our model sees a \Zboson\ \tikzmarknode{signal}{NODEsignal}!
+%\vphantom{\colorbox{ltcolorgreen2}{\ftauhs}}
+%
+%\begin{minipage}[c]{.49\textwidth}
+%\begin{center}
+%\plotHTTshapes{mt_tot}{mssm_vs_sm_h125}{2017}{mt}{33}{prefit_linear_nosignal_blinded}
+%\end{center}
+%\end{minipage}
+%\hfill
+%\begin{minipage}[c]{.49\textwidth}
+%\begin{center}
+%\plotHTTshapes{m_ml}{mssm_vs_sm_h125}{2017}{mt}{33}{prefit_linear_nosignal_blinded}
+%\end{center}
+%\end{minipage}
+%
+%\begin{tikzpicture}[overlay, remember picture]
+%\draw (.125\textwidth,.6\textheight) coordinate (B);
+%\draw (.17\textwidth,.375\textheight) coordinate (C);
+%\draw (.13\textwidth,.475\textheight) coordinate (D);
+%
+%\fill [thick, ltcolororange, opacity=.5] (B) ellipse (.6 and .4);
+%\draw [thick, ltcolororange4] (B) ellipse (.6 and .4);
+%\draw [ltcolororange4] (B) node {\large\Zboson};
+%\fill [thick, ltcolorviolet, opacity=.5] (C) ellipse (.75 and .3);
+%\draw [thick, ltcolorviolet4] (C) ellipse (.75 and .3);
+%\draw [ltcolorviolet4] (C) node {\large\ttbar};
+%\fill [thick, ltcolorgreen, opacity=.5] (D) ellipse (.5 and .4);
+%\draw [thick, ltcolorgreen4] (D) ellipse (.5 and .4);
+%\draw [ltcolorgreen4] (D) node {fakes};
+%
+%\draw (.6\textwidth,.4\textheight) coordinate (B);
+%\draw (.71\textwidth,.375\textheight) coordinate (C);
+%\draw (.705\textwidth,.5\textheight) coordinate (D);
+%
+%\fill [thick, ltcolororange, opacity=.5] (B) ellipse (.5 and .5);
+%\draw [thick, ltcolororange4] (B) ellipse (.5 and .5);
+%\draw [ltcolororange4] (B) node {\large\Zboson};
+%\fill [thick, ltcolorviolet, opacity=.5] (C) ellipse (.75 and .3);
+%\draw [thick, ltcolorviolet4] (C) ellipse (.75 and .3);
+%\draw [ltcolorviolet4] (C) node {\large\ttbar};
+%\fill [thick, ltcolorgreen, opacity=.5] (D) ellipse (.4 and .5);
+%\draw [thick, ltcolorgreen4] (D) ellipse (.4 and .5);
+%\draw [ltcolorgreen4] (D) node {fakes};
+%
+%\only<2>{
+%\draw [thick, ltcolorred] (B) ellipse (.5 and .5);
+%\draw [ultra thick, ltcolorred, latex-] (B)+(75:.5) --+ (75:2);
+%\draw (NODEthe.south west)+(-.1,-.1) coordinate (ll);
+%\draw (NODEsignal.north east)+(.1,.1) coordinate (ur);
+%\draw [very thick, ltcolorred] (ll) rectangle (ur);
+%}
+%\end{tikzpicture}
+%
+%\vspace{-5pt}
+%\end{frame}
 
 %\begin{frame}
 %\begin{center}
@@ -239,21 +239,21 @@ on the 2017 era.
 %\end{minipage}
 %\end{frame}
 
-\begin{frame}
-
-\manip Computing time: DNN (Python) is $\sim60\times$ faster than \SVFIT\ (C++)!
-
-\begin{minipage}[c]{.3\textwidth}
-\manip \SVFIT:
-\submanip fit to find the best mass
-\submanip for each event
-\manip DNN:
-\submanip fit done once (training)
-\submanip apply the DNN formula
-\end{minipage}
-\begin{minipage}[c]{.69\textwidth}
-\begin{center}
-\input{\PhDthesisdir/plots_and_images/my_plots/ML/benchmark_vs_SVFit/benchmark-pyplot.pgf}
-\end{center}
-\end{minipage}
-\end{frame}
+%\begin{frame}
+%
+%\manip Computing time: DNN (Python) is $\sim60\times$ faster than \SVFIT\ (C++)!
+%
+%\begin{minipage}[c]{.3\textwidth}
+%\manip \SVFIT:
+%\submanip fit to find the best mass
+%\submanip for each event
+%\manip DNN:
+%\submanip fit done once (training)
+%\submanip apply the DNN formula
+%\end{minipage}
+%\begin{minipage}[c]{.69\textwidth}
+%\begin{center}
+%\input{\PhDthesisdir/plots_and_images/my_plots/ML/benchmark_vs_SVFit/benchmark-pyplot.pgf}
+%\end{center}
+%\end{minipage}
+%\end{frame}
