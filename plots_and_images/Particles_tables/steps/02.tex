@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+    \input{\eDBdir/files/00_General/tikz_files/Modele_standard_EN/init.tex}
+
+    \draw [rounded corners = 5pt, thick, white] (-.2*\xstep, -\ystep) rectangle (5.9*\xstep, 3.1*\ystep);
+
+    \foreach \particle in {d, u, e}{
+        \input{\eDBdir/files/00_General/tikz_files/Modele_standard_EN/particles/\particle.tex}
+        \input{\eDBdir/files/00_General/tikz_files/Modele_standard_EN/case_commands.tex}
+    }
+\end{tikzpicture}

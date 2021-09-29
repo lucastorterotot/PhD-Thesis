@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+    \input{\eDBdir/files/00_General/tikz_files/Modele_standard_EN/init.tex}
+
+    \draw [rounded corners = 5pt, thick, white] (-.2*\xstep, -\ystep) rectangle (5.9*\xstep, 3.1*\ystep);
+
+    \foreach \force in {forte, EM, faible}{
+        \input{\eDBdir/files/00_General/tikz_files/Modele_standard_EN/forces_annotations/force_\force.tex}
+    }
+
+    \foreach \particle in {d, u, s, c, b, t, e, mu, tau, n_e, n_mu, n_tau, gluon, photon, W, Z}{
+        \input{\eDBdir/files/00_General/tikz_files/Modele_standard_EN/particles/\particle.tex}
+        \input{\eDBdir/files/00_General/tikz_files/Modele_standard_EN/case_commands.tex}
+    }
+\end{tikzpicture}
