@@ -2,29 +2,44 @@
 
 \begin{frame}
 \begin{center}
-\Large What are we made of?
+\Large Particle physics?
 \end{center}
 
-\pause\vfill
+\vfill
 
 \begin{center}
-\Large Elementary particles!
-\end{center}
-
-\pause\vfill\vfill\vfill
-
-\begin{center}
-\Large Interactions?
+\Large $\Rightarrow$
+study \textbf{elementary particles} and their \textbf{interactions}
 \end{center}
 \end{frame}
 
-\begin{frame}
+\begin{frame}\def\eDBdir{\homedir/Documents/Enseignement_DB/}
 \frametitle{The Standard Model}
 \begin{center}
 \vspace{-5pt}
-\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/SM2018_EN_for_slides.pdf}
+\only<1>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/01.tex}}%
+\only<2>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/02.tex}}%
+\only<3>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/03.tex}}%
+\only<4>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/04.tex}}%
+\only<5>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/05.tex}}%
+\only<6>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/06.tex}}%
+\only<7>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/07.tex}}%
+\only<8>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/08.tex}}%
+\only<9>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/09.tex}}%
 \vspace{-5pt}
 \end{center}
+
+\begin{tikzpicture}[overlay]
+\only<2>{
+\draw (.35\textwidth, .65\textheight) node [above right] {\Large proton = \quarku\quarku\quarkd};
+\draw (.35\textwidth, .65\textheight) node [below right] {\Large neutron = \quarku\quarkd\quarkd};
+}
+\only<3>{
+\draw (.35\textwidth, .25\textheight) node [above right] {\Large Beta decay: $\neutron\to\proton+\electron+\nuele$};
+\draw (.35\textwidth, .25\textheight) node [below right] {\Large actually $\quarkd\to\quarku+\electron+\antinuele$};
+}
+\end{tikzpicture}
+\vspace{-9pt}
 \end{frame}
 
 \subsection*{}
