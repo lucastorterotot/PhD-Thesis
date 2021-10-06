@@ -1,0 +1,74 @@
+\begin{frame}{\inlinecode{bash}{$whoami}}%$
+\begin{center}
+\begin{tikzpicture}
+\def\JMEfigH{2.5}
+\def\JMEfigW{1.2}
+\def\JMEfigdW{.4}
+\def\JMEfigsW{.125}
+
+\def\deltaX{0}
+
+\fill [ltcolorblue2] (0,0) -- (0,\JMEfigH) -- (\JMEfigW-2*\JMEfigdW,\JMEfigH) -- (\JMEfigW-\JMEfigdW,\JMEfigH/2) -- (\JMEfigW-2*\JMEfigdW,0) ;
+
+\draw (0, \JMEfigH/2) node [below, rotate=90] {\bfseries BAC S};
+
+\def\deltaX{\JMEfigW+\JMEfigsW-2*\JMEfigdW}
+
+\fill [ltcolorviolet2] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+3*\JMEfigW,\JMEfigH) -- (\deltaX+3*\JMEfigW+\JMEfigdW,\JMEfigH/2) -- (\deltaX+3*\JMEfigW,0);
+
+\draw (\deltaX+3*\JMEfigW/2-\JMEfigdW/2, \JMEfigH) node [below] {\bfseries CPGE};
+\draw (\deltaX+3*\JMEfigW/2, \JMEfigH/2) node [above] {PCSI/PC\up{*}};
+\draw (\deltaX+3*\JMEfigW/2, \JMEfigH/4) node {\footnotesize 5/2 pour quelques points!};
+
+\def\deltaX{4*\JMEfigW+2*\JMEfigsW-2*\JMEfigdW}
+
+\only<2->{
+\fill [ltcolorred2] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+4*\JMEfigW,\JMEfigH) -- (\deltaX+4*\JMEfigW+\JMEfigdW,\JMEfigH/2) -- (\deltaX+4*\JMEfigW,0);
+
+\draw (\deltaX+2*\JMEfigW, \JMEfigH) node [below] {\bfseries ENS de Lyon};
+\draw (\deltaX+2*\JMEfigW, \JMEfigH/2) node [above] {cursus physique};
+
+\draw (\deltaX+\JMEfigW-\JMEfigW/4, \JMEfigH/4) node {\small L3};
+\draw (\deltaX+2*\JMEfigW-\JMEfigW/4, \JMEfigH/4) node {\small M1};
+\draw (\deltaX+4*\JMEfigW-\JMEfigW/4, \JMEfigH/4) node {\small M2};
+
+\def\deltaX{6*\JMEfigW+3*\JMEfigsW-2*\JMEfigdW}
+
+\fill [ltcolorred3] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW+\JMEfigdW,\JMEfigH/2) -- (\deltaX+\JMEfigW,0);
+
+\draw (\deltaX+\JMEfigW/2+\JMEfigdW/2, \JMEfigH/4) node [rotate=45] {\small Agrégation};
+}
+
+\def\deltaX{8*\JMEfigW+6*\JMEfigsW-3*\JMEfigdW}
+
+\only<3->{
+\fill [ltcolororange2] (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+3*\JMEfigW+\JMEfigdW,\JMEfigH/2) -- (\deltaX+3*\JMEfigW,\JMEfigH);
+\fill [ltcolororange3] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+3*\JMEfigW+\JMEfigdW,\JMEfigH/2) -- (\deltaX+3*\JMEfigW,0);
+
+\only<5->{
+\draw [red, ultra thick] (\deltaX,\JMEfigH) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX+3*\JMEfigW+\JMEfigdW,\JMEfigH/2) -- (\deltaX+3*\JMEfigW,\JMEfigH) -- cycle;
+}
+
+\draw (\deltaX+3*\JMEfigW/2, \JMEfigH) node [below] {\bfseries Thèse};
+\draw (\deltaX+3*\JMEfigW/2+\JMEfigdW, \JMEfigH/2) node [above] {\small Physique des particules};
+\draw (\deltaX+3*\JMEfigW/2, \JMEfigH/4) node [above] {\small Enseignements:};
+\draw (\deltaX+3*\JMEfigW/2, \JMEfigH/4) node [below] {\footnotesize Université et Polytech Lyon};
+}
+
+\def\deltaX{11*\JMEfigW+7*\JMEfigsW-3*\JMEfigdW}
+
+\only<4->{
+\fill [ltcolorgreen2] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+3*\JMEfigW/2,\JMEfigH) -- (\deltaX+3*\JMEfigW/2,0);
+\draw (\deltaX+\JMEfigW, \JMEfigH/2) node [above, rotate=90] {\bfseries Enseignement} ;
+\draw (\deltaX+\JMEfigW, \JMEfigH/2) node [below, rotate=90] {Lycée Raspail} ;
+}
+\only<-3>{
+\fill [white, thick] (\deltaX,0) -- (\deltaX+\JMEfigdW,\JMEfigH/2) -- (\deltaX,\JMEfigH) -- (\deltaX+3*\JMEfigW/2,\JMEfigH) -- (\deltaX+3*\JMEfigW/2,0);
+}
+
+\draw (0, -.5*\JMEfigH) node {};
+\draw (0, 1.5*\JMEfigH) node {};
+
+\end{tikzpicture}
+\end{center}
+\end{frame}
