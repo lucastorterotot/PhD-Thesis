@@ -1,0 +1,23 @@
+\begin{fmffile}{beta_minus-n_to_p_nu_ele-30x20}%\fmfstraight
+\begin{fmfchar*}(30,20)
+  \fmfleft{i1,i2,n,i3}
+  \fmfright{nu,ele,o1,p}
+  \fmf{phantom,tension=4}{n,v1,o1}
+  \fmffreeze
+  \fmf{fermion, label=\quarkd, l.side=right}{n,v1}
+  \fmf{fermion, label=\quarku, l.side=right}{v1,p}
+  \fmf{boson, label=$\Wbosonminus$, l.side=right}{v1,v2}
+  \fmf{fermion}{nu,v2,ele}
+  \fmffreeze
+  \fmfi{fermion}{vpath (__n,__v1) shifted (thick*(0,3))}
+  \fmfi{fermion}{vpath (__n,__v1) shifted (thick*(0,6))}
+  \fmfi{fermion}{vpath (__v1,__p) shifted (thick*(0,3))}
+  \fmfi{fermion}{vpath (__v1,__p) shifted (thick*(0,6))}
+  \fmffreeze
+  \fmfdot{v1,v2}
+  \fmflabel{\proton}{p}
+  \fmflabel{\neutron}{n}
+  \fmflabel{\antinuele}{nu}
+  \fmflabel{\electron}{ele}
+\end{fmfchar*}
+\end{fmffile}

@@ -19,13 +19,13 @@ study \textbf{elementary particles} and their \textbf{interactions}
 \vspace{-5pt}
 \only<1>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/01.tex}}%
 \only<2>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/02.tex}}%
-\only<3>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/03.tex}}%
-\only<4>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/04.tex}}%
-\only<5>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/05.tex}}%
-\only<6>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/06.tex}}%
-\only<7>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/07.tex}}%
-\only<8>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/08.tex}}%
-\only<9>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/09.tex}}%
+\only<3-4>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/03.tex}}%
+\only<5>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/04.tex}}%
+\only<6>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/05.tex}}%
+\only<7>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/06.tex}}%
+\only<8>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/07.tex}}%
+\only<9>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/08.tex}}%
+\only<10>{\includegraphics[height=\graphh]{\PhDthesisdir/plots_and_images/Particles_tables/steps/09.tex}}%
 \vspace{-5pt}
 \end{center}
 
@@ -34,9 +34,12 @@ study \textbf{elementary particles} and their \textbf{interactions}
 \draw (.35\textwidth, .65\textheight) node [above right] {\Large proton = \quarku\quarku\quarkd};
 \draw (.35\textwidth, .65\textheight) node [below right] {\Large neutron = \quarku\quarkd\quarkd};
 }
-\only<3>{
+\only<3-4>{
 \draw (.35\textwidth, .25\textheight) node [above right] {\Large Beta decay: $\neutron\to\proton+\electron+\nuele$};
 \draw (.35\textwidth, .25\textheight) node [below right] {\Large actually $\quarkd\to\quarku+\electron+\antinuele$};
+}
+\only<4>{
+\draw (.6\textwidth, .6\textheight) node {\input{\PhDthesisdir/plots_and_images/Feynman_diagrams/beta_minus-n_to_p_nu_ele.tex}};
 }
 \end{tikzpicture}
 \vspace{-9pt}
